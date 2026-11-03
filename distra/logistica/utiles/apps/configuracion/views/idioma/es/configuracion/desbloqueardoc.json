@@ -1,0 +1,17 @@
+{
+    "lbDesbloqueoDoc": "Desbloqueo de documento",
+    "lbAyuda": "Ayuda",
+    "lbDesbloquear": "Desbloquear",
+    "hdNro": "No.",
+    "hdTipoDoc": "Tipo de Documento",
+    "hdUser": "Usuario",
+    "hdNombre": "Nombre",
+    "hdNoDoc": "Nro Documento",
+    "Titlemsg": "Espere por favor...",
+    "msg": "Desbloqueando documentos",
+    "msgProcesoOk": "Proceso terminado",
+    "msgCargando": "Cargando los documentos.",
+    "msgBusquedaVacia": "Ning&uacute;n resultado para mostrar",
+    "msgPaginadorBusq": "Resultados {0} - {1} de {2}",
+    "msgEliminar": "\xbf Est&aacute; seguro que quiere desbloquear el documento seleccionado ?",
+}

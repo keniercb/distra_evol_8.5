@@ -1,0 +1,10 @@
+{
+    lb: 'Damian El loco',
+    lbBtnLimpiar: '<u>L</u>impiar',
+    lbBtnLimpiarFiltros: '<u>L</u>impiar',
+    lbBtnAyuda:'Ayuda',
+    lbTituloAyudaRedistribucion:'Ayuda de Redistribución',
+    lbBtnExportar:'Exportar',
+    lbTtBtnExportar:'Exportar (<b>Alt+E</b>)',
+    
+}

@@ -1,0 +1,154 @@
+<html>
+<head>
+    <title>Gestionar configuración</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+    <script language="javascript"
+            type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+    <link rel="stylesheet" type="text/css" href="../../../comun/componentes/imagen/imagen.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../comun/css/metadatos.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../comun/componentes/GroupingCombo/ComboBoxBtn.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../comun/componentes/MultiComboSelect/multicomboselect.css"/>
+</head>
+<body oncontextmenu="return false">
+<script type="text/javascript" src="../../views/js/nomencladores/lib/jquery.min.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/lib/jquery-ui.custom.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/lib/ext-jquery-adapter.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/lib/FileUploadField.js"></script>
+
+<script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+<script type="text/javascript" src="../../../comun/plugins/ext-ux-all.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+
+<script type="text/javascript" src="/lib/UCID/js/utiles/ViewModel.js"></script>
+<script type="text/javascript" src="/lib/UCID/js/utiles/extensiones.js"></script>
+<script type="text/javascript" src="/metadatos/comun/goUtil.js"></script>
+<script type="text/javascript" src="../../../comun/componentes/GroupingCombo/ComboBox.js"></script>
+<script type="text/javascript" src="../../../comun/componentes/imagen/ComboImagen.js"></script>
+<script type="text/javascript" src="../../../comun/componentes/MultiComboSelect/MultiComboSelect.js"></script>
+<script type="text/javascript" src="../../../comun/componentes/GroupingCombo/GridGroupDataView.js"></script>
+<script type="text/javascript" src="../../../comun/componentes/GroupingCombo/GridComboBox.js"></script>
+<script type="text/javascript" src="../../../comun/componentes/utiles.js"></script>
+
+
+<!--ETIQUETAS-->
+<script type="text/javascript" src="../../views/js/idioma/etiquetas.js"></script>
+
+<!--CONFIGURACION-->
+<script type="text/javascript" src="/metadatos/comun/plugins/DropTarget.js"></script>
+<script type="text/javascript" src="../../../comun/validator.js"></script>
+<script type="text/javascript" src="../../../comun/lib/md5.js"></script>
+
+<!--RESTRICCIONES-->
+<script type="text/javascript" src="../../views/js/generales/GestionRestricciones.js"></script>
+<script type="text/javascript" src="../../views/js/generales/ModuloGeneral.js"></script>
+
+<!--NOMENCLADORES-->
+
+<!--Nomencladores dinámicos-->
+<!--CSS-->
+<link href="../../views/css/nomdinamicos/animation.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="../../views/css/nomdinamicos/example.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="../../views/css/nomdinamicos/imagen.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="../../views/css/nomdinamicos/leyenda.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="../../views/css/nomdinamicos/metadatos.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="../../views/css/nomdinamicos/principal.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="../../views/css/nomdinamicos/sincronizacion.css" rel="stylesheet" type="text/css" media="screen"/>
+<!--CSS-->
+<script type="text/javascript" src="/pvd/comun/views/js/utiles/Utiles.js"></script>
+<script type="text/javascript" src="/pvd/comun/views/js/utiles/searchComboBox.js"></script>
+
+<script type="text/javascript" src="/pvd/comun/views/js/utiles/RowExpander.js"></script>
+<script type="text/javascript" src="/pvd/comun/views/js/utiles/DateRange.js"></script>
+
+
+
+<!--Elementos para el grid filter-->
+<script type="text/javascript" src="../../views/js/nomdinamicos/componentes/componentes_externos/grid/filter/Filter.js"></script>
+<script type="text/javascript" src="../../views/js/nomdinamicos/componentes/componentes_externos/grid/filter/BooleanFilter.js"></script>
+<script type="text/javascript" src="../../views/js/nomdinamicos/componentes/componentes_externos/grid/filter/DateFilter.js"></script>
+<script type="text/javascript" src="../../views/js/nomdinamicos/componentes/componentes_externos/grid/filter/ListFilter.js"></script>
+<script type="text/javascript" src="../../views/js/nomdinamicos/componentes/componentes_externos/grid/filter/NumericFilter.js"></script>
+<script type="text/javascript" src="../../views/js/nomdinamicos/componentes/componentes_externos/grid/filter/StringFilter.js"></script>
+<script type="text/javascript" src="../../views/js/nomdinamicos/componentes/componentes_externos/grid/menu/RangeMenu.js"></script>
+<script type="text/javascript" src="../../views/js/nomdinamicos/componentes/componentes_externos/grid/menu/EditableItem.js"></script>
+<script type="text/javascript" src="../../views/js/nomdinamicos/componentes/componentes_externos/grid/GridFilters.js"></script>
+
+<!--Elementos para el grid filter-->
+<script type="text/javascript" src="../../views/js/nomdinamicos/componentes/componentes_externos/Base64.js"></script>
+<script type="text/javascript" src="../../views/js/nomdinamicos/componentes/componentes_externos/cargararchivos.js"></script>
+<script type="text/javascript" src="../../views/js/nomdinamicos/componentes/componentes_externos/examples.js"></script>
+<script type="text/javascript" src="../../views/js/nomdinamicos/componentes/componentes_externos/Portal.js"></script>
+<script type="text/javascript" src="../../views/js/nomdinamicos/componentes/componentes_externos/PortalColumn.js"></script>
+<script type="text/javascript" src="../../views/js/nomdinamicos/componentes/componentes_externos/NominalConcept.js"></script>
+
+<script type="text/javascript" src="../../views/js/nomdinamicos/componentes/panel_gestion.js"></script>
+<script type="text/javascript" src="../../views/js/nomdinamicos/componentes/panel_gestion_generico.js"></script>
+<script type="text/javascript" src="../../views/js/nomdinamicos/componentes/panel_nomencladores_simples.js"></script>
+
+<script type="text/javascript" src="../../views/js/nomdinamicos/nomdinamicos/nomdinamicos.controller.js"></script>
+<script type="text/javascript" src="../../views/js/nomdinamicos/nomdinamicos/disennar_configuracion.js"></script>
+<script type="text/javascript" src="../../views/js/nomdinamicos/nomdinamicos/gestionar_configuraciones.js"></script>
+<script type="text/javascript" src="../../views/js/nomdinamicos/nomdinamicos/configuracion.js"></script>
+
+<!--Reportes-->
+<script type="text/javascript" src="../../views/js/nomdinamicos/componentes/panel_reportes.js"></script>
+<script type="text/javascript" src="../../views/js/nomdinamicos/componentes/ventana_reportes.js"></script>
+<script type="text/javascript" src="../../views/js/nomdinamicos/reportesdinamicos/reportesdinamicos.js"></script>
+
+
+<!--Nomencladores dinámicos-->
+
+
+
+<script type="text/javascript" src="../../../comun/lib/Base64.js"></script>
+<script type="text/javascript" src="../../../comun/componentes/imagen/imagen.js"></script>
+
+<script type="text/javascript" src="../../../comun/array_obj_funtions.js"></script>
+
+<script type="text/javascript" src="../../views/js/nomencladores/componentes/Util.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/componentes/WinIconos.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/componentes/WinGrados.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/componentes/WinComun.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/componentes/WinFirma.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/componentes/PanelGestion.js"></script>
+
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/NoFormales.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/TipoSub.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/Organo.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/OrganoInterno.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/Cargo.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/CategoriaOcupacional.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/SubCategoriaOcupacional.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/Agrupacion.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/AgrupacionInterna.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/GrupoComplejidad.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/NormaJuridica.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/Firma.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/Complemento.js"></script>
+
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/TipoMedio.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/Escala.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/TipoEscala.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/Grado.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/Preparacion.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/Salario.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/Icono.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/Sector.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/NivelCargo.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/elementos/CargoFacultado.js"></script>
+
+<script type="text/javascript" src="../../views/js/nomencladores/ModuloNomencladores.js"></script>
+<script type="text/javascript" src="../../views/js/nomencladores/GestionNomencladores.js"></script>
+
+<!--CONCEPTOS-->
+<script type="text/javascript" src="../../views/js/configuracion/ModuloConceptos.js"></script>
+<script type="text/javascript" src="../../views/js/configuracion/GestionConceptos.js"></script>
+
+<!--VIEWPORT PRINCIPAL-->
+<script type="text/javascript" src="../../views/js/VentanaConfiguracion.js"></script>
+
+</body>
+
+</html>

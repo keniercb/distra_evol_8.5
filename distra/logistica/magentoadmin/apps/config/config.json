@@ -1,0 +1,16 @@
+{
+  "columnsToShow": [
+    {
+      "name": "",
+      "header": "",
+      "dataIndex": ""
+    }
+  ],
+  "acceptPayOnImport": false,
+  "reportsCodes": {
+    "rptTotal": 12690451,
+    "rptConsol": 12690435,
+    "rptTransit": 12690372,
+    "rptAvailable": 12690391
+  }
+}

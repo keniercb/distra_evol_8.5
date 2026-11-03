@@ -1,0 +1,29 @@
+.entrada {
+    background-image: url('/logistica/activos_fijos/documento/views/images/incluir.png') !important;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.salida {
+    background-image: url('/logistica/activos_fijos/documento/views/images/salir.png') !important;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.movimiento-interno {
+    background-image: url('/logistica/activos_fijos/documento/views/images/mov-interno.png') !important;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.movimiento-externo {
+    background-image: url('/logistica/activos_fijos/documento/views/images/mov-externo.png') !important;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.medios {
+    background-image: url('/logistica/activos_fijos/documento/views/images/medios.png') !important;
+    background-repeat: no-repeat;
+    background-position: center;
+}

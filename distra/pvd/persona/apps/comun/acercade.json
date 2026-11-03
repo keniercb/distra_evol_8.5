@@ -1,0 +1,15 @@
+{
+  "nombre": "Sistema de Registro y Control del Personal",
+  "version": "2.0",
+  "fecha": "14/06/2016",
+  "autor": "Centro de Recursos Humanos",
+  "dependencia": [
+    "Zeolides 2.2.0",
+    "Quarseg 2.1",
+    "Ayuda 3.0",
+    "Datosmaestros 5.0",
+    "Metadatos 2.1"
+  ],
+  "descripcion": "<p style='text-align: justify'>El subsistema de Control del personal ofrece al usuario la posibilidad de realizar el registro de las personas de una entidad, así como llevar el control de los datos asociados a dichas personas. Para una mayor flexibilidad del sistema se debe realizar la gestión de los nomencladores donde se puede Adicionar, Modificar y Eliminar los datos correspondientes a cada nomenclador. Se registran inicialmente los datos generales de las personas, como: número de identificación, nombre, segundo nombre, primer apellido, segundo apellido y sexo. El acceso a dichas funciones se corresponde con las tareas que debe desarrollar cada especialista según su responsabilidad en el mismo. Siempre que se realice una acción correctamente el sistema mostrará un mensaje informativo indicado que se ejecutó la acción satisfactoriamente, de otra forma, cuando se seleccione un elemento para eliminar, se mostrará un mensaje de confirmación de la acción. El subsistema cuenta con una ayuda en línea, la cual indica la acción a realizar. Además permite el acceso rápido a las funcionalidades del sistema mediante la combinación de teclas calientes..</p>",
+  "logo": "pvd/persona/views/images/controlpersonalportada.png"
+}

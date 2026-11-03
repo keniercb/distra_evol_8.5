@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aspecttemplates>
+  <!-- Plantillas de aspectos utilizadas en el Marco de Trabajo Sauxe 1.5.-->
+  <aspectemplate1>
+    <aspect name="preValidation" execution="pre"/>
+    <aspect name="postValidation" execution="post"/>
+    <aspect name="autoSaveModels" execution="post"/>
+  </aspectemplate1>
+  <aspectemplate2>
+    <aspect name="preValidation" execution="pre"/>
+    <aspect name="postValidation" execution="post"/>
+  </aspectemplate2>
+  <!--Plantillas de aspectos de validación de acciones de datos y parámetros de la acción-->
+  <preValidation>
+    <aspect name="preValidation" execution="pre"/>
+  </preValidation>
+  <postValidation>
+    <aspect name="postValidation" execution="post"/>
+  </postValidation>
+  <validation>
+    <aspect name="preValidation" execution="pre"/>
+    <aspect name="postValidation" execution="post"/>
+  </validation>
+  <!--Plantillas de aspectos de notificación de eventos-->
+  <preNotification>
+    <aspect name="preDispatchEventNotification" execution="pre"/>
+  </preNotification>
+  <postNotification>
+    <aspect name="postDispatchEventNotification" execution="post"/>
+  </postNotification>
+  <failedNotification>
+    <aspect name="failedDispatchEventNotification" execution="failed"/>
+  </failedNotification>
+  <preNotificationAndPostNotification>
+    <aspect name="preDispatchEventNotification" execution="pre"/>
+    <aspect name="postDispatchEventNotification" execution="post"/>
+  </preNotificationAndPostNotification>
+  <preNotificationAndFailedNotification>
+    <aspect name="preDispatchEventNotification" execution="pre"/>
+    <aspect name="failedDispatchEventNotification" execution="failed"/>
+  </preNotificationAndFailedNotification>
+  <postNotificationAndFailedNotification>
+    <aspect name="postDispatchEventNotification" execution="post"/>
+    <aspect name="failedDispatchEventNotification" execution="failed"/>
+  </postNotificationAndFailedNotification>
+  <notification>
+    <aspect name="preDispatchEventNotification" execution="pre"/>
+    <aspect name="postDispatchEventNotification" execution="post"/>
+    <aspect name="failedDispatchEventNotification" execution="failed"/>
+  </notification>
+  <!--Plantillas compuestas de validación de acciones y parámetros y de notificación de eventos
+        generadas automáticamente por el componente de notificaciones-->
+  <validationAndNotification>
+    <aspect name="preValidation" execution="pre"/>
+    <aspect name="postValidation" execution="post"/>
+    <aspect name="preDispatchEventNotification" execution="pre"/>
+    <aspect name="postDispatchEventNotification" execution="post"/>
+    <aspect name="failedDispatchEventNotification" execution="failed"/>
+  </validationAndNotification>
+  <aspectemplate2AndPostNotification>
+    <aspect name="preValidation" execution="pre"/>
+    <aspect name="postValidation" execution="post"/>
+    <aspect name="postDispatchEventNotification" execution="post"/>
+  </aspectemplate2AndPostNotification>
+</aspecttemplates>

@@ -1,0 +1,25 @@
+.x-separate-body {
+    margin: 0px 0px 0px 0px !important;
+    width: 990px !important;
+    height: 816px !important;
+    background-color: #FFFFFF;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 #FFFFFF, 0 6px 0 #C1B9D6, 1 2px 4px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    font-family: "Inconsolata";
+    font-size: 18px;
+}
+.x-panel-body-me{
+    padding:0px;
+    margin:0px 0px 0px 0px;
+}
+
+.cls-frame {
+    margin: 0px 0px 0px 0px  !important;
+    width: 99.5% !important;
+    height: 99.75% !important;
+    background-color: #FFFFFF;
+    border: 0px;
+    font-family: "Inconsolata";
+    font-size: 18px;
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ioc>
+    <activos_fijos src="logistica/activos_fijos"></activos_fijos>
+</ioc>

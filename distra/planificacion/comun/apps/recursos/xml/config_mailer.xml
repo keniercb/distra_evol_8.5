@@ -1,0 +1,10 @@
+<correo>
+    <config secure="none" mailer="smtp" host="correo.xetid.cu" port="25" user="planificacion@xetid.cu"
+            nombre="planificacion"
+            pwd="82834433583811093699 83963739955350785615 26676933834472399938 87783215948285534376 1522435234375"
+    />
+</correo>
+
+        <!--pwd="82834433583811093699 83963739955350785615 87241927237202529829 897410677851"-->
+
+        <!--<config_email secure="tls" mailer="smtp" host="smtp.xetid.cu" port="25" user="experto@xetid.cu" username="Sistema Automatizado" pwd="11438228533072219400 73968761098477877842"/>-->

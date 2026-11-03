@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--suppress XmlUnboundNsPrefix -->
+<ioc>
+	<metadatos src="metadatos">
+
+		<!--Configuracion Service-->
+		<obtenerConceptos reference="metaconfig">
+			<inyector clase="MetaConfigService" metodo="obtenerConceptosIconos"/>
+			<prototipo>
+				<resultado tipo="array"/>
+			</prototipo>
+		</obtenerConceptos>
+		<getConceptos reference="metaconfig">
+			<inyector clase="MetaConfigService" metodo="getConceptos"/>
+			<prototipo>
+				<resultado tipo="array"/>
+			</prototipo>
+		</getConceptos>
+
+		<!--Nomenclador Service-->
+		<buscarCargo reference="nomenclador">
+			<inyector clase="NomencladorService" metodo="buscarCargo"/>
+			<prototipo>
+				<parametro nombre="valor" tipo="numerosletras"/>
+				<parametro nombre="limit" tipo="enterospos"/>
+				<parametro nombre="start" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</buscarCargo>
+		<obtenerSubordinaciones reference="nomenclador">
+			<inyector clase="NomencladorService" metodo="obtenerSubordinaciones"/>
+			<prototipo>
+				<parametro nombre="valor" default="false"/>
+				<parametro nombre="limit" tipo="enterospos" default="10"/>
+				<parametro nombre="start" tipo="enterospos" default="0"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</obtenerSubordinaciones>
+		<buscarGradoMilitar reference="nomenclador">
+			<inyector clase="NomencladorService" metodo="buscarGradoMilitar"/>
+			<prototipo>
+				<parametro nombre="start" tipo="enterospos" default="0"/>
+				<parametro nombre="limit" tipo="enterospos" default="50"/>
+				<parametro nombre="idgrado" tipo="numerosletras" default=""/>
+				<parametro nombre="idCategoriaMilitar" tipo="numerosletras" default=""/>
+				<parametro nombre="esmarina"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</buscarGradoMilitar>
+		<dameGrado reference="nomenclador">
+			<inyector clase="NomencladorService" metodo="dameGrado"/>
+			<prototipo>
+				<parametro nombre="idGrado" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</dameGrado>
+		<dameFirma reference="nomenclador">
+			<inyector clase="NomencladorService" metodo="getFirma"/>
+			<prototipo>
+				<parametro nombre="idFirma" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</dameFirma>
+		<dameCategoriaMilitar reference="nomenclador">
+			<inyector clase="NomencladorService" metodo="dameCategoriaMilitar"/>
+			<prototipo>
+				<parametro nombre="idCategoria"/>
+				<parametro nombre="start"/>
+				<parametro nombre="limit"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</dameCategoriaMilitar>
+		<dameCategoriaOcupacional reference="nomenclador">
+			<inyector clase="NomencladorService" metodo="dameCategoriaOcupacional"/>
+			<prototipo>
+				<parametro nombre="esSubCategoria"/>
+				<parametro nombre="idCategoria"/>
+				<parametro nombre="start"/>
+				<parametro nombre="limit"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</dameCategoriaOcupacional>
+		<getSqlCargo reference="nomenclador">
+			<inyector clase="NomencladorService" metodo="getSqlCargo"/>
+			<prototipo>
+				<parametro nombre="query" tipo="Doctrine_Query"/>
+				<resultado tipo="Doctrine_Query"/>
+			</prototipo>
+		</getSqlCargo>
+		<getSqlIconos reference="nomenclador">
+			<inyector clase="NomencladorService" metodo="getIconos"/>
+			<prototipo>
+				<parametro nombre="query" tipo="Doctrine_Query"/>
+				<resultado tipo="Doctrine_Query"/>
+			</prototipo>
+		</getSqlIconos>
+		<getSqlOrganos reference="nomenclador">
+			<inyector clase="NomencladorService" metodo="getSqlOrgano"/>
+			<prototipo>
+				<parametro nombre="query" tipo="Doctrine_Query"/>
+				<resultado tipo="Doctrine_Query"/>
+			</prototipo>
+		</getSqlOrganos>
+		<getSqlNomTipoEscala reference="nomenclador">
+			<inyector clase="NomencladorService" metodo="getSqlNomTipoEscala"/>
+			<prototipo>
+				<parametro nombre="query" tipo="Doctrine_Query"/>
+				<resultado tipo="Doctrine_Query"/>
+			</prototipo>
+		</getSqlNomTipoEscala>
+		<agregarDQLCargo reference="nomenclador">
+			<inyector clase="NomencladorService" metodo="agregarDQLCargo"/>
+			<prototipo>
+				<parametro nombre="objQuery" tipo="Doctrine_Query"/>
+				<parametro nombre="aliaTableReference" tipo="string"/>
+				<parametro nombre="aliaDCC" tipo="string"/>
+				<parametro nombre="aliaDCM" tipo="string"/>
+				<parametro nombre="relation" tipo="string"/>
+				<parametro nombre="includeDqlSelect" tipo="bool"/>
+				<resultado tipo="Doctrine_Query"/>
+			</prototipo>
+		</agregarDQLCargo>
+
+		<!-- Cargo Service-->
+		<obtenerDatosCargo reference="estructura">
+			<inyector clase="CargoService" metodo="obtenerDatosCargoServices"/>
+			<prototipo>
+				<parametro nombre="idcargo" tipo="array"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</obtenerDatosCargo>
+		<obtenerDenominacionesCargos reference="estructura">
+			<inyector clase="CargoService" metodo="obtenerDenominacionesCargos"/>
+			<prototipo>
+				<parametro nombre="militares" tipo="bool"/>
+				<parametro nombre="limit" tipo="enterospos"/>
+				<parametro nombre="start" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</obtenerDenominacionesCargos>
+		<registrarAltasBajas reference="estructura">
+			<inyector clase="CargoService" metodo="actualizarCantidadReal"/>
+			<prototipo>
+				<parametro nombre="idCargo" tipo="enterospos"/>
+				<parametro nombre="cantidad" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</registrarAltasBajas>
+		<agregarDqlDatosCargo reference="estructura">
+			<inyector clase="CargoService" metodo="agregarDqlDatosCargoServices"/>
+			<prototipo>
+				<parametro nombre="objDoctrineQuery" tipo="Doctrine_Query"/>
+				<parametro nombre="aliasTablaReferencia" tipo="string"/>
+				<parametro nombre="aliasTabla" tipo="string"/>
+				<parametro nombre="relation" tipo="string"/>
+				<parametro nombre="includeDqlSelect" tipo="bool"/>
+				<resultado tipo="Doctrine_Query"/>
+			</prototipo>
+		</agregarDqlDatosCargo>
+
+		<!--Estructura Service-->
+		<obtenerCargosEstructura reference="estructura">
+			<inyector clase="EstructuraService" metodo="obtenerCargosEstructura"/>
+			<prototipo>
+				<parametro nombre="idestructura" tipo="enterospos"/>
+				<parametro nombre="dominio" tipo="enterospos" default=""/>
+				<parametro nombre="datos" tipo="bool" default="false"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</obtenerCargosEstructura>
+		<obtenerCargosEstructuraInmediatos reference="estructura">
+			<inyector clase="EstructuraService" metodo="obtenerCargosEstructuraInmediato"/>
+			<prototipo>
+				<parametro nombre="idestructura" tipo="array"/>
+				<parametro nombre="dominio" tipo="bool"/>
+				<parametro nombre="datos" tipo="bool"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</obtenerCargosEstructuraInmediatos>
+		<obtenerPadreEntidad reference="estructura">
+			<inyector clase="EstructuraService" metodo="obtenerPadreEntidad"/>
+			<prototipo>
+				<parametro nombre="idestructura" tipo="enterospos"/>
+				<parametro nombre="profundidad" tipo="bool"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</obtenerPadreEntidad>
+		<BuscarEntidadXidcargo reference="estructura">
+			<inyector clase="EstructuraService" metodo="obtenerEntidadXidcargo"/>
+			<prototipo>
+				<parametro nombre="idcargo" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</BuscarEntidadXidcargo>
+		<getRutaEstructura reference="estructura">
+			<inyector clase="EstructuraService" metodo="dameRutaEstructura"/>
+			<prototipo>
+				<parametro nombre="arrayEstructura" tipo="array"/>
+				<parametro nombre="datos" tipo="bool"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</getRutaEstructura>
+		<obtenerIUEstructura reference="estructura">
+			<inyector clase="EstructuraService" metodo="mostrarIUEstructura"/>
+			<prototipo>
+				<resultado/>
+			</prototipo>
+		</obtenerIUEstructura>
+		<ObtenerEstructurasNoFormales reference="estructura">
+			<inyector clase="EstructuraService" metodo="obtenerEstructurasNoFormales"/>
+			<prototipo>
+				<parametro nombre="iddominio" tipo="enterospos" default=""/>
+				<parametro nombre="idrama" default=""/>
+				<parametro nombre="filtro" default="0"/>
+				<parametro nombre="limit" default="1000"/>
+				<parametro nombre="start" default="0"/>
+				<parametro nombre="idestructura" default=""/>
+				<parametro nombre="area" default="0"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</ObtenerEstructurasNoFormales>
+		<DameEstructura reference="estructura">
+			<inyector clase="EstructuraService" metodo="dameEstructura"/>
+			<prototipo>
+				<parametro nombre="idEstructura" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</DameEstructura>
+		<ObtenerDatosEstructuraPorArrayID reference="estructura">
+			<inyector clase="EstructuraService" metodo="dameEstructurasByArrayId"/>
+			<prototipo>
+				<parametro nombre="arrayIdEstructura" tipo="array"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</ObtenerDatosEstructuraPorArrayID>
+		<DameArbolEstructura reference="estructura">
+			<inyector clase="EstructuraService" metodo="dameArbolEstructura"/>
+			<prototipo>
+				<parametro nombre="idEstructura" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</DameArbolEstructura>
+		<obtenerEstructuraXCod reference="estructura">
+			<inyector clase="EstructuraService" metodo="dameEstructuraPorCodigo"/>
+			<prototipo>
+				<parametro nombre="codigos" tipo="array"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</obtenerEstructuraXCod>
+		<obtenerNomCargoByIdEstructura reference="estructura">
+			<inyector clase="EstructuraService" metodo="obtenerNomCargoByIdEstructura"/>
+			<prototipo>
+				<parametro nombre="idestructura" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</obtenerNomCargoByIdEstructura>
+		<dameCargosXCodigoEstructura reference="estructura">
+			<inyector clase="EstructuraService" metodo="dameCargosXCodigoEstructura"/>
+			<prototipo>
+				<parametro nombre="codigo" tipo="array"/>
+				<parametro nombre="dominio" tipo="bool"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</dameCargosXCodigoEstructura>
+		<dameCargosXIdNomCargo reference="estructura">
+			<inyector clase="CargoService" metodo="dameCargosXIdNomCargo"/>
+			<prototipo>
+				<parametro nombre="idnomcargo" tipo="array"/>
+				<parametro nombre="dominio" tipo="bool"/>
+				<parametro nombre="datos" tipo="bool"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</dameCargosXIdNomCargo>
+		<ListadoEstructuras reference="estructura">
+			<inyector clase="EstructuraService" metodo="dameTodasEstructuras"/>
+			<prototipo>
+				<parametro nombre="limit" tipo="enterospos"/>
+				<parametro nombre="start" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</ListadoEstructuras>
+		<DameHijosEstructura reference="estructura">
+			<inyector clase="EstructuraService" metodo="dameHijosEstructura"/>
+			<prototipo>
+				<parametro nombre="idPadre" tipo="enterospos"/>
+				<parametro nombre="excluir" tipo="array"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</DameHijosEstructura>
+		<DameHijosEstructuraArea reference="estructura">
+			<inyector clase="EstructuraService" metodo="dameHijosEstructuraArea"/>
+			<prototipo>
+				<parametro nombre="idPadre" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</DameHijosEstructuraArea>
+		<DameEstructurasInternas reference="estructura">
+			<inyector clase="EstructuraService" metodo="DameEstructurasInternas"/>
+			<prototipo>
+				<parametro nombre="idEstructura"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</DameEstructurasInternas>
+		<existeEstructura reference="estructura" >
+			<inyector clase="DominioService" metodo="existeEstructura"/>
+			<prototipo>
+				<parametro nombre="iddominio" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</existeEstructura>
+		<ExisteEstructuraop reference="estructura">
+			<inyector clase="EstructuraService" metodo="ExisteEstructuraop"/>
+			<prototipo>
+				<parametro nombre="id" tipo="enterospos"/>
+				<resultado tipo="bool"/>
+			</prototipo>
+		</ExisteEstructuraop>
+		<ExistenEstructuras reference="estructura">
+			<inyector clase="EstructuraService" metodo="ExistenEstructuras"/>
+			<prototipo>
+				<parametro nombre="id" tipo="array"/>
+				<resultado tipo="bool"/>
+			</prototipo>
+		</ExistenEstructuras>
+		<DameEstructurasinChecked reference="estructura">
+			<inyector clase="EstructuraService" metodo="DameEstructurasinChecked"/>
+			<prototipo>
+				<parametro nombre="idEstructura" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</DameEstructurasinChecked>
+		<DameEstructuraSeguridad reference="estructura">
+			<inyector clase="EstructuraService" metodo="DameEstructurasInternasSeguridad"/>
+			<prototipo>
+				<parametro nombre="idPadre" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</DameEstructuraSeguridad>
+		<ListadoEstructurasInternas reference="estructura">
+			<inyector clase="EstructuraService" metodo="ListadoEstructurasInternas"/>
+			<prototipo>
+				<parametro nombre="limit" tipo="enterospos"/>
+				<parametro nombre="start" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</ListadoEstructurasInternas>
+
+
+
+
+		<DameHijosInternas reference="estructura">
+			<inyector clase="EstructuraService" metodo="DameHijosInternas"/>
+			<prototipo>
+				<parametro nombre="idPadre" tipo="enterospos"/>
+				<parametro nombre="organosintenos" />
+				<resultado tipo="array"/>
+			</prototipo>
+		</DameHijosInternas>
+		<DameAreasPorId reference="estructura">
+			<inyector clase="EstructuraService" metodo="dameAreasPorId"/>
+			<prototipo>
+				<parametro nombre="id" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</DameAreasPorId>
+
+		<ObtenerArbolbyNodos reference="estructura">
+			<inyector clase="EstructuraService" metodo="obtenerArbolPorNodos"/>
+			<prototipo>
+				<parametro nombre="arreglo" tipo="array"/>
+				<parametro nombre="idnodo" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</ObtenerArbolbyNodos>
+
+		<DenomEstructurasbyArreglo reference="estructura">
+			<inyector clase="EstructuraService" metodo="dameDenominacionPorArregloIdEstructuras"/>
+			<prototipo>
+				<parametro nombre="arreglo" tipo="array"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</DenomEstructurasbyArreglo>
+
+		<BuscarEntidadbyDominio reference="estructura">
+			<inyector clase="EstructuraService" metodo="buscarEntidadPorEstructura"/>
+			<prototipo>
+				<parametro nombre="idestructura"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</BuscarEntidadbyDominio>
+		<obtenerElementosInternos reference="estructura">
+			<inyector clase="EstructuraService" metodo="dameElementosInternos"/>
+			<prototipo>
+				<parametro nombre="idestructura" tipo="enterospos"/>
+				<parametro nombre="start" tipo="enteropos" default="0"/>
+				<parametro nombre="limit" tipo="enteropos" default="15"/>
+				<parametro nombre="codigo" tipo="numeroletras" default="0"/>
+				<parametro nombre="denominacion" tipo="numeroletras" default="0"/>
+				<parametro nombre="idconceptos" tipo="enteropos" default=""/>
+				<parametro nombre="iddpt" tipo="enteropos" default=""/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</obtenerElementosInternos>
+
+		<obtenerEstructurasFiltroDenom reference="estructura">
+			<inyector clase="EstructuraService" metodo="obtenerEstructurasPorFiltroDenominacion"/>
+			<prototipo>
+				<parametro nombre="iddominio" tipo="enterospos"/>
+				<parametro nombre="filtro"/>
+				<parametro nombre="identificadores" tipo="array"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</obtenerEstructurasFiltroDenom>
+
+		<dameEntidadesByOrgano reference="estructura">
+			<inyector clase="EstructuraService" metodo="dameEstructurasByOrg"/>
+			<prototipo>
+				<parametro nombre="idorgano"/>
+				<parametro nombre="denominacion"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</dameEntidadesByOrgano>
+
+		<obtenerDqlNomFilaHijos reference="estructura">
+			<inyector clase="EstructuraService" metodo="obtenerDqlNomFilaHijos"/>
+			<prototipo>
+				<parametro nombre="dql"/>
+				<parametro nombre="alias"/>
+				<parametro nombre="campo"/>
+				<parametro nombre="idestructura"/>
+				<resultado tipo="Doctrine_Query"/>
+			</prototipo>
+		</obtenerDqlNomFilaHijos>
+
+		<EntidadesByDominio reference="estructura">
+			<inyector clase="EstructuraService" metodo="EntidadesByDominio"/>
+			<prototipo>
+				<parametro nombre="iddominio" tipo="enterospos"/>
+				<parametro nombre="permisos" default="array()"/>
+				<parametro nombre="denominacion"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</EntidadesByDominio>
+
+		<!--Servicios para el MARIEL-->
+		<dameHijasEntidadesoUEB reference="estructura">
+			<inyector clase="EstructuraService" metodo="dameHijasEntidadesoUEB"/>
+			<prototipo>
+				<parametro nombre="idestructura" tipo="enterospos" default="false"/>
+
+				<resultado tipo="array"/>
+			</prototipo>
+		</dameHijasEntidadesoUEB>
+
+		<obtenerUbicacion reference="estructura">
+			<inyector clase="EstructuraService" metodo="obtenerUbicacion"/>
+			<prototipo>
+				<parametro nombre="npublico"/>
+				<parametro nombre="idorgano" tipo="enterospos"/>
+				<parametro nombre="idnomcargo" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</obtenerUbicacion>
+		<getEstructurasHijasById reference="estructura">
+			<inyector clase="EstructuraService" metodo="getEstructurasHijasById"/>
+			<prototipo>
+				<parametro nombre="$idDominioPermiso"/>
+				<parametro nombre="$idEstructura"/>
+				<parametro nombre="$checked"/>
+				<parametro nombre="$soloAreasResp"/>
+				<parametro nombre="$noCargos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</getEstructurasHijasById>
+
+		<!--Servicios para Regulado-->
+		<BuscarEntidadesOrgAgrupXidestructura reference="estructura">
+			<inyector clase="EstructuraService" metodo="obtenerEntidadesOrgAgrupXidestructura" />
+			<prototipo>
+				<parametro nombre="idestructura" tipo="enterospos" />
+				<resultado tipo="array" />
+			</prototipo>
+		</BuscarEntidadesOrgAgrupXidestructura>
+
+		<BuscartodosnomencladoresEAV reference="estructura">
+			<inyector clase="EstructuraService" metodo="CargarIconosEAV"/>
+			<prototipo>
+				<resultado tipo="array"/>
+			</prototipo>
+		</BuscartodosnomencladoresEAV>
+
+		<Buscardatosestructuraxid reference="estructura">
+			<inyector clase="EstructuraService" metodo="obtenerEstructuraXId" />
+			<prototipo>
+				<parametro nombre="pId" tipo="enterospos" />
+				<resultado tipo="array" />
+			</prototipo>
+		</Buscardatosestructuraxid>
+		<!-- Servicio para buscar las estructuras hijas Ing. Yadir Martinez Vergara-->
+		<BuscarArrIdsEstructurasHijasArbolCompleto reference="estructura">
+			<inyector clase="EstructuraService" metodo="obtenerArrIdsEstructurasHijasArbolCompleto"/>
+			<prototipo>
+				<parametro nombre="idestructura" tipo="enterospos"/>
+                <parametro nombre="conceptos" tipo="array"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</BuscarArrIdsEstructurasHijasArbolCompleto>
+
+		<!--IDominio Interfaz -->
+		<obtenerListadoIdEstructura reference="estructura">
+			<inyector clase="IDominio" metodo="obtenerListadoIdEstructura"/>
+			<prototipo>
+				<parametro nombre="arrayUsuarioRolAcceso" tipo="array"/>
+				<parametro nombre="identidad" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</obtenerListadoIdEstructura>
+
+		<obtenerListadoEntidadesUsuarioRol reference="estructura">
+			<inyector clase="IDominio" metodo="obtenerListadoEntidadesUsuarioRol"/>
+			<prototipo>
+				<parametro nombre="arrayUsuarioRolAcceso" tipo="array"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</obtenerListadoEntidadesUsuarioRol>
+
+		<getAccess reference="estructura">
+			<inyector clase="IDominio" metodo="getAccess"/>
+			<prototipo>
+				<parametro nombre="idEstructura" tipo="enterospos"/>
+				<parametro nombre="iddominio" tipo="enterospos"/>
+				<parametro nombre="arrayAccesos" tipo="array"/>
+				<resultado tipo="enterospos"/>
+			</prototipo>
+		</getAccess>
+
+		<verificarAccesoEstrucExternas reference="estructura">
+			<inyector clase="IDominio" metodo="verificarAccesoEstrucExternas"/>
+			<prototipo>
+				<parametro nombre="iddominio" tipo="enterospos"/>
+				<parametro nombre="todasNoRol" tipo="array"/>
+				<parametro nombre="arrayEstructuras" tipo="array"/>
+				<resultado tipo="bool"/>
+			</prototipo>
+		</verificarAccesoEstrucExternas>
+
+		<asignarAccesoRoles reference="estructura">
+			<inyector clase="IDominio" metodo="asignarAccesoRoles"/>
+			<prototipo>
+				<parametro nombre="iddominio" tipo="enterospos"/>
+				<parametro nombre="accsesoFila" tipo="enterospos"/>
+				<parametro nombre="array" tipo="array"/>
+				<resultado tipo="bool"/>
+			</prototipo>
+		</asignarAccesoRoles>
+
+		<accesoDadoArrayNoRol reference="estructura">
+			<inyector clase="IDominio" metodo="accesoDadoArrayNoRol"/>
+			<prototipo>
+				<parametro nombre="iddominio" tipo="enterospos"/>
+				<parametro nombre="arrayEstNoRol" tipo="array"/>
+				<parametro nombre="arrayEst" tipo="array"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</accesoDadoArrayNoRol>
+
+		<cantAccesoFilas reference="estructura">
+			<inyector clase="IDominio" metodo="cantAccesoFilas"/>
+			<prototipo>
+				<parametro nombre="idacceso" tipo="enterospos"/>
+				<parametro nombre="iddominio" tipo="enterospos"/>
+				<resultado tipo="enterospos"/>
+			</prototipo>
+		</cantAccesoFilas>
+
+		<loadAccessDomain reference="estructura">
+			<inyector clase="IDominio" metodo="loadAccessDomain"/>
+			<prototipo>
+				<parametro nombre="idestructura" tipo="enterospos"/>
+				<parametro nombre="arrayAccess" tipo="array"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</loadAccessDomain>
+
+		<buscarHijosEstructuras reference="estructura">
+			<inyector clase="IDominio" metodo="buscarHijosEstructuras"/>
+			<prototipo>
+				<parametro nombre="iddominio" tipo="enterospos"/>
+				<parametro nombre="idestructura" tipo="enterospos"/>
+				<parametro nombre="checked" tipo="enterospos"/>
+				<parametro nombre="checkear" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</buscarHijosEstructuras>
+
+		<buscarHijosEstructurasLineal reference="estructura">
+			<inyector clase="IDominio" metodo="buscarHijosEstructurasLineal"/>
+			<prototipo>
+				<parametro nombre="iddominio" tipo="enterospos"/>
+				<parametro nombre="idestructura" tipo="enterospos"/>
+				<parametro nombre="checked" tipo="enterospos"/>
+				<parametro nombre="checkear" tipo="enterospos"/>
+				<parametro nombre="arrayTiposEAV" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</buscarHijosEstructurasLineal>
+
+		<buscarArbolHijosEstructuras reference="estructura">
+			<inyector clase="IDominio" metodo="buscarArbolHijosEstructuras"/>
+			<prototipo>
+				<parametro nombre="arrayEstructuras" tipo="array"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</buscarArbolHijosEstructuras>
+
+		<buscarArbolHijosDominio reference="estructura">
+			<inyector clase="IDominio" metodo="buscarArbolHijosDominio"/>
+			<prototipo>
+				<parametro nombre="arrayDominios" tipo="array"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</buscarArbolHijosDominio>
+
+		<cargarArbolDominios reference="estructura">
+			<inyector clase="IDominio" metodo="cargarArbolDominios"/>
+			<prototipo>
+				<parametro nombre="iddominio" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</cargarArbolDominios>
+
+		<buscarHijosEstructurasDadoArray reference="estructura">
+			<inyector clase="IDominio" metodo="buscarHijosEstructurasDadoArray"/>
+			<prototipo>
+				<parametro nombre="iddominio" tipo="enterospos"/>
+				<parametro nombre="idestructura" tipo="enterospos"/>
+				<parametro nombre="checked" tipo="enterospos"/>
+				<parametro nombre="arrayIdestructura" tipo="array"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</buscarHijosEstructurasDadoArray>
+
+		<buscarIdEstructurasDominio reference="estructura">
+			<inyector clase="IDominio" metodo="buscarIdEstructurasDominio"/>
+			<prototipo>
+				<parametro nombre="iddominio" tipo="enterospos"/>
+				<parametro nombre="arrayIdestructura" tipo="array"/>
+				<parametro nombre="tipoEAV" tipo="enterospos"/>
+				<parametro nombre="nomtipoEAV" tipo="enterospos" default='0'/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</buscarIdEstructurasDominio>
+
+		<cantIdEstructurasDominio reference="estructura">
+			<inyector clase="IDominio" metodo="cantIdEstructurasDominio"/>
+			<prototipo>
+				<parametro nombre="iddominio" tipo="enterospos"/>
+				<parametro nombre="arrayIdestructura" tipo="array"/>
+				<parametro nombre="tipoEAV" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</cantIdEstructurasDominio>
+		<getIdsEntityByRoleIndex reference="estructura">
+			<inyector clase="IDominio" metodo="getIdsEntityByRoleIndex"/>
+			<prototipo>
+				<parametro nombre="iddominio" tipo="enterospos"/>
+				<parametro nombre="arrayAccess" tipo="array"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</getIdsEntityByRoleIndex>
+		<getDenominacionByArray reference="estructura">
+			<inyector clase="EstructuraService" metodo="obtenerDenominacion"/>
+			<prototipo>
+				<parametro nombre="array" tipo="array"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</getDenominacionByArray>
+
+		<!--Dominio Service-->
+		<existeNombreDominio reference="estructura">
+			<inyector clase="DominioService" metodo="existeNombreDominio"/>
+			<prototipo>
+				<parametro nombre="denominacion" tipo="numerosletras"/>
+				<parametro nombre="iddominio" tipo="enteropos"/>
+				<resultado tipo="enteropos"/>
+			</prototipo>
+		</existeNombreDominio>
+
+		<InsertarDominio reference="estructura">
+			<inyector clase="DominioService" metodo="InsertarDominio"/>
+			<prototipo>
+				<parametro nombre="nombre" tipo="numerosletras"/>
+				<parametro nombre="descripcion"/>
+				<parametro nombre="Entidades" tipo="array"/>
+				<resultado tipo="enteropos"/>
+			</prototipo>
+		</InsertarDominio>
+		<ModificarDominio reference="estructura">
+			<inyector clase="DominioService" metodo="ModificarDominio"/>
+			<prototipo>
+				<parametro nombre="iddominio" tipo="enteropos"/>
+				<parametro nombre="nombre" tipo="numerosletras"/>
+				<parametro nombre="descripcion"/>
+				<parametro nombre="entidades" tipo="array"/>
+				<resultado tipo="bool"/>
+			</prototipo>
+		</ModificarDominio>
+		<EliminarDominio reference="estructura">
+			<inyector clase="DominioService" metodo="EliminarDominio"/>
+			<prototipo>
+				<parametro nombre="iddominio" tipo="enterospos"/>
+				<resultado tipo="bool"/>
+			</prototipo>
+		</EliminarDominio>
+		<BuscarDomio reference="estructura">
+			<inyector clase="DominioService" metodo="BuscarDomios"/>
+			<prototipo>
+				<parametro nombre="limint" tipo="enterospos"/>
+				<parametro nombre="start" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</BuscarDomio>
+
+		<cargarComboDominioBuscar reference="estructura">
+			<inyector clase="DominioService" metodo="cargarComboDominioBuscar"/>
+			<prototipo>
+				<parametro tipo="array"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</cargarComboDominioBuscar>
+
+		<BuscarDominios reference="estructura">
+			<inyector clase="DominioService" metodo="BuscarDominios"/>
+			<prototipo>
+				<parametro nombre="limint" tipo="enterospos"/>
+				<parametro nombre="start" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</BuscarDominios>
+
+		<BuscarDomioDadoNombre reference="estructura">
+			<inyector clase="DominioService" metodo="BuscarDomioDadoNombre"/>
+			<prototipo>
+				<parametro nombre="limint" tipo="enterospos"/>
+				<parametro nombre="start" tipo="enterospos"/>
+				<parametro nombre="dendominio" tipo="numerosletras"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</BuscarDomioDadoNombre>
+
+		<DatosDominioDadoID reference="estructura">
+			<inyector clase="DominioService" metodo="DatosDominioDadoID"/>
+			<prototipo>
+				<parametro nombre="iddominio" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</DatosDominioDadoID>
+
+		<IdEstructurasDominio reference="estructura">
+			<inyector clase="DominioService" metodo="IdEstructurasDominio"/>
+			<prototipo>
+				<parametro nombre="iddominio" tipo="enterospos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</IdEstructurasDominio>
+
+		<BuscarIdDominioSeguridad reference="estructura">
+			<inyector clase="DominioService" metodo="BuscarIdDominioSeguridad"/>
+			<prototipo>
+				<resultado tipo="enteropos"/>
+			</prototipo>
+		</BuscarIdDominioSeguridad>
+
+
+		<ExtraerEstructura reference="estructura">
+			<inyector clase="DominioService" metodo="ExtraerEstructura"/>
+			<prototipo>
+				<parametro nombre="iddominio" tipo="enterospos"/>
+				<parametro nombre="idestructura" tipo="enterospos"/>
+				<resultado tipo="bool"/>
+			</prototipo>
+		</ExtraerEstructura>
+
+		<EstaEstructuraEnDominio reference="estructura">
+			<inyector clase="DominioService" metodo="EstaEstructuraEnDominio"/>
+			<prototipo>
+				<parametro nombre="iddominio" tipo="enterospos"/>
+				<parametro nombre="idestructura" tipo="enterospos"/>
+				<resultado tipo="bool"/>
+			</prototipo>
+		</EstaEstructuraEnDominio>
+
+		<DominiosPorEstructura reference="estructura">
+			<inyector clase="DominioService" metodo="DominiosPorEstructura"/>
+			<prototipo>
+				<parametro nombre="idestructura"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</DominiosPorEstructura>
+
+
+		<!-- Subordinación Service-->
+		<BuscarPadrePorSubordinacion reference="subordinacion">
+			<inyector clase="SubordinacionService" metodo="buscarPadreSubordinacion"/>
+			<prototipo>
+				<parametro nombre="idHijo" tipo="array"/>
+				<parametro nombre="idSubordinacion" tipo="array"/>
+				<parametro nombre="escluir" tipo="array"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</BuscarPadrePorSubordinacion>
+		<BuscarHijoPorSubordinacion reference="subordinacion">
+			<inyector clase="SubordinacionService" metodo="DameHijosSubordinacion"/>
+			<prototipo>
+				<parametro nombre="idpadre" tipo="array"/>
+				<parametro nombre="idSubordinacion" tipo="array"/>
+				<parametro nombre="escluir" tipo="array"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</BuscarHijoPorSubordinacion>
+		<getHijosSubordinacion reference="subordinacion">
+			<inyector clase="SubordinacionService" metodo="getHijosSubTree"/>
+			<prototipo>
+				<parametro nombre="idpadre" />
+				<parametro nombre="idSubordinacion" />
+				<resultado tipo="array"/>
+			</prototipo>
+		</getHijosSubordinacion>
+		<getPadresSubordinacion reference="subordinacion">
+			<inyector clase="SubordinacionService" metodo="getPadreTree"/>
+			<prototipo>
+				<parametro nombre="idpadre"/>
+				<parametro nombre="idSubordinacion"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</getPadresSubordinacion>
+		<obtenerEstructurasDadoPadre reference="estructura">
+			<inyector clase="EstructuraService" metodo="obtenerEstructurasDadoPadre"/>
+			<prototipo>
+				<parametro nombre="idpadre"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</obtenerEstructurasDadoPadre>
+	</metadatos>
+</ioc>

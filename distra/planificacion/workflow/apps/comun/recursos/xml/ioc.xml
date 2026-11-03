@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ioc>
+<workflow src="planificacion/workflow">
+
+        <EstadosVerDoc reference="workflow">
+            <inyector clase="WorkflowServices" metodo="EstadosVerDoc" />
+            <prototipo>
+                <parametro nombre="idusuario" tipo="enterospos" />
+                <parametro nombre="idtipodoc" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </EstadosVerDoc>
+        <EstadoPorDefecto reference="workflow">
+            <inyector clase="WorkflowServices" metodo="EstadoPorDefecto" />
+            <prototipo>
+                <parametro nombre="idusuario" tipo="enterospos" />
+                <parametro nombre="idtipodoc" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </EstadoPorDefecto>
+        <EstadosModDoc reference="workflow">
+            <inyector clase="WorkflowServices" metodo="EstadosModDoc" />
+            <prototipo>
+                <parametro nombre="idusuario" tipo="enterospos" />
+                <parametro nombre="idtipodoc" tipo="enterospos" />
+                <parametro nombre="idestadoinicial" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </EstadosModDoc>
+        <Ejecutar reference="workflow">
+            <inyector clase="WorkflowServices" metodo="Ejecutar" />
+            <prototipo>
+                <parametro nombre="iduser" tipo="enterospos" />
+                <parametro nombre="idestadoi" tipo="enterospos" />
+                <parametro nombre="idestadof" tipo="enterospos" />
+                <parametro nombre="idtdoc" tipo="enterospos" />
+                <parametro nombre="obj" tipo="stdClass" />
+                <resultado tipo="numeros" />
+            </prototipo>
+        </Ejecutar>
+        <EjecutarPostCondiciones reference="workflow">
+            <inyector clase="WorkflowServices" metodo="EjecutarPostCondiciones" />
+            <prototipo>
+                <parametro nombre="iduser" tipo="enterospos" />
+                <parametro nombre="idestadoi" tipo="enterospos" />
+                <parametro nombre="idestadof" tipo="enterospos" />
+                <parametro nombre="idtdoc" tipo="enterospos" />
+                <parametro nombre="obj" tipo="stdClass" />
+                <parametro nombre="idsub" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </EjecutarPostCondiciones>
+        <DenomEstado reference="workflow">
+            <inyector clase="WorkflowServices" metodo="DenomEstado" />
+            <prototipo>
+                <parametro nombre="idestado" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </DenomEstado>
+        <EstadosSiguientesDadoEstado reference="workflow">
+            <inyector clase="WorkflowServices" metodo="EstadosSiguientesDadoEstado" />
+            <prototipo>
+                <parametro nombre="idestado" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </EstadosSiguientesDadoEstado>
+        <EstadosAnterioresDadoEstado reference="workflow">
+            <inyector clase="WorkflowServices" metodo="EstadosAnterioresDadoEstado" />
+            <prototipo>
+                <parametro nombre="idestado" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </EstadosAnterioresDadoEstado>
+        <ObtenerConfDocEstado reference="workflow">
+            <inyector clase="WorkflowServices" metodo="ObtenerConfDocEstado" />
+            <prototipo>
+                <parametro nombre="$idtipodoc" tipo="enterospos" />
+                <parametro nombre="idestado" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </ObtenerConfDocEstado>
+        <obtenerPermisosPostCondiciones reference="workflow">
+            <inyector clase="WorkflowServices" metodo="obtenerPermisosPostCondiciones" />
+            <prototipo>
+                <parametro nombre="$idtransicion" tipo="enterospos" />
+                <parametro nombre="idusuario" tipo="enterospos" />
+                <resultado tipo="numeros" />
+            </prototipo>
+        </obtenerPermisosPostCondiciones>
+        <obtenerPermisosPostAccion reference="workflow">
+            <inyector clase="WorkflowServices" metodo="obtenerPermisosPostAccion" />
+            <prototipo>
+                <parametro nombre="idusuario" tipo="enterospos" />
+                <parametro nombre="idestado" tipo="enterospos" />
+                <parametro nombre="idtipodoc" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerPermisosPostAccion>
+ </workflow>
+</ioc>

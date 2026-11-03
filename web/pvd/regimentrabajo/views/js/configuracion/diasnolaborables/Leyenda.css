@@ -1,0 +1,17 @@
+.iconLeyenda {
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    cursor: pointer;
+    float: left;
+    width: 20px;
+    height: 20px;	
+}
+
+.textLeyenda {
+    float: left;
+    margin: 4px;
+    text-shadow: 2px 2px 3px #FFF;
+    font-weight: bold;
+    font-style: oblique;
+}

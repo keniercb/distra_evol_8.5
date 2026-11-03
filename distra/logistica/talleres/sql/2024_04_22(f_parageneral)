@@ -1,0 +1,201 @@
+CREATE OR REPLACE FUNCTION mod_logtaller.f_parageneral (
+  p_idreportepara numeric [],
+  p_idestructura numeric []
+)
+RETURNS TABLE (
+  total numeric,
+  entaller numeric,
+  enviados numeric,
+  rango1a30 numeric,
+  rango31a60 numeric,
+  rango61a90 numeric,
+  rango91a120 numeric,
+  rango121a360 numeric,
+  rangomasdeanno numeric,
+  estructura numeric,
+  denoestruc varchar,
+  idmedio numeric,
+  denomedio varchar
+) AS
+$body$
+DECLARE
+  v_tipomedio NUMERIC[];
+  v_arrestadia NUMERIC[];
+   v_1a30 NUMERIC;
+    v_31a60 numeric;
+    v_61a90 numeric ;
+    v_91a120 numeric;
+    v_121a360 NUMERIC;
+    v_masdeanno numeric ;
+    v_total numeric;
+    v_entaller numeric;
+    v_enviados numeric;
+BEGIN
+SELECT 
+  array_agg(idtipo) into v_tipomedio
+FROM 
+  mod_logtaller.dat_reportetipo where idreporteparalizacion = any (p_idreportepara) and idestructuracomun  = any(p_idestructura);
+create temp table result 
+(
+	total NUMERIC(19,0),
+    entaller NUMERIC(19,0),
+    enviados NUMERIC(19,0),
+    _1a30 NUMERIC(19,0),
+    _31a60 numeric(19,0),
+    _61a90 numeric (19,0),
+    _91a120 numeric(19,0),
+    _121a360 NUMERIC(19,0),
+    masdeanno numeric (19,0),
+    estructura NUMERIC(19,0),
+    denoestructura varchar(255),
+    idmedio	numeric(19,0),
+    denomedio varchar(255)
+);
+for i in 1 ..array_upper(p_idestructura, 1) loop
+	for j in 1 ..array_upper(v_tipomedio,1) loop
+    	 v_1a30 =0;
+        v_31a60 =0;
+        v_61a90 =0;
+        v_91a120 =0;
+        v_121a360 =0;
+        v_masdeanno =0;
+    	v_arrestadia = null;
+        v_total =0;
+        v_entaller =0;
+        v_enviados =0;
+        select 
+        array_agg(case when dot.fechacierre is null then (( Select current_date ) - dot.fechainicio)
+                   else (dot.fechacierre - dot.fechainicio) end) into  v_arrestadia
+                from mod_logtaller.dat_medioorden dmo 
+                inner join mod_logtaller.dat_ordentrabajo dot using (idordentrabajo)
+                inner join mod_logistica.dat_documento dc on dc.iddocumento = dmo.idordentrabajo
+                where 
+                dmo.idproducto in 
+              		(SELECT distinct dm.idproducto AS idregnumerico
+                      FROM  mod_logtaller.dat_medioorden dm 
+                      inner join mod_logactivofijotangible.dat_registronumerico drn on drn.idregnumerico = dm.idproducto
+                      inner join mod_logistica.dat_producto dp on dp.idproducto = drn.idproducto
+                      inner join mod_logtaller.dat_ordentrabajo dt on dt.idordentrabajo = dm.idordentrabajo
+                      inner join mod_logistica.dat_documento dd on dd.iddocumento = dt.idordentrabajo
+                      INNER JOIN  mod_datosmaestros.nom_indicador nind ON nind.idindicador = dm.idindicador
+                      inner join mod_datosmaestros.nom_indicadorhoja nih on nih.idindicador = nind.idindicador
+                      inner join mod_datosmaestros.nom_marca nom on nom.idmarca = nih.idmarca  
+                      LEFT JOIN mod_datosmaestros.nom_gruposubgrupo g ON (g.idgruposubgrupo = nih.idgruposubgrupo)
+                      LEFT JOIN mod_logactivofijotangible.conf_gruposcuentas cgc ON (cgc.idgruposubgrupo = g.idgruposubgrupo)
+                      LEFT JOIN mod_contabilidad.nom_cuenta nc ON (nc.idcuenta = cgc.idcuentaactivo)
+                       where
+                      dm.idproducto IS NOT NULL and nc.concatcta NOT LIKE '187.%' and dm.idpadre = v_tipomedio[j] and dp.idestructuracomun = p_idestructura[i]
+                      ) 
+                  and dc.idestructuracomun = 200531044 and dc.estado in (1,2) ;
+    if (
+    (select cardinality(v_arrestadia ) ) > 0
+    ) then
+      for e in 1 ..array_upper(v_arrestadia,1)loop
+              if (v_arrestadia[e] BETWEEN 1 and 30) then 
+                   v_1a30 = v_1a30+1;
+                   ELSIF(v_arrestadia[e] BETWEEN 31 and 60) then 
+                          v_31a60 = v_31a60+1 ;
+                   ELSIF(v_arrestadia[e] BETWEEN 61 and 90)then 
+                          v_61a90 = v_61a90+1;
+                   ELSIF(v_arrestadia[e] BETWEEN 91 and 120)then 
+                          v_91a120 = v_91a120+1;
+                   ELSIF(v_arrestadia[e] BETWEEN 121 and 360)then 
+                          v_121a360 = v_121a360+1;   
+                   ELSIF(v_arrestadia[e] > 360) then 
+                          v_masdeanno = v_masdeanno+1;          
+              end if;
+      end loop;
+     end if;
+     select count(distinct drn.idregnumerico) into v_total
+              from mod_logactivofijotangible.dat_registronumerico drn
+              inner join mod_logactivofijotangible.dat_regnumericoactivo drna on drna.idregnumerico = drn.idregnumerico
+              inner join mod_logistica.dat_producto dp on dp.idproducto = drn.idproducto
+              INNER JOIN  mod_datosmaestros.nom_indicador nind ON nind.idindicador = dp.idindicador
+              inner join mod_datosmaestros.nom_indicadorhoja nih on nih.idindicador = nind.idindicador
+              LEFT JOIN mod_datosmaestros.nom_gruposubgrupo g ON (g.idgruposubgrupo = nih.idgruposubgrupo)
+              LEFT JOIN mod_logactivofijotangible.conf_gruposcuentas cgc ON (cgc.idgruposubgrupo = g.idgruposubgrupo)
+              LEFT JOIN mod_contabilidad.nom_cuenta nc ON (nc.idcuenta = cgc.idcuentaactivo)
+              where  dp.idproducto IS NOT NULL 
+              and nc.concatcta NOT LIKE '187.%' and nind.idpadre = v_tipomedio[j] and dp.idestructuracomun = p_idestructura[i];
+      select count (distinct  dmo.idordentrabajo) into v_entaller
+                from mod_logtaller.dat_medioorden dmo 
+                inner join mod_logtaller.dat_ordentrabajo dot using (idordentrabajo)
+                inner join mod_logistica.dat_documento dc on dc.iddocumento = dmo.idordentrabajo
+                where 
+                dmo.idproducto in 
+                    (SELECT distinct dm.idproducto AS idregnumerico
+                      FROM  mod_logtaller.dat_medioorden dm 
+                      inner join mod_logactivofijotangible.dat_registronumerico drn on drn.idregnumerico = dm.idproducto
+                      inner join mod_logistica.dat_producto dp on dp.idproducto = drn.idproducto
+                      inner join mod_logtaller.dat_ordentrabajo dt on dt.idordentrabajo = dm.idordentrabajo
+                      inner join mod_logistica.dat_documento dd on dd.iddocumento = dt.idordentrabajo
+                      INNER JOIN  mod_datosmaestros.nom_indicador nind ON nind.idindicador = dm.idindicador
+                      inner join mod_datosmaestros.nom_indicadorhoja nih on nih.idindicador = nind.idindicador
+                      inner join mod_datosmaestros.nom_marca nom on nom.idmarca = nih.idmarca  
+                      LEFT JOIN mod_datosmaestros.nom_gruposubgrupo g ON (g.idgruposubgrupo = nih.idgruposubgrupo)
+                      LEFT JOIN mod_logactivofijotangible.conf_gruposcuentas cgc ON (cgc.idgruposubgrupo = g.idgruposubgrupo)
+                      LEFT JOIN mod_contabilidad.nom_cuenta nc ON (nc.idcuenta = cgc.idcuentaactivo)
+                       where
+                      dm.idproducto IS NOT NULL and nc.concatcta NOT LIKE '187.%' 
+                      and dm.idpadre = v_tipomedio[j] and dp.idestructuracomun = p_idestructura[i]  and dc.estado in (1,2))
+                      and dc.idestructuracomun = 200531044 and dc.estado in (1,2);
+          SELECT count(DISTINCT drn.idregnumerico ) into v_enviados
+              FROM mod_logactivofijotangible.dat_docenviadoreparar ddenr
+              INNER JOIN mod_logistica.dat_documento dd ON dd.iddocumento = ddenr.iddocenviadoreparar
+              INNER JOIN mod_logistica.dat_movimiento dm USING (iddocumento)
+              INNER JOIN mod_logactivofijotangible.dat_movregnumerico dmrn USING(idmovimiento) 
+              INNER JOIN mod_logactivofijotangible.dat_registronumerico drn USING (idregnumerico)
+              INNER JOIN mod_logistica.dat_producto dp ON dp.idproducto = drn.idproducto
+              INNER JOIN  mod_datosmaestros.nom_indicador nind ON nind.idindicador = dp.idindicador
+              INNER JOIN mod_estructuracomp.v_dametodasestructuras dte ON dte.idestructura = dp.idestructuracomun  
+              INNER JOIN mod_datosmaestros.nom_clientesproveedor ncp ON ncp.idclientesproveedores = ddenr.idclientesproveedores
+              WHERE ddenr.idclientesproveedores IS NOT NULL AND dte.idestructura = p_idestructura[i] and nind.idpadre = v_tipomedio[j]  ;              
+    	insert into  result(
+        	total,
+             entaller,
+              enviados,
+              _1a30,
+               _31a60,
+               _61a90,
+               _91a120,
+               _121a360,
+              masdeanno,   
+              estructura,
+              denoestructura,
+               idmedio,
+               denomedio
+        	) values (
+        	  v_total ,
+              v_entaller, 
+              v_enviados ,
+              v_1a30 ,
+              v_31a60 ,
+              v_61a90 ,
+              v_91a120 ,
+              v_121a360 ,
+              v_masdeanno, 
+               p_idestructura[i] ,
+              (SELECT 
+                denominacion
+                    FROM 
+                mod_estructuracomp.dat_estructuraop where idestructuraop = p_idestructura[i]) ,
+                v_tipomedio[j],
+              (select denominacion from mod_datosmaestros.nom_indicador where idindicador = v_tipomedio[j])  
+              );
+    end loop;
+  end loop;
+
+return query select * from result group by 1,2,3,4,5,6,7,8,9,10,11,12,13 order by 11;
+drop table result;
+
+END;
+$body$
+LANGUAGE 'plpgsql'
+VOLATILE
+CALLED ON NULL INPUT
+SECURITY INVOKER
+PARALLEL UNSAFE
+COST 100 ROWS 1000;
+
+ALTER FUNCTION mod_logtaller.f_parageneral (p_idreportepara numeric [], p_idestructura numeric [])
+  OWNER TO zeolides;

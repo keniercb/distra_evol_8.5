@@ -1,0 +1,74 @@
+{
+    lbTitleEstructurar:                 'Estructurar modelos de n&oacute;mina',
+    lbTitlePanelEstructurar:            'Listado de campos de la estructura del modelo de n&oacute;mina',
+    lbTitleTiposNomina:                 'Listado de tipos de n&oacute;mina',
+
+    lbTitleVentAdicionar:               'Adicionar campo de la estructura del modelo n&oacute;mina',
+    lbTitleVentModificar:               'Modificar campo de la estructura del modelo n&oacute;mina',
+
+    lbMaskGridCargando:                 'Cargando…', 
+    lbMsgEsperaEnviarDatos:             'Por favor espere…',
+    lbMsgAdicionar:                     'Adicionando datos de la estructura de la  n&oacute;mina...',
+    lbMsgModificar:                     'Modificando datos de la estructura de la  n&oacute;mina...',
+    lbMsgEliminar:                     'Eliminando datos de la estructura de la  n&oacute;mina...',
+
+    lbTitleEliminar:               '¿Está seguro que desea eliminar la estructura de la  n&oacute;mina seleccionada?',
+    lbMsgCorrectoAdicionado:       'La estructura de la  n&oacute;mina ha sido adicionado satisfactoriamente.',
+    lbMsgCorrectoModificado:       'La estructura de la  n&oacute;mina ha sido modificado satisfactoriamente.',
+    lbMsgCorrectoEliminado:        'La estructura de la  n&oacute;mina ha sido eliminado satisfactoriamente.',
+
+    BtnAdicionar:                     'Ad<u>i</u>cionar',
+    BtnModificar:                     '<u>M</u>odificar',
+    BtnEliminar:                      'Eliminar',
+    BtnAyuda:                         'Ayuda',
+    BtnAceptar:                       'Aceptar',
+    lbBtnAceptar:                     'Aceptar',
+    
+    textToolTipAddModeloNomina:       'Adicionar campo de la estructura de la  n&oacute;mina (<b>Alt+I</b>)',
+    textToolTipModModeloNomina:       'Modificar campo de la estructura de la  n&oacute;mina (<b>Alt+M</b>)',
+    textToolTipDelModeloNomina:       'Eliminar campo de la estructura de la  n&oacute;mina (<b>DEL</b>)',
+    textToolTipAyModeloNomina:        'Ayuda (<b>DEL</b>)',
+
+    lbColDenominacion:               'Denominaci&oacute;n',
+    lbColcbTipoCampo:                'Tipo de campo',
+    lbColcbAcumulacionLiquidacion:   'Acumula/Liquida vacaciones',
+
+    lbColcbVacacionesDiasImporte:    'D&iacute;as/Importe vacaciones',
+    lbColcbValorMostrar:             'Valor a mostrar',
+    lbColDenominacionOrden:          'Orden n&oacute;mina',
+    lbcbVisible:                     'Visible n&oacute;mina',
+
+    lbcbDescuento:                   'Descuento',
+    lbcbAceptaValoresNegativos:      'Acepta valores negativos',
+    lbcbConceptoPagoSalario:         'Concepto pago salario',
+
+    lbColcbSC_4_01:                  'Visible reporte SC - 4 - 01',
+    lbColcbSC_4_06:                  'Visible reporte SC - 4 - 06',
+    lbColnfOrdenReporte:             'Orden reporte',
+
+
+    lbColDenomTipoNomina:               'Tipo de n&oacute;mina',
+    lbColFechaInicio:                   'Fecha inicio',
+    lbColFechaFin:                      'Fecha fin',
+
+    lbErrorCampoVacio:                  'Este campo es obligatorio.',
+    lbFechaMaxima:                      'La fecha de inicio tiene que ser anterior o igual a la fecha fin.',
+    lbFechaMinima:                      'La fecha fin tiene que ser posterior o igual a la fecha de inicio.',
+    invalidTextFecha:                   'Formato: dd/mm/aaaa.',
+    lbMaxText_225:                      'El tama&ntilde;o m&aacute;ximo requerido es 255 d&iacute;gitos.',
+    lbErrorFormulario:                  'Por favor verifique nuevamente que hay campo(s) con valor(es) incorrecto(s).',
+    lbBtnCancelar:                      'Cancelar',
+    textToolTipCancelar:                'Cerrar ventana sin guardar los datos (<b>Alt+X</b>)',
+    lbBtnAplicar:                       'Aplicar',
+    textToolTipAplicar:                 'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+      
+    lbBtnCancelarEscalaSituacion:        'Cancelar',
+    textToolTipCancelarEscalaSituacion:  'Cerrar ventana sin guardar los datos',
+    lbBtnAplicarEscalaSituacion:         'Aplicar',
+    textToolTipAplicarEscalaSituacion:   'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+    lbBtnAceptarEscalaSituacion:         'Aceptar',
+    textToolTipAceptarEscalaSituacion:   'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+	
+	lbDenomIncorr:                       'Solo admite caracteres alfanum&eacute;ricos y el caracter especial ( ).',
+	lbMaxText_100:                       'El tama&ntilde;o m&aacute;ximo requerido es 100 caracteres.',
+}

@@ -1,0 +1,22 @@
+{
+    "nombre": "Portal",
+    "version": "2.1",
+    "fecha": "13\/3\/15",
+    "autor": "Centro de Herramientas y Tecnologías de Desarrollo",
+    "dependencia": ["Zeolides 2.2.0","Quarseg 2.1","Ayuda 3.0"],
+    "descripcion": "Marco de trabajo Zeolides(MT) desarrollado para las soluciones vinculadas con el ERP. Contiene configuraciones propias del ERP para la integración estre los demás sistemas que conforman el mismo. Observaciones: ZendExt-GlobalConcept-Nomencladores",
+    "logo":"",
+    "equipo": ["Centro de Herramientas y Tecnologías de Desarrollo"],
+    "changelog": [
+    {
+        "version": "2.3",
+        "date": "21/03/2015",
+        "contenido":"Pepe"
+    },
+    {
+        "version": "2.2",
+        "date": "21/03/2015",
+        "contenido":"Papa"
+    }
+    ]
+}

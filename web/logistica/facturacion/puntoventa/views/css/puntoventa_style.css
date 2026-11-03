@@ -1,0 +1,78 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 3, 2015, 4:29:26 PM
+    Author     : Jose
+*/
+
+.images-view .x-panel-body{
+    background: white;
+    font: 11px Arial, Helvetica, sans-serif;
+}
+
+.images-view .thumb-wrap{
+    float: left;
+    margin: 4px;
+    padding: 5px;    
+}
+
+.images-view .thumb-wrap dd {
+    float:left;
+    width:300px;
+    height:110px;
+    margin:5px 5px 5px 10px;
+    cursor:pointer;
+    border: 1px dashed #CCCCCC;
+    zoom:1;
+}
+
+.images-view .thumb-wrap dd img {
+    width:120px;
+    height:100px;
+    margin:5px 0 0 5px;    
+    float:left;
+}
+
+.images-view .thumb-wrap dd h4 {
+    margin: 5px 0 5px 0px;
+    font-family:tahoma,arial,san-serif;
+    color:#555;
+    font-size:11pt;
+    font-weight:bold;
+}
+.images-view .thumb-wrap dd p {
+    color:#777;
+    font-size:11pt;
+}
+
+.images-view .thumb-wrap dd div{
+    float:left;
+    width:160px;
+    margin-left:10px;
+}
+
+.images-view .thumb-wrap span{
+    display: block;
+    overflow: hidden;
+    text-align: center;
+}
+
+.images-view  .x-view-over dd{
+    background: #F5FDE3 no-repeat;
+}
+
+.images-view .x-view-selected {
+    background:transparent;
+}
+.icon-siguiente{
+    background-image:url("/logistica/facturacion/puntoventa/views/images/siguiente.png");
+    background-repeat: no-repeat;
+
+}
+.icon-atras{
+    background-image:url("/logistica/facturacion/puntoventa/views/images/atras.png");
+    background-repeat: no-repeat;
+}

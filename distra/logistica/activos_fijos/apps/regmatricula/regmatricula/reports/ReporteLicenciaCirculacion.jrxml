@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteLicenciaCirculacion" language="groovy" pageWidth="325" pageHeight="340" whenNoDataType="AllSectionsNoDetail" columnWidth="321" leftMargin="2" rightMargin="2" topMargin="2" bottomMargin="2" >
+    <property name="ireport.zoom" value="4.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="401"/>
+    <parameter name="poseedorlegal" class="java.lang.String"/>
+    <parameter name="direccion" class="java.lang.String"/>
+    <parameter name="municipio" class="java.lang.String"/>
+    <parameter name="provincia" class="java.lang.String"/>
+    <queryString>
+		<![CDATA[SELECT DISTINCT
+
+         rna.idregnumerico,
+         rna.annofabricacion as annofabricacion,
+         rn.nroserie as nroserie,
+         tr.nromatricula as nromatricula,
+         tr.nromotor1 as nromotor1,
+         tr.nrocirculacion as nrocirculacion,
+         tr.nromotor2 as nromotor2,
+         color.denominacion as colorptim,
+         colorsec.denominacion as colorsec,
+         tcom.denominacion as combustible,
+         '2/2/2015' as fechaactual,
+         ind.codigo as codigo,
+         ind.denominacion as denominacion,
+         nm.denominacion as marca,
+         nmod.denominacion as modelo,
+         estatus.denominacion as denomestado ,
+         pais.nombrepais as nacionalidad,
+         regv.registro,
+         regv.tipo,
+         regv.numerolaser1,
+         regv.numerolaser2,
+         regv.tonelage,
+         regv.foliocirculacion,
+         tipo.denominacion as denomtipotramite,
+         sector.denominacion as denomsector, inspector.nombre as nombreinspector
+
+
+          FROM mod_logactivofijotangible.dat_regnumericoactivo rna
+
+                      inner join mod_logactivofijotangible.dat_registronumerico rn on rna.idregnumerico = rn.idregnumerico
+                      inner join mod_logistica.dat_producto pro on pro.idproducto = rn.idproducto
+                      inner join mod_datosmaestros.nom_indicador ind on ind.idindicador = pro.idprod
+                      inner join mod_datosmaestros.nom_indicadorhoja nih on nih.idindicador = ind.idindicador
+                      inner join mod_datosmaestros.nom_marca nm on nm.idmarca = nih.idmarca
+                      inner join mod_datosmaestros.nom_modelo nmod on nmod.idmodelo = nih.idmodelo
+                      left join mod_logactivofijotangible.nom_estatustecnico estatus
+                      on estatus.idestatustecnico = rna.idestatustecnico
+                      left join mod_logactivofijotangible.dat_regnumericoactivotransp tr
+                      on tr.idregnumerico = rna.idregnumerico
+                      left join mod_logactivofijotangible.nom_tipocombustible tcom
+                      on tcom.idtipocombustible = tr.idtipocombustible
+                      left join mod_logactivofijotangible.nom_color color on color.idcolor = rna.idcolorprim
+                      left join mod_logactivofijotangible.nom_color colorsec on colorsec.idcolor = rna.idcolorsec
+                      inner join mod_logactivofijotangible.dat_registrovehiculo regv
+                      on regv.idregnumerico = rna.idregnumerico
+                      left join mod_nomencladores.nom_pais pais on pais.idpais = ind.idpais
+                      left join mod_logactivofijotangible.nom_tipotramite tipo on regv.idtipotramite = tipo.idtipotramite
+                       left join mod_logactivofijotangible.nom_sector sector on sector.idsector = regv.idsector
+                       left join mod_logactivofijotangible.dat_inspectormatricula inspector
+                       on inspector.idinspectormatricula = regv.idinspectormatricula
+
+             WHERE   rna.idregnumerico = 1042078 and regv.registro = 1]]>
+    </queryString>
+    <field name="idregnumerico" class="java.math.BigDecimal"/>
+    <field name="annofabricacion" class="java.math.BigDecimal">
+        <fieldDescription><![CDATA[almacena el anno de fabricacion.]]></fieldDescription>
+    </field>
+    <field name="nroserie" class="java.lang.String"/>
+    <field name="nromatricula" class="java.lang.String"/>
+    <field name="nromotor1" class="java.lang.String"/>
+    <field name="nrocirculacion" class="java.lang.String"/>
+    <field name="nromotor2" class="java.lang.String"/>
+    <field name="colorptim" class="java.lang.String"/>
+    <field name="colorsec" class="java.lang.String">
+        <fieldDescription><![CDATA[Indentifica si el medio tiene color secundario o no. ]]></fieldDescription>
+    </field>
+    <field name="combustible" class="java.lang.String"/>
+    <field name="fechaactual" class="java.lang.String"/>
+    <field name="codigo" class="java.lang.String">
+        <fieldDescription><![CDATA[Nombre del campo en donde se encuentra el codigo del nomenclador.]]></fieldDescription>
+    </field>
+    <field name="denominacion" class="java.lang.String"/>
+    <field name="marca" class="java.lang.String"/>
+    <field name="modelo" class="java.lang.String"/>
+    <field name="denomestado" class="java.lang.String"/>
+    <field name="nacionalidad" class="java.lang.String">
+        <fieldDescription><![CDATA[Nacionalidad del país]]></fieldDescription>
+    </field>
+    <field name="registro" class="java.math.BigDecimal"/>
+    <field name="tipo" class="java.math.BigDecimal">
+        <fieldDescription><![CDATA[Tipo.]]></fieldDescription>
+    </field>
+    <field name="numerolaser1" class="java.lang.String"/>
+    <field name="numerolaser2" class="java.lang.String"/>
+    <field name="tonelage" class="java.math.BigDecimal"/>
+    <field name="foliocirculacion" class="java.math.BigDecimal"/>
+    <field name="denomtipotramite" class="java.lang.String"/>
+    <field name="denomsector" class="java.lang.String"/>
+    <field name="nombreinspector" class="java.lang.String"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="32" splitType="Stretch">
+            <staticText>
+                <reportElement x="191" y="3" width="101" height="8" />
+                <box leftPadding="0"/>
+                <textElement>
+                    <font fontName="SansSerif" size="6" isBold="false"/>
+                </textElement>
+                <text><![CDATA[POSEEDOR LEGAL]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="191" y="10" width="130" height="19" />
+                <textElement>
+                    <font fontName="SansSerif" size="10" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{poseedorlegal}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="1" splitType="Stretch"/>
+    </pageHeader>
+    <columnHeader>
+        <band height="199" splitType="Stretch">
+            <textField isBlankWhenNull="true">
+                <reportElement x="89" y="19" width="62" height="13" />
+                <textElement>
+                    <font fontName="SansSerif" size="10" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{nromatricula}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="89" y="12" width="62" height="8" />
+                <textElement>
+                    <font fontName="SansSerif" size="6" isBold="false"/>
+                </textElement>
+                <text><![CDATA[MATRÍCULA]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="191" y="15" width="130" height="87" />
+                <textElement>
+                    <font fontName="SansSerif" size="10" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{direccion}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="191" y="8" width="60" height="8" />
+                <box leftPadding="0"/>
+                <textElement>
+                    <font fontName="SansSerif" size="6" isBold="false"/>
+                </textElement>
+                <text><![CDATA[DIRECCIÓN]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="60" width="65" height="8" />
+                <textElement textAlignment="Justified">
+                    <font fontName="SansSerif" size="6" isBold="false"/>
+                </textElement>
+                <text><![CDATA[CLASE/TIPO]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="67" width="79" height="13" />
+                <textElement>
+                    <font fontName="SansSerif" size="10" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{denominacion}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="88" y="60" width="63" height="8" />
+                <textElement>
+                    <font fontName="SansSerif" size="6" isBold="false"/>
+                </textElement>
+                <text><![CDATA[TON]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="86" width="79" height="8" />
+                <textElement>
+                    <font fontName="SansSerif" size="6" isBold="false"/>
+                </textElement>
+                <text><![CDATA[MARCA / MODELO]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="93" width="79" height="13" />
+                <textElement>
+                    <font fontName="SansSerif" size="10" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[($F{modelo})?$F{marca}+'-'+$F{modelo}:$F{marca}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="88" y="93" width="54" height="13" />
+                <textElement>
+                    <font fontName="SansSerif" size="10" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{annofabricacion}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="88" y="86" width="54" height="8" />
+                <textElement>
+                    <font fontName="SansSerif" size="6" isBold="false"/>
+                </textElement>
+                <text><![CDATA[AÑO]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="112" width="79" height="8" />
+                <textElement>
+                    <font fontName="SansSerif" size="6" isBold="false"/>
+                </textElement>
+                <text><![CDATA[N.º MOTOR]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="119" width="88" height="13" />
+                <textElement>
+                    <font fontName="SansSerif" size="10" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{nromotor1}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="88" y="119" width="63" height="13" />
+                <textElement>
+                    <font fontName="SansSerif" size="10" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{nroserie}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="88" y="112" width="75" height="8" />
+                <textElement>
+                    <font fontName="SansSerif" size="6" isBold="false"/>
+                </textElement>
+                <text><![CDATA[N.º CARROSERIA]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="138" width="163" height="8" />
+                <box leftPadding="0"/>
+                <textElement>
+                    <font fontName="SansSerif" size="6" isBold="false"/>
+                </textElement>
+                <text><![CDATA[COLOR PREDOMINANTE / SECUNDARIO]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="145" width="151" height="13" />
+                <textElement>
+                    <font fontName="SansSerif" size="10" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[($F{colorsec})?$F{colorptim}+'/'+$F{colorsec}:$F{colorptim}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="191" y="112" width="119" height="8" />
+                <textElement>
+                    <font fontName="SansSerif" size="6" isBold="false"/>
+                </textElement>
+                <text><![CDATA[MUNICIPIO / PROVINCIA]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="191" y="119" width="130" height="26" />
+                <textElement>
+                    <font fontName="SansSerif" size="10" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[($P{municipio})?$P{provincia}+'/'+$P{municipio}:$P{provincia}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="172" width="126" height="8" />
+                <box leftPadding="0"/>
+                <textElement>
+                    <font fontName="SansSerif" size="6" isBold="false"/>
+                </textElement>
+                <text><![CDATA[FECHA DE EXPEDICIÓN]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="88" y="67" width="63" height="13" />
+                <textElement>
+                    <font fontName="SansSerif" size="10" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{tonelage}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="34" width="67" height="8" />
+                <textElement>
+                    <font fontName="SansSerif" size="6" isBold="false"/>
+                </textElement>
+                <text><![CDATA[LASSER]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="41" width="151" height="13" />
+                <textElement>
+                    <font fontName="SansSerif" size="10" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[($F{numerolaser2})?$F{numerolaser1}+"/"+$F{numerolaser2}:$F{numerolaser1}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="19" width="79" height="14" />
+                <textElement>
+                    <font fontName="SansSerif" size="11" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[($F{tipo} == 1)?"PARTICULAR":"ESTATAL"]]></textFieldExpression>
+            </textField>
+            <textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+                <reportElement x="0" y="179" width="126" height="13" />
+                <textElement>
+                    <font fontName="SansSerif" size="10" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{fechaactual}]]></textFieldExpression>
+            </textField>
+        </band>
+    </columnHeader>
+    <detail>
+        <band splitType="Stretch"/>
+    </detail>
+    <columnFooter>
+        <band splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band height="60">
+            <textField isBlankWhenNull="true">
+                <reportElement x="1" y="9" width="100" height="13" />
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{nrocirculacion}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="1" y="2" width="47" height="8" />
+                <box leftPadding="0"/>
+                <textElement>
+                    <font fontName="SansSerif" size="6" isBold="false"/>
+                </textElement>
+                <text><![CDATA[CIRCULACIÓN]]></text>
+            </staticText>
+        </band>
+    </pageFooter>
+    <summary>
+        <band splitType="Stretch"/>
+    </summary>
+</jasperReport>

@@ -1,0 +1,83 @@
+<?php
+$dirCerts = substr(
+        $_SERVER['DOCUMENT_ROOT'],
+        0,
+        strrpos($_SERVER['DOCUMENT_ROOT'], 'web')
+    ) . 'config' . DIRECTORY_SEPARATOR . 'certs' . DIRECTORY_SEPARATOR . 'auth'
+    . DIRECTORY_SEPARATOR;
+$configCert = parse_ini_file($dirCerts . 'rsa.ini');
+$publicKey = addcslashes(
+    file_get_contents($dirCerts . $configCert['publicKey']),
+    '\\'
+);
+?>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Packages</title>
+<!--    <link href="/lib/ExtJS/temas/default/css/icon-clases.css" rel="stylesheet"-->
+<!--          type="text/css" media="screen"/>-->
+    <link href="../../../../lib/adapters/ExtJS/4.0.7/resources/css/ext-all.css"
+          rel="stylesheet" type="text/css" media="screen"/>
+<!--    <link href="../../app/comun/Msg.css" rel="stylesheet" type="text/css"-->
+<!--          media="screen"/>-->
+    <link href="../../app/build/Msg.min.css" rel="stylesheet" type="text/css"
+          media="screen"/>
+
+</head>
+<body>
+
+<input id="publicKey" name="publicKey" type="text" style="display:none"
+       hidden="true"
+       value="<?php echo $publicKey; ?>"/>
+
+<script type="text/javascript"
+        src="../../../../lib/adapters/ExtJS/4.0.7/ext-all-debug.js"></script>
+
+<script language="JavaScript" type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/security/rsa/jsbn.js"></script>
+<script language="JavaScript" type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/security/rsa/rsa.js"></script>
+
+<script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/xetid4-all.js"></script>
+
+<!--<script type="text/javascript" src="../../app/idioma/es.js"></script>
+<script type="text/javascript"
+        src="../../app/controller/KeyMapController.js"></script>
+<script type="text/javascript" src="../../app/comun/Msg.js"></script>
+<script type="text/javascript" src="../../app/comun/treeFilter.js"></script>
+
+<script type="text/javascript" src="../../app/model/ModelEstado.js"></script>
+<script type="text/javascript" src="../../app/store/StoreEstado.js"></script>
+
+<script type="text/javascript" src="../../app/model/ModelPaquetes.js"></script>
+<script type="text/javascript" src="../../app/store/StorePaquetes.js"></script>
+
+<script type="text/javascript" src="../../app/comun/Msg.js"></script>
+
+
+<script type="text/javascript"
+        src="../../app/views/contropanel/WinAuxiliar.js"></script>
+<script type="text/javascript"
+        src="../../app/views/contropanel/TreePanelRepositorio.js"></script>
+<script type="text/javascript"
+        src="../../app/views/contropanel/PanelCenter.js"></script>
+<script type="text/javascript"
+        src="../../app/views/contropanel/PanelEast.js"></script>
+<script type="text/javascript"
+        src="../../app/views/contropanel/PanelWest.js"></script>
+<script type="text/javascript"
+        src="../../app/views/contropanel/WinAddRepo.js"></script>
+
+<script type="text/javascript" src="../../app/views/Principal.js"></script>
+<script type="text/javascript"
+        src="../../app/controller/MainController.js"></script>
+
+<script type="text/javascript" src="../../app/aplication.js"></script>-->
+
+<script type="text/javascript"
+        src="../../app/build/controlpanel.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recursos>
+    <aclAccesos reference = "seguridad/index.php/configaccesos/configaccesos">
+        <rec name="configaccesos"/>
+        <rec name="cargarusuario"/>
+        <rec name="insertarusuario"/>
+        <rec name="modificarusuario"/>
+        <rec name="cargarUsuariosLdap"/>
+        <rec name="importarUsuariosLdap"/>
+        <rec name="eliminarusuario"/>
+        <rec name="cambiarpassword"/>
+        <rec name="ActivarUsuario"/>
+        <rec name="DesactivarUsuario"/>
+        <rec name="guardarPerfil"/>
+        <rec name="cargarroles"/>
+        <rec name="cargarentidades"/>
+        <rec name="asignarroles"/>
+        <rec name="cargarrol"/>
+        <rec name="modificarrol"/>
+        <rec name="insertarrol"/>
+        <rec name="eliminarrol"/>
+        <rec name="validarasignacionroles"/>
+        <rec name="cargarGridGrupos"/>
+        <rec name="cargarsistemafuncionalidades"/>
+        <rec name="insertarrelacion"/>
+        <rec name="eliminarrelacion"/>
+        <rec name="cargaraccionesquetiene"/>
+        <rec name="cargaraccionesquenotiene"/>
+        <rec name="cargarsistemafunc"/>
+        <rec name="adicionaraccion"/>
+        <rec name="eliminaraccion"/>
+        <rec name="cargarcamposform"/>
+        <rec name="cargarcampos"/>
+        <rec name="insertarcampo"/>
+        <rec name="modificarcampo"/>
+        <rec name="eliminarcampo"/>
+        <rec name="insertarperfil"/>
+        <rec name="modificarperfil"/>
+        <rec name="modificarperfiles"/>
+        <rec name="configurargrid"/>
+        <rec name="cargargrid"/>
+    </aclAccesos>
+</recursos>

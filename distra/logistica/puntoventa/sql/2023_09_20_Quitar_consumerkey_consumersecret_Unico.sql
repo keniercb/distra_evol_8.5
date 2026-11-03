@@ -1,0 +1,4 @@
+ALTER TABLE mod_logpuntoventa.dat_caja
+DROP CONSTRAINT dat_caja_consumerkey_key RESTRICT;
+ALTER TABLE mod_logpuntoventa.dat_caja
+DROP CONSTRAINT dat_caja_consumersecret_key RESTRICT;

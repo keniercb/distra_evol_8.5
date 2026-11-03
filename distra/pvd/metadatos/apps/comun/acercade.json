@@ -1,0 +1,9 @@
+{
+		"nombre"     : "Sistema de Gestión Organizacional",
+		"version"    : "2.1.2",
+		"fecha"      : "22/11/2014",
+		"autor"      : "Centro de Gestión Organizacional",
+		"dependencia": ["Zeolides 2.2.0", "Quarseg 2.1", "Ayuda 3.0", "Datosmaestros 5.0", "Logística 5.0"],
+		"descripcion": "<p style='text-align: justify'>El Subsistema de Gestión Organizacional tiene con objetivo principal crear estructuras organizativas y/o jerárquicas de una o varias unidades organizativas mediante propuestas de cambios y ajustes organizacionales, además de la creación de estructuras no formales sobre la subordinación oficial de una o varias unidades organizativas.</p>",
+		"logo"       : "metadatos/comun/recursos/imagenes/logo.png"
+}

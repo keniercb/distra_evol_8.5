@@ -1,0 +1,27 @@
+/*
+        * To change this template, choose Tools | Templates
+        * and open the template in the editor.
+        */
+
+        {
+        lbTituloAyudaPriorizarEntidad:'Ayuda de Priorizar Entidad',
+                lbBtnLimpiar:'<u>L</u>impiar',
+                msgBuscar:'No existen datos que se correspondan con los criterios de b&uacute;squeda especificados.',
+                msgAsignandoPrioridad: 'Asignando prioridad por defecto',
+                msgGuardandoPrioridad: 'Guardando prioridad de especialidades',
+                lbBtnMostrarAyuda: 'Mostrar ayuda de la funcionalidad',
+                lbAyuda: 'Ayuda',
+                lbTtIncrementarPrioridad: 'Incrementar prioridad',
+                lbTtDecrementarPrioridad: 'Decrementar prioridad',
+                lbTtGuardarPriorización: 'Guardar priorización de planes',
+                lbTtLimpiarFiltros: 'Limpiar filtros',
+                lbSeleccione: 'Seleccione',
+                lbCargando: 'Cargando...',
+                lbFiltrarCB: 'Filtrar centro de balance',
+                lbCentrosDeBalance: 'Centros de balance',
+                lbDenominacion: 'Denominación',
+                lbPriorizarEspecialidades: 'Priorizar especialidades',
+                lbEspecialidad: 'Especialidad',
+                lbPrioridad: 'Prioridad',
+                lbResultadosPorPagina: 'Resultados por página',
+                }

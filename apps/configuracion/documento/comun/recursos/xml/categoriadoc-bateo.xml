@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<categorias>
+    <derechoscobro alias="derechoscobro">
+        <factura alias="factura"/>
+        <contrato alias="contrato"/>
+        <conduce alias="SCM103"/>
+        <informerec alias="informerec"/>
+        <certavance alias="certavance"/>
+        <expsob alias="expsob"/>
+        <contravmn alias="contravmn"/>
+    </derechoscobro>
+    <obligacionpago alias="obligacionpago">
+        <facturainformrecep alias="facturainformrecep"/>
+        <conduce alias="SCM103"/>
+        <factura alias="factura"/>
+        <contrato alias="contrato"/>
+        <gastosacpag alias="gastosacpag"/>
+        <ajustesanoant alias="ajustesanoant"/>
+        <expsobpag alias="expsobpag"/>
+        <informerec alias="informerec"/>
+    </obligacionpago>
+    <derechosfisc alias="derechosfisc">
+        <declaracionjca alias="declaracionjca"/>
+        <nominamicro alias="nominamicro"/>
+        <nominalicmat alias="nominalicmat"/>
+    </derechosfisc>
+    <obligacionesfisc alias="obligacionesfisc">
+        <cr9 alias="cr9"/>
+        <cr10 alias="cr10"/>
+        <cr11 alias="cr11"/>
+        <cr12 alias="cr12"/>
+        <cr13 alias="cr13"/>
+        <cr14 alias="cr14"/>
+        <cr15 alias="cr15"/>
+        <cr16 alias="cr16"/>
+        <cr17 alias="cr17"/>
+    </obligacionesfisc>
+    <cobroanticipado alias="cobroanticipado">
+        <recefect alias="recefect"/>
+        <transferenciab alias="transferenciab"/>
+        <chequenom alias="chequenom"/>
+        <chequecert alias="chequecert"/>
+        <chequevoucher alias="chequevoucher"/>
+        <chequegerencia alias="chequegerencia"/>
+        <cartacredlocal alias="cartacredlocal"/>
+        <pagare alias="pagare"/>
+        <letracambio alias="letracambio"/>
+        <factura alias="factura"/>
+        <antliqvd alias="antliqvd"/>
+    </cobroanticipado>
+    <pagoanticipado alias="pagoanticipado">
+        <transferenciab alias="transferenciab"/>
+        <chequenom alias="chequenom"/>
+        <chequecert alias="chequecert"/>
+        <chequevoucher alias="chequevoucher"/>
+        <chequegerencia alias="chequegerencia"/>
+        <cartacredlocal alias="cartacredlocal"/>
+        <pagare alias="pagare"/>
+        <letracambio alias="letracambio"/>
+        <factura alias="factura"/>
+    </pagoanticipado>
+    <instrumentospagoscobros alias="instrumentospagoscobros">
+        <transferenciab alias="SCM119"/>
+        <chequenom alias="chequenom"/>
+        <chequecert alias="chequecert"/>
+        <chequevoucher alias="chequevoucher"/>
+        <chequegerencia alias="chequegerencia"/>
+        <ordencobro alias="ordencobro"/>
+        <tarjetaplastica alias="tarjetaplastica"/>
+        <cartacredlocal alias="cartacredlocal"/>
+        <letracambio alias="letracambio"/>
+        <pagare alias="pagare"/>
+        <modelosonat alias="modelosonat"/>
+        <reciboefectingr alias="recefect"/>
+        <estadocuentb alias="estadocuentb"/>
+        <th81 alias="th81"/>
+        <th71 alias="th71"/>
+    </instrumentospagoscobros>
+    <instrumentoscaja alias="instrumentoscaja">
+        <chequenom alias="chequenom"/>
+        <efectivo alias="efectivo"/>
+        <chequecert alias="chequecert"/>
+        <chequevoucher alias="chequevoucher"/>
+        <chequegerencia alias="chequegerencia"/>
+        <cartacredlocal alias="cartacredlocal"/>
+        <letracambio alias="letracambio"/>
+        <pagare alias="pagare"/>
+        <ordencobro alias="ordencobro"/>
+    </instrumentoscaja>
+    <documentoscaja alias="documentoscaja">
+        <recefect alias="recefect"/>
+        <valpagmen alias="valpagmen"/>
+        <antliquidv alias="antliquidv"/>
+        <antliqvd alias="antliqvd"/>
+        <arqefect alias="arqefect"/>
+        <compdep alias="compdep"/>
+        <reembfondpag alias="reembfondpag"/>
+        <arqueefcdep alias="arqueefcdep"/>
+        <chequecert alias="chequecert"/>
+        <chequenom alias="chequenom"/>
+    </documentoscaja>
+    <instrumentosbancarios alias="instrumentosbancarios">
+        <chequecert alias="chequecert"/>
+        <chequenom alias="chequenom"/>
+        <chequevoucher alias="chequevoucher"/>
+        <chequegerencia alias="chequegerencia"/>
+        <cartacredlocal alias="cartacredlocal"/>
+        <letracambiop alias="letracambiop"/>
+        <letracambioc alias="letracambioc"/>
+        <modcobautbanc alias="modcobautbanc"/>
+        <modoperc alias="modoperc"/>
+        <modpagautbanc alias="modpagautbanc"/>
+        <modelosonat alias="modelosonat"/>
+        <otrosp alias="otrosp"/>
+        <ordenp alias="ordenp"/>
+        <pagare alias="pagare"/>
+        <transferenciab alias="transferenciab"/>
+        <RefB alias="RefB"/>
+    </instrumentosbancarios>
+    <secuenciatrasp alias="secuenciatrasp">
+        <secuencia alias="secuencia"/>
+    </secuenciatrasp>
+    <despachos>
+        <facturaLog alias="SCM110"/>
+        <valeLog alias="SCM111"/>
+        <transferenciaLog alias="SCM119"/>
+        <conduceLog alias="SCM103"/>
+        <entregaLog alias="SCM108"/>
+        <plandistribLog alias="SCM108A"/>
+    </despachos>
+    <docsalidagen>
+        <valeLog alias="SCM111"/>
+        <transferenciaLog alias="SCM119"/>
+    </docsalidagen>
+    <docsalida>
+        <facturaLog alias="SCM110"/>
+        <valeLog alias="SCM111"/>
+        <transferenciaLog alias="SCM119"/>
+        <conduceLog alias="SCM103"/>
+    </docsalida>
+    <submayor>
+        <entregaLog alias="SCM108"/>
+        <plandistribLog alias="SCM108A"/>
+        <regconsumoLog alias="SCM117"/>
+        <combustibleLog alias="SCM122"/>
+        <medcombLog alias="SCM125A"/>
+        <movAFT alias="SCM150"/>
+    </submayor>
+    <cierre>
+        <recepcionLog alias="SCM109"/>
+        <facturaLog alias="SCM110"/>
+        <conduceLog alias="SCM103"/>
+        <informediferenciaLog alias="SCM112"/>
+        <valeLog alias="SCM111"/>
+        <transferenciaLog alias="SCM119"/>
+        <aperturaLog alias="SCM120A"/>
+        <inventariopLog alias="SCM120P"/>
+        <inventariogLog alias="SCM120G"/>
+        <ajusteLog alias="SCM113"/>
+        <bajaLog alias="SCM137"/>
+    </cierre>
+    <docemitidosrec>
+        <recepcionLog alias="SCM109"/>
+        <facturaLog alias="SCM110"/>
+        <conduceLog alias="SCM103"/>
+        <informediferenciaLog alias="SCM112"/>
+        <valeLog alias="SCM111"/>
+        <transferenciaLog alias="SCM119"/>
+        <aperturaLog alias="SCM120A"/>
+        <inventariogLog alias="SCM120G"/>
+        <inventariopLog alias="SCM120P"/>
+        <ajusteLog alias="SCM113"/>
+        <entregaLog alias="SCM108"/>
+        <plandistribLog alias="SCM108A"/>
+        <conciliacionLog alias="SCM138"/>
+    </docemitidosrec>
+</categorias>

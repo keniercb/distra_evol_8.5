@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ioc>
+    <!--Servicios del componente Portal -->
+    <portal src="portal">
+        <BuscarUsuarioByAlias reference="">
+            <inyector clase="PortalProxyService" metodo="buscarUsuarioByAlias" />
+            <prototipo>
+                <parametro nombre="alias" tipo="letras" />
+                <resultado clase="Doctrine_Collection" />
+            </prototipo>
+        </BuscarUsuarioByAlias>
+        <ObtenerSubsitemaURI reference="">
+            <inyector clase="PortalProxyService" metodo="ObtenerSubsitemaURI" />
+            <prototipo>
+                <parametro nombre="uri" clase="stdClass" />
+                <parametro nombre="identidad" tipo="enteropos" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </ObtenerSubsitemaURI>
+        <ObtenerSubsitemaURIByUri reference="">
+            <inyector clase="PortalProxyService" metodo="ObtenerSubsitemaURIByUri" />
+            <prototipo>
+                <parametro nombre="uri" />
+                <resultado tipo="array" />
+            </prototipo>
+        </ObtenerSubsitemaURIByUri>
+        <BuscarSubsistemaPorId reference="">
+            <inyector clase="PortalProxyService" metodo="BuscarSubsistemaPorId" />
+            <prototipo>
+                <parametro nombre="id" />
+                <resultado tipo="array" />
+            </prototipo>
+        </BuscarSubsistemaPorId>
+        <ObtenerSubsistemasall reference="">
+            <inyector clase="PortalProxyService" metodo="ObtenerSubsistemasall" />
+            <prototipo>
+                <resultado tipo="array" />
+            </prototipo>
+        </ObtenerSubsistemasall>
+        <ObtenerSubsistemas reference="">
+            <inyector clase="PortalProxyService" metodo="ObtenerSubsistemas" />
+            <prototipo>
+                <parametro nombre="start" tipo="enterospos" />
+                <parametro nombre="limit" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </ObtenerSubsistemas>
+        <RefrescarPortal reference="">
+            <inyector clase="PortalProxyService" metodo="RefrescarPortal" />
+            <prototipo>
+            </prototipo>
+        </RefrescarPortal>
+    </portal>
+</ioc>

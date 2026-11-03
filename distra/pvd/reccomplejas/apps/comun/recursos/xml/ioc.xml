@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ioc>
+    <reccomplejas src="reccomplejas">
+
+        <!-- Servicio que devuelve el listado de busquedas asociadas a un usuario -->
+        <getBusquedasByUserConf reference="">
+            <inyector clase="ReccomplejasService" metodo="getBusquedasByUserConf"/>
+            <prototipo>
+                <parametro nombre="idconfiguracion" tipo="string"/>
+                <parametro nombre="idusuario" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getBusquedasByUserConf>
+
+        <!-- Servicio que devuelve el sql de una busqueda -->
+        <getSqlBusqueda reference="">
+            <inyector clase="ReccomplejasService" metodo="getSqlBusqueda"/>
+            <prototipo>
+                <parametro nombre="idconfiguracion" tipo="string"/>
+                <parametro nombre="idbusqueda" tipo="enterospos"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getSqlBusqueda>
+
+         <!-- Servicio para ejecutar las busquedas avanzadas -->
+        <getEjecutarBusquedaAvanzada reference="">
+            <inyector clase="ReccomplejasService" metodo="ejecutarBusquedaAvanzada"/>
+            <prototipo>
+                <parametro nombre="idbusqueda" tipo="string"/>
+                <parametro nombre="idusuario" tipo="enterospos"/>
+                <parametro nombre="limit" tipo="enterospos"/>
+                <parametro nombre="start" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getEjecutarBusquedaAvanzada>
+
+        <!-- Servicio que brinda los scripts necesario para utilizar el componente de Recuperaciones Complejas -->
+        <obtenerScriptsReccomplejas reference="">
+            <inyector clase="ReccomplejasService" metodo="obtenerScriptsReccomplejas"/>
+            <prototipo>
+                <parametro nombre="useMap" tipo="enterospos"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </obtenerScriptsReccomplejas>
+
+        <!-- Servicio que brinda los scripts necesarios para utilizar la libreria para graficar -->
+        <getScriptsForCharting reference="">
+            <inyector clase="ReccomplejasService" metodo="getScriptsForCharting"/>
+            <prototipo>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getScriptsForCharting>
+
+        <!-- Servicio que brinda el componente recuperaciones complejas para modificar el aviso asociado con una búsqueda -->
+        <actualizaAvisoBusqueda reference="">
+            <inyector clase="ReccomplejasService" metodo="actualizaAvisoBusqueda"/>
+            <prototipo>
+                <parametro nombre="parametros" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </actualizaAvisoBusqueda>
+
+        <!-- Devuelve el listado de configuraciones realizadas -->
+        <obtenerConfiguraciones reference="">
+            <inyector clase="ReccomplejasService" metodo="obtenerConfiguraciones"/>
+            <prototipo>
+                <parametro nombre="denom" defaul="string"/>
+                <parametro nombre="start" tipo="enterospos"/>
+                <parametro nombre="limit" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerConfiguraciones>
+
+        <!-- Devuelve todos los campos de un configuracion en especifico -->
+        <getCamposConfiguracion reference="">
+            <inyector clase="ReccomplejasService" metodo="getCamposConfiguracion"/>
+            <prototipo>
+                <parametro nombre="idconfiguracion" tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getCamposConfiguracion>
+
+        <!--Obtiene los nodos de la configuracion para ser representados en forma de arbol-->
+        <getFieldsForTree reference="">
+            <inyector clase="ReccomplejasService" metodo="getFieldsForTree"/>
+            <prototipo>
+                <parametro nombre="idconfiguracion" tipo="string"/>
+                <parametro nombre="idpadre"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getFieldsForTree>
+
+        <!--Crea la conexion en dql a la tabla NomConfiguracion-->
+        <addDqlNomConfiguracion reference="">
+            <inyector clase="NomConfiguracion" metodo="addDqlNomConfiguracion"/>
+            <prototipo>
+                <parametro nombre="objDoctrineQuery" tipo="Doctrine_Query"/>
+                <parametro nombre="aliasReferenceTable" tipo="numerosletras"/>
+                <parametro nombre="aliasTable" tipo="numerosletras"/>
+                <parametro nombre="includeDqlSelect" tipo="bool"/>
+                <resultado tipo="Doctrine_Query"/>
+            </prototipo>
+        </addDqlNomConfiguracion>
+
+        <!--Crea la conexion en dql a la tabla DatCampo-->
+        <addDqlDatCampo reference="">
+            <inyector clase="ReccomplejasService" metodo="addDqlDatCampo"/>
+            <prototipo>
+                <parametro nombre="idconfiguracion" tipo="numerosletras"/>
+                <parametro nombre="objDoctrineQuery" tipo="Doctrine_Query"/>
+                <parametro nombre="aliasReferenceTable" tipo="numerosletras"/>
+                <parametro nombre="aliasTable" tipo="numerosletras"/>
+                <parametro nombre="includeDqlSelect" tipo="bool"/>
+                <resultado tipo="Doctrine_Query"/>
+            </prototipo>
+        </addDqlDatCampo>
+
+        <!--Devuelve el resultado de la consulta dado las condicionales usando los campos a mostrar por defecto-->
+        <obtenerReporte reference="">
+            <inyector clase="ReccomplejasService" metodo="obtenerReporte"/>
+            <prototipo>
+                <parametro nombre="idconfiguracion" tipo="numerosletras"/>
+                <parametro nombre="condiciones" tipo="array"/>
+                <parametro nombre="orden" tipo="array"/>
+                <parametro nombre="limit" tipo="enterospos"/>
+                <parametro nombre="start" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerReporte>
+
+        <!--Ejecuta una busqueda-->
+        <buscar reference="">
+            <inyector clase="ReccomplejasService" metodo="buscar"/>
+            <prototipo>
+                <parametro nombre="idconfiguracion" tipo="numerosletras"/>
+                <parametro nombre="campos" tipo="array"/>
+                <parametro nombre="condiciones" tipo="array"/>
+                <parametro nombre="orderby" tipo="array"/>
+                <parametro nombre="operacion" tipo="array"/>,
+                <parametro nombre="limit" tipo="enterospos"/>
+                <parametro nombre="start" tipo="enterospos"/>
+                <parametro nombre="extraParams" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </buscar>
+
+    </reccomplejas>
+</ioc>

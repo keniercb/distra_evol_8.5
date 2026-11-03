@@ -1,0 +1,51 @@
+.x-grid3-row-body p {
+    margin:3px 5px 5px 5px !important;
+}
+
+.fila-aprobada3{
+	background:#00ffff !important;
+}
+
+.fila-aprobada2{
+	background:#ccffcc !important;
+}
+
+.fila-comentada{
+	border:2px solid #FF0000 !important;
+}
+
+.superior{
+	background-color:#FFCCCC !important;
+}
+.verde{
+	background-color:#CCFFCC !important;
+}
+
+.azul{
+	background-color:#CCCCFF !important;
+}
+
+.amarillo{
+	background-color:#FFFFCC !important;
+}
+
+.ventanaAdelante {
+	z-index:20000 !important;
+}
+
+.ventanaMasAdelante {
+	z-index:22000 !important;
+}
+
+.ventanaMassAdelante {
+	z-index:233000 !important;
+}
+
+.ux-IndicadorPrevios
+{
+	position: absolute;
+	height: 18px;
+	width: 16px;
+	/*overflow: hidden;*/
+	background: url(../images/chart/arrow_left.png) no-repeat;
+}

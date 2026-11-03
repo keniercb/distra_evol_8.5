@@ -1,0 +1,223 @@
+{
+  "reccomplejas": {
+    "src": "\/reccomplejas\/",
+    "component": {
+      "reccomplejas": {
+        "js": [
+          "views\/js\/reccomplejas\/HighchartPanel.js",
+          "views\/js\/reccomplejas\/RowExpander.js",
+          "views\/js\/reccomplejas\/treeComboBox.js",
+          "views\/js\/reccomplejas\/CmpGestBusquedas.js",
+          "views\/js\/reccomplejas\/WinSalvarBusqueda.js",
+          "views\/js\/reccomplejas\/CmpMapa.js",
+          "views\/js\/reccomplejas\/PanelReporte.js",
+          "views\/js\/reccomplejas\/PanelConfiguracion.js",
+          "views\/js\/reccomplejas\/CmpAsignarBusqueda.js",
+          "views\/js\/reccomplejas\/CmpReccomplejas.js"
+        ],
+        "css": [
+          "views\/css\/iconos.css"
+        ],
+        "idioma": [
+          "views\/idioma\/{idioma}\/reccomplejas\/reccomplejas.js"
+        ],
+        "required": [
+          {
+            "module": "comun",
+            "component": "extensiones"
+          },
+          {
+            "module": "comun",
+            "component": "utiles"
+          },
+          {
+            "module": "reccomplejas",
+            "component": "flotlibrary"
+          },
+          {
+                "module": "reccomplejas",
+                "component": "highchart"
+          }
+        ]
+      },
+      "flotlibrary": {
+        "js": [
+          "views\/comun\/flotlibrary\/jquery.flot.min.js",
+          "views\/comun\/flotlibrary\/jquery.flot.resize.min.js",
+          "views\/comun\/flotlibrary\/jquery.flot.tooltip.js",
+          "views\/comun\/flotlibrary\/jquery.flot.pie.min.js"
+        ]
+      },
+        "highchart": {
+            "js": [
+                "views\/comun\/highchart\/jquery-1.8.2\/jquery-1.8.2.min.js",
+                "views\/comun\/highchart\/js\/highcharts.js",
+                "views\/comun\/highchart\/js\/modules\/exporting.js"
+            ]
+        }
+    }
+  },
+  "metadatos": {
+    "src": "\/metadatos\/",
+    "component": {
+      "uiEstructura": {
+        "js": [
+          "proyecto/views/js/idioma/etiquetas.js",
+          "proyecto/views/js/estructura/componentes/qtipTreeEstructura.js",
+            "proyecto/views/js/estructura/componentes/winEspecialidad.js",
+          "estructura/views/js/iuService/panelIUEstructura.js",
+          "estructura/views/js/iuService/ventanaIU.js"
+        ],
+        "css": [
+          "comun/css/metadatos.css"
+        ]
+      },
+      "comun":{
+          "js":[
+              "comun\/componentes\/MultiComboSelect\/util-multiselect.js",
+              "comun\/componentes\/MultiComboSelect\/MultiComboSelect.js"
+          ],
+          "css":[
+              "comun\/componentes\/MultiComboSelect\/multicomboselect.css"
+              ]
+      }
+      
+    }
+  },
+  "comun": {
+    "src": "\/pvd\/comun\/",
+    "component": {
+      "baseTags": {
+        "js": [
+          "views\/js\/utiles\/tags\/baseTags.js",
+          "views\/idioma\/es\/tags\/tags.js"
+        ]
+      },
+      "yepnope": {
+        "js": "bibliotecas\/yepnope\/yepnope.1.5.4-min.js"
+      },
+      "extensiones": {
+        "js": "views\/js\/utiles\/extensiones.js"
+      },
+      "checkallcolumn": {
+        "js": "views\/js\/utiles\/CheckAllColumn.js"
+      },
+      "SearchField": {
+        "js": "views\/js\/utiles\/searchComboBox.js"
+      },
+      "utiles": {
+        "js": [
+          "views\/js\/utiles\/Utiles.js",
+          "views\/js\/utiles\/DateRange.js",
+          "views\/js\/utiles\/validadores.js",
+          "views\/js\/utiles\/vtypes\/CustomVTypes.js"
+        ]
+      },
+      "rowspander": {
+        "js": "views\/js\/utiles\/RowExpander.js"
+      },
+      "layoutaux": {
+        "js": "views\/js\/utiles\/Layoutaux.js"
+      },
+      "fileupload": {
+        "js": "views\/js\/utiles\/FileUploadField.js",
+        "css": "views\/css\/file-upload.css"
+      },
+      "menuexportar": {
+        "js": "views\/js\/utiles\/MenuExportar.js",
+        "css": "views\/css\/iconos.css"
+      },
+      "spinner": {
+        "js": [
+          "views\/js\/spinner\/Spinner.js",
+          "views\/js\/spinner\/SpinnerStrategy.js"
+        ],
+        "css": "views\/js\/spinner\/Spinner.css"
+      },
+      "treegrid": {
+        "js": "views\/js\/treegrid\/TreeGrid.js",
+        "css": "views\/css\/TreeGrid.css"
+      },
+      "colorfield": {
+        "js": "views\/js\/palettecolor\/color-field.js",
+        "css": "views\/js\/palettecolor\/styles.css"
+      },
+      "groupcombobox": {
+        "js": [
+          "views\/js\/GroupComboBox\/GroupDataView.js",
+          "views\/js\/GroupComboBox\/GroupComboBox.js"
+        ]
+      },
+      "tinymce": {
+        "js": "bibliotecas\/tinymce\/js\/tinymce\/tinymce.min.js",
+        "css": [
+          "bibliotecas\/tinymce\/js\/tinymce\/skins\/lightgray\/skin.min.css",
+          "bibliotecas\/tinymce\/js\/tinymce\/skins\/lightgray\/content.inline.min.css",
+          "bibliotecas\/tinymce\/js\/tinymce\/skins\/lightgray\/content.min.css"
+        ]
+      },
+      "buscardorsuin": {
+        "js": [
+          "views\/js\/buscadorSuin\/buscadorSuin.js"
+        ]
+      },
+      "buscadorfuc": {
+        "js": [
+          "views\/js\/buscadorexterno\/fuc.js"
+        ]
+      },
+      "documentos": {
+        "js": "views\/js\/anexosdocumentospersonacomp\/anexosdocumentospersonacomp.js"
+      }
+    }
+  },
+  "logistica": {
+    "src": "\/logistica\/",
+    "component": {
+      "medios": {
+        "js": [
+          "utiles\/comun\/views\/idioma\/es\/global.js",
+          "utiles\/comun\/views\/idioma\/es\/meses.js",
+          "utiles\/comun\/views\/js\/plugins\/extjs-addons.js",
+          "utiles\/comun\/views\/js\/util\/ui.manager.js",
+          "utiles\/comun\/views\/js\/util\/ui.model.js",
+          "utiles\/comun\/views\/js\/util\/ui.template.js",
+          "utiles\/comun\/views\/js\/util\/ui.templatetab.js",
+          "utiles\/maestroproductos\/views\/idioma\/es\/maestroproductos.js",
+          "utiles\/maestroproductos\/views\/js\/maestroproductos\/maestroproductos.plugins.js",
+          "utiles\/maestroproductos\/views\/js\/maestroproductos\/arbolproductos.view.js",
+          "utiles\/maestroproductos\/views\/js\/maestroproductos\/maestroproductos.services.js"
+        ],
+        "css": [
+          "utiles\/comun\/views\/css\/comun.css"
+        ],
+        "required": [
+          {
+            "module": "lib",
+            "component": "jaspereports"
+          }
+        ]
+      }
+    }
+  },
+  "lib": {
+    "src": "\/lib\/",
+    "component": {
+      "jaspereports": {
+        "js": [
+          "JasperReports\/Ext.util.Reports.js"
+        ]
+      }
+    }
+  },
+  "pci":{
+      "src":"\/pvd\/pci\/",
+      "component": {
+      "documentos": {
+        "js": [
+          "documentos\/views\/js\/gestionardocumentos\/gestionardocumentos.js"
+        ]
+      }
+    }
+  }
+}

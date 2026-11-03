@@ -1,0 +1,2 @@
+delete from mod_nomina.conf_indicadorespagoporresultado
+where idpagoporresultado not in (select idpagoporresultado from mod_nomina.conf_pagosporresultado);

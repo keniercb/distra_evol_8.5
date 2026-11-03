@@ -1,0 +1,138 @@
+/*.vigencia_a_excederseaa .x-grid-cell{*/
+    /*background-color: #ff82ab !important;*/
+    /*background-color: #ffcc99 !important;*/
+    /*background-color: #FFF4c2 !important;*/
+    /*color: #CC6600;*/
+    /*!*color:white;*!*/
+/*}*/
+
+/*.vigencia_excedida .x-grid-cell{*/
+    /*!*background-color: red !important;*!*/
+    /*background-color: #ffe2e2 !important;*/
+    /*color: #900;*/
+/*}*/
+
+.introducidomanual input{
+    /*background: white url(../images/papel-y-lapiz.png) no-repeat fixed right top;*/
+    background: white url(../images/plano-cercano-de-pluma-estilografica.png) no-repeat left top !important;
+}
+
+.deuda .x-grid-cell{
+    color: red;
+    /*color: #8a0e1b;*/
+    /*color: #8A2624;*/
+}
+
+.tooltiphito{
+    display: inline;
+    position: relative;
+}
+
+.tooltiphito:hover:after{
+    top: 40px;
+    content: 'El valor del monto ha sido modificado manualmente. Los hitos no podrán superar este valor.'; /* este es el texto que será mostrado */
+    /*content: attr(titlesito); !* este es el texto que será mostrado *!*/
+    right: 0%;
+    position: absolute;
+    z-index: 98;
+    /* el formato gráfico */
+    background: #5a637e ; /*#99bce8 #5a637e el color de fondo */
+    border-radius: 10px;
+    color: white; /* el color del texto */
+    font-family: Arial;
+    font-size: 11px;
+    padding: 5px 15px;
+    /*text-align: center;*/
+    /*text-shadow: 1px 1px 1px #000;*/
+    width: 220px;
+    /* Netscape */
+    -moz-opacity: 0.85;
+    /* Safari 1.x */
+    -khtml-opacity: 0.85;
+    /* Good browsers */
+    opacity: 0.85;
+}
+
+.tooltiphito:hover:before{
+    top: 34px;
+    content: "";
+    right: 20px;
+    position: absolute;
+    z-index: 99;
+    /* el triángulo inferior */
+    border: solid;
+    border-color: #5a637e transparent;
+    border-width: 0 6px 6px 6px;
+    /* Netscape */
+    -moz-opacity: 0.85;
+    /* Safari 1.x */
+    -khtml-opacity: 0.85;
+    /* Good browsers */
+    opacity: 0.85;
+}
+
+/*.introducidomanual input:hover{*/
+    /*width:30px;*/
+    /*background-color:red*/
+/*}*/
+
+.detallesoferta{
+    font: 12px Arial, Helvetica, sans-serif;
+}
+.detallesoferta label{
+    font-weight: bold;
+    color: #124872;
+}
+.detallesoferta fieldset{
+    border: 1px solid #99BCE8;
+}
+.ofertanegocio-columnheader div{
+    border: 1px solid #C5C5C5;
+    float: left;
+    background-color: #C5C5C5;
+    background-image: -moz-linear-gradient(center top , #F9F9F9, #E3E4E6);
+    text-overflow: ellipsis;
+    padding: 2px 3px 2px;
+}
+.detallesoferta-general{
+    padding: 10px;
+    border: 1px solid #99BCE8;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.ofertanegocio-block{
+    float: left;
+    overflow: hidden;
+    width: 50%;
+}
+.ofertanegocio-allrow{
+    width: 100%;
+}
+.ofertanegocio-block4{
+    width: 40%;
+}
+.ofertanegocio-block2{
+    width: 20%;
+}
+.ofertanegocio-block6{
+    width: 60%;
+}
+.ofertanegocio-item{
+    font: 12px Arial, Helvetica, sans-serif;
+    margin: 0 0 10px 0;
+}
+.ofertanegocio-item label{
+    font-weight: bold;
+    margin-right: 8px;
+}
+.solicitudnegocio-row{
+    clear: left;
+}
+.ofertanegocio-row div{
+    float: left;
+    border: 1px solid #C5C5C5;
+    padding: 2px 3px 2px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

@@ -1,0 +1,83 @@
+Ext.ns('Log.tall.mercanciatransito');
+Log.tall.mercanciatransito.Idioma = {
+
+    // Botones de la interfaz principal.
+    lbBtnImprimirListado: 'Imprimir listado',
+    lbBtnLimpiar:'<u>L</u>impiar',
+    lbBtnImprimir:'Im<u>p</u>rimir',
+    lbBtnBuscar:'<u>B</u>uscar',
+
+    lbCbOrdenTrabajointera: 'Orden de trabajo cerradas sin facturas internas',
+    lbCbOrdenTrabajoexterna: 'Orden de trabajo cerradas sin facturas externas',
+    lbCbOrdenTrabajoconfactcancelada: 'Orden de trabajo con facturas canceladas',
+    lbCbOrdenTrabajocontabilizan: 'Orden de trabajo que contabilizan directo' ,
+    lbCbOrdenTrabajonocontabilizan: 'Orden de trabajo que no contabilizan directo',
+
+    lbCbGestionGeneral :'Gesti\xf3n general',
+    lbCbMercanciasRecibidas : 'Mercancia(s) recibida(s)',
+    lbCbMercanciasEnviadas: 'Mercancia(s) enviada(s)',
+
+    lbCbParalizacionEspecifico:'Paralizaci\xf3n espec\xedfica',
+    lbCbParalizacionGeneral:'Paralizaci\xf3n general',
+    lbCbCarroRenta:'Carro de renta',
+    lbCbMoto:'Moto',
+    lbCbOmnibus:'\xd3mnibus',
+    lbCbPieza:'Pieza',
+    lbChxCambiodeOrigen : 'Camio a Origen',
+    // Columnas del grid de la interfaz principal.
+    cgDepositos: 'Dep\xf3sitos',
+    cgCompras: 'Compras',
+    cgVentas: 'Ventas',
+    cgGastos: 'Gastos',
+    cgAjustes: 'Ajustes',
+    cgImporte: 'Importe',
+
+    cgUEB:'UEB',
+    cgTipo:'Tipo',
+    cgMarca:'Marca',
+    cgModelo:'Modelo',
+    lbDestinoDeposito: 'Dep\xf3sitos',
+    cgIndicativo:'Indicativo',
+    cgMatricula:'Matr\xedcula',
+    cgMotivosParalizacion:'Motivos paralizaci\xf3n',
+    cgFechaEntrada:'Fecha entrada',
+    cgEst:'Est.',
+    cgNumPedido:'No. pedido',
+    cgAgencia:'Agencia',
+    cgDiasParado:'D\xedas paralizados',
+    cgPronosticoSalida:'Pron\xf3stico salida',
+    cgSobreEstadia:'Sobreestad\xeda',
+    cgActualmentePendPor:'Pendiente por',
+    cgFechaPedido:'Fecha pedido',
+    cgOT:'OT',
+    cgObservaciones:'Observaciones',
+    cgTotalVehiculos:'Total veh\xedculos',
+    cgBET:'Buen estado t\xe9cnico',
+    cgParalizacionOtroTaller:'Paralizados en otros talleres',
+    cgParalizacionBase:'Paralizados en la base',
+    cgTotalParalizados:'Total paralizados',
+    cg1To30:'1 - 30',
+    cgCDT:'CDT',
+    cgDenominacion:'Denominaci\xf3n',
+    cgCodigo:'C\xf3digo',
+
+    //tooltip
+    ttImprimir: 'Imprimir paralizaci\xf3n(es) <b>(Alt+P)</b>',
+    ttAyuda: 'Ayuda',
+
+    tlEstructuras: 'Estructuras',
+    labelAgencia: 'Agencia',
+
+    //tooltips
+    ttBtnBuscarParalizacion:'Buscar paralizaci\xf3n(es)  <b>(Alt+B)</b>',
+    ttBtnBuscar: 'Buscar mercancia(s) en tr\xe1nsito <b>(Alt+B)</b>',
+    ttBtnLimpiar:'Limpiar filtro(s) <b>(Alt+L)</b>',
+
+
+    //mensajes
+    msgInfDatosB:'No existen datos que mostrar.',
+
+    msgInfDatosE:'No existen datos que se correspondan con los criterios de b\xfasqueda especificados.'
+
+    //codigo de tildes:  a->\xe1, o->\xf3, i->\xed u->\xfa
+};

@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "strictNullChecks": false,
+    "target": "ES5",
+    "outDir": "./dist",
+    "sourceMap": true
+  },
+  "include": ["src/**/*"]
+}

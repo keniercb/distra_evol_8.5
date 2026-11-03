@@ -1,0 +1,110 @@
+{
+    "name": "resources",
+    "directorios": [
+        {
+            "name": "images"
+        },
+        {
+            "name": "bootstrap",
+            "directorios": [
+                {
+                    "name": "3.0.0",
+                    "directorios": [
+                        {
+                            "name": "js",
+                            "directorios": [
+                                {
+                                    "name": "assets",
+                                    "directorios": [
+                                        {
+                                            "files": [
+                                                {
+                                                    "name": "application",
+                                                    "ext": "js",
+                                                    "plantilla": "zeolhelp/resources/bootstrap/js/assets"
+                                                }
+                                            ]
+                                        }
+                                    ]
+
+                                },
+                                {
+                                    "files": [
+                                        {
+                                            "name": "jquery",
+                                            "ext": "js",
+                                            "plantilla": "zeolhelp/resources/bootstrap/js"
+                                        },
+                                        {
+                                            "name": "bootstrap.min",
+                                            "ext": "js",
+                                            "plantilla": "zeolhelp/resources/bootstrap/js"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },{
+                            "name": "css",
+                            "directorios": [
+                                {
+                                    "files": [
+                                        {
+                                            "name": "bootstrap.min",
+                                            "ext": "css",
+                                            "plantilla": "zeolhelp/resources/bootstrap/css"
+                                        },
+                                        {
+                                            "name": "docs",
+                                            "ext": "css",
+                                            "plantilla": "zeolhelp/resources/bootstrap/css"
+                                        }
+                                    ]
+                                }
+                            ]
+
+                        },{
+                            "name": "fonts",
+                            "directorios": [
+                                {
+                                    "files": [
+                                        {
+                                            "name": "glyphicons-halflings-regular",
+                                            "ext": "eot",
+                                            "plantilla": "zeolhelp/resources/bootstrap/fonts"
+                                        },
+                                        {
+                                            "name": "glyphicons-halflings-regular",
+                                            "ext": "svg",
+                                            "plantilla": "zeolhelp/resources/bootstrap/fonts"
+                                        },{
+                                            "name": "glyphicons-halflings-regular",
+                                            "ext": "ttf",
+                                            "plantilla": "zeolhelp/resources/bootstrap/fonts"
+                                        },{
+                                            "name": "glyphicons-halflings-regular",
+                                            "ext": "woff",
+                                            "plantilla": "zeolhelp/resources/bootstrap/fonts"
+                                        },{
+                                            "name": "glyphicons-halflings-regulard41d",
+                                            "ext": "eot",
+                                            "plantilla": "zeolhelp/resources/bootstrap/fonts"
+                                        }
+                                    ]
+                                }
+                            ]
+
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "files": [
+        {
+            "name": "index",
+            "ext": "html",
+            "plantilla": "zeolhelp/resources/plantillas",
+            "plantillaFrameWork": "zeolhelp/resources/plantillas/framework"
+        }
+    ]
+}

@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>Gesti&oacute; de m&oacute;dulo</title>
+        <script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+        <script language="javascript"
+        type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+    </head>
+    <body>
+        <script type="text/javascript"
+        src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+        <script type="text/javascript"
+        src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+        <script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+
+        <script language="javascript"
+        type="text/javascript">importarCSS("/logistica/activos_fijos/modulo/views/css/organigrama.css");</script>
+        <link rel="stylesheet" type="text/css"
+              href="/configuracion/comun/views/css/visorImagenes.css"/>
+        <link rel="stylesheet" type="text/css"
+              href="/configuracion/nomgenerales/views/css/comun/nomencladores.css"/>
+
+        <script type="text/javascript"
+        src="/logistica/activos_fijos/modulo/views/js/mxClient.js"></script>
+        <script type="text/javascript"
+        src="/configuracion/comun/views/js/RowExpander.js"></script>
+<!--<script language="javascript"
+        type="text/javascript">importarCSS("/configuracion/comun/views/css/treegrid.css");</script>-->
+        <link rel="stylesheet" type="text/css"
+              href="/configuracion/nomgenerales/views/css/comun/treegrid.css"/>
+        <script type="text/javascript"
+        src="/configuracion/comun/views/js/treegrid.js"></script>
+        <script type="text/javascript"
+        src="/logistica/utiles/comun/views/js/plugins/visorImagenes.componet.js"></script>
+
+        <script type="text/javascript"
+        src="/configuracion/comun/views/js/PagingRowNumberer.js"></script>
+
+        <script type="text/javascript"
+        src="/logistica/activos_fijos/utiles/views/js/gestarearesponsabilidad/gestarearesponsabilidad.js"></script>
+
+
+        <script type="text/javascript"
+        src="/logistica/activos_fijos/modulo/views/js/modulo.component.js"></script>
+        <script type="text/javascript"
+        src="/logistica/activos_fijos/modulo/views/js/organigrama.component.js"></script>
+        <script type="text/javascript"
+        src="/logistica/activos_fijos/modulo/views/js/TreeGridModulo.componenet.js"></script>
+        <script type="text/javascript"
+        src="/logistica/activos_fijos/modulo/views/js/WinAdicionarModulo.componenet.js"></script>
+        <script type="text/javascript"
+        src="/logistica/activos_fijos/modulo/views/js/WinBusqAvanzada.js"></script>
+        <script type="text/javascript"
+        src="/logistica/activos_fijos/modulo/views/js/PanelMedio.component.js"></script>
+
+
+        <script type="text/javascript"
+        src="/logistica/activos_fijos/modulo/views/js/PanelNomenMod.component.js"></script>
+        <script type="text/javascript"
+        src="/logistica/activos_fijos/modulo/views/js/PanelNomenclaturaModulo.js"></script>
+        <script type="text/javascript"
+        src="/logistica/utiles/comun/views/js/plugins/visorImagenes.componet.js"></script>
+
+        <script type="text/javascript" src="/logistica/activos_fijos/utiles/views/js/comun/validator.js"></script>
+
+
+
+
+        <?php echo $this->jsArbolMarcaModelo; ?>
+        <?php
+        foreach ($this->arrayJs as $js) {
+            echo $js;
+        }
+        ?>
+    </body>
+</html> 

@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ioc>
+	<!--Servicios del componente ayuda -->
+    <!--<ayuda src="herramientas/ayuda">-->
+        <!--<devolverJS reference="">-->
+            <!--<inyector clase="AyudaService" metodo="devolverJS" />-->
+            <!--<prototipo>-->
+                <!--<resultado tipo="" />-->
+            <!--</prototipo>-->
+        <!--</devolverJS>-->
+        <!--<importarPaqueteAyuda reference="">-->
+            <!--<inyector clase="AyudaService" metodo="importHelpPacket" />-->
+            <!--<prototipo>-->
+                <!--<parametro nombre="dirFisicaAyuda" tipo="alfanumguionesptoslashes" />-->
+                <!--<resultado tipo="string" />-->
+            <!--</prototipo>-->
+        <!--</importarPaqueteAyuda>-->
+        <!--<eliminarAyuda reference="">-->
+            <!--<inyector clase="AyudaService" metodo="eliminarAyuda" />-->
+            <!--<prototipo>-->
+                <!--<parametro nombre="idAyuda" tipo="string" />-->
+                <!--<resultado tipo="bool" />-->
+            <!--</prototipo>-->
+        <!--</eliminarAyuda>-->
+    <!--</ayuda>-->
+    <!--<gestornc src="herramientas/gestornc">
+        <devolverJS reference="">
+            <inyector clase="GestorncService" metodo="devolverJS" />
+            <prototipo>
+                <resultado tipo="" />
+            </prototipo>
+        </devolverJS>
+    </gestornc>-->
+    <!--Servicios del componente de notificaciones -->
+    <notification src="herramientas/notificaciones">
+		<!-- Servicio que devuelve el arreglo de scripts con las clases js que
+			intervienen en el registro y modificación de un aviso. -->
+        <obtenerScriptsVentanaEditarAviso
+			reference="">
+            <inyector clase="NotificationService" metodo="obtenerScriptsVentanaEditarAviso" />
+            <prototipo>
+
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerScriptsVentanaEditarAviso>
+        <sendEmail reference="">
+            <inyector clase="NotificationService" metodo="sendEmail" />
+            <prototipo>
+                <parametro nombre="emails" tipo="array" />
+                <parametro nombre="subject" tipo="string" />
+                <parametro nombre="content" tipo="string" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </sendEmail>
+
+        <sendPHPEmail reference="">
+            <inyector clase="NotificationService" metodo="sendPHPEmail" />
+            <prototipo>
+                <parametro nombre="emails" tipo="array" />
+                <parametro nombre="subject" tipo="string" />
+                <parametro nombre="content" tipo="string" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </sendPHPEmail>
+        <sendJabberNotification reference="">
+            <inyector clase="NotificationService" metodo="sendJabberNotification" />
+            <prototipo>
+                <parametro nombre="to" tipo="array" />
+                <parametro nombre="msg" tipo="string" />
+            </prototipo>
+        </sendJabberNotification>
+        <sendSistemMessage reference="">
+            <inyector clase="NotificationService" metodo="sendSistemMessage" />
+            <prototipo>
+                <parametro nombre="idPersonas" tipo="array" />
+                <parametro nombre="content" tipo="string" />
+                <parametro nombre="tipoAviso" tipo="enteropos" />
+                <resultado tipo="string" />
+            </prototipo>
+        </sendSistemMessage>
+
+        <!-- Servicio que crea notificaciones dado un tiempo determinado. -->
+        <sendSistemNotifiTime reference="">
+            <inyector clase="NotificationService" metodo="sendSistemNotifiTime" />
+            <prototipo>
+                <parametro nombre="idPersonas" tipo="array" />
+                <parametro nombre="content" tipo="string" />
+                <parametro nombre="tipoAviso" tipo="enteropos" />
+                <parametro nombre="cmd" tipo="string" />
+                <parametro nombre="fecha" tipo="string" />
+                <parametro nombre="arguments" tipo="array" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </sendSistemNotifiTime>
+
+		<!-- Servicio que devuelve la información de un aviso dado su creador. -->
+        <obtenerInfoAvisoDadoCreador>
+            <inyector clase="NotificationService" metodo="obtenerInfoAvisoDadoCreador" />
+            <prototipo>
+                <parametro nombre="idusuario" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerInfoAvisoDadoCreador>
+        <cambiarEstadoNotificacion>
+            <inyector clase="NotificationService" metodo="cambiarEstadoNotificacion" />
+            <prototipo>
+                <parametro nombre="id" tipo="enterospos" />
+                <parametro nombre="estado" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </cambiarEstadoNotificacion>
+        <eliminarNotificacion>
+            <inyector clase="NotificationService" metodo="eliminarNotificacion" />
+            <prototipo>
+                <parametro nombre="id" tipo="array" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </eliminarNotificacion>
+	    <obtenerNotificaciones>
+            <inyector clase="NotificationService" metodo="obtenerNotificaciones" />
+            <prototipo>
+                <parametro nombre="idusuario" tipo="string" />
+                <parametro nombre="typeAviso" tipo="enterospos" default='0'/>
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerNotificaciones>
+        <obtenerCantidadNotificaciones>
+            <inyector clase="NotificationService" metodo="obtenerCantidadNotificaciones" />
+            <prototipo>
+                <parametro nombre="idusuario" tipo="string" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerCantidadNotificaciones>
+		<!-- Servicio que permite activar/desactivar un aviso. -->
+        <activarDesactivarAviso>
+            <inyector clase="NotificationService" metodo="activarDesactivarAviso" />
+            <prototipo>
+                <parametro nombre="idaviso" tipo="enterospos" />
+            </prototipo>
+        </activarDesactivarAviso>
+		<!-- Servicio que permite eliminar un aviso. -->
+        <eliminarAviso>
+            <inyector clase="NotificationService" metodo="eliminarAviso" />
+            <prototipo>
+                <parametro nombre="nombreEvento" tipo="string" />
+                <parametro nombre="idaviso" tipo="enterospos" />
+            </prototipo>
+        </eliminarAviso>
+		<!-- Servicio para modificar los contenidos de los avisos por la vías especificadas. -->
+        <modificarContenidosAviso>
+            <inyector clase="NotificationService" metodo="modificarContenidosAviso" />
+            <prototipo>
+                <parametro nombre="idaviso" tipo="enterospos" />
+                <parametro nombre="attributes" tipo="array" />
+                <parametro nombre="spec" tipo="array" />
+            </prototipo>
+        </modificarContenidosAviso>
+
+        <!-- Servicio para obtener la configuracion de un aviso-->
+        <obtenerConfiguracionAvisos>
+            <inyector clase="NotificationService" metodo="obtenerConfiguracionAvisos" />
+            <prototipo>
+                <parametro nombre="idavisos" tipo="array" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerConfiguracionAvisos>
+
+        <!-- Servicio para obtener la denominacion de los avisos -->
+        <obtenerDenominacionAvisos>
+            <inyector clase="NotificationService" metodo="obtenerDenominacionAvisos" />
+            <prototipo>
+                <parametro nombre="page" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerDenominacionAvisos>
+         <setMensajeJabber>
+            <inyector clase="NotificationService" metodo="setMensajeJabber" />
+            <prototipo>
+                <parametro nombre="idaviso" tipo="enterospos" />
+                <parametro nombre="mensaje"/>
+                <resultado tipo="bool" />
+            </prototipo>
+        </setMensajeJabber>
+        <getIdAvisoByDenominacion>
+            <inyector clase="NotificationService" metodo="getIdAvisoByDenominacion" />
+            <prototipo>
+                <parametro nombre="denominacion"/>
+                <resultado tipo="enterospos" />
+            </prototipo>
+        </getIdAvisoByDenominacion>
+        <getIdsDestinatarioByIdPersona>
+            <inyector clase="NotificationService" metodo="getIdsDestinatarioByIdPersona" />
+            <prototipo>
+                <parametro nombre="arraysIdpersona" tipo="array"/>
+                <resultado tipo="array" />
+            </prototipo>
+        </getIdsDestinatarioByIdPersona>
+    </notification>
+
+    <!-- Servicios del ide inicio-->
+    <ProjectManager src="herramientas/ide/modules/ProjectManager">
+        <!-- Servicios del administrador de proyectos inicio -->
+        <getAllProjects>
+            <inyector clase="ProjectService" metodo="getAll" />
+            <prototipo>
+                <parametro tipo="array"/>
+                <resultado tipo="array" />
+            </prototipo>
+        </getAllProjects>
+        <deleteProject>
+            <inyector clase="ProjectService" metodo="destroy" />
+            <prototipo>
+                <parametro tipo="string"/>
+                <resultado tipo="boolean" />
+            </prototipo>
+        </deleteProject>
+        <getAllProjectProviders>
+            <inyector clase="ProjectService" metodo="getAllProjectProviders" />
+            <prototipo>
+                <parametro nombre="searchId" tipo="string"/>
+                <parametro nombre="options" tipo="array"/>
+                <resultado tipo="array" />
+            </prototipo>
+        </getAllProjectProviders>
+        <getAllComponents>
+            <inyector clase="ComponentService" metodo="getAll" />
+            <prototipo>
+                <parametro tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getAllComponents>
+        <createDirectory>
+            <inyector clase="DirectoryService" metodo="create" />
+            <prototipo>
+                <parametro tipo="array"/>
+                <resultado tipo="boolean"/>
+            </prototipo>
+        </createDirectory>
+        <createFile>
+            <inyector clase="FileService" metodo="create" />
+            <prototipo>
+                <parametro tipo="array"/>
+                <resultado tipo="boolean"/>
+            </prototipo>
+        </createFile>
+        <updateFile>
+            <inyector clase="FileService" metodo="update" />
+            <prototipo>
+                <parametro tipo="array"/>
+                <resultado tipo="boolean"/>
+            </prototipo>
+        </updateFile>
+        <getZeolidesProjectCurrentWorkspace>
+            <inyector clase="ProjectService" metodo="getZeolidesProjectCurrentWorkspace" />
+            <prototipo>                
+                <resultado tipo="string" />
+            </prototipo>
+        </getZeolidesProjectCurrentWorkspace>
+        <generateDomainModels>
+            <inyector clase="DoctrineOneClassMapperService" metodo="generate" />
+            <prototipo>
+                <parametro tipo="array"/>
+                <parametro tipo="string"/>
+                <parametro tipo="array"/>
+                <resultado tipo="boolean"/>
+            </prototipo>
+        </generateDomainModels>
+        <deleteModule>
+            <inyector clase="ModuleService" metodo="destroy" />
+            <prototipo>
+                <parametro tipo="array"/>                
+                <resultado tipo="boolean"/>
+            </prototipo>
+        </deleteModule>
+        <saveJson>
+            <inyector clase="ProjectService" metodo="saveJson" />
+            <prototipo>
+                <parametro tipo="string"/>
+                <parametro tipo="string"/>
+                <parametro tipo="string"/>
+                <parametro tipo="string"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </saveJson>
+        <createJS>
+            <inyector clase="ProjectService" metodo="createJS" />
+            <prototipo>
+                <parametro tipo="string"/>
+                <parametro tipo="string"/>
+                <parametro tipo="string"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </createJS>
+        <getDSName>
+            <inyector clase="ProjectService" metodo="getDSName" />
+            <prototipo>
+                <parametro tipo="string"/>
+                <parametro tipo="string"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getDSName>
+        <getDataStore>
+            <inyector clase="ProjectService" metodo="getDataStore" />
+            <prototipo>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getDataStore>
+        <showFile>
+            <inyector clase="FileService" metodo="show" />
+            <prototipo>
+                <parametro tipo="array"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </showFile>
+        <deleteFile>
+            <inyector clase="FileService" metodo="destroy" />
+            <prototipo>
+                <parametro tipo="array"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </deleteFile>
+        <getDSName>
+            <inyector clase="ProjectService" metodo="getDSName" />
+            <prototipo>
+                <parametro tipo="string"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getDSName>
+        <getModelTree>
+            <inyector clase="ProjectService" metodo="getModelTree" />
+            <prototipo>
+                <parametro tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getModelTree>
+        <createModels>
+            <inyector clase="ProjectService" metodo="createModels" />
+            <prototipo>
+                <parametro tipo="string"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </createModels>
+        <createStores>
+            <inyector clase="ProjectService" metodo="createStores" />
+            <prototipo>
+                <parametro tipo="string"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </createStores>
+        <createViewModels>
+            <inyector clase="ProjectService" metodo="createViewModels" />
+            <prototipo>
+                <parametro tipo="string"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </createViewModels>
+		<showStores>
+            <inyector clase="ProjectService" metodo="showStores" />
+            <prototipo>
+                <parametro tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </showStores>
+        <controllerActions>
+            <inyector clase="ProjectService" metodo="controllerActions" />
+            <prototipo>
+                <parametro tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </controllerActions>
+        <getControllers>
+            <inyector clase="ProjectService" metodo="getControllers" />
+            <prototipo>
+                <parametro tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getControllers>
+        <getControllersActions>
+            <inyector clase="ProjectService" metodo="getControllersActions" />
+            <prototipo>
+                <parametro tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getControllersActions>
+        <getActions>
+            <inyector clase="ProjectService" metodo="getActions" />
+            <prototipo>
+                <parametro tipo="string"/>
+                <parametro tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getActions>
+        <deleteModels>
+            <inyector clase="DoctrineOneClassMapperService" metodo="deleteModels" />
+            <prototipo>
+                <parametro tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </deleteModels>
+        <verifyModels>
+            <inyector clase="DoctrineOneClassMapperService" metodo="verifyModels" />
+            <prototipo>
+                <parametro tipo="string"/>
+                <parametro tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </verifyModels>
+        <generateDQL>
+            <inyector clase="ProjectService" metodo="generateDQL" />
+            <prototipo>
+                <parametro tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </generateDQL>
+
+        <!-- Servicios del administrador de proyectos fin -->
+    </ProjectManager>        
+        
+    <ModelManager src="herramientas/ide/modules/ModelManager">
+        <!-- Servicios del administrador de modelos inicio -->
+        <!-- Servicios del administrador de modelos fin -->
+    </ModelManager>    
+    
+    <DataSourceManager src="herramientas/ide/modules/DataSourceManager">
+        <!-- Servicios del administrador de origenes de datos inicio -->
+        <getAllDataSources>
+            <inyector clase="DataSourceService" metodo="getAll" />
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getAllDataSources>
+        <listTablesByDataSource>
+            <inyector clase="DataSourceService" metodo="getTablesByDataSource" />
+            <prototipo>
+                <parametro nombre="dsName" tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </listTablesByDataSource>
+        <listTableFieldsByDataSource>
+            <inyector clase="DataSourceService" metodo="listTableFieldsByDataSource" />
+            <prototipo>
+                <parametro nombre="dsName" tipo="string"/>
+                <parametro nombre="tableName" tipo="string"/>
+                <parametro nombre="schemaName" tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </listTableFieldsByDataSource>
+        <listTableRelationsByDataSource>
+            <inyector clase="DataSourceService" metodo="listTableRelationsByDataSource" />
+            <prototipo>
+                <parametro nombre="dsName" tipo="string"/>
+                <parametro nombre="tableName" tipo="string"/>
+                <parametro nombre="otherTables" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </listTableRelationsByDataSource>
+        <loadData>
+            <inyector clase="DataSourceService" metodo="loadData" />
+            <prototipo>
+                <parametro nombre="dsName" tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </loadData>
+        <!-- Servicios del administrador de origenes de datos fin -->
+    </DataSourceManager>    
+    <!-- Servicios del ide fin-->
+    
+	<!--Servicios que brinda la Herramienta de Flujo de Trabajo -->
+    <flujotrabajo src="herramientas/flujotrabajo">
+        <BuscarArrayEstadosTransicion reference="">
+            <inyector clase="FlujoTrabajoService" metodo="BuscarArrayEstadosTransicion" />
+            <prototipo>
+                <parametro nombre="idestado" tipo="enteropos" />
+                <parametro nombre="idusuario" tipo="enteropos" />
+                <parametro nombre="uri" />
+                <resultado tipo="array" />
+            </prototipo>
+        </BuscarArrayEstadosTransicion>
+        <BuscarEstadoInicial reference="">
+            <inyector clase="FlujoTrabajoService" metodo="BuscarEstadoInicial" />
+            <prototipo>
+                <parametro nombre="uri" />
+                <resultado tipo="array" />
+            </prototipo>
+        </BuscarEstadoInicial>
+        <obtenerPreCondiciones reference="">
+            <inyector clase="FlujoTrabajoService" metodo="obtenerPreCondiciones" />
+            <prototipo>
+                <parametro nombre="idestadoinicial" tipo="enteropos" />
+                <parametro nombre="idestadofinal" tipo="enteropos" />
+                <parametro nombre="uri" />
+                <parametro nombre="idusuario" tipo="enteropos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerPreCondiciones>
+        <EjecutarPrecondiciones reference="">
+            <inyector clase="FlujoTrabajoService" metodo="EjecutarPrecondiciones" />
+            <prototipo>
+                <parametro nombre="idestadoinicial" tipo="enteropos" />
+                <parametro nombre="idestadofinal" tipo="enteropos" />
+                <parametro nombre="uri" />
+                <parametro nombre="idusuario" tipo="enteropos" />
+                <parametro nombre="stdobject" />
+                <resultado tipo="array" />
+            </prototipo>
+        </EjecutarPrecondiciones>
+        <EjecutarPoscondiciones reference="">
+            <inyector clase="FlujoTrabajoService" metodo="EjecutarPoscondiciones" />
+            <prototipo>
+                <parametro nombre="idestadoinicial" tipo="enteropos" />
+                <parametro nombre="idestadofinal" tipo="enteropos" />
+                <parametro nombre="uri" />
+                <parametro nombre="idusuario" tipo="enteropos" />
+                <parametro nombre="stdobject" tipo="stdClass" />
+                <resultado tipo="array" />
+            </prototipo>
+        </EjecutarPoscondiciones>
+        <BuscarEstados reference="">
+            <inyector clase="FlujoTrabajoService" metodo="BuscarEstados" />
+            <prototipo>
+                <parametro nombre="uri" />
+                <parametro nombre="idusuario" tipo="enteropos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </BuscarEstados>
+        <obtenerEstados reference="">
+            <inyector clase="FlujoTrabajoService" metodo="obtenerEstados" />
+            <prototipo>
+                <parametro nombre="uri" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerEstados>
+        <obtenerEstado reference="">
+            <inyector clase="FlujoTrabajoService" metodo="obtenerEstado" />
+            <prototipo>
+                <parametro nombre="idestado" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerEstado>
+        <BuscarConfTipoDoc reference="">
+            <inyector clase="FlujoTrabajoService" metodo="BuscarConfTipoDoc" />
+            <prototipo>
+                <parametro nombre="uri" />
+                <parametro nombre="idusuario" tipo="enteropos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </BuscarConfTipoDoc>
+        <BuscarEstadosByIdAccion reference="">
+            <inyector clase="FlujoTrabajoService" metodo="BuscarEstadosByIdAccion" />
+            <prototipo>
+                <parametro nombre="uri" />
+                <parametro nombre="idaccion" tipo="enteropos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </BuscarEstadosByIdAccion>
+        <BuscarAcciones reference="">
+            <inyector clase="FlujoTrabajoService" metodo="BuscarAcciones" />
+            <prototipo>
+                <parametro nombre="idestado" tipo="enteropos" />
+                <parametro nombre="uri" />
+                <parametro nombre="idusuario" tipo="enteropos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </BuscarAcciones>
+    </flujotrabajo>
+    
+</ioc>

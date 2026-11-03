@@ -1,0 +1,26 @@
+<xml>
+    <idusuario>100_2</idusuario>
+    <idum>10001013072</idum>
+    <idcentrodato>100</idcentrodato>
+    <nombre>contador</nombre>
+    <apellidos>contador</apellidos>
+    <apellidos2>contador</apellidos2>
+    <alias>contador</alias>
+    <activo>1</activo>
+    <nopubum>5400</nopubum>
+    <grado>TCOR</grado>
+    <idgrado>15</idgrado>
+    <fechcamb>24/07/2008</fechcamb>
+    <idespecialidad>33</idespecialidad>
+    <especialidad>INTENDENCIA</especialidad>
+    <idcargo>6120</idcargo>
+    <cargo>OFICIAL ORGANIZACION Y ANALISIS</cargo>
+    <denomrol>contador</denomrol>
+    <usuario>contador contador contador</usuario>
+    <npub>5400</npub>
+    <codigoesp>33</codigoesp>
+    <idrol>6</idrol>
+    <denlugares>almacen1</denlugares>
+    <cantlugares>4</cantlugares>
+</xml>
+

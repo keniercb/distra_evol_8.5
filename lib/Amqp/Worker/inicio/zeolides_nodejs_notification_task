@@ -1,0 +1,63 @@
+#!/bin/sh -e
+
+DAEMON=/opt/quarseg-dev.xetid.cu/lib/Amqp/Worker/nodejs_task.sh
+NAME=zeolides_nodejs_notification_task
+PIDFILE="/var/run/zeolides_nodejs_notification_task.pid"
+
+start(){
+	echo "Info: Iniciando el servicio de node Zeolides..."
+	#AQUI se inicia el servicio
+	start-stop-daemon -S -m -b -p $PIDFILE -a $DAEMON -x $DAEMON
+    echo "Info: El servicio de node del Zeolides ha sido iniciado."
+}
+
+stop(){
+	echo "Info: Deteniendo el servicio de node del Zeolides..."
+	start-stop-daemon -K -p $PIDFILE
+    rm $PIDFILE
+    echo "Info: El servicio de node del Zeolides ha sido detenido."
+}
+
+reload(){
+	stop
+	start
+}
+
+status(){
+	echo "Info: Verificando estado..."
+	if [ -e $PIDFILE ]; then
+		PID=$(cat $PIDFILE)
+		if [ -e /proc/${PID} -a /proc/${PID}/exe ]; then
+			echo "Info:  El servicio de node del Zeolides está corriendo."
+		else
+			echo "Info: El servicio de node del Zeolides no está corriendo."   
+		fi
+	else
+		echo "Info: El servicio de node del Zeolides no está corriendo."
+	fi
+}
+
+
+case "$1" in
+start)
+	start
+	;;
+
+stop)
+	stop
+	;;
+
+restart)
+	reload
+	;;
+
+status)
+	status
+	;;
+*)
+	echo "Uso: Utilice una de las opciones {start|stop|restart|status}"
+	exit 1
+	;;
+esac
+exit 0
+

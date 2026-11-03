@@ -1,0 +1,45 @@
+.fondopert{
+    background-image: url("../images/aires.png");
+    background-repeat:no-repeat;
+    background-size:100%;
+    background-position: center;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.superior {
+    background-color: #F8E0E0 !important;
+}
+
+.espacio{
+    width: 40px;
+    height: 40px;
+    position:absolute;
+}
+
+.pos23 {
+    left: 26%;
+    top: 43%;
+}
+
+.pos34 {
+    left: 29%;
+    top: 56%;
+}
+
+.pos45 {
+    left: 20%;
+    top: 53%;
+}
+.fill{
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.hide {
+    display: none !important;
+}
+
+.icon-verde{color: #57e772;}
+.icon-rojo{color: #e72f24;}
+.icon-amarillo{color: #f9f82f;}

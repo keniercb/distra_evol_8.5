@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tipo>
+    <File>
+        <tipo name="XML" claseex="ZendExt_CompExImp_Exportacion_Fexp_ExportarXML"
+              claseimp="ZendExt_CompExImp_Importacion_Fimp_ImportarXML" metodoex="exportar" metodoimp="importar"/>
+    </File>
+    <BD>
+
+    </BD>
+</Tipo>

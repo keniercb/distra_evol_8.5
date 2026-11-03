@@ -1,0 +1,1881 @@
+/*@import "icon-color.css";*/
+/*@import "../../style-distra.css";*/
+
+
+/*
+* Se define el color por defecto en el tema default para
+* los botones cancelar,cerrar,salir,ayuda e info.
+*/
+.icondistra-cancelar:before {
+    color: #a42020 !important;
+}
+
+.icondistra-cerrar:before {
+    color: #a42020 !important;
+}
+
+.icondistra-salir:before {
+    color: #a42020 !important;
+}
+
+.icondistra-ayuda:before {
+    color: #7c8033 !important;
+}
+
+.icondistra-soporte:before {
+    color: #7c8033 !important;
+}
+
+.icondistra-info:before {
+    color: #7c8033 !important;
+}
+
+/*
+* Se definen las clases verde,rojo y amarillo para cambiar los colores de
+* los botones a conveniencia.
+* Ejemplo:
+*     iconCls:icondistra-aceptar verde
+*/
+.verde:before {
+    color: #1D8D4C !important;
+}
+
+.rojo:before {
+    color:#a42020 !important;
+}
+
+.amarillo:before {
+    color: #cdcb35 !important;
+}
+
+.azul:before {
+    color: #1B68A2 !important;
+}
+.ext3fix[class*="icondistra-"]:before{
+    vertical-align: -16% !important;
+}
+/*FUENTES*/
+@font-face {
+    font-family: 'distra';
+    src:    url('../../fonts/distra.eot?blhv8v');
+    src:    url('../../fonts/distra.eot?blhv8v#iefix') format('embedded-opentype'),
+        url('../../fonts/distra.ttf?blhv8v') format('truetype'),
+        url('../../fonts/distra.woff?blhv8v') format('woff'),
+        url('../../fonts/distra.svg?blhv8v#distra') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icondistra-"], [class*=" icondistra-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'distra',tahoma,verdana,helvetica !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+[class*="icondistra-"]:before {
+    margin-right: 5px;
+    font-size: 16px;
+    vertical-align: -10% !important;
+}
+
+.thumb [class*="icondistra-"]:before{
+    margin-right: 5px;
+    font-size: 75px;
+    vertical-align: -10% !important;
+}
+
+.acceso-directo[class*="icondistra-"]:before{
+    margin-right: 5px;
+    font-size: 48px;
+    vertical-align: -10% !important;
+    color: black !important;
+}
+
+.inicio-rapido[class*="icondistra-"]:before{
+    margin-right: 5px;
+    font-size: 20px;
+    vertical-align: -10% !important;
+    color: white !important;
+}
+
+.icondistra-soporte:before {
+  content: "\e900";
+}
+.icondistra-rolesadominio:before {
+  content: "\e901";
+}
+.icondistra-usuariosadominio:before {
+  content: "\e902";
+}
+.icondistra-ambiente:before {
+  content: "\e903";
+}
+.icondistra-apagar:before {
+  content: "\e904";
+}
+.icondistra-auditar:before {
+  content: "\e905";
+}
+.icondistra-configurar:before {
+  content: "\e906";
+}
+.icondistra-configurar-inverso:before {
+  content: "\e907";
+}
+.icondistra-desagrupar:before {
+  content: "\e908";
+}
+.icondistra-descargar:before {
+  content: "\e909";
+}
+.icondistra-esquema:before {
+  content: "\e90a";
+}
+.icondistra-esquemas:before {
+  content: "\e90b";
+}
+.icondistra-monitoreo:before {
+  content: "\e90c";
+}
+.icondistra-ok:before {
+  content: "\e90d";
+}
+.icondistra-pastel:before {
+  content: "\e90e";
+}
+.icondistra-planificar:before {
+  content: "\e90f";
+}
+.icondistra-rayo:before {
+  content: "\e910";
+}
+.icondistra-tabla:before {
+  content: "\e911";
+}
+.icondistra-tranformacion:before {
+  content: "\e912";
+}
+.icondistra-upload:before {
+  content: "\e913";
+}
+.icondistra-abajo:before {
+  content: "\e914";
+}
+.icondistra-abrirventana:before {
+  content: "\e915";
+}
+.icondistra-abrir:before {
+  content: "\e916";
+}
+.icondistra-acceso:before {
+  content: "\e917";
+}
+.icondistra-acciones:before {
+  content: "\e918";
+}
+.icondistra-aceptar:before {
+  content: "\e919";
+}
+.icondistra-acreditar:before {
+  content: "\e91a";
+}
+.icondistra-acrobat:before {
+  content: "\e91b";
+}
+.icondistra-activar:before {
+  content: "\e91c";
+}
+.icondistra-activardepbanco:before {
+  content: "\e91d";
+}
+.icondistra-activarpersona:before {
+  content: "\e91e";
+}
+.icondistra-activarplanilla:before {
+  content: "\e91f";
+}
+.icondistra-actividadconnorma:before {
+  content: "\e920";
+}
+.icondistra-actividadconregla:before {
+  content: "\e921";
+}
+.icondistra-actividadconsalida:before {
+  content: "\e922";
+}
+.icondistra-actividades:before {
+  content: "\e923";
+}
+.icondistra-activosfijos:before {
+  content: "\e924";
+}
+.icondistra-actual:before {
+  content: "\e925";
+}
+.icondistra-actualizar:before {
+  content: "\e926";
+}
+.icondistra-acumular:before {
+  content: "\e927";
+}
+.icondistra-adicionar:before {
+  content: "\e928";
+}
+.icondistra-administradorsesion:before {
+  content: "\e929";
+}
+.icondistra-adminpuntoventa:before {
+  content: "\e92a";
+}
+.icondistra-adminrecuperaciones:before {
+  content: "\e92b";
+}
+.icondistra-aduana:before {
+  content: "\e92c";
+}
+.icondistra-agrupacion:before {
+  content: "\e92d";
+}
+.icondistra-agrupacioninterna:before {
+  content: "\e92e";
+}
+.icondistra-ajustar:before {
+  content: "\e92f";
+}
+.icondistra-ajustealcosto:before {
+  content: "\e930";
+}
+.icondistra-alimento:before {
+  content: "\e931";
+}
+.icondistra-almacen:before {
+  content: "\e932";
+}
+.icondistra-ampliarimagen:before {
+  content: "\e933";
+}
+.icondistra-analisis:before {
+  content: "\e934";
+}
+.icondistra-analisisevaluaciones:before {
+  content: "\e935";
+}
+.icondistra-analisisfinanciero:before {
+  content: "\e936";
+}
+.icondistra-anclar:before {
+  content: "\e937";
+}
+.icondistra-anterior:before {
+  content: "\e938";
+}
+.icondistra-anular:before {
+  content: "\e939";
+}
+.icondistra-anulardocumento:before {
+  content: "\e93a";
+}
+.icondistra-apariencia:before {
+  content: "\e93b";
+}
+.icondistra-apertura:before {
+  content: "\e93c";
+}
+.icondistra-apf:before {
+  content: "\e93d";
+}
+.icondistra-aplicar:before {
+  content: "\e93e";
+}
+.icondistra-aprobar:before {
+  content: "\e93f";
+}
+.icondistra-archivo:before {
+  content: "\e940";
+}
+.icondistra-area:before {
+  content: "\e941";
+}
+.icondistra-arqueo:before {
+  content: "\e942";
+}
+.icondistra-arriba:before {
+  content: "\e943";
+}
+.icondistra-asentar:before {
+  content: "\e944";
+}
+.icondistra-asignaroles:before {
+  content: "\e945";
+}
+.icondistra-asignarperfil:before {
+  content: "\e946";
+}
+.icondistra-asistencia:before {
+  content: "\e947";
+}
+.icondistra-asistenciamensual:before {
+  content: "\e948";
+}
+.icondistra-asociacionmasiva:before {
+  content: "\e949";
+}
+.icondistra-asociar:before {
+  content: "\e94a";
+}
+.icondistra-asociarhecho:before {
+  content: "\e94b";
+}
+.icondistra-atributoporagrupaciones:before {
+  content: "\e94c";
+}
+.icondistra-atributosdinamicos:before {
+  content: "\e94d";
+}
+.icondistra-auditoria:before {
+  content: "\e94e";
+}
+.icondistra-autorizarviaje:before {
+  content: "\e94f";
+}
+.icondistra-ayuda:before {
+  content: "\e950";
+}
+.icondistra-bajar:before {
+  content: "\e951";
+}
+.icondistra-balance:before {
+  content: "\e952";
+}
+.icondistra-banco:before {
+  content: "\e953";
+}
+.icondistra-bancoysucursales:before {
+  content: "\e954";
+}
+.icondistra-bandera:before {
+  content: "\e955";
+}
+.icondistra-bases:before {
+  content: "\e956";
+}
+.icondistra-basico:before {
+  content: "\e957";
+}
+.icondistra-borrar:before {
+  content: "\e958";
+}
+.icondistra-bottom:before {
+  content: "\e959";
+}
+.icondistra-buscar:before {
+  content: "\e95a";
+}
+.icondistra-buscaravanzada:before {
+  content: "\e95b";
+}
+.icondistra-buscarcliententidad:before {
+  content: "\e95c";
+}
+.icondistra-buscarclitepersona:before {
+  content: "\e95d";
+}
+.icondistra-buscarestructura:before {
+  content: "\e95e";
+}
+.icondistra-buscarpersona:before {
+  content: "\e95f";
+}
+.icondistra-buscaryremplazar:before {
+  content: "\e960";
+}
+.icondistra-caja:before {
+  content: "\e961";
+}
+.icondistra-calcular:before {
+  content: "\e962";
+}
+.icondistra-calendario:before {
+  content: "\e963";
+}
+.icondistra-cambiar:before {
+  content: "\e964";
+}
+.icondistra-cambiarcontrasena:before {
+  content: "\e965";
+}
+.icondistra-cambiardecuenta:before {
+  content: "\e966";
+}
+.icondistra-cambiarentidad:before {
+  content: "\e967";
+}
+.icondistra-cambiarunidadcont:before {
+  content: "\e968";
+}
+.icondistra-cambiodestado:before {
+  content: "\e969";
+}
+.icondistra-cambiosdecuenta:before {
+  content: "\e96a";
+}
+.icondistra-camposperfilusuario:before {
+  content: "\e96b";
+}
+.icondistra-cancelar:before {
+  content: "\e96c";
+}
+.icondistra-cancelarautorizacion:before {
+  content: "\e96d";
+}
+.icondistra-cancelarestado:before {
+  content: "\e96e";
+}
+.icondistra-cantidad:before {
+  content: "\e96f";
+}
+.icondistra-capitalhumano:before {
+  content: "\e970";
+}
+.icondistra-cargadoacuenta:before {
+  content: "\e971";
+}
+.icondistra-cargainicial:before {
+  content: "\e972";
+}
+.icondistra-cargardocumento:before {
+  content: "\e973";
+}
+.icondistra-cargocivil:before {
+  content: "\e974";
+}
+.icondistra-cargomilitar:before {
+  content: "\e975";
+}
+.icondistra-categoria:before {
+  content: "\e976";
+}
+.icondistra-categoriadeprecio:before {
+  content: "\e977";
+}
+.icondistra-causaausencia:before {
+  content: "\e978";
+}
+.icondistra-cero:before {
+  content: "\e979";
+}
+.icondistra-cerrar:before {
+  content: "\e97a";
+}
+.icondistra-cerrarordendetrabajo:before {
+  content: "\e97b";
+}
+.icondistra-cerrarperiodo:before {
+  content: "\e97c";
+}
+.icondistra-certificacion:before {
+  content: "\e97d";
+}
+.icondistra-chart_bar:before {
+  content: "\e97e";
+}
+.icondistra-chart_curve:before {
+  content: "\e97f";
+}
+.icondistra-chart_line:before {
+  content: "\e980";
+}
+.icondistra-chart_pie:before {
+  content: "\e981";
+}
+.icondistra-cierre:before {
+  content: "\e982";
+}
+.icondistra-cierrediario:before {
+  content: "\e983";
+}
+.icondistra-cierreejercicio:before {
+  content: "\e984";
+}
+.icondistra-cinco:before {
+  content: "\e985";
+}
+.icondistra-clasificacionentidad:before {
+  content: "\e986";
+}
+.icondistra-clasificadordecuentas:before {
+  content: "\e987";
+}
+.icondistra-clasificadordeingresos:before {
+  content: "\e988";
+}
+.icondistra-clasificadorplandecuentas:before {
+  content: "\e989";
+}
+.icondistra-clausulacrm:before {
+  content: "\e98a";
+}
+.icondistra-clienteproveedor:before {
+  content: "\e98b";
+}
+.icondistra-clienteproveedorcrm:before {
+  content: "\e98c";
+}
+.icondistra-clonar:before {
+  content: "\e98d";
+}
+.icondistra-cobranzalegal:before {
+  content: "\e98e";
+}
+.icondistra-cobro:before {
+  content: "\e98f";
+}
+.icondistra-cobrofiscal:before {
+  content: "\e990";
+}
+.icondistra-cobrospagos:before {
+  content: "\e991";
+}
+.icondistra-comaflotante:before {
+  content: "\e992";
+}
+.icondistra-comparar:before {
+  content: "\e993";
+}
+.icondistra-compartimentacion:before {
+  content: "\e994";
+}
+.icondistra-compartimentacioncrm:before {
+  content: "\e995";
+}
+.icondistra-compartir:before {
+  content: "\e996";
+}
+.icondistra-competencialaborales:before {
+  content: "\e997";
+}
+.icondistra-compilar:before {
+  content: "\e998";
+}
+.icondistra-componentes:before {
+  content: "\e999";
+}
+.icondistra-comprar:before {
+  content: "\e99a";
+}
+.icondistra-comprobante:before {
+  content: "\e99b";
+}
+.icondistra-comprobar:before {
+  content: "\e99c";
+}
+.icondistra-comun:before {
+  content: "\e99d";
+}
+.icondistra-conceptos:before {
+  content: "\e99e";
+}
+.icondistra-conciliar:before {
+  content: "\e99f";
+}
+.icondistra-condiciondepago:before {
+  content: "\e9a0";
+}
+.icondistra-config:before {
+  content: "\e9a1";
+}
+.icondistra-configpatrotaciondeturno:before {
+  content: "\e9a2";
+}
+.icondistra-configuracion:before {
+  content: "\e9a3";
+}
+.icondistra-configuracionacceso:before {
+  content: "\e9a4";
+}
+.icondistra-configuracioncrm:before {
+  content: "\e9a5";
+}
+.icondistra-configuraciongeneral:before {
+  content: "\e9a6";
+}
+.icondistra-configuracionsubsistemas:before {
+  content: "\e9a7";
+}
+.icondistra-configuraravisos:before {
+  content: "\e9a8";
+}
+.icondistra-configurarconceptos:before {
+  content: "\e9a9";
+}
+.icondistra-configurarcontabilizacion:before {
+  content: "\e9aa";
+}
+.icondistra-configurarejercicio:before {
+  content: "\e9ab";
+}
+.icondistra-configurarformula:before {
+  content: "\e9ac";
+}
+.icondistra-configurarmodelodecontabilizacion:before {
+  content: "\e9ad";
+}
+.icondistra-configurarmodelosnomina:before {
+  content: "\e9ae";
+}
+.icondistra-configurarpagos:before {
+  content: "\e9af";
+}
+.icondistra-configurarsistemas:before {
+  content: "\e9b0";
+}
+.icondistra-configurartrazas:before {
+  content: "\e9b1";
+}
+.icondistra-configurarusuarios:before {
+  content: "\e9b2";
+}
+.icondistra-confirmacion:before {
+  content: "\e9b3";
+}
+.icondistra-confirmar:before {
+  content: "\e9b4";
+}
+.icondistra-conflicto:before {
+  content: "\e9b5";
+}
+.icondistra-contabilidad:before {
+  content: "\e9b6";
+}
+.icondistra-contabilidadgeneral:before {
+  content: "\e9b7";
+}
+.icondistra-contabilidadyfinanzas:before {
+  content: "\e9b8";
+}
+.icondistra-contabilizacion:before {
+  content: "\e9b9";
+}
+.icondistra-contactoscrm:before {
+  content: "\e9ba";
+}
+.icondistra-contenido:before {
+  content: "\e9bb";
+}
+.icondistra-contraer:before {
+  content: "\e9bc";
+}
+.icondistra-contratar:before {
+  content: "\e9bd";
+}
+.icondistra-contratocrm:before {
+  content: "\e9be";
+}
+.icondistra-controldepersonal:before {
+  content: "\e9bf";
+}
+.icondistra-copiar:before {
+  content: "\e9c0";
+}
+.icondistra-corcheteA:before {
+  content: "\e9c1";
+}
+.icondistra-corcheteC:before {
+  content: "\e9c2";
+}
+.icondistra-cortar:before {
+  content: "\e9c3";
+}
+.icondistra-costosyprocesos:before {
+  content: "\e9c4";
+}
+.icondistra-crearreporte:before {
+  content: "\e9c5";
+}
+.icondistra-criterio:before {
+  content: "\e9c6";
+}
+.icondistra-cuatro:before {
+  content: "\e9c7";
+}
+.icondistra-cuentabancaria:before {
+  content: "\e9c8";
+}
+.icondistra-cumplimiento:before {
+  content: "\e9c9";
+}
+.icondistra-daralta:before {
+  content: "\e9ca";
+}
+.icondistra-darbaja:before {
+  content: "\e9cb";
+}
+.icondistra-datosmaestros:before {
+  content: "\e9cc";
+}
+.icondistra-definir:before {
+  content: "\e9cd";
+}
+.icondistra-defprocesoevaluativo:before {
+  content: "\e9ce";
+}
+.icondistra-demanda:before {
+  content: "\e9cf";
+}
+.icondistra-deposito:before {
+  content: "\e9d0";
+}
+.icondistra-depreciacion:before {
+  content: "\e9d1";
+}
+.icondistra-derecha:before {
+  content: "\e9d2";
+}
+.icondistra-desanclar:before {
+  content: "\e9d3";
+}
+.icondistra-desaprobar:before {
+  content: "\e9d4";
+}
+.icondistra-desbloquear:before {
+  content: "\e9d5";
+}
+.icondistra-desbloqueardocumento:before {
+  content: "\e9d6";
+}
+.icondistra-desbloquearusuario:before {
+  content: "\e9d7";
+}
+.icondistra-desglose:before {
+  content: "\e9d8";
+}
+.icondistra-desglosedeactividadesporfecha:before {
+  content: "\e9d9";
+}
+.icondistra-deshabilitar:before {
+  content: "\e9da";
+}
+.icondistra-deshacer:before {
+  content: "\e9db";
+}
+.icondistra-desintalar:before {
+  content: "\e9dc";
+}
+.icondistra-desmarcartodos:before {
+  content: "\e9dd";
+}
+.icondistra-desmarcarxrol:before {
+  content: "\e9de";
+}
+.icondistra-desplazarabajo:before {
+  content: "\e9df";
+}
+.icondistra-desplazararriba:before {
+  content: "\e9e0";
+}
+.icondistra-desplazardoblederecha:before {
+  content: "\e9e1";
+}
+.icondistra-desplazardobleizq:before {
+  content: "\e9e2";
+}
+.icondistra-detalles:before {
+  content: "\e9e3";
+}
+.icondistra-diagramapareto:before {
+  content: "\e9e4";
+}
+.icondistra-dictamentecnico:before {
+  content: "\e9e5";
+}
+.icondistra-diferenciaconbanco:before {
+  content: "\e9e6";
+}
+.icondistra-distribucion:before {
+  content: "\e9e7";
+}
+.icondistra-dividir:before {
+  content: "\e9e8";
+}
+.icondistra-divisionpoliticoadministrativa:before {
+  content: "\e9e9";
+}
+.icondistra-docidentificativos:before {
+  content: "\e9ea";
+}
+.icondistra-documentos:before {
+  content: "\e9eb";
+}
+.icondistra-dominio:before {
+  content: "\e9ec";
+}
+.icondistra-dominios:before {
+  content: "\e9ed";
+}
+.icondistra-dos:before {
+  content: "\e9ee";
+}
+.icondistra-duplicar:before {
+  content: "\e9ef";
+}
+.icondistra-economia:before {
+  content: "\e9f0";
+}
+.icondistra-editar:before {
+  content: "\e9f1";
+}
+.icondistra-ejecutar:before {
+  content: "\e9f2";
+}
+.icondistra-eliminar:before {
+  content: "\e9f3";
+}
+.icondistra-enmarcamiento:before {
+  content: "\e9f4";
+}
+.icondistra-entidad:before {
+  content: "\e9f5";
+}
+.icondistra-entrada:before {
+  content: "\e9f6";
+}
+.icondistra-entregablescrm:before {
+  content: "\e9f7";
+}
+.icondistra-ept:before {
+  content: "\e9f8";
+}
+.icondistra-escala:before {
+  content: "\e9f9";
+}
+.icondistra-especialidad:before {
+  content: "\e9fa";
+}
+.icondistra-estado:before {
+  content: "\e9fb";
+}
+.icondistra-estadocrm:before {
+  content: "\e9fc";
+}
+.icondistra-estadodedesarrollo:before {
+  content: "\e9fd";
+}
+.icondistra-estadodocidentificacion:before {
+  content: "\e9fe";
+}
+.icondistra-estructura:before {
+  content: "\e9ff";
+}
+.icondistra-evaluar:before {
+  content: "\ea00";
+}
+.icondistra-excluir:before {
+  content: "\ea01";
+}
+.icondistra-expandir:before {
+  content: "\ea02";
+}
+.icondistra-exponente:before {
+  content: "\ea03";
+}
+.icondistra-exportar:before {
+  content: "\ea04";
+}
+.icondistra-expresionmatematica:before {
+  content: "\ea05";
+}
+.icondistra-facturar:before {
+  content: "\ea06";
+}
+.icondistra-false:before {
+  content: "\ea07";
+}
+.icondistra-falta:before {
+  content: "\ea08";
+}
+.icondistra-ficha:before {
+  content: "\ea09";
+}
+.icondistra-filtrar:before {
+  content: "\ea0a";
+}
+.icondistra-fines:before {
+  content: "\ea0b";
+}
+.icondistra-firmaautorizada:before {
+  content: "\ea0c";
+}
+.icondistra-folder:before {
+  content: "\ea0d";
+}
+.icondistra-folder-open:before {
+  content: "\ea0e";
+}
+.icondistra-fondo:before {
+  content: "\ea0f";
+}
+.icondistra-formula:before {
+  content: "\ea10";
+}
+.icondistra-foto:before {
+  content: "\ea11";
+}
+.icondistra-funcionalidad:before {
+  content: "\ea12";
+}
+.icondistra-fundicionmasiva:before {
+  content: "\ea13";
+}
+.icondistra-fundirpersona:before {
+  content: "\ea14";
+}
+.icondistra-fusionar:before {
+  content: "\ea15";
+}
+.icondistra-generadorreportes:before {
+  content: "\ea16";
+}
+.icondistra-gestionaracciones:before {
+  content: "\ea17";
+}
+.icondistra-gestionaraplicaciones:before {
+  content: "\ea18";
+}
+.icondistra-gestionarasistencia:before {
+  content: "\ea19";
+}
+.icondistra-gestionarasociacion:before {
+  content: "\ea1a";
+}
+.icondistra-gestionarbusqueda:before {
+  content: "\ea1b";
+}
+.icondistra-gestionarcaja:before {
+  content: "\ea1c";
+}
+.icondistra-gestionarcajayfondos:before {
+  content: "\ea1d";
+}
+.icondistra-gestionarcamposcontables:before {
+  content: "\ea1e";
+}
+.icondistra-gestionarclasificador:before {
+  content: "\ea1f";
+}
+.icondistra-gestionarcompetencias:before {
+  content: "\ea20";
+}
+.icondistra-gestionardesglose:before {
+  content: "\ea21";
+}
+.icondistra-gestionardocapertura:before {
+  content: "\ea22";
+}
+.icondistra-gestionardocumentosporsubsistema:before {
+  content: "\ea23";
+}
+.icondistra-gestionardocumentosprimarios:before {
+  content: "\ea24";
+}
+.icondistra-gestionardpa:before {
+  content: "\ea25";
+}
+.icondistra-gestionarejercicio:before {
+  content: "\ea26";
+}
+.icondistra-gestionarestructura:before {
+  content: "\ea27";
+}
+.icondistra-gestionarfacturas:before {
+  content: "\ea28";
+}
+.icondistra-gestionarfechaporsubsistema:before {
+  content: "\ea29";
+}
+.icondistra-gestionarfirmasautorizadas:before {
+  content: "\ea2a";
+}
+.icondistra-gestionarfondo:before {
+  content: "\ea2b";
+}
+.icondistra-gestionarformato:before {
+  content: "\ea2c";
+}
+.icondistra-gestionarimagen:before {
+  content: "\ea2d";
+}
+.icondistra-gestionarindicadores:before {
+  content: "\ea2e";
+}
+.icondistra-gestionarinformediferencia:before {
+  content: "\ea2f";
+}
+.icondistra-gestionarmetadato:before {
+  content: "\ea30";
+}
+.icondistra-gestionarmodelo:before {
+  content: "\ea31";
+}
+.icondistra-gestionarmoneda:before {
+  content: "\ea32";
+}
+.icondistra-gestionarnivelesestructurales:before {
+  content: "\ea33";
+}
+.icondistra-gestionarnomencladores:before {
+  content: "\ea34";
+}
+.icondistra-gestionaroperacionescontables:before {
+  content: "\ea35";
+}
+.icondistra-gestionarordendetrabajo:before {
+  content: "\ea36";
+}
+.icondistra-gestionarpaises:before {
+  content: "\ea37";
+}
+.icondistra-gestionarpaquete:before {
+  content: "\ea38";
+}
+.icondistra-gestionarplanilla:before {
+  content: "\ea39";
+}
+.icondistra-gestionarproyecto:before {
+  content: "\ea3a";
+}
+.icondistra-gestionarrecetas:before {
+  content: "\ea3b";
+}
+.icondistra-gestionarrecursos:before {
+  content: "\ea3c";
+}
+.icondistra-gestionarrelaciones:before {
+  content: "\ea3d";
+}
+.icondistra-gestionarsistemas:before {
+  content: "\ea3e";
+}
+.icondistra-gestionarsolicitud:before {
+  content: "\ea3f";
+}
+.icondistra-gestionarsubsistema:before {
+  content: "\ea40";
+}
+.icondistra-gestionartasa:before {
+  content: "\ea41";
+}
+.icondistra-gestionartrabajador:before {
+  content: "\ea42";
+}
+.icondistra-gestionartransfentreareas:before {
+  content: "\ea43";
+}
+.icondistra-gestionartripulacion:before {
+  content: "\ea44";
+}
+.icondistra-gestionarvalorescontables:before {
+  content: "\ea45";
+}
+.icondistra-gestioncomercial:before {
+  content: "\ea46";
+}
+.icondistra-gestionorganizacional:before {
+  content: "\ea47";
+}
+.icondistra-gestornc:before {
+  content: "\ea48";
+}
+.icondistra-globe:before {
+  content: "\ea49";
+}
+.icondistra-graficar:before {
+  content: "\ea4a";
+}
+.icondistra-grupocontable:before {
+  content: "\ea4b";
+}
+.icondistra-grupossubgrupos:before {
+  content: "\ea4c";
+}
+.icondistra-guardar:before {
+  content: "\ea4d";
+}
+.icondistra-habilitar:before {
+  content: "\ea4e";
+}
+.icondistra-hacer:before {
+  content: "\ea4f";
+}
+.icondistra-heredar:before {
+  content: "\ea50";
+}
+.icondistra-herramientas:before {
+  content: "\ea51";
+}
+.icondistra-historial:before {
+  content: "\ea52";
+}
+.icondistra-horizontal:before {
+  content: "\ea53";
+}
+.icondistra-idaduanales:before {
+  content: "\ea54";
+}
+.icondistra-ide:before {
+  content: "\ea55";
+}
+.icondistra-identificar:before {
+  content: "\ea56";
+}
+.icondistra-identificarduplicados:before {
+  content: "\ea57";
+}
+.icondistra-idioma:before {
+  content: "\ea58";
+}
+.icondistra-igual:before {
+  content: "\ea59";
+}
+.icondistra-importar:before {
+  content: "\ea5a";
+}
+.icondistra-imprimir:before {
+  content: "\ea5b";
+}
+.icondistra-incidencia:before {
+  content: "\ea5c";
+}
+.icondistra-incluir:before {
+  content: "\ea5d";
+}
+.icondistra-incotermcrm:before {
+  content: "\ea5e";
+}
+.icondistra-indicadores:before {
+  content: "\ea5f";
+}
+.icondistra-inf:before {
+  content: "\ea60";
+}
+.icondistra-info:before {
+  content: "\ea61";
+}
+.icondistra-informe:before {
+  content: "\ea62";
+}
+.icondistra-iniciar:before {
+  content: "\ea63";
+}
+.icondistra-iniciocrm:before {
+  content: "\ea64";
+}
+.icondistra-iniciodeanno:before {
+  content: "\ea65";
+}
+.icondistra-instalar:before {
+  content: "\ea66";
+}
+.icondistra-instrumentodepago:before {
+  content: "\ea67";
+}
+.icondistra-integracion:before {
+  content: "\ea68";
+}
+.icondistra-inter:before {
+  content: "\ea69";
+}
+.icondistra-intercambiar:before {
+  content: "\ea6a";
+}
+.icondistra-inventario:before {
+  content: "\ea6b";
+}
+.icondistra-invertir:before {
+  content: "\ea6c";
+}
+.icondistra-izquierda:before {
+  content: "\ea6d";
+}
+.icondistra-jabber:before {
+  content: "\ea6e";
+}
+.icondistra-limpiar:before {
+  content: "\ea6f";
+}
+.icondistra-limpiarduplicados:before {
+  content: "\ea70";
+}
+.icondistra-liquidar:before {
+  content: "\ea71";
+}
+.icondistra-localizar:before {
+  content: "\ea72";
+}
+.icondistra-logistica:before {
+  content: "\ea73";
+}
+.icondistra-lote:before {
+  content: "\ea74";
+}
+.icondistra-maestro:before {
+  content: "\ea75";
+}
+.icondistra-marcartodos:before {
+  content: "\ea76";
+}
+.icondistra-marcarxrol:before {
+  content: "\ea77";
+}
+.icondistra-marcasymodelos:before {
+  content: "\ea78";
+}
+.icondistra-mas:before {
+  content: "\ea79";
+}
+.icondistra-maximizar:before {
+  content: "\ea7a";
+}
+.icondistra-mayor:before {
+  content: "\ea7b";
+}
+.icondistra-medios:before {
+  content: "\ea7c";
+}
+.icondistra-mediosdepagocrm:before {
+  content: "\ea7d";
+}
+.icondistra-mediosenuso:before {
+  content: "\ea7e";
+}
+.icondistra-menor:before {
+  content: "\ea7f";
+}
+.icondistra-metadatos:before {
+  content: "\ea80";
+}
+.icondistra-migrar:before {
+  content: "\ea81";
+}
+.icondistra-minimizar:before {
+  content: "\ea82";
+}
+.icondistra-modelomatematico:before {
+  content: "\ea83";
+}
+.icondistra-modificar:before {
+  content: "\ea84";
+}
+.icondistra-monitoreo2:before {
+  content: "\ea85";
+}
+.icondistra-mostrar:before {
+  content: "\ea86";
+}
+.icondistra-motivodecancelacion:before {
+  content: "\ea87";
+}
+.icondistra-motivodecreacion:before {
+  content: "\ea88";
+}
+.icondistra-motivodesactivacion:before {
+  content: "\ea89";
+}
+.icondistra-movimiento:before {
+  content: "\ea8a";
+}
+.icondistra-multimoneda:before {
+  content: "\ea8b";
+}
+.icondistra-multiplicar:before {
+  content: "\ea8c";
+}
+.icondistra-naturaleza:before {
+  content: "\ea8d";
+}
+.icondistra-niveldeacceso:before {
+  content: "\ea8e";
+}
+.icondistra-niveldeactividades:before {
+  content: "\ea8f";
+}
+.icondistra-niveldeplanificacion:before {
+  content: "\ea90";
+}
+.icondistra-noevaluado:before {
+  content: "\ea91";
+}
+.icondistra-nomencladores:before {
+  content: "\ea92";
+}
+.icondistra-nomencladorescrm:before {
+  content: "\ea93";
+}
+.icondistra-nomencladoresdinamicos:before {
+  content: "\ea94";
+}
+.icondistra-nomina:before {
+  content: "\ea95";
+}
+.icondistra-normalizacion:before {
+  content: "\ea96";
+}
+.icondistra-notificaciones:before {
+  content: "\ea97";
+}
+.icondistra-nuevacorrconbanco:before {
+  content: "\ea98";
+}
+.icondistra-nueve:before {
+  content: "\ea99";
+}
+.icondistra-nuevo:before {
+  content: "\ea9a";
+}
+.icondistra-numeroserie:before {
+  content: "\ea9b";
+}
+.icondistra-ocho:before {
+  content: "\ea9c";
+}
+.icondistra-operaciones:before {
+  content: "\ea9d";
+}
+.icondistra-ordenarcampos:before {
+  content: "\ea9e";
+}
+.icondistra-organigrama:before {
+  content: "\ea9f";
+}
+.icondistra-organizacion:before {
+  content: "\eaa0";
+}
+.icondistra-organo:before {
+  content: "\eaa1";
+}
+.icondistra-pago:before {
+  content: "\eaa2";
+}
+.icondistra-pagofiscal:before {
+  content: "\eaa3";
+}
+.icondistra-panelcontrol:before {
+  content: "\eaa4";
+}
+.icondistra-parametros:before {
+  content: "\eaa5";
+}
+.icondistra-parentesisA:before {
+  content: "\eaa6";
+}
+.icondistra-parentesisC:before {
+  content: "\eaa7";
+}
+.icondistra-partida:before {
+  content: "\eaa8";
+}
+.icondistra-pegar:before {
+  content: "\eaa9";
+}
+.icondistra-perfilusuario:before {
+  content: "\eaaa";
+}
+.icondistra-periodicidadcrm:before {
+  content: "\eaab";
+}
+.icondistra-periodo:before {
+  content: "\eaac";
+}
+.icondistra-periodoactual:before {
+  content: "\eaad";
+}
+.icondistra-permisossistemadominio:before {
+  content: "\eaae";
+}
+.icondistra-persona:before {
+  content: "\eaaf";
+}
+.icondistra-planificacion:before {
+  content: "\eab0";
+}
+.icondistra-planificacionmaterial:before {
+  content: "\eab1";
+}
+.icondistra-planificacionycontrol:before {
+  content: "\eab2";
+}
+.icondistra-planilla:before {
+  content: "\eab3";
+}
+.icondistra-planillacrm:before {
+  content: "\eab4";
+}
+.icondistra-planillaevaluativa:before {
+  content: "\eab5";
+}
+.icondistra-plantrabajodescanso:before {
+  content: "\eab6";
+}
+.icondistra-ponderar:before {
+  content: "\eab7";
+}
+.icondistra-porciento:before {
+  content: "\eab8";
+}
+.icondistra-post-accion:before {
+  content: "\eab9";
+}
+.icondistra-preparar:before {
+  content: "\eaba";
+}
+.icondistra-prepararprocesoevaluativo:before {
+  content: "\eabb";
+}
+.icondistra-primerapagina:before {
+  content: "\eabc";
+}
+.icondistra-prioridadcrm:before {
+  content: "\eabd";
+}
+.icondistra-probar:before {
+  content: "\eabe";
+}
+.icondistra-procesardocumento:before {
+  content: "\eabf";
+}
+.icondistra-procesoevaluativo:before {
+  content: "\eac0";
+}
+.icondistra-producto:before {
+  content: "\eac1";
+}
+.icondistra-prorratear:before {
+  content: "\eac2";
+}
+.icondistra-psi:before {
+  content: "\eac3";
+}
+.icondistra-ptoflotante:before {
+  content: "\eac4";
+}
+.icondistra-ptr:before {
+  content: "\eac5";
+}
+.icondistra-publicar:before {
+  content: "\eac6";
+}
+.icondistra-quitarfoto:before {
+  content: "\eac7";
+}
+.icondistra-rango:before {
+  content: "\eac8";
+}
+.icondistra-ranking:before {
+  content: "\eac9";
+}
+.icondistra-recargar:before {
+  content: "\eaca";
+}
+.icondistra-recepcion:before {
+  content: "\eacb";
+}
+.icondistra-reclamacion:before {
+  content: "\eacc";
+}
+.icondistra-recuperaciones:before {
+  content: "\eacd";
+}
+.icondistra-recursos:before {
+  content: "\eace";
+}
+.icondistra-redistribucion:before {
+  content: "\eacf";
+}
+.icondistra-reducirimagen:before {
+  content: "\ead0";
+}
+.icondistra-reevaluacion:before {
+  content: "\ead1";
+}
+.icondistra-registro:before {
+  content: "\ead2";
+}
+.icondistra-registrodecomprobante:before {
+  content: "\ead3";
+}
+.icondistra-registrogasto:before {
+  content: "\ead4";
+}
+.icondistra-regularacciones:before {
+  content: "\ead5";
+}
+.icondistra-renovardocumento:before {
+  content: "\ead6";
+}
+.icondistra-reportegrafico:before {
+  content: "\ead7";
+}
+.icondistra-reportes:before {
+  content: "\ead8";
+}
+.icondistra-restar:before {
+  content: "\ead9";
+}
+.icondistra-restaurarpersona:before {
+  content: "\eada";
+}
+.icondistra-uniEAD8:before {
+  content: "\eadb";
+}
+.icondistra-uniEAD9:before {
+  content: "\eadc";
+}
+.icondistra-uniEADA:before {
+  content: "\eadd";
+}
+.icondistra-retenciones:before {
+  content: "\eade";
+}
+.icondistra-retribucionsalarial:before {
+  content: "\eadf";
+}
+.icondistra-reubicarpersona:before {
+  content: "\eae0";
+}
+.icondistra-revertiractualizacion:before {
+  content: "\eae1";
+}
+.icondistra-revisar:before {
+  content: "\eae2";
+}
+.icondistra-rolesygrupos:before {
+  content: "\eae3";
+}
+.icondistra-salida:before {
+  content: "\eae4";
+}
+.icondistra-salir:before {
+  content: "\eae5";
+}
+.icondistra-secuenciadetraspaso:before {
+  content: "\eae6";
+}
+.icondistra-seguridad:before {
+  content: "\eae7";
+}
+.icondistra-seis:before {
+  content: "\eae8";
+}
+.icondistra-seleccion:before {
+  content: "\eae9";
+}
+.icondistra-sennalamientos:before {
+  content: "\eaea";
+}
+.icondistra-servicio:before {
+  content: "\eaeb";
+}
+.icondistra-servidores:before {
+  content: "\eaec";
+}
+.icondistra-siete:before {
+  content: "\eaed";
+}
+.icondistra-siguiente:before {
+  content: "\eaee";
+}
+.icondistra-sincronizar:before {
+  content: "\eaef";
+}
+.icondistra-sipac:before {
+  content: "\eaf0";
+}
+.icondistra-sistemaintegral:before {
+  content: "\eaf1";
+}
+.icondistra-sistemas:before {
+  content: "\eaf2";
+}
+.icondistra-subir:before {
+  content: "\eaf3";
+}
+.icondistra-subirfichero:before {
+  content: "\eaf4";
+}
+.icondistra-subirficheros:before {
+  content: "\eaf5";
+}
+.icondistra-submayor:before {
+  content: "\eaf6";
+}
+.icondistra-subordinaciones:before {
+  content: "\eaf7";
+}
+.icondistra-subsistemas:before {
+  content: "\eaf8";
+}
+.icondistra-sucursal:before {
+  content: "\eaf9";
+}
+.icondistra-sumar:before {
+  content: "\eafa";
+}
+.icondistra-tablasporcategoria:before {
+  content: "\eafb";
+}
+.icondistra-talleres:before {
+  content: "\eafc";
+}
+.icondistra-talonario:before {
+  content: "\eafd";
+}
+.icondistra-tarea:before {
+  content: "\eafe";
+}
+.icondistra-tecnica:before {
+  content: "\eaff";
+}
+.icondistra-temas:before {
+  content: "\eb00";
+}
+.icondistra-terminar:before {
+  content: "\eb01";
+}
+.icondistra-terminodepagocrm:before {
+  content: "\eb02";
+}
+.icondistra-tileview-detalles:before {
+  content: "\eb03";
+}
+.icondistra-tileview-iconos:before {
+  content: "\eb04";
+}
+.icondistra-tileview-iconosgrandes:before {
+  content: "\eb05";
+}
+.icondistra-tileview-mosaicos:before {
+  content: "\eb06";
+}
+.icondistra-tipocontratocrm:before {
+  content: "\eb07";
+}
+.icondistra-tipocuentabancaria:before {
+  content: "\eb08";
+}
+.icondistra-tipodocidentificacion:before {
+  content: "\eb09";
+}
+.icondistra-tipoproceso:before {
+  content: "\eb0a";
+}
+.icondistra-tmpseguridad:before {
+  content: "\eb0b";
+}
+.icondistra-top:before {
+  content: "\eb0c";
+}
+.icondistra-topderecha:before {
+  content: "\eb0d";
+}
+.icondistra-topizquierda:before {
+  content: "\eb0e";
+}
+.icondistra-transicionescrm:before {
+  content: "\eb0f";
+}
+.icondistra-transportacion:before {
+  content: "\eb10";
+}
+.icondistra-traspaso:before {
+  content: "\eb11";
+}
+.icondistra-traza:before {
+  content: "\eb12";
+}
+.icondistra-tres:before {
+  content: "\eb13";
+}
+.icondistra-tributar:before {
+  content: "\eb14";
+}
+.icondistra-true:before {
+  content: "\eb15";
+}
+.icondistra-turnodetrabajo:before {
+  content: "\eb16";
+}
+.icondistra-ubicar:before {
+  content: "\eb17";
+}
+.icondistra-ubicarproducto:before {
+  content: "\eb18";
+}
+.icondistra-ultimapagina:before {
+  content: "\eb19";
+}
+.icondistra-unidad:before {
+  content: "\eb1a";
+}
+.icondistra-unidadmedida:before {
+  content: "\eb1b";
+}
+.icondistra-uno:before {
+  content: "\eb1c";
+}
+.icondistra-usarentidad:before {
+  content: "\eb1d";
+}
+.icondistra-usuario:before {
+  content: "\eb1e";
+}
+.icondistra-utilidades:before {
+  content: "\eb1f";
+}
+.icondistra-vacaciones:before {
+  content: "\eb20";
+}
+.icondistra-vaciartemporal:before {
+  content: "\eb21";
+}
+.icondistra-validacionmasiva:before {
+  content: "\eb22";
+}
+.icondistra-validar:before {
+  content: "\eb23";
+}
+.icondistra-validarpersona:before {
+  content: "\eb24";
+}
+.icondistra-validaryaceptar:before {
+  content: "\eb25";
+}
+.icondistra-valorescualitativos:before {
+  content: "\eb26";
+}
+.icondistra-valoresimagenes:before {
+  content: "\eb27";
+}
+.icondistra-variablesglobales:before {
+  content: "\eb28";
+}
+.icondistra-ver:before {
+  content: "\eb29";
+}
+.icondistra-verficha:before {
+  content: "\eb2a";
+}
+.icondistra-vermapa:before {
+  content: "\eb2b";
+}
+.icondistra-vertical:before {
+  content: "\eb2c";
+}
+.icondistra-viaadquisicion:before {
+  content: "\eb2d";
+}
+.icondistra-visorderecuperaciones:before {
+  content: "\eb2e";
+}
+.icondistra-vistaprevia:before {
+  content: "\eb2f";
+}
+.icondistra-vistareporte:before {
+  content: "\eb30";
+}
+.icondistra-zeol-ide:before {
+  content: "\eb31";
+}
+
+
+/*FUENTES*/
+
+
+/*
+* Se sobreescribe la propiedad paddin-left de esta clase para la version
+* 3.4 de extjs.
+* Se elimina el espacio que se define para los botones en extjs 3.4
+*/
+.x-btn-text-icon .x-btn-icon-small-left .x-btn-text{
+    padding-left: 0 !important;
+}
+
+/*
+* Para el casa en que se utilice las fuentes dentro de los grid
+* modificando el argumento metaData de la funcion renderer de
+* cada columna.
+* Se redefine la posicion del div con clase x-grid3-cell-inner
+* para que se ubique por detras de la imagen de la celda.
+*/
+[class*="icondistra-"] .x-grid3-cell-inner {
+    position: absolute;
+    width: inherit;
+    margin-top: -15px;
+}
+
+/*
+* Para el caso en que se utilice las fuentes dentro de los grid
+* modificando el argumento metaData de la funcion renderer de
+* cada columna.
+* Se alinea la fuente en el centro de la celda.
+*/
+tr [class*="icondistra-"]{
+    vertical-align: middle;
+    text-align: center;
+}
+
+/*
+* Para el caso en que se utilice las fuentes en los arboles.
+* Se elimina el marign-right definido por defectos para
+* las fuentes en los botones.
+*/
+.x-tree-node-el [class*="icondistra-"]:before{
+    margin-right: 0px !important;
+}
+
+/*.empty-text:before{
+    margin-left: -4px; !important;
+}*/
+
+/*
+* Color definido para los iconos del tema default.
+*/
+[class*="icondistra-"]:before {
+    color: #124872;
+}
+/*
+* Se le adiciona un margin inferior a los botones sin
+* texto.
+*/
+.x-btn-icon [class*="icondistra-"]{
+    margin-bottom: 2px;
+}
+
+/*
+* Se le quita el padding para eliminar espacios vacios en el btn
+*/
+.icondistra-ayuda {
+    padding: 0px !important;
+}
+
+/*
+Ajuste para iconos hacia la derecha en versiones viejas de firefox
+*/
+.x-btn-center-old-ff:before{
+    margin-left: -3px;
+    margin-bottom: 2px;
+}
+
+.x-btn-center-no-text-old-ff:before{
+    margin-left: -1px;
+    margin-bottom: 2px;
+}
+
+

@@ -1,0 +1,199 @@
+Utilidades.Cmp.Cmpgestionarestructura = function (opcionesConfig) {
+    var _this = this;
+    Ext.Ajax.timeout = 1000000000;
+    this.prevrow = -1;
+    this.start = 0;
+
+    //componente para el manejo de los mensajes de errores de texto regido
+    this.ObjValidaciones = new Utilidades.Cmp.Cmpvalidaciones();
+
+    this.idEstructura = null;
+
+    //funcion que me construye el árbol de Estructuras
+    this.crearArbolEstructura = function (parametros, verificarEntidadOrganoEmpresarial) {
+        var sm = (parametros.hasOwnProperty('sm')) ? parametros.sm : null;
+        var st = (parametros.hasOwnProperty('st')) ? parametros.st : null;
+        var panel = (parametros.hasOwnProperty('panel')) ? parametros.panel : null;
+
+        this.tfbuscarEstructuras = new Ext.form.TextField(
+            {
+                id: 'tfbuscarEstructuras',
+                enableKeyEvents: true,
+                regex: _this.ObjValidaciones.expresionRegular('denominacion'),
+                maskRe: /^([a-zA-Z0-9áéíóúüÁÉÍÓÚñÑÜ"' ,./()_-])$/,
+                regexText: _this.ObjValidaciones.ObtenerMsjErrorTextoRegido('denominacion'),
+                vtype: _this.ObjValidaciones.validacionesVtypes('validarEspaciosEnBlanco'),
+                maxLength: 255,
+                width: 100,
+                listeners: {
+                    keydown: function (tf, e) {
+                        if (e.getKey() == 13) {
+                            if (tf.isValid() && tf.getValue() != '') {
+                                _this.tpEstructuras.getRootNode().reload();
+                            }
+                        }
+                    },
+                    keyup: function (tf, e) {
+                        if (tf.getValue() != '') {
+                            _this.btnLimpiarEstructuras.enable();
+                            if (tf.isValid()) {
+                                _this.btnbuscarEstructuras.enable();
+                            } else {
+                                _this.btnbuscarEstructuras.disable();
+                            }
+                        } else {
+                            _this.btnLimpiarEstructuras.disable();
+                            _this.btnbuscarEstructuras.disable();
+                        }
+                    }
+                }
+            });
+
+        this.btnbuscarEstructuras = new Ext.Button({
+            id: 'btnbuscarEstructuras',
+            iconCls: 'buscar',
+            tooltip: 'Buscar estructura',
+            disabled: true,
+            handler: function () {
+                _this.tpEstructuras.getRootNode().reload();
+            },
+            key: {
+                alt: true,
+                key: 'B'
+            },
+            scope: this
+        });
+        this.btnLimpiarEstructuras = new Ext.Button({
+            iconCls: 'limpiar',
+            tooltip: 'Limpiar filtro(s)',
+            disabled: true,
+            handler: function () {
+                _this.tfbuscarEstructuras.reset();
+                _this.btnbuscarEstructuras.disable();
+                _this.btnLimpiarEstructuras.disable();
+                _this.tpEstructuras.getRootNode().reload();
+            },
+            key: {
+                alt: true,
+                key: 'L'
+            },
+            scope: this
+        });
+        this.tpEstructuras = new Ext.tree.TreePanel({
+            tbar: ['Buscar:', '', _this.tfbuscarEstructuras, _this.btnbuscarEstructuras,
+                _this.btnLimpiarEstructuras, '-',
+                {
+                    id: 'btnExpandirEntidad',
+                    iconCls: 'expandir',
+                    tooltip: 'Expandir &aacute;rbol de entidades',
+                    handler: function () {
+                        _this.tpEstructuras.root.expand(true);
+                        _this.actualizarBarraHerramientasEstructura('expandir', parametros);
+                    }
+                }, {
+                    id: 'btnContraerEntidad',
+                    iconCls: 'contraer',
+                    tooltip: 'Contraer &aacute;rbol de entidades',
+                    handler: function () {
+                        _this.tpEstructuras.root.collapse(true);
+                        _this.actualizarBarraHerramientasEstructura('contraer', parametros);
+                    }
+                }, {
+                    id: 'btnActualizarEntidad',
+                    iconCls: 'actualizar',
+                    tooltip: 'Refrescar &aacute;rbol de entidades',
+                    handler: function () {
+                        _this.tfbuscarEstructuras.reset();
+                        _this.tpEstructuras.getRootNode().reload();
+                        _this.actualizarBarraHerramientasEstructura('actualizar', parametros);
+                    }
+                }
+            ],
+            autoScroll: true,
+            split: true,
+            root: {
+                nodeType: 'async',
+                id: 'nodo2',
+                idgrupo: 'nodo2',
+                text: 'Estructuras'
+            },
+            listeners: {
+                click: function (node) {
+                    _this.idEstructura = node.id;
+                    if (_this.idEstructura != '' && _this.idEstructura != 'nodo2') {
+                        verificarEntidadOrganoEmpresarial();
+                    } else {
+                        if (panel != null) panel.disable();
+                    }
+                    if (sm != null) sm.clearSelections();
+                },
+                beforeexpandnode: function (node) {
+                    _this.actualizarBarraHerramientasEstructura('expandir', parametros);
+                },
+                beforecollapsenode: function (node) {
+                    _this.actualizarBarraHerramientasEstructura('contraer', parametros);
+                },
+                load: function (node) {
+                    _this.actualizarBarraHerramientasEstructura('actualizar', parametros);
+                },
+                render: function (tpanel) {
+                    _this.tpEstructuras.getRootNode().reload();
+                }
+            },
+            loader: new Ext.tree.TreeLoader({
+                singleClickExpand: true,
+                dataUrl: '/planificacion/planproeza/index.php/configurarentidadesorganos/cargarArbolEstructura',
+                listeners: {
+                    'beforeload': function (atreeloader, anode) {
+                        var text = _this.tfbuscarEstructuras.getValue();
+                        atreeloader.baseParams = {
+                            tipo: anode.attributes.tipo,
+                            idgrupo: anode.attributes.idgrupo,
+                            denominacion: text
+                        };
+                    },
+                    'load': function (atreeloader, anode) {
+                        var text = _this.tfbuscarEstructuras.getValue();
+                        atreeloader.baseParams = {
+                            tipo: anode.attributes.tipo,
+                            idgrupo: anode.attributes.idgrupo,
+                            denominacion: text
+                        };
+                    }
+                }
+            })
+        });
+
+        return _this.tpEstructuras;
+    };
+
+    this.actualizarBarraHerramientasEstructura = function (accion, parametros) {
+        if (_this.tpEstructuras.getRootNode().childNodes.length == 0) {
+            Ext.getCmp('btnExpandirEntidad').setDisabled(true);
+            Ext.getCmp('btnContraerEntidad').setDisabled(true);
+        } else {
+            if (accion == 'contraer') {
+                Ext.getCmp('btnExpandirEntidad').setDisabled(false);
+                Ext.getCmp('btnContraerEntidad').setDisabled(true);
+            } else if (accion == 'expandir' || accion == 'actualizar') {
+                Ext.getCmp('btnExpandirEntidad').setDisabled(true);
+                Ext.getCmp('btnContraerEntidad').setDisabled(false);
+                if (accion == 'actualizar') {
+                    _this.tfbuscarEstructuras.reset();
+                    _this.btnbuscarEstructuras.disable();
+                    _this.btnLimpiarEstructuras.disable();
+                }
+            }
+        }
+        var sm = (parametros.hasOwnProperty('sm')) ? parametros.sm : null;
+        var panel = (parametros.hasOwnProperty('panel')) ? parametros.panel : null;
+
+        if (sm != null) sm.clearSelections();
+        if (panel != null) panel.disable();
+
+    };
+
+
+}
+
+

@@ -1,0 +1,16 @@
+{
+    lbMsgEsperaEnviarDatos: 'Cargando datos de tipos de reportes y certificaciones',
+    lbMsgEspera: 'Por favor espere...',
+
+    lbtitleVentanaEstructura: 'Entidades',
+    lbtitlePanelSouth: 'Configurar calendario',
+    lbtitlePanelWest: 'Listado de tipos de n&oacute;minas',
+    lbtitlePanelEast: 'Listado de variables auxiliares',
+    lbtitlePanelCenter: 'Configurar f&oacute;rmulas',
+    lbtitleVentanaSNC225: 'Configuraci&oacute;n del registrio de salario y tiempo de servicio',
+    textToolTipGuardarReg:    		       	'Guardar datos de la configuraci&oacute;n de las variables globales (<b>Alt+G</b>)',
+
+    texttooltipbtnAceptarEntidad: 'Aceptar',
+
+    textbtnAceptarEntidad: 'Aceptar',
+}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<exceptions>
+	<seguridad>
+		<GestsistemaController>
+			<cargarservidoresAction>
+				<exception type="Doctrine_Connection_Exception" code="SEG024"
+						   filter="PDO Connection Error: SQLSTATE[08006] [7] could not connect to server"/>
+				<exception type="Doctrine_Connection_Exception" code="SEG023"/>
+			</cargarservidoresAction>
+		</GestsistemaController>
+		<GestrolesbdController>
+			<conectarseBDAction>
+				<exception type="PDOException" code="SEG025" filter="SQLSTATE[08006] [7] FATAL:  database "/>
+				<exception type="PDOException" code="SEG025" filter="SQLSTATE[08006] [7] FATAL:  role"/>
+				<exception type="PDOException" code="SEG025"
+						   filter="SQLSTATE[08006] [7] FATAL:  password authentication"/>
+				<exception type="Doctrine_Connection_Pgsql_Exception" code="SEG026"
+						   filter="SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permission denied for relation pg_authid"/>
+			</conectarseBDAction>
+		</GestrolesbdController>
+		<GestrecursosController>
+			<insertarRecursosAction>
+				<exception type="Doctrine_Connection_Pgsql_Exception" code="SEGREC002"
+						   filter="SQLSTATE[23505]: Unique violation:"/>
+			</insertarRecursosAction>
+			<modificarRecursosAction>
+				<exception type="Doctrine_Connection_Pgsql_Exception" code="SEGREC002"
+						   filter="SQLSTATE[23505]: Unique violation:"/>
+			</modificarRecursosAction>
+		</GestrecursosController>
+		<GestnomgestorController>
+			<insertargestorAction>
+				<exception type="Doctrine_Connection_Pgsql_Exception" code="SEGGestor01"
+						   filter="SQLSTATE[23505]: Unique violation:"/>
+			</insertargestorAction>
+			<modificaromgestorAction>
+				<exception type="Doctrine_Connection_Pgsql_Exception" code="SEGGestor02"
+						   filter="SQLSTATE[23505]: Unique violation:"/>
+			</modificaromgestorAction>
+		</GestnomgestorController>
+		<GestnomidiomaController>
+			<insertarnomidiomaAction>
+				<exception type="Doctrine_Connection_Pgsql_Exception" code="SEG014"
+						   filter="SQLSTATE[23505]: Unique violation:"/>
+			</insertarnomidiomaAction>
+			<modificarnomidiomaAction>
+				<exception type="Doctrine_Connection_Pgsql_Exception" code="SEG015"
+						   filter="SQLSTATE[23505]: Unique violation:"/>
+			</modificarnomidiomaAction>
+		</GestnomidiomaController>
+		<GestexpresionesController>
+			<insertarexpresionAction>
+				<exception type="Doctrine_Connection_Pgsql_Exception" code="SEGEXPRS01"
+						   filter="SQLSTATE[23505]: Unique violation:"/>
+			</insertarexpresionAction>
+			<modificarexpresionAction>
+				<exception type="Doctrine_Connection_Pgsql_Exception" code="SEGEXPRS02"
+						   filter="SQLSTATE[23505]: Unique violation:"/>
+			</modificarexpresionAction>
+		</GestexpresionesController>
+	</seguridad>
+
+</exceptions>
+

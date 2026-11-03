@@ -1,0 +1,23 @@
+<?php
+
+abstract class BaseDatTareagantt extends Doctrine_Record
+{
+
+    public function setTableDefinition()
+    {
+        $this->setTableName('mod_planifintegracion.dat_tareagantt');
+        $this->hasColumn('idtareagantt', 'numeric', null, array ('notnull' => false,'primary' => true, 'sequence' => 'mod_planifintegracion.sec_tareagantt'));
+        $this->hasColumn('idestudiogantt', 'numeric', null, array ('notnull' => false,'primary' => false));
+        $this->hasColumn('idpadre', 'numeric', null, array ('notnull' => true,'primary' => false));
+        $this->hasColumn('denominacion', 'character varying', null, array ('notnull' => false,'primary' => false));
+        $this->hasColumn('descripcion', 'character varying', null, array ('notnull' => true,'primary' => false));
+        $this->hasColumn('duraciontarea', 'double precision', null, array ('notnull' => true,'primary' => false));
+        $this->hasColumn('porcientocumplimiento', 'double precision', null, array ('notnull' => true,'primary' => false));
+        $this->hasColumn('fechaini', 'date', null, array ('notnull' => true,'primary' => false));
+        $this->hasColumn('fechafin', 'date', null, array ('notnull' => true,'primary' => false));
+        $this->hasColumn('idunidadtiempo', 'numeric', null, array ('notnull' => false,'primary' => false));
+    }
+
+
+}
+

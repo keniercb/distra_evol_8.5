@@ -1,0 +1,47 @@
+<?php
+$dirCerts = substr($_SERVER['DOCUMENT_ROOT'], 0, strrpos($_SERVER['DOCUMENT_ROOT'], 'web')) . 'config' . DIRECTORY_SEPARATOR . 'certs' . DIRECTORY_SEPARATOR . 'auth' . DIRECTORY_SEPARATOR;
+$configCert = parse_ini_file($dirCerts . 'rsa.ini');
+$publicKey = addcslashes(file_get_contents($dirCerts . $configCert['publicKey']), '\\');
+?>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Configuración"</title>
+    <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+    <script language="javascript" type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+</head>
+
+<body>
+<input id="publicKey" name="publicKey" type="text" style="display:none" hidden="true"
+       value="<?php echo $publicKey; ?>"/>
+
+<div id="panel"></div>
+<script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/utiles/extensiones.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/utiles/Utiles.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/validadores.js"></script>
+<script language="JavaScript" type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/security/rsa/jsbn.js"></script>
+<script language="JavaScript" type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/security/rsa/rsa.js"></script>
+
+<!--PARA DESARROLLO-->
+<script type="text/javascript" src="../../views/js/configuracion/contenedora.js"></script>
+<script type="text/javascript" src="../../views/js/configuracion/gestconfiguracion.js"></script>
+<script type="text/javascript" src="../../views/js/configuracion/gestnomdominio.js"></script>
+<script type="text/javascript" src="../../views/js/configuracion/gestservidor.js"></script>
+<script type="text/javascript" src="../../views/js/configuracion/gestnomidioma.js"></script>
+<script type="text/javascript" src="../../views/js/configuracion/gestnomtema.js"></script>
+<script type="text/javascript" src="../../views/js/configuracion/gestnomdesktop.js"></script>
+<script type="text/javascript" src="../../views/js/configuracion/gestexpresiones.js"></script>
+<script type="text/javascript" src="../../views/js/configuracion/captcha.js"></script>
+<script type="text/javascript" src="../../views/js/configuracion/genfichero.js"></script>
+<script type="text/javascript" src="../../views/js/configuracion/gestcein.js"></script>
+<script type="text/javascript" src="../../views/js/configuracion/integridad.js"></script>
+
+<!--MINIFICADO PARA MEJORAR EL RENDIMINETO-->
+<!--<script type="text/javascript" src="../../views/js/build/configuracion/configuracion.min.js"></script>-->
+</body>
+</html>

@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions name="servicio" targetNamespace="urn:servicio"
+             xmlns:typens="urn:servicio"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns="http://schemas.xmlsoap.org/wsdl/">
+    <message name="webservice">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="autenticarUsuario">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="cargarArbolEstructuras">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="cargarplantillas">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerTareasParaChequear">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="actualizarCumplimiento">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="webserviceResponse">
+        <part name="webserviceReturn" type="xsd:anyType"/>
+    </message>
+    <portType name="PlanificacionSoapServicePortType">
+
+        <operation name="autenticarUsuario">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+
+        <operation name="cargarArbolEstructuras">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+
+        <operation name="cargarplantillas">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+
+        <operation name="obtenerTareasParaChequear">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+
+        <operation name="actualizarCumplimiento">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+
+    </portType>
+
+    <binding name="PlanificacionSoapServiceBinding" type="typens:PlanificacionSoapServicePortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+        <operation name="autenticarUsuario">
+            <soap:operation soapAction="urn:PlanificacionSoapServiceAction"/>
+            <input>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+        <operation name="cargarArbolEstructuras">
+            <soap:operation soapAction="urn:PlanificacionSoapServiceAction"/>
+            <input>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+        <operation name="cargarplantillas">
+            <soap:operation soapAction="urn:PlanificacionSoapServiceAction"/>
+            <input>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+        <operation name="obtenerTareasParaChequear">
+            <soap:operation soapAction="urn:PlanificacionSoapServiceAction"/>
+            <input>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+        <operation name="actualizarCumplimiento">
+            <soap:operation soapAction="urn:PlanificacionSoapServiceAction"/>
+            <input>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+    </binding>
+    <service name="servicioService">
+        <port name="PlanificacionSoapServicePort" binding="typens:PlanificacionSoapServiceBinding">
+            <soap:address location=""/>
+            <!--<soap:address location="http://sipac-calidad.prod.xetid.cu/planificacion/pdo/plan/services.php"/>-->
+            <!--soap:address location="https://gestion-empresarial.xetid.cu/planificacion/pdo/plan/services.php"/-->
+            <!--soap:address location=""/-->
+        </port>
+    </service>
+</definitions>

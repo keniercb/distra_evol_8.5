@@ -1,0 +1,51 @@
+{
+    "name": "configurar",
+    "concat": {
+        "js": {
+            "files": [
+                "idioma/idiomaEs.js",
+                "comun/CheckColumn.js",
+                "comun/Msg.js",
+                "comun/treeFilter.js",
+                "model/ModelStoreComboBox.js",
+                "model/ModelStoreGrid.js",
+                "model/Subsistema.js",
+                "store/storeGridEditorActions.js",
+                "store/storeTreeDD.js",
+                "views/componentes/arbolRefFunc.js",
+                "views/componentes/arbolRefSist.js",
+                "views/componentes/contextMenu.js",
+                "views/componentes/formularioPanel.js",
+                "views/componentes/gridEditorAcciones.js",
+                "views/componentes/panelDerecho.js",
+                "views/componentes/panelGrid.js",
+                "views/componentes/panelMenuIzquierdo.js",
+                "views/componentes/treeDragDrop.js",
+                "views/componentes/windowAccion.js",
+                "views/componentes/windowImportarSistema.js",
+                "views/componentes/windowReferencia.js",
+                "views/principal.js",
+                "controller/configuracionSub.js",
+                "controller/keyMap.js",
+                "aplication.js"
+            ],
+            "outputFile": "../../build/gestsist/gestsist.js"
+        }
+
+    },
+    "minify": {
+        "js": {
+            "files": [
+                "../../build/gestsist/gestsist.js"
+            ],
+            "outputDir": "../../build/gestsist/"
+        },
+        "css": {
+            "files": [
+                "comun/Msg.css"
+            ],
+            "outputDir": "../../../css/build/gestsist/"
+        }
+    }
+
+}

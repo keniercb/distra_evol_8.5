@@ -1,0 +1,11 @@
+{
+    btnAceptar: 'Aceptar',
+    btnAplicar: 'Aplicar',
+    btnCancelar: 'Cancelar',
+    btnAyuda: 'Ayuda',
+    btnAdicionar: 'Ad<u>i</u>cionar',
+    btnModificar: '<u>M</u>odificar',
+    btnEliminar: 'Eliminar'
+    
+
+}

@@ -1,0 +1,46 @@
+
+/*
+* Se define el color por defecto en el tema default para
+* los botones cancelar,cerrar,salir,ayuda e info.
+*/
+.icondistra-cancelar:before {
+    color: #a42020 !important;
+}
+
+.icondistra-cerrar:before {
+    color: #a42020 !important;
+}
+
+.icondistra-salir:before {
+    color: #a42020 !important;
+}
+
+.icondistra-ayuda:before {
+    color: #7c8033 !important;
+}
+
+.icondistra-info:before {
+    color: #7c8033 !important;
+}
+
+/*
+* Se definen las clases verde,rojo y amarillo para cambiar los colores de
+* los botones a conveniencia.
+* Ejemplo:
+*     iconCls:icondistra-aceptar verde
+*/
+.verde:before {
+    color: #1D8D4C !important;
+}
+
+.rojo:before {
+    color:#a42020 !important;
+}
+
+.amarillo:before {
+    color: #cdcb35 !important;
+}
+
+.azul:before {
+    color: #1B68A2 !important;
+}

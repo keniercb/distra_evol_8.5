@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ioc>
+    <zeolhelp src="zeolhelp">
+        <importarProyecto reference="">
+            <inyector clase="ZeolHelpService" metodo="importProject"/>
+            <prototipo>
+                <parametro nombre="dir_file_zip" tipo="alfanumguionesptoslashes"/>
+                <resultado type="array"/>
+            </prototipo>
+        </importarProyecto>
+    </zeolhelp>
+</ioc>

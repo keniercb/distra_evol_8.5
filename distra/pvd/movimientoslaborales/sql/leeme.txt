@@ -1,0 +1,2 @@
+http://10.12.170.129:9880/ch_fuerzatrabajo/trunk/lineabase
+- Verificar las dependencias contenidas en las últimas líneas del fichero base_fuerzatrabajo.sql

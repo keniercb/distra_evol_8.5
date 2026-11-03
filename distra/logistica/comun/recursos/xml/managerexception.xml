@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<exceptions>
+    <logistica>
+        <inventario>
+            <nomencladores>
+                <GestnomgrupoproductoController>
+                    <modDescripcionAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="LOGAFT018"
+                                   filter="CONCURRENCE RESTRICTION"/>
+                    </modDescripcionAction>
+                </GestnomgrupoproductoController>
+                <GestnomconceptoplanController>
+                    <modDescripcionAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="LOGAFT018"
+                                   filter="CONCURRENCE RESTRICTION"/>
+                    </modDescripcionAction>
+                </GestnomconceptoplanController>
+                <GestnomdestfinalController>
+                    <modDescripcionAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="LOGAFT018"
+                                   filter="CONCURRENCE RESTRICTION"/>
+                    </modDescripcionAction>
+                </GestnomdestfinalController>
+                <GestnomcalidadmovdiferenciaController>
+                    <modDescripcionAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="LOGAFT018"
+                                   filter="CONCURRENCE RESTRICTION"/>
+                    </modDescripcionAction>
+                </GestnomcalidadmovdiferenciaController>
+                <GestnomcategoriaController>
+                    <modDescripcionAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="LOGAFT018"
+                                   filter="CONCURRENCE RESTRICTION"/>
+                    </modDescripcionAction>
+                </GestnomcategoriaController>
+            </nomencladores>
+
+        </inventario>
+
+
+        <activos_fijos>
+            <utiles>
+                <ConfestadosoperacionesController>
+                    <eliminarasociadoAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="LOGAFT001"
+                                   filter="Foreign key violation"/>
+                    </eliminarasociadoAction>
+                </ConfestadosoperacionesController>
+            </utiles>
+
+
+            <aft>
+                <ActivofijotangibleController>
+                    <modificaraftAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="LOGAFT016"
+                                   filter="CONCURRENCE RESTRICTION"/>
+                    </modificaraftAction>
+                </ActivofijotangibleController>
+            </aft>
+            <nomencladores>
+                <GrupoController>
+                    <modificargrupoAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="LOGAFT016"
+                                   filter="CONCURRENCE RESTRICTION"/>
+                    </modificargrupoAction>
+                </GrupoController>
+                <MarcamodeloController>
+                    <modificarAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="LOGAFT016"
+                                   filter="CONCURRENCE RESTRICTION"/>
+                    </modificarAction>
+                </MarcamodeloController>
+                <NomareaController>
+                    <modificarAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="LOGAFT016"
+                                   filter="CONCURRENCE RESTRICTION"/>
+                    </modificarAction>
+                </NomareaController>
+                <NomrazaController>
+                    <modificarAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="LOGAFT016"
+                                   filter="CONCURRENCE RESTRICTION"/>
+                    </modificarAction>
+                </NomrazaController>
+                <TipocombustibleController>
+                    <modificarAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="LOGAFT016"
+                                   filter="CONCURRENCE RESTRICTION"/>
+                    </modificarAction>
+                </TipocombustibleController>
+                <OperacionController>
+                    <modificarAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="LOGAFT016"
+                                   filter="CONCURRENCE RESTRICTION"/>
+                    </modificarAction>
+                </OperacionController>
+            </nomencladores>
+        </activos_fijos>
+        <terminal_punto_venta>
+            <configuracion>
+                <CfgpuntoventaController>
+                    <eliminardepositoAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="LOGTPTOV001"
+                                   filter="Foreign key violation"/>
+                    </eliminardepositoAction>
+                </CfgpuntoventaController>
+            </configuracion>
+        </terminal_punto_venta>
+        <utiles>
+            <configuracion>
+                <EstructuraubicacionController>
+                    <eliminarAreaAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="LOGUTL001"
+                                   filter="Foreign key violation"/>
+                    </eliminarAreaAction>
+                    <eliminarEstructuraAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="LOGUTL001"
+                                   filter="Foreign key violation"/>
+                    </eliminarEstructuraAction>
+                </EstructuraubicacionController>
+            </configuracion>
+        </utiles>
+
+        <distribucion>
+            <pedidos>
+                    <pedidosController>
+                        <eliminarPedidosAction>
+                            <exception type="Doctrine_Connection_Pgsql_Exception" code="LOGUTL001" filter="Foreign key violation"/>
+                        </eliminarPedidosAction>
+                    </pedidosController>
+            </pedidos>
+        </distribucion>
+    </logistica>
+</exceptions>

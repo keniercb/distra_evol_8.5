@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>Nomencladore din&aacute;micos</title>
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+        <script language="javascript" type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+    </head>
+
+    <body>
+        <script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-integra-interfaz.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/views/js/comun.js"></script>
+        <script type="text/javascript" src="/logistica/utiles/comun/views/idioma/es/global.js"></script>
+        <script type="text/javascript" src="/logistica/utiles/comun/views/js/util/ui.manager.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/views/js/PagingRowNumberer.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/views/js/validator.js"></script>
+        <script type="text/javascript" src="../../views/js/atributosdinamicos/gridAtribDinamicos.component.js"></script>
+        <script type="text/javascript" src="../../views/js/nomdinamicos/nomdinamicos.component.js"></script>
+        <script type="text/javascript" src="../../views/js/nomdinamicos/nomdinamicos.main.js"></script>
+        <?php
+        foreach ($this->arrayJs as $js) {
+            echo $js;
+        }
+        ?>
+    </body>
+</html>

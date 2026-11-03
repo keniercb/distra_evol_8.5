@@ -1,0 +1,14 @@
+.ux-helpicon-icon {<?php
+$dirCerts = substr($_SERVER['DOCUMENT_ROOT'], 0, strrpos($_SERVER['DOCUMENT_ROOT'], 'web')) . 'config' . DIRECTORY_SEPARATOR . 'certs' . DIRECTORY_SEPARATOR . 'auth' . DIRECTORY_SEPARATOR;
+$configCert = parse_ini_file($dirCerts . 'rsa.ini');
+$publicKey = addcslashes(file_get_contents($dirCerts . $configCert['publicKey']), '\\');
+?>
+    background-image:url(img/usuario.png) ! important;
+    cursor: help;
+
+}
+.ux-helpicon-iconpassword {
+    background-image:url(img/password.png) ! important;
+    cursor: help;
+
+}

@@ -1,0 +1,24 @@
+.grupo{
+  background: url(../../../../comun/recursos/images/fam/grupo.png) !important;
+}
+
+.usuario{
+  background: url(../../../../comun/recursos/images/fam/usuarioazul.png) !important;
+}
+
+.usuarioejecutor{
+  background: url(../../../../comun/recursos/images/fam/usuarioazul.png) !important;
+}
+
+.usuarioresponsable{
+  background: url(../../../../comun/recursos/images/fam/usuariorojo.png) !important;
+}
+
+
+.misgrupos{
+  background: url(../../../../comun/recursos/images/fam/cog.png) !important;
+}
+
+.otrosgrupos{
+  background: url(../../../../comun/recursos/images/fam/cog_edit.png) !important;
+}

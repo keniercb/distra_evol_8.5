@@ -1,0 +1,145 @@
+{
+    lbTitleConfiguracion:               'Configuraci&oacute;n de elementos salariales',
+    lbTitleEntidades:                   'Entidades',
+    lbTitleConceptosPersona:            'Conceptos de la persona',
+    lbTitleConceptosServicio:           'Conceptos de la situaci&oacute;n del servicio',
+    lbTitleElementoSalarialSituacion:   'Listado de elementos salariales a la situaci&oacute;n del servicio',
+    lbTitleConceptosSituacion:          'Listado de conceptos de la situaci&oacute;n del servicio',
+    lbTitleEscalasSituacion:            'Listado de escalas de la situaci&oacute;n del servicio',
+    lbTitleListadoCargos:               'Listado de cargos de la persona',
+	
+	lbTitleListadoSituacionServ:               'Listado de situación servicio',
+    
+    lbTitleVentAdicionarElemento:       'Adicionar elemento salarial a la situaci&oacute;n del servicio',
+    lbTitleVentModificarElemento:       'Modificar elemento salarial a la situaci&oacute;n del servicio',
+    
+    lbTitleVentAdicionarConcepto:       'Adicionar concepto a la situaci&oacute;n del servicio',
+    lbTitleVentModificarConcepto:       'Modificar concepto a la situaci&oacute;n del servicio',
+    
+    lbTitleVentAdicionarEscala:         'Adicionar escala a la situaci&oacute;n del servicio',
+    lbTitleVentModificarEscala:         'Modificar escala a la situaci&oacute;n del servicio',
+
+    lbMaskGridCargando:                 'Cargando…', 
+    lbMsgEsperaEnviarDatos:             'Por favor espere…',
+    lbMsgAdicionarTipoN:                'Adicionando datos del elemento salarial...',
+    lbMsgModificarTipoN:                'Modificando datos del elemento salarial...',
+    lbMsgEliminarTipoN:                 'Eliminando datos de tipo del elemento salarial...',
+    lbMsgAdicionarSalario:              'Adicionando datos del salario espec&iacute;fico...',
+    lbMsgModificarSalario:              'Modificando datos del salario espec&iacute;fico...',
+
+    lbTitleEliminarTipoN:               '¿Está seguro que quiere eliminar el elemento salarial seleccionado?',
+    lbMsgCorrectoAdicionadoTipoN:       'El elemento salarial ha sido adicionado satisfactoriamente.',
+    lbMsgCorrectoModificadoTipoN:       'El elemento salarial ha sido modificado satisfactoriamente.',
+    lbMsgCorrectoEliminadoTipoN:        'El elemento salarial ha sido eliminado satisfactoriamente.',
+    
+    lbMsgCorrectoAdicionadoSalario:     'El salario espec&iacute;fico ha sido adicionado satisfactoriamente.',
+    lbMsgCorrectoModificadoSalario:     'El salario espec&iacute;fico ha sido modificado satisfactoriamente.',
+    
+    lbColNumid:                       'No.id',
+    lbColNombre:                      'Nombre',
+    lbColSnombre:                     'Segundo nombre',
+    lbColPapell:                      'Primer apellido',
+    lbColSapell:                      'Segundo apellido',
+    
+    lbColNombreCargo:                 'Cargo',
+    lbColNombreSituacion:             'Situaci&oacute;n del servicio',
+    
+    BtnAdicionar:                     'Ad<u>i</u>cionar',
+    BtnModificar:                     '<u>M</u>odificar',
+    BtnEliminar:                      'Eliminar',
+    BtnAyuda:                         'Ayuda',
+    
+    BtnAceptar:                       'Aceptar',
+    
+    lbBtnAceptar:                     'Aceptar',
+    
+    textToolTipAddConceptoC:          'Adicionar concepto de concepciones y descuentos (<b>Alt+I</b>)',
+    textToolTipModConceptoC:          'Modificar concepto de concepciones y descuentos (<b>Alt+M</b>)',
+    textToolTipElimConceptoC:         'Eliminar concepto de concepciones y descuentos (<b>DEL</b>)',
+    
+    btnAdicionarElementoSalarial:     'Ad<u>i</u>cionar',
+    btnModificarElementoSalarial:     '<u>M</u>odificar',
+    btnEliminarElementoSalarial:      'Eliminar',
+    btnAyudaElementoSalarial:         'Ayuda',
+    
+    textToolTipbtnAdicionarElementoSalarial:      'Adicionar elemento salarial a la situación del servicio (<b>Alt+I</b>)',
+    textToolTipbtnModificarElementoSalarial:      'Modificar elemento salarial a la situación del servicio(<b>Alt+M</b>)',
+    textToolTipbtnEliminarElementoSalarial:       'Eliminar elemento salarial a la situación del servicio(<b>DEL</b>)',
+    
+    textToolTipbtnAyudaElementoSalarial:          'Mostrar ayuda de la funcionalidad (<b>Alt+H</b>)',
+    
+    btnAdicionarConceptoSituacion:                'Ad<u>i</u>cionar',
+    btnModificarConceptoSituacion:                '<u>M</u>odificar',
+    btnEliminarConceptoSituacion:                 'Eliminar',
+    btnAyudaConceptoSituacion:                    'Ayuda',
+    
+    textToolTipbtnAdicionarConceptoSituacion:     'Adicionar concepto a la situación del servicio (<b>Alt+I</b>)',
+    textToolTipbtnModificarConceptoSituacion:     'Modificar concepto a la situación del servicio(<b>Alt+M</b>)',
+    textToolTipbtnEliminarConceptoSituacion:      'Eliminar concepto a la situación del servicio(<b>DEL</b>)',
+    
+    textToolTipbtnAyudaConceptoSituacion:        'Mostrar ayuda de la funcionalidad (<b>Alt+H</b>)',
+    
+    btnAdicionarEscalaSituacion:                'Ad<u>i</u>cionar',
+    btnModificarEscalaSituacion:                '<u>M</u>odificar',
+    btnEliminarEscalaSituacion:                 'Eliminar',
+    btnAyudaEscalaSituacion  :                  'Ayuda',
+    
+    textToolTipbtnAdicionarEscalaSituacion:     'Adicionar escala a la situación del servicio (<b>Alt+I</b>)',
+    textToolTipbtnModificarEscalaSituacion:     'Modificar escala a la situación del servicio(<b>Alt+M</b>)',
+    textToolTipbtnEliminarEscalaSituacion:      'Eliminar escala a la situación del servicio(<b>DEL</b>)',
+    
+    textToolTipbtnAyudaEscalaSituacion:         'Mostrar ayuda de la funcionalidad (<b>Alt+H</b>)',
+    
+    
+    
+    lbColcbSistemapago:                 'Sistema de pago',
+    lbColcbPeriodopago:                 'Per&iacute;odo de pago',
+    lbColcbGrupoEscala:                 'Grupo escala',
+    lbColcbSectorSalarial:              'Sector salarial',
+    lbColcbEscalaSueldoCargo:           'Tipo salario escala',
+    lbColImporte:                       'Salario escala',
+    lbColDesdeElemento:                 'Fecha inicio',
+    lbColHastaElemento:                 'Fecha fin',
+    
+    lbColcbConcepto:                    'Concepto percepción descuento',
+    lbColcbTarifa:                      'Tarifa',
+    lbColDesdeConcepto:                 'Fecha inicio',
+    lbColHastaConcepto:                 'Fecha fin',
+    
+    lbColcbEscalaSituacion:             'Escala',
+    lbColcbImporteEscalaSituacion:            'Importe',
+    lbColDesdeEscalaSituacion:          'Fecha inicio',
+    lbColHastaEscalaSituacion:          'Fecha fin',
+
+    lbErrorCampoVacio:                  'Este campo es obligatorio.',
+    lbFechaMaxima:                      'La fecha de inicio tiene que ser anterior o igual a la fecha fin.',
+    lbFechaMinima:                      'La fecha fin tiene que ser posterior o igual a la fecha de inicio.',
+    invalidTextFecha:                   'Formato: dd/mm/aaaa.',
+    lbMaxText_225:                      'El tama&ntilde;o m&aacute;ximo requerido es 255 d&iacute;gitos.',
+    lbErrorFormulario:                  'Por favor verifique nuevamente que hay campo(s) con valor(es) incorrecto(s).',
+    lbBtnCancelar:                      'Cancelar',
+    textToolTipCancelar:                'Cerrar ventana sin guardar los datos (<b>Alt+X</b>)',
+    lbBtnAplicar:                       'Aplicar',
+    textToolTipAplicar:                 'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+    
+    lbBtnCancelarConceptoSituacion:     'Cancelar',
+    textToolTipCancelarConceptoSituacion:  'Cerrar ventana sin guardar los datos (<b>Alt+X</b>)',
+    lbBtnAplicarConceptoSituacion:      'Aplicar',
+    textToolTipAplicarConceptoSituacion:'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+    lbBtnAceptarConceptoSituacion:      'Aceptar',
+    textToolTipAceptarConceptoSituacion:'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+    
+    lbBtnCancelarEscalaSituacion:     'Cancelar',
+    textToolTipCancelarEscalaSituacion:  'Cerrar ventana sin guardar los datos (<b>Alt+X</b>)',
+    lbBtnAplicarEscalaSituacion:      'Aplicar',
+    textToolTipAplicarEscalaSituacion:'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+    lbBtnAceptarEscalaSituacion:      'Aceptar',
+    textToolTipAceptarEscalaSituacion:'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+	
+	lbBtnCancelarSituacionServicio:     'Cancelar',
+	textToolTipCancelarSituacionServicio:  'Cerrar ventana sin guardar los datos (<b>Alt+X</b>)',
+	lbBtnAceptarSituacionServicio:      'Aceptar',
+	textToolTipAceptarSituacionServicio:  'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+    
+    lbMsgErrorElementoSalarial:        'Por favor adicione un elemento salarial a la situaci&oacute;n del servicio',
+}

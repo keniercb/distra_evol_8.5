@@ -1,0 +1,78 @@
+/*
+ * Ext JS Library 2.2
+ * Copyright(c) 2006-2008, Ext JS, LLC.
+ * licensing@extjs.com
+ *
+ * http://extjs.com/license
+ */
+.x-form-check-wrap, .x-form-radio-wrap {
+    line-height: 0px;
+    padding: 0px;
+}
+
+.x-tree-node-el {
+    cursor: default;
+    line-height: 18px;
+}
+
+.x-column-tree .x-tree-node {
+    zoom: 1;
+}
+
+.x-column-tree .x-tree-node-el {
+    /*border-bottom:1px solid #eee; borders? */
+    zoom: 1;
+}
+
+.x-column-tree .x-tree-selected {
+    background: #d9e8fb;
+}
+
+.x-column-tree .x-tree-node a {
+    line-height: 18px;
+    vertical-align: middle;
+}
+
+.x-column-tree .x-tree-node a span {
+    margin-bottom: 10px;
+}
+
+.x-column-tree .x-tree-node .x-tree-selected a span {
+    background: transparent;
+    color: #000;
+}
+
+.x-tree-col {
+    float: left;
+    overflow: hidden;
+    padding: 0 1px;
+    zoom: 1;
+}
+
+.x-tree-col-text, .x-tree-hd-text {
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    /*padding:3px 3px 3px 5px;*/
+    padding: 4px 3px 4px 5px;
+    height: 15px;
+    white-space: nowrap;
+    font: normal 11px arial, tahoma, helvetica, sans-serif;
+}
+
+.x-tree-col-text {
+    text-align: center;
+}
+
+.x-tree-headers {
+    background: #f9f9f9 url(data:image/jpg;base64,R0lGODlhAgAYAIcAANDQ0Ovs7uzt7+3u8O7v8e/w8vDx8/Hy9Pn5+QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAP8ALAAAAAACABgAAAghABEIHEiwYMEDCA8YWMiwgMMCBAgMmDhAgIAAGAMAABAQADs=) repeat-x 0 bottom;
+    cursor: default;
+    zoom: 1;
+}
+
+.x-tree-hd {
+    float: left;
+    overflow: hidden;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #d0d0d0;
+}

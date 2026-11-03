@@ -1,0 +1,15 @@
+{
+    btnAdicionar:                       'Ad<u>i</u>cionar',
+    btnModificar:                       '<u>M</u>odificar',
+
+    btnEliminar:                        'Eliminar',
+    btnAyuda:                           'Ayuda',
+    btnAceptar:                         'Aceptar',
+    btnAplicar:                         'Aplicar',
+    btnCancelar:                        'Cancelar',
+
+    textToolTipCancelarAdd:            'Cerrar ventana sin guardar los datos (<b>Alt+X</b>)',
+    textToolTipAplicarAdd:             'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+    textToolTipAceptarAdd:             'Guardar datos y cerrar la ventana (<b>Enter</b>)',
+
+}

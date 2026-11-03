@@ -1,0 +1,42 @@
+{
+    lbAdicionar: 'Adicionar',
+    tiplbAdicionar: 'Crear un nuevo tipo de &aacuterea.',
+
+    lbModificar: 'Modificar',
+    tiplbModificar: 'Modificar tipo de &aacuterea.',
+
+
+    lbEliminar: 'Eliminar',
+    tiplbEliminar: 'Eliminar tipo de &aacuterea.',
+
+
+    lbCodigo: 'C&oacute;digo',
+    lbtipo: 'Nac/Exp',
+    lbDescripcion: 'Descripci&oacute;n',
+    lbProductoU: 'Producto &uacute;nico',
+    lbExtFv: 'Extensi&oacute;n de vencimiento',
+
+    lbTituloGrid: 'Tipo de &aacute;rea',
+    lbTitulo2: ' Tipo de &aacute;rea entidad',
+    lbTitulo3: ' Tipo de calidad',
+    lbTitulo3: ' Tipo de calidad',
+
+    lbTitituloAdd: 'Adicionar tipo de &aacuterea',
+    lbTitituloMod: 'Modificar tipo de &aacuterea',
+    lbBtnAceptar: 'Aceptar',
+    lbBtnCancelar: 'Cancelar',
+    lbBtnAplicar: 'Aplicar',
+
+    msgDatosVacios: 'Existen campos vac&iacute;os. Por favor verifique los datos.',
+    msgAdicionarOk: 'Se ha adicionado el tipo de &aacuterea satisfactoriamente.',
+    msgModificarOk: 'Se ha modificado el tipo de &aacuterea satisfactoriamente.',
+    msgErrorAdicionar: 'Ha ocurrido un error al adicionar el tipo de &aacuterea.',
+    msgErrorModificar: 'Ha ocurrido un error al modificar el tipo de &aacuterea.',
+    msgEliminarOrden: 'Est&aacute; seguro que desea eliminar el tipo de &aacuterea ?',
+    msgErrorExisteCodigo: 'Existe el c&oacute;digo para el tipo de &aacuterea.',
+    msgEliminando: 'Eliminando el tipo de &aacuterea ...',
+
+    msgEliminado: 'Se ha eliminado el tipo de &aacuterea correctamente.',
+    msgEliminarError: 'El tipo de &aacute;rea no puede ser eliminada porque tiene dependencia.',
+    msgCargando: 'Cargando...'
+}

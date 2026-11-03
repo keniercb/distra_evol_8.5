@@ -1,0 +1,45 @@
+.aceptar
+{
+vertical-align:top !important;
+background: url(../images/aceptar.png) 0 1px no-repeat !important;
+text-align: left;
+}
+.cancel
+{
+vertical-align:top !important;
+background: url(../images/cancel.png) 0 1px no-repeat !important;
+text-align: left;
+}
+.add
+{
+vertical-align:top !important;
+background: url(../images/adicionar.png) 0 1px no-repeat !important;
+text-align: left;
+}
+.eliminar
+{
+vertical-align:top !important;
+background: url(../images/eliminar.png) 0 1px no-repeat !important;
+text-align: left;
+}
+.modificar
+{
+vertical-align:top !important;
+background: url(../images/modificar.png) 0 1px no-repeat !important;
+text-align: left;
+}
+.ayuda
+{
+vertical-align:top !important;
+background: url(../images/ayuda.png) 0 1px no-repeat !important;
+text-align: left;
+
+}
+.rango
+{
+vertical-align:top !important;
+background: url(../images/definir.png) 0 1px no-repeat !important;
+text-align: left;
+
+}
+

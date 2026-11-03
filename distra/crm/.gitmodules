@@ -1,0 +1,9 @@
+[submodule "crm"]
+	path = crm
+	url = http://gitlab-distra.xutil.net/distra/crm/distra/crm.git
+[submodule "configuracion"]
+	path = configuracion
+	url = http://gitlab-distra.xutil.net/distra/crm/distra/configuracion.git
+[submodule "clientesyproveedores"]
+	path = clientesyproveedores
+	url = http://gitlab-distra.xutil.net/distra/crm/distra/clientesyproveedores.git

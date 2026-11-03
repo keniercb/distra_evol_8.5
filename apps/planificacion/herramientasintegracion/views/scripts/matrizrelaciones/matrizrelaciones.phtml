@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>Planificación-Integración-</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+    <script language="javascript" type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+</head>
+<body>
+<!-- JSs de Ext -->
+<script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+<link href="<?php echo $this->dir_ext_ccs; ?>css/ext-all.css" rel="stylesheet" type="text/css" media="screen"/>
+
+<!-- Extensiones -->
+<script type="text/javascript" src="/lib/UCID/js/utiles/validadores.js"></script>
+<script type="text/javascript" src="/lib/UCID/js/utiles/extensiones.js"></script>
+
+<?php echo $this->extensionesPLAN; ?>
+
+<?php echo $this->pyeComun; ?>
+<?php echo $this->matrizrelacionesComponent; ?>
+<?php echo $this->jsreportes; ?>
+
+<script type="text/javascript"
+        src="/planificacion/herramientasintegracion/views/js/views/matrizrelaciones/Viewport.js"></script>
+
+<div id="win"></div>
+
+</body>
+</html>

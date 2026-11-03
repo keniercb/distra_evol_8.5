@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<validador>
+    <controlpanel>
+        <ControlpanelController>
+            <cargarxmlAction>
+                <param name="founded" type="vtalfanumericosguiones" not_null="false"/>
+                <param name="_dc" type="enterospos" not_null="true"/>
+                <param name="page" type="enterospos" not_null="true"/>
+                <param name="start" type="enterospos" not_null="true"/>
+                <param name="limit" type="enterospos" not_null="true"/>
+            </cargarxmlAction>
+            <configurarAction>
+                <param name="active" type="boolean" not_null="false"/>
+                <param name="oldDenominacion" type="vtalfanumericosguiones" not_null="false"/>
+                <param name="oldDireccion" type="todoMenosTabEnter" not_null="false"/>
+                <param name="denominacion" type="vtalfanumericosguiones" not_null="true"/>
+                <param name="direccion" type="todoMenosTabEnter" not_null="true"/>
+            </configurarAction>
+            <copiararchivoAction>
+                <param name="name" type="alfanumguionesptoslashes" not_null="true"/>
+                <param name="version" type="todoMenosEspacios" not_null="true"/>
+                <param name="baseDatos" type="letras" not_null="true"/>
+                <param name="opcion" type="letras" not_null="true"/>
+                <param name="servidor" type="todoMenosTabEnter" not_null="fasle"/>
+                <param name="bd" type="todoMenosEspacios" not_null="false"/>
+                <param name="puerto" type="enterospos" not_null="false"/>
+                <param name="usuario" type="todoMenosTabEnter" not_null="false"/>
+                <param name="password" type="todoMenosTabEnter" not_null="false"/>
+            </copiararchivoAction>
+            <comprobarUtlizacionAction>
+                <param name="nameapp" type="alfanumguionesptoslashes" not_null="true"/>
+                <param name="appversion" type="todoMenosEspacios" not_null="true"/>
+                <param name="metodo" type="letras" not_null="false"/>
+            </comprobarUtlizacionAction>
+            <desinstalarappAction>
+                <param name="paquetes" type="todoMenosTabEnter" not_null="true"/>
+                <param name="deleteDatos" type="boolean" not_null="true"/>
+            </desinstalarappAction>
+            <actualizarAction>
+                <param name="nameapp" type="alfanumguionesptoslashes" not_null="true"/>
+                <param name="version" type="todoMenosEspacios" not_null="true"/>
+                <param name="baseDatos" type="letras" not_null="true"/>
+                <param name="opcion" type="letras" not_null="true"/>
+                <param name="servidor" type="todoMenosTabEnter" not_null="fasle"/>
+                <param name="bd" type="todoMenosEspacios" not_null="false"/>
+                <param name="puerto" type="enterospos" not_null="false"/>
+                <param name="usuario" type="todoMenosTabEnter" not_null="false"/>
+                <param name="password" type="todoMenosTabEnter" not_null="false"/>
+            </actualizarAction>
+            <reInstalarAction>
+                <param name="direccion" type="todoMenosEspacios" not_null="true"/>
+                <param name="nameapp" type="alfanumguionesptoslashes" not_null="true"/>
+                <param name="version" type="todoMenosEspacios" not_null="true"/>
+                <param name="opcion" type="letras" not_null="true"/>
+            </reInstalarAction>
+            <eliminarRepositorioAction>
+                <param name="url" type="todoMenosPtoComa" not_null="true"/>
+                <param name="active" type="numerosletras" not_null="true"/>
+            </eliminarRepositorioAction>
+            <activarRepoAction>
+                <param name="founded" type="json" not_null="true"/>
+            </activarRepoAction>
+            <revertAction>
+                <param name="nameapp" type="alfanumguionesptoslashes" not_null="true"/>
+                <param name="version" type="todoMenosEspacios" not_null="true"/>
+                <param name="opcion" type="letras" not_null="true"/>
+                <param name="baseDatos" type="letras" not_null="false"/>
+                <param name="servidor" type="todoMenosTabEnter" not_null="fasle"/>
+                <param name="bd" type="todoMenosEspacios" not_null="false"/>
+                <param name="puerto" type="enterospos" not_null="false"/>
+                <param name="usuario" type="todoMenosTabEnter" not_null="false"/>
+                <param name="password" type="todoMenosTabEnter" not_null="false"/>
+            </revertAction>
+            <ModifyRepositoriesAction>
+                <param name="active" type="letras" not_null="true"/>
+                <param name="oldDenominacion" type="vtalfanumericosguiones" not_null="true"/>
+                <param name="oldDireccion" type="todoMenosTabEnter" not_null="true"/>
+                <param name="denominacion" type="vtalfanumericosguiones" not_null="true"/>
+                <param name="direccion" type="todoMenosTabEnter" not_null="true"/>
+            </ModifyRepositoriesAction>
+        </ControlpanelController>
+    </controlpanel>
+</validador>

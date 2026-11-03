@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sistemas>
+     <subsistema>
+         <nombre> inversiones </nombre>
+     </subsistema>
+	<subsistema>
+         <nombre> sipac </nombre>
+     </subsistema>
+     <subsistema>
+         <nombre> alimentos </nombre>
+     </subsistema>
+    <subsistema>
+        <nombre> sisplan </nombre>
+    </subsistema>
+</sistemas>

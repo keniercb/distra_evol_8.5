@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<validador>
+	<herramientas>
+        <notificaciones>
+            <GestnotificationeventsController>
+                <insertareventoAction>
+                    <precondition>
+                        <validator class="EventoValidator" method="validarNombreEvento_bi" error="HERRNOT005"/>
+                        <validator class="EventoValidator" method="validarPermisosXMLs" error="HERRNOT006"/>
+                        <validator class="EventoValidator" method="validarAccionEjecucionEvento" error="HERRNOT007"/>
+                    </precondition>
+                </insertareventoAction>
+            </GestnotificationeventsController>
+        </notificaciones>
+         <gestornc>				
+            <GestorncController>				
+                 <cargarNoConformidadesAction>                             
+                <param name="clasificacion" type="alfanumguionesptodosptocoma" not_null="false"/>
+                <param name="denominacion" type="alfanumguionesptoslashes" not_null="false"/>                
+                <param name="desde" type="todoMenosEspacios" not_null="false"/>                
+                <param name="estado" type="alfanumguionesptodosptocoma" not_null="false"/>
+                <param name="funcionalidad" type="alfanumguionesptodosptocoma" not_null="false"/>
+                <param name="hasta" type="todoMenosEspacios" not_null="false"/>                              
+				<param name="limit" type="enterospos" not_null="true"/>  
+				<param name="start" type="enterospos" not_null="true"/>
+				<param name="prioridad" type="alfanumguionesptodosptocoma" not_null="false"/>
+				<param name="usuario" type="letras" not_null="false"/>
+				</cargarNoConformidadesAction>
+                <cargarFuncionalidadPorSubsistemaAction>
+                    <param name="id" type="numerosletrasguion" not_null="true"/>
+                    <param name="session" type="todoMenosPtoComa" not_null="true"/>
+                </cargarFuncionalidadPorSubsistemaAction>
+                <cargarSistemasAction>
+                    <param name="session" type="todoMenosPtoComa" not_null="true"/>
+                </cargarSistemasAction>
+                <actualizarNoConformidadAction>
+                    <param name="json" type="todoMenosPtoComa" not_null="true"/>
+                </actualizarNoConformidadAction>
+                <responderNoConformidadAction>
+                    <param name="asunto" type="todoMenosPtoComa" not_null="true"/>
+                    <param name="clasificacion" type="letras" not_null="true"/>
+                    <param name="contenido" type="todoMenosPtoComa" not_null="true"/>
+                    <param name="destinatarios" type="todoMenosPtoComa" not_null="true"/>
+                </responderNoConformidadAction>
+                <exportarEscaladasAction>
+                    <param name="idpdf" type="todoMenosPtoComa" not_null="true"/>
+                </exportarEscaladasAction>
+                <guardarPrioridadAction>
+                    <param name="cbCpImpacto" type="letras" not_null="true"/>
+                    <param name="id" type="numerosletrasguion" not_null="true"/>
+                    <param name="impacto" type="letras" not_null="true"/>
+                    <param name="tfCpUrgencia" type="enterospos" not_null="true"/>
+                    <param name="urgencia" type="enterospos" not_null="true"/>
+                </guardarPrioridadAction>
+                <cargarSistFuncAccAction>
+                    <param name="iddominio" type="todoMenosPtoComa" not_null="false"/>
+                    <param name="node" type="numerosguionbajo" not_null="true"/>
+                    <param name="idsistema" type="enterospos" not_null="false"/>
+                </cargarSistFuncAccAction>
+                <cargarSistTreeWinAction>
+                    <param name="iddominio" type="todoMenosPtoComa" not_null="false"/>
+                    <param name="node" type="numerosguionbajo" not_null="true"/>
+                    <param name="idsistema" type="enterospos" not_null="false"/>
+                </cargarSistTreeWinAction>
+            </GestorncController>
+         <GestorreportesController>
+            <!-- <adicionarAction>
+                 <param name="denominacion" type="alfanumguionesptoslashes" not_null="true"/>
+                 <param name="descripcion" type="todo" not_null="true"/>
+                 <param name="textareaDescripcion" type="todo" not_null="true"/>
+                 <param name="funcionalidad" type="letrasguion" not_null="false"/>
+                 <param name="fieldDenominacion" type="letrasguion" not_null="false"/>
+                 <param name="fileUploadArchivo" type="letrasguion" not_null="false"/>
+                 <param name="pathname" type="letrasguion" not_null="false"/>
+             </adicionarAction>-->
+             <subsistemasAction>
+                 <param name="iddominio" type="todoMenosPtoComa" not_null="false"/>
+                 <param name="node" type="numerosguionbajo" not_null="true"/>
+                 <param name="idsistema" type="enterospos" not_null="false"/>
+             </subsistemasAction>
+             <cargarSistFuncAccAction>
+                 <param name="iddominio" type="todoMenosPtoComa" not_null="false"/>
+                 <param name="node" type="numerosguionbajo" not_null="true"/>
+                 <param name="idsistema" type="enterospos" not_null="false"/>
+             </cargarSistFuncAccAction>
+             <funcionalidadesAction>
+                 <param name="id" type="todoMenosPtoComa" not_null="false"/>
+             </funcionalidadesAction>
+         </GestorreportesController>
+        </gestornc>
+    </herramientas>
+</validador>

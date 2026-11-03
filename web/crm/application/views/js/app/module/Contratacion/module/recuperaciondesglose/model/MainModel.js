@@ -1,0 +1,30 @@
+Ext.define('RecuperacionDesglose.model.MainModel', {
+    extend: 'Ext.data.Model',
+    fields: [
+        {name: 'numero'},
+        {name: 'descripcion'},
+        {name: 'fechaestimada'},
+        {name: 'fechareplanificada'},
+        {name: 'vigencia'},
+        {name: 'unidadtiempo'},
+        {name: 'pago'},
+        {name: 'nombrearea'},
+        {name: 'nombreestado'},
+        {name: 'iconoestado'},
+        {name: 'fechainicio'},
+        {name: 'nombrecontrato'},
+        {name: 'numerocontrato'},
+        {name: 'idarea'},
+        {name: 'idhito'},
+        {name: 'idcontrato'},
+        {name: 'montototal', type: 'float'},
+		{name: 'montoindicador', type: 'float'},
+		{name: 'montodesglose', type: 'float'},
+        {name: 'cantareas'},
+        {name: 'coincide'},
+        {name: 'nombreareacontrato'},
+        {name: 'nombreestadocontrato'},
+        {name: 'montofactura', type: 'float'},
+        {name: 'cantfacturas'}
+    ]
+});

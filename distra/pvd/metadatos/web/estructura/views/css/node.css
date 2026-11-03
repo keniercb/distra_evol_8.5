@@ -1,0 +1,24 @@
+.search {
+    background: -webkit-gradient(linear, left top, left bottom, from(#b7b7b7), to(#dfe8f6), color-stop(0.7, #dfe8f6));
+    background: -moz-linear-gradient(right, #b7b7b7, #dfe8f6);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b7b7b7', endColorstr='#dfe8f6fff');
+    -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr=' #b7b7b7 ', endColorstr=' #dfe8f6fff ')';
+    background: -o-linear-gradient(right, #b7b7b7, #dfe8f6fff);
+}
+
+.add a span {
+    color: #269900 !important;
+}
+
+.mod a span {
+    color: #0099FF !important;
+}
+
+.del a span {
+    color: #FF0000 !important;
+}
+
+.x-tree-node a span:hover {
+    font-weight: bold;
+    font-size: 12px;
+}

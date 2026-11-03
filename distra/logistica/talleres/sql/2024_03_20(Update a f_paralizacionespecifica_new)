@@ -1,0 +1,182 @@
+DROP FUNCTION mod_logtaller.f_paralizacionespecifica_new(marca varchar [], modelo varchar [], matricula varchar, tipomedio numeric, idconfiguracion numeric, idusuario numeric, denoconfiguracion varchar, idgruposubgrupo numeric []);
+
+ALTER TYPE mod_logtaller.td_paraliespecifica
+  ADD ATTRIBUTE importepiezas NUMERIC(19,2);
+
+ALTER TABLE mod_logtaller.dat_confusuarioparalizacion
+  ADD COLUMN importepiezas NUMERIC(19,2);
+COMMENT ON COLUMN mod_logtaller.dat_confusuarioparalizacion.importepiezas
+IS 'Sumatoria del importe del costo de las piezas de una orden';
+
+DROP FUNCTION IF EXISTS mod_logtaller.f_paralizacionespecifica_new(character varying[], character varying[], character varying, numeric[], numeric, numeric, character varying, numeric[]);
+
+CREATE OR REPLACE FUNCTION mod_logtaller.f_paralizacionespecifica_new(
+	marca character varying[],
+	modelo character varying[],
+	matricula character varying,
+	tipomedio numeric[],
+	idconfiguracion numeric,
+	idusuario numeric,
+	denoconfiguracion character varying,
+	idgruposubgrupo numeric[])
+    RETURNS SETOF mod_logtaller.td_paraliespecifica 
+    LANGUAGE 'plpgsql'
+    COST 100
+    VOLATILE PARALLEL UNSAFE
+    ROWS 1000
+
+AS $BODY$
+declare
+--v_rec mod_logtaller.td_paraliespecifica;
+--replace_array integer[];
+--cantidad INTEGER;
+--v_par integer;
+--delimitador text := ', ';
+stringmarca text :='  cast((select d.value::json->''marca'' from (SELECT value FROM json_array_elements((
+                select ((cast(dm.dinamicos as json))) from mod_logtaller.dat_medioorden dm where dm.idordentrabajo = v.idordentrabajo
+                ))) d where cast(d.value as VARCHAR) ilike ''%%marca%%''
+                ) as varchar) ilike any (%1$L::varchar[])';                
+stringmodelo text:= '  cast((select d.value::json->''modelo'' from (SELECT value FROM json_array_elements((
+                select ((cast(dm.dinamicos as json))) from mod_logtaller.dat_medioorden dm where dm.idordentrabajo = v.idordentrabajo
+                ))) d where cast(d.value as VARCHAR) ilike ''%%modelo%%''
+                ) as varchar) ilike any(%2$L::varchar[]) ';   
+stringmatricula text:=' and cast((select d.value::json->''nromatricula'' from (SELECT value FROM json_array_elements((
+                select ((cast(dm.dinamicos as json))) from mod_logtaller.dat_medioorden dm where dm.idordentrabajo = v.idordentrabajo
+                ))) d where cast(d.value as VARCHAR) ilike ''%%nromatricula%%''
+                ) as varchar) ilike %3$L';         
+stringtipomedio text:= 'and dmo.idordentrabajo in (select dm.idordentrabajo
+                from  mod_logtaller.dat_medioorden dm 
+                inner join  mod_datosmaestros.nom_indicador nind on nind.idindicador = dm.idindicador
+                where nind.idpadre = any (select DISTINCT idtipo from mod_logtaller.dat_reportetipo where idreporteparalizacion = %4$L
+				 and idreportetipo = any(cast(%6$L as numeric[])) ))';                                    
+stringgruposubgrupo text := ' and drna.idgruposubgrupo = any(cast(%5$L as numeric[]))';
+
+consulta text:= '
+ insert into result 
+ (SELECT DISTINCT 
+  v.idordentrabajo,
+  v.entidad as entidad,
+    v.entidad as agencia,
+    v.cliente,
+   replace( cast((select d.value::json->''marca'' from (SELECT value FROM json_array_elements((
+                select ((cast(dm.dinamicos as json))) from mod_logtaller.dat_medioorden dm where dm.idordentrabajo = v.idordentrabajo
+                ))) d where cast(d.value as VARCHAR) ilike ''%%marca%%''
+                ) as varchar), ''"'','''' ) as marca,
+    replace (cast((select d.value::json->''modelo'' from (SELECT value FROM json_array_elements((
+                select ((cast(dm.dinamicos as json))) from mod_logtaller.dat_medioorden dm where dm.idordentrabajo = v.idordentrabajo
+                ))) d where cast(d.value as VARCHAR) ilike ''%%modelo%%''
+                ) as varchar),''"'','''' ) as modelo,
+    cast((select d.value::json->''nromatricula'' from (SELECT value FROM json_array_elements((
+    select ((cast(dm.dinamicos as json))) from mod_logtaller.dat_medioorden dm where dm.idordentrabajo = v.idordentrabajo
+    ))) d where cast(d.value as VARCHAR) ilike ''%%nromatricula%%''
+    ) as varchar) as matricula,
+    v.dictamentecnico as motivos,
+    v.fechainicio as fechaentrada,
+    v.fechainicio as fechainicio,
+   (case
+      when v.fechainicio is not null then (current_date - v.fechainicio)
+      else 0
+    end) as diasparalizado,
+    v.fechafin as fechapronostico,
+    v.fechafin,
+     (case
+        when v.fechafin is not null then ((current_date - v.fechafin))
+        else 0
+      end) as sobreestadia,
+     (
+     select array_to_string(array
+        (
+          select a.nrodoc
+          from mod_logistica.dat_documento a
+            where a.iddocumento in (
+              select c.idpedido from mod_logtaller.dat_ordentrabajo b
+              inner join mod_logtaller.dat_pedidoordentrabajo c on b.idordentrabajo = c.idordentrabajo
+              where c.idordentrabajo = v.idordentrabajo )
+        ), '||''''||', '||''''||' )
+       ) as nropedido,
+       (
+         select array_to_string(array
+          (select a.fechacontable 
+            from mod_logistica.dat_documento a
+             where a.iddocumento in (
+                   select c.idpedido
+                   from mod_logtaller.dat_ordentrabajo b 
+                   inner join mod_logtaller.dat_pedidoordentrabajo c on b.idordentrabajo = c.idordentrabajo
+                   where c.idordentrabajo = v.idordentrabajo
+                    )
+          ), '||''''||', '||''''||' )
+   ) as fechapedido,
+   v.nrodoc as ot,
+  v.observaciones as observaciones,
+   case
+     when v.estadoorden = 1 then ' ||'''Falta de piezas'''||'
+     else ' ||'''No posee'''||'
+   end as faltante,
+   v.identificador as indicativo,
+   (case
+      when v.estadoorden = 1 then ' ||'''Falta de piezas''' || '
+      else ' ||''' '''||'
+    end) as pendientepor, 
+    v.estadoorden,      
+    v.nrodoc as nroorden,
+   v.identificador as atributoidentificador,
+   v.dictamentecnico,
+   v.idestado,
+   v.idagencia,
+   v.idcliente,
+   v.idestructuracomun,
+   v.iddoc,
+   v.ubicacion,
+   '||idconfiguracion||',
+    drna.idgruposubgrupo,
+    '||idusuario||',
+    '||denoconfiguracion||',
+    (select sum(importecup) from mod_logtaller.dat_material dmt where dmt.idordentrabajo = v.idordentrabajo) as importepiezas
+        from mod_logtaller.v_ordentrabajo v
+        inner join mod_logtaller.dat_medioorden dmo on dmo.idordentrabajo = v.idordentrabajo
+        inner join mod_logactivofijotangible.dat_registronumerico drn on drn.idregnumerico = dmo.idproducto
+        inner join mod_logactivofijotangible.dat_regnumericoactivo drna on drna.idregnumerico = drn.idregnumerico
+        where v.idestado in (1,2)
+        and v.tipocliente = 1';
+            
+begin
+CREATE temp table result of mod_logtaller.td_paraliespecifica;
+if (marca is not null and modelo is not null) then 
+consulta:=consulta ||' and (' || stringmarca || ' or' || stringmodelo  || ' )'; 
+else 
+if (marca is not null ) then
+ consulta:=consulta ||' and' || stringmarca;
+end if;
+if (modelo is not null )then 
+consulta:=consulta ||' and' || stringmodelo;
+end if;
+end if;
+if (matricula is not null ) then 
+consulta:=consulta || stringmatricula;  end if;
+
+IF(tipomedio is not null)then 
+consulta:=consulta || stringtipomedio;  end if;
+if (idgruposubgrupo is not null ) then 
+consulta:=consulta || stringgruposubgrupo;
+end if;
+
+consulta:= consulta || ' )';
+execute format (
+  consulta,
+    marca,
+    modelo,
+    matricula,
+    idconfiguracion,
+    idgruposubgrupo,
+	  tipomedio--nuevo tipomedio[]
+);
+
+return query (Select * from result);
+
+drop table result;
+
+end;
+$BODY$;
+
+ALTER FUNCTION mod_logtaller.f_paralizacionespecifica_new(character varying[], character varying[], character varying, numeric[], numeric, numeric, character varying, numeric[])
+    OWNER TO zeolides;

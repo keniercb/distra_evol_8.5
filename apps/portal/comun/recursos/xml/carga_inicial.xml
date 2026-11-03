@@ -1,0 +1,9 @@
+<tabpanel>
+	<tab title="Bienvenida" funcionalidad="dameserviciocargainicial/?id=1" idtab="11" idiframe="12" estado="no" />
+	<tab title="Ejercicio" funcionalidad="dameserviciocargainicial/?id=2" idtab="13" idiframe="14" estado="no" />
+	<tab title="Fecha"  funcionalidad="dameserviciocargainicial/?id=3" idtab="15" idiframe="16" estado="no" />
+	<tab title="Cierre" funcionalidad="dameserviciocargainicial/?id=4" idtab="17" idiframe="18" estado="no" />
+	<tab title="Moneda Contable" funcionalidad="dameserviciocargainicial/?id=5" idtab="19" idiframe="20" estado="no" />
+	<tab title="Moneda Entidad" funcionalidad="dameserviciocargainicial/?id=6" idtab="21" idiframe="22" estado="no" />
+	<tab title="Finalizar" funcionalidad="dameserviciocargainicial/?id=7" idtab="23" idiframe="24" estado="no" />
+</tabpanel>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validador>
+    <portal>
+        <PortalController>
+            <closeportalAction>
+                <param name="_dc" type="enterospos" not_null="true"/>
+                <precondition>
+                    <validator class="PortalValidator" method="desbloquearDocLog" error="EPDDL01"/>
+                </precondition>
+            </closeportalAction>
+            <entraralsistemaAction>
+                <precondition>
+                    <validator class="PortalValidator" method="desbloquearDocLog" error="EPDDL01"/>
+                </precondition>
+            </entraralsistemaAction>
+            <nuevopasswordAction>
+                <param name="contrasenap" type="todoMenosEspacios" not_null="true"/>
+                <param name="contrasennap" type="todoMenosEspacios" not_null="true"/>
+                <param name="oldpass" type="todoMenosEspacios" not_null="true"/>
+            </nuevopasswordAction>
+            <getacercadeAction>
+                <param name="uri" type="alfanumguionesptoslashes" not_null="true"/>
+            </getacercadeAction>
+
+            <cargaretiquetasAction>
+                <param name="vista" type="letras" not_null="true"/>
+            </cargaretiquetasAction>
+          <cargardatostabpanelAction>
+            <param name="_dc" type="enterospos" not_null="true"/>
+          </cargardatostabpanelAction>
+
+        </PortalController>
+        <AparienciaController>
+            <obtenerFuncionalidadesAction>
+                <param name="bandera" type="letras" not_null="true"/>
+                <param name="node" type="letras" not_null="true"/>
+                <param name="ul" type="letras" not_null="false"/>
+                <param name="val" type="letras" not_null="false"/>
+            </obtenerFuncionalidadesAction>
+            <obtenerConfiguracionAction>
+                <param name="inicio" type="letras" not_null="true"/>
+            </obtenerConfiguracionAction>
+            <listadeImagenesAction>
+                <param name="_dc" type="enterospos" not_null="true"/>
+            </listadeImagenesAction>
+            <listadeIconosAction>
+                <param name="_dc" type="enterospos" not_null="true"/>
+            </listadeIconosAction>
+            <listadeIconosMenuAction>
+                <param name="_dc" type="enterospos" not_null="true"/>
+            </listadeIconosMenuAction>
+            <eliminarImagenAction>
+                <param name="directorio" type="alfanumguionesptoslashes" not_null="true"/>
+                <param name="imagen" type="imagen" not_null="true"/>
+            </eliminarImagenAction>
+            <guardarAccesoDirectoAction>
+                <param name="acceso" type="json" not_null="true"/>
+                <param name="bandera" type="bandIconos" not_null="true"/>
+                <param name="addStarMenu" type="boolean" not_null="false"/>
+            </guardarAccesoDirectoAction>
+            <guardarFondoAction>
+                <param name="dirFondo" type="imagen" not_null="true"/>
+            </guardarFondoAction>
+            <guardarIconoMenuAction>
+                <param name="bandera" type="letras" not_null="true"/>
+                <param name="icon" type="todoMenosEspacios" not_null="true"/>
+                <param name="identidad" type="enterospos" not_null="true"/>
+            </guardarIconoMenuAction>
+        </AparienciaController>
+        <IndexController>
+            <cargardominioAction>
+                <param name="node" type="enterospos" not_null="true"/>
+            </cargardominioAction>
+
+            <entraralsistemaAction>
+                <param name="tipoacceso" type="entrada" not_null="true"/>
+                <param name="dominio" type="enterospos" not_null="true"/>
+                <precondition>
+                    <validator class="PortalValidator" method="desbloquearDocLog" error="EPDDL01"/>
+                </precondition>
+            </entraralsistemaAction>
+        </IndexController>
+    </portal>
+</validador>

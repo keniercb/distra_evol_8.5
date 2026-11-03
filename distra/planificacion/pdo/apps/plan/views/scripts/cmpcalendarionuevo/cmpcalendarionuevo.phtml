@@ -1,0 +1,155 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Calendario de actividades</title>
+    <link rel="stylesheet" type="text/css" id="ext-allcss" href="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/resources/css/ext-all.css"/>
+    <link rel="stylesheet" type="text/css" id="calendar" href="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/resources/css/calendar.css"/>
+    <link rel="stylesheet" type="text/css" id="TreeGridcss" href="/planificacion/pdo/comun/css/TreeGrid.css"/>
+    <link rel="stylesheet" type="text/css" id="icons" href="/planificacion/pdo/comun/css/icons.css"/>
+    <link rel="stylesheet" type="text/css" id="datepickerpluscss" href="/planificacion/pdo/comun/css/datepickerplus.css">
+    <link rel="stylesheet" id="file-upload" type="text/css" href="/planificacion/pdo/comun/css/file-upload.css">
+    <link rel="stylesheet" id="examplescss" type="text/css" href="/planificacion/pdo/comun/css/examples.css">
+    <link rel="stylesheet" id="Ext.ux.form.LovCombocss" type="text/css" href="/planificacion/pdo/comun/css/Ext.ux.form.LovCombo.css"/>
+
+</head>
+
+<body>
+<?php echo $this->usarGD; ?>
+
+<script type="text/javascript" id="ext-base" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" id="ext-alljs" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/ext-all.js"></script>
+<script type="text/javascript" id="/imporcss" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+<script language="javascript" type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+<script type="text/javascript" id="ucid-all" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+<script type="text/javascript" id="extensiones" src="<?php echo $this->dir_ucid; ?>js/utiles/extensiones.js"></script>
+
+<script type="text/javascript" id="nodejs" src="/planificacion/pdo/comun/nodejs/assets/js/socket-io-client/socket.io.js"></script>
+
+<script type="text/javascript" id="Ext.calendar" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/Ext.calendar.js"></script>
+<script type="text/javascript" id="DayHeaderTemplate" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/templates/DayHeaderTemplate.js"></script>
+<script type="text/javascript" id="DayBodyTemplate" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/templates/DayBodyTemplate.js"></script>
+<script type="text/javascript" id="DayViewTemplate" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/templates/DayViewTemplate.js"></script>
+<script type="text/javascript" id="BoxLayoutTemplate" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/templates/BoxLayoutTemplate.js"></script>
+<script type="text/javascript" id="MonthViewTemplate" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/templates/MonthViewTemplate.js"></script>
+<script type="text/javascript" id="CalendarScrollManager" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/dd/CalendarScrollManager.js"></script>
+<script type="text/javascript" id="StatusProxy" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/dd/StatusProxy.js"></script>
+<script type="text/javascript" id="CalendarDD" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/dd/CalendarDD.js"></script>
+<script type="text/javascript" id="DayViewDD" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/dd/DayViewDD.js"></script>
+<script type="text/javascript" id="EventRecord" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/EventRecord.js"></script>
+<script type="text/javascript" id="MonthDayDetailView" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/views/MonthDayDetailView.js"></script>
+<script type="text/javascript" id="CalendarPicker" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/widgets/CalendarPicker.js"></script>
+<script type="text/javascript" id="WeekEventRenderer" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/WeekEventRenderer.js"></script>
+<script type="text/javascript" id="CalendarView" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/views/CalendarView.js"></script>
+<script type="text/javascript" id="MonthView" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/views/MonthView.js"></script>
+<script type="text/javascript" id="DayHeaderView" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/views/DayHeaderView.js"></script>
+<script type="text/javascript" id="DayBodyView" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/views/DayBodyView.js"></script>
+<script type="text/javascript" id="DayView" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/views/DayView.js"></script>
+<script type="text/javascript" id="WeekView" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/views/WeekView.js"></script>
+<script type="text/javascript" id="DateRangeField" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/widgets/DateRangeField.js"></script>
+<script type="text/javascript" id="ReminderField" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/widgets/ReminderField.js"></script>
+<script type="text/javascript" id="EventEditForm" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/EventEditForm.js"></script>
+<script type="text/javascript" id="EventEditWindow" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/EventEditWindow.js"></script>
+<script type="text/javascript" id="CalendarPanel" src="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/src/CalendarPanel.js"></script>
+
+<script type="text/javascript" id="EditableItem" src="../../../comun/filtros/EditableItem.js"></script>
+<script type="text/javascript" id="ComboItem" src="../../../comun/filtros/ComboItem.js"></script>
+<script type="text/javascript" id="TextFieldItem" src="../../../comun/filtros/TextFieldItem.js"></script>
+<script type="text/javascript" id="RangeMenu" src="../../../comun/filtros/RangeMenu.js"></script>
+<script type="text/javascript" id="GridFilters" src="../../../comun/filtros/GridFilters.js"></script>
+<script type="text/javascript" src="../../../comun/filtros/Filter.js"></script>
+<script type="text/javascript" id="StringFilter" src="../../../comun/filtros/StringFilter.js"></script>
+<script type="text/javascript" id="DateFilter" src="../../../comun/filtros/DateFilter.js"></script>
+<script type="text/javascript" id="ListFilter" src="../../../comun/filtros/ListFilter.js"></script>
+<script type="text/javascript" id="NumericFilter" src="../../../comun/filtros/NumericFilter.js"></script>
+<script type="text/javascript" id="ListadoFilter"  src="../../../comun/filtros/ListadoFilter.js"></script>
+<script type="text/javascript" id="String_adaptadoFilter" src="../../../comun/filtros/String_adaptadoFilter.js"></script>
+
+<script type="text/javascript" id="vtype" src="../../../comun/js/vtype.js"></script>
+<script type="text/javascript" id="CmpBase" src="/planificacion/pdo/comun/js/CmpBase.js"></script>
+<script type="text/javascript" id="notificaciones" src="/planificacion/pdo/comun/js/notificaciones.js"></script>
+<script type="text/javascript" id="CmpBarraProgreso" src="/planificacion/pdo/comun/js/CmpBarraProgreso.js"></script>
+<script type="text/javascript" id="RowExpander" src="/planificacion/pdo/comun/js/RowExpander.js"></script>
+<script type="text/javascript" id="TreeGridjs" src="/planificacion/pdo/comun/js/TreeGrid.js"></script>
+<script type="text/javascript" id="CmpPaginadoTreegrid" src="/planificacion/pdo/comun/js/CmpPaginadoTreegrid.js"></script>
+<script type="text/javascript" id="CmpMenuRelacionesDinamicas" src="/planificacion/pdo/comun/js/CmpMenuRelacionesDinamicas.js"></script>
+<script type="text/javascript" id="FileUploadField" src="/planificacion/pdo/comun/js/FileUploadField.js"></script>
+<script type="text/javascript" id="examplesjs" src="/planificacion/pdo/comun/js/examples.js"></script>
+
+<script type="text/javascript" id="DatePicker" src="../../../comun/js/DatePicker.js"></script>
+<script type="text/javascript" id="CalendarPanel" src="/planificacion/pdo/comun/js/DateField.js"></script>
+<script type="text/javascript" id="Combo" src="/planificacion/pdo/comun/js/Combo.js"></script>
+<script type="text/javascript" id="TimeField" src="/planificacion/pdo/comun/js/TimeField.js"></script>
+<script type="text/javascript" id="ext.ux.datepickerplus" src="../../../comun/js/ext.ux.datepickerplus.js"></script>
+
+<script type="text/javascript" src="../../../comun/js/bpexportarconcepto.js"></script>
+<script type="text/javascript" src="../../../comun/js/DatePicker.js"></script>
+<script type="text/javascript" src="../../../comun/js/ext.ux.datepickerplus.js"></script>
+<script type="text/javascript" src="../../../comun/js/Ext.ux.form.LovCombo.js"></script>
+
+<script type="text/javascript" id="MessageBox" src="../../../comun/js/MessageBox.js"></script>
+
+<script type="text/javascript" id="cmpgestionarobservaciones" src="/planificacion/pdo/plan/views/js/cmpgestionarobservaciones/cmpgestionarobservaciones.js"></script>
+<script type="text/javascript" id="cmpclasificadorinvol"  src="/planificacion/pdo/plan/views/js/cmpclasificadorinvol/cmpclasificadorinvol.js"></script>
+
+<!--script-- type="text/javascript" src="../../../comun/js/Toolbar.js"></script-->
+<script type="text/javascript" id="cmphistorial" src="../../views/js/cmphistorial/cmphistorial.js"></script>
+<script type="text/javascript" id="cmphistorial" src="../../views/js/cmppuntualizacion/cmppuntualizacion.js"></script>
+<script type="text/javascript" id="cmpcrudmonitoreo" src="../../views/js/cmpcrudmonitoreo/cmpcrudmonitoreo.js"></script>
+<script type="text/javascript" id="cmprelaciones" src="/planificacion/pdo/plan/views/js/cmprelaciones/cmprelaciones.js"></script>
+<script type="text/javascript" id="cmpfondodetiempo" src="../../views/js/cmpfondodetiempo/cmpfondodetiempo.js"></script>
+<script type="text/javascript" id="cmpgestordocumental" src="../../views/js/cmpgestordocumental/cmpgestordocumental.js"></script>
+<script type="text/javascript" id="cmpcrudactividadrecurso" src="../../views/js/cmpcrudactividadrecurso/cmpcrudactividadrecurso.js"></script>
+
+<script type="text/javascript" id="cmpconfigurarperfil" src="../../views/js/cmpconfigurarperfil/cmpconfigurarperfil.js"></script>
+<script type="text/javascript" id="cmpcrudcargapordefecto" src="../../views/js/cmpconfigurarperfil/cmpcrudcargapordefecto.js"></script>
+<script type="text/javascript" id="cmpcrudconfigurarperfil" src="../../views/js/cmpconfigurarperfil/cmpcrudconfigurarperfil.js"></script>
+
+<script type="text/javascript" id="cmpexportarimportar" src="/planificacion/pdo/plan/views/js/cmpexportarimportar/cmpexportarimportar.js"></script>
+<script type="text/javascript" id="cmpnotificaciones" src="/planificacion/pdo/plan/views/js/cmpnotificaciones/cmpnotificaciones.js"></script>
+
+<script type="text/javascript" id="jquery.min" src="../../../comun/pareto/jquery.min.js"></script>
+<script type="text/javascript" id="highcharts" src="../../../comun/pareto/highcharts.js"></script>
+<script type="text/javascript" id="cmpgestionarpareto" src="../../views/js/cmpgraficas/cmpgestionargraficas.js"></script>
+
+<script type="text/javascript" id="go-debug" src="/planificacion/pdo/comun/pert/go-debug.js"></script>
+<script type="text/javascript" id="cmpgestionarpareto" src="/planificacion/pdo/plan/views/js/cmppert/cmpgestionarpert.js"></script>
+
+<script type="text/javascript" id="cmpgestionarplan" src="/planificacion/pdo/plan/views/js/cmpgestionarplan/cmptraspasarplan.js"></script>
+<script type="text/javascript" id="cmpcrudplan" src="/planificacion/pdo/plan/views/js/cmpcrudplan/cmpcrudplan.js"></script>
+<script type="text/javascript" id="cmpgestionarplan" src="/planificacion/pdo/plan/views/js/cmpgestionarplan/cmpgestionarplan.js"></script>
+
+<script type="text/javascript" id="cmpcrudarc" src="/planificacion/pdo/plan/views/js/cmpcrudarc/cmpcrudarc.js"></script>
+<script type="text/javascript" id="cmpgestionararc" src="/planificacion/pdo/plan/views/js/cmpgestionararc/cmpgestionararc.js"></script>
+
+<script type="text/javascript" id="cmpgestionarobjetivos" src="/planificacion/pdo/plan/views/js/cmpgestionarobjetivos/cmpgestionarindicadores.js"></script>
+<script type="text/javascript" id="cmpcrudobjetivos" src="/planificacion/pdo/plan/views/js/cmpcrudobjetivos/cmpcrudobjetivos.js"></script>
+<script type="text/javascript" id="cmpgestionarobjetivos" src="/planificacion/pdo/plan/views/js/cmpgestionarobjetivos/cmpgestionarobjetivos.js"></script>
+
+<script type="text/javascript" id="cmpfechacontrol"  src="/planificacion/pdo/plan/views/js/cmpcrudfip/cmpfechacontrol.js"></script>
+
+<script type="text/javascript" id="cmpcrudfip" src="/planificacion/pdo/plan/views/js/cmpcrudfip/cmpcrudfip.js"></script>
+<script type="text/javascript" id="cmpgestionarfip" src="/planificacion/pdo/plan/views/js/cmpgestionarfip/cmpgestionarfip.js"></script>
+
+<script type="text/javascript" id="cmpreportes" src="/planificacion/pdo/plan/views/js/cmpreportes/cmpreportes.js"></script>
+
+<script type="text/javascript" id="cmpctrlreasignaciones" src="/planificacion/pdo/plan/views/js/cmpctrlreasignaciones/cmpctrlreasignaciones.js"></script>
+<script type="text/javascript" id="cmpcrudactividades" src="/planificacion/pdo/plan/views/js/cmpcrudactividades/cmpcrudactividades.js"></script>
+<script type="text/javascript" id="cmpgestionaractividades" src="/planificacion/pdo/plan/views/js/cmpgestionaractividades/cmpgestionaractividades.js"></script>
+
+<script type="text/javascript" id="cmpcrudgestionarincidencias" src="../../views/js/cmpgestionarincidencias/cmpcrudgestionarincidencias.js"></script>
+<script type="text/javascript" id="cmpgestionarincidencias" src="../../views/js/cmpgestionarincidencias/cmpgestionarincidencias.js"></script>
+
+<script type="text/javascript" id="cmpcruddesviaciones" src="/planificacion/pdo/plan/views/js/cmpcruddesviaciones/cmpcruddesviaciones.js"></script>
+<script type="text/javascript" id="cmpgestionardesviaciones" src="/planificacion/pdo/plan/views/js/cmpgestionardesviaciones/cmpgestionardesviaciones.js"></script>
+
+<script type="text/javascript" id="e2cs_es" src="/planificacion/pdo/plan/views/js/cmpcalendarionuevo/e2cs_es.js"></script>
+<script type="text/javascript" id="cmpcrudcalendario" src="/planificacion/pdo/plan/views/js/cmpcalendarionuevo/cmpcrudcalendario.js"></script>
+<script type="text/javascript" id="cmpcalendario" src="/planificacion/pdo/plan/views/js/cmpcalendarionuevo/cmpcalendario.js"></script>
+<script type="text/javascript" id="initcmpcalendario" src="/planificacion/pdo/plan/views/js/cmpcalendarionuevo/initcmpcalendario.js"></script>
+
+<?php echo $this->jsayuda; ?>
+<?php echo $this->perfil; ?>
+<?php echo $this->gestdoc; ?>
+<script type="text/javascript" id="GridFilters" src="../../../comun/filtros/GridFilters.js"></script>
+</body>
+</html>

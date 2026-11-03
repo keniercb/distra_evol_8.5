@@ -1,0 +1,5 @@
+Para agregar el consumer_task.php como un servicio:
+1. Abrir el archivo /dir_install_zeolides/lib/Amqp/Worker/inicio/zeolides_amqp_consumer_task y actualizar la dirección de instalación de Zeolides modificando el valor de la variable DAEMON.
+2. Copiar el archivo /dir_install_zeolides/lib/Amqp/Worker/inicio/zeolides_amqp_consumer_task en /etc/init.d/.
+3. Iniciar el servicio manualmente ejecutando el comando: /etc/init.d/zeolides_amqp_consumer_task start (para parar el servicio utilizar como argumento stop y para ver el estado status).
+4. O configurar el inicio automÃ¡tico del servicio ejecutando el comando: update-rc.d zeolides_amqp_consumer_task defaults (Esta opciÃ³n es altamente recomendada).

@@ -1,0 +1,81 @@
+/*!
+ * Ext JS Library 3.0.0
+ * Copyright(c) 2006-2009 Ext JS, LLC
+ * licensing@extjs.com
+ * http://www.extjs.com/license
+ */
+.x-gridrow {
+    background-color: #d0def0;
+    border-radius: 0 0 5px 5px;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    padding: 4px;
+    position: absolute !important;
+    border-color: #99bbe8
+}
+.ext-ie .x-row-editor .x-form-text {
+    margin:0 !important; 
+}
+.x-grid-row-editor {
+    overflow: visible !important;
+    position: absolute !important;
+    z-index: 1;
+}
+.x-grid-row-editor-buttons:after {
+    content: "x-slicer:corners:url(images/grid-row-editor-buttons/null-corners.gif), sides:url(images/grid-row-editor-buttons/null-sides.gif)";
+    display: none;
+}
+.x-grid-row-editor-buttons {
+    border-color: #D2D2D2;
+}
+.x-grid-row-editor-buttons {
+    background-color: #E1F2FF;
+    border-radius: 0 0 5px 5px;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    padding: 4px;
+}
+.x-row-editor-header {
+    height:2px;
+    overflow:hidden;
+    background: transparent url(../images/row-editor-bg.gif) repeat-x 0 0;
+}
+.x-row-editor-footer {
+    height:2px;
+    overflow:hidden;
+    background: transparent url(../images/row-editor-bg.gif) repeat-x 0 -2px;
+}
+.ext-ie .x-row-editor-footer {
+    margin-top:-1px;
+}
+
+.x-row-editor-body {
+    overflow:hidden;
+    zoom:1;
+    background: #ebf2fb;
+    padding-top:2px;
+    z-index : 1;
+}
+.x-row-editor .x-btns {
+    position:absolute;
+    top:28px;
+    left:20px;
+    padding-left:5px;
+    background: transparent url(../images/row-editor-btns.gif) no-repeat 0 0;
+}
+.x-row-editor .x-btns .x-plain-bwrap {
+    padding-right:5px;
+    background: transparent url(../images/row-editor-btns.gif) no-repeat right -31px;
+}
+.x-row-editor .x-btns .x-plain-body {
+    background: transparent url(../images/row-editor-btns.gif) repeat-x 0 -62px;
+    height:31px;
+}
+.x-row-editor .x-btns .x-table-layout-cell {
+    padding:3px;
+}
+
+.errorTip .x-tip-body ul{
+    list-style-type:disc;
+    margin-left:15px;
+}

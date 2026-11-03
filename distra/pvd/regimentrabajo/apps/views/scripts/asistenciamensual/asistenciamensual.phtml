@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript"
+	src="<?php echo $this->dir_ucid;?>js/imporcss.js"></script>
+<script language="javascript" type="text/javascript">importarCSS(window.parent.parent.UCID.portal.perfil.dirCss);</script>
+	<link rel="stylesheet" type="text/css" href="colorPicker.css" />
+    <link rel="stylesheet" type="text/css" href="/pvd/regimentrabajo/views/css/animations.css" />
+    <link rel="stylesheet" type="text/css" href="/pvd/regimentrabajo/views/css/asistencia.css" />
+    <link rel="stylesheet" type="text/css" href="/pvd/regimentrabajo/views/js/configuracion/diasnolaborables/datepickerplus.css" />
+    <script language="javascript" type="text/javascript">importarCSS("/pvd/comun/views/css/Ext.ux.grid.ProgressColumn.css");</script>
+    <style type="text/css">
+        .weekend {
+            height: 100%;
+            background-color:#D3E0F2 !important;
+        }
+        .certificado {
+            height: 100%;
+            background-color:#DCF9E3 !important;
+        }
+        .noCertificado {
+            height: 100%;
+            background-color:#FDFEDF !important;
+        }
+        .aprobado {
+            height: 100%;
+            background-color: #84d9ff !important;
+        }
+        .indicadores {
+            height: 100%;
+            /*background-color:#eae9e9 !important;*/
+            background-color:#D3E0F2 !important;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript"
+	src="<?php echo $this->dir_extjs;?>js/ext-base.js"></script>
+<script type="text/javascript"
+	src="<?php echo $this->dir_extjs;?>js/ext-all.js"></script>
+<script type="text/javascript"
+	src="<?php echo $this->dir_ucid;?>js/ucid-all.js"></script>
+
+
+<script type="text/javascript" src="/pvd/comun/views/js/utiles/validadores.js"></script>
+<script type="text/javascript" src="/pvd/comun/views/js/utiles/extensiones.js"></script>
+<script type="text/javascript" src="../../../comun/views/js/utiles/ColumnHeaderGroup.js"></script>
+<?php echo $this->estructura; ?>
+<?php echo $this->jsayuda; ?>
+
+<script type="text/javascript" src="/pvd/regimentrabajo/views/js/asistencia/informacionestadistica/informacionestadistica.idioma.js"></script>
+<script type="text/javascript" src="/pvd/regimentrabajo/views/js/asistencia/informacionestadistica/informacionestadistica.model.js"></script>
+<script type="text/javascript" src="/pvd/regimentrabajo/views/js/asistencia/informacionestadistica/informacionestadistica.view.js"></script>
+<script type="text/javascript" src="/pvd/regimentrabajo/views/js/asistencia/informacionestadistica/informacionestadistica.controller.js"></script>
+
+<script type="text/javascript" src="/pvd/regimentrabajo/views/js/asistencia/asistenciamensual/colorPicker.js"></script>
+<script type="text/javascript" src="/pvd/regimentrabajo/views/js/asistencia/asistenciamensual/asistenciamensual.model.js"></script>
+<script type="text/javascript" src="/pvd/regimentrabajo/views/js/asistencia/asistenciamensual/asistenciamensual.controller.js"></script>
+<script type="text/javascript" src="/pvd/regimentrabajo/views/js/asistencia/asistenciamensual/asistenciamensual.view.js"></script>
+<input id="fecha" hidden="true" value="<?php echo $this->fecha?>"/>
+
+</body>
+</html>

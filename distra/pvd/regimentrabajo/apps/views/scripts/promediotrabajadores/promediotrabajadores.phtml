@@ -1,0 +1,45 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript"
+	src="<?php echo $this->dir_ucid;?>js/imporcss.js"></script>
+<script language="javascript" type="text/javascript">importarCSS(window.parent.parent.UCID.portal.perfil.dirCss);</script>
+	<link rel="stylesheet" type="text/css" href="colorPicker.css" />
+    <link rel="stylesheet" type="text/css" href="/pvd/regimentrabajo/views/css/promediotrabajadores.css" />
+    <link rel="stylesheet" type="text/css" href="/pvd/regimentrabajo/views/js/configuracion/diasnolaborables/datepickerplus.css" />
+    <link rel="stylesheet" type="text/css" href="/pvd/comun/views/css/GroupSummary.css" />
+    <script language="javascript" type="text/javascript">importarCSS("/pvd/comun/views/css/Ext.ux.grid.ProgressColumn.css");</script>
+    <style type="text/css">
+        .x-feriados {
+            background-color:#EEEE33 !important;
+        }
+        .weekend {
+            height: 100%;
+
+            background-color:#DDDCDC !important;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript"
+	src="<?php echo $this->dir_extjs;?>js/ext-base.js"></script>
+<script type="text/javascript"
+	src="<?php echo $this->dir_extjs;?>js/ext-all.js"></script>
+<script type="text/javascript"
+	src="<?php echo $this->dir_ucid;?>js/ucid-all.js"></script>
+
+
+<script type="text/javascript" src="/pvd/comun/views/js/utiles/validadores.js"></script>
+<script type="text/javascript" src="/pvd/comun/views/js/utiles/extensiones.js"></script>
+<script type="text/javascript" src="../../../comun/views/js/utiles/ColumnHeaderGroup.js"></script>
+<script type="text/javascript" src="/pvd/comun/views/js/groupsummary/GroupSummary.js"></script>
+
+<script type="text/javascript" src="/pvd/regimentrabajo/views/js/reportes/promediotrabajadores/promediotrabajadores.model.js"></script>
+<script type="text/javascript" src="/pvd/regimentrabajo/views/js/reportes/promediotrabajadores/promediotrabajadores.controller.js"></script>
+<script type="text/javascript" src="/pvd/regimentrabajo/views/js/reportes/promediotrabajadores/promediotrabajadores.view.js"></script>
+<input id="fecha" hidden="true" value="<?php echo $this->fecha?>"/>
+<?php echo $this->estructura; ?>
+<?php echo $this->jsayuda; ?>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{lbBtnAdicionar:'Add',
+lbBtnEliminar:'Delete',
+lbBtnAyuda:'Help',
+lbBtnAplicar:'Apply',
+lbBtnAceptar:'Accept',
+lbBtnCancelar:'Cancel',
+lbEs:'Schema',
+lbDes:'Description',
+lbMsgAdicionaEsq:'Registering schema',
+lbServ:'Servers',
+lbTitTit:'Registered servers',
+lbTitGesEsq:'Schema Management',
+lbMsgSelectEsq:'Select schema of databases',
+lbNombreEsq:'Schema of databases',
+lbMsgEliminarEsq:'&iquest; Are you  sure you want to delete the schema ?',
+lbTitVentanaAdd:'Add Schema'}
+

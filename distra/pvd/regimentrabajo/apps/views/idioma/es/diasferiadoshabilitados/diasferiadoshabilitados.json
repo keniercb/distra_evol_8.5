@@ -1,0 +1,22 @@
+{
+    lbBtnBuscar:'<u>B</u>uscar',
+    textToolTipBusPersona:'Buscar persona <b>(Alt+B)</b>',
+    lbBtnLimpiar:'<u>L</u>impiar',
+    textToolTipLimpiar: 'Limpiar filtro(s) <b>(Alt+L)</b>',
+    textToolTipHabilitar: 'Habilitar dias feriados <b>(Ctrl+Alt+H)</b>',
+    textToolTipDesabilitar: 'Deshabilitar dias feriados <b>(Ctrl+Alt+D)</b>',
+    lbTitPanelPersonas:'Listado de personas',
+    btnAyuda:'Ayuda',
+    lbBtnAyuda: 'Mostrar ayuda de la funcionalidad (<b>Alt+H</b>)',
+    lbMsgmasklistado: 'Cargando...',
+    lbMsgcriterioBuscar:'Criterio a buscar...',
+    lbMsgmaskGuardar: 'Guardando datos...',
+    gpTitle:'Listado de grupos por r&eacute;gimen de trabajo',
+    msgDESHok:'El(Los) día(s) feriado(s) ha(n) sido deshabilitado(s) satisfactoriamente.',
+    msgHABok :'El(Los) día(s) feriado(s) ha(n) sido habilitado(s) satisfactoriamente.',
+    msgerror :'Debe tener personas o grupos marcados y las fechas a habilitar.',
+    msgerrorHoras :'Debe especificar las horas que la(s) persona(s) debe(n) trabajar ese día.',
+    MsgNoResultMostrar:'No existen datos que se correspondan con los criterios de búsqueda especificados.',
+
+
+}

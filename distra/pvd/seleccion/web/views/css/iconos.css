@@ -1,0 +1,65 @@
+.concepto-marcado {
+	font-weight: bold;
+}
+.inicio{
+	background-image: url(../images/inicio.png) !important;
+}
+.gestion{
+	background-image: url(../images/gestion.png) !important;
+}
+.estadistica{
+	background-image: url(../images/estadistica.png) !important;
+}
+.folder_tecnica{
+	background-image: url(../images/folder_tecnica.png) !important;
+}
+.tecnica{
+	background-image: url(../images/tecnica.png) !important;
+}
+.seleccion{
+	background-image: url(../images/seleccion.png) !important;
+}
+.candidatos{
+	background-image: url(../images/candidatos.png) !important;
+}
+.reporte{
+	background-image: url(../images/reporte.png) !important;
+}
+.seguimiento{
+	background-image: url(../images/seguimiento.png) !important;
+}
+.gestionartecnica{
+	background-image: url(../images/gestionartecnica.png) !important;
+}
+.modelomat{
+	background-image: url(../images/modelomat.png) !important;
+}
+.excluir{
+	background-image: url(../images/excluir.png) !important;
+}
+.leyendaSel{
+	-moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    cursor: pointer;
+    float: left;
+    width: 16px;
+    height: 16px;
+	background-color: #008000;
+}
+.leyendaTextSel{
+	color: #008000;
+}
+.leyendaPreSel{
+	-moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    cursor: pointer;
+    float: left;
+    width: 16px;
+    height: 16px;
+	background-color: #0000FF;
+}
+.leyendaTextPreSel{
+	color: #0000FF;
+}

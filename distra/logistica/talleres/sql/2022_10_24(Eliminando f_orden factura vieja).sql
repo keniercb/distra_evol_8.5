@@ -1,0 +1,1 @@
+DROP FUNCTION mod_logtaller.f_ordenfactura(p_fechainicio date, p_fechafin date, tiporeporte numeric);

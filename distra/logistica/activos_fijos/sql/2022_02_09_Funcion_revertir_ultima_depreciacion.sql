@@ -1,0 +1,119 @@
+CREATE OR REPLACE FUNCTION mod_logactivofijotangible.f_revertirultimadepreciacion (
+  iddocumento numeric,
+  idestructura numeric
+)
+RETURNS void AS
+$body$
+DECLARE
+
+	v_rec RECORD;
+    v_fechainicio DATE;
+
+BEGIN
+
+	SELECT p.inicio INTO v_fechainicio
+    FROM mod_logistica.dat_documento d
+	INNER JOIN mod_datosmaestros.dat_periodocontable p ON p.idperiodo = d.idperiodo
+    WHERE d.iddocumento = $1;
+
+	
+	FOR v_rec IN
+    	SELECT mrn1.idregnumerico, mrna1.depreciacion, mrna1.depreciacioncuc--,mrna1.depreciacionacumulada, mrna1.depreciacionacumuladaalternativo
+        FROM mod_logistica.dat_documento d1
+        INNER JOIN mod_logistica.dat_movimiento m1 ON m1.iddocumento = d1.iddocumento
+        INNER JOIN mod_logactivofijotangible.dat_movregnumerico mrn1 ON mrn1.idmovimiento = m1.idmovimiento
+        INNER JOIN mod_logactivofijotangible.dat_movregnumericoactivo mrna1 ON mrna1.idmovregnumerico = mrn1.idmovregnumerico
+        WHERE d1.iddocumento = $1
+    LOOP
+    	
+    	UPDATE mod_logactivofijotangible.dat_movregnumericoactivo mrna
+        SET 
+        	depreciacionacumulada = depreciacionacumulada - v_rec.depreciacion,
+            depreciacionacumuladaalternativo = depreciacionacumuladaalternativo - v_rec.depreciacioncuc
+        WHERE mrna.idmovregnumerico IN (
+        	SELECT mrn.idmovregnumerico
+            FROM mod_logactivofijotangible.dat_movregnumerico mrn
+            INNER JOIN mod_logistica.dat_movimiento m ON m.idmovimiento = mrn.idmovimiento
+            WHERE mrn.idregnumerico = v_rec.idregnumerico AND m.iddocumento > $1
+        );
+    
+    END LOOP;
+    
+    UPDATE mod_logactivofijotangible.dat_regnumericoactivo rna
+	SET depreciacionacumulada = depreciacionacumulada - (
+		   SELECT mrna2.depreciacion 
+		   FROM mod_logactivofijotangible.dat_movregnumericoactivo mrna2
+		   INNER JOIN mod_logactivofijotangible.dat_movregnumerico mrn2 ON mrn2.idmovregnumerico = mrna2.idmovregnumerico
+		   INNER JOIN mod_logistica.dat_movimiento dm ON mrn2.idmovimiento = dm.idmovimiento
+		   WHERE mrn2.idregnumerico = rna.idregnumerico AND dm.iddocumento = $1 ),
+		depreciacionacumuladaalternativo = depreciacionacumuladaalternativo - (
+		   SELECT mrna2.depreciacioncuc 
+		   FROM mod_logactivofijotangible.dat_movregnumericoactivo mrna2
+		   INNER JOIN mod_logactivofijotangible.dat_movregnumerico mrn2 ON mrn2.idmovregnumerico = mrna2.idmovregnumerico 
+		   INNER JOIN mod_logistica.dat_movimiento dm ON mrn2.idmovimiento = dm.idmovimiento 
+		   WHERE mrn2.idregnumerico = rna.idregnumerico AND dm.iddocumento = $1 ),
+        ultimadepreciacion = (
+        	SELECT mrna.depreciacion
+            FROM mod_logistica.dat_documento d
+            INNER JOIN mod_datosmaestros.nom_operacion oper on oper.idnomoperaciones = d.idoperacion
+            INNER JOIN mod_datosmaestros.dat_documentoprim dprim on dprim.iddoc = d.iddoc
+            INNER JOIN mod_datosmaestros.dat_estructurasubsist estsubs on estsubs.idestructurasubsist = dprim.idestructurasubsist
+            INNER JOIN mod_logistica.dat_movimiento m on m.iddocumento = d.iddocumento
+            INNER JOIN mod_logactivofijotangible.dat_movregnumerico mrn on mrn.idmovimiento = m.idmovimiento
+            INNER JOIN mod_logactivofijotangible.dat_movregnumericoactivo mrna on mrna.idmovregnumerico = mrn.idmovregnumerico
+
+            WHERE 
+                oper.codigooperacion = 'OPER_DEPRECIACION'
+                and estsubs.idsubsistema = 11 
+                and estsubs.idestructuracomun = $2
+                and d.iddocumento < $1
+            ORDER BY d.cronologia DESC 
+            LIMIT 1
+        ),
+        fechaultimadep = (
+        	SELECT d.fechacontable
+            FROM mod_logistica.dat_documento d
+            INNER JOIN mod_datosmaestros.nom_operacion oper on oper.idnomoperaciones = d.idoperacion
+            INNER JOIN mod_datosmaestros.dat_documentoprim dprim on dprim.iddoc = d.iddoc
+            INNER JOIN mod_datosmaestros.dat_estructurasubsist estsubs on estsubs.idestructurasubsist = dprim.idestructurasubsist
+            WHERE 
+                oper.codigooperacion = 'OPER_DEPRECIACION'
+                and estsubs.idsubsistema = 11 
+                and estsubs.idestructuracomun = $2
+                and d.iddocumento < $1
+            ORDER BY d.cronologia DESC 
+            LIMIT 1
+        )
+	WHERE rna.idregnumerico IN (
+     	SELECT mrn1.idregnumerico 
+        FROM mod_logactivofijotangible.dat_movregnumerico mrn1
+     	INNER JOIN mod_logistica.dat_movimiento m1 ON m1.idmovimiento = mrn1.idmovimiento 
+        WHERE m1.iddocumento = $1
+    );
+    
+    UPDATE mod_logactivofijotangible.his_regnumericoestatus 
+    SET 
+    	fechafin = NULL, 
+        fechainicio = v_fechainicio
+    WHERE idregnumerico IN (
+    	SELECT mrn1.idregnumerico 
+        FROM mod_logactivofijotangible.dat_movregnumerico mrn1
+    	INNER JOIN mod_logistica.dat_movimiento m1 ON m1.idmovimiento = mrn1.idmovimiento 
+        WHERE m1.iddocumento = $1);
+    
+    DELETE FROM mod_logactivofijotangible.dat_movregnumerico mrn
+	WHERE mrn.idmovimiento IN (
+    	SELECT m.idmovimiento 
+        FROM mod_logistica.dat_movimiento m
+        WHERE m.iddocumento = $1
+    );
+    
+    DELETE FROM mod_logistica.dat_documento d WHERE d.iddocumento = $1;
+END;
+$body$
+LANGUAGE 'plpgsql'
+VOLATILE
+CALLED ON NULL INPUT
+SECURITY INVOKER
+PARALLEL UNSAFE
+COST 100;

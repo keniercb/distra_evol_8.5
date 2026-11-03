@@ -1,0 +1,32 @@
+.grupo{
+  background: url(../../../../comun/recursos/images/fam/grupo.png) !important;
+}
+
+.grupoejecutor{
+  background: url(../../../../comun/recursos/images/fam/grupo.png) !important;
+}
+
+.gruporesponsable{
+  background: url(../../../../comun/recursos/images/fam/cog_edit.png) !important;
+}
+
+.usuario{
+  background: url(../../../../comun/recursos/images/fam/user.gif) !important;
+}
+
+.usuarioejecutor{
+  background: url(../../../../comun/recursos/images/fam/user.gif) !important;
+}
+
+.usuarioresponsable{
+  background: url(../../../../comun/recursos/images/fam/usuariorojo.png) !important;
+}
+
+
+.misgrupos{
+  background: url(../../../../comun/recursos/images/fam/cog.png) !important;
+}
+
+.otrosgrupos{
+  background: url(../../../../comun/recursos/images/fam/cog_edit.png) !important;
+}

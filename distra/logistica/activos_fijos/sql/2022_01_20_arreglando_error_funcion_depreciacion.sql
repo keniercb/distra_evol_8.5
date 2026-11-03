@@ -1,0 +1,358 @@
+--------------- SQL ---------------
+
+CREATE OR REPLACE FUNCTION mod_logactivofijotangible.f_depreciarmediosentidadlinearecta (
+  idestructuracomun numeric,
+  iddocumento numeric
+)
+RETURNS void AS
+$body$
+DECLARE            
+                 
+    v_fechacontable date;
+    v_rec RECORD;
+    v_idmovimiento NUMERIC;
+    v_idmovrn NUMERIC;
+   
+  
+BEGIN
+ 
+    SELECT f.fecha into v_fechacontable
+    FROM mod_datosmaestros.dat_fecha f
+    inner join mod_datosmaestros.dat_estructurasubsist des on des.idestructurasubsist = f.idestructurasubsist
+    where des.idestructuracomun = $1 and des.idsubsistema = 11;
+
+  
+
+    FOR v_rec IN
+      select sub.* from
+      (select drna.idregnumerico, p.idproducto, drna.idestatustecnico, drna.idarearesp, drna.idcentrocosto,
+      drna.idcolorprim,
+              drna.idcolorsec,
+              drna.idubicacion,
+              drna.idactividad,
+              drna.idtabla,
+              drna.valoradquisicion,
+              drna.depreciacionacumulada,
+              drna.tasafiscal,
+              drna.porcientorecuperacion,
+              drna.valorcontable,
+              drna.annofabricacion,
+              drna.vidautil,
+              drna.fechaadq,
+              drna.fechaexpini,
+              drna.fechaexpfin,
+              drna.idcategoria,
+              drna.idresponsable,
+              drna.recursoconsumido,
+              drna.cantidadrecursoconsumido,
+              drna.importe,                              
+              drna.nroinventario,
+              drna.fechainicialgarantia,
+              drna.fechafingarantia,
+              drna.recursoconsumidomax,            
+              drna.arrendado,
+              drna.valorcontablealternativo,
+              drna.valoradquisicionalternativo,
+              drna.depreciacionacumuladaalternativo,
+              drna.datos,               
+             
+      			
+              case when 
+              	round(drna.valorcontable * drna.tasafiscal/100/(360/30),2) + drna.depreciacionacumulada > drna.valorcontable 
+              	OR (round(drna.valorcontable * drna.tasafiscal/100/(360/30),2) = 0 AND drna.tasafiscal > 0 AND drna.depreciacionacumulada > 0)
+                
+              then round((drna.valorcontable - drna.depreciacionacumulada),2)
+              else round(drna.valorcontable * drna.tasafiscal/100/(360/30),2) 
+              end as depreciacion,
+               
+              case when
+                round(drna.valorcontablealternativo * drna.tasafiscal/100/(360/30),2) + drna.depreciacionacumuladaalternativo > drna.valorcontablealternativo 
+              	OR (round(drna.valorcontablealternativo * drna.tasafiscal/100/(360/30),2) = 0 AND drna.tasafiscal > 0 AND drna.depreciacionacumuladaalternativo > 0)
+               
+              then round((drna.valorcontablealternativo - drna.depreciacionacumuladaalternativo),2)
+              else round(drna.valorcontablealternativo * drna.tasafiscal/100/(360/30),2) 
+              end as depreciacionalternativo,
+            
+              drnat.idtipocombustible,
+              drnat.nrocirculacion,
+              drnat.nromatricula,
+              drnat.nromotor1,
+              drnat.nromotor2,
+              drnat.indiceconsumo,
+              drnat.indicativo,
+              drnat.nollaveencendido,
+              drnat.capacidad,
+              drnat.vin,
+              drnat.ficav,
+              drnat.lot,
+              drnat.combustibleasignado,
+              drnat.vencimientoficav,
+              drnat.vencimientolot,
+              drnat.vencimientocirculacion,
+              drnat.expedicioncirculacion,
+              drnat.cantpersonapie,
+              drnat.cantpersonasentado,
+              drnat.normacombustible,
+              drnat.idgps,
+              drnat.idcategoriatransp,
+              drnat.endeposito,
+              drnat.kmasignado
+            
+    
+      FROM mod_logactivofijotangible.dat_regnumericoactivo drna
+      INNER JOIN mod_logactivofijotangible.nom_actividad na ON drna.idactividad = na.idactividad  
+      INNER JOIN mod_logactivofijotangible.dat_registronumerico drn ON drna.idregnumerico = drn.idregnumerico
+      INNER JOIN mod_logistica.dat_producto p ON drn.idproducto = p.idproducto and p.idestructuracomun = $1
+      INNER JOIN mod_datosmaestros.nom_indicador i ON p.idindicador = i.idindicador and i.idnaturaleza NOT IN (-7, -8, -5)
+      INNER JOIN mod_logactivofijotangible.his_regnumericoestatus hrn ON drn.idregnumerico = hrn.idregnumerico and hrn.deprecia = 1 and hrn.fechainicio < v_fechacontable
+      left JOIN mod_logactivofijotangible.dat_regnumericoactivotransp drnat on drnat.idregnumerico = drn.idregnumerico
+       
+      WHERE (
+          drna.idestadoperacion <> 7
+          AND drna.idestadoperacion <> 0        
+          --AND ((drna.valorcontable - ((drna.valorcontable * drna.porcientorecuperacion)/100)) <> drna.depreciacionacumulada
+          --OR (drna.valorcontablealternativo - ((drna.valorcontablealternativo * drna.porcientorecuperacion)/100)) <> drna.depreciacionacumuladaalternativo)
+      ) ORDER BY p.idproducto
+      ) as sub
+      where sub.depreciacion > 0 or sub.depreciacionalternativo > 0
+     LOOP
+         if ((v_rec.depreciacion + v_rec.depreciacionacumulada) > v_rec.valorcontable) THEN
+            v_rec.depreciacion = v_rec.valorcontable - v_rec.depreciacionacumulada;
+        end if;
+        if ((v_rec.depreciacionalternativo + v_rec.depreciacionacumuladaalternativo) > v_rec.valorcontablealternativo) THEN
+            v_rec.depreciacionalternativo = v_rec.valorcontablealternativo - v_rec.depreciacionacumuladaalternativo;
+        end if;
+         --RAISE NOTICE 'idregistro %',v_rec.idregnumerico;
+       
+         -- BUSCO EL MOVIMIENTO
+         SELECT m.idmovimiento into v_idmovimiento
+         from mod_logistica.dat_movimiento m
+         where m.idproducto = v_rec.idproducto and m.iddocumento = $2;
+       
+         -- CREO EL MOVIMIENTO SI NO EXISTE
+         if(v_idmovimiento is null) then       
+           INSERT INTO
+              mod_logistica.dat_movimiento
+            (
+              iddocumento,
+              idproducto,            
+              cantidad,
+              cronologia          
+            )
+            VALUES (            
+              $2,
+              v_rec.idproducto,          
+              0,
+              0          
+            ) RETURNING idmovimiento into v_idmovimiento;
+           end if;
+         
+           INSERT INTO
+              mod_logactivofijotangible.dat_movregnumerico
+            (            
+              idregnumerico,
+              idmovimiento
+            )
+            VALUES (
+              v_rec.idregnumerico,
+              v_idmovimiento
+            ) RETURNING idmovregnumerico into v_idmovrn;
+            
+            UPDATE mod_logactivofijotangible.dat_regnumericoactivo rna
+				set
+		     		ultimadepreciacion = v_rec.depreciacion,
+        		    fechaultimadep = v_fechacontable
+	         where rna.idregnumerico = v_rec.idregnumerico;
+          
+            INSERT INTO
+              mod_logactivofijotangible.dat_movregnumericoactivo
+            (
+              idmovregnumerico,
+              idestatustecnico,
+              idarearesp,
+              idcentrocosto,
+              idcolorprim,
+              idcolorsec,
+              idubicacion,
+              idactividad,
+              idtabla,
+              valoradquisicion,
+              depreciacionacumulada,
+              tasafiscal,
+              porcientorecuperacion,
+              valorcontable,
+              annofabricacion,
+              vidautil,
+              fechaadq,
+              fechaexpini,
+              fechaexpfin,
+              depreciacion,
+              idcategoria,
+              idresponsable,
+              recursoconsumido,
+              cantidadrecursoconsumido,
+              importe,            
+              nroinventario,
+              fechainicialgarantia,
+              fechafingarantia,
+              recursoconsumidomax,            
+              arrendado,
+              valorcontablealternativo,
+              valoradquisicionalternativo,
+              depreciacionacumuladaalternativo,
+              depreciacioncuc,
+              datos
+            )
+            VALUES (
+              v_idmovrn,
+              v_rec.idestatustecnico,
+              v_rec.idarearesp,
+              v_rec.idcentrocosto,
+              v_rec.idcolorprim,
+              v_rec.idcolorsec,
+              v_rec.idubicacion,
+              v_rec.idactividad,
+              v_rec.idtabla,
+              v_rec.valoradquisicion,
+              v_rec.depreciacionacumulada + v_rec.depreciacion,
+              v_rec.tasafiscal,
+              v_rec.porcientorecuperacion,
+              v_rec.valorcontable,
+              v_rec.annofabricacion,
+              v_rec.vidautil,
+              v_rec.fechaadq,
+              v_rec.fechaexpini,
+              v_rec.fechaexpfin,
+              v_rec.depreciacion,
+              v_rec.idcategoria,
+              v_rec.idresponsable,
+              v_rec.recursoconsumido,
+              v_rec.cantidadrecursoconsumido,
+              v_rec.importe,            
+              v_rec.nroinventario,
+              v_rec.fechainicialgarantia,
+              v_rec.fechafingarantia,
+              v_rec.recursoconsumidomax,
+              v_rec.arrendado,
+              v_rec.valorcontablealternativo,
+              v_rec.valoradquisicionalternativo,
+              v_rec.depreciacionacumuladaalternativo + v_rec.depreciacionalternativo,
+              v_rec.depreciacionalternativo,
+              v_rec.datos
+            );  
+          
+            INSERT INTO
+              mod_logactivofijotangible.dat_movregnumericoactivotransp
+            (
+              idmovregnumerico,
+              idtipocombustible,
+              nrocirculacion,
+              nromatricula,
+              nromotor1,
+              nromotor2,
+              indiceconsumo,
+              indicativo,
+              nollaveencendido,
+              capacidad,
+              vin,
+              ficav,
+              lot,
+              combustibleasignado,
+              vencimientoficav,
+              vencimientolot,
+              vencimientocirculacion,
+              expedicioncirculacion,
+              cantpersonapie,
+              cantpersonasentado,
+              normacombustible,
+              idgps,
+              idcategoriatransp,
+              endeposito,
+              kmasignado
+            )
+            VALUES (
+              v_idmovrn,
+              v_rec.idtipocombustible,
+              v_rec.nrocirculacion,
+              v_rec.nromatricula,
+              v_rec.nromotor1,
+              v_rec.nromotor2,
+              v_rec.indiceconsumo,
+              v_rec.indicativo,
+              v_rec.nollaveencendido,
+              v_rec.capacidad,
+              v_rec.vin,
+              v_rec.ficav,
+              v_rec.lot,
+              v_rec.combustibleasignado,
+              v_rec.vencimientoficav,
+              v_rec.vencimientolot,
+              v_rec.vencimientocirculacion,
+              v_rec.expedicioncirculacion,
+              v_rec.cantpersonapie,
+              v_rec.cantpersonasentado,
+              v_rec.normacombustible,
+              v_rec.idgps,
+              v_rec.idcategoriatransp,
+              v_rec.endeposito,
+              v_rec.kmasignado
+            );
+   
+     END LOOP;
+       
+         UPDATE mod_logactivofijotangible.dat_regnumericoactivo rna
+         set
+             depreciacionacumulada = (select mrna1.depreciacionacumulada
+                                    from mod_logactivofijotangible.dat_movregnumerico mrn1
+                                    inner join mod_logactivofijotangible.dat_movregnumericoactivo mrna1 on mrna1.idmovregnumerico = mrn1.idmovregnumerico
+                                    inner join mod_logistica.dat_movimiento m1 on m1.idmovimiento = mrn1.idmovimiento
+                                    where m1.iddocumento = $2 and mrn1.idregnumerico = rna.idregnumerico),
+            depreciacionacumuladaalternativo = (select mrna1.depreciacionacumuladaalternativo
+                                    from mod_logactivofijotangible.dat_movregnumerico mrn1
+                                    inner join mod_logactivofijotangible.dat_movregnumericoactivo mrna1 on mrna1.idmovregnumerico = mrn1.idmovregnumerico
+                                    inner join mod_logistica.dat_movimiento m1 on m1.idmovimiento = mrn1.idmovimiento
+                                    where m1.iddocumento = $2 and mrn1.idregnumerico = rna.idregnumerico)
+         where rna.idregnumerico IN (
+             select mrn.idregnumerico
+             from mod_logactivofijotangible.dat_movregnumerico mrn
+            inner join mod_logactivofijotangible.dat_movregnumericoactivo mrna on mrna.idmovregnumerico = mrn.idmovregnumerico
+            inner join mod_logistica.dat_movimiento m on m.idmovimiento = mrn.idmovimiento
+            where m.iddocumento = $2
+         );
+       
+         delete from mod_logactivofijotangible.his_regnumericoestatus hrn
+         where hrn.idregnumerico in (
+              select mrn.idregnumerico
+              from mod_logactivofijotangible.dat_movregnumerico mrn
+              inner join mod_logistica.dat_movimiento m on m.idmovimiento = mrn.idmovimiento
+              where m.iddocumento = $2
+         );
+     
+           INSERT INTO
+          mod_logactivofijotangible.his_regnumericoestatus
+        (
+          idregnumerico,
+          idestatustecnico,
+          fechainicio,
+          deprecia
+        )
+        (SELECT rna.idregnumerico, rna.idestatustecnico, v_fechacontable, et.deprecia
+        FROM mod_logactivofijotangible.dat_regnumericoactivo rna
+        INNER JOIN mod_logactivofijotangible.nom_estatustecnico et on et.idestatustecnico = rna.idestatustecnico
+        WHERE rna.idregnumerico in (
+            select mrn.idregnumerico
+             from mod_logactivofijotangible.dat_movregnumerico mrn
+            inner join mod_logactivofijotangible.dat_movregnumericoactivo mrna on mrna.idmovregnumerico = mrn.idmovregnumerico
+            inner join mod_logistica.dat_movimiento m on m.idmovimiento = mrn.idmovimiento
+            where m.iddocumento = $2
+        ));
+         
+   
+END;
+$body$
+LANGUAGE 'plpgsql'
+VOLATILE
+CALLED ON NULL INPUT
+SECURITY INVOKER
+PARALLEL UNSAFE
+COST 100;

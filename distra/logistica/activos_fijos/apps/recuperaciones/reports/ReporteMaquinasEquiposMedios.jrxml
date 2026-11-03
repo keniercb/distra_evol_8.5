@@ -1,0 +1,1171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteMaquinasEquiposMedios" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" >
+    <property name="ireport.zoom" value="1.5"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <parameter name="codigo_entidad" class="java.lang.String"/>
+    <parameter name="nombre_entidad" class="java.lang.String"/>
+    <queryString>
+		<![CDATA[SELECT DISTINCT
+
+							r.tasafiscal as tasa_depreciacion,
+                            r.vidautil as vidautil,
+                            r.nroinventario as nroinventario,
+                            r.valoradquisicion as valor_inicial,
+                            np.nombrepais as nacionalidad,
+                            mm.denominacion as marca,
+                            mmod.denominacion as modelo,
+                            d.nrodoc as nro_movimiento,
+                            i.denominacion as tipo_indicador,
+                            rn.nroserie as nroserie,
+ 							r.fechaexpini as fecha_alta,
+                            r.valoradquisicion as valor_inicial,
+                            r.annofabricacion as fecha_fabricacion ,
+                            rnt.nromotor1 as nromotor1,
+                            rnt.nromotor2 as nromotor2,
+                            rnt.nromatricula as chapa,
+                            ntc.denominacion as tipo_combustible,
+ (
+                            SELECT cfgtipo.numchasis FROM mod_logactivofijotangible.conf_tipomedio cfgtipo
+                            INNER JOIN mod_datosmaestros.nom_naturaleza nomnatura on cfgtipo.idtipomedio = nomnatura.idnaturaleza
+                            WHERE nomnatura.idnaturaleza = i.idnaturaleza
+                            )as es_transporte,
+                            mvra.fechaadq as fecha_movimiento,
+                            mvra.depreciacionacumulada as depreciacion_movimiento,
+                            nop.denominacion as operacion_movimiento
+
+
+
+
+
+                            from
+                            mod_logactivofijotangible.dat_regnumericoactivo r
+                            left join mod_logactivofijotangible.dat_regnumericoactivotransp rnt on
+                            r.idregnumerico = rnt.idregnumerico
+                            left join mod_logactivofijotangible.nom_tipocombustible ntc on
+                            rnt.idtipocombustible = ntc.idtipocombustible
+                            inner join mod_logactivofijotangible.dat_registronumerico rn on
+                            rn.idregnumerico = r.idregnumerico
+                            inner join mod_logistica.dat_movregnumerico mvr on mvr.idregnumerico = rn.idregnumerico
+                            inner join mod_logactivofijotangible.dat_movregnumericoactivo mvra on 
+                            mvr.idmovregnumerico = mvra.idmovregnumerico
+
+                            inner join mod_logistica.dat_movimiento m on m.idmovimiento = mvr.idmovimiento
+
+                            inner join  mod_logistica.dat_documento d on d.iddocumento = m.iddocumento
+
+                            inner join mod_estructuracomp.dat_estructuraop eop on
+                            d.idestructuracomun = eop.idestructuraop
+
+                            inner join mod_logistica.dat_producto p on p.idproducto = rn.idproducto
+                            inner join mod_datosmaestros.nom_indicador i on p.idindicador = i.idindicador
+                            inner join  mod_datosmaestros.nom_indicadorhoja ih on ih.idindicador = i.idindicador
+                            inner join  mod_datosmaestros.nom_gruposubgrupo gg on
+                            ih.idgruposubgrupo = gg.idgruposubgrupo
+                     INNER JOIN mod_datosmaestros.nom_operacion nop on d.idoperacion  = nop.idnomoperaciones
+                    left join mod_datosmaestros.nom_naturaleza n on n.idnaturaleza = i.idnaturaleza
+                    left join mod_datosmaestros.nom_marca mm on mm.idmarca = ih.idmarca
+                   left join mod_logactivofijotangible.nom_color c on c.idcolor = r.idcolorsec
+                    left join mod_datosmaestros.nom_modelo mmod on ih.idmodelo = mmod.idmodelo
+                    left join mod_datosmaestros.nom_pais np on i.idpais = np.idpais
+                    left join mod_logistica.dat_estructuraubicacion eu on r.idubicacion = eu.idestructuraubicacion
+
+                   WHERE
+                   r.idregnumerico = 1000092]]>
+    </queryString>
+    <field name="tasa_depreciacion" class="java.math.BigDecimal"/>
+    <field name="vidautil" class="java.math.BigDecimal"/>
+    <field name="nroinventario" class="java.lang.String">
+        <fieldDescription><![CDATA[Número de inventario.]]></fieldDescription>
+    </field>
+    <field name="valor_inicial" class="java.math.BigDecimal"/>
+    <field name="nacionalidad" class="java.lang.String">
+        <fieldDescription><![CDATA[Nacionalidad del país.]]></fieldDescription>
+    </field>
+    <field name="marca" class="java.lang.String"/>
+    <field name="modelo" class="java.lang.String"/>
+    <field name="nro_movimiento" class="java.math.BigDecimal"/>
+    <field name="tipo_indicador" class="java.lang.String"/>
+    <field name="nroserie" class="java.lang.String"/>
+    <field name="fecha_alta" class="java.sql.Date"/>
+    <field name="fecha_fabricacion" class="java.math.BigDecimal"/>
+    <field name="nromotor1" class="java.lang.String"/>
+    <field name="nromotor2" class="java.lang.String"/>
+    <field name="chapa" class="java.lang.String"/>
+    <field name="tipo_combustible" class="java.lang.String"/>
+    <field name="es_transporte" class="java.math.BigDecimal"/>
+    <field name="fecha_movimiento" class="java.sql.Date"/>
+    <field name="depreciacion_movimiento" class="java.math.BigDecimal"/>
+    <field name="operacion_movimiento" class="java.lang.String"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="51" splitType="Stretch">
+            <image>
+                <reportElement x="0" y="0" width="100" height="51" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+            </image>
+            <staticText>
+                <reportElement x="100" y="0" width="564" height="28" forecolor="#999999" />
+                <box>
+                    <pen lineWidth="0.75"/>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.0"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Modelo SC-1-03 SUBMAYOR DE MÁQUINAS,]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="100" y="28" width="564" height="23" forecolor="#999999" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[EQUIPOS Y MEDIOS DE TRANSPORTE]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="664" y="0" width="129" height="51" />
+                <box leftPadding="5">
+                    <topPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[R-03/PD-GEF-01]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="100" y="0" width="564" height="51" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <text><![CDATA[]]></text>
+            </staticText>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="339" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="100" height="30" />
+                <box leftPadding="3">
+                    <topPen lineWidth="0.0"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Código entidad:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="31" width="100" height="30" />
+                <box leftPadding="3">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Nombre entidad:]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="100" y="0" width="564" height="30" />
+                <box leftPadding="2">
+                    <topPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$P{codigo_entidad}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="100" y="31" width="564" height="30" />
+                <box leftPadding="3">
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$P{nombre_entidad}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="61" width="100" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[N.º inventario]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="81" width="100" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{nroinventario}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="233" y="161" width="110" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.0"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{tipo_indicador}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="100" y="61" width="693" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Descripción]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="233" y="101" width="110" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Cta/sub cta]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="343" y="101" width="101" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Análisis]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="561" y="101" width="119" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Tasa dep.]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="561" y="121" width="119" height="20" />
+                <box>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{tasa_depreciacion}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="679" y="101" width="114" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Vida útil]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="679" y="121" width="114" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{vidautil}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="101" width="100" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Fecha alta]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="121" width="100" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{fecha_alta}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="100" y="101" width="133" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Valor inicial]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="100" y="121" width="133" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{valor_inicial}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="141" width="100" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[País origen]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="161" width="100" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{nacionalidad}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="100" y="141" width="133" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Modelo]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="100" y="161" width="133" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{modelo}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="444" y="101" width="117" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[CNMB]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="233" y="141" width="110" height="20" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Tipo]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="343" y="141" width="101" height="20" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Marca]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="444" y="141" width="117" height="20" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Serie]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="343" y="161" width="101" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{marca}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="561" y="141" width="119" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Tonelaje]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="679" y="141" width="114" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Potencia]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="181" width="100" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Fecha de fab.]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="211" width="100" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{fecha_fabricacion}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="100" y="181" width="133" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[N.º motor]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="100" y="211" width="133" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{nromotor1}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="233" y="181" width="110" height="30" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[N.º motor (cambio)]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="343" y="181" width="101" height="30" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Tipo combustible]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="343" y="211" width="101" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{tipo_combustible}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="444" y="181" width="117" height="30" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Tipo combustible (cambio)]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="561" y="181" width="119" height="30" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Chapa]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="679" y="181" width="114" height="30" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[N.º Chasis]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="251" width="134" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Tipo agregado]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="134" y="251" width="134" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[serie]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="231" width="793" height="20" />
+                <box>
+                    <topPen lineWidth="0.0"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[AGREGADOS MAYORES]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="268" y="251" width="134" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Fecha cambio]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="402" y="251" width="134" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Tipo agregado]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="536" y="251" width="134" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Serie]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="670" y="251" width="123" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Fecha cambio]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="281" width="134" height="15" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="295" width="134" height="15" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="309" width="134" height="15" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="324" width="793" height="15" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[MOVIMIENTOS DE ACTIVOS FIJOS]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="664" y="0" width="129" height="61" />
+                <box>
+                    <topPen lineWidth="0.0"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Top">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[N.º sub mayor y cuño entidad: ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="233" y="121" width="110" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.0"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="343" y="121" width="101" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.0"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="444" y="121" width="117" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.0"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="233" y="211" width="110" height="20" />
+                <box>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement textAlignment="Center"/>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="444" y="211" width="117" height="20" />
+                <box>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+            </textField>
+            <staticText>
+                <reportElement x="561" y="161" width="119" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.0"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="134" y="295" width="134" height="15" />
+                <box>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="134" y="281" width="134" height="15" />
+                <box>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="134" y="309" width="134" height="15" />
+                <box>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="268" y="309" width="134" height="15" />
+                <box>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="268" y="295" width="134" height="15" />
+                <box>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="268" y="281" width="134" height="15" />
+                <box>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="402" y="309" width="134" height="15" />
+                <box>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="402" y="295" width="134" height="15" />
+                <box>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="402" y="281" width="134" height="15" />
+                <box>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="536" y="309" width="134" height="15" />
+                <box>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="536" y="295" width="134" height="15" />
+                <box>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="536" y="281" width="134" height="15" />
+                <box>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="670" y="281" width="123" height="15" />
+                <box>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="670" y="309" width="123" height="15" />
+                <box>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="670" y="295" width="123" height="15" />
+                <box>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="444" y="161" width="117" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.0"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[($F{es_transporte} ==0)?$F{nroserie}:null]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="561" y="211" width="119" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{chapa}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="680" y="211" width="113" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[($F{es_transporte} == 1)?$F{nroserie}:null]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="100" y="81" width="693" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="680" y="161" width="113" height="20" />
+                <box>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <text><![CDATA[]]></text>
+            </staticText>
+        </band>
+    </pageHeader>
+    <columnHeader>
+        <band height="30" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="100" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Fecha]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="100" y="0" width="100" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[N.º movimiento]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="200" y="0" width="100" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Detalle movimiento]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="300" y="0" width="100" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Variación valor]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="400" y="0" width="109" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Variación depreciación]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="509" y="0" width="109" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Nuevo valor]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="618" y="0" width="175" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Depreciación acumulada]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="20" splitType="Stretch">
+            <textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+                <reportElement x="0" y="0" width="100" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{fecha_movimiento}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="618" y="0" width="175" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{depreciacion_movimiento}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="200" y="0" width="100" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{operacion_movimiento}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="300" y="0" width="100" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="400" y="0" width="109" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="509" y="0" width="109" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="100" y="1" width="100" height="19" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{nro_movimiento}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="4" splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band height="3" splitType="Stretch"/>
+    </pageFooter>
+    <summary>
+        <band height="4" splitType="Stretch"/>
+    </summary>
+</jasperReport>

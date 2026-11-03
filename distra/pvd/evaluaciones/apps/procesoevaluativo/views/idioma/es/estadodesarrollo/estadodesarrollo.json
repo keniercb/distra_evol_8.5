@@ -1,0 +1,39 @@
+{
+lbBtnAdicionarEstadoD:				 'Adicionar estado de desarrollo <b>(Alt+I)</b>',
+lbBtnModificarEstadoD:				 'Modificar estado de desarrollo <b>(Alt+M)</b>',
+lbBtnEliminar:				 		'Eliminar estado de desarrollo <b>(DEL)</b>',
+
+lbBtnCancelar:				        'Cerrar ventana sin guardar los datos <b>(Alt+X)</b>',
+lbBtnAplicar:				        'Guardar datos y limpiar los campos <b>(Ctrl+Alt+P)</b>',
+lbBtnAceptar:				        'Guardar datos y cerrar ventana <b>(ENTER)</b>',
+
+lbMsgWait:                          'Por favor espere',
+lbMsgBarraEstadoD:				    'Guardando datos del estado de desarrollo',
+lbEnAccionEstadoD:                   'Eliminando datos del estado de desarrollo',
+
+lbAddSatisfactoriamenteEstadoD:       'El estado de desarrollo ha sido adicionado satisfactoriamente.',
+lbModSatisfactoriamenteEstadoD:       'El estado de desarrollo ha sido modificado satisfactoriamente.',
+lbAddsExisteEstadoD:                  'El estado de desarrollo que quiere adicionar ya existe.',
+lbModExisteEstadoD:                   'El estado de desarrollo ya existe.',
+lbDelEstadoD:						 '¿Está seguro que quiere eliminar el estado de desarrollo seleccionado?',
+lbDelSatisfactoriamenteEstadoD:	     'El estado de desarrollo ha sido eliminado satisfactoriamente.',
+lbDelEnUsoEstadoD:					 'El estado de desarrollo seleccionado no se puede eliminar debido a que est&aacute; en uso.',
+
+btnAdicionar:					    'Ad<u>i</u>cionar',
+btnModificar:				        '<u>M</u>odificar',
+btnEliminar:		 		        'Eliminar',
+BtnAyuda:					        'Ayuda',
+BtnCancelar:				        'Cancelar',
+BtnAplicar:					        'Aplicar',
+BtnAceptar:					        'Aceptar',
+
+lbPagdinVacio:   				    'No hay elementos para mostrar',
+
+lbFechaMaxima:				       'La fecha de inicio tiene que ser anterior o igual a la fecha fin.',
+lbFechaMinima :				       'La fecha fin tiene que ser posterior o igual a la fecha de inicio.',
+lbDenominacion : 					'Denominaci&oacute;n',
+lbFechaInicio: 						'Fecha inicio',
+lbFechaFin : 						'Fecha fin',
+lbDescripcion :						'Descripci&oacute;n',
+TextBuscar:							'Criterio a buscar',
+}

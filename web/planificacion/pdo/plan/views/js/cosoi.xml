@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cosoi>       
+	<cmpgestionarplan referencia="planificacion/pdo/plan">
+		<prototipo>
+			<parametro nombre="utilizarBtnModificar" tipo="booleano"/>
+			<parametro nombre="utilizarBtnEliminar" tipo="booleano"/>
+			<parametro nombre="utilizarBtnActivar" tipo="booleano"/>
+			<parametro nombre="utilizarBtnDesactivar" tipo="booleano"/>	
+			<parametro nombre="utilizarbtnPanelBusqueda" tipo="booleano"/>					
+		</prototipo>
+	</cmpgestionarplan>		
+	
+</cosoi>

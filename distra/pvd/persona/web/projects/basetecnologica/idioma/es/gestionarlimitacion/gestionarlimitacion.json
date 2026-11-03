@@ -1,0 +1,16 @@
+{
+	lbBtnAdicionar : "Adicionar",
+	ttBtnAdicionar : "Adicionar una limitación",
+	lbBtnAyuda     : "Ayuda",
+	ttBtnAyuda     : "Ayuda de la funcionalidad",
+	lbBtnAceptar   : "Aceptar",
+	ttBtnAceptar   : "Insertar la(s) limitación(es)",
+	lbBtnCancelar  : "Cancelar",
+	ttBtnCancelar  : "Cancelar las acciones realizadas en el formulario",
+	lbRCTReporte   : "Listado de personas",
+	lbRCTConfig    : "Configurar búsqueda de personas",
+	lbRCTGrid      : "Listado de personas",
+	lbCBCausaLimit : "Causa",
+	lbDFfdesde     : "Fecha inicio",
+	lbDFfhasta     : "Fecha fin"
+}

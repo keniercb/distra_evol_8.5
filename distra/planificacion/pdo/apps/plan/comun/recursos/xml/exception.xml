@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<excepciones>
+	<EMT001>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error de acceso a funcionalidad</mensaje>
+			<descripcion>La accion que desea realizar no puede ser ejecutada.</descripcion>			
+		</es>
+	</EMT001>
+	<XML001>
+		<tipo>L</tipo>
+		<es>
+			<mensaje>Error de gestion de XML</mensaje>
+			<descripcion>El XML requerido no se encuentra.</descripcion>			
+		</es>
+	</XML001>
+	<E009>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error de acceso al sistema</mensaje>
+			<descripcion>El usuario con el cual usted desea acceder al sistema no esta registrado.</descripcion>			
+		</es>
+	</E009>
+	<E010>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al cargar las etiquetas. No existe el fichero o directorio.</mensaje>
+			<descripcion>La configuracion del idioma no es correcta. Pongase en contacto con el administrador.</descripcion>			
+		</es>
+	</E010>
+	<E011>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al cargar las etiquetas. No hay permisos para leer el fichero.</mensaje>
+			<descripcion>No se puede cargar el idioma. Pongase en contacto con el administrador.</descripcion>			
+		</es>
+	</E011>
+	<E012>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error de Sesion. Se perdieron las variables de session.</mensaje>
+			<descripcion>No se puede cargar el idioma porque la session expiro o fue borrada manualmente. Por favor presione F5 para refrescar el sistema.</descripcion>			
+		</es>
+	</E012>
+	<E013>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error de seguridad.</mensaje>
+			<descripcion>Los datos se estan enviando de forma insegura. No se puede realizar la accion solicitada. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</E013>
+	<E014>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje> Error en la conexion a la Base de Datos </mensaje>
+			<descripcion>Error en la conexion a la Base de Datos. Configure correctamente la conexion en el fichero de configuracion del modulo.</descripcion>		
+		</es>
+	</E014>
+	<EGM001>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error de Consulta</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se cargaban los modulos. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</EGM001>
+	<EGM002>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de eliminar el modulo. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</EGM002>
+	<EGM003>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al modificar.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de modificar el modulo. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</EGM003>
+	<EGM004>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al insertar.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar el modulo. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</EGM004>
+	<EGU001>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error de Consulta</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se cargaban los usuarios. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</EGU001>
+	<EGU002>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de eliminar el usuario. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</EGU002>
+	<EGU003>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al modificar.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de modificar el usuario. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</EGU003>
+	<EGU004>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al insertar.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar el usuario. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</EGU004>
+	<EGU005>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al modificar la clave de acceso.</mensaje>
+			<descripcion>La clave de acceso no puede repetirse, usted esta poniendo una clave que puso anteriormente. Por favor ponga otra.</descripcion>			
+		</es>
+	</EGU005>
+	<EGU006>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al modificar el alias de usuario.</mensaje>
+			<descripcion>El alias del usuario no puede repetirse, usted esta tratando de asignar un alias que ya existe. Por favor ponga otro.</descripcion>			
+		</es>
+	</EGU006>
+	<EGF001>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error de Consulta</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se cargaban las funcionalidades. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</EGF001>
+	<EGF002>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de eliminar la funcionalidad. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</EGF002>
+	<EGF003>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al modificar.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de modificar la funcionalidad. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</EGF003>
+	<EGF004>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al insertar.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar la funcionalidad. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</EGF004>
+</excepciones>

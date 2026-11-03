@@ -1,0 +1,19 @@
+
+.plantilla{
+	background-image: url(../images/plantilla.png) !important;
+}
+.folder{
+    background-image: url(../images/folder.png) !important;
+}
+.motivo{
+    background-image: url(../images/doc.ico) !important;
+}
+.alta{
+    background-image: url(../images/alta.png) !important;
+}
+.baja{
+    background-image: url(../images/baja.png) !important;
+}
+.contratar{
+    background-image: url(../images/contratar.png) !important;
+}

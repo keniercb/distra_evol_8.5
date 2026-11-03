@@ -1,0 +1,80 @@
+/*Ficha de la persona datos basicos*/
+
+.persona-fichadetails{
+    font: 12px Arial, Helvetica, sans-serif;
+}
+.persona-fichadetails label{
+    font-weight: bold;
+    color: #124872;
+}
+.persona-fichadetails fieldset{
+    border: 1px solid #99BCE8;
+}
+.persona-ficha-panelfoto{
+  /*  border: 1px solid #99BCE8;*/
+    border-radius: 4px;
+}
+
+.persona-ficha-basicdata-container{
+    padding: 8px 7px 0 8px;
+   /* border: 1px solid #99BCE8;*/
+    border-radius: 4px;
+}
+.persona-ficha-basicdata-block{
+    float: left;
+    overflow: hidden;
+    width: 50%;
+}
+.persona-ficha-basicdata-item{
+    margin: 0 0 7px 0;
+}
+.persona-ficha-basicdata-item label{
+    margin-right: 8px;
+}
+
+
+/*Datos fenotipicos*/
+.persona-datosfenotipicos-container{
+    float: left;
+    margin-right: 28px;
+}
+.persona-datosfenotipicos-container *{
+    display: block;
+}
+.persona-datosfenotipicos-container span{
+    text-align: center;
+}
+
+/*Datos nacimiento*/
+.persona-datosnacimiento-fichainfo *{
+    display: block;
+}
+.persona-datosnacimiento-fichainfo span{
+    margin-bottom:8px;
+}
+.persona-datosnacimiento-fichainfo label{
+    margin-top:4px;
+}
+.persona-datosnacimiento-container{
+    float: left;
+    margin-right: 15px;
+}
+.persona-datosnacimiento-container span{
+    text-align: center;
+}
+
+
+/*Datos de residencia*/
+.persona-datosresidencia-ficha-header div{
+    border: 1px solid #C5C5C5;
+    float: left;
+    background-color: #C5C5C5;
+    background-image: -moz-linear-gradient(center top , #F9F9F9, #E3E4E6);
+    text-overflow: ellipsis;
+    padding: 2px 3px 2px;
+}
+.persona-datosresidencia-ficha-row td{
+    border: 1px solid #C5C5C5;
+    padding: 2px 3px 2px;
+    font: 12px Arial, Helvetica, sans-serif;
+}

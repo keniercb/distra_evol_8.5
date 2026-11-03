@@ -1,0 +1,31 @@
+/* icons */
+
+.qo-accesos-icon { background-image:url(images/accesos.png); background-repeat:none; border:0 none; height:48px; width:65px; text-align: center;}
+.qo-correr-icon { background-image:url(images/correr.png); background-repeat:none; border:0 none; height:48px; width:65px; text-align: center; }
+.qo-iniciorapido-icon { background-image:url(images/iniciorapido.png); background-repeat:none; border:0 none; height:48px; width:65px; text-align: center;}
+.qo-apariencia-icon { background-image:url(images/apariencia.png); background-repeat:none; border:0 none; height:48px; width:65px; text-align: center;}
+.qo-fondos-icon { background-image:url(images/fondos.png); background-repeat:none; border:0 none; height:48px; width:65px;text-align: center; }
+.x-btn-icon .x-btn-center .x-btn-text{
+	  color: white;
+    cursor: pointer;
+    font-size: 13px;
+    height: 16px;
+    padding: 20px 15px 0;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    white-space: normal;
+    width: 16px;
+	background-position: 15px 50%;
+	}
+	.x-btn-icon .x-btn-left{
+    background: url(../images/default/toolbar/tb-btn-normal.png) no-repeat 0 0px;
+	}
+	.x-btn-icon .x-btn-right{
+		background: url(../images/default/toolbar/tb-btn-normal.png) no-repeat 0 -21px;
+		padding-right: 3px;
+	}
+	.x-btn-icon .x-btn-center{
+		background: url(../images/default/toolbar/tb-btn-normal.png) repeat-x 0 -42px;
+		padding:0 0;
+	}  

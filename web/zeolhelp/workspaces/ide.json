@@ -1,0 +1,31 @@
+data:{
+<li id="home">
+    <a href="?/index.cfm">Home</a>
+    <ul class="">
+        <li id="i1"><a href="?/enewsletters/index.cfm">Intro1</a></li>
+        <li id="i2"><a href="?/index.cfm">Intro2</a></li>
+        <li id="i3"><a href="?/economic_development/video/index.cfm">Intro3</a></li>
+        <li>
+            <a href="?/others/index.cfm"><strong>OTHERS</strong></a>
+            <ul class="">
+                <li><a href="?/enewsletters/index.cfm">Airdrie eNewsletters </a></li>
+                <li><a href="?/index.cfm">Airdrie Directories</a></li>
+                <li><a href="?/economic_development/video/index.cfm">Airdrie Life Video</a></li>
+
+            </ul>
+        </li>
+        <li><a href="?/index.cfm">Airdrie News</a></li>
+        <li><a href="?/index.cfm">Airdrie Quick Links</a></li>
+        <li><a href="?http://weather.ibegin.com/ca/ab/airdrie/">Airdrie Weather</a></li>
+        <li><a href="?/human_resources/index.cfm">Careers</a> | <a href="?/contact_us/index.cfm">Contact Us</a> | <a href="?/site_map/index.cfm">Site Map</a> | <a href="?/links/index.cfm">Links</a></li>
+
+        <li><a href="?/calendars/index.cfm">Community Calendar </a></li>
+        <li><a href="?/conditions_of_use/index.cfm">Conditions of Use and Privacy Statement</a></li>
+        <li><a href="?/index.cfm">I'd like to find out about... </a></li>
+        <li><a href="?/index.cfm">Opportunities</a></li>
+        <li><a href="?/links/index.cfm">Resource Links</a></li>
+        <li><a href="?/index.cfm">Special Notices</a></li>
+
+    </ul>
+</li>
+}

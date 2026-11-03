@@ -1,0 +1,140 @@
+  /*
+   * Componente para la notificaci&oacute;n de mensajes.
+   * @author Ing. Javier Gonzalez, Miguel D&iacute;az Riveaux - mriveaux@xetid.cu
+   * @package ERP Cuba
+   * @subpackage Contabilidad y Finanzas.
+   * @category Contabilidad
+   * @namespace Ext.Cont.Configuracion
+   * @copyright XETID
+   * @version 2.0-0
+   */
+  Ext.ns('Ext.Cont');
+  Ext.Cont.Notification = Ext.extend(Ext.Window, {
+      positions: new Array(),
+      initComponent: function()
+      {
+          Ext.applyIf(this, {
+              iconCls: this.iconCls || "icon-information",
+              anchor: this.anchor || '100%',
+              autoHeight: true,
+              closable: true,
+              plain: false,
+              draggable: false,
+              bodyStyle: "text-align:left; padding:10px;",
+              resizable: false,
+              shadow: true,
+              animateFrom: 'top',
+              hideDelay: this.hideDelay || 1000,
+              autoDestroy: true
+          });
+          if(this.autoDestroy)
+              this.task = new Ext.util.DelayedTask(this.close, this);
+          Ext.Cont.Notification.superclass.initComponent.call(this);
+      },
+      setMessage: function(a)
+      {
+          this.body.update(a);
+      },
+      setTitle: function(b, a)
+      {
+          Ext.Cont.Notification.superclass.setTitle.call(this, b, a || this.iconCls);
+      },
+      onRender: function(b, a)
+      {
+          Ext.Cont.Notification.superclass.onRender.call(this, b, a);
+      },
+      onDestroy: function()
+      {
+          this.positions.remove(this.pos);
+          Ext.Cont.Notification.superclass.onDestroy.call(this);
+      },
+      afterShow: function()
+      {
+          Ext.Cont.Notification.superclass.afterShow.call(this);
+          this.on("move", function()
+          {
+              this.positions.remove(this.pos);
+              if(this.autoDestroy)
+                  this.task.cancel();
+
+          }, this);
+          if(this.autoDestroy)
+              this.task.delay(this.hideDelay);
+
+      },
+      animShow: function()
+      {
+          this.pos = 0;
+          while(this.positions.indexOf(this.pos) > -1)
+          {
+              if(this.animateFrom === "top")
+                  this.pos--;
+              else
+                  this.pos++;
+          }
+          this.positions.push(this.pos);
+          this.setSize(200, 100);
+
+          this.el.alignTo(this.animateTarget || document, ( this.animateFrom === "top" ? "tr-br" : "br-tr" ), [-1, -1 - ( ( this.getSize().height + 10 ) * this.pos )]);
+
+          this.el.slideIn(( this.animateFrom === "top" ? "t" : "b" ), {
+              endOpacity: 5,
+              callback: this.afterShow,
+              scope: this,
+              duration: .5
+          }).pause(this.hideDelay / 1000)
+                  .ghost("r", {
+                      remove: true,
+                      endOpacity: 1
+                  });
+
+      },
+      createBox: function(t, s, iconbox) {
+
+          if(iconbox == 2)
+              return ['<div class="msg">',
+                  '<div class="x-box-tl"><div class="x-box-tr"><div class="x-box-tc"></div></div></div>',
+                  '<div class="x-box-ml"><div class="x-box-mr"><div class="x-box-mc"><h3><img src="/configuracion/comun/views/js/Notification/images/no.png"/>&nbsp;', t, '</h3>', s, '</div></div></div>',
+                  '<div class="x-box-bl"><div class="x-box-br"><div class="x-box-bc"></div></div></div>',
+                  '</div>'].join('');
+          else
+              return ['<div class="msg">',
+                  '<div class="x-box-tl"><div class="x-box-tr"><div class="x-box-tc"></div></div></div>',
+                  '<div class="x-box-ml"><div class="x-box-mr"><div class="x-box-mc"><h3><img src="/configuracion/comun/views/js/Notification/images/icon16_info.png"/>&nbsp;', t, '</h3>', s, '</div></div></div>',
+                  '<div class="x-box-bl"><div class="x-box-br"><div class="x-box-bc"></div></div></div>',
+                  '</div>'].join('');
+      },
+      afterShowBox: function() {
+          this.positions.remove(this.pos);
+          this.fnc();
+      },
+      box: function() {
+
+          this.pos = -1;
+          if(this.positions.indexOf(this.pos) > 0)
+              this.pos--;
+
+          this.positions.push(this.pos);
+
+          msgCt = Ext.DomHelper.insertAfter(this.animateTarget, {
+              id: 'msg-div'
+          }, true);
+          msgCt.alignTo(this.animateTarget, "br-tr", [-1, -1 - ( 100 * this.pos )]);
+
+          var m = Ext.DomHelper.append(msgCt, {
+              html: this.createBox(this.title, this.html, this.iconbox)
+          }, true);
+          m.slideIn(( this.animateFrom === "top" ? "t" : "b" ), {
+              endOpacity: 5,
+              scope: this,
+              duration: .5
+          }).pause(this.hideDelay / 1000)
+                  .ghost("r", {
+                      remove: true,
+                      scope: this,
+                      callback: this.afterShowBox,
+                      endOpacity: 1
+                  });
+      }
+  });
+  Ext.reg('notification', Ext.Cont.Notification);

@@ -1,0 +1,16 @@
+/*!
+ * Ext JS Library 2.2
+ * @author Ing. Miguel D&iacute;az Riveaux
+ * @package ERP Cuba.
+ * @subpackage Contabilidad y Finanzas.
+ * @namespace Ext.Cont.ColumnHeaderGroup
+ * @website http://www.xetid.cu
+ * @copyright (c) XETID.
+ * @version 1.0-0
+ */
+td.ux-grid-hd-group-cell {
+    background: -moz-linear-gradient(top, #F9F9F9, #EBECEE);
+    border: 1px solid #D0D0D0;
+    border-left: none;
+    border-top: none;
+}

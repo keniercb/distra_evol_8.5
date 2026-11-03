@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteMaquinasEquiposMedios" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" >
+    <property name="ireport.zoom" value="2.120488091862424"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <parameter name="codigo_entidad" class="java.lang.String"/>
+    <parameter name="nombre_entidad" class="java.lang.String"/>
+    <queryString>
+		<![CDATA[SELECT DISTINCT
+ra.nroinventario as nroinventario,
+gg.denominacion as descripcion,
+ra.tasafiscal as tasa,
+ra.vidautil as vidautil,
+ra.fechaexpfin as fecha_alta,
+ra.valoradquisicion as valor_inicial,
+
+mvra.fechaadq as fecha_movimiento_padre,
+d.nrodoc as nro_movimiento_padre,
+nop.denominacion as detalle_movimiento_padre,
+mvra.depreciacionacumulada dep_acumulada_movimiento_padre
+
+
+
+
+FROM mod_logactivofijotangible.dat_registronumerico r
+INNER JOIN mod_logactivofijotangible.dat_regnumericoactivo ra on r.idregnumerico = ra.idregnumerico
+INNER JOIN mod_logistica.dat_producto p on p.idproducto = r.idproducto
+INNER JOIN mod_datosmaestros.nom_indicador i on p.idindicador = i.idindicador
+INNER JOIN mod_datosmaestros.nom_indicadorhoja ih on ih.idindicador = i.idindicador
+INNER JOIN mod_datosmaestros.nom_gruposubgrupo gg on ih.idgruposubgrupo = gg.idgruposubgrupo
+
+INNER JOIN mod_logistica.dat_movregnumerico mvr on mvr.idregnumerico = r.idregnumerico
+INNER JOIN mod_logactivofijotangible.dat_movregnumericoactivo mvra on mvr.idmovregnumerico = mvra.idmovregnumerico
+INNER JOIN mod_logistica.dat_movimiento m on m.idmovimiento = mvr.idmovimiento
+INNER JOIN mod_logistica.dat_documento d on d.iddocumento = m.iddocumento
+INNER JOIN mod_datosmaestros.nom_operacion nop on d.idoperacion  = nop.idnomoperaciones
+
+WHERE r.idregnumerico = 1000069  and ra.esmodulo = 2]]>
+    </queryString>
+    <field name="nroinventario" class="java.lang.String">
+        <fieldDescription><![CDATA[Número de inventario.]]></fieldDescription>
+    </field>
+    <field name="descripcion" class="java.lang.String">
+        <fieldDescription><![CDATA[Descripción de la diferencia bancaria.]]></fieldDescription>
+    </field>
+    <field name="tasa" class="java.math.BigDecimal">
+        <fieldDescription><![CDATA[Identificador de la tasa a la que corresponde la operacion.]]></fieldDescription>
+    </field>
+    <field name="vidautil" class="java.math.BigDecimal"/>
+    <field name="fecha_alta" class="java.sql.Date"/>
+    <field name="valor_inicial" class="java.math.BigDecimal"/>
+    <field name="fecha_movimiento_padre" class="java.sql.Date"/>
+    <field name="nro_movimiento_padre" class="java.math.BigDecimal"/>
+    <field name="detalle_movimiento_padre" class="java.lang.String"/>
+    <field name="dep_acumulada_movimiento_padre" class="java.math.BigDecimal"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="51" splitType="Stretch">
+            <image>
+                <reportElement x="0" y="0" width="100" height="51" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+            </image>
+            <staticText>
+                <reportElement x="100" y="0" width="564" height="28" forecolor="#999999" />
+                <box>
+                    <pen lineWidth="0.75"/>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.0"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced" size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Modelo SC-1-03 E.I. SUBMAYOR DE EQUIPOS]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="100" y="28" width="564" height="23" forecolor="#999999" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced" size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[DE INFORMÁTICA]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="664" y="0" width="129" height="51" />
+                <box leftPadding="5">
+                    <topPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[R-04/PD-GEF-01]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="100" y="0" width="564" height="51" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement>
+                    <font fontName="Monospaced"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="156" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="100" height="30" />
+                <box leftPadding="3">
+                    <topPen lineWidth="0.0"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement>
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Código entidad:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="31" width="100" height="30" />
+                <box leftPadding="3">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement>
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Nombre entidad:]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="100" y="0" width="564" height="30" />
+                <box leftPadding="2">
+                    <topPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement>
+                    <font fontName="Monospaced"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{codigo_entidad}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="100" y="31" width="564" height="30" />
+                <box leftPadding="3">
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement>
+                    <font fontName="Monospaced"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{nombre_entidad}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="61" width="100" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[N.º inventario]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="81" width="100" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{nroinventario}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="100" y="61" width="693" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Descripción]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="101" width="100" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Cta/sub cta]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="100" y="101" width="111" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Análisis]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="328" y="101" width="116" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Tasa dep.]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="328" y="121" width="116" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.0"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{tasa}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="444" y="101" width="117" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Vida útil]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="444" y="121" width="117" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.0"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{vidautil}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="211" y="101" width="117" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[CNMB]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="141" width="793" height="15" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[MOVIMIENTOS DE ACTIVOS FIJOS]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="664" y="0" width="129" height="61" />
+                <box>
+                    <topPen lineWidth="0.0"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Top">
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[N.º sub mayor y cuño entidad: ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="121" width="100" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.0"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="100" y="121" width="111" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.0"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="211" y="121" width="117" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.0"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="561" y="101" width="100" height="20" />
+                <box>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Fecha alta]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="561" y="121" width="100" height="20" />
+                <box>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.0"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{fecha_alta}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="661" y="101" width="132" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Valor inicial]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="661" y="121" width="132" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.0"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{valor_inicial}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="100" y="81" width="693" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageHeader>
+    <columnHeader>
+        <band height="32" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="100" height="31" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Fecha]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="100" y="0" width="100" height="31" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[N.º movimiento]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="200" y="0" width="100" height="31" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Detalle movimiento]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="300" y="0" width="100" height="31" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Variación valor]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="400" y="0" width="109" height="31" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Variación
+depreciación]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="509" y="0" width="109" height="31" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Nuevo valor]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="618" y="0" width="175" height="31" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Depreciación acumulada]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="19" splitType="Stretch">
+            <textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+                <reportElement x="0" y="-1" width="100" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{fecha_movimiento_padre}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="618" y="-1" width="175" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{dep_acumulada_movimiento_padre}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="200" y="-1" width="100" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{detalle_movimiento_padre}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="300" y="-1" width="100" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement>
+                    <font fontName="Monospaced"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="400" y="-1" width="109" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement>
+                    <font fontName="Monospaced"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="509" y="-1" width="109" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement>
+                    <font fontName="Monospaced"/>
+                </textElement>
+                <text><![CDATA[]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="100" y="0" width="100" height="19" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Monospaced"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{nro_movimiento_padre}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="15" splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band height="14" splitType="Stretch"/>
+    </pageFooter>
+    <summary>
+        <band height="13" splitType="Stretch"/>
+    </summary>
+</jasperReport>

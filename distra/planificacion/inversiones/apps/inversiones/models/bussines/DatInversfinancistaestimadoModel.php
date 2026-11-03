@@ -1,0 +1,13 @@
+<?php
+
+class DatInversfinancistaestimadoModel extends ZendExt_Model
+{
+
+    public function setUp()
+    {
+        parent::ZendExt_Model();
+    }
+
+
+}
+

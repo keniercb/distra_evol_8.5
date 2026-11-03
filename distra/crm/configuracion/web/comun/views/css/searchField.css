@@ -1,0 +1,7 @@
+.x-form-field-wrap .x-form-search-trigger {
+    background-image: url("/configuracion/comun/views/images/search.png") !important;
+}
+
+.x-form-field-wrap .x-form-clear-trigger{
+    background-image: url("/configuracion/comun/views/images/clear.png") !important;
+}

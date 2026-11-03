@@ -1,0 +1,78 @@
+{
+    lbTitleTipoN:                    'Listado de elementos salariales',
+    
+    lbTitleVentAdicionarTipoN:          'Adicionar elemento salarial',
+    lbTitleVentModificarTipoN:          'Modificar elemento salarial',
+
+    lbMaskGridCargando:                 'Cargando…',
+    lbMsgEsperaEnviarDatos:             'Por favor espere…',
+    lbMsgAdicionarTipoN:                'Adicionando datos del elemento salarial...',
+    lbMsgModificarTipoN:                'Modificando datos del elemento salarial...',
+    lbMsgEliminarTipoN:                 'Eliminando datos de tipo del elemento salarial...',
+    lbMsgExportar:                      'Exportando datos de tipo del elemento salarial...',
+
+    lbTitleEliminarTipoN:               '¿Está seguro que quiere eliminar el elemento salarial seleccionado?',
+    lbMsgCorrectoAdicionadoTipoN:       'El elemento salarial ha sido adicionado satisfactoriamente.',
+    lbMsgCorrectoModificadoTipoN:       'El elemento salarial ha sido modificado satisfactoriamente.',
+    lbMsgCorrectoEliminadoTipoN:        'El elemento salarial ha sido eliminado satisfactoriamente.',
+
+    lbColEstructura:                  'Estructura',
+    lbTitleCargo:                     'Cargos',
+    lbColSistemapago:                 'Sistema de pago',
+    lbColPeriodopago:                 'Per&iacute;odo de pago',
+    lbColGrupoEscala:                 'Grupo escala',
+    lbColSectorSalarial:              'Sector salarial',
+    lbColEscalaSueldoCargo:           'Escala sueldo por cargo',
+    lbColImporte:                     'Sueldo por cargo',
+    lbColDesde:                       'Fecha inicio',
+    lbColHasta:                       'Fecha fin',
+    lbColDescripcion:                 'Descripci&oacute;n',
+    
+    lbTitleConcepto:                  'Conceptos de percepciones y descuentos',
+    lbColAbreviatura:                 'Abreviatura',
+    lbColgpDenominacion:              'Denominaci&oacute;n',
+    lbColTarifa:                      'Tarifa',
+    
+    lbBtnAdicionarC:                  'Ad<u>i</u>cionar',
+    lbBtnModificarC:                  '<u>M</u>odificar',
+    lbBtnEliminarC:                    'Eliminar',
+    lbBtnAyudaC:                      'Ayuda',
+    
+    textToolTipAddConceptoC:          'Adicionar concepto de concepciones y descuentos (<b>Alt+I</b>)',
+    textToolTipModConceptoC:          'Modificar concepto de concepciones y descuentos (<b>Alt+M</b>)',
+    textToolTipElimConceptoC:         'Eliminar concepto de concepciones y descuentos (<b>DEL</b>)',
+
+    lbBtnAdicionar:                      'Ad<u>i</u>cionar',
+    lbBtnModificar:                     '<u>M</u>odificar',
+    lbBtnEliminar:                      'Eliminar',
+    lbBtnExportReporte:                 'Exportar',
+    lbBtnAyuda:                         'Ayuda',
+    
+    textToolTipAddTipoN:                'Adicionar elemento salarial (<b>Alt+I</b>)',
+    textToolTipModTipoN:                'Modificar elemento salarial (<b>Alt+M</b>)',
+    textToolTipElimTipoN:               'Eliminar elemento salarial (<b>DEL</b>)',
+    textToolTipExportReporte:           'Exportar reporte de elementos salariales al cargo',
+
+    textToolTipAyudaTipoN:              'Mostrar ayuda de la funcionalidad (<b>Alt+H</b>)',
+    
+    lbColcbSistemapago:                 'Sistema de pago',
+    lbColcbPeriodopago:                 'Per&iacute;odo de pago',
+    lbColcbGrupoEscala:                 'Grupo escala',
+    lbColtfGrupoEscala:                 'Grupo escala plantilla',
+    lbColcbSectorSalarial:              'Sector salarial',
+    lbColcbEscalaSueldoCargo:           'Escala sueldo por cargo',
+    lbColImporte:                       'Sueldo por cargo',
+
+    lbErrorCampoVacio:                  'Este campo es obligatorio.',
+    lbFechaMaxima:                      'La fecha de inicio tiene que ser anterior o igual a la fecha fin.',
+    lbFechaMinima:                      'La fecha fin tiene que ser posterior o igual a la fecha de inicio.',
+    invalidTextFecha:                   'Formato: dd/mm/aaaa.',
+    lbMaxText_225:                      'El tama&ntilde;o m&aacute;ximo requerido es 255 d&iacute;gitos.',
+    lbErrorFormulario:                  'Por favor verifique nuevamente que hay campo(s) con valor(es) incorrecto(s).',
+    lbBtnCancelar:                      'Cancelar',
+    textToolTipCancelar:                'Cerrar ventana sin guardar los datos (<b>Alt+X</b>)',
+    lbBtnAplicar:                       'Aplicar',
+    textToolTipAplicar:                 'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+    lbBtnAceptar:                       'Aceptar',
+    textToolTipAceptar:                 'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+}

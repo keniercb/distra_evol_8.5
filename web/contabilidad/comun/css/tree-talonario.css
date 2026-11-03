@@ -1,0 +1,11 @@
+.icon .x-tree-node-icon{
+    background:transparent url(../images/leaf-mod.png) 0 0 no-repeat !important;
+}
+
+.default-node {
+    background-image:url(../images/leaf.gif) !important;
+}
+
+/*.x-tree-node a:hover,.x-dd-drag-ghost a:hover{
+    color:black;font:bold 12px arial,tahoma,helvetica,sans-serif;
+}*/

@@ -1,0 +1,13 @@
+.x-form-invalid .mce-edit-area{
+	border-color: #C30;
+	border-width: 1px !important;
+	background-image: url("../../lib/4.2/resources/ext-theme-classic/images/grid/invalid_line.gif");
+	background-repeat: repeat-x;
+	background-position: center bottom;
+	padding-bottom:3px !important;
+}
+.x-form-invalid .mce-edit-area {border-width: 1px !important;}
+
+[class*="custom icondistra-"]::before {
+    font-size: 1.15em !important;
+}

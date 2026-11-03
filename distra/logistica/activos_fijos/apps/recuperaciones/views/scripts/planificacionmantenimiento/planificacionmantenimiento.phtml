@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <title>Planificacion del mantenimiento</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+        <script language="javascript"
+        type="text/javascript">importarCSS(window.parent.parent.UCID.portal.perfil.dirCss);</script>
+
+
+        <link rel="stylesheet" type="text/css"
+              href="/logistica/utiles/configuracion/views/css/data-view.css"/>
+        <link rel="stylesheet" type="text/css"
+              href="/logistica/activos_fijos/recuperaciones/views/ccs/colores.css"/>
+        <link rel="stylesheet" type="text/css"
+              href="/configuracion/comun/views/css/visorImagenes.css"/>
+        <script language="javascript"
+        type="text/javascript">importarCSS("/configuracion/comun/views/css/iconos.css");</script>
+        <link href="<?php echo $this->dir_ext_ccs; ?>css/ext-all.css"
+              rel="stylesheet" type="text/css" media="screen"/>
+    </head>
+    <body>
+
+        <script type="text/javascript"
+        src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+        <script type="text/javascript"
+        src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+        <script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+        <script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/ucid-combo-iframe.js"></script>
+        <script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/ucid-win-iframe.js"></script>
+        <script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/ucid-integra-interfaz.js"></script>
+
+        <script type="text/javascript"
+        src="/configuracion/comun/views/js/comun.js"></script>
+        <script type="text/javascript"
+        src="/logistica/activos_fijos/utiles/views/js/cache.js"></script>
+        <script type="text/javascript"
+        src="/configuracion/comun/views/js/PagingRowNumberer.js"></script>
+        <script type="text/javascript"
+        src="/configuracion/comun/views/js/ColumnHeaderGroup.js"></script>
+        <script type="text/javascript"
+        src="/configuracion/comun/views/js/dataView.plugins.js"></script>
+
+        <script type="text/javascript"
+        src="/logistica/activos_fijos/utiles/views/js/estructuraubicacion/treestructuraubicacion.js"></script>
+
+        <script type="text/javascript"
+        src="/logistica/activos_fijos/utiles/views/js/comun/Plugins.Jasper.js"></script>
+
+        <script type="text/javascript"
+        src="../../views/js/submayor/aft.submayor.BuscAvaz.js"></script>
+        <script type="text/javascript"
+        src="../../views/js/submayor/aft.submayor.BuscAvanz.gpRegNum.js"></script>
+        <script type="text/javascript"
+        src="../../views/js/submayor/aft.submayor.SeleccionarPeriodo.js"></script>
+        <script type="text/javascript"
+        src="../../views/js/submayor/aft.submayor.SeleccionarFecha.js"></script>
+        <script type="text/javascript"
+        src="/configuracion/indicadores/views/js/gestindicadores/windowMostrarDetalles.js"></script>
+        <script type="text/javascript"
+        src="/logistica/activos_fijos/recuperaciones/views/js/exptecnico/windowMostrarDetalles.js"></script>
+
+        <script type="text/javascript"
+        src="/logistica/utiles/comun/views/js/plugins/visorImagenes.componet.js"></script>
+        <script type="text/javascript"
+        src="/logistica/activos_fijos/utiles/views/js/comun/logistica.dataview.component.js"></script>
+        <script type="text/javascript"
+        src="../../views/js/submayor/aft.submayor.gpActivos.component.js"></script>
+
+        <script type="text/javascript"
+        src="../../views/js/submayor/aft.submayor.gpActivosRegNumericos.component.js"></script>
+        <script type="text/javascript"
+        src="../../views/js/submayor/aft.submayor.principal.js"></script>
+        <script type="text/javascript"
+        src="../../views/js/submayor/AcotarValores.componenet.js"></script>
+
+        <script type="text/javascript"
+        src="../../views/js/submayor/aft.submayor.vRegNumerico.component.js"></script>
+        <script type="text/javascript"
+        src="../../views/js/submayor/aft.submayor.vRegNumerico.GrafDepreciacion.component.js"></script>
+        <script type="text/javascript"
+        src="../../views/js/submayor/PropertyGrid.js"></script>
+        <script type="text/javascript"
+        src="../../views/js/submayor/aft.submayor.vRegNumerico.vMovimientos.component.js"></script>
+        <script type="text/javascript"
+        src="/logistica/activos_fijos/utiles/views/js/gestarearesponsabilidad/gestarearesponsabilidad.js"></script>
+
+
+
+
+
+        <!-- Ficheros para la libreria  grafica Flot -->
+        <script type="text/javascript"
+        src="/configuracion/comun/views/js/flotlibrary/jquery.js"></script>
+        <script type="text/javascript"
+        src="/configuracion/comun/views/js/flotlibrary/jquery.flot.js"></script>
+        <script type="text/javascript"
+        src="/configuracion/comun/views/js/flotlibrary/jquery.flot.symbol.js"></script>
+        <script type="text/javascript"
+        src="/configuracion/comun/views/js/flotlibrary/jquery.flot.navigate.js"></script>
+        <script type="text/javascript"
+        src="/configuracion/comun/views/js/flotlibrary/jquery.flot.grow.js"></script>
+        <script type="text/javascript"
+        src="/configuracion/comun/views/js/flotlibrary/jquery.flot.zeroaxes.js"></script>
+        <script type="text/javascript"
+        src="/configuracion/comun/views/js/flotlibrary/jquery.flot.resize.js"></script>
+        <script type="text/javascript"
+        src="/configuracion/comun/views/js/flotlibrary/jquery.flot.stack.min.js"></script>
+
+
+        <script type="text/javascript"
+        src="/configuracion/comun/views/js/flotlibrary/graphic.js"></script>
+
+        <?php echo $this->detallesAFT; ?>
+
+
+        <?php
+        foreach ($this->arrayJs as $js) {
+            echo $js;
+        }
+        ?>
+
+    </body>
+</html>

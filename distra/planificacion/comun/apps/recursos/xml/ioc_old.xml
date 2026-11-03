@@ -1,0 +1,1734 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ioc>
+    <!--Servicios del Subsistema Planificacion-->
+    <planificacion src="planificacion">
+        <obtenerViaAdquisicionIndexadoporId reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="obtenerViaAdquisicionIndexadoporId"/>
+            <prototipo>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </obtenerViaAdquisicionIndexadoporId>
+
+        <obtenerActividadyNorma reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="obtenerActividadyNorma"/>
+            <prototipo>
+                <parametro nombre="nivel"/>
+                <parametro nombre="idactividad" default='null'/>
+                <parametro nombre="filtro" default='null'/>
+                <parametro nombre="start" default='0'/>
+                <parametro nombre="limit" default='null'/>
+                <parametro nombre="hijo" default='0'/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </obtenerActividadyNorma>
+
+
+        <obtenerPlanesDadoEntidad reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="obtenerPlanesDadoEntidad"/>
+            <prototipo>
+
+                <parametro nombre="identidades"/>
+                <parametro nombre="filtro"/>
+                <parametro nombre="start"/>
+                <parametro nombre="limit"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </obtenerPlanesDadoEntidad>
+
+        <obtenerCentrosDeBalance reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="obtenerCentrosDeBalance"/>
+            <prototipo>
+                <parametro nombre="arrayentidades" tipo="Array"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </obtenerCentrosDeBalance>
+
+        <obtenerActividadesPorFecha reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="obtenerActividadesPorFecha"/>
+            <prototipo>
+                <parametro nombre="identidad"/>
+                <parametro nombre="fechaInicio"/>
+                <parametro nombre="fechaFin"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </obtenerActividadesPorFecha>
+		
+				        <obtenerIndicadoresPorFecha reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="obtenerIndicadoresPorFecha"/>
+            <prototipo>
+                <parametro nombre="identidad"/>
+                <parametro nombre="fechaInicio"/>
+                <parametro nombre="fechaFin"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </obtenerIndicadoresPorFecha>
+		
+				
+		<servicioObtenerEjercicioPorDenom reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="servicioObtenerEjercicioPorDenom"/>
+            <prototipo>
+                <parametro nombre="denomejercicio"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </servicioObtenerEjercicioPorDenom>
+
+        <obtenerOrganoSatisfaceIndexadoporId reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="obtenerOrganoSatisfaceIndexadoporId"/>
+            <prototipo>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </obtenerOrganoSatisfaceIndexadoporId>
+        <obtenerCentrosbalanceIndexadoporId reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="obtenerCentrosbalanceIndexadoporId"/>
+            <prototipo>
+                <parametro nombre="identidaddatosnomenclador"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </obtenerCentrosbalanceIndexadoporId>
+        <obtenerPlanesporidEntidad reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="obtenerPlanesporidEntidad"/>
+            <prototipo>
+                <parametro nombre="identidad" tipo="enteropos"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </obtenerPlanesporidEntidad>
+        <obtenerServicios reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="obtenerServicios"/>
+            <prototipo>
+                <parametro nombre="idservicio"/>
+                <parametro nombre="limit" tipo="enterospos"/>
+                <parametro nombre="start" tipo="enterospos"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </obtenerServicios>
+        <obtenerIndicadoresDadoIdServicio reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="obtenerIndicadoresDadoIdServicio"/>
+            <prototipo>
+                <parametro nombre="idservicio"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </obtenerIndicadoresDadoIdServicio>
+        <obtenerDatosDadoIdServicio reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="obtenerDatosDadoIdServicio"/>
+            <prototipo>
+                <parametro nombre="idservicio"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </obtenerDatosDadoIdServicio>
+        <obtenerServiciosDadoArrayIds reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="obtenerServiciosDadoArrayIds"/>
+            <prototipo>
+                <parametro nombre="arridservicio"/>
+                <parametro nombre="limit" tipo="enterospos"/>
+                <parametro nombre="start" tipo="enterospos"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </obtenerServiciosDadoArrayIds>
+        <listarActividadesNormadas reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="listarActividadesNormadas"/>
+            <prototipo>
+                <parametro nombre="arrayparametros"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </listarActividadesNormadas>
+        <obtenerActividadesNormadasByArrayIdActividad reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="obtenerActividadesNormadasByArrayIdActividad"/>
+            <prototipo>
+                <parametro nombre="arrayId"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </obtenerActividadesNormadasByArrayIdActividad>
+        <agregarDqlDatosActividad reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="agregarDqlDatosActividad"/>
+            <prototipo>
+                <parametro nombre="objDoctrineQuery" clase="Doctrine_Query"/>
+                <parametro nombre="aliasTablaReferencia" tipo="numerosletras"/>
+                <resultado tipo="Doctrine_Query"/>
+            </prototipo>
+        </agregarDqlDatosActividad>
+        <buscarSalidaByIdActividad reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="buscarSalidaByIdActividad"/>
+            <prototipo>
+                <parametro nombre="idactividad"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </buscarSalidaByIdActividad>
+        <actualizarIndicadores reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="actualizarIndicadores"/>
+            <prototipo>
+                <parametro nombre="indicadores" tipo="array"/>
+                <parametro nombre="configColumnas" tipo="array"/>
+                <parametro nombre="rectora" tipo="boolean"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </actualizarIndicadores>
+        <adicionarActualizarIndicadores reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="adicionarActualizarIndicadores"/>
+            <prototipo>
+                <parametro nombre="indicadores" tipo="array"/>
+                <parametro nombre="configColumnas" tipo="array"/>
+                <parametro nombre="rectora" tipo="boolean"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </adicionarActualizarIndicadores>
+        <actualizarActividades reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="actualizarActividades"/>
+            <prototipo>
+                <parametro nombre="actividades" tipo="array"/>
+                <parametro nombre="configColumnas" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </actualizarActividades>
+
+        <listarActividadesNivelCuatro reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="listarActividadesNivelCuatro"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </listarActividadesNivelCuatro>
+
+        <obtenerActividadPorId reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="obtenerActividadPorId"/>
+            <prototipo>
+                <parametro nombre="idactividad" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerActividadPorId>
+
+        <obtenerNormaPorActividad reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="obtenerNormaPorActividad"/>
+            <prototipo>
+                <parametro nombre="idactividad" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerNormaPorActividad>
+
+        <obtenerDenomIndicadorXId reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="obtenerDenomIndicadorXId"/>
+            <prototipo>
+                <parametro nombre="idindicador" tipo="idindicador"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </obtenerDenomIndicadorXId>
+
+        <actualizarPrecioIndicadores reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="actualizarPrecioIndicadores"/>
+            <prototipo>
+                <parametro nombre="indicadores" tipo="array"/>
+                <parametro nombre="configColumnas" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </actualizarPrecioIndicadores>
+        <getArrayEstructurasInternas>
+            <inyector clase="DominioModel" metodo="getArrayEstructurasInternas"/>
+            <prototipo>
+                <parametro nombre="iddominio" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getArrayEstructurasInternas>
+
+        <!-- Método usado por transplan para cargar nomencladores -->
+        <obtenerDatosNomencladorPorUriTipo reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="obtenerDatosNomencladorPorUriTipo"/>
+            <prototipo>
+                <parametro nombre="uritiponomenclador" tipo="letras"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </obtenerDatosNomencladorPorUriTipo>
+
+        <obtenerDatosNomencladorUriDato reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="obtenerDatosNomencladorUriDato"/>
+            <prototipo>
+                <parametro nombre="uridatonomenclador" tipo="letras"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </obtenerDatosNomencladorUriDato>
+        <obtenerDatosDeDatosNomPorIddatos reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="obtenerDatosDeDatosNomPorIddatos"/>
+            <prototipo>
+                <parametro nombre="iddatosnomenclador" tipo="enterospos"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </obtenerDatosDeDatosNomPorIddatos>
+        <obtenerDatosDeDatosNomPorArrayIddatos reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="obtenerDatosDeDatosNomPorArrayIddatos"/>
+            <prototipo>
+                <parametro nombre="$idsarray" tipo="array"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </obtenerDatosDeDatosNomPorArrayIddatos>
+        <adicionarDatosNomenclador reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="adicionarDatosNomenclador"/>
+            <prototipo>
+                <parametro nombre="$params" tipo="Array"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </adicionarDatosNomenclador>
+        <adicionarDatosdeDatosNomen reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="adicionarDatosdeDatosNomen"/>
+            <prototipo>
+                <parametro nombre="$params" tipo="Array"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </adicionarDatosdeDatosNomen>
+        <eliminarDatosNomenclador reference="planmeta">
+            <inyector clase="PlanmetaService" metodo="eliminarDatosNomenclador"/>
+            <prototipo>
+                <parametro nombre="$iddatosnomenclador" tipo="enterospos"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </eliminarDatosNomenclador>
+
+
+        <actualizarGruposDPO reference="pdo/configuracion">
+            <inyector clase="ConfiguracionServices" metodo="actualizarGruposDPO"/>
+            <prototipo>
+                <parametro nombre="idusuario" tipo="array"/>
+                <parametro nombre="idcargo" tipo="enteropos"/>
+                <parametro nombre="accion" tipo="letras"/>
+            </prototipo>
+        </actualizarGruposDPO>
+        <ModificarBanderaDeNotificacion reference="pdo/plan">
+            <inyector clase="PlanServices" metodo="ModificarBanderaDeNotificacion"/>
+            <prototipo>
+                <parametro nombre="idtipo" tipo="enterospos"/>
+                <parametro nombre="estadossiguientes" tipo="array"/>
+                <parametro nombre="estadosanteriores" tipo="array"/>
+                <resultado tipo="enterospos"/>
+            </prototipo>
+        </ModificarBanderaDeNotificacion>
+
+        <modificarControlCambios reference="pdo/plan">
+            <inyector clase="PlanServices" metodo="modificarControlCambios"/>
+            <prototipo>
+                <parametro nombre="parametros" tipo="array"/>
+                <resultado tipo="enterospos"/>
+            </prototipo>
+        </modificarControlCambios>
+
+        <UsuariosSubordinados reference="pdo/configuracion">
+            <inyector clase="ConfiguracionServices" metodo="UsuariosSubordinados"/>
+            <prototipo>
+                <parametro nombre="idusuariosession" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </UsuariosSubordinados>
+        <ExisteGrupoInvolucradoARC reference="">
+            <inyector clase="PlanServices" metodo="ExisteGrupoInvolucradoARC"/>
+            <prototipo>
+                <parametro nombre="$idgrupo"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ExisteGrupoInvolucradoARC>
+        <dameJefes reference="pdo/configuracion">
+            <inyector clase="ConfiguracionServices" metodo="dameJefes"/>
+            <prototipo>
+                <parametro nombre="$idsubordinado"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </dameJefes>
+    </planificacion>
+    <!-- Servicios del subsitema Workflow -->
+    <workflow src="planificacion">
+
+        <EstadosVerDoc reference="workflow">
+            <inyector clase="WorkflowServices" metodo="EstadosVerDoc"/>
+            <prototipo>
+                <parametro nombre="idusuario" tipo="enterospos"/>
+                <parametro nombre="idtipodoc" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </EstadosVerDoc>
+        <EstadoPorDefecto reference="workflow">
+            <inyector clase="WorkflowServices" metodo="EstadoPorDefecto"/>
+            <prototipo>
+                <parametro nombre="idusuario" tipo="enterospos"/>
+                <parametro nombre="idtipodoc" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </EstadoPorDefecto>
+        <EstadosModDoc reference="workflow">
+            <inyector clase="WorkflowServices" metodo="EstadosModDoc"/>
+            <prototipo>
+                <parametro nombre="idusuario" tipo="enterospos"/>
+                <parametro nombre="idtipodoc" tipo="enterospos"/>
+                <parametro nombre="idestadoinicial" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </EstadosModDoc>
+        <Ejecutar reference="workflow">
+            <inyector clase="WorkflowServices" metodo="Ejecutar"/>
+            <prototipo>
+                <parametro nombre="iduser" tipo="enterospos"/>
+                <parametro nombre="idestadoi" tipo="enterospos"/>
+                <parametro nombre="idestadof" tipo="enterospos"/>
+                <parametro nombre="idtdoc" tipo="enterospos"/>
+                <parametro nombre="obj" tipo="stdClass"/>
+                <resultado tipo="numeros"/>
+            </prototipo>
+        </Ejecutar>
+
+        <generaControl reference="workflow">
+            <inyector clase="WorkflowServices" metodo="generaControl"/>
+            <prototipo>
+                <parametro nombre="idestados" tipo="enterospos"/>
+                <parametro nombre="idtipodoc" tipo="enterospos"/>
+                <parametro nombre="idusuarioseccion" tipo="enterospos"/>
+                <resultado tipo="numeros"/>
+            </prototipo>
+        </generaControl>
+
+        <EjecutarPostCondiciones reference="workflow">
+            <inyector clase="WorkflowServices" metodo="EjecutarPostCondiciones"/>
+            <prototipo>
+                <parametro nombre="iduser" tipo="enterospos"/>
+                <parametro nombre="idestadoi" tipo="enterospos"/>
+                <parametro nombre="idestadof" tipo="enterospos"/>
+                <parametro nombre="idtdoc" tipo="enterospos"/>
+                <parametro nombre="obj" tipo="stdClass"/>
+                <parametro nombre="idsub" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </EjecutarPostCondiciones>
+        <DenomEstado reference="workflow">
+            <inyector clase="WorkflowServices" metodo="DenomEstado"/>
+            <prototipo>
+                <parametro nombre="idestado" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </DenomEstado>
+        <GetControlDeEstado reference="workflow">
+            <inyector clase="WorkflowServices" metodo="GetControlDeEstado"/>
+            <prototipo>
+                <parametro nombre="$idtipodoc" tipo="enterospos"/>
+                <parametro nombre="$idestado" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetControlDeEstado>
+        <EstadosSiguientesDadoEstado reference="workflow">
+            <inyector clase="WorkflowServices" metodo="EstadosSiguientesDadoEstado"/>
+            <prototipo>
+                <parametro nombre="idestado" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </EstadosSiguientesDadoEstado>
+        <EstadosAnterioresDadoEstado reference="workflow">
+            <inyector clase="WorkflowServices" metodo="EstadosAnterioresDadoEstado"/>
+            <prototipo>
+                <parametro nombre="idestado" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </EstadosAnterioresDadoEstado>
+        <ObtenerConfDocEstado reference="workflow">
+            <inyector clase="WorkflowServices" metodo="ObtenerConfDocEstado"/>
+            <prototipo>
+                <parametro nombre="$idtipodoc" tipo="enterospos"/>
+                <parametro nombre="idestado" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerConfDocEstado>
+        <obtenerPermisosPostCondiciones reference="workflow">
+            <inyector clase="WorkflowServices" metodo="obtenerPermisosPostCondiciones"/>
+            <prototipo>
+                <parametro nombre="$idtransicion" tipo="enterospos"/>
+                <parametro nombre="idusuario" tipo="enterospos"/>
+                <resultado tipo="numeros"/>
+            </prototipo>
+        </obtenerPermisosPostCondiciones>
+        <obtenerPermisosPostAccion reference="workflow">
+            <inyector clase="WorkflowServices" metodo="obtenerPermisosPostAccion"/>
+            <prototipo>
+                <parametro nombre="idusuario" tipo="enterospos"/>
+                <parametro nombre="idestado" tipo="enterospos"/>
+                <parametro nombre="idtipodoc" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerPermisosPostAccion>
+    </workflow>
+
+    <!-- Servicio que devuelve los componentes comunes de integracion -->
+    <integracion src="planificacion/herramientasintegracion">
+        <pyeComun reference="">
+            <inyector clase="PyeService" metodo="pyeComun"/>
+            <prototipo>
+                <parametro nombre="params"/>
+                <resultado/>
+            </prototipo>
+        </pyeComun>
+        <matrizinsumoproductoComponent reference="">
+            <inyector clase="PyeService" metodo="matrizinsumoproductoComponent"/>
+            <prototipo>
+                <parametro nombre="params"/>
+                <resultado/>
+            </prototipo>
+        </matrizinsumoproductoComponent>
+        <fmpeirComponent reference="">
+            <inyector clase="PyeService" metodo="fmpeirComponent"/>
+            <prototipo>
+                <parametro nombre="params"/>
+                <resultado/>
+            </prototipo>
+        </fmpeirComponent>
+        <fmepeirmatrizComponent reference="">
+            <inyector clase="PyeService" metodo="fmepeirmatrizComponent"/>
+            <prototipo>
+                <parametro nombre="params"/>
+                <resultado/>
+            </prototipo>
+        </fmepeirmatrizComponent>
+        <curvaconflictoComponent reference="">
+            <inyector clase="PyeService" metodo="curvaconflictoComponent"/>
+            <prototipo>
+                <parametro nombre="params"/>
+                <resultado/>
+            </prototipo>
+        </curvaconflictoComponent>
+        <causaefectoComponent reference="">
+            <inyector clase="PyeService" metodo="causaefectoComponent"/>
+            <prototipo>
+                <parametro nombre="params"/>
+                <resultado/>
+            </prototipo>
+        </causaefectoComponent>
+        <impactocruzadoComponent reference="">
+            <inyector clase="PyeService" metodo="impactocruzadoComponent"/>
+            <prototipo>
+                <parametro nombre="params"/>
+                <resultado/>
+            </prototipo>
+        </impactocruzadoComponent>
+        <matrizrelacionesComponent reference="">
+            <inyector clase="PyeService" metodo="matrizrelacionesComponent"/>
+            <prototipo>
+                <parametro nombre="params"/>
+                <resultado/>
+            </prototipo>
+        </matrizrelacionesComponent>
+        <matrizdofaComponent reference="">
+            <inyector clase="PyeService" metodo="matrizdofaComponent"/>
+            <prototipo>
+                <parametro nombre="params"/>
+                <resultado/>
+            </prototipo>
+        </matrizdofaComponent>
+        <gestioncriterios reference="">
+            <inyector clase="PyeService" metodo="gestioncriterios"/>
+            <prototipo>
+                <parametro nombre="params"/>
+                <resultado/>
+            </prototipo>
+        </gestioncriterios>
+        <mapComponent reference="">
+            <inyector clase="PyeService" metodo="mapComponent"/>
+            <prototipo>
+                <parametro nombre="params"/>
+                <resultado/>
+            </prototipo>
+        </mapComponent>
+        <ganttComponet reference="">
+            <inyector clase="PyeService" metodo="ganttComponet"/>
+            <prototipo>
+                <parametro nombre="params"/>
+                <resultado/>
+            </prototipo>
+        </ganttComponet>
+        <getEstudioByProyecto reference="">
+            <inyector clase="PyeService" metodo="getEstudioByProyecto"/>
+            <prototipo>
+                <parametro nombre="estudioModel"/>
+                <parametro nombre="idProyecto"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getEstudioByProyecto>
+        <getSujetosImpacto reference="">
+            <inyector clase="PyeService" metodo="getSujetosImpacto"/>
+            <prototipo>
+                <parametro nombre="sujetoFila"/>
+                <parametro nombre="sujetoColumna"/>
+                <parametro nombre="idProyecto"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getSujetosImpacto>
+        <getNomenclador>
+            <inyector clase="PyeService" metodo="getNomenclador"/>
+            <prototipo>
+                <parametro nombre="tabla" tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getNomenclador>
+        <getResultadosProyecto>
+            <inyector clase="PyeService" metodo="getResultadosProyecto"/>
+            <prototipo>
+                <parametro nombre="idproyecto"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getResultadosProyecto>
+        <getMatrixTexts>
+            <inyector clase="PyeService" metodo="getMatrixTexts"/>
+            <prototipo>
+                <parametro nombre="idProyecto"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getMatrixTexts>
+        <updateText>
+            <inyector clase="PyeService" metodo="updateText"/>
+            <prototipo>
+                <parametro nombre="idText"/>
+                <parametro nombre="value"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </updateText>
+        <deleteText>
+            <inyector clase="PyeService" metodo="deleteText"/>
+            <prototipo>
+                <parametro nombre="idText"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </deleteText>
+        <!-- Servicio para obtener las causas de un estudio -->
+        <getCausasByEstudio reference="">
+            <inyector clase="PyeService" metodo="getCausasByEstudio"/>
+            <prototipo>
+                <parametro nombre="idEstudio"/>
+                <parametro nombre="estudio"/>
+                <parametro nombre="start"/>
+                <parametro nombre="limit"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getCausasByEstudio>
+        <!-- Servicio para obtener la denominacion de una causa -->
+        <getCausaDenominacion reference="">
+            <inyector clase="PyeService" metodo="getCausaDenominacion"/>
+            <prototipo>
+                <parametro nombre="estudio"/>
+                <parametro nombre="idEstudio"/>
+                <parametro nombre="idCausa"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getCausaDenominacion>
+        <!-- Servicio para obtener los datos para generar el diagrama de flujos causales -->
+        <getDatosGraficoflujo reference="">
+            <inyector clase="PyeService" metodo="getDatosGraficoflujo"/>
+            <prototipo>
+                <parametro nombre="idEstudio"/>
+                <parametro nombre="variables"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDatosGraficoflujo>
+        <!--Devuelve los js extendidos de Integracion-->
+        <extensionesPLAN reference="">
+            <inyector clase="PyeService" metodo="extensionesPLAN"/>
+            <prototipo>
+                <parametro nombre="params"/>
+                <resultado/>
+            </prototipo>
+        </extensionesPLAN>
+
+        <getMatrizXproyecto reference="">
+            <inyector clase="PyeService" metodo="getMatrizXproyecto"/>
+            <prototipo>
+                <parametro nombre="idproyectoplanificacion"/>
+                <parametro nombre="denominacion"/>
+                <parametro nombre="columnas"/>
+                <parametro nombre="filas"/>
+                <parametro nombre="datos"/>
+                <parametro nombre="tipoconcepto"/>
+                <resultado/>
+            </prototipo>
+        </getMatrizXproyecto>
+
+        <insertUpdateDatosMatriz reference="">
+            <inyector clase="PyeService" metodo="insertUpdateDatosMatriz"/>
+            <prototipo>
+                <parametro nombre="idproyectoplanificacion"/>
+                <parametro nombre="datos"/>
+                <parametro nombre="tipoconcepto"/>
+                <resultado/>
+            </prototipo>
+        </insertUpdateDatosMatriz>
+
+        <insertUpdateDeleteColumnsRowsMatriz reference="">
+            <inyector clase="PyeService" metodo="insertUpdateDeleteColumnsRowsMatriz"/>
+            <prototipo>
+                <parametro nombre="idproyectoplanificacion"/>
+                <parametro nombre="datos"/>
+                <parametro nombre="accion"/>
+                <parametro nombre="tipoconcepto"/>
+                <resultado/>
+            </prototipo>
+        </insertUpdateDeleteColumnsRowsMatriz>
+
+        <existeMatrizRecursoXproyecto reference="">
+            <inyector clase="PyeService" metodo="existeMatrizRecursoXproyecto"/>
+            <prototipo>
+                <parametro nombre="idproyectoplanificacion"/>
+                <resultado/>
+            </prototipo>
+        </existeMatrizRecursoXproyecto>
+    </integracion>
+
+    <!-- Fin -->
+
+    <!-- Servicios del Modulo Configuracion de SIPAC-->
+    <configuracionpdo src="planificacion/pdo/configuracion">
+        <getJsPerfil reference="">
+            <inyector clase="ConfiguracionServices" metodo="getJsPerfil"/>
+            <prototipo>
+                <resultado/>
+            </prototipo>
+        </getJsPerfil>
+        <getJSNomenclador reference="">
+            <inyector clase="ConfiguracionServices" metodo="getJSNomenclador"/>
+            <prototipo>
+                <parametro nombre="$url"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getJSNomenclador>
+        <getJSPermisos reference="">
+            <inyector clase="ConfiguracionServices" metodo="getJSPermisos"/>
+            <prototipo>
+                <parametro nombre="$url"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getJSPermisos>
+        <getJSFondodetiempo reference="">
+            <inyector clase="ConfiguracionServices" metodo="getJSFondodetiempo"/>
+            <prototipo>
+                <parametro nombre="$url"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getJSFondodetiempo>
+        <getJSClasificadorInvolucrado reference="">
+            <inyector clase="ConfiguracionServices" metodo="getJSClasificadorInvolucrado"/>
+            <prototipo>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getJSClasificadorInvolucrado>
+        <getJSRelaciones reference="">
+            <inyector clase="ConfiguracionServices" metodo="getJSRelaciones"/>
+            <prototipo>
+                <parametro nombre="$url"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getJSRelaciones>
+        <ObtenerNomencladorPorId reference="">
+            <inyector clase="ConfiguracionServices" metodo="ObtenerNomencladorPorId"/>
+            <prototipo>
+                <parametro nombre="$idnom" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerNomencladorPorId>
+        <getConfPerfilxtipoelytipoconf reference="">
+            <inyector clase="ConfiguracionServices" metodo="getConfPerfilxtipoelytipoconf"/>
+            <prototipo>
+                <parametro nombre="$tipelemento"/>
+                <parametro nombre="$idconfig"/>
+                <parametro nombre="$idconfig"/>
+                <parametro nombre="$idcargaxdefecto"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getConfPerfilxtipoelytipoconf>
+
+        <getCargaxdefecto reference="">
+            <inyector clase="ConfiguracionServices" metodo="Cargaxdefecto"/>
+            <prototipo>
+                <parametro nombre="$parametros"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getCargaxdefecto>
+
+        <DameEstructurasRelacionadasbyIduser reference="">
+            <inyector clase="ConfiguracionServices" metodo="DameEstructurasRelacionadasbyIduser"/>
+            <prototipo>
+                <parametro nombre="$idusuario"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </DameEstructurasRelacionadasbyIduser>
+        <getInvolucradoConfCalendario reference="">
+            <inyector clase="ConfiguracionServices" metodo="getInvolucradoConfCalendario"/>
+            <prototipo>
+                <parametro nombre="$idconfiguracion"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getInvolucradoConfCalendario>
+        <getInvolucradoConfComportamiento reference="">
+            <inyector clase="ConfiguracionServices" metodo="getInvolucradoConfComportamiento"/>
+            <prototipo>
+                <parametro nombre="$idconfiguracion"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getInvolucradoConfComportamiento>
+        <GetTodosNomencladoresPorTipo reference="">
+            <inyector clase="ConfiguracionServices" metodo="GetTodosNomencladoresPorTipo"/>
+            <prototipo>
+                <parametro nombre="$tiponomen" tipo="enterospos"/>
+                <parametro nombre="$idUsuarioCrea" tipo="enterospos"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </GetTodosNomencladoresPorTipo>
+        <ObtenerNomencladoresCalendario reference="">
+            <inyector clase="ConfiguracionServices" metodo="ObtenerNomencladoresCalendario"/>
+            <prototipo>
+                <parametro nombre="$idusuariosession"/>
+                <parametro nombre="$tiponomenclador"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ObtenerNomencladoresCalendario>
+        <DameDatosNomenclador reference="">
+            <inyector clase="ConfiguracionServices" metodo="DameDatosNomenclador"/>
+            <prototipo>
+                <parametro nombre="$idnomenclador"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameDatosNomenclador>
+        <DameDatosNomencladorXDatos reference="">
+            <inyector clase="ConfiguracionServices" metodo="DameDatosNomencladorXDatos"/>
+            <prototipo>
+                <parametro nombre="$idnomenclador"/>
+                <parametro nombre="$tiponomenclador"/>
+                <parametro nombre="$idusuariocrea"/>
+                <!-- <parametro nombre="$dennomenclador" />-->
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameDatosNomencladorXDatos>
+        <DameCategoriasHijas reference="">
+            <inyector clase="ConfiguracionServices" metodo="DameCategoriasHijas"/>
+            <prototipo>
+                <parametro nombre="$idnomencladorpadre"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameCategoriasHijas>
+        <DameArbolDeGrupos reference="">
+            <inyector clase="ConfiguracionServices" metodo="DameArbolDeGrupos"/>
+            <prototipo>
+                <parametro nombre="$idusuario"/>
+                <parametro nombre="$idgrupo"/>
+                <parametro nombre="$estamodificando"/>
+                <parametro nombre="$idcomponente"/>
+                <parametro nombre="$idelemento"/>
+                <parametro nombre="$certificado"/>
+                <parametro nombre="$iddominio"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameArbolDeGrupos>
+        <DameInvolucradosAdicionar reference="">
+            <inyector clase="ConfiguracionServices" metodo="DameInvolucradosAdicionar"/>
+            <prototipo>
+                <parametro nombre="$nodo"/>
+                <parametro nombre="$idusuario"/>
+                <parametro nombre="$idelemento"/>
+                <parametro nombre="$tipo"/>
+                <parametro nombre="$idgrupo"/>
+                <parametro nombre="$estamodificando"/>
+                <parametro nombre="$tipoelemento"/>
+                <parametro nombre="$iddominio"/>
+                <parametro nombre="$certificado"/>
+                <parametro nombre="$idautor"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameInvolucradosAdicionar>
+        <DameArbolBuscarPorInvolucradoCalendario reference="">
+            <inyector clase="ConfiguracionServices" metodo="DameArbolBuscarPorInvolucradoCalendario"/>
+            <prototipo>
+                <parametro nombre="$nodo"/>
+                <parametro nombre="$idusuario"/>
+                <parametro nombre="$tipo"/>
+                <parametro nombre="$idgrupo"/>
+                <parametro nombre="$iddominio"/>
+                <parametro nombre="$certificado"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameArbolBuscarPorInvolucradoCalendario>
+        <DameColorCategoriaActividad reference="">
+            <inyector clase="ConfiguracionServices" metodo="DameColorCategoriaActividad"/>
+            <prototipo>
+                <parametro nombre="$idnomenclador"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameColorCategoriaActividad>
+        <VerificarSiEsGrupoPadre reference="">
+            <inyector clase="ConfiguracionServices" metodo="VerificarSiEsGrupoPadre"/>
+            <prototipo>
+                <parametro nombre="$idgrupopadre"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </VerificarSiEsGrupoPadre>
+        <DameGruposDondeEstaUsuario reference="">
+            <inyector clase="ConfiguracionServices" metodo="DameGruposDondeEstaUsuario"/>
+            <prototipo>
+                <parametro nombre="$idusuario"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameGruposDondeEstaUsuario>
+        <DameGruposCreadosPorMi reference="">
+            <inyector clase="ConfiguracionServices" metodo="DameGruposCreadosPorMi"/>
+            <prototipo>
+                <parametro nombre="$idusuariocra"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameGruposCreadosPorMi>
+        <DameUsuariosDeGrupo reference="">
+            <inyector clase="ConfiguracionServices" metodo="DameUsuariosDeGrupo"/>
+            <prototipo>
+                <parametro nombre="$idgrupo"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameUsuariosDeGrupo>
+        <DameUsuariosDeGrupoGU reference="">
+            <inyector clase="ConfiguracionServices" metodo="DameUsuariosDeGrupoGU"/>
+            <prototipo>
+                <parametro nombre="$idgrupo"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameUsuariosDeGrupoGU>
+        <DameSubordinados reference="">
+            <inyector clase="ConfiguracionServices" metodo="DameSubordinados"/>
+            <prototipo>
+                <parametro nombre="$certificado"/>
+                <parametro nombre="$iddominio"/>
+                <parametro nombre="$idusuario"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameSubordinados>
+        <DameOtrosConPermisoAdicionar reference="">
+            <inyector clase="ConfiguracionServices" metodo="DameOtrosConPermisoAdicionar"/>
+            <prototipo>
+                <parametro nombre="$idusuario"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameOtrosConPermisoAdicionar>
+        <DamePermisosLeer reference="">
+            <inyector clase="ConfiguracionServices" metodo="DamePermisosLeer"/>
+            <prototipo>
+                <parametro nombre="$idusuario"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DamePermisosLeer>
+        <DamePermisosLeerNivelSuperior reference="">
+            <inyector clase="ConfiguracionServices" metodo="DamePermisosLeerNivelSuperior"/>
+            <prototipo>
+                <parametro nombre="$idusuario"/>
+                <parametro nombre="$idgrupo"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DamePermisosLeerNivelSuperior>
+        <DamePermisoSubordinados reference="">
+            <inyector clase="ConfiguracionServices" metodo="DamePermisoSubordinados"/>
+            <prototipo>
+                <parametro nombre="$idusuario"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DamePermisoSubordinados>
+        <DameDatosDeGrupo reference="">
+            <inyector clase="ConfiguracionServices" metodo="DameDatosDeGrupo"/>
+            <prototipo>
+                <parametro nombre="$idgrupo"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameDatosDeGrupo>
+        <TienePermisoParaSobre reference="">
+            <inyector clase="ConfiguracionServices" metodo="TienePermisoParaSobre"/>
+            <prototipo>
+                <parametro nombre="$idppara"/>
+                <parametro nombre="$idpsobre"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </TienePermisoParaSobre>
+        <BuscarInvolucrados reference="">
+            <inyector clase="ConfiguracionServices" metodo="BuscarInvolucrados"/>
+            <prototipo>
+                <parametro nombre="$denominacion"/>
+                <parametro nombre="$idusuario"/>
+                <parametro nombre="$estamodificando"/>
+                <parametro nombre="$idelemento"/>
+                <parametro nombre="$tipoelemento"/>
+                <parametro nombre="$permiso"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </BuscarInvolucrados>
+        <BuscarInvolucradosCriterio reference="">
+            <inyector clase="ConfiguracionServices" metodo="BuscarInvolucradosCriterio"/>
+            <prototipo>
+                <parametro nombre="$denominacion"/>
+                <parametro nombre="$estamodificando"/>
+                <parametro nombre="$idobjetivo"/>
+                <parametro nombre="$idelemento"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </BuscarInvolucradosCriterio>
+        <DameInvolucradosAdicionarPreCond reference="">
+            <inyector clase="ConfiguracionServices" metodo="DameInvolucradosAdicionarPreCond"/>
+            <prototipo>
+                <parametro nombre="$idprecondicion"/>
+                <parametro nombre="$tipo"/>
+                <parametro nombre="$idgrupo"/>
+                <parametro nombre="$estamodificando"/>
+                <parametro nombre="$idautor"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameInvolucradosAdicionarPreCond>
+        <ObtenerGruposUsuariosConfigPerfil reference="">
+            <inyector clase="ConfiguracionServices" metodo="ObtenerGruposUsuariosConfigPerfil"/>
+            <prototipo>
+                <parametro nombre="$idelemento"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ObtenerGruposUsuariosConfigPerfil>
+        <existeSubordinacion reference="">
+            <inyector clase="ConfiguracionServices" metodo="existeSubordinacion"/>
+            <prototipo>
+                <parametro nombre="$idpadre"/>
+                <parametro nombre="$idhijo"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </existeSubordinacion>
+        <listarCalendariosConfigurados reference="">
+            <inyector clase="ConfiguracionServices" metodo="listarCalendariosConfigurados"/>
+            <prototipo>
+                <parametro nombre="$parametros"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </listarCalendariosConfigurados>
+        <getUsuarioEstructura reference="">
+            <inyector clase="ConfiguracionServices" metodo="getUsuarioEstructura"/>
+            <prototipo>
+                <parametro nombre="$idestructura" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getUsuarioEstructura>
+        <getEstructuraUsuario reference="">
+            <inyector clase="ConfiguracionServices" metodo="getEstructuraUsuario"/>
+            <prototipo>
+                <parametro nombre="$idusuario" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getEstructuraUsuario>
+        <getDenominacionIdUsuario reference="">
+            <inyector clase="ConfiguracionServices" metodo="getDenominacionIdUsuario"/>
+            <prototipo>
+                <parametro nombre="$idelemento" tipo="enterospos"/>
+                <parametro nombre="$tipoelemento"/>
+                <parametro nombre="$idgrupoelemento" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDenominacionIdUsuario>
+
+        <insertarNuevoNomenclador reference="">
+            <inyector clase="ConfiguracionServices" metodo="insertarNuevoNomenclador"/>
+            <prototipo>
+                <resultado tipo="string"/>
+            </prototipo>
+        </insertarNuevoNomenclador>
+		<getFechaFin reference="">
+            <inyector clase="ConfiguracionServices" metodo="getFechaFin"/>
+            <prototipo>
+				<parametro nombre="$arrayidusuario" tipo="array"/>
+                <parametro nombre="$fechaini"/>
+                <parametro nombre="$tiempoestimado"/>
+				<parametro nombre="$anno"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getFechaFin>
+
+    </configuracionpdo>
+    <!-- Fin -->
+
+    <!--  Servicios del Modulo Planeacion de SIPAC -->
+    <planpdo src="planificacion/pdo/plan">
+        <initComponent reference="">
+            <inyector clase="PlanServices" metodo="initComponent"/>
+            <prototipo>
+                <parametro nombre="params"/>
+                <resultado/>
+            </prototipo>
+        </initComponent>
+        <VerificarGrupoInvolucradoArc reference="">
+            <inyector clase="PlanServices" metodo="VerificarGrupoInvolucradoArc"/>
+            <prototipo>
+                <parametro nombre="$idgrupo" tipo="enterospos"/>
+                <parametro nombre="$idarc" tipo="enterospos"/>
+                <parametro nombre="$nivelinvol" tipo="enterospos"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </VerificarGrupoInvolucradoArc>
+
+        <listarObjetivos reference="">
+            <inyector clase="PlanServices" metodo="ListarObjetivos"/>
+            <prototipo>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </listarObjetivos>
+
+        <verificarGestorDoc reference="">
+            <inyector clase="PlanServices" metodo="verificarGestorDoc"/>
+            <prototipo>
+                <resultado tipo="Boolean"/>
+            </prototipo>
+        </verificarGestorDoc>
+
+        <VerificarUsuarioInvolucradoArc reference="">
+            <inyector clase="PlanServices" metodo="VerificarUsuarioInvolucradoArc"/>
+            <prototipo>
+                <parametro nombre="$idusuario" tipo="enterospos"/>
+                <parametro nombre="$idarc" tipo="enterospos"/>
+                <parametro nombre="$nivelinvol" tipo="enterospos"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </VerificarUsuarioInvolucradoArc>
+
+        <DameDatosActividad reference="">
+            <inyector clase="PlanServices" metodo="DameDatosActividad"/>
+            <prototipo>
+                <parametro nombre="$idelemento" tipo="enterospos"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameDatosActividad>
+
+        <VerificarInvolucradoAct reference="">
+            <inyector clase="PlanServices" metodo="VerificarInvolucradoAct"/>
+            <prototipo>
+                <parametro nombre="$idinvolucrado" tipo="enterospos"/>
+                <parametro nombre="$idvariable" tipo="enterospos"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </VerificarInvolucradoAct>
+
+        <VerificarInvolucrado reference="">
+            <inyector clase="PlanServices" metodo="VerificarInvolucrado"/>
+            <prototipo>
+                <parametro nombre="$idinvolucrado"/>
+                <parametro nombre="$idelemento"/>
+                <parametro nombre="$tipoelemento"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </VerificarInvolucrado>
+
+        <DameActividadesPorInvolucrados reference="">
+            <inyector clase="PlanServices" metodo="DameActividadesPorInvolucrados"/>
+            <prototipo>
+                <parametro nombre="$idusuariosession"/>
+                <parametro nombre="$arrayinvolucrados"/>
+                <parametro nombre="$arrayautores"/>
+                <parametro nombre="$fechainicio"/>
+                <parametro nombre="$fechafin"/>
+                <parametro nombre="$arraynomencladores"/>
+                <parametro nombre="$certificado"/>
+                <parametro nombre="$iddominio"/>
+                <parametro nombre="$arrayestados"/>
+                <parametro nombre="$arrayplanes"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameActividadesPorInvolucrados>
+
+        <DameActvPorUsuarioTipoNomenclador reference="">
+            <inyector clase="PlanServices" metodo="DameActvPorUsuarioTipoNomenclador"/>
+            <prototipo>
+                <parametro nombre="$idusuariocrea"/>
+                <parametro nombre="$tiponom"/>
+                <parametro nombre="$fechainicio"/>
+                <parametro nombre="$fechafin"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameActvPorUsuarioTipoNomenclador>
+
+        <DameRelacionElementoNomencladorByTipoNom reference="">
+            <inyector clase="PlanServices" metodo="DameRelacionElementoNomencladorByTipoNom"/>
+            <prototipo>
+                <parametro nombre="$idelemento"/>
+                <parametro nombre="$tiponomenclador"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameRelacionElementoNomencladorByTipoNom>
+
+        <ExisteGrupoInvolucradoARC reference="">
+            <inyector clase="PlanServices" metodo="ExisteGrupoInvolucradoARC"/>
+            <prototipo>
+                <parametro nombre="$idgrupo"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ExisteGrupoInvolucradoARC>
+
+        <VerificarInvolucradoConElementos reference="">
+            <inyector clase="PlanServices" metodo="VerificarInvolucradoConElementos"/>
+            <prototipo>
+                <parametro nombre="$idgou"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </VerificarInvolucradoConElementos>
+
+        <ExisteGrupoInvolucradoObjFIP reference="">
+            <inyector clase="PlanServices" metodo="ExisteGrupoInvolucradoObjFIP"/>
+            <prototipo>
+                <parametro nombre="$idgrupo"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ExisteGrupoInvolucradoObjFIP>
+
+        <ExisteGrupoInvolucradoAct reference="">
+            <inyector clase="PlanServices" metodo="ExisteGrupoInvolucradoAct"/>
+            <prototipo>
+                <parametro nombre="$idgrupo"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ExisteGrupoInvolucradoAct>
+
+        <EliminarActividad reference="">
+            <inyector clase="PlanServices" metodo="EliminarActividad"/>
+            <prototipo>
+                <parametro nombre="$idactividad"/>
+            </prototipo>
+        </EliminarActividad>
+
+        <ModificarActivacionActividad reference="">
+            <inyector clase="PlanServices" metodo="ModificarActivacionActividad"/>
+            <prototipo>
+                <parametro nombre="$idactividad"/>
+                <parametro nombre="$activo"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ModificarActivacionActividad>
+
+        <ModificarHoraActividad reference="">
+            <inyector clase="PlanServices" metodo="ModificarHoraActividad"/>
+            <prototipo>
+                <parametro nombre="$idact"/>
+                <parametro nombre="$horainicio"/>
+                <parametro nombre="$horainicio"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ModificarHoraActividad>
+
+        <CargarPlanes reference="">
+            <inyector clase="PlanServices" metodo="CargarPlanes"/>
+            <prototipo>
+                <parametro nombre="$nodo"/>
+                <parametro nombre="$idusuario"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </CargarPlanes>
+
+        <ObtenerActividadesPorDia reference="">
+            <inyector clase="PlanServices" metodo="ObtenerActividadesPorDia"/>
+            <prototipo>
+                <parametro nombre="$arrayinvolucrados"/>
+                <parametro nombre="$fechainicio"/>
+                <parametro nombre="$fechafin"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ObtenerActividadesPorDia>
+
+        <existeNomencladorElemento reference="">
+            <inyector clase="PlanServices" metodo="existeNomencladorElemento"/>
+            <prototipo>
+                <parametro nombre="$idNom"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </existeNomencladorElemento>
+
+        <existeNomencladorCriterioMedidida reference="">
+            <inyector clase="PlanServices" metodo="existeNomencladorCriterioMedidida"/>
+            <prototipo>
+                <parametro nombre="$idNom"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </existeNomencladorCriterioMedidida>
+
+        <ObtenerActividadesReporte reference="">
+            <inyector clase="PlanServices" metodo="ObtenerActividadesReporte"/>
+            <prototipo>
+                <parametro nombre="$fechainicio"/>
+                <parametro nombre="$fechafin"/>
+                <parametro nombre="$fechainicioD"/>
+                <parametro nombre="$fechafinD"/>
+                <parametro nombre="$idplan"/>
+                <parametro nombre="$arrayidautor"/>
+                <parametro nombre="$arrayidinvol"/>
+                <parametro nombre="$operador"/>
+                <parametro nombre="$arrayidnom"/>
+                <parametro nombre="$arrayestados"/>
+                <parametro nombre="$todoscrit"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ObtenerActividadesReporte>
+
+        <ObtenerAreasPorPlan reference="">
+            <inyector clase="PlanServices" metodo="ObtenerAreasPorPlan"/>
+            <prototipo>
+                <parametro nombre="$idplan"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ObtenerAreasPorPlan>
+
+        <ObtenerActividadesPorAreas reference="">
+            <inyector clase="PlanServices" metodo="ObtenerActividadesPorAreas"/>
+            <prototipo>
+                <parametro nombre="$idarc"/>
+                <parametro nombre="$idplan"/>
+                <parametro nombre="$arrayidautor"/>
+                <parametro nombre="$arrayidinvol"/>
+                <parametro nombre="$operador"/>
+                <parametro nombre="$arrayidnom"/>
+                <parametro nombre="$arrayestados"/>
+                <parametro nombre="$todoscrit"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ObtenerActividadesPorAreas>
+
+        <ActividadesDirectasAlPlan reference="">
+            <inyector clase="PlanServices" metodo="ActividadesDirectasAlPlan"/>
+            <prototipo>
+                <parametro nombre="$idplan"/>
+                <parametro nombre="$arrayidautor"/>
+                <parametro nombre="$arrayidinvol"/>
+                <parametro nombre="$operador"/>
+                <parametro nombre="$arrayidnom"/>
+                <parametro nombre="$arrayestados"/>
+                <parametro nombre="$todoscrit"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ActividadesDirectasAlPlan>
+
+        <getInvolucrados reference="">
+            <inyector clase="PlanServices" metodo="getInvolucrados"/>
+            <prototipo>
+                <parametro nombre="$consulta"/>
+                <parametro nombre="$idelemento"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </getInvolucrados>
+
+        <buscarInferioresGantt reference="">
+            <inyector clase="PlanServices" metodo="buscarInferioresGantt"/>
+            <prototipo>
+                <parametro nombre="$idelementopadre"/>
+                <parametro nombre="$resultado"/>
+                <parametro nombre="$comparacion"/>
+                <parametro nombre="$origen"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </buscarInferioresGantt>
+        <buscarInferioresPert reference="">
+            <inyector clase="PlanServices" metodo="buscarInferioresPert"/>
+            <prototipo>
+                <parametro nombre="$idelementopadre"/>
+                <parametro nombre="$resultado"/>
+                <parametro nombre="$comparacion"/>
+                <parametro nombre="$origen"/>
+                <parametro nombre="$tipoelemento"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </buscarInferioresPert>
+        <buscarSuperioresGantt reference="">
+            <inyector clase="PlanServices" metodo="buscarSuperioresGantt"/>
+            <prototipo>
+                <parametro nombre="$idelementopadre"/>
+                <parametro nombre="$resultado"/>
+                <parametro nombre="$comparacion"/>
+                <parametro nombre="$origen"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </buscarSuperioresGantt>
+
+        <insertarInvolucradosTarea reference="">
+            <inyector clase="PlanServices" metodo="insertarInvolucradosTarea"/>
+            <prototipo>
+                <parametro nombre="$arrayinvolucrados"/>
+                <parametro nombre="$idElemen"/>
+                <parametro nombre="$tipo"/>
+            </prototipo>
+        </insertarInvolucradosTarea>
+
+        <eliminarUsuariosAElemento reference="">
+            <inyector clase="PlanServices" metodo="eliminarUsuariosAElemento"/>
+            <prototipo>
+                <parametro nombre="$arrayinvolucrados"/>
+                <parametro nombre="$idElemen"/>
+                <parametro nombre="$tipo"/>
+            </prototipo>
+        </eliminarUsuariosAElemento>
+
+        <insertarElemento reference="">
+            <inyector clase="PlanServices" metodo="insertarElemento"/>
+            <prototipo>
+                <parametro nombre="$parametros"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </insertarElemento>
+
+        <SeCumplenCondiciones reference="">
+            <inyector clase="PlanServices" metodo="SeCumplenCondiciones"/>
+            <prototipo>
+                <parametro nombre="$idelemento"/>
+                <parametro nombre="$operadorcumplimiento"/>
+                <parametro nombre="$porccumplimiento"/>
+                <parametro nombre="$estadocumplimiento"/>
+                <parametro nombre="$estadoaprobacion"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </SeCumplenCondiciones>
+
+        <getJSRelaciones reference="">
+            <inyector clase="PlanServices" metodo="getJSRelaciones"/>
+            <prototipo>
+                <parametro nombre="$url"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getJSRelaciones>
+
+        <getJSPert reference="">
+            <inyector clase="PlanServices" metodo="getJSPert"/>
+            <prototipo>
+                <parametro nombre="$url"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getJSPert>
+
+        <getJSElementos reference="">
+            <inyector clase="PlanServices" metodo="devolverJS_Elementos"/>
+            <prototipo>
+                <parametro nombre="$url"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getJSElementos>
+    </planpdo>
+    <!-- Fin  -->
+
+
+    <!--  Servicios del Modulo Planeacion de SIPAC -->
+    <planpdo src="planificacion/pdo/plan">
+
+        <VerificarGrupoInvolucradoArc reference="">
+            <inyector clase="PlanServices" metodo="VerificarGrupoInvolucradoArc"/>
+            <prototipo>
+                <parametro nombre="$idgrupo" tipo="enterospos"/>
+                <parametro nombre="$idarc" tipo="enterospos"/>
+                <parametro nombre="$nivelinvol" tipo="enterospos"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </VerificarGrupoInvolucradoArc>
+
+        <VerificarUsuarioInvolucradoArc reference="">
+            <inyector clase="PlanServices" metodo="VerificarUsuarioInvolucradoArc"/>
+            <prototipo>
+                <parametro nombre="$idusuario" tipo="enterospos"/>
+                <parametro nombre="$idarc" tipo="enterospos"/>
+                <parametro nombre="$nivelinvol" tipo="enterospos"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </VerificarUsuarioInvolucradoArc>
+
+        <DameDatosActividad reference="">
+            <inyector clase="PlanServices" metodo="DameDatosActividad"/>
+            <prototipo>
+                <parametro nombre="$idelemento" tipo="enterospos"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameDatosActividad>
+
+        <VerificarInvolucradoAct reference="">
+            <inyector clase="PlanServices" metodo="VerificarInvolucradoAct"/>
+            <prototipo>
+                <parametro nombre="$idinvolucrado" tipo="enterospos"/>
+                <parametro nombre="$idvariable" tipo="enterospos"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </VerificarInvolucradoAct>
+
+        <VerificarInvolucrado reference="">
+            <inyector clase="PlanServices" metodo="VerificarInvolucrado"/>
+            <prototipo>
+                <parametro nombre="$idinvolucrado"/>
+                <parametro nombre="$idelemento"/>
+                <parametro nombre="$tipoelemento"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </VerificarInvolucrado>
+
+        <DameActividadesPorInvolucrados reference="">
+            <inyector clase="PlanServices" metodo="DameActividadesPorInvolucrados"/>
+            <prototipo>
+                <parametro nombre="$idusuariosession"/>
+                <parametro nombre="$arrayinvolucrados"/>
+                <parametro nombre="$arrayautores"/>
+                <parametro nombre="$fechainicio"/>
+                <parametro nombre="$fechafin"/>
+                <parametro nombre="$arraynomencladores"/>
+                <parametro nombre="$certificado"/>
+                <parametro nombre="$iddominio"/>
+                <parametro nombre="$arrayestados"/>
+                <parametro nombre="$arrayplanes"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameActividadesPorInvolucrados>
+
+        <DameActvPorUsuarioTipoNomenclador reference="">
+            <inyector clase="PlanServices" metodo="DameActvPorUsuarioTipoNomenclador"/>
+            <prototipo>
+                <parametro nombre="$idusuariocrea"/>
+                <parametro nombre="$tiponom"/>
+                <parametro nombre="$fechainicio"/>
+                <parametro nombre="$fechafin"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameActvPorUsuarioTipoNomenclador>
+
+        <DameRelacionElementoNomencladorByTipoNom reference="">
+            <inyector clase="PlanServices" metodo="DameRelacionElementoNomencladorByTipoNom"/>
+            <prototipo>
+                <parametro nombre="$idelemento"/>
+                <parametro nombre="$tiponomenclador"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </DameRelacionElementoNomencladorByTipoNom>
+
+        <ExisteGrupoInvolucradoARC reference="">
+            <inyector clase="PlanServices" metodo="ExisteGrupoInvolucradoARC"/>
+            <prototipo>
+                <parametro nombre="$idgrupo"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ExisteGrupoInvolucradoARC>
+
+        <VerificarInvolucradoConElementos reference="">
+            <inyector clase="PlanServices" metodo="VerificarInvolucradoConElementos"/>
+            <prototipo>
+                <parametro nombre="$idgou"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </VerificarInvolucradoConElementos>
+
+        <ExisteGrupoInvolucradoObjFIP reference="">
+            <inyector clase="PlanServices" metodo="ExisteGrupoInvolucradoObjFIP"/>
+            <prototipo>
+                <parametro nombre="$idgrupo"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ExisteGrupoInvolucradoObjFIP>
+
+        <ExisteGrupoInvolucradoAct reference="">
+            <inyector clase="PlanServices" metodo="ExisteGrupoInvolucradoAct"/>
+            <prototipo>
+                <parametro nombre="$idgrupo"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ExisteGrupoInvolucradoAct>
+
+        <EliminarActividad reference="">
+            <inyector clase="PlanServices" metodo="EliminarActividad"/>
+            <prototipo>
+                <parametro nombre="$idactividad"/>
+            </prototipo>
+        </EliminarActividad>
+
+        <ModificarActivacionActividad reference="">
+            <inyector clase="PlanServices" metodo="ModificarActivacionActividad"/>
+            <prototipo>
+                <parametro nombre="$idactividad"/>
+                <parametro nombre="$activo"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ModificarActivacionActividad>
+
+        <ModificarHoraActividad reference="">
+            <inyector clase="PlanServices" metodo="ModificarHoraActividad"/>
+            <prototipo>
+                <parametro nombre="$idact"/>
+                <parametro nombre="$horainicio"/>
+                <parametro nombre="$horainicio"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ModificarHoraActividad>
+
+        <CargarPlanes reference="">
+            <inyector clase="PlanServices" metodo="CargarPlanes"/>
+            <prototipo>
+                <parametro nombre="$nodo"/>
+                <parametro nombre="$idusuario"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </CargarPlanes>
+
+        <ObtenerActividadesPorDia reference="">
+            <inyector clase="PlanServices" metodo="ObtenerActividadesPorDia"/>
+            <prototipo>
+                <parametro nombre="$arrayinvolucrados"/>
+                <parametro nombre="$fechainicio"/>
+                <parametro nombre="$fechafin"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ObtenerActividadesPorDia>
+
+        <existeNomencladorElemento reference="">
+            <inyector clase="PlanServices" metodo="existeNomencladorElemento"/>
+            <prototipo>
+                <parametro nombre="$idNom"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </existeNomencladorElemento>
+
+        <existeNomencladorCriterioMedidida reference="">
+            <inyector clase="PlanServices" metodo="existeNomencladorCriterioMedidida"/>
+            <prototipo>
+                <parametro nombre="$idNom"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </existeNomencladorCriterioMedidida>
+
+        <ObtenerActividadesReporte reference="">
+            <inyector clase="PlanServices" metodo="ObtenerActividadesReporte"/>
+            <prototipo>
+                <parametro nombre="$fechainicio"/>
+                <parametro nombre="$fechafin"/>
+                <parametro nombre="$fechainicioD"/>
+                <parametro nombre="$fechafinD"/>
+                <parametro nombre="$idplan"/>
+                <parametro nombre="$arrayidautor"/>
+                <parametro nombre="$arrayidinvol"/>
+                <parametro nombre="$operador"/>
+                <parametro nombre="$arrayidnom"/>
+                <parametro nombre="$arrayestados"/>
+                <parametro nombre="$todoscrit"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ObtenerActividadesReporte>
+
+        <ObtenerAreasPorPlan reference="">
+            <inyector clase="PlanServices" metodo="ObtenerAreasPorPlan"/>
+            <prototipo>
+                <parametro nombre="$idplan"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ObtenerAreasPorPlan>
+
+        <ObtenerActividadesPorAreas reference="">
+            <inyector clase="PlanServices" metodo="ObtenerActividadesPorAreas"/>
+            <prototipo>
+                <parametro nombre="$idarc"/>
+                <parametro nombre="$idplan"/>
+                <parametro nombre="$arrayidautor"/>
+                <parametro nombre="$arrayidinvol"/>
+                <parametro nombre="$operador"/>
+                <parametro nombre="$arrayidnom"/>
+                <parametro nombre="$arrayestados"/>
+                <parametro nombre="$todoscrit"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ObtenerActividadesPorAreas>
+
+        <ActividadesDirectasAlPlan reference="">
+            <inyector clase="PlanServices" metodo="ActividadesDirectasAlPlan"/>
+            <prototipo>
+                <parametro nombre="$idplan"/>
+                <parametro nombre="$arrayidautor"/>
+                <parametro nombre="$arrayidinvol"/>
+                <parametro nombre="$operador"/>
+                <parametro nombre="$arrayidnom"/>
+                <parametro nombre="$arrayestados"/>
+                <parametro nombre="$todoscrit"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </ActividadesDirectasAlPlan>
+
+        <obtenerElementosMapaEstrategico reference="">
+            <inyector clase="PlanServices" metodo="obtenerElementosMapaEstrategico"/>
+            <prototipo>
+                <parametro nombre="$identidad"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </obtenerElementosMapaEstrategico>
+
+
+    </planpdo>
+    <ActualizarElemSinEstadAprov reference="">
+        <inyector clase="PlanServices" metodo="ActualizarElemSinEstadAprov"/>
+        <prototipo>
+            <parametro nombre="$idaprob" tipo="enterospos"/>
+            <parametro nombre="$usuariocrea" tipo="enterospos"/>
+            <parametro nombre="$tipodoc" tipo="enterospos"/>
+        </prototipo>
+    </ActualizarElemSinEstadAprov>
+
+    <SeCumplenCondiciones reference="">
+        <inyector clase="PlanServices" metodo="SeCumplenCondiciones"/>
+        <prototipo>
+            <parametro nombre="$idelemento"/>
+            <parametro nombre="$operadorcumplimiento"/>
+            <parametro nombre="$porccumplimiento"/>
+            <parametro nombre="$estadocumplimiento"/>
+            <parametro nombre="$estadoaprobacion"/>
+            <resultado tipo="enterospos"/>
+        </prototipo>
+    </SeCumplenCondiciones>
+
+
+    <!-- Fin  -->
+
+    <ayuda src="Herramientas/ayuda">
+        <devolverJS reference="">
+            <inyector clase="AyudaService" metodo="devolverJS"/>
+            <prototipo>
+                <resultado tipo=""/>
+            </prototipo>
+        </devolverJS>
+    </ayuda>
+
+    <reportes src="planificacion/reportes">
+        <!-- Servicio que retorna el reporte -->
+        <obtenerReporte reference="">
+            <inyector clase="ReportesService" metodo="obtenerReporte"/>
+            <prototipo>
+                <parametro nombre="params"/>
+                <resultado/>
+            </prototipo>
+        </obtenerReporte>
+        <devolverJS reference="">
+            <inyector clase="ReportesService" metodo="devolverJS"/>
+            <prototipo>
+                <resultado/>
+            </prototipo>
+        </devolverJS>
+    </reportes>
+
+    <inversiones src="planificacion/inversiones">
+        <!-- Servicio que retorna el reporte -->
+        <initComponent reference="">
+            <inyector clase="InversionesService" metodo="initComponent"/>
+            <prototipo>
+                <parametro nombre="params"/>
+                <resultado/>
+            </prototipo>
+        </initComponent>	
+		
+        <obtenerInversionesPorFecha reference="planmeta">
+            <inyector clase="InversionesService" metodo="getInversionesByFechas"/>
+            <prototipo>
+                <parametro nombre="identidad"/>
+                <parametro nombre="fechaInicio"/>
+                <parametro nombre="fechaFin"/>
+                <resultado tipo="Array"/>
+            </prototipo>
+        </obtenerInversionesPorFecha>
+    </inversiones>
+
+
+    <proyecto src="planificacion/proyecto/planeacion">
+        <!-- Servicio que retorna el reporte -->
+        <initComponent reference="">
+            <inyector clase="ProyectoServices" metodo="initComponent"/>
+            <prototipo>
+                <parametro nombre="params"/>
+                <resultado/>
+            </prototipo>
+        </initComponent>
+    </proyecto>
+
+    <planmeta src="planificacion/planmeta">
+        <initComponent reference="">
+            <inyector clase="PlanmetaService" metodo="initComponent"/>
+            <prototipo>
+                <parametro nombre="params"/>
+                <resultado/>
+            </prototipo>
+        </initComponent>
+    </planmeta>
+</ioc>

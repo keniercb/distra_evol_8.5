@@ -1,0 +1,117 @@
+.maingroup {
+    position: absolute;
+    width: 980px;
+    height: 570px;
+    overflow: scroll;
+}
+
+.maindiv {
+    position: relative;
+    width: 980px;
+    height: 570px;
+    overflow: scroll;
+}
+
+.econode {
+    position: absolute;
+    text-overflow: clip;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: xx-small;
+    padding: 2px;
+}
+
+.divgeneral {
+    top: 300px;
+    left: 200px;
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    text-overflow: clip;
+
+    padding: 2px;
+}
+
+.divfondo {
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.divheader {
+    height: auto;
+    text-align: right;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+}
+
+.divfooter {
+    height: auto;
+    text-align: right;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+}
+
+.divindice {
+    height: auto;
+    float: right;
+    text-align: center;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    padding: 2px;
+    position: absolute;
+    z-index: 200;
+}
+
+.divLineaVertical {
+    width: 1px;
+    position: absolute;
+
+}
+
+.divLineaHorizontal {
+    height: 1px;
+    position: absolute;
+
+}
+
+.imagenAC {
+    height: 8px;
+    text-align: left;
+    padding: 2px;
+}
+
+.divdescripcion {
+    height: 45px;
+    width: 120px;
+    float: right;
+    text-align: center;
+
+    padding: 2px;
+    position: absolute;
+    z-index: 500;
+}
+
+.divImgDescripcion {
+
+    width: 120px;
+    text-align: left;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    padding: 2px;
+}
+
+.textoRPRT {
+    text-align: left;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+a.ecolink:visited {
+    text-decoration: none;
+    color: black;
+}
+
+a.ecolink:hover {
+    text-decoration: underline;
+}

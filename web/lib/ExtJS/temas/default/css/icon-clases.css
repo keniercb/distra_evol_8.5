@@ -1,0 +1,158 @@
+/*
+ * Framework ZEOLIDES v2.0.2
+ *
+ * Elemento base del Framework EXTJS donde se difine las clases con los iconos personalizados a utilizar.
+ *
+ * @author Juan Luis Rodríguez Hernández
+ * @package CSS
+ * @subpackage EXTJS
+ * @copyright XETID 2014
+ * @version 2.0.0
+ */
+/*                                     ICONOS PNG                                                  */
+.cambiarcontrasena{background-image:url(../images/iconos/cambiarcontrasena.png) !important;}
+.herramientas{background-image:url(../images/iconos/herramientas.png) 26px 26px !important;}
+.folderAcceso{background-image:url(../images/iconos/folder.gif) !important;}
+.folder-openAcceso{background-image:url(../images/iconos/folder-open.gif) !important;}
+.asignarperfil{background-image:url(../images/iconos/asignarperfil.png) !important;}
+.asignaroles{background-image:url(../images/iconos/asignaroles.png) !important;}
+.regularacciones{background-image:url(../images/iconos/regularacciones.png) !important;}
+.abrir{background-image:url(../images/iconos/abrir.png) !important;}
+.abrirventana{background-image:url(../images/iconos/abrirventana.png) !important;}
+.abajo{background-image:url(../images/iconos/abajo.png) !important;}
+.aceptar{background-image:url(../images/iconos/aceptar.png) !important;}
+.activardepbaco{background-image:url(../images/iconos/activardepbaco.png) !important;}
+.actualizar{background-image:url(../images/iconos/actualizar.png) !important;}
+.adicionar{background-image:url(../images/iconos/adicionar.png) !important;}
+.ajustar{background-image:url(../images/iconos/ajustar.png) !important;}
+.anterior{background-image:url(../images/iconos/anterior.png) !important;}
+.anular{background-image:url(../images/iconos/anular.png) !important;}
+.aplicar{background-image:url(../images/iconos/aplicar.png) !important;}
+.aprobar{background-image:url(../images/iconos/aprobar.png) !important;}
+.asentar{background-image:url(../images/iconos/asentar.png) !important;}
+.asociar{background-image:url(../images/iconos/asociar.png) !important;}
+.activardesactivar{background-image:url(../images/iconos/activardesactivar.png) !important;}
+.agrupacion{background-image:url(../images/iconos/agrupacion.png) !important;}
+.auditoria{background-image:url(../images/iconos/auditoria.png) !important;}
+.auditoriainactivo{background-image:url(../images/iconos/auditoriainactivo.png) !important;}
+.ayuda{background-image:url(../images/iconos/ayuda.png) !important;}
+.balance{background-image:url(../images/iconos/balance.png) !important;}
+.banderaverde{background-image:url(../images/iconos/banderaverde.png) !important;}
+.banderaroja{background-image:url(../images/iconos/banderaroja.png) !important;}
+.banderaazul{background-image:url(../images/iconos/banderaazul.png) !important;}
+.borrar{background-image:url(../images/iconos/borrar.png) !important;}
+.buscar{background-image:url(../images/iconos/buscar.png) !important;}
+.buscaravanzada{background-image:url(../images/iconos/buscaravanzada.png) !important;}
+.calcular{background-image:url(../images/iconos/calcular.png) !important;}
+.calendario{background-image:url(../images/iconos/calendario.png) !important;}
+.cambiar{background-image:url(../images/iconos/calendario.png) !important;}
+.cambiodestado{background-image:url(../images/iconos/cambiodestado.png) !important;}
+.cancelar{background-image:url(../images/iconos/cancelar.png) !important;}
+.cancelarestado{background-image:url(../images/iconos/cancelarestado.png) !important;}
+.capitalhumano{background-image:url(../images/iconos/capitalhumano.png) !important;}
+.chumanoinactivo{background-image:url(../images/iconos/chumanoinactivo.png) !important;}
+.cargadoacuenta{background-image:url(../images/iconos/cargadoacuenta.png) !important;}  
+.cerrar{background-image:url(../images/iconos/cerrar.png) !important;}
+.comprobante{background-image:url(../images/iconos/comprobante.png) !important;}
+.conciliar{background-image:url(../images/iconos/conciliar.png) !important;}
+.configactivo{background-image:url(../images/iconos/configactivo.png) !important;}
+.configuracion{background-image:url(../images/iconos/configuracion.png) !important;}
+.configinactivo{background-image:url(../images/iconos/configinactivo.png) !important;}
+.confirmar{background-image:url(../images/iconos/confirmar.png) !important;}
+.contabilidad{background-image:url(../images/iconos/contabilidad.png) !important;}
+.contabilidadinactivo{background-image:url(../images/iconos/contabilidadinactivo.png) !important;} 
+.copiar{background-image:url(../images/iconos/copiar.png) !important;}
+.cortar{background-image:url(../images/iconos/cortar.png) !important;}
+.costosyprocesos{background-image:url(../images/iconos/costosyprocesos.png) !important;}
+.costosyprocinact{background-image:url(../images/iconos/costosyprocinact.png) !important;}
+.crearreporte{background-image:url(../images/iconos/crearreporte.png) !important;}
+.cumplimiento{background-image:url(../images/iconos/cumplimiento.png) !important;}
+.deshabilitar{background-image:url(../images/iconos/deshabilitar.png) !important;}
+.definir{background-image:url(../images/iconos/definir.png) !important;}
+.deshacer{background-image:url(../images/iconos/deshacer.png) !important;}
+.detalles{background-image:url(../images/iconos/detalles.png) !important;}
+.diferenciaconbanco{background-image:url(../images/iconos/diferenciaconbanco.png) !important;}
+.duplicar{background-image:url(../images/iconos/duplicar.png) !important;}
+.eliminar{background-image:url(../images/iconos/eliminar.png) !important;}
+.estado{background-image:url(../images/iconos/estado.png) !important;} 
+.estructura{background-image:url(../images/iconos/estructura.png) !important;}
+.estructurainactivo{background-image:url(../images/iconos/estructurainactivo.png) !important;}
+.exportar{background-image:url(../images/iconos/exportar.png) !important;}
+.facturar{background-image:url(../images/iconos/facturar.png) !important;}
+.falta{background-image:url(../images/iconos/falta.png) !important;}
+.filtrar{background-image:url(../images/iconos/filtrar.png) !important;}
+.guardar{background-image:url(../images/iconos/guardar.png) !important;}
+.generadorreportes{background-image:url(../images/iconos/generadorreportes.png) !important;}
+.genreportesinactivo{background-image:url(../images/iconos/genreportesinactivo.png) !important;}
+.historial{background-image:url(../images/iconos/historial.png) !important;}
+.importar{background-image:url(../images/iconos/importar.png) !important;}
+.imprimir{background-image:url(../images/iconos/imprimir.png) !important;}
+.incluir{background-image:url(../images/iconos/incluir.png) !important;}
+.info{background-image:url(../images/iconos/info.png) !important;}
+.informe{background-image:url(../images/iconos/informe.png) !important;}
+.iniciodeanno{background-image:url(../images/iconos/iniciodeanno.png) !important;}
+.inventario{background-image:url(../images/iconos/inventario.png) !important;}
+.inventarioinactivo{background-image:url(../images/iconos/inventarioinactivo.png) !important;}
+.invertir{background-image:url(../images/iconos/invertir.png) !important;}
+.limpiar{background-image:url(../images/iconos/limpiar.png) !important;}
+.liquidar{background-image:url(../images/iconos/liquidar.png) !important;}
+.logistica{background-image:url(../images/iconos/logistica.png) !important;}
+.logisticainactivo{background-image:url(../images/iconos/logisticainactivo.png) !important;}
+.lote{background-image:url(../images/iconos/lote.png) !important;}
+.modificar{background-image:url(../images/iconos/modificar.png) !important;}
+.mostrar{background-image:url(../images/iconos/mostrar.png) !important;}
+.multimoneda{background-image:url(../images/iconos/multimoneda.png) !important;}
+.numeroserie{background-image:url(../images/iconos/numeroserie.png) !important;}
+.nuevacorrconbanco{background-image:url(../images/iconos/nuevacorrconbanco.png) !important;}
+.nuevo{background-image:url(../images/iconos/nuevo.png) !important;}
+.pegar{background-image:url(../images/iconos/pegar.png) !important;}
+.periodoactual{background-image:url(../images/iconos/periodoactual.png) !important;}
+.publicar {background-image:url(../images/iconos/publicar.png) !important;}
+.planificacion{background-image:url(../images/iconos/planificacion.png) !important;}
+.planificacioninactivo {background-image:url(../images/iconos/planificacioninactivo.png) !important;}
+.primerapagina{background-image:url(../images/iconos/primerapagina.png) !important;}
+.primerapaginactivo{background-image:url(../images/iconos/primerapaginactivo.png) !important;}
+.probar{background-image:url(../images/iconos/probar.png) !important;}
+.procesardocumento{background-image:url(../images/iconos/procesardocumento.png) !important;}
+.rango{background-image:url(../images/iconos/rango.png) !important;}
+.reevaluacion{background-image:url(../images/iconos/reevaluacion.png) !important;}
+.recuperaciones{background-image:url(../images/iconos/recuperaciones.png) !important;}
+.renovardocumento{background-image:url(../images/iconos/renovardocumento.png) !important;}
+.restringir{background-image:url(../images/iconos/restringir.png) !important;}
+.revisar{background-image:url(../images/iconos/revisar.png) !important;}
+.salir{background-image:url(../images/iconos/salir.png) !important;}
+.seguridad{background-image:url(../images/iconos/seguridad.png) !important;}
+.seginactivo{background-image:url(../images/iconos/seginactivo.png) !important;}
+.seleccion{background-image:url(../images/iconos/seleccion.png) !important;}
+.siguiente{background-image:url(../images/iconos/siguiente.png) !important;}
+.siguienteinactivo{background-image:url(../images/iconos/siguienteinactivo.png) !important;}
+.sistemaintegral{background-image:url(../images/iconos/sistemaintegral.png) !important;}
+.traza{background-image:url(../images/iconos/traza.png) !important;}
+.trazainactivo{background-image:url(../images/iconos/trazainactivo.png) !important;}
+.terminar{background-image:url(../images/iconos/terminar.png) !important;}
+.tmpseguridad{background-image:url(../images/iconos/tmpseguridad.png) !important;}
+.ubicarproducto{background-image:url(../images/iconos/ubicarproducto.png) !important;}
+.ultimapagina{background-image:url(../images/iconos/ultimapagina.png) !important;}
+.ultimapaginainactivo{background-image:url(../images/iconos/ultimapaginainactivo.png) !important;} 
+.usuarioactivo{background-image:url(../images/iconos/usuarioactivo.png) !important;}
+.usuarioinactivo{background-image:url(../images/iconos/usuarioinactivo.png) !important;}
+.validar{background-image:url(../images/iconos/validar.png) !important;}
+.validaryaceptar{background-image:url(../images/iconos/validaryaceptar.png) !important;}
+.ver{background-image:url(../images/iconos/ver.png) !important;}
+.row-hd-cell{background-image:url(../images/grid/grid3-hrow.gif) !important;}
+.medios{background-image:url(../images/iconos/medios.png) !important;}
+.entidad{background-image:url(../images/iconos/entidad.png) !important;}
+.area{background-image:url(../images/iconos/area.png) !important;}
+.celda-no-editable{background-color:#CCCCCC;}
+
+/*Others*/
+.iconoERROR{ height:32px;width:32px; background-image:url(../images/window/icon-error.gif);}
+#entidadStAccedida, #entidadAccedida{position:absolute;background-color:#RRGGBB;margin:365px 0px 0px 200px;font-family:"Times New Roman", Times, serif; font-size:25px; color:#FFFFFF; text-decoration:underline;}
+
+.x-form-field-wrap .x-form-search-trigger {
+    background-image: url("../images/iconos/search.png") !important;
+}
+
+.x-form-field-wrap .x-form-clear-trigger{
+    background-image: url("../images/iconos/clear.png") !important;
+}

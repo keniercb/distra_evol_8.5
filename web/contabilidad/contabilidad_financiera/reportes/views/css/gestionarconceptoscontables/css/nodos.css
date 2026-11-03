@@ -1,0 +1,37 @@
+
+/*
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+.fondoverde a span{
+    color:black;
+    font-weight: bold;
+    background-color:#0E5CBE;
+}
+.letrazul a span{
+    color:#1609A1;
+    font-weight: bolder;
+}
+.leyendaAzul{
+    color:#1609A1;
+    font-weight: bold;
+}
+.leyendaVerde{
+    color:#2D7337;
+    font-weight: bold;
+}
+.leyendaAmarilla{
+    color:#CDB11F;
+    font-weight: bold;
+}
+.letraverde a span{
+    color:#2D7337;
+    font-weight: bolder;
+}
+.letramarilla a span{
+    color:#CDB11F;
+    font-weight: bolder;
+}
+

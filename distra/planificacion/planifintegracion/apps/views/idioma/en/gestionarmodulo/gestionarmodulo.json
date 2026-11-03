@@ -1,0 +1,8 @@
+{
+    lbTituloForm: 'Manager Subsystems & Modules',
+    lbBtnAgregar: 'Add',
+    lbBtnModificar: 'Update',
+    lbBtnEliminar: 'Delete',
+    lbBtnAyuda: 'Help',
+    lbRaizArbolMod: 'Subsystems & Modules'
+}

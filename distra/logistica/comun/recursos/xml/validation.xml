@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validador>
+    <logistica>
+        <utiles>
+            <ubicacion>
+                <EstructuraubicacionController>
+                    <eliminarAreaAction>
+                        <precondition>
+                            <validator class="UbicacionValidator" method="validarEliminarArea"
+                                       error="LOG_LB_UBI_001"/>
+                        </precondition>
+                    </eliminarAreaAction>
+                    <eliminarEstructuraAction>
+                        <precondition>
+                            <validator class="UbicacionValidator" method="validarEliminarUbicacion"
+                                       error="LOG_LB_UBI_001"/>
+                        </precondition>
+                    </eliminarEstructuraAction>
+                </EstructuraubicacionController>
+                <UbicacionController>
+                    <ubicarProductoAction>
+                        <precondition>
+                            <validator class="UbicacionValidator" method="validarCapacidad"
+                                       error="LOG_LB_UBI_004"/>
+
+                            <validator class="UbicacionValidator" method="validarVolumen"
+                                       error="LOG_LB_UBI_002"/>
+
+                            <validator class="UbicacionValidator" method="validarPeso"
+                                       error="LOG_LB_UBI_003"/>
+
+                            <validator class="UbicacionValidator" method="validarProducto"
+                                       error="LOG_LB_UBI_005"/>
+                        </precondition>
+
+                    </ubicarProductoAction>
+                </UbicacionController>
+            </ubicacion>
+            <producto>
+                <ProductoController>
+                    <adicionarProductoAction>
+                        <precondition>
+                            <validator class="ProductoValidator" method="crearTarjeta"
+                                       error="LOG_LB_Prod_001"/>
+                        </precondition>
+                    </adicionarProductoAction>
+
+                </ProductoController>
+                <NumeroserieController>
+                    <adicionarNumeroserieAction>
+                        <precondition>
+                            <validator class="ProductoValidator" method="validarAdicionarNroSerie"
+                                       error="LOG_LB_NroSe_001"/>
+                        </precondition>
+                    </adicionarNumeroserieAction>
+
+                </NumeroserieController>
+
+            </producto>
+            <atribdinamicos>
+                <AtributosdinamicosController>
+                    <adicionarAtributoAction>
+                        <precondition>
+                            <validator class="AtributosdinamicosValidator" method="adicionarAtributo"
+                                       error="LOG_LB_ATRIB_D_002"/>
+                        </precondition>
+                    </adicionarAtributoAction>
+                    <eliminarAtributoAction>
+                        <precondition>
+                            <validator class="AtributosdinamicosValidator" method="atributosEnUso"
+                                       error="LOG_LB_ATRIB_D_005"/>
+                        </precondition>
+                    </eliminarAtributoAction>
+                    <asociarAtributoAction>
+                        <precondition>
+                            <validator class="AtributosdinamicosValidator" method="atributosEnUso"
+                                       error="LOG_LB_ATRIB_D_005"/>
+                        </precondition>
+                    </asociarAtributoAction>
+                </AtributosdinamicosController>
+                <AgrupacionesController>
+                    <adicionarAgrupacionAction>
+                        <precondition>
+                            <validator class="AgrupacionesValidator" method="adicionarAgrupacion"
+                                       error="LOG_LB_ATRIB_D_003"/>
+                        </precondition>
+                    </adicionarAgrupacionAction>
+                </AgrupacionesController>
+            </atribdinamicos>
+            <nomdinamicos>
+                <NomdinamicosController>
+                    <adicionarNomDinamicoAction>
+                        <precondition>
+                            <validator class="NomdinamicosValidator" method="adicionarNomDinamico"
+                                       error="LOG_LB_ATRIB_D_001"/>
+                        </precondition>
+                    </adicionarNomDinamicoAction>
+                    <eliminarNomDinamicosAction>
+                        <precondition>
+                            <validator class="NomdinamicosValidator" method="eliminarNomDinamicos"
+                                       error="LOG_LB_ATRIB_D_004"/>
+                        </precondition>
+                    </eliminarNomDinamicosAction>
+                </NomdinamicosController>
+            </nomdinamicos>
+        </utiles>
+        <inventario>
+            <entrada>
+                <entrada>
+                    <AperturaController>
+                        <adicionarDocumentoAction>
+                            <precondition>
+                                <validator class="AperturaValidator" method="validarCrearTarjeta"
+                                           error="LOG_LB_Prod_001"/>
+                            </precondition>
+                        </adicionarDocumentoAction>
+                        <confirmarDocumentoAction>
+                            <precondition>
+                                <validator class="AperturaValidator" method="validarConfirmar"
+                                           error="LOG_LB_DOC_003"/>
+                                <validator class="AperturaValidator" method="validarCantidad"
+                                           error="LOG_LB_DOC_005"/>
+                                <validator class="AperturaValidator" method="validarPrecio"
+                                           error="LOG_LB_DOC_010"/>
+                                <validator class="AperturaValidator" method="validarConfirmarUbicacion"
+                                           error="LOG_LB_DOC_011"/>
+                            </precondition>
+                        </confirmarDocumentoAction>
+                        <aprobarEstadoDocumentoAction>
+                            <precondition>
+                                <validator class="AperturaValidator" method="validarConteoFisico"
+                                           error="LOG_LB_AJUSTE_002"/>
+                            </precondition>
+                        </aprobarEstadoDocumentoAction>
+                    </AperturaController>
+                    <DevolucionController>
+                        <confirmarDocumentoAction>
+                            <precondition>
+                                <validator class="DevolucionValidator" method="validarConfirmar"
+                                           error="LOG_LB_DOC_003"/>
+                                <validator class="DevolucionValidator" method="validarCantidad"
+                                           error="LOG_LB_DOC_005"/>
+                                <validator class="DevolucionValidator" method="validarCantidadLotes"
+                                           error="LOG_LB_DOC_012"/>
+                                <validator class="DevolucionValidator" method="validarPrecio"
+                                           error="LOG_LB_DOC_010"/>
+                            </precondition>
+                        </confirmarDocumentoAction>
+                        <contabilizarDocumentoAction>
+                            <precondition>
+                                <validator class="DevolucionValidator" method="validarConteoFisico"
+                                           error="LOG_LB_AJUSTE_003"/>
+                            </precondition>
+                        </contabilizarDocumentoAction>
+                    </DevolucionController>
+                    <RecepcionController>
+                        <contarDocumentoAction>
+                            <precondition>
+                                <validator class="RecepcionValidator" method="validarConfirmar"
+                                           error="LOG_LB_DOC_003"/>
+                                <validator class="RecepcionValidator" method="validarCantidad"
+                                           error="LOG_LB_DOC_005"/>
+                                <validator class="RecepcionValidator" method="validarPrecio"
+                                           error="LOG_LB_DOC_010"/>
+                            </precondition>
+                        </contarDocumentoAction>
+                        <confirmarDocumentoAction>
+                            <precondition>
+                                <validator class="RecepcionValidator" method="validarConfirmar"
+                                           error="LOG_LB_DOC_003"/>
+                                <validator class="RecepcionValidator" method="validarCantidad"
+                                           error="LOG_LB_DOC_005"/>
+                                <validator class="RecepcionValidator" method="validarPrecio"
+                                           error="LOG_LB_DOC_010"/>
+                                <validator class="RecepcionValidator" method="validarDescuento"
+                                           error="LOG_LB_DOC_024"/>
+                            </precondition>
+                        </confirmarDocumentoAction>
+                        <contabilizarDocumentoAction>
+                            <precondition>
+                                <validator class="RecepcionValidator" method="validarConteoFisico"
+                                           error="LOG_LB_AJUSTE_003"/>
+                            </precondition>
+                        </contabilizarDocumentoAction>
+                    </RecepcionController>
+                    <RecepcionreservaController>
+                        <contarDocumentoAction>
+                            <precondition>
+                                <validator class="RecepcionreservaValidator" method="validarConfirmar"
+                                           error="LOG_LB_DOC_003"/>
+                                <validator class="RecepcionreservaValidator" method="validarCantidad"
+                                           error="LOG_LB_DOC_005"/>
+                                <validator class="RecepcionreservaValidator" method="validarPrecio"
+                                           error="LOG_LB_DOC_010"/>
+                            </precondition>
+                        </contarDocumentoAction>
+                        <confirmarDocumentoAction>
+                            <precondition>
+                                <validator class="RecepcionreservaValidator" method="validarConfirmar"
+                                           error="LOG_LB_DOC_003"/>
+                                <validator class="RecepcionreservaValidator" method="validarCantidad"
+                                           error="LOG_LB_DOC_005"/>
+                                <validator class="RecepcionreservaValidator" method="validarPrecio"
+                                           error="LOG_LB_DOC_010"/>
+                            </precondition>
+                        </confirmarDocumentoAction>
+                        <contabilizarDocumentoAction>
+                            <precondition>
+                                <validator class="RecepcionreservaValidator" method="validarConteoFisico"
+                                           error="LOG_LB_AJUSTE_003"/>
+                            </precondition>
+                        </contabilizarDocumentoAction>
+                    </RecepcionreservaController>
+                    <ReclamacionController>
+                        <confirmarDocumentoAction>
+                            <precondition>
+                                <validator class="ReclamacionValidator" method="validarConfirmar"
+                                           error="LOG_LB_DOC_003"/>
+                                <validator class="ReclamacionValidator" method="validarCantidad"
+                                           error="LOG_LB_DOC_008"/>
+                            </precondition>
+                        </confirmarDocumentoAction>
+                    </ReclamacionController>
+                </entrada>
+            </entrada>
+            <movimiento>
+                <AjusteController>
+                    <confirmarDocumentoAction>
+                        <precondition>
+                            <validator class="AjusteValidator" method="validarConfirmar"
+                                       error="LOG_LB_DOC_003"/>
+                            <validator class="AjusteValidator" method="validarCantidad"
+                                       error="LOG_LB_DOC_005"/>
+                            <validator class="AjusteValidator" method="validarDiferencia"
+                                       error="LOG_LB_DOC_026"/>
+                            <validator class="AjusteValidator" method="validarNroSerie"
+                                       error="LOG_LB_DOC_020"/>
+                            <validator class="AjusteValidator" method="validarConfirmarUbicacion"
+                                       error="LOG_LB_DOC_014"/>
+                        </precondition>
+                    </confirmarDocumentoAction>
+                    <contabilizarDocumentoAction>
+                        <precondition>
+                            <validator class="AjusteValidator" method="validarConteoFisico"
+                                       error="LOG_LB_AJUSTE_003"/>
+                        </precondition>
+                    </contabilizarDocumentoAction>
+                </AjusteController>
+                <InventarioController>
+                    <confirmarDocumentoAction>
+                        <precondition>
+                            <validator class="InventarioValidator" method="validarConfirmar"
+                                       error="LOG_LB_DOC_003"/>
+                        </precondition>
+                    </confirmarDocumentoAction>
+                    <aprobarEstadoDocumentoAction>
+                        <precondition>
+                            <validator class="InventarioValidator" method="validarAprobar"
+                                       error="LOG_LB_DOC_021"/>
+                        </precondition>
+                    </aprobarEstadoDocumentoAction>
+                </InventarioController>
+                <TransferenciareaController>
+                    <confirmarDocumentoAction>
+                        <precondition>
+                            <validator class="TransferenciareaValidator" method="validarConfirmar"
+                                       error="LOG_LB_DOC_003"/>
+                            <validator class="TransferenciareaValidator" method="validarCantidad"
+                                       error="LOG_LB_DOC_005"/>
+                        </precondition>
+                    </confirmarDocumentoAction>
+                    <aprobarEstadoDocumentoAction>
+                        <precondition>
+                            <validator class="TransferenciareaValidator" method="validarConteoFisico"
+                                       error="LOG_LB_AJUSTE_002"/>
+                        </precondition>
+                    </aprobarEstadoDocumentoAction>
+                </TransferenciareaController>
+                <TransferenciainternaController>
+                    <confirmarDocumentoAction>
+                        <precondition>
+                            <validator class="TransferenciaInternaValidator" method="validarConfirmarUbicacion"
+                                       error="LOG_LB_DOC_014"/>
+                        </precondition>
+                    </confirmarDocumentoAction>
+                </TransferenciainternaController>
+            </movimiento>
+            <salida>
+                <salida>
+                    <SolicitudentregaController>
+                        <confirmarDocumentoAction>
+                            <precondition>
+                                <validator class="SolicitudEntregaValidator" method="validarConfirmar"
+                                           error="LOG_LB_DOC_003"/>
+                                <validator class="SolicitudEntregaValidator" method="validarCantidad"
+                                           error="LOG_LB_DOC_005"/>
+                            </precondition>
+                        </confirmarDocumentoAction>
+
+                    </SolicitudentregaController>
+                    <DocumentosalidaController>
+                        <confirmarDocumentoAction>
+                            <precondition>
+                                <validator class="DocumentoSalidaValidator" method="validarConfirmar"
+                                           error="LOG_LB_DOC_003"/>
+                                <!--<validator class="DocumentoSalidaValidator" method="validarTransportador"
+                                           error="LOG_LB_SAL_001"/>-->
+                                <validator class="DocumentoSalidaValidator" method="validarCantidad"
+                                           error="LOG_LB_DOC_005"/>
+                                <validator class="DocumentoSalidaValidator" method="validarCantidadLotes"
+                                           error="LOG_LB_DOC_012"/>
+                                <validator class="DocumentoSalidaValidator" method="validarNroSerie"
+                                           error="LOG_LB_DOC_020"/>
+                                <validator class="DocumentoSalidaValidator" method="validarConfirmarUbicacion"
+                                           error="LOG_LB_DOC_014"/>
+                            </precondition>
+                        </confirmarDocumentoAction>
+                        <contabilizarDocumentoAction>
+                            <precondition>
+                                <validator class="DocumentoSalidaValidator" method="validarCuenta"
+                                           error="LOG_LB_SAL_002"/>
+                                <validator class="DocumentoSalidaValidator" method="validarElementoGasto"
+                                           error="LOG_LB_SAL_003"/>
+                                <validator class="DocumentoSalidaValidator" method="validarConteoFisico"
+                                       error="LOG_LB_AJUSTE_003"/>
+                            </precondition>
+                        </contabilizarDocumentoAction>
+
+                    </DocumentosalidaController>
+                    <ConciliacionlogisticaController>
+
+                        <adicionarDocumentoAction>
+                            <precondition>
+                                <validator class="ConciliacionValidator" method="validarExistenciaConciliacion"
+                                           error="LOG_LB_DOC_009"/>
+
+                            </precondition>
+                        </adicionarDocumentoAction>
+                    </ConciliacionlogisticaController>
+                </salida>
+            </salida>
+            <alimento>
+                <RecetaController>
+                    <habilitarEntidadAction>
+                        <precondition>
+                            <validator class="RecetaValidator" method="contieneProductos"
+                                       error="LOG_LB_Rec_001"/>
+                            <validator class="RecetaValidator" method="productosConCantidad"
+                                       error="LOG_LB_Rec_002"/>
+                            <validator class="RecetaValidator" method="verificarExisteMismaReceta"
+                                       error="LOG_LB_Rec_004"/>
+                        </precondition>
+                    </habilitarEntidadAction>
+                    <eliminarRecetaAction>
+                        <precondition>
+                            <validator class="RecetaValidator" method="verificarUso"
+                                       error="LOG_LB_Rec_003"/>
+
+                        </precondition>
+                    </eliminarRecetaAction>
+                </RecetaController>
+                <MenualimentoController>
+                    <adicionarDocumentoAction>
+                        <precondition>
+                            <validator class="AlimentoValidator" method="verificarProductosByRecetas"
+                                       error="LOG_LB_Alim_001"/>
+                        </precondition>
+                    </adicionarDocumentoAction>
+                    <confirmarDocumentoAction>
+                        <precondition>
+                            <validator class="AlimentoValidator" method="verificarProductosConfirmar"
+                                       error="LOG_LB_Alim_002"/>
+                        </precondition>
+                    </confirmarDocumentoAction>
+                </MenualimentoController>
+            </alimento>
+            <comun_inv>
+                <CambioClasificacioncontableController>
+                    <confirmarDocumentoAction>
+                        <precondition>
+                            <validator class="CambioClasificacioncontableValidator" method="validarConfirmar"
+                                       error="LOG_LB_DOC_003"/>
+                            <validator class="CambioClasificacioncontableValidator" method="validarClasificacionContable"
+                                       error="LOG_Comun_INV_001"/>
+
+                        </precondition>
+                    </confirmarDocumentoAction>
+                </CambioClasificacioncontableController>
+            </comun_inv>
+        </inventario>
+        <distribucion>
+            <distribucion>
+                <DistribucionController>
+                    <confirmarDocumentoAction>
+                        <precondition>
+                            <validator class="DistribucionValidator" method="validarConfirmar"
+                                       error="LOG_LB_DOC_003"/>
+                            <validator class="DistribucionValidator" method="validarCantidad"
+                                       error="LOG_LB_DOC_005"/>
+                        </precondition>
+                    </confirmarDocumentoAction>
+                </DistribucionController>
+            </distribucion>
+        </distribucion>
+        <facturacion>
+            <facturacion>
+                <factura>
+                    <GestionarfacturaController>
+                        <confirmarFacturaAction>
+                            <precondition>
+                                <validator class="FacturaValidator" method="validarConfirmarUbicacion"
+                                           error="LOG_LB_DOC_014"/>
+
+                            </precondition>
+                            <precondition>
+                                <validator class="FacturaValidator" method="validarPreciosCeros"
+                                           error="LOG_LB_FAC_013"/>
+
+                            </precondition>
+                            <!--precondition>
+                                <validator class="FacturaValidator" method="validarNotaCredito"
+                                           error="LOG_LB_FAC_006"/>
+
+                            </precondition-->
+                        </confirmarFacturaAction>
+                        <gestionarfacturaAction>
+                             <precondition>
+                                 <validator class="FacturaValidator" method="validarMonedasRegistradas"
+                                           error="LOG_LB_FAC_002"/>
+                             </precondition>
+                            <precondition>
+                                <validator class="FacturaValidator" method="validarConfiguracion"
+                                           error="LOG_LB_FAC_003"/>
+                            </precondition>
+                        </gestionarfacturaAction>
+                        <contabilizarFacturaAction>
+                            <precondition>
+                                <validator class="FacturaValidator" method="validarPreciosCeros"
+                                           error="LOG_LB_FAC_013"/>
+
+                            </precondition>
+                        </contabilizarFacturaAction>
+                    </GestionarfacturaController>
+                </factura>
+            </facturacion>
+        </facturacion>
+        <activos_fijos>
+            <configuracion>
+                <ConfestadosoperacionesController>
+                    <cargarcomboestadoAction>
+                        <precondition>
+                            <validator class="ConfiguracionValidator" method="existeEstatusTecnicosConfigurados"
+                                       error="LOG_AFT_CONF_001"/>
+                        </precondition>
+                    </cargarcomboestadoAction>
+                    <cargaroperacionesAction>
+                        <precondition>
+                            <validator class="ConfiguracionValidator" method="existeOperacionesConfiguradasSubSistema"
+                                       error="LOG_AFT_CONF_002"/>
+                        </precondition>
+                    </cargaroperacionesAction>
+                </ConfestadosoperacionesController>
+                <ConfgruposcuentasController>
+                    <cargarcuentascontroladasAction>
+                        <precondition>
+                            <validator class="ConfiguracionValidator" method="existenCuentasConfiguradas"
+                                       error="LOG_AFT_CONF_003"/>
+                        </precondition>
+                    </cargarcuentascontroladasAction>
+                </ConfgruposcuentasController>
+            </configuracion>
+            <documento>
+                <GestdocumentoController>
+                    <aprobardocumentoAction>
+                        <precondition>
+                            <validator class="DocumentoValidator" method="validarAprobar"
+                                       error="LOG_AFT_DOC_001"/>
+                        </precondition>
+                    </aprobardocumentoAction>
+                    <confirmardocumentoAction>
+                        <precondition>
+                            <validator class="DocumentoValidator" method="validarConfirmar"
+                                       error="LOG_AFT_DOC_002"/>
+                        </precondition>
+                    </confirmardocumentoAction>
+                    <cancelardocumentoAction>
+                        <precondition>
+                            <validator class="DocumentoValidator" method="validarCancelar"
+                                       error="LOG_AFT_DOC_003"/>
+                        </precondition>
+                    </cancelardocumentoAction>
+                </GestdocumentoController>
+            </documento>
+        </activos_fijos>
+        <talleres>
+            <ordentrabajo>
+                <OrdentrabajotalleresController>
+                    <anularEstadoDocumentoAction>
+                        <precondition>
+                            <validator class="OrdentrabajotalleresValidator" method="validarAnularEstado"
+                                       error="LOG_T_001"/>
+                        </precondition>
+                    </anularEstadoDocumentoAction>
+                     <cerrarOrdenTrabajoAction>
+                        <precondition>
+                            <validator class="OrdentrabajotalleresValidator" method="validarCerrarOrdenTrabajo"
+                                       error="LOG_T_004"/>
+                        </precondition>
+                    </cerrarOrdenTrabajoAction>
+                </OrdentrabajotalleresController>
+            </ordentrabajo>
+            <citas>
+                <CitastalleresController>
+                    <anularDocumentoAction>
+                        <precondition>
+                            <validator class="CitastalleresValidator" method="validarAnularEstado"
+                                       error="LOG_T_005"/>
+                        </precondition>
+                    </anularDocumentoAction>
+                </CitastalleresController>
+            </citas>
+        </talleres>
+        <reserva>
+            <planacumulacion>
+                <PlanacumulacionController>
+                    <confirmarDocumentoAction>
+                        <precondition>
+                            <validator class="PlanacumulacionValidator" method="validarCantidad"
+                                       error="LOG_R_001"/>
+                            <validator class="PlanacumulacionValidator" method="validarProductosConCantidad"
+                                       error="LOG_R_002"/>
+                            <validator class="PlanacumulacionValidator" method="validarProductosAsignados"
+                                       error="LOG_R_005"/>
+                            <validator class="PlanacumulacionValidator" method="validarProductosDistribuidos"
+                                       error="LOG_R_006"/>
+                        </precondition>
+                    </confirmarDocumentoAction>
+                </PlanacumulacionController>
+            </planacumulacion>
+            <cambioubicacion>
+                <CambioubicacionController>
+                    <confirmarDocumentoAction>
+                        <precondition>
+                            <validator class="CambioubicacionValidator" method="validarExistenciaProducto"
+                                       error="LOG_LB_DOC_003"/>
+                            <validator class="CambioubicacionValidator" method="validarProductosConCantidad"
+                                       error="LOG_LB_DOC_005"/>
+                        </precondition>
+                    </confirmarDocumentoAction>
+                </CambioubicacionController>
+            </cambioubicacion>
+            <configuracion>
+                <ConfcuadrobasicoresetController>
+                    <eliminarProductosAction>
+                        <precondition>
+                            <validator class="ConfcuadrobasicoresetValidator" method="validarEliminarProducto"
+                                       error="LOG_R_CONFRESERVA_002"/>
+                        </precondition>
+                    </eliminarProductosAction>
+                </ConfcuadrobasicoresetController>
+            </configuracion>
+        </reserva>
+        <!--Validaciones del subsistema Compra-->
+        <compra>
+            <documento>
+                <OrdencompraController>
+                    <confirmarDocumentoAction>
+                        <precondition>
+                            <validator class="ComprasValidator" method="validarProductosDocumento" 
+                                       error="LOG_LB_DOC_003"/>
+                            <validator class="ComprasValidator" method="validarCantidadesPorProducto" 
+                                       error="LOG_LB_DOC_005"/>
+<!--                            <validator class="ComprasValidator" method="validarPrecioPorProducto" 
+                                       error="LOG_LB_DOC_010"/>-->
+                        </precondition>
+                    </confirmarDocumentoAction>
+                </OrdencompraController>
+                <SolicitudcompraController>
+                    <confirmarDocumentoAction>
+                        <precondition>
+                            <validator class="ComprasValidator" method="validarProductosDocumento" 
+                                       error="LOG_LB_DOC_003"/>
+                            <validator class="ComprasValidator" method="validarCantidadesPorProducto" 
+                                       error="LOG_LB_DOC_005"/>
+<!--                            <validator class="ComprasValidator" method="validarPrecioPorProducto" 
+                                       error="LOG_LB_DOC_010"/>-->
+                        </precondition>
+                    </confirmarDocumentoAction>
+                </SolicitudcompraController>
+            </documento>
+        </compra>
+        <!--FIN-->
+        <!--Validaciones del subsistema Produccion-->
+        <produccion>
+            <produccion>
+                <OrdenproduccionController>
+                    <anularDocumentoAction>
+                        <precondition>
+                            <validator class="ProduccionValidator" method="validarAnularDocumento"
+                                       error="LOG_LB_PRO_003"/>
+
+                        </precondition>
+                    </anularDocumentoAction>
+                </OrdenproduccionController>
+               
+                <ValeproduccionController>
+                    <eliminarDocumentoAction>
+                        <precondition>
+                            <validator class="ProduccionValidator" method="validarEliminar"
+                                       error="LOG_LB_PRO_004"/>
+
+                        </precondition>
+                    </eliminarDocumentoAction>
+                </ValeproduccionController>
+
+                 <OrdenproduccionController>
+                    <anularDocumentoAction>
+                        <precondition>
+                            <validator class="ProduccionValidator" method="eliminarProductosExtrasOrden"
+                                       error="LOG_LB_PRO_005"/>
+
+                        </precondition>
+                    </anularDocumentoAction>
+                </OrdenproduccionController>
+
+                 <OrdenproduccionController>
+                    <anularDocumentoAction>
+                        <precondition>
+                            <validator class="ProduccionValidator" method="eliminarProductosExtrasOrden"
+                                       error="LOG_LB_PRO_005"/>
+
+                        </precondition>
+                    </anularDocumentoAction>
+                </OrdenproduccionController>
+
+                <OrdenproduccionController>
+                    <anularDocumentoAction>
+                        <precondition>
+                            <validator class="ProduccionValidator" method="validarDocumentoSubsistemaAction"
+                                       error="LOG_LB_PRO_006"/>
+
+                        </precondition>
+                    </anularDocumentoAction>
+                </OrdenproduccionController>
+            </produccion>
+        </produccion>
+        <!--FIN-->
+		 <combustible>
+            <turnotrabajo>
+                <TurnotrabajoController>
+                    <cerrarTurnoTrabajoAction>
+                        <precondition>
+                            <validator class="TurnotrabajoValidator" method="validarLecturaBrazo"
+                                       error="LOG_LB_COMB_002"/>
+                            <validator class="TurnotrabajoValidator" method="validarVentas"
+                                       error="LOG_LB_COMB_006"/>
+                            <validator class="TurnotrabajoValidator" method="validarVentasProcesadas"
+                                       error="LOG_LB_COMB_007"/>
+                        </precondition>
+                    </cerrarTurnoTrabajoAction>
+                </TurnotrabajoController>
+            </turnotrabajo>
+        </combustible>
+    </logistica>
+</validador>

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<excepciones>
+	<!-- Excepciones del componente de notificaciones -->
+    <HERRNOT001>
+        <tipo>P</tipo>
+        <es>
+            <mensaje>Ya existe un tipo de aviso con esa denominación</mensaje>
+            <descripcion>Ya existe un tipo de aviso con esa denominación</descripcion>
+        </es>
+    </HERRNOT001>
+    <HERRNOT002>
+        <tipo>P</tipo>
+        <es>
+            <mensaje>Ya existe un tipo de contenido con esa denominación</mensaje>
+            <descripcion>Ya existe un tipo de contenido con esa denominación</descripcion>
+        </es>
+    </HERRNOT002>
+    <HERRNOT003>
+        <tipo>P</tipo>
+        <es>
+            <mensaje>Ya existe una lista de distribución con esa denominación</mensaje>
+            <descripcion>Ya existe una lista de distribución con esa denominación</descripcion>
+        </es>
+    </HERRNOT003>
+    <HERRNOT004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El aspecttemplate configurado en el weaver para esa acción no existe.</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </HERRNOT004>
+    <HERRNOT005>
+        <tipo>P</tipo>
+        <es>
+            <mensaje>El evento a agregar ya existe.</mensaje>
+            <descripcion>El evento a agregar ya existe.</descripcion>
+        </es>
+    </HERRNOT005>
+    <HERRNOT006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Algunos xmls que usa el componente de notificaciones no tienen permiso de escritura.</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </HERRNOT006>
+    <HERRNOT007>
+        <tipo>P</tipo>
+        <es>
+            <mensaje>La acción especificada ya tiene eventos configurados para esa ejecución.</mensaje>
+            <descripcion>La acción especificada ya tiene eventos configurados para esa ejecución.</descripcion>
+        </es>
+    </HERRNOT007>
+    <HERRNOT008>
+        <tipo>L</tipo>
+        <es>
+            <mensaje>La configuración del evento de notificaciones no concuerda con la forma en que se lanzó. Verifique si el evento es aspectado o no. </mensaje>
+            <descripcion>La configuración del evento de notificaciones no concuerda con la forma en que se lanzó.</descripcion>
+        </es>
+    </HERRNOT008>
+    <HERRNOT009>
+        <tipo>L</tipo>
+        <es>
+            <mensaje>El evento de notificaciones que se mandó a ejecutar no existe en la especificación de eventos del MT.</mensaje>
+            <descripcion>El evento de notificaciones que se mandó a ejecutar no existe en la especificación de eventos del MT.</descripcion>
+        </es>
+    </HERRNOT009>
+    <HERRNOT010>
+        <tipo>LPV</tipo>
+        <es>
+            <mensaje>Error de conexión de ssh2 al servidor.</mensaje>
+            <descripcion>%s</descripcion>
+        </es>
+    </HERRNOT010>
+    <HERRNOT011>
+        <tipo>LPV</tipo>
+        <es>
+            <mensaje>Problemas de ejecución de comandos ssh2 en el servidor.</mensaje>
+            <descripcion>%s</descripcion>
+        </es>
+    </HERRNOT011>
+	<!-- Fin Excepciones del componente de notificaciones-->
+    <!-- Excepciones del componente ProjectManager del ide -->
+    <PROJECT_MGR_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Insuficientes privilegios para crear directorios en los espacios de trabajo.</mensaje>
+            <descripcion>Insuficientes privilegios para crear directorios en los espacios de trabajo.</descripcion>
+        </es>
+    </PROJECT_MGR_001>
+    <!-- Fin de excepciones del componente ProjectManager del ide -->
+    
+    
+    	<!-- Excepciones de ZendExt_Tool-->
+	<ZENDEXT_TOOL_001>
+		<tipo>LP</tipo>
+        <es>
+           <mensaje>El subsistema que quiere adicionar ya existe.</mensaje>
+           <descripcion>El subsistema que quiere adicionar ya existe.</descripcion>
+        </es>
+	</ZENDEXT_TOOL_001>
+	<ZENDEXT_TOOL_001.1>
+		<tipo>LP</tipo>
+        <es>
+           <mensaje>Ya existe un subsistema con este nombre.</mensaje>
+           <descripcion>Ya existe un subsistema con este nombre.</descripcion>
+        </es>
+	</ZENDEXT_TOOL_001.1>
+	<ZENDEXT_TOOL_002>
+		<tipo>P</tipo>
+        <es>
+            <mensaje>El módulo que quiere adicionar ya existe.</mensaje>
+            <descripcion>El módulo que quiere adicionar ya existe.</descripcion>
+        </es>
+	</ZENDEXT_TOOL_002>
+	<ZENDEXT_TOOL_002.1>
+		<tipo>P</tipo>
+        <es>
+            <mensaje>Ya existe un módulo con ese nombre.</mensaje>
+            <descripcion>Ya existe un módulo con ese nombre.</descripcion>
+        </es>
+	</ZENDEXT_TOOL_002.1>
+	<ZENDEXT_TOOL_003>
+		<tipo>P</tipo>
+        <es>
+            <mensaje>El fichero que quiere adicionar ya existe.</mensaje>
+            <descripcion>El fichero que quiere adicionar ya existe.</descripcion>
+        </es>
+	</ZENDEXT_TOOL_003>
+	<ZENDEXT_TOOL_003.1>
+		<tipo>P</tipo>
+        <es>
+            <mensaje>Ya existe un fichero con este nombre.</mensaje>
+            <descripcion>Ya existe un fichero con este nombre.</descripcion>
+        </es>
+	</ZENDEXT_TOOL_003.1>
+	<ZENDEXT_TOOL_004>
+		<tipo>P</tipo>
+        <es>
+            <mensaje>La clase modelo que quiere adicionar ya existe.</mensaje>
+            <descripcion>La clase modelo que quiere adicionar ya existe.</descripcion>
+        </es>
+	</ZENDEXT_TOOL_004>
+	<ZENDEXT_TOOL_004.1>
+		<tipo>P</tipo>
+        <es>
+            <mensaje>Ya existe una clase modelo con este nombre.</mensaje>
+            <descripcion>Ya existe una clase modelo con este nombre.</descripcion>
+        </es>
+	</ZENDEXT_TOOL_004.1>
+	<ZENDEXT_TOOL_005>
+		<tipo>P</tipo>
+        <es>
+            <mensaje>La acción que quiere adicionar ya existe.</mensaje>
+            <descripcion>La acción que quiere adicionar ya existe.</descripcion>
+        </es>
+	</ZENDEXT_TOOL_005>
+	<ZENDEXT_TOOL_005.1>
+		<tipo>P</tipo>
+        <es>
+            <mensaje>Ya existe una acción con este nombre.</mensaje>
+            <descripcion>Ya existe una acción con este nombre.</descripcion>
+        </es>
+	</ZENDEXT_TOOL_005.1>
+	<ZENDEXT_TOOL_006>
+		<tipo>P</tipo>
+        <es>
+            <mensaje>La clase controladora que quiere adicionar ya existe.</mensaje>
+            <descripcion>La clase controladora que quiere adicionar ya existe.</descripcion>
+        </es>
+	</ZENDEXT_TOOL_006>
+	<ZENDEXT_TOOL_006.1>
+		<tipo>P</tipo>
+        <es>
+            <mensaje>Ya existe un controlador con este nombre.</mensaje>
+            <descripcion>Ya existe un controlador con este nombre.</descripcion>
+        </es>
+	</ZENDEXT_TOOL_006.1>
+	<ZENDEXT_TOOL_007>
+		<tipo>P</tipo>
+        <es>
+            <mensaje>El directorio que quiere adicionar ya existe.</mensaje>
+            <descripcion>El directorio que quiere adicionar ya existe.</descripcion>
+        </es>
+	</ZENDEXT_TOOL_007>
+	<ZENDEXT_TOOL_007.1>
+		<tipo>P</tipo>
+        <es>
+            <mensaje>Ya existe un directorio con este nombre.</mensaje>
+            <descripcion>Ya existe un directorio con este nombre.</descripcion>
+        </es>
+	</ZENDEXT_TOOL_007.1>
+	<ZENDEXT_TOOL_008>
+		<tipo>P</tipo>
+        <es>
+            <mensaje>Este campo es obligatorio.</mensaje>
+            <descripcion>Este campo es obligatorio.</descripcion>
+        </es>
+	</ZENDEXT_TOOL_008>
+	<ZENDEXT_TOOL_009>
+		<tipo>P</tipo>
+        <es>
+            <mensaje>Solo admite caracteres alfanuméricos y el primer caracter debe ser una letra.</mensaje>
+            <descripcion>Solo admite caracteres alfanuméricos y el primer caracter debe ser una letra.</descripcion>
+        </es>
+	</ZENDEXT_TOOL_009>
+
+    <!-- Excepciones del componente de metadata -->
+    <XMT001>
+        <tipo>P</tipo>
+        <es>
+            <mensaje>La tabla que desea adicionar ya existe en el esquema seleccionado.</mensaje>
+            <descripcion>La tabla que desea adicionar ya existe en el esquema seleccionado.</descripcion>
+        </es>
+    </XMT001>
+    <XMT002>
+        <tipo>P</tipo>
+        <es>
+            <mensaje>Ya existe un campo con esa denominación</mensaje>
+            <descripcion>Ya existe un campo con esa denominación</descripcion>
+        </es>
+    </XMT002>
+    <XMT003>
+        <tipo>P</tipo>
+        <es>
+            <mensaje>No usado</mensaje>
+            <descripcion>No usado</descripcion>
+        </es>
+    </XMT003>
+    <XMT004>
+        <tipo>P</tipo>
+        <es>
+            <mensaje>La tabla ha sido eliminada de la base de datos.</mensaje>
+            <descripcion>La tabla ha sido eliminada de la base de datos.</descripcion>
+        </es>
+    </XMT004>
+    <XMT005>
+        <tipo>P</tipo>
+        <es>
+            <mensaje>La relación que quiere adicionar ya existe.</mensaje>
+            <descripcion>La relación que quiere adicionar ya existe.</descripcion>
+        </es>
+    </XMT005>
+    <!-- Fin Excepciones del componente de metadata-->
+
+        <!-- Excepciones del componente ayuda -->
+    <AYUDA_001>
+        <tipo>P</tipo>
+        <es>
+            <mensaje>La categoría que quiere importar ya existe.</mensaje>
+            <descripcion>La categoría que quiere importar ya existe.</descripcion>
+        </es>
+    </AYUDA_001>
+    <AYUDA_002>
+        <tipo>P</tipo>
+        <es>
+            <mensaje>Debe introducir un archivo de ayuda válido. Verifique por favor.</mensaje>
+            <descripcion>Debe introducir un archivo de ayuda válido. Verifique por favor.</descripcion>
+        </es>
+    </AYUDA_002>
+    <AYUDA_003>
+        <tipo>P</tipo>
+        <es>
+            <mensaje>No tiene permisos para copiar un archivo en el servidor. Contacte al administrador.</mensaje>
+            <descripcion>No tiene permisos para copiar un archivo en el servidor. Contacte al administrador.</descripcion>
+        </es>
+    </AYUDA_003>
+    <!-- Fin de excepciones del componente ayuda -->
+
+</excepciones>

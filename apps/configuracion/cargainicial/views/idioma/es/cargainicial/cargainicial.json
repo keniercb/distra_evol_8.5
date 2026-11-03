@@ -1,0 +1,22 @@
+{
+    "msgaperturado": "La carga inicial del subsistema ha sido configurada.",
+    "msgSistConfigurado": "El sistema ha sido aperturado.",
+    "lbCompoNomMoneda": "Gestionar monedas",
+    "lbCompoFecha": "Gestionar fecha por subsistemas",
+    "lbCompoFormatos": "Gestionar formatos",
+    "lbValidarNomMoneda": "El nomenclador de monedas no ha sido configurado.",
+    "lbCompoEjercicios": "Gestionar ejercicios",
+    "lbNEEjercicios": "No existen ejercicios configurados.",
+    "lbNEFechas": "No existen fechas configuradas.",
+    "lbNEFormatos": "No existen formatos configurados.",
+    "lbNEMonedaContable": "No existe moneda contable configurada.",
+    "lbNEMonedaAlternativa": "No existen monedas alternativas configuradas.",
+    "lbFinalizando": "Finalizando configuraci&oacute;n del sistema...",
+    "lbBienvenida": "<h1>Bienvenidos a Carga inicial!</h1><p>Por favor siga los pasos para la configuraci&oacute;n.</p>",
+    "lbGracias": "<h1>Gracias por configurar el sistema!</h1><p>Por favor seleccione finalizar para terminar la configuraci&oacute;n.</p>",
+    "lbBtnAnterior": "Anterior",
+    "lbBtnSiguiente": "Siguiente",
+    "lbBtnFinalizar": "Finalizar",
+    "lbTtAnterior": "Anterior <b>(Ctrl+Alt+A)</b>",
+    "lbTtSiguiente": "Siguiente <b>(Ctrl+Alt+N)</b>"
+}

@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteListadoMatricula" language="groovy" pageWidth="1500" pageHeight="1500" whenNoDataType="AllSectionsNoDetail" columnWidth="1460" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" >
+    <property name="ireport.zoom" value="1.5"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <style name="textf" isBlankWhenNull="true"/>
+    <queryString>
+		<![CDATA[SELECT DISTINCT
+                    rna.idregnumerico,
+                    rna.annofabricacion as annofabricacion,
+                    rna.idestatustecnico,
+                    rn.nroserie as nroserie,
+                    tr.nromatricula as nromatricula,
+                    tr.nromotor1 as nromotor1,
+                    tr.nromotor2 as nromotor2,
+                    color.denominacion as colorptim,
+                    colorsec.denominacion as colorsec,
+                    tcom.denominacion as combustible,
+                    ind.codigo as codigo,
+                    ind.denominacion as denominacion,
+                    nm.denominacion as marca,
+                    nmod.denominacion as modelo,
+                    dm.idproducto, pro.idprod,
+                    pais.nombrepais as nacionalidad,
+                    estatus.denominacion as denomestado ,regv.registro, regv.idtipotramite,regv.idcolorchapa,regv.idtipochapa,regv.idsector,
+                         regv.numerolaser1,regv.numerolaser2,regv.tonelage,regv.foliocirculacion,
+                          tipo.denominacion as denomtipotramite,color.denominacion as denomcolorchapa,
+                          tipochapa.denominacion as denomtipochapa, sector.denominacion as denomsector,
+                          regv.idpersona, persona.nombre || ' ' || persona.papel  || ' ' || persona.sapel as denompersona,
+                          regv.idmoneda,regv.idestructura as regestructura, inspector.nombre as nombreinspector     FROM mod_logactivofijotangible.dat_regnumericoactivo rna
+
+                      inner join mod_logactivofijotangible.dat_registronumerico rn on rna.idregnumerico = rn.idregnumerico
+                      left join mod_logactivofijotangible.nom_estatustecnico estatus
+                      on estatus.idestatustecnico = rna.idestatustecnico
+                      inner join mod_logistica.dat_producto pro on pro.idproducto = rn.idproducto
+                      inner join mod_logistica.dat_movimiento dm on dm.idproducto = pro.idproducto
+                      inner join mod_logistica.dat_documento dd on dd.iddocumento = dm.iddocumento
+                      INNER JOIN mod_estructuracomp.nom_filaestruc f ON pro.idestructuraop = f.idfila
+                      inner join mod_datosmaestros.nom_indicador ind on ind.idindicador = pro.idprod
+                      left join mod_nomencladores.nom_pais pais on pais.idpais = ind.idpais
+                      inner join mod_datosmaestros.nom_indicadorhoja nih on nih.idindicador = ind.idindicador
+                      inner join mod_datosmaestros.nom_marca nm on nm.idmarca = nih.idmarca
+                      inner join mod_datosmaestros.nom_modelo nmod on nmod.idmodelo = nih.idmodelo
+                      left join mod_logactivofijotangible.dat_regnumericoactivotransp tr
+                      on tr.idregnumerico = rna.idregnumerico
+                      left join mod_logactivofijotangible.nom_tipocombustible tcom
+                      on tcom.idtipocombustible = tr.idtipocombustible
+                      left join mod_logactivofijotangible.nom_color color on color.idcolor = rna.idcolorprim
+                      left join mod_logactivofijotangible.nom_color colorsec on colorsec.idcolor = rna.idcolorsec inner join mod_logactivofijotangible.dat_registrovehiculo regv
+                        on regv.idregnumerico = rna.idregnumerico
+                       left join mod_logactivofijotangible.nom_tipotramite tipo on regv.idtipotramite = tipo.idtipotramite
+                       left join mod_logactivofijotangible.nom_color colorchapa on colorchapa.idcolor = regv.idcolorchapa
+                       left join mod_logactivofijotangible.nom_tipochapa tipochapa on tipochapa.idtipochapa = regv.idtipochapa
+                       left join mod_logactivofijotangible.nom_sector sector on sector.idsector = regv.idsector
+                       left join mod_persona.dat_persona persona on persona.idpersona = regv.idpersona
+                       left join mod_logactivofijotangible.dat_inspectormatricula inspector on inspector.idinspectormatricula = regv.idinspectormatricula
+             WHERE dd.estado = 3 AND f.idfila IN (
+                                        SELECT idfila FROM mod_estructuracomp.nom_filaestruc
+                                            WHERE
+                                            lft >= (SELECT lft FROM mod_estructuracomp.nom_filaestruc
+                                            WHERE idfila = 100000110) AND
+                                            rgt <= (SELECT rgt FROM mod_estructuracomp.nom_filaestruc
+                                            WHERE idfila = 100000110)
+                                        )    and regv.tipo = 0 offset(0) limit(20)]]>
+    </queryString>
+    <field name="idregnumerico" class="java.math.BigDecimal"/>
+    <field name="annofabricacion" class="java.math.BigDecimal">
+        <fieldDescription><![CDATA[almacena el anno de fabricacion.]]></fieldDescription>
+    </field>
+    <field name="nroserie" class="java.lang.String"/>
+    <field name="nromatricula" class="java.lang.String"/>
+    <field name="nromotor1" class="java.lang.String"/>
+    <field name="nromotor2" class="java.lang.String"/>
+    <field name="colorptim" class="java.lang.String"/>
+    <field name="colorsec" class="java.lang.String">
+        <fieldDescription><![CDATA[Indentifica si el medio tiene color secundario o no. ]]></fieldDescription>
+    </field>
+    <field name="combustible" class="java.lang.String"/>
+    <field name="codigo" class="java.lang.String">
+        <fieldDescription><![CDATA[Nombre del campo en donde se encuentra el codigo del nomenclador.]]></fieldDescription>
+    </field>
+    <field name="denominacion" class="java.lang.String"/>
+    <field name="marca" class="java.lang.String"/>
+    <field name="modelo" class="java.lang.String"/>
+    <field name="nacionalidad" class="java.lang.String">
+        <fieldDescription><![CDATA[Nacionalidad del país]]></fieldDescription>
+    </field>
+    <field name="denomestado" class="java.lang.String"/>
+    <field name="numerolaser1" class="java.lang.String"/>
+    <field name="numerolaser2" class="java.lang.String"/>
+    <field name="tonelage" class="java.math.BigDecimal"/>
+    <field name="foliocirculacion" class="java.math.BigDecimal"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="30" splitType="Stretch"/>
+    </title>
+    <pageHeader>
+        <band splitType="Stretch"/>
+    </pageHeader>
+    <columnHeader>
+        <band height="20" splitType="Stretch">
+            <staticText>
+                <reportElement x="1" y="0" width="81" height="20" />
+                <box leftPadding="0">
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Código]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="82" y="0" width="81" height="20" />
+                <box leftPadding="0">
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Denominación]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="163" y="0" width="100" height="20" />
+                <box leftPadding="0">
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Marca-Modelo]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="263" y="0" width="70" height="20" />
+                <box leftPadding="0">
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Matrícula]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="333" y="0" width="70" height="20" />
+                <box leftPadding="0">
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Combustible]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="403" y="0" width="70" height="20" />
+                <box leftPadding="0">
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Año de fab.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="473" y="0" width="86" height="20" />
+                <box leftPadding="0">
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[País]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="629" y="0" width="70" height="20" />
+                <box leftPadding="0">
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Color sec.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="1222" y="0" width="135" height="20" />
+                <box leftPadding="0">
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Estado técnico]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="559" y="0" width="70" height="20" />
+                <box leftPadding="0">
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Color prim.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="699" y="0" width="70" height="20" />
+                <box leftPadding="0">
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Nro. motor1]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="769" y="0" width="70" height="20" />
+                <box leftPadding="0">
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Nro. motor2]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="839" y="0" width="70" height="20" />
+                <box leftPadding="0">
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Nro. chasis]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="909" y="0" width="81" height="20" />
+                <box leftPadding="0">
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Folio circulación]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="990" y="0" width="81" height="20" />
+                <box leftPadding="0">
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Nro. láser1]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="1071" y="0" width="81" height="20" />
+                <box leftPadding="0">
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Nro. láser2]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="1152" y="0" width="70" height="20" />
+                <box leftPadding="0">
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Tonelaje]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="21" splitType="Stretch">
+            <textField isBlankWhenNull="true">
+                <reportElement x="82" y="0" width="81" height="20" />
+                <box leftPadding="3">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{denominacion}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="163" y="0" width="100" height="20" />
+                <box leftPadding="3">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[($F{modelo})?$F{marca}+"-"+$F{modelo}:$F{marca}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="263" y="0" width="70" height="20" />
+                <box leftPadding="3">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{nromatricula}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="333" y="0" width="70" height="20" />
+                <box leftPadding="3">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{combustible}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="403" y="0" width="70" height="20" />
+                <box leftPadding="3">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{annofabricacion}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="473" y="0" width="86" height="20" />
+                <box leftPadding="3">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{nacionalidad}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="559" y="0" width="70" height="20" />
+                <box leftPadding="3">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{colorptim}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="629" y="0" width="70" height="20" />
+                <box leftPadding="3">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{colorsec}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="699" y="0" width="70" height="20" />
+                <box leftPadding="3">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{nromotor1}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="769" y="0" width="70" height="20" />
+                <box leftPadding="3">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{nromotor2}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="839" y="0" width="70" height="20" />
+                <box leftPadding="3">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{nroserie}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="1222" y="0" width="135" height="20" />
+                <box leftPadding="3">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{denomestado}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="909" y="0" width="81" height="20" />
+                <box leftPadding="3">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{foliocirculacion}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="990" y="0" width="81" height="20" />
+                <box leftPadding="3">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{numerolaser1}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="1071" y="0" width="81" height="20" />
+                <box leftPadding="3">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{numerolaser2}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="1152" y="0" width="70" height="20" />
+                <box leftPadding="3">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{tonelage}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="1" y="0" width="81" height="20" />
+                <box leftPadding="3">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="64" splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band height="56" splitType="Stretch"/>
+    </pageFooter>
+    <summary>
+        <band height="66" splitType="Stretch"/>
+    </summary>
+</jasperReport>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weaver>
+	<metadatos>
+		<metaconfig>
+			<MetaconfigController>
+				<!-- Gestion de los nomencladores-->
+				<gestionarAccionesAction aspecttemplate="aspectemplate2"/>
+			</MetaconfigController>
+		</metaconfig>
+		<reporte>
+			<ReportesController>
+				<!--Reporte Grafico -->
+				<guardarConfiguracionAction aspecttemplate="aspectemplate2"/>
+				<modificarConfiguracionAction aspecttemplate="aspectemplate2"/>
+			</ReportesController>
+		</reporte>
+		<estructura>
+			<EstructuraController>
+				<!--Gestionar Estructura-->
+				<insertaValoresAction aspecttemplate="aspectemplate2"/>
+				<modificarValoresAction aspecttemplate="aspectemplate2"/>
+				<!--Gestionar Cargo-->
+				<insertarCargoAction aspecttemplate="aspectemplate2"/>
+				<modificarCargoAction aspecttemplate="aspectemplate2"/>
+
+			</EstructuraController>
+		</estructura>
+		<proyecto>
+			<ProyectoController>
+				<!--Gestionar EProyecto-->
+				<gestionarAccionesAction aspecttemplate="aspectemplate2"/>
+
+			</ProyectoController>
+		</proyecto>
+	</metadatos>
+</weaver>

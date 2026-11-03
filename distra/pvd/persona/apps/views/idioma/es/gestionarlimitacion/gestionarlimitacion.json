@@ -1,0 +1,17 @@
+{
+  lbBtnAdicionar: "Ad<u>i</u>cionar",
+  ttBtnAdicionar: "Adicionar limitación <b>(Alt+I)</b>",
+  lbBtnAyuda: "Ayuda",
+  ttBtnAyuda: "Ayuda de la funcionalidad",
+  lbBtnAceptar: "Aceptar",
+  ttBtnAceptar: "Guardar datos y cerrar ventana (Enter)",
+  lbBtnCancelar: "Cancelar",
+  ttBtnCancelar: "Cerrar ventana sin guardar los datos",
+  lbRCTReporte: "Listado de personas",
+  lbRCTConfig: "Configurar búsqueda de personas",
+  lbRCTGrid: "Listado de personas",
+  lbCBCausaLimit: "Causa de limitación",
+  lbDFfdesde: "Fecha inicio",
+  lbDFfhasta: "Fecha fin",
+  lbTitMsgSeguroEliminar:'&iquest;Est&aacute; seguro que desea eliminar la limitaci&oacute;n seleccionada?',
+}

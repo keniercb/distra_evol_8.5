@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<projectProfile type="default">
+    <projectDirectory>
+        <projectProfileFile filesystemName=".zeolides_project.xml"/>
+        <componentSpecificationFile filesystemName=".component_spec.xml"/>
+        <controllersDirectory>
+            <controllerFile controllerName="Package">
+                <actionMethod actionName="package"/>
+            </controllerFile>
+        </controllersDirectory>
+        <modelsDirectory>
+            <bussinesDirectory>
+                <phpFile fileName="ManagerSVNModel"/>
+                <phpFile fileName="utilFunctionModel"/>
+            </bussinesDirectory>
+            <directoryDirectory directoryName="Consultas"/>
+            <domainDirectory>
+                <directoryDirectory directoryName=".src"/>
+                <generatedDirectory/>
+            </domainDirectory>
+        </modelsDirectory>
+        <workersDirectory/>
+        <servicesDirectory/>
+        <comunDirectory>
+            <recursosDirectory>
+                <xmlDirectory>
+                    <configIocFile fileName="ioc"/>
+                    <weaverFile fileName="weaver"/>
+                    <validationFile fileName="validation"/>
+                    <exceptionFile fileName="exception"/>
+                    <managerFile fileName="managerexception"/>
+                    <modulesConfigFile fileName="modulesconfig"/>
+                </xmlDirectory>
+            </recursosDirectory>
+        </comunDirectory>
+        <viewsDirectory>
+            <viewScriptsDirectory>
+                <directoryDirectory directoryName="package">
+                    <phtmlFile fileName="package"/>
+                </directoryDirectory>
+            </viewScriptsDirectory>
+        </viewsDirectory>
+    </projectDirectory>
+</projectProfile>

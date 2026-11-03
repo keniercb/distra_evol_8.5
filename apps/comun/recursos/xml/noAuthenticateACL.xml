@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ACL>
+    <SAML referencia = "/seguridad/index.php/identityprovider/sso"/>
+    <SAML referencia = "/seguridad/index.php/identityprovider/slo"/>
+    <SAML referencia = "/seguridad/index.php/identityprovider/login"/>
+    <SAML referencia = "/seguridad/index.php/identityprovider/checkcertificate"/>
+    <SAML referencia = "/seguridad/index.php/identityprovider/authenticate"/>
+    <SAML referencia = "/seguridad/index.php/serviceprovider/index"/>
+    <SAML referencia = "/seguridad/index.php/serviceprovider/acs"/>
+    <SAML referencia = "/seguridad/index.php/serviceprovider/slo"/>
+    <SAML referencia = "/seguridad/index.php/configuracion/tieneModuloCein"/>
+</ACL>

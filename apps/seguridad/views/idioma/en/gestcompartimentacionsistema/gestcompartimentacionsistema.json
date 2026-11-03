@@ -1,0 +1,12 @@
+{
+lbTitDenDominioBuscar:'Domain',
+lbRootNodeArbolSubsist:'Tree Systems',
+waitingMsg: 'Por favor espere...',
+buttonText: 'Accept',
+rootNameNode: 'Domains',
+tooltipAceptarVen:'Save data',
+textToolTipHelp: 'Mostrar ayuda de la funcionalidad <b>(Alt+H)</b>',
+lbBtnAyuda:'Help',
+tooltipAyuda:'Help System',
+lbBtnAcercaDe:'About',
+}

@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<weaver>
+  <logistica>
+    <utiles>
+      <ubicacion>
+        <EstructuraubicacionController>
+          <eliminarAreaAction aspecttemplate="aspectemplate2"/>
+          <eliminarEstructuraAction aspecttemplate="aspectemplate2"/>
+        </EstructuraubicacionController>
+        <UbicacionController>
+          <ubicarProductoAction aspecttemplate="aspectemplate2"/>
+        </UbicacionController>
+      </ubicacion>
+      <producto>
+        <ProductoController>
+          <adicionarProductoAction aspecttemplate="aspectemplate2"/>
+        </ProductoController>
+        <NumeroserieController>
+          <adicionarNumeroserieAction aspecttemplate="aspectemplate2"/>
+        </NumeroserieController>
+      </producto>
+      <atribdinamicos>
+        <AtributosdinamicosController>
+          <adicionarAtributoAction aspecttemplate="aspectemplate2"/>
+          <eliminarAtributoAction aspecttemplate="aspectemplate2"/>
+          <asociarAtributoAction aspecttemplate="aspectemplate2"/>
+        </AtributosdinamicosController>
+        <AgrupacionesController>
+          <adicionarAgrupacionAction aspecttemplate="aspectemplate2"/>
+        </AgrupacionesController>
+      </atribdinamicos>
+      <nomdinamicos>
+        <NomdinamicosController>
+          <adicionarNomDinamicoAction aspecttemplate="aspectemplate2"/>
+          <eliminarNomDinamicosAction aspecttemplate="aspectemplate2"/>
+        </NomdinamicosController>
+      </nomdinamicos>
+    </utiles>
+    <inventario>
+      <entrada>
+        <entrada>
+          <AperturaController>
+            <adicionarDocumentoAction aspecttemplate="aspectemplate2"/>
+            <confirmarDocumentoAction aspecttemplate="aspectemplate2"/>
+            <aprobarEstadoDocumentoAction aspecttemplate="aspectemplate2"/>
+          </AperturaController>
+          <DevolucionController>
+            <confirmarDocumentoAction aspecttemplate="aspectemplate2"/>
+            <contabilizarDocumentoAction aspecttemplate="aspectemplate2"/>
+          </DevolucionController>
+          <RecepcionController>
+            <contarDocumentoAction aspecttemplate="aspectemplate2"/>
+            <confirmarDocumentoAction aspecttemplate="aspectemplate2"/>
+            <contabilizarDocumentoAction aspecttemplate="aspectemplate2"/>
+          </RecepcionController>
+          <RecepcionreservaController>
+            <contarDocumentoAction aspecttemplate="aspectemplate2"/>
+            <confirmarDocumentoAction aspecttemplate="aspectemplate2"/>
+            <contabilizarDocumentoAction aspecttemplate="aspectemplate2"/>
+          </RecepcionreservaController>
+          <ReclamacionController>
+            <confirmarDocumentoAction aspecttemplate="aspectemplate2"/>
+          </ReclamacionController>
+        </entrada>
+      </entrada>
+      <movimiento>
+        <AjusteController>
+          <confirmarDocumentoAction aspecttemplate="aspectemplate2"/>
+          <contabilizarDocumentoAction aspecttemplate="aspectemplate2"/>
+        </AjusteController>
+        <InventarioController>
+          <confirmarDocumentoAction aspecttemplate="aspectemplate2"/>
+          <aprobarEstadoDocumentoAction aspecttemplate="aspectemplate2"/>
+        </InventarioController>
+        <TransferenciareaController>
+          <confirmarDocumentoAction aspecttemplate="aspectemplate2"/>
+          <aprobarEstadoDocumentoAction aspecttemplate="aspectemplate2"/>
+        </TransferenciareaController>
+        <TransferenciainternaController>
+          <confirmarDocumentoAction aspecttemplate="aspectemplate2"/>
+        </TransferenciainternaController>
+      </movimiento>
+      <salida>
+        <salida>
+          <SolicitudentregaController>
+            <confirmarDocumentoAction aspecttemplate="aspectemplate2"/>
+          </SolicitudentregaController>
+          <DocumentosalidaController>
+            <confirmarDocumentoAction aspecttemplate="aspectemplate2"/>
+            <contabilizarDocumentoAction aspecttemplate="aspectemplate2"/>
+            <contabilizarDocumentoAction aspecttemplate="aspectemplate2"/>
+          </DocumentosalidaController>
+          <ConciliacionlogisticaController>
+            <adicionarDocumentoAction aspecttemplate="aspectemplate2"/>
+          </ConciliacionlogisticaController>
+        </salida>
+      </salida>
+      <alimento>
+        <RecetaController>
+          <habilitarEntidadAction aspecttemplate="aspectemplate2"/>
+          <eliminarRecetaAction aspecttemplate="aspectemplate2"/>
+        </RecetaController>
+        <MenualimentoController>
+          <adicionarDocumentoAction aspecttemplate="aspectemplate2"/>
+          <confirmarDocumentoAction aspecttemplate="aspectemplate2"/>
+        </MenualimentoController>
+      </alimento>
+      <comun_inv>
+        <CambioClasificacioncontableController>
+          <confirmarDocumentoAction aspecttemplate="aspectemplate2"/>
+        </CambioClasificacioncontableController>
+      </comun_inv>
+    </inventario>
+    <distribucion>
+      <distribucion>
+        <DistribucionController>
+          <confirmarDocumentoAction aspecttemplate="aspectemplate2"/>
+        </DistribucionController>
+      </distribucion>
+    </distribucion>
+    <facturacion>
+      <facturacion>
+        <factura>
+          <GestionarfacturaController>
+            <confirmarFacturaAction aspecttemplate="aspectemplate2"/>
+            <gestionarfacturaAction aspecttemplate="aspectemplate2"/>
+            <contabilizarDocumentoAction aspecttemplate="aspectemplate2"/>
+            <contabilizarFacturaAction aspecttemplate="aspectemplate2"/>
+            <eliminarFacturaAction aspecttemplate="aspectemplate2"/>
+          </GestionarfacturaController>
+        </factura>
+      </facturacion>
+    </facturacion>
+    <activos_fijos>
+      <configuracion>
+        <ConfestadosoperacionesController>
+          <cargarcomboestadoAction aspecttemplate="aspectemplate2"/>
+          <cargaroperacionesAction aspecttemplate="aspectemplate2"/>
+        </ConfestadosoperacionesController>
+        <ConfgruposcuentasController>
+          <cargarcuentascontroladasAction aspecttemplate="aspectemplate2"/>
+        </ConfgruposcuentasController>
+      </configuracion>
+      <documento>
+        <GestdocumentoController>
+          <aprobardocumentoAction aspecttemplate="aspectemplate2"/>
+          <confirmardocumentoAction aspecttemplate="aspectemplate2"/>
+          <cancelardocumentoAction aspecttemplate="aspectemplate2"/>
+        </GestdocumentoController>
+      </documento>
+    </activos_fijos>
+    <talleres>
+      <ordentrabajo>
+        <OrdentrabajotalleresController>
+          <anularEstadoDocumentoAction aspecttemplate="aspectemplate2"/>
+          <cerrarOrdenTrabajoAction aspecttemplate="aspectemplate2"/>
+        </OrdentrabajotalleresController>
+      </ordentrabajo>
+      <citas>
+        <CitastalleresController>
+          <anularDocumentoAction aspecttemplate="aspectemplate2"/>
+        </CitastalleresController>
+      </citas>
+    </talleres>
+    <reserva>
+      <planacumulacion>
+        <PlanacumulacionController>
+          <confirmarDocumentoAction aspecttemplate="aspectemplate2"/>
+        </PlanacumulacionController>
+      </planacumulacion>
+      <cambioubicacion>
+        <CambioubicacionController>
+          <confirmarDocumentoAction aspecttemplate="aspectemplate2"/>
+        </CambioubicacionController>
+      </cambioubicacion>
+      <configuracion>
+        <ConfcuadrobasicoresetController>
+          <eliminarProductosAction aspecttemplate="aspectemplate2"/>
+        </ConfcuadrobasicoresetController>
+      </configuracion>
+    </reserva>
+    <!--Validaciones del subsistema Compra-->
+    <compra>
+      <documento>
+        <OrdencompraController>
+          <confirmarDocumentoAction aspecttemplate="aspectemplate2"/>
+        </OrdencompraController>
+        <SolicitudcompraController>
+          <confirmarDocumentoAction aspecttemplate="aspectemplate2"/>
+        </SolicitudcompraController>
+      </documento>
+    </compra>
+    <produccion>
+      <produccion>
+        <OrdenproduccionController>
+          <anularDocumentoAction aspecttemplate="aspectemplate2"/>
+        </OrdenproduccionController>
+        <ValeproduccionController>
+          <eliminarDocumentoAction aspecttemplate="aspectemplate2"/>
+        </ValeproduccionController>
+         <OrdenproduccionController>
+          <eliminarProductosExtrasOrden aspecttemplate="aspectemplate2"/>
+        </OrdenproduccionController>
+         <OrdenproduccionController>
+          <validarDocumentoSubsistemaAction aspecttemplate="aspectemplate2"/>
+        </OrdenproduccionController>
+       
+      </produccion>
+    </produccion>
+	<combustible>
+      <turnotrabajo>
+        <TurnotrabajoController>
+          <cerrarTurnoTrabajoAction aspecttemplate="aspectemplate2"/>
+        </TurnotrabajoController>
+      </turnotrabajo>
+    </combustible>
+  </logistica>
+</weaver>

@@ -1,0 +1,37 @@
+<?php 
+	$html = "<div style=\"font-size: 11px; font-family: sans-serif\"><b>Usuario:</b> {$this->perfilusuario['usuario']}<p>"
+			. "<b>Dominio:</b> {$this->perfilusuario['dominio']}<p>"
+			. "<b>Entidad:</b> {$this->perfilusuario['entidad']}<p>"
+			. "<b>Area:</b> {$this->perfilusuario['area']}<p>"
+			. "<b>Cargo:</b> {$this->perfilusuario['cargo']}<p>"
+			. "<b>Escritorio:</b> {$this->perfilusuario['portal']}<p>"
+			. "<b>Idioma:</b> {$this->perfilusuario['idioma']}<p>"
+			. "<b>Tema:</b> {$this->perfilusuario['tema']}<p>"
+			. "<b>Activo:</b> {$this->perfilusuario['activo']}<p>";
+	if (is_array($this->perfilusuario['dinamico']))
+		foreach ($this->perfilusuario['dinamico'] as $nombre=>$campo)
+			$html .= "<b>{$this->perfilusuario[$campo][1]}:</b> {$this->perfilusuario[$campo][0]}<p>";
+	$html .= "</div>";
+?>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Datos del Usuario"</title>
+<script type="text/javascript" src="<?php echo $this->dir_ucid;?>js/imporcss.js"></script>
+<link href="<?php echo $this->dir_ext_ccs;?>css/ext-all.css" rel="stylesheet" type="text/css" media="screen"/>
+</head>
+
+<body>
+<div id="panel"></div>
+<input type="hidden" id="hidusuario" value="<?php echo $this->perfilusuario['idusuario']; ?>">
+<input type="hidden" id="hiddominio" value="<?php echo $this->perfilusuario['iddominio']; ?>">
+<script language="javascript" type="text/javascript">
+	var jsonficha = {html: '<?php echo $html; ?>'};
+</script>
+
+<script type="text/javascript" src="<?php echo $this->dir_extjs;?>js/ext-base.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_extjs;?>js/ext-all.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid;?>js/ucid-all.js"></script>
+<script type="text/javascript" src="../../views/js/gestusuario/fichausuario.js"></script>
+</body>
+</html>

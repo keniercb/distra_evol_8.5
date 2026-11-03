@@ -1,0 +1,27 @@
+.ux-grid3-row-action-cell .x-grid3-cell-inner {
+    padding: 1px 10px 0 10px;
+}
+
+.ux-grid3-row-action-cell .x-grid3-cell-inner div {
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.icon-btn {
+    background-image: url("/tribunales/sentencia/views/imagenes/sancionado.png");
+}
+
+.icon-btn-add {
+    background-image: url("/pvd/regimentrabajo/views/images/accept.png");
+}
+
+.icon-btn-del {
+    background-image: url("/pvd/regimentrabajo/views/images/cancel.png");
+}
+
+/*
+.icon-btn-search {
+    background-image: url("/lib/ExtJS/temas/default/images/iconos/buscar.png");
+}*/

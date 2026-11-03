@@ -1,0 +1,128 @@
+{
+  /**------------Comun-----------------------------**/
+  cargando               : 'Loading',
+  buscar                 : 'Search',
+  blankText              : 'This field is mandatory.',
+  fieldLabelDenominacion : 'Denomination',
+  fieldLabelDescripcion  : 'Description',
+
+  adicionarSub           : 'Add subsystem <b style="float: right; margin-left: 125px; margin-top: -17px;">(Alt+I+S)</b>',
+  adicionarFunc          : 'Add functionality <b style="float: right; margin-left: 125px; margin-top: -17px;">(Alt+I+F)</b>',
+  adicionarRec           : 'Add resource <b style="float: right; margin-left: 110px; margin-top: -17px;">(Alt+I+R)</b>',
+
+  titleArbolReferencia   : 'Reference tree',
+
+  cancelar               : 'Cancel',
+  toolTipcancelar        : 'Close window without saving data<b>(Alt+X)</b>',
+  aceptar                : 'Accept',
+  toolTipaceptar         : 'Saving data and close window<b>(Enter)</b>',
+
+  /**------------TreeDD.js-----------------------------**/
+  titleTree              : 'Registered subsystem',
+
+  /**------------PanelMenuIzquierdo.js-----------------------------**/
+  adicionarMenuIz        : 'Add component', //<b>(Alt+I) + (S, F ó R)</b>
+  adicionarCategoria     : 'Add category <b>(Alt+I+C)</b>',
+  adicionarCateg         : 'Add category',
+  adicionarSubsistema    : 'Add subsystem <b>(Alt+I+S)</b>',
+
+  adicionarFuncionalidad : 'Add functionality <b>(Alt+I+F)</b>',
+
+  adicionarRecurso       : 'Add resource <b>(Alt+I+R)</b>',
+
+  eliminarMenuIz         : 'Delete component <b>(DEL)</b>',
+  exportarSubsistema     : 'Export system <b>(Alt+E)</b>',
+  importarSubsistema     : 'Import system <b>(Ctrl+Alt+I)</b>',
+  buscarMenuIz           : 'Search <b>(Alt+B)</b>',
+  limpiarMenuIz          : 'Clean filter <b>(Alt+L)</b>',
+
+  /**------------PanelDerecho.js-----------------------------**/
+  guardar                : 'Save change <b>(Alt+G)</b>',
+
+  /**------------Formulario.js-----------------------------**/
+  titleFieldset          : 'Info',
+
+  fieldLabelAbreviatura  : 'Abbreviation',
+  fieldLabelIcono        : 'Icon',
+
+  boxLabelVisibilidad    : 'Visibility',
+  boxLabelExterno        : 'Extern',
+  cajaReferencia         : 'Select reference',
+  fieldLabelReferencia   : 'Reference',
+  regexText1             : 'Only supports alphanumeric and special(-_) characters.',
+  regexText2             : 'Only supports alphanumeric characters',
+  buscarReferencia       : 'Search reference <b>(Alt+W)</b>',
+  maxLengthText          : 'Max length for this field is {0}.',
+
+  /**------------gridEditorAcciones.js-----------------------------**/
+  buscarGrid             : 'Search action <b>(Alt+B)</b>',
+  limpiarGrid            : 'Clean filter <b>(Ctrl+Alt+L)</b>',
+
+  /**------------panelGrid.js-----------------------------**/
+  adicionarAccion        : 'Add action <b>(Alt+I+A)</b>',
+  eliminarAccion         : 'Delete action <b>(Shift+D)</b>',
+
+  /**------------contextMenu.js-----------------------------**/
+  eliminarSub            : 'Delete subsystem<b style="float: right;  margin-top: -17px;">(DEL)</b>',
+  eliminarFunc           : 'Delete funcionality<b style="float: right; margin-top: -17px;">(DEL)</b>',
+  eliminarRec            : 'Delete resource<b style="float: right;margin-left: 85px; margin-top: -17px; ">(DEL)</b>',
+
+  textMaximoCaracteres   : 'Max length required is {0}.',
+
+  /**------------arbolRefSist.js-----------------------------**/
+  textroot               : 'Subsystem',
+
+  /**------------arbolRefFunc.js-----------------------------**/
+  textroot1              : 'Application',
+
+  /**------------storeTreeDD.js-----------------------------**/
+  textstore              : 'Subsystem',
+
+  /**------------windowAccion.js-----------------------------**/
+  titleWinAccion         : 'Add action',
+
+  aplicar                : 'Apply',
+  toolTipaplicar         : 'Save data and clean fields',
+
+  /**------------windowImportarSistema.js-----------------------------**/
+  titlewinImp            : 'Import system',
+  fieldLabelImp          : 'Select system to import',
+
+  /**------------configuracionSub.js-----------------------------**/
+  titleFieldsetSubsistema    :'Subsystem info',
+  titleFieldsetFuncionalidad :'Funtionality info',
+  titleFieldsetRecurso       :'Resource info',
+  titleInsertarSubsistema    :'Insert subsystem',
+  titleInsertarFuncionalidad :'Insert funtionality',
+  titleInsertarRecurso       :'Insert resource',
+  fieldLabelReferenciaExt    :'Web server reference',
+  waitTitle                  :'Please wait...',
+  waitMsgOnRender            :'Saving position',
+  waitMsgImpSub              :'Importing system',
+  informacion                :'Info',
+  error                      :'Error',
+  confirmacion               :'Confirmation',
+  confirmPreg                :'You sure you want to delete the selected subsystem?',
+  waitMsgElimSub             :'Deleting system data',
+  confirmPreg1               :'You sure you want to delete the selected functionality?',
+  waitMsgElimFunc            :'Deleting functionality data',
+  confirmPreg2               :'You sure you want to delete the selected resource?',
+  waitMsgElimRec             :'Deleting resource data',
+  waitMsgAddSub              :'Saving system data',
+  waitMsgAddFunc             :'Saving functionality data',
+  msgErrorAddRec             :'You must select at least one action to insert the resource.',
+  msgErrorInsRec             :'You must check at least one action to insert a resource.',
+  waitMsgAddRec              :'Saving resource data',
+  advertencia                :'Warning',
+  msgAdvertencia             :'f you withdraw all the resource shares will cease to exist . Want to continue with the operation?',
+  msgAdvertencia1            :'Some actions have been unchecked. <br>If you uncheck an action will be deleted. Want to continue with the operation?</br>',
+  confirmPreg3               :'Are you sure you want to delete the selected action?',
+  waitMsgElimAction          :"Deleting action",
+  waitMsgElimAction1         :"Deleting unchecked actions",
+  waitMsgInsAcc              :"Inserting action",
+  waitMsgModAcc              :"Saving modified data actions",
+  waitMsgModAccInt           :"Saving changes",
+  noseencontrarondatos       :"There are no data that match the criteria you specified.",
+  errorformulario            :"Review form data.",
+  datossinguardar            :"There are unsaved data, want to continue?"
+}

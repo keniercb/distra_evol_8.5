@@ -1,0 +1,17 @@
+{
+    BtnAyuda: 'Ayuda',
+    BtnBuscar: '<u>B</u>uscar',
+    BtnLimpiar: '<u>L</u>impiar',
+    lbBtnLimpiar: 'Limpiar filtro <b>(Alt+L)</b>',
+    lbBtnBuscar: '<u>B</u>uscar persona <b>(Alt+B)</b>',
+    BtnAdicionar: 'Ad<u>i</u>cionar',
+    lbBtnAdicionar: 'Adicionar persona <b>(Alt+I)</b>',
+    BtnEliminar: 'Eliminar',
+    lbBtnEliminar: 'Eliminar persona <b>(DEL)</b>',
+    btnAceptar: 'Aceptar',
+    textbtnCancelar: 'Cancelar',
+    textToolTipCancelar: 'Cerrar ventana sin guardar los datos <b>(Alt+X)</b>',
+    textToolTipAceptar: 'Guardar datos y cerrar ventana <b>(Enter)</b>',
+    lbNoDatosBusc: 'No existen datos que se correspondan con los criterios de b&uacute;squeda especificados.',
+    lbNoDatos: 'No existen datos que mostrar.'
+}

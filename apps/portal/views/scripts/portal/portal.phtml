@@ -1,0 +1,302 @@
+<?php
+$dirCerts = substr(
+        $_SERVER['DOCUMENT_ROOT'],
+        0,
+        strrpos($_SERVER['DOCUMENT_ROOT'], 'web')
+    ) . 'config' . DIRECTORY_SEPARATOR . 'certs' . DIRECTORY_SEPARATOR . 'auth' . DIRECTORY_SEPARATOR;
+$configCert = parse_ini_file($dirCerts . 'rsa.ini');
+$publicKey = addcslashes(
+    file_get_contents($dirCerts . $configCert['publicKey']),
+    '\\'
+);
+?>
+<html>
+<head>
+    <title>Distra - Sistema de Gestión Empresarial</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link rel="icon" href="../../favicon.png" type="image/png"/>
+    <script type="text/javascript"
+            src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+
+<!--    <link href="--><?php //echo $this->dir_ext_ccs; ?><!--css/icon-clases.css"-->
+<!--          rel="stylesheet" type="text/css" media="screen"/>-->
+    <link href="<?php echo $this->dir_ext_ccs; ?>css/desktop.css"
+          rel="stylesheet" type="text/css" media="screen"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../views/css/portal/portal.css"/>
+    <!--------------------------Apariencia------------------------->
+    <link rel="stylesheet" type="text/css"
+          href="../../views/js/portal/styles.css"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="../../views/js/portal/apariencia/css/loadingindicator.css">
+    <link rel="stylesheet" type="text/css"
+          href="../../views/js/portal/apariencia/css/imagebrowser.css">
+    <link rel="stylesheet" type="text/css"
+          href="../../views/js/portal/apariencia/css/statictextfield.css">
+    <link rel="stylesheet" type="text/css"
+          href="../../views/js/portal/apariencia/css/htmleditorimage.css">
+    <!----------------------- estilos del Jabber ------------------------------->
+<!--    <link rel="stylesheet" type="text/css"-->
+<!--          href="../../views/js/portal/jabber/resources/jabberstyles.css"/>-->
+
+    <!--------------------------bootstrap CSS------------------------->
+    <link rel="stylesheet"
+          href="../../views/js/portal/notificaciones/assets/css/bootstrap-portal.min.css"/>
+    <link rel="stylesheet"
+          href="../../views/js/portal/notificaciones/assets/css/font-awesome.min.css"/>
+    <link rel="stylesheet"
+          href="../../views/js/portal/notificaciones/assets/css/ace-fonts.css"/>
+    <link rel="stylesheet"
+          href="../../views/js/portal/notificaciones/assets/css/ace.min.css"/>
+    <link rel="stylesheet"
+          href="../../views/js/portal/notificaciones/notificaciones.css"/>
+
+    <!--------------------------bootstrap CSS------------------------->
+    <link href="<?php echo $this->dir_ext_ccs; ?>css/ext-all.css"
+          rel="stylesheet" type="text/css" media="screen"/>
+    <!--------------------------jquery------------------------->
+    <script type="text/javascript"
+            src="../../views/js/portal/notificaciones/assets/js/socket-io-client/socket.io.js"></script>
+    <script type="text/javascript"
+            src="../../views/js/portal/notificaciones/assets/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript"
+            src="../../views/js/portal/notificaciones/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="../../views/js/portal/notificaciones/assets/jBeep/jBeep.min.js"></script>
+
+    <!--------------------------jquery------------------------->
+
+    <style>
+        .x-form-file-wrap .x-form-file {
+            position: absolute !important;
+            right: 0 !important;
+            -moz-opacity: 0;
+            filter: alpha(opacity:0) !important;
+            opacity: 0 !important;
+            z-index: 2 !important;
+            height: 22px !important;
+        }
+
+        .x-form-file-wrap .x-form-file-btn {
+            position: absolute !important;
+            right: 0 !important;
+            z-index: 1 !important;
+        }
+
+        .x-form-file-wrap .x-form-file-text {
+            position: absolute !important;
+            left: 0 !important;
+            z-index: 3 !important;
+            color: #777 !important;
+        }
+
+        .x-fieldset-cein {
+            border: 0px solid #B5B8C8;
+            padding: 0px;
+            margin-bottom: 5px;
+            display: block;
+        }
+    </style>
+    <style>
+         #entidadStAccedida, #entidadAccedida{
+             position:absolute;
+             background-color:#RRGGBB;
+             margin:0% 0% 0% 49%;
+             font-family:"Thaoma", Times, serif;
+             font-size:18px; color:black;
+             text-decoration:underline;
+         }
+    </style>
+
+
+</head>
+<body id="idbodyPortal">
+<audio id="audio" src="../../views/js/portal/notificaciones/assets/sound/campana.mp3"> </audio>
+
+<script> var iddestinatario = "<?php echo $this->iddestinatario; ?>"</script>
+<script> var SERVER_NAME = "<?php echo $this->SERVER_NAME; ?>"</script>
+<input id="publicKey" name="publicKey" type="text" style="display:none"
+       hidden="true"
+       value="<?php echo $publicKey; ?>"/>
+
+<div id="bannerPortal" class="bannerPortal" style="display:none">
+    <div class="bIzq"></div>
+    <div class="bDer"></div>
+</div>
+<div id="barraMenu" style="display:none"></div>
+<input type="hidden" id="dir_ext_css" name="dir_extjs"
+       value="<?php echo $this->dir_ext_ccs; ?>"/>
+
+<div id="cargandoconfiguracion" align="center" style="margin-top:200px;"><img
+        src="../../views/images/portal/cargando.gif"/><br>Por favor espere.
+    Cargando la configuraci&oacute;n de la
+    aplicaci&oacute;n ...
+</div>
+<div id="ux-taskbar">
+    <div id="ux-taskbar-start"></div>
+    <div id="ux-taskbuttons-panel"></div>
+    <div class="x-clear"></div>
+</div>
+<div id="x-desktop" style="display: none; position: absolute">
+    <table border="0"
+           style="position: absolute;margin-bottom:100px; width:100%;height:100%;"
+           cellpadding="0"
+           cellspacing="0">
+        <tr style="border-style: hidden;">
+            <td colspan="3" class="x-desktop-relleno"></td>
+        </tr>
+        <tr style="border-style: hidden;">
+            <td class="x-desktop-relleno"></td>
+            <td style="width:698px;height:524px;" class="x-desktop"></td>
+            <td class="x-desktop-relleno"></td>
+        </tr>
+        <tr>
+            <td colspan="3" class="x-desktop-relleno"></td>
+        </tr>
+    </table>
+    <div id="entidadAccedida" style="display:none;"><?php echo "Entidad: ".$this->entidadaccedida;?></div>
+    <script>
+        var mostrarentidad = "<?php echo $this->mostrarentidad; ?>"
+        if(mostrarentidad)
+        {
+            document.getElementById('entidadAccedida').style.display = "block";
+        }
+        else{
+            document.getElementById('entidadAccedida').style.display = "none";
+        }
+
+    </script>
+</div>
+<!----------------------- no quitar el div por el jabber ------------------------------->
+<span id="jabber-message"></span>
+
+<script type="text/javascript"
+        src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+<script type="text/javascript"
+        src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+<script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+
+<script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/ucid-win-iframe.js"></script>
+<script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/StartMenu.js"></script>
+<script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/TaskBar.js"></script>
+<script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/Desktop.js"></script>
+<script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/App.js"></script>
+<script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/Module.js"></script>
+<script language="JavaScript" type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/security/rsa/jsbn.js"></script>
+<script language="JavaScript" type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/security/rsa/rsa.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/FileUploadField.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/security/forge/forge.min.js"></script>
+
+<?php echo $this->includeperfilseguridad; ?>
+<?php echo $this->cein; ?>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/utiles/adicionarForm/vistaTreePanel.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/utiles/adicionarForm/vistatreepanelViewModel.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/utiles/adicionarForm/GestorreportesView.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/utiles/adicionarForm/GestorreportesViewModel.js"></script>
+<script type="text/javascript" src="../../views/js/portal/portal.js"></script>
+<script type="text/javascript"
+        src="../../views/js/portal/cambiarpassword.js"></script>
+<script type="text/javascript"
+        src="../../views/js/portal/asociarcert.js"></script>
+<script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/utiles/Utiles.js"></script>
+<script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/utiles/extensiones.js"></script>
+<script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/validadores.js"></script>
+
+<!-- Dependencias XMPP PUVSUB (Publicador-Subscriptor) -->
+<script type="text/javascript"
+        src="../../views/js/portal/puvsub/strophe.js"></script>
+<script type="text/javascript"
+        src="../../views/js/portal/puvsub/strophe.pubsub.js"></script>
+<script type="text/javascript"
+        src="../../views/js/portal/puvsub/bosh.js"></script>
+<script type="text/javascript"
+        src="../../views/js/portal/puvsub/pubsub.js"></script>
+<!--<script type="text/javascript" src="../../views/js/portal/puvsub/attach.js"></script>-->
+<!--Para trabajar con las apariencias del portal-->
+<script type="text/javascript" src="../../views/js/portal/apariencia/fileuploadbutton.js"></script>
+<script type="text/javascript"
+        src="../../views/js/portal/apariencia/statictextfield.js"></script>
+<script type="text/javascript"
+        src="../../views/js/portal/apariencia/loadingindicator.js"></script>
+
+<script type="text/javascript"
+        src="../../views/js/portal/apariencia/tema.js"></script>
+<script type="text/javascript"
+        src="../../views/js/portal/apariencia/shortcuts/shortcuts.js"></script>
+<script type="text/javascript"
+        src="../../views/js/portal/apariencia/accesosdirectos.js"></script>
+<script type="text/javascript"
+        src="../../views/js/portal/apariencia/iniciorapido.js"></script>
+<script type="text/javascript"
+        src="../../views/js/portal/apariencia/aplicaciones.js"></script>
+<script type="text/javascript"
+        src="../../views/js/portal/apariencia/fondo.js"></script>
+<script type="text/javascript"
+        src="../../views/js/portal/apariencia/sidebar.js"></script>
+<script type="text/javascript"
+        src="../../views/js/portal/apariencia/apariencia.js"></script>
+<!----------------------- Dependencias Jabber ------------------------------->
+<script
+    src='../../views/js/portal/jabber/jquery/js/jquery-1.4.2.min.js'></script>
+<script
+    src='../../views/js/portal/jabber/jquery/js/jquery-ui-1.8.2.custom.min.js'></script>
+<!--<script src='../../views/js/portal/jabber/strophe/strophe.js'></script>-->
+<!--<script src='../../views/js/portal/jabber/strophe/strophe.plugin.js'></script>-->
+<!--<script src='../../views/js/portal/jabber/raphael/raphael.js'></script>-->
+<!--<script type="text/javascript"-->
+<!--        src="../../views/js/portal/jabber/JabberNameSpaces.js"></script>-->
+<!--<script type="text/javascript"-->
+<!--        src="../../views/js/portal/jabber/resources/etiquetas.js"></script>-->
+<!--<script type="text/javascript"-->
+<!--        src="../../views/js/portal/jabber/man.js"></script>-->
+<!--<script src='../../views/js/portal/jabber/JabberGroup.js'></script>-->
+<!--<script src='../../views/js/portal/jabber/JabberContact.js'></script>-->
+<!--<script type="text/javascript"-->
+<!--        src="../../views/js/portal/jabber/JabberHelp.js"></script>-->
+<!--<script type="text/javascript"-->
+<!--        src="../../views/js/portal/jabber/JabberPortada.js"></script>-->
+<!--<script type="text/javascript"-->
+<!--        src="../../views/js/portal/jabber/JabberAttachment.js"></script>-->
+<!--<script type="text/javascript"-->
+<!--        src="../../views/js/portal/jabber/JabberMessage.js"></script>-->
+<!--<script type="text/javascript"-->
+<!--        src="../../views/js/portal/jabber/JabberMessageDifusion.js"></script>-->
+<!--<script type="text/javascript"-->
+<!--        src="../../views/js/portal/jabber/JabberPerfil.js"></script>-->
+<!--<script type="text/javascript"-->
+<!--        src="../../views/js/portal/jabber/Jabber.js"></script>-->
+<!--<script type="text/javascript"-->
+<!--        src="../../views/js/portal/jabber/loggin.js"></script>-->
+<!--<script type="text/javascript"-->
+<!--        src="../../views/js/portal/jabber/mensaje.js"></script>-->
+
+<script type="text/javascript"
+        src="../../views/js/portal/notificaciones/Ext.menu.Notificaciones.js"></script>
+<script type="text/javascript"
+        src="../../views/js/portal/notificaciones/Ext.grid.Notificaciones.js"></script>
+<script type="text/javascript"
+        src="../../views/js/portal/notificaciones/Ext.window.Notificaciones.js"></script>
+<!--<script type="text/javascript" src="../../views/js/portal/notificaciones/Ext.window.IntervaloNotificaciones.js">-->
+
+
+<?php /*echo $this->includeperfilseguridad; */?><!--
+--><?php /*echo $this->cein; */?>
+<!--
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/FileUploadField.js"></script>
+<script type="text/javascript" src="../../../../../herramientas/gestornc/views/js/GestorreportesView.js"></script>-->
+
+</body>
+</html>

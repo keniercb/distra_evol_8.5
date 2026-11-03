@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title>Gestionar estructura</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+    <script language="javascript"
+            type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+    <link rel="stylesheet" type="text/css" href="/metadatos/comun/css/metadatos.css"/>
+    <link rel="stylesheet" type="text/css" href="/metadatos/comun/componentes/MultiComboSelect/multicomboselect.css"/>
+    <link rel="stylesheet" type="text/css" href="/metadatos/comun/componentes/GroupingCombo/ComboBoxBtn.css"/>
+    <link rel="stylesheet" type="text/css" href="/metadatos/comun/componentes/imagen/imagen.css"/>
+</head>
+<body>
+<div id="element"></div>
+
+<script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+<?php
+if ($this->arrayJs) {
+    foreach ($this->arrayJs as $dir) {
+        echo $dir;
+    }
+}
+?>
+
+
+<!--CLASES DE UTILIDAD-->
+<script type="text/javascript" src="/metadatos/comun/array_obj_funtions.js"></script>
+
+<script type="text/javascript" src="/lib/UCID/js/utiles/ViewModel.js"></script>
+<script type="text/javascript" src="/lib/UCID/js/utiles/Utiles.js"></script>
+<script type="text/javascript" src="/lib/UCID/js/utiles/extensiones.js"></script>
+<script type="text/javascript" src="/metadatos/comun/validator.js"></script>
+<script type="text/javascript" src="/metadatos/comun/plugins/browser.js"></script>
+<script type="text/javascript" src="/metadatos/comun/goUtil.js"></script>
+
+
+<script type="text/javascript" src="/metadatos/proyecto/views/js/idioma/etiquetas.js"></script>
+
+<!--GESTIONAR REPORTES-->
+<script src="/metadatos/comun/componentes/winExport.js"></script>
+<script src="/metadatos/proyecto/views/js/reporte/ventanas/WinReportePlantilla.js"></script>
+<script src="/metadatos/proyecto/views/js/reporte/ventanas/WinReporteTablaOrganizacion.js"></script>
+<script src="/metadatos/proyecto/views/js/reporte/Organigrama/reporteComponentes.js"></script>
+<script src="/metadatos/proyecto/views/js/reporte/Organigrama/mxOrganigrama.js"></script>
+<script src="/metadatos/proyecto/views/js/reporte/ventanas/WinOrganigramas.js"></script>
+<!--ELEMENTOS PARA LA GESTION DE ESTRUCTURA-->
+<script type="text/javascript" src="/metadatos/comun/componentes/GroupingCombo/ComboBox.js"></script>
+<script type="text/javascript" src="/metadatos/comun/componentes/MultiComboSelect/util-multiselect.js"></script>
+<script type="text/javascript" src="/metadatos/comun/componentes/MultiComboSelect/MultiComboSelect.js"></script>
+<script type="text/javascript" src="/metadatos/comun/componentes/GroupingCombo/GroupDataView.js"></script>
+<script type="text/javascript" src="/metadatos/comun/componentes/GroupingCombo/GroupComboBox.js"></script>
+<script type="text/javascript" src="/metadatos/comun/componentes/imagen/ComboImagen.js"></script>
+<script type="text/javascript"
+        src="/metadatos/comun/plugins/qtipTreeEstructura.js"></script>
+<script type="text/javascript"
+        src="/metadatos/proyecto/views/js/estructura/componentes/winEspecialidad.js"></script>
+<script type="text/javascript"
+        src="/metadatos/proyecto/views/js/estructura/componentes/WinGridSelection.js"></script>
+<script type="text/javascript" src="/metadatos/metaconfig/views/js/ComboIconos.js"></script>
+<script type="text/javascript"
+        src="/metadatos/proyecto/views/js/estructura/componentes/conceptos/WinCargo.js"></script>
+<script type="text/javascript"
+        src="/metadatos/proyecto/views/js/estructura/componentes/conceptos/WinMedio.js"></script>
+<script type="text/javascript"
+        src="/metadatos/proyecto/views/js/estructura/componentes/conceptos/WinComun.js"></script>
+<script type="text/javascript"
+        src="/metadatos/proyecto/views/js/estructura/componentes/conceptos/WinEntidadOrganizacion.js"></script>
+<script type="text/javascript"
+        src="/metadatos/proyecto/views/js/estructura/componentes/conceptos/WinOrganoInterno.js"></script>
+<script type="text/javascript" src="/metadatos/estructura/views/js/iuService/panelIUEstructura.js"></script>
+<script type="text/javascript" src="/metadatos/estructura/views/js/iuService/ventanaIU.js"></script>
+<script type="text/javascript"
+        src="/metadatos/proyecto/views/js/estructura/componentes/PanelEstructura.js"></script>
+<script type="text/javascript" src="/metadatos/estructura/views/js/VentanaEstructura.js"></script>
+
+<script src="/metadatos/comun/lib/mxGraph/mxClient.js"></script>
+</body>
+</html>

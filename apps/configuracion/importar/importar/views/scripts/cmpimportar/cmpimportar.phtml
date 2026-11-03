@@ -1,0 +1,86 @@
+﻿﻿<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>Importar conceptos</title>
+
+        <style type="text/css">
+            .padding-expander {
+                padding-top: 0px;
+                padding-right: 0px;
+                padding-bottom: 0px;
+                padding-left: 35px;
+            }
+            .x-grid3-hd-row td.ux-filtered-column {
+                font-style: italic;
+                font-weight: bold;
+            }
+            .Estilo3 {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 12px;
+            }
+
+            .Estilo4 {
+                font-size: 12px
+            }
+        </style>
+        <link rel="stylesheet" type="text/css" id="TreeGridcss" href="/configuracion/importar/comun/css/TreeGrid.css"/>
+        <link rel="stylesheet" id="icons" type="text/css" href="/configuracion/importar/comun/css/icons.css"/>
+        <link rel="stylesheet" type="text/css" id="file-upload" href="/configuracion/importar/comun/css/file-upload.css"/>
+        <link rel="stylesheet" type="text/css" id="examplescss" href="/configuracion/importar/comun/css/examples.css"/>
+
+        <!-- para el combo multiseleccion -->
+        <link rel="stylesheet" type="text/css" href="/configuracion/importar/comun/css/multiselect.css"/>
+        <link rel="stylesheet" type="text/css" href="/configuracion/importar/comun/css/Ext.ux.form.LovCombo.css"/>
+
+    </head>
+
+    <body>
+    <!-- archivos que estaban en el head -->
+    <script type="text/javascript" id="imporcss" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+    <script language="javascript" type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+    <script type="text/javascript" id="imporcss" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+    <script type="text/javascript" id="ext-all" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+    <script type="text/javascript" id="ucid-all" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+    <script type="text/javascript" id="extensiones" src="<?php echo $this->dir_ucid; ?>js/utiles/extensiones.js"></script>
+    <!-- FIn archivos que estaban en el head -->
+
+        <!--clases para los filtros por columna -->
+        <script type="text/javascript" id="EditableItem" src="/configuracion/importar/comun/filtros/EditableItem.js"></script>
+        <script type="text/javascript" id="ComboItem" src="/configuracion/importar/comun/filtros/ComboItem.js"></script>
+        <script type="text/javascript" id="TextFieldItem" src="/configuracion/importar/comun/filtros/TextFieldItem.js"></script>
+        <script type="text/javascript" id="RangeMenu" src="/configuracion/importar/comun/filtros/RangeMenu.js"></script>
+        <script type="text/javascript" id="Filter" src="/configuracion/importar/comun/filtros/Filter.js"></script>
+        <script type="text/javascript" id="EditableItem" src="/configuracion/importar/comun/filtros/BooleanFilter.js"></script>
+        <script type="text/javascript" id="StringFilter" src="/configuracion/importar/comun/filtros/StringFilter.js"></script>
+        <script type="text/javascript" id="DateFilter" src="/configuracion/importar/comun/filtros/DateFilter.js"></script>
+        <script type="text/javascript" id="ListFilter" src="/configuracion/importar/comun/filtros/ListFilter.js"></script>
+        <script type="text/javascript" id="NumericFilter" src="/configuracion/importar/comun/filtros/NumericFilter.js"></script>
+        <script type="text/javascript" id="ListadoFilter" src="/configuracion/importar/comun/filtros/ListadoFilter.js"></script>
+        <script type="text/javascript" id="String_adaptadoFilter" src="/configuracion/importar/comun/filtros/String_adaptadoFilter.js"></script>
+        <script type="text/javascript" id="GridFilters" src="/configuracion/importar/comun/filtros/GridFilters.js"></script>
+
+        <script type="text/javascript" id="vtype" src="/configuracion/importar/comun/js/vtype.js"></script>
+        <script type="text/javascript" id="CmpBase" src="/configuracion/importar/comun/js/CmpBase.js"></script>
+
+        <script type="text/javascript" id="RowExpander" src="/configuracion/importar/comun/js/RowExpander.js"></script>
+        <script type="text/javascript" id="TreeGridjs" src="/configuracion/importar/comun/js/TreeGrid.js"></script>
+        <script type="text/javascript" id="CmpPaginadoTreegrid" src="/configuracion/importar/comun/js/CmpPaginadoTreegrid.js"></script>
+        <script type="text/javascript" id="FileUploadField" src="/configuracion/importar/comun/js/FileUploadField.js"></script>
+        <script type="text/javascript" id="examplesjs" src="/configuracion/importar/comun/js/examples.js"></script>
+        <script type="text/javascript" id="bpexportarconcepto" src="/configuracion/importar/comun/js/bpexportarconcepto.js"></script>
+
+        <script type="text/javascript" id="Ext.ux.form.LovCombo" src="/configuracion/importar/comun/js/Ext.ux.ThemeCombo.js"></script>
+        <script type="text/javascript" id="Ext.ux.form.LovCombo" src="/configuracion/importar/comun/filtros/LovcomboFilter.js"></script>
+        <script type="text/javascript" id="Ext.ux.form.LovCombo" src="/configuracion/importar/comun/js/Ext.ux.form.LovCombo.js"></script>
+
+        <script type="text/javascript" id="vtype" src="/configuracion/importar/comun/js/vtype.js"></script>
+
+        <script type="text/javascript" id="CmpBarraProgreso" src="/configuracion/importar/comun/js/CmpBarraProgreso.js"></script>
+
+        <script type="text/javascript" id="cmparbolproductos" src="/configuracion/importar/importar/views/js/cmparbolproductos/cmparbolproductos.js"></script>
+        <script type="text/javascript" id="cmpimportar" src="/configuracion/importar/importar/views/js/cmpimportar/cmpimportar.js"></script>
+        <script type="text/javascript" id="initcmpimportar" src="/configuracion/importar/importar/views/js/cmpimportar/initcmpimportar.js"></script>
+
+    </body>
+
+</html>

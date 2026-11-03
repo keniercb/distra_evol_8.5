@@ -1,0 +1,42 @@
+[submodule "sst"]
+	path = sst
+	url = http://gitlab-distra.xutil.net/distra/pvd/distra/sst.git
+[submodule "seleccion"]
+	path = seleccion
+	url = http://gitlab-distra.xutil.net/distra/pvd/distra/seleccion.git
+[submodule "regimentrabajo"]
+	path = regimentrabajo
+	url = http://gitlab-distra.xutil.net/distra/pvd/distra/regimentrabajo.git
+[submodule "reccomplejas"]
+	path = reccomplejas
+	url = http://gitlab-distra.xutil.net/distra/pvd/distra/reccomplejas.git
+[submodule "persona"]
+	path = persona
+	url = http://gitlab-distra.xutil.net/distra/pvd/distra/persona.git
+[submodule "nomina"]
+	path = nomina
+	url = http://gitlab-distra.xutil.net/distra/pvd/distra/nomina.git
+[submodule "movimientoslaborales"]
+	path = movimientoslaborales
+	url = http://gitlab-distra.xutil.net/distra/pvd/distra/movimientoslaborales.git
+[submodule "metadatos"]
+	path = metadatos
+	url = http://gitlab-distra.xutil.net/distra/pvd/distra/metadatos.git
+[submodule "maestro"]
+	path = maestro
+	url = http://gitlab-distra.xutil.net/distra/pvd/distra/maestro.git
+[submodule "evaluaciones"]
+	path = evaluaciones
+	url = http://gitlab-distra.xutil.net/distra/pvd/distra/evaluaciones.git
+[submodule "comun"]
+	path = comun
+	url = http://gitlab-distra.xutil.net/distra/pvd/distra/comun.git
+[submodule "competencias"]
+	path = competencias
+	url = http://gitlab-distra.xutil.net/distra/pvd/distra/competencias.git
+[submodule "capacitacion"]
+	path = capacitacion
+	url = http://gitlab-distra.xutil.net/distra/pvd/distra/capacitacion.git
+[submodule "integracionreportes"]
+	path = integracionreportes
+	url = http://gitlab-distra.xutil.net/distra/pvd/distra/integracionreportes.git

@@ -1,0 +1,8 @@
+{
+    tlOrganismos: 'Organismos',
+    btnAyuda: 'Ayuda',
+    btnAyudatoll: 'Ayuda <b>(Alt+A)</b>',
+    msgNoExistenDatos: 'No existen datos que mostrar.',
+    lbCargando: 'Cargando...',
+    msgRecargarCbVariableControl: 'Debe seleccionar una variable de control.'
+}

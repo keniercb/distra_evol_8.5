@@ -1,0 +1,16 @@
+
+
+.FilaRoja .x-grid3-cell-inner{
+    color:black;
+    background-color:#8CECF9;
+}
+
+.panel-disabled-class-without-zindex{ 
+    background-color: #CCCCCC;
+    height: 100%; 
+    left: 0; 
+    opacity: 0.5; 
+    position: absolute; 
+    top: 0; 
+    width: 100%;
+}

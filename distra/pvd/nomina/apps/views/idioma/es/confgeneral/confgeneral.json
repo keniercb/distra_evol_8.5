@@ -1,0 +1,68 @@
+{
+	lbTitleWinEstructura:							'Entidades',
+	lbTitleWinGestRetenciones:						'Gestionar retenciones',
+	lbTitleGridRetenc:								'Listado de retenciones',
+	lbTitleGridHistRetenc:							'Hist&oacute;rico de retenciones',
+	lbTitleGridPersona:								'Listado de personas',
+	lbTitleVentAdicionarRetenc:						'Adicionar retenci&oacute;n',
+
+	lbBtnAdicionar:              	    			'Ad<u>i</u>cionar',
+	textToolTipAddRetenc:    		       			'Adicionar retenci&oacute;n (<b>Alt+I</b>)',
+	lbBtnModificar:                   				'<u>M</u>odificar',
+	textToolTipModRetenc:							'Modificar retenci&oacute;n (<b>Alt+M</b>)',
+	lbBtnEliminar:                	 				'Eliminar',
+	textToolTipElimRetenc: 							'Eliminar retenci&oacute;n (<b>DEL</b>)',
+
+	lbBtnCancelar:									'Cancelar',
+	textToolTipCancelar:							'Cerrar ventana sin guardar los datos (<b>Alt+X</b>)',
+	lbBtnAplicar:									'Aplicar',
+	textToolTipAplicar:                        	 	'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+	lbBtnAceptar:									'Aceptar',
+	textToolTipAceptar:                         	'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+
+	lbColTipoRetenc:								'Tipo de retenci&oacute;n',
+	lbColSaldoInicial:								'Saldo inicial',
+	lbColMensualidad:								'Mensualidad',
+	lbColUltMensualidad:							'U. mensualidad',
+	lbColReferencia:								'Referencia',
+	lbColFechaDocumento:							'Fecha doc.',
+	lbColDesde:										'Fecha inicio',
+	lbColHasta:										'Fecha fin',
+
+	lbColRefComprobA:								'Ref comprobante A',
+	lbColNomina:									'N&oacute;mina',
+	lbColFechaOperac:								'Fecha de oper.',
+	lbColRetenido:									'Retenido',
+	lbColRefComprobP:								'Ref comprobante P',
+	lbColFechaComprobP:								'Fecha comprobante P',
+	lbColSaldoAdeudo:								'Saldo adeudo',
+	lbColRetencPendiente:							'Retenci&oacute;n pendiente',
+	lbColSaldoPendiente:							'Saldo pendiente',
+
+	lbColNoIdentidad:								'No. identidad',
+	lbColNombre:									'Nombre',
+	lbColSNombre:									'Segundo nombre',
+	lbColPApellido:									'Primer apellido',
+	lbColSApellido:									'Segundo apellido',
+
+	lbMaskGridCargando:								'Cargando…', 
+
+	lbErrorCampoVacio:                          	'Este campo es obligatorio.', 
+	lbFechaMaxima:                   				'La fecha de inicio tiene que ser anterior o igual a la fecha fin.',
+	lbFechaMinima:                             		'La fecha fin tiene que ser posterior o igual a la fecha de inicio.',
+	invalidTextFecha:                           	'Formato: dd/mm/aaaa.',
+	lbErrorFormulario:								'Por favor verifique nuevamente que hay campo(s) con valor(es) incorrecto(s).',
+
+	lbMsgEsperaEnviarDatos:							'Por favor espere…',
+
+	lbMsgAdicionarRetenc:							'Adicionando datos de retenciones de persona...',
+	lbMsgModificarRetenc:							'Modificando datos de retenciones de persona...',
+	lbMsgEliminarRetenc:							'Eliminando datos de retenciones de persona...',
+
+	lbMsgCorrectoAdicionarRetenc:					'La retenci&oacute;n ha sido adicionada satisfactoriamente.',
+	lbMsgCorrectoModificadoRetenc:					'La retenci&oacute;n ha sido modificada satisfactoriamente.',
+	lbMsgCorrectoEliminadoRetenc:					'La retenci&oacute;n ha sido eliminada satisfactoriamente.',
+
+	lbTitleEliminarRetenc: 							'¿Est&aacute; seguro que quiere eliminar la retenci&oacute;n seleccionada?',			
+
+}

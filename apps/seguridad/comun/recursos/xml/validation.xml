@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="utf-8"?>
+<validador>
+    <seguridad>
+        <GestnomdominioController>
+            <insertarnomdominioAction>
+                <param name="denominacion" type="numerosletras" not_null="true" null_error="LOGNULL"
+                       type_error="SEGALFANUMERIC" max_lenght="255"/>
+                <precondition>
+                    <validator class="DominioValidator" method="verificarNombreDominio" error="SEGDOM03"/>
+                </precondition>
+            </insertarnomdominioAction>
+            <modificarnomdominioAction>
+                <param name="denominacion" type="numerosletras" not_null="true" null_error="LOGNULL"
+                       type_error="SEGALFANUMERIC" max_lenght="255"/>
+                <precondition>
+                    <validator class="UsuarioValidator" method="verificarDominio" error="SEGDOM02"/>
+                    <validator class="DominioValidator" method="verificarNombreDominio" error="SEGDOM04"/>
+                    <validator class="DominioValidator" method="verificarEstructurasDominio"/>
+                </precondition>
+            </modificarnomdominioAction>
+        </GestnomdominioController>
+        <ConfiguracionController>
+            <modificarclaveAction>
+                <precondition>
+                    <validator class="ClavesValidator" method="validarCaducidad"/>
+                </precondition>
+                <param name="minimocaracteres" type="enterospos" not_null="true" null_error="MINCARACTERESLOGNULL"
+                       type_error="MINCARACTERESNUMEROS" min_value="8" error_min_value="VALDMINCARACTERES"
+                       max_value="100" error_max_value="VALDMAXCARACTERES"/>
+                <param name="diascaducidad" type="enterospos" not_null="true" null_error="CADUCIDADLOGNULL"
+                       type_error="VALDCADUCIDAD" min_value="10" error_min_value="VALDMINDIASCAD" max_value="365"
+                       error_max_value="VALDMAXDIASCAD"/>
+                <param name="historicoPass" type="enterospos" not_null="true" null_error="HISTPASSWLOGNULL"
+                       type_error="VALDHISTPASSW" min_value="1" error_min_value="VALDMINHISTPASSW" max_value="10"
+                       error_max_value="VALDMAXHISTPASSW"/>
+            </modificarclaveAction>
+            <cargarConfiguracionIntegridadAction>
+                <precondition>
+                    <validator class="CheckIntegrityValidator" method="validarInstalacionAIDE"/>
+                </precondition>
+            </cargarConfiguracionIntegridadAction>
+            <exportarBaseDatosMTAction>
+                <precondition>
+                    <validator class="ExportarImportarBDValidator" method="validarSuperUsuarioBD"/>
+                </precondition>
+            </exportarBaseDatosMTAction>
+            <importarBaseDatosMTAction>
+                <precondition>
+                    <validator class="ExportarImportarBDValidator" method="validarSuperUsuarioBD"/>
+                    <validator class="ExportarImportarBDValidator" method="validarCrearBDUsuarioBD"/>
+                </precondition>
+            </importarBaseDatosMTAction>
+        </ConfiguracionController>
+
+        <GestnomidiomaController>
+            <insertarnomidiomaAction>
+                <param name="denomidioma" type="vtletrascomasptocoma" not_null="true" null_error="LOGNULL"
+                       type_error="VALDLETRASPTOYPTOCOMA" max_lenght="250"/>
+                <param name="abrevidioma" type="letras" not_null="true" null_error="LOGNULL" type_error="VALDLETRAS"
+                       max_lenght="50"/>
+            </insertarnomidiomaAction>
+            <modificarnomidiomaAction>
+                <param name="denomidioma" type="vtletrascomasptocoma" not_null="true" null_error="LOGNULL"
+                       type_error="VALDLETRASPTOYPTOCOMA" max_lenght="250"/>
+                <param name="abrevidioma" type="letras" not_null="true" null_error="LOGNULL" type_error="VALDLETRAS"
+                       max_lenght="50"/>
+            </modificarnomidiomaAction>
+        </GestnomidiomaController>
+        <GestnomtemaController>
+            <insertartemaAction>
+                <param name="denomTema" type="numerosletras" not_null="true" null_error="DENOMLOGNULL"
+                       type_error="VALDDENOMALFANUMERIC" max_lenght="250"/>
+                <param name="abrevTema" type="vtalfanumericosguiones" not_null="true" null_error="ABREVLOGNULL"
+                       type_error="VALDTEMAABREV" max_lenght="50"/>
+            </insertartemaAction>
+            <modificartemaAction>
+                <param name="denomTema" type="numerosletras" not_null="true" null_error="DENOMLOGNULL"
+                       type_error="VALDDENOMALFANUMERIC" max_lenght="250"/>
+                <param name="abrevTema" type="vtalfanumericosguiones" not_null="true" null_error="ABREVLOGNULL"
+                       type_error="VALDTEMAABREV" max_lenght="50"/>
+            </modificartemaAction>
+        </GestnomtemaController>
+        <GestnomdesktopController>
+            <insertarnomdesktopAction>
+                <param name="denominaciondes" type="numerosletras" not_null="true" null_error="DENOMLOGNULL"
+                       type_error="VALDDENOMALFANUMERIC" max_lenght="250"/>
+                <param name="abreviaturades" type="letras" not_null="true" null_error="ABREVLOGNULL"
+                       type_error="VALDDESKTABREV" max_lenght="50"/>
+            </insertarnomdesktopAction>
+            <modificarnomdesktopAction>
+                <param name="denominaciondes" type="numerosletras" not_null="true" null_error="DENOMLOGNULL"
+                       type_error="VALDDENOMALFANUMERIC" max_lenght="250"/>
+                <param name="abreviaturades" type="letras" not_null="true" null_error="ABREVLOGNULL"
+                       type_error="VALDDESKTABREV" max_lenght="50"/>
+            </modificarnomdesktopAction>
+        </GestnomdesktopController>
+        <GestexpresionesController>
+            <insertarexpresionAction>
+                <param name="denominacionexp" type="numerosletras" not_null="true" null_error="DENOMLOGNULL"
+                       type_error="VALDDENOMALFANUMERIC" max_lenght="250"/>
+                <param name="expresion" type="expresion" not_null="true" null_error="EXPRESIONLOGNULL"
+                       type_error="VALDEXPRESION" max_lenght="250"/>
+            </insertarexpresionAction>
+            <modificarexpresionAction>
+                <param name="denominacionexp" type="numerosletras" not_null="true" null_error="DENOMLOGNULL"
+                       type_error="VALDDENOMALFANUMERIC" max_lenght="250"/>
+                <param name="expresion" type="expresion" not_null="true" null_error="EXPRESIONLOGNULL"
+                       type_error="VALDEXPRESION" max_lenght="250"/>
+            </modificarexpresionAction>
+        </GestexpresionesController>
+        <ConfigcontController>
+            <insertarclaveAction>
+                <param name="minimocaracteres" type="enterospos" not_null="true" null_error="MINCARACTERESLOGNULL"
+                       type_error="MINCARACTERESNUMEROS" min_value="8" error_min_value="VALDMINCARACTERES"
+                       max_value="100" error_max_value="VALDMAXCARACTERES"/>
+                <param name="diascaducidad" type="enterospos" not_null="true" null_error="CADUCIDADLOGNULL"
+                       type_error="VALDCADUCIDAD" min_value="10" error_min_value="VALDMINDIASCAD" max_value="365"
+                       error_max_value="VALDMAXDIASCAD"/>
+                <param name="historicoPass" type="enterospos" not_null="true" null_error="HISTPASSWLOGNULL"
+                       type_error="VALDHISTPASSW" min_value="1" error_min_value="VALDMINHISTPASSW" max_value="10"
+                       error_max_value="VALDMAXHISTPASSW"/>
+            </insertarclaveAction>
+            <modificarclaveAction>
+                <precondition>
+                    <validator class="ClavesValidator" method="validarCaducidad"/>
+                </precondition>
+                <param name="minimocaracteres" type="enterospos" not_null="true" null_error="MINCARACTERESLOGNULL"
+                       type_error="MINCARACTERESNUMEROS" min_value="8" error_min_value="VALDMINCARACTERES"
+                       max_value="100" error_max_value="VALDMAXCARACTERES"/>
+                <param name="diascaducidad" type="enterospos" not_null="true" null_error="CADUCIDADLOGNULL"
+                       type_error="VALDCADUCIDAD" min_value="10" error_min_value="VALDMINDIASCAD" max_value="365"
+                       error_max_value="VALDMAXDIASCAD"/>
+                <param name="historicoPass" type="enterospos" not_null="true" null_error="HISTPASSWLOGNULL"
+                       type_error="VALDHISTPASSW" min_value="1" error_min_value="VALDMINHISTPASSW" max_value="10"
+                       error_max_value="VALDMAXHISTPASSW"/>
+            </modificarclaveAction>
+        </ConfigcontController>
+        <GestservidorController>
+            <insertarservAction>
+                <param name="denominacion" type="numerosletras" not_null="true" null_error="DENOMLOGNULL"
+                       type_error="VALDDENOMALFANUMERIC" max_lenght="50"/>
+                <param name="ip" type="ip" not_null="true" null_error="IPLOGNULL" type_error="VALDIP" max_lenght="50"/>
+                <param name="puerto" type="todoMenosTabEnter" not_null="true" null_error="PUERTOLOGNULL"
+                       type_error="VALPUERTO" max_lenght="10"/>
+                <param name="idservidor" type="todoMenosTabEnter" not_null="true" null_error="DENOMLOGNULL"
+                       type_error="VALDDENOMALFANUMERIC" max_lenght="50"/>
+                <param name="tiposervidor" type="todoMenosTabEnter" not_null="true" null_error="IPLOGNULL"
+                       type_error="VALDDENOMALFANUMERIC" max_lenght="50"/>
+                <param name="ldap" type="todoMenosTabEnter" not_null="true" null_error="PUERTOLOGNULL"
+                       type_error="VALPUERTO" max_lenght="5"/>
+                <param name="basedn" type="todoMenosTabEnter" not_null="true" null_error="DENOMLOGNULL"
+                       type_error="VALDDENOMALFANUMERIC" max_lenght="100"/>
+                <param name="user" type="todoMenosTabEnter" not_null="true" null_error="IPLOGNULL"
+                       type_error="VALDDENOMALFANUMERIC" max_lenght="100"/>
+                <param name="passw" type="todoMenosTabEnter" not_null="true" null_error="PUERTOLOGNULL"
+                       type_error="VALDDENOMALFANUMERIC" max_lenght="100"/>
+                <param name="descripcion" type="todoMenosTabEnter" not_null="false" null_error="DENOMLOGNULL"
+                       type_error="VALDDENOMALFANUMERIC" max_lenght="100"/>
+            </insertarservAction>
+            <modificarservAction>
+                <param name="denominacion" type="numerosletras" not_null="true" null_error="DENOMLOGNULL"
+                       type_error="VALDDENOMALFANUMERIC" max_lenght="50"/>
+                <param name="ip" type="ip" not_null="true" null_error="IPLOGNULL" type_error="VALDIP" max_lenght="50"/>
+                <param name="puerto" type="todoMenosTabEnter" not_null="true" null_error="PUERTOLOGNULL"
+                       type_error="VALPUERTO" max_lenght="10"/>
+                <param name="idservidor" type="todoMenosTabEnter" not_null="true" null_error="DENOMLOGNULL"
+                       type_error="VALDDENOMALFANUMERIC" max_lenght="50"/>
+                <param name="tiposervidor" type="todoMenosTabEnter" not_null="true" null_error="IPLOGNULL"
+                       type_error="VALDDENOMALFANUMERIC" max_lenght="50"/>
+                <param name="ldap" type="todoMenosTabEnter" not_null="true" null_error="PUERTOLOGNULL"
+                       type_error="VALPUERTO" max_lenght="5"/>
+                <param name="basedn" type="todoMenosTabEnter" not_null="true" null_error="DENOMLOGNULL"
+                       type_error="VALDDENOMALFANUMERIC" max_lenght="100"/>
+                <param name="user" type="todoMenosTabEnter" not_null="true" null_error="IPLOGNULL"
+                       type_error="VALDDENOMALFANUMERIC" max_lenght="100"/>
+                <param name="passw" type="todoMenosTabEnter" not_null="true" null_error="PUERTOLOGNULL"
+                       type_error="VALDDENOMALFANUMERIC" max_lenght="100"/>
+                <param name="descripcion" type="todoMenosTabEnter" not_null="false" null_error="DENOMLOGNULL"
+                       type_error="VALDDENOMALFANUMERIC" max_lenght="100"/>
+            </modificarservAction>
+        </GestservidorController>
+        <GestusuarioController>
+            <insertarusuarioAction>
+                <precondition>
+                    <validator class="UsuarioValidator" method="verificarUsuarioServAutent"/>
+                </precondition>
+            </insertarusuarioAction>
+            <modificarusuarioAction>
+                <precondition>
+                    <validator class="UsuarioValidator" method="verificarDominioDadoUsuario" error="SEGDOM01"/>
+                </precondition>
+            </modificarusuarioAction>
+            <guardarPerfilAction>
+                <precondition>
+                    <validator class="UsuarioValidator" method="verificarPerfil"/>
+                </precondition>
+            </guardarPerfilAction>
+            <eliminarusuarioAction>
+                <precondition>
+                    <validator class="UsuarioValidator" method="validarUsuarioEliminar"/>
+                    <validator class="UsuarioValidator" method="actualizarAccesoEstructuras"/>
+                </precondition>
+            </eliminarusuarioAction>
+            <asignarrolesAction>
+                <postcondition>
+                    <validator class="RolValidator" method="updateAcl"/>
+                </postcondition>
+            </asignarrolesAction>
+        </GestusuarioController>
+        <GestsistemaController>
+            <insertarsistemaAction>
+                <precondition>
+                    <validator class="SistemaValidator" method="InsertarSistema" error="SEGSIST01"/>
+                </precondition>
+            </insertarsistemaAction>
+            <modificarsistemaAction>
+                <precondition>
+                    <validator class="SistemaValidator" method="ModificarSistema" error="SEGSIST02"/>
+                </precondition>
+            </modificarsistemaAction>
+            <eliminarsistemaAction>
+                <precondition>
+                    <validator class="SistemaValidator" method="eliminarSistema"/>
+                </precondition>
+            </eliminarsistemaAction>
+        </GestsistemaController>
+        <GestfuncionalidadController>
+            <insertarfuncionalidadAction>
+                <precondition>
+                    <validator class="FuncionalidadValidator" method="InsertarFuncionalidad"/>
+                </precondition>
+            </insertarfuncionalidadAction>
+            <modificarfuncionalidadAction>
+                <precondition>
+                    <validator class="FuncionalidadValidator" method="ModificarFuncionalidad"/>
+                </precondition>
+            </modificarfuncionalidadAction>
+            <eliminarfuncionalidadAction>
+                <precondition>
+                    <validator class="FuncionalidadValidator" method="EliminarFuncionalidad"/>
+                </precondition>
+            </eliminarfuncionalidadAction>
+        </GestfuncionalidadController>
+        <GestrecursosController>
+            <insertarRecursosAction>
+                <precondition>
+                    <validator class="RecursoValidator" method="adicionarRecurso"/>
+                </precondition>
+            </insertarRecursosAction>
+            <modificarRecursosAction>
+                <precondition>
+                    <validator class="RecursoValidator" method="modificarRecurso"/>
+                    <validator class="RecursoValidator" method="validarRecurso" error="SEGREC001"/>
+                </precondition>
+            </modificarRecursosAction>
+        </GestrecursosController>
+        <GestaccionController>
+            <adicionarAccioneExternaAction>
+                <precondition>
+                    <validator class="AccionValidator" method="adicionarAccion"/>
+                </precondition>
+            </adicionarAccioneExternaAction>
+            <modificarAccioneExternaAction>
+                <precondition>
+                    <validator class="AccionValidator" method="modificarAccion"/>
+                </precondition>
+            </modificarAccioneExternaAction>
+        </GestaccionController>
+        <GestrolController>
+            <insertarAction>
+                <precondition>
+                    <validator class="RolValidator" method="validarDenominacion"/>
+                </precondition>
+            </insertarAction>
+            <modificarAction>
+                <precondition>
+                    <validator class="RolValidator" method="validarModificacion"/>
+                    <validator class="RolValidator" method="validarFuncionalidad"/>
+                </precondition>
+                <postcondition>
+                    <validator class="RolValidator" method="updateAcl"/>
+                </postcondition>
+            </modificarAction>
+            <adicionaraccionAction>
+                <postcondition>
+                    <validator class="RolValidator" method="updateAcl"/>
+                </postcondition>
+            </adicionaraccionAction>
+            <eliminaraccionAction>
+                <postcondition>
+                    <validator class="RolValidator" method="updateAcl"/>
+                </postcondition>
+            </eliminaraccionAction>
+        </GestrolController>
+
+        <GestsistController>
+            <insertarsistemaAction>
+                <precondition>
+                    <validator class="GestsistValidator" method="InsertarSistema" error="SEGSIST01"/>
+                </precondition>
+            </insertarsistemaAction>
+            <modificarsistemaAction>
+                <precondition>
+                    <validator class="GestsistValidator" method="ModificarSistema" error="SEGSIST02"/>
+                </precondition>
+            </modificarsistemaAction>
+            <eliminarsistemaAction>
+                <precondition>
+                    <validator class="GestsistValidator" method="eliminarSistema"/>
+                </precondition>
+            </eliminarsistemaAction>
+
+            <insertarfuncionalidadAction>
+                <precondition>
+                    <validator class="GestsistValidator" method="InsertarFuncionalidad"/>
+                </precondition>
+            </insertarfuncionalidadAction>
+            <modificarfuncionalidadAction>
+                <precondition>
+                    <validator class="GestsistValidator" method="ModificarFuncionalidad"/>
+                </precondition>
+            </modificarfuncionalidadAction>
+            <eliminarfuncionalidadAction>
+                <precondition>
+                    <validator class="GestsistValidator" method="EliminarFuncionalidad"/>
+                </precondition>
+            </eliminarfuncionalidadAction>
+
+            <adicionarAccioneExternaAction>
+                <precondition>
+                    <validator class="GestsistValidator" method="adicionarAccion"/>
+                </precondition>
+            </adicionarAccioneExternaAction>
+            <modificarAccioneExternaAction>
+                <precondition>
+                    <validator class="GestsistValidator" method="modificarAccion"/>
+                </precondition>
+            </modificarAccioneExternaAction>
+
+            <insertarRecursosAction>
+                <precondition>
+                    <validator class="GestsistValidator" method="adicionarRecurso"/>
+                </precondition>
+            </insertarRecursosAction>
+            <validarRecursoAction>
+                <precondition>
+                    <validator class="GestsistValidator" method="modificarRecurso"/>
+                    <!--<validator class="GestsistValidator" method="validarRecurso" error="SEGREC001"/>-->
+                </precondition>
+            </validarRecursoAction>
+
+        </GestsistController>
+
+        <ConfigaccesosController>
+            <insertarusuarioAction>
+                <param name="usuario" type="json" not_null="true" null_error="LOGNULL"/>
+                <param name="estado" type="boolean" not_null="true" null_error="LOGNULL" max_lenght="5"/>
+                <precondition>
+                    <validator class="ConfiguracionAccesoValidator" method="verificarUsuarioServAutent"/>
+                </precondition>
+            </insertarusuarioAction>
+            <modificarusuarioAction>
+                <param name="records" type="json" not_null="true" null_error="LOGNULL"/>
+                <precondition>
+                    <validator class="ConfiguracionAccesoValidator" method="verificarDominioDadoUsuario"
+                               error="SEGDOM01"/>
+                </precondition>
+            </modificarusuarioAction>
+            <cargarusuarioAction>
+                <param name="start" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="limit" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="nombreusuario" type="vtalfanumericosguiones" not_null="false" null_error="LOGNULL"
+                       max_lenght="20"/>
+                <param name="dominiobuscar" type="enterospos" not_null="false" null_error="LOGNULL" max_lenght="19"/>
+                <param name="activar" type="letras" not_null="false" null_error="LOGNULL" max_lenght="12"/>
+                <param name="idrol" type="enterospos" not_null="false" null_error="LOGNULL" max_lenght="19"/>
+                <param name="idgrupo" type="enterospos" not_null="false" null_error="LOGNULL" max_lenght="19"/>
+            </cargarusuarioAction>
+            <guardarPerfilAction>
+                <param name="idusuario" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="idpersona" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <precondition>
+                    <validator class="ConfiguracionAccesoValidator" method="verificarPerfil"/>
+                </precondition>
+            </guardarPerfilAction>
+            <eliminarusuarioAction>
+                <param name="ArrayUserDel" type="json" not_null="true" null_error="LOGNULL"/>
+                <precondition>
+                    <validator class="ConfiguracionAccesoValidator" method="validarUsuarioEliminar"/>
+                    <validator class="ConfiguracionAccesoValidator" method="actualizarAccesoEstructuras"/>
+                </precondition>
+            </eliminarusuarioAction>
+            <cambiarpasswordAction>
+                <param name="contrasenap" type="todoMenosEspacios" not_null="true" null_error="LOGNULL"/>
+                <param name="contrasennap" type="todoMenosEspacios" not_null="true" null_error="LOGNULL"/>
+                <param name="usuariop" type="alfanumguionesptoarroba" not_null="true" null_error="LOGNULL"
+                       max_lenght="20"/>
+                <param name="idusuario" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+            </cambiarpasswordAction>
+            <ActivarUsuarioAction>
+                <param name="arrUsuarioAct" type="json" not_null="true" null_error="LOGNULL"/>
+            </ActivarUsuarioAction>
+            <DesactivarUsuarioAction>
+                <param name="arrUsuarioDesact" type="json" not_null="true" null_error="LOGNULL"/>
+            </DesactivarUsuarioAction>
+            <cargarUsuariosLdapAction>
+                <param name="start" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="limit" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="servidor" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="criterio" type="alfanumguionesptoarroba" not_null="false" null_error="LOGNULL"
+                       max_lenght="19"/>
+                <param name="criterio2" type="vtalfanumericosguiones" not_null="false" null_error="LOGNULL"
+                       max_lenght="19"/>
+            </cargarUsuariosLdapAction>
+            <importarUsuariosLdapAction>
+                <param name="usuarios" type="json" not_null="true" null_error="LOGNULL"/>
+                <param name="configuracion" type="json" not_null="true" null_error="LOGNULL"/>
+            </importarUsuariosLdapAction>
+            <cargarrolesAction>
+                <param name="start" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="limit" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="idusuario" type="enteros" not_null="true" null_error="LOGNULL" max_lenght="29"/>
+            </cargarrolesAction>
+            <asignarrolesAction>
+                <param name="asignaciones" type="json" not_null="true" null_error="LOGNULL"/>
+                <postcondition>
+                    <validator class="ConfiguracionAccesoValidator" method="updateAcl"/>
+                </postcondition>
+            </asignarrolesAction>
+            <cargarentidadesAction>
+                <param name="iddominio" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="idrol" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="node" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="idusuario" type="enteros" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+            </cargarentidadesAction>
+            <cargarrolAction>
+                <param name="node" type="vtalfanumericosguiones" not_null="true" null_error="LOGNULL" max_lenght="255"/>
+            </cargarrolAction>
+            <insertarrolAction>
+                <param name="denominacion" type="vtalfanumericosguiones" not_null="true" null_error="LOGNULL"
+                       max_lenght="60"/>
+                <param name="abreviatura" type="vtalfanumericosguiones" not_null="true" null_error="LOGNULL"
+                       max_lenght="10"/>
+                <param name="descripcion" type="todoMenosPtoComa" not_null="false" null_error="LOGNULL"
+                       max_lenght="255"/>
+                <param name="type" type="letras" not_null="true" null_error="LOGNULL"/>
+                <param name="arraypadres" type="json" not_null="false" null_error="LOGNULL"/>
+                <param name="arraysistfun" type="json" not_null="false" null_error="LOGNULL"/>
+                <param name="arraysist" type="json" not_null="false" null_error="LOGNULL"/>
+                <param name="arrayGrupo" type="json" not_null="false" null_error="LOGNULL"/>
+                <param name="clase" type="letras" not_null="true" null_error="LOGNULL" max_lenght="10"/>
+                <precondition>
+                    <validator class="ConfiguracionAccesoValidator" method="validarDenominacion"/>
+                </precondition>
+            </insertarrolAction>
+            <modificarrolAction>
+                <param name="denominacion" type="vtalfanumericosguiones" not_null="true" null_error="LOGNULL"
+                       max_lenght="60"/>
+                <param name="idrol" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="abreviatura" type="vtalfanumericosguiones" not_null="true" null_error="LOGNULL"
+                       max_lenght="10"/>
+                <param name="descripcion" type="todoMenosPtoComa" not_null="false" null_error="LOGNULL"
+                       max_lenght="255"/>
+                <param name="type" type="letras" not_null="true" null_error="LOGNULL"/>
+                <param name="arraypadres" type="json" not_null="false" null_error="LOGNULL"/>
+                <param name="arraysistfun" type="json" not_null="false" null_error="LOGNULL"/>
+                <param name="arraysist" type="json" not_null="false" null_error="LOGNULL"/>
+                <param name="arrayeliminar" type="json" not_null="false" null_error="LOGNULL"/>
+                <param name="arrayGruposAdd" type="json" not_null="false" null_error="LOGNULL"/>
+                <param name="arrayGruposDel" type="json" not_null="false" null_error="LOGNULL"/>
+                <param name="clase" type="letras" not_null="true" null_error="LOGNULL" max_lenght="10"/>
+                <param name="sinAccesoASist" type="boolean" not_null="false" null_error="LOGNULL"/>
+                <precondition>
+                    <validator class="ConfiguracionAccesoValidator" method="validarModificacion"/>
+                    <validator class="ConfiguracionAccesoValidator" method="validarFuncionalidad"/>
+                </precondition>
+                <postcondition>
+                    <validator class="ConfiguracionAccesoValidator" method="updateAcl"/>
+                </postcondition>
+            </modificarrolAction>
+            <eliminarrolAction>
+                <param name="arrayRolesElim" type="json" not_null="true" null_error="LOGNULL"/>
+                <param name="clase" type="letras" not_null="true" null_error="LOGNULL" max_lenght="10"/>
+            </eliminarrolAction>
+            <validarasignacionrolesAction>
+                <param name="ArrayUsuarios" type="json" not_null="true" null_error="LOGNULL"/>
+            </validarasignacionrolesAction>
+            <cargarGridGruposAction>
+                <param name="start" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="limit" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="idrol" type="enterospos" not_null="false" null_error="LOGNULL" max_lenght="19"/>
+            </cargarGridGruposAction>
+            <cargarsistemafuncionalidadesAction>
+                <param name="node" type="numerosguionbajo" not_null="true" null_error="LOGNULL" max_lenght="255"/>
+                <param name="idsistema" type="enterospos" not_null="false" null_error="LOGNULL" max_lenght="19"/>
+                <param name="idrol" type="enterospos" not_null="false" null_error="LOGNULL" max_lenght="19"/>
+            </cargarsistemafuncionalidadesAction>
+            <insertarrelacionAction>
+                <param name="arrayGruposAdd" type="json" not_null="true" null_error="LOGNULL"/>
+                <param name="idrol" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+            </insertarrelacionAction>
+            <eliminarrelacionAction>
+                <param name="arrayGruposAdd" type="json" not_null="true" null_error="LOGNULL"/>
+                <param name="idrol" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+            </eliminarrelacionAction>
+            <cargaraccionesquetieneAction>
+                <param name="start" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="limit" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="idsistema" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="idfuncionalidad" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="idrol" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+            </cargaraccionesquetieneAction>
+            <cargaraccionesquenotieneAction>
+                <param name="start" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="limit" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="idsistema" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="idfuncionalidad" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="idrol" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+            </cargaraccionesquenotieneAction>
+            <cargarsistemafuncAction>
+                <param name="node" type="numerosguionbajo" not_null="true" null_error="LOGNULL" max_lenght="100"/>
+                <param name="idsistema" type="enterospos" not_null="false" null_error="LOGNULL" max_lenght="19"/>
+                <param name="idrol" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+            </cargarsistemafuncAction>
+            <adicionaraccionAction>
+                <param name="idfuncionalidad" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="idsistema" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="idrol" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="idrecurso" type="json" not_null="true" null_error="LOGNULL"/>
+                <postcondition>
+                    <validator class="ConfiguracionAccesoValidator" method="updateAcl"/>
+                </postcondition>
+            </adicionaraccionAction>
+            <eliminaraccionAction>
+                <param name="idfuncionalidad" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="idsistema" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="idrol" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="idrecurso" type="json" not_null="true" null_error="LOGNULL"/>
+                <postcondition>
+                    <validator class="ConfiguracionAccesoValidator" method="updateAcl"/>
+                </postcondition>
+            </eliminaraccionAction>
+            <insertarcampoAction>
+                <param name="tipo" type="letras" not_null="true" null_error="LOGNULL" max_lenght="15"/>
+                <param name="nombre" type="letrasguion" not_null="true" null_error="LOGNULL" max_lenght="60"/>
+                <param name="alias" type="letrasguion" not_null="true" null_error="LOGNULL" max_lenght="255"/>
+                <param name="longitud" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="6"/>
+                <param name="visible" type="letras" not_null="true" null_error="LOGNULL" max_lenght="6"/>
+                <param name="idexpresiones" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="descripcion" type="todoMenosPtoComa" not_null="false" null_error="LOGNULL"
+                       max_lenght="19"/>
+                <param name="tipocampo" type="letras" not_null="true" null_error="LOGNULL" max_lenght="15"/>
+            </insertarcampoAction>
+            <modificarcampoAction>
+                <param name="idcampo" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="tipo" type="letras" not_null="true" null_error="LOGNULL" max_lenght="15"/>
+                <param name="nombre" type="letrasguion" not_null="true" null_error="LOGNULL" max_lenght="60"/>
+                <param name="alias" type="letrasguion" not_null="true" null_error="LOGNULL" max_lenght="255"/>
+                <param name="longitud" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="6"/>
+                <param name="visible" type="letras" not_null="true" null_error="LOGNULL" max_lenght="6"/>
+                <param name="idexpresiones" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="descripcion" type="todoMenosPtoComa" not_null="false" null_error="LOGNULL"
+                       max_lenght="19"/>
+                <param name="tipocampo" type="letras" not_null="true" null_error="LOGNULL" max_lenght="15"/>
+            </modificarcampoAction>
+            <eliminarcampoAction>
+                <param name="idcampo" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+            </eliminarcampoAction>
+            <modificarperfilesAction>
+                <param name="records" type="json" not_null="false" null_error="LOGNULL"/>
+            </modificarperfilesAction>
+            <cargargridAction>
+                <param name="start" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="limit" type="enterospos" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+                <param name="nombreusuario" type="vtalfanumericosguiones" not_null="false" null_error="LOGNULL"
+                       max_lenght="20"/>
+                <param name="dominiobuscar" type="enterospos" not_null="false" null_error="LOGNULL" max_lenght="19"/>
+                <param name="activar" type="letras" not_null="false" null_error="LOGNULL" max_lenght="12"/>
+                <param name="idrol" type="enterospos" not_null="false" null_error="LOGNULL" max_lenght="19"/>
+                <param name="idgrupo" type="enterospos" not_null="false" null_error="LOGNULL" max_lenght="19"/>
+            </cargargridAction>
+            <cargarcamposAction>
+                <param name="node" type="vtalfanumericosguiones" not_null="true" null_error="LOGNULL" max_lenght="19"/>
+            </cargarcamposAction>
+        </ConfigaccesosController>
+
+        <!--CHEQUEO DE INTEGRIDAD -->
+        <CheckintegrityController>
+            <comprobarAction>
+                <precondition>
+                    <validator class="CheckIntegrityValidator" method="validarInstalacionAIDE"/>
+                    <validator class="CheckIntegrityValidator" method="validarEscaneoActivo"/>
+                </precondition>
+            </comprobarAction>
+        </CheckintegrityController>
+    </seguridad>
+</validador>

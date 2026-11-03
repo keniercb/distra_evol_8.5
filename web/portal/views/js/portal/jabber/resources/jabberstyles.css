@@ -1,0 +1,189 @@
+p {
+	margin-bottom:15px;
+}
+h1 {
+	font-size:large;
+	margin-bottom:20px;
+}
+h2 {
+	font-size:14px;
+    color:#333;
+    font-weight:bold;
+    margin:10px 0;
+}
+.example-info{
+	width:150px;
+	border:1px solid #c3daf9;
+	border-top:1px solid #DCEAFB;
+	border-left:1px solid #DCEAFB;
+	background:#ecf5fe url( info-bg.gif ) repeat-x;
+	font-size:10px;
+	padding:8px;
+}
+pre.code{
+	background: #F8F8F8;
+	border: 1px solid #e8e8e8;
+	padding:10px;
+	margin:10px;
+	margin-left:0px;
+	border-left:5px solid #e8e8e8;
+	font-size: 12px !important;
+	line-height:14px !important;
+}
+.msg .x-box-mc {
+    font-size:14px;
+}
+#msg-alert {
+    position:absolute;
+    left:35%;
+    top:10px;
+    width:250px;
+    z-index:20000;
+}
+
+
+
+
+
+.tree-help
+{
+ background-image:url( ../resources/images/bookcase.png ) !important;
+}
+
+.expandir {
+    background-image:url(../resources/images/expand-all.gif ) !important;
+}
+.colapsar {
+    background-image:url(../resources/images/collapse-all.gif ) !important;
+}
+.user-add {
+    background-image:url(../resources/images/user_add.gif ) !important;
+}
+.user-delete {
+    background-image:url( ../resources/images/user_delete.gif ) !important;
+}
+.user-edit {
+    background-image:url( ../resources/images/user_edit.png ) !important;
+}
+.exit-jabber-close {
+    background-image:url( ../resources/images/salir.png ) !important;
+}
+.file-jabber {
+    background-image:url( ../resources/images/folder_go.png ) !important;
+}
+.user {
+    background-image:url( ../resources/images/user.gif ) !important;
+}
+.defaultuser {
+    background-image:url( ../resources/images/defaultuser.png ) !important;
+}
+.connected {
+    background-image:url( ../resources/images/connect.gif ) !important;
+}
+.desconnected {
+    background-image:url( ../resources/images/offline_user.png ) !important;
+}
+.mostrar-grupos-usuarios {
+    background-image:url( ../resources/images/setup.png ) !important;
+}
+.gestionar-usuarios {
+    background-image:url( ../resources/images/gestionar_usuarios.png ) !important;
+}
+.comentario {
+    background-image:url( ../resources/images/comment_new.gif ) !important;
+}
+.salvar-perfil {
+    background-image:url( ../resources/images/folder_lock.gif ) !important;
+}
+.mi-perfil {
+    background-image:url( ../resources/images/page_user.gif ) !important;
+}
+.buscar {
+    background-image:url( ../resources/images/lupa.png ) !important;
+}
+.group {
+    background-image:url( ../resources/images/group.png ) !important;
+}
+.jabber {
+    background-image:url( ../resources/images/bird16x16.png ) !important;
+        
+}
+.jabber-treeuser-background {
+    background:url( ../resources/images/splashbird.png ) !important;
+        
+}
+.jabber-autenticate {
+    background-image:url( ../resources/images/autenticate.png ) !important;
+    
+}
+.help {
+    background-image:url( ../resources/images/docs.gif ) !important;
+}
+.settings {
+    background-image:url( ../resources/images/folder_wrench.png ) !important;
+}
+.nav {
+    background-image:url( ../shared/icons/fam/folder_go.png ) !important;
+}
+
+
+
+
+.msn{background-image:url(../resources/images/wlmessenger.jpg);}
+.enviar-supscripcion{background-image:url(../resources/images/event.gif);}
+.enviar{background-image:url(../resources/images/icon_airmail.gif);}
+.mensage-difusion{background-image:url(../resources/images/icon_get_world.gif);}
+.adjunto{background-image:url(../resources/images/icon_attachment.gif);}
+
+.btbuscar  { vertical-align:top !important; text-align:left;  background:url(../resources/images/lupa.png) no-repeat !important;}
+.btenviar  { vertical-align:top !important; text-align:left;  background:url(../resources/images/add.gif) 0 3px no-repeat !important;}
+.btaceptar  { vertical-align:top !important; text-align:left;  background:url(../resources/images/aceptar.png) 0 3px no-repeat !important;}
+.btaplicar  { vertical-align:top !important; text-align:left;  background:url(../resources/images/add.gif) 0 3px no-repeat !important;}
+.btcancelar { vertical-align:top !important; text-align:left;  background:url(../resources/images/cancelar.png) 0 3px no-repeat !important;}
+
+
+
+
+
+.icon-cls {
+    background-image: url(../resources/images/class.gif) !important;
+}
+.icon-event {
+    background-image: url(../resources/images/event.gif) !important;
+}
+.icon-config {
+    background-image: url(../resources/images/config.gif) !important;
+}
+.icon-prop {
+    background-image: url(../resources/images/prop.gif) !important;
+}
+.icon-method {
+    background-image: url(../resources/images/method.gif) !important;
+}
+.icon-cmp {
+    background-image: url(../resources/images/cmp.gif) !important;
+}
+.icon-pkg {
+    background-image: url(../resources/images/pkg.gif) !important;
+}
+.icon-fav {
+    background-image: url(../resources/images/fav.gif) !important;
+}
+.icon-static {
+    background-image: url(../resources/images/static.gif) !important;
+}
+.icon-docs {
+    background-image: url(../resources/images/docs.gif) !important;
+}
+.icon-expand-all {
+    background-image: url(../resources/images/expand-all.gif) !important;
+}
+.icon-collapse-all {
+    background-image: url(../resources/images/collapse-all.gif) !important;
+}
+.icon-expand-members {
+    background-image: url(../resources/images/expand-members.gif) !important;
+}
+.icon-hide-inherited {
+    background-image: url(../resources/images/hide-inherited.gif) !important;
+}

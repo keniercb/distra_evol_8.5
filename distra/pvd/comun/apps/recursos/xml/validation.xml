@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validador>
+  <pvd>
+    <evaluaciones>
+        <plantillas>
+            <ValorescualitativosController>
+                <adicionarvalorescualitativosAction>
+                    <precondition>
+                        <validator class="valorescualitativosValidator" method="existeValorC" error="CHEVALVC001"/>
+                    </precondition>
+                </adicionarvalorescualitativosAction>
+                <eliminarvalorescualitativosAction>
+                    <precondition>
+                        <validator class="valorescualitativosValidator" method="valorcualitativoenUso" error="CHEVALVC002"/>
+                    </precondition>
+                </eliminarvalorescualitativosAction>
+            </ValorescualitativosController>
+            <ValoresimagenesController>
+                <adicionarimagenAction>
+                    <precondition>
+                        <validator class="valoresimagenesValidator" method="cumpeCondiciones" error="CHEVALIMGC001"/>
+                    </precondition>
+                </adicionarimagenAction>
+                <modificarimagenAction>
+                    <precondition>
+                        <validator class="valoresimagenesValidator" method="cumpeCondiciones" error="CHEVALIMGC001"/>
+                    </precondition>
+                </modificarimagenAction>
+            </ValoresimagenesController>
+            <IndicadoresController>
+                <adicionarindicadortextoAction>
+                    <precondition>
+                        <validator class="indicadoresValidator" method="existeCodDenomIndicadorT" error="CHE056"/>
+                    </precondition>
+                </adicionarindicadortextoAction>
+                <eliminarindicadortextoAction>
+                    <precondition>
+                        <validator class="indicadoresValidator" method="IndicadorTEnUso" error="CHE046"/>
+                    </precondition>
+                </eliminarindicadortextoAction>
+                <adicionarimagenAction>
+                    <precondition>
+                        <validator class="indicadoresValidator" method="ExisteCodIndicadorI" error="CHE063"/>
+                    </precondition>
+                </adicionarimagenAction>
+                <eliminarimagenAction>
+                    <precondition>
+                        <validator class="indicadoresValidator" method="IndicadorIEnUso" error="CHE064"/>
+                    </precondition>
+                </eliminarimagenAction>
+            </IndicadoresController>
+            <PlantillasController>
+                <!--<adicionarplanillaAction>
+                    <precondition>
+                        <validator class="plantillasValidator" method="ExisteCodPlanilla" error="CHE047"/>
+                    </precondition>
+                </adicionarplanillaAction>-->
+                <eliminarplanillaAction>
+                    <precondition>
+                        <validator class="plantillasValidator" method="PlanillaEnUso" error="CHE037"/>
+                    </precondition>
+                </eliminarplanillaAction>
+            </PlantillasController>
+            <ModelosController>
+                <adicionarmodeloAction>
+                    <precondition>
+                        <validator class="modelosValidator" method="ExisteModelo" error="CHE059"/>
+                    </precondition>
+                </adicionarmodeloAction>
+                <eliminarmodeloAction>
+                    <precondition>
+                        <validator class="modelosValidator" method="ModeloEnUso" error="CHE060"/>
+                    </precondition>
+                </eliminarmodeloAction>
+                <adicionarhechoAction>
+                    <precondition>
+                        <validator class="modelosValidator" method="ExisteHecho" error="CHE058"/>
+                    </precondition>
+                </adicionarhechoAction>
+            </ModelosController>
+            <EscalasController>
+                <adicionarescalaAction>
+                    <precondition>
+                        <validator class="escalasValidator" method="existeEscala" error="CHE061"/>
+                    </precondition>
+                </adicionarescalaAction>
+            </EscalasController>
+            <RecursosController>
+                <adicionarrecursoAction>
+                    <precondition>
+                        <validator class="recursosValidator" method="existeRecurso" error="CHE057"/>
+                    </precondition>
+                </adicionarrecursoAction>
+            </RecursosController>
+        </plantillas>
+        <procesoevaluativo>
+            <DefinirprocesoController>
+                <adicionardefinirprocesoAction>
+                    <precondition>
+                        <validator class="definirprocesoValidator" method="ExisteProcesoDefinido" error="CHE062"/>
+                    </precondition>
+                </adicionardefinirprocesoAction>
+            </DefinirprocesoController>
+            <PrepararprocesoController>
+                <eliminarcomisionAction>
+                    <precondition>
+                        <validator class="PrepararprocesoValidator" method="comisionEnUso" error="CHEVALP002"/>
+                    </precondition>
+                </eliminarcomisionAction>
+            </PrepararprocesoController>
+            <SenyalamientosController>
+                <adicionarsenyalamientosAction>
+                    <precondition>
+                        <validator class="SenyalamientosValidator" method="ExisteSenyalamiento" error="CHE038"/>
+                    </precondition>
+                </adicionarsenyalamientosAction>
+                <eliminarsenyalamientosAction>
+                    <precondition>
+                        <validator class="SenyalamientosValidator" method="SenyalamientoEnUso" error="CHE056"/>
+                    </precondition>
+                </eliminarsenyalamientosAction>
+                <adicionartiposenyalamientosAction>
+                    <precondition>
+                        <validator class="SenyalamientosValidator" method="ExisteTipoSenyalamiento" error="CHE039"/>
+                    </precondition>
+                </adicionartiposenyalamientosAction>
+                <eliminartiposenyalamientosAction>
+                    <precondition>
+                        <validator class="SenyalamientosValidator" method="TipoSenyalamientoEnUso" error="CHE055"/>
+                    </precondition>
+                </eliminartiposenyalamientosAction>
+                <eliminarsenyalamientosAction>
+                    <precondition>
+                        <validator class="SenyalamientosValidator" method="SenyalamientoEnUso" error="CHE056"/>
+                    </precondition>
+                </eliminarsenyalamientosAction>
+            </SenyalamientosController>
+            <RecomendacionesController>
+                <adicionarrecomendacionAction>
+                    <precondition>
+                        <validator class="recomendacionesValidator" method="ExisteRecomendacion" error="CHE041"/>
+                    </precondition>
+                </adicionarrecomendacionAction>
+            </RecomendacionesController>
+            <TipoprocesoController>
+                <adicionartipoprocesoAction>
+                    <precondition>
+                        <validator class="TipoprocesoValidator" method="existeTipoProceso" error="CHE048"/>
+                    </precondition>
+                </adicionartipoprocesoAction>
+            </TipoprocesoController>
+            <PeriodosController>
+                <adicionarperiodoAction>
+                    <precondition>
+                        <validator class="periodosValidator" method="existePeriodo" error="CHE049"/>
+                    </precondition>
+                </adicionarperiodoAction>
+                <eliminarperiodoAction>
+                    <precondition>
+                        <validator class="periodosValidator" method="PeriodoEnUso" error="CHE051"/>
+                    </precondition>
+                </eliminarperiodoAction>
+            </PeriodosController>
+        </procesoevaluativo>
+    </evaluaciones>
+
+	<!-- INICIO DE LAS VALIDACIONES DEL COMPONENTE nómina -->
+    <nomina>
+       <!--<NomcausasexclusionnominaController>
+                <adicionarCausasExclusionNominaAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="adicionarDenomCausaExclusion" error="CHN001"/>
+                    </precondition>
+                </adicionarCausasExclusionNominaAction>
+				<modificarCausasExclusionNominaAction>
+					<precondition>
+                        <validator class="NominaValidator" method="modificarDenomCausaExclusion" error="CHN002"/>
+					</precondition>
+                </modificarCausasExclusionNominaAction>
+        </NomcausasexclusionnominaController>
+		<NomconceptormController>
+                <adicionarConceptoRetribucionMonetariaAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="adicionarDenomConceptoRM" error="CHN003"/>
+                        <validator class="NominaValidator" method="adicionarAbrevConceptoRM" error="CHN004"/>
+                    </precondition>
+                </adicionarConceptoRetribucionMonetariaAction>
+				 <modificarConceptoRetribucionMonetariaAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="modificarDenomConceptoRM" error="CHN005"/>
+                        <validator class="NominaValidator" method="modificarAbrevConceptoRM" error="CHN004"/>
+                    </precondition>
+                </modificarConceptoRetribucionMonetariaAction>
+        </NomconceptormController>
+		<NomformasistemapagoController>
+                <adicionarFormaPagoAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="adicionarDenomFormaPago" error="CHN006"/>
+					</precondition>
+                </adicionarFormaPagoAction>
+				<modificarFormaPagoAction>
+					<precondition>
+                        <validator class="NominaValidator" method="modificarDenomFormaPago" error="CHN007"/>
+					</precondition>
+                </modificarFormaPagoAction>
+
+                <adicionarSistemaPagoAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="adicionarDenomSistemaPago" error="CHN008"/>
+					</precondition>
+                </adicionarSistemaPagoAction>
+				 <modificarSistemaPagoAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="modificarDenomSistemaPago" error="CHN009"/>
+					</precondition>
+                </modificarSistemaPagoAction>
+        </NomformasistemapagoController>
+		<NomgrupoescalaController>
+                <adicionarGrupoEscalaAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="adicionarDenomGrupoEscala" error="CHN010"/>
+                    </precondition>
+                </adicionarGrupoEscalaAction>
+				 <modificarGrupoEscalaAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="modificarDenomGrupoEscala" error="CHN011"/>
+                    </precondition>
+                </modificarGrupoEscalaAction>
+        </NomgrupoescalaController>
+		<NomperiodopagoController>
+                <adicionarPeriodoPagoAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="adicionarDenomPeriodoPago" error="CHN012"/>
+						<validator class="NominaValidator" method="adicionarCantDiasPeriodoPago" error="CHN013"/>
+                    </precondition>
+                </adicionarPeriodoPagoAction>
+				<modificarPeriodoPagoAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="modificarDenomPeriodoPago" error="CHN014"/>
+						<validator class="NominaValidator" method="modificarCantDiasPeriodoPago" error="CHN013"/>
+                    </precondition>
+                </modificarPeriodoPagoAction>
+        </NomperiodopagoController>
+		<NomperiodovacacionesController>
+                <adicionarPeriodoVacacionesAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="adicionarDiasPeriodoVacaciones" error="CHN015"/>
+                    </precondition>
+                </adicionarPeriodoVacacionesAction>
+				<modificarPeriodoVacacionesAction>
+					<precondition>
+                        <validator class="NominaValidator" method="modificarDiasPeriodoVacaciones" error="CHN016"/>
+					</precondition>
+                </modificarPeriodoVacacionesAction>
+        </NomperiodovacacionesController>
+		<NomsalarioescalaController>
+                <adicionarSalariosEscalasAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="adicionarGrupoESalarioEscala" error="CHN017"/>
+                    </precondition>
+                </adicionarSalariosEscalasAction>
+				<modificarSalariosEscalasAction>
+					<precondition>
+                        <validator class="NominaValidator" method="modificarGrupoESalarioEscala" error="CHN018"/>
+					</precondition>
+                </modificarSalariosEscalasAction>
+        </NomsalarioescalaController>
+		<NomsalarioespecificoController>
+                <adicionarSalarioEspecificoAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="adicionarDenomCargoSalarioEspecifico" error="CHN019"/>
+                    </precondition>
+                </adicionarSalarioEspecificoAction>
+				<modificarSalarioEspecificoAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="modificarDenomCargoSalarioEspecifico" error="CHN020"/>
+                    </precondition>
+                </modificarSalarioEspecificoAction>
+        </NomsalarioespecificoController>
+		<NomsectoressalarialesController>
+                <adicionarSectorSalarialAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="adicionarDenomSectorSalarial" error="CHN021"/>
+                        <validator class="NominaValidator" method="adicionarAbrevSectorSalarial" error="CHN022"/>
+                    </precondition>
+                </adicionarSectorSalarialAction>
+				 <modificarSectorSalarialAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="modificarDenomSectorSalarial" error="CHN023"/>
+                        <validator class="NominaValidator" method="modificarAbrevSectorSalarial" error="CHN022"/>
+                    </precondition>
+                </modificarSectorSalarialAction>
+        </NomsectoressalarialesController>
+		<NomsituacionlaboralController>
+                <adicionarSituacionLaboralAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="adicionarDenomSituacionLaboral" error="CHN024"/>
+                        <validator class="NominaValidator" method="adicionarAbrevSituacionLaboral" error="CHN025"/>
+                    </precondition>
+                </adicionarSituacionLaboralAction>
+				<modificarSituacionLaboralAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="modificarDenomSituacionLaboral" error="CHN026"/>
+                        <validator class="NominaValidator" method="modificarAbrevSituacionLaboral" error="CHN025"/>
+                    </precondition>
+                </modificarSituacionLaboralAction>
+        </NomsituacionlaboralController>
+		<NomtarifaController>
+                <adicionarTarifaAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="adicionarDenomTarifa" error="CHN027"/>
+                    </precondition>
+                </adicionarTarifaAction>
+				<modificarTarifaAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="modificarDenomTarifa" error="CHN028"/>
+                    </precondition>
+                </modificarTarifaAction>
+        </NomtarifaController>
+		<NomtiponominaController>
+                <adicionarTipoNominaAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="adicionarDenomTipoNomina" error="CHN029"/>
+                    </precondition>
+                </adicionarTipoNominaAction>
+				<modificarTiposNominaAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="modificarDenomTipoNomina" error="CHN030"/>
+                    </precondition>
+                </modificarTiposNominaAction>
+        </NomtiponominaController>
+		<NomtipoconceptopdController>
+                <adicionarTipoConceptoPDAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="adicionarDenomTipoConceptoPD" error="CHN031"/>
+                    </precondition>
+                </adicionarTipoConceptoPDAction>
+				<modificarTipoConceptoPDAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="modificarDenomTipoConceptoPD" error="CHN032"/>
+                    </precondition>
+                </modificarTipoConceptoPDAction>
+        </NomtipoconceptopdController>
+		<NomtipopagoController>
+                <adicionarTipoPagoAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="adicionarDenomTipoPago" error="CHN033"/>
+                    </precondition>
+                </adicionarTipoPagoAction>
+				<modificarTipoPagoAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="modificarDenomTipoPago" error="CHN034"/>
+                    </precondition>
+                </modificarTipoPagoAction>
+        </NomtipopagoController>
+		<NomtiporetencionController>
+                <adicionarTipoRetencionAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="adicionarDenomTipoRetencion" error="CHN035"/>
+                        <validator class="NominaValidator" method="adicionarAbrevTipoRetencion" error="CHN036"/>
+                    </precondition>
+                </adicionarTipoRetencionAction>
+				 <modificarTipoRetencionAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="modificarDenomTipoRetencion" error="CHN037"/>
+                        <validator class="NominaValidator" method="modificarAbrevTipoRetencion" error="CHN036"/>
+                    </precondition>
+                </modificarTipoRetencionAction>
+        </NomtiporetencionController>
+		<NomvariableglobalController>
+                <adicionarVariableGlobalAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="adicionarDenomVariableGlobal" error="CHN038"/>
+                        <validator class="NominaValidator" method="adicionarAbrevVariableGlobal" error="CHN039"/>
+                    </precondition>
+                </adicionarVariableGlobalAction>
+				<modificarVariableGlobalAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="modificarDenomVariableGlobal" error="CHN040"/>
+                        <validator class="NominaValidator" method="modificarAbrevVariableGlobal" error="CHN039"/>
+                    </precondition>
+                </modificarVariableGlobalAction>
+        </NomvariableglobalController>
+		<NomconceptopercepciondescuentoController>
+                <adicionarVariableAuxiliarFormulaAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="adicionarDenomVariableAuxiliarFormula" error="CHN046"/>
+                    </precondition>
+                </adicionarVariableAuxiliarFormulaAction>
+				<modificarVariableAuxiliarFormulaAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="modificarDenomVariableAuxiliarFormula" error="CHN047"/>
+                    </precondition>
+                </modificarVariableAuxiliarFormulaAction>
+
+                <adicionarEstructuraEscalarAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="adicionarDenomEstructuraEscalar" error="CHN048"/>
+                    </precondition>
+                </adicionarEstructuraEscalarAction>
+				<modificarEstructuraEscalarAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="modificarDenomEstructuraEscalar" error="CHN049"/>
+                    </precondition>
+                </modificarEstructuraEscalarAction> 
+        </NomconceptopercepciondescuentoController>
+		<ConfigtiporeportecertificacionController>
+                <adicionarTipoReporteCertificacionAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="adicionarDenomTipoReporteCertificacion" error="CHN050"/>
+                    </precondition>
+                </adicionarTipoReporteCertificacionAction>
+				<modificarTipoReporteCertificacionAction>
+					<precondition>
+                        <validator class="NominaValidator" method="modificarDenomTipoReporteCertificacion" error="CHN051"/>
+					</precondition>
+                </modificarTipoReporteCertificacionAction>
+				<adicionarCampoAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="adicionarDenomCampoTipoRC" error="CHN052"/>
+						<validator class="NominaValidator" method="adicionarAbrevCampoTipoRC" error="CHN054"/>
+                    </precondition>
+                </adicionarCampoAction>
+				<modificarCampoAction>
+                    <precondition>
+                        <validator class="NominaValidator" method="modificarDenomCampoTipoRC" error="CHN053"/>
+						<validator class="NominaValidator" method="modificarAbrevCampoTipoRC" error="CHN054"/>
+                    </precondition>
+                </modificarCampoAction>
+        </ConfigtiporeportecertificacionController>-->
+
+
+	</nomina>
+	<!--FIN DE LAS VALIDACIONES DEL COMPONENTE nómina -->
+
+  <!-- INICIO DE LAS VALIDACIONES DEL COMPONENTE Integracion Penal -->
+	<integracionpenal>
+		 <fiscalia>
+                      <procesos_penales>
+			 <RegistroController>
+				<gestionardatosregistroAction>
+				    <precondition>
+				        <validator class="RegistroValidator" method="validarDatosEntrada" error="CHP020"/>
+				    </precondition>
+				</gestionardatosregistroAction>
+			 </RegistroController>
+                     </procesos_penales>
+		 </fiscalia>
+	</integracionpenal>
+	<!--FIN DE LAS VALIDACIONES DEL COMPONENTE Integracion Penal -->
+</pvd>
+</validador>

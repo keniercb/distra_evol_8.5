@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+	<config>
+		<conn bd="distra_develop" gestor="pgsql" host="localhost" usuario="zeolides" password="74144226958272815089 47449500496945353204 16905952519330303663 49601985842461726884 8541063394422092086" port="5433"/>
+	<security>
+		<ttl>-1</ttl>
+	</security>
+	<seguridad>
+		<conn esquema="mod_seguridad" usuario="zeolides" password="74144226958272815089 47449500496945353204 16905952519330303663 49601985842461726884 8541063394422092086"/>
+	</seguridad>
+ 	<traza>
+		<conn esquema="mod_traza" usuario="zeolides" password="74144226958272815089 47449500496945353204 16905952519330303663 49601985842461726884 8541063394422092086"/>
+	</traza>
+	<herramientas>
+		<notificaciones>
+                        <conn esquema="mod_notificaciones" usuario="zeolides" password="74144226958272815089 47449500496945353204 16905952519330303663 49601985842461726884 8541063394422092086"/>
+		</notificaciones>
+		<xmetacomponent>
+			<conn esquema="mod_metadata" usuario="zeolides" password="74144226958272815089 47449500496945353204 16905952519330303663 49601985842461726884 8541063394422092086"/>
+		</xmetacomponent>
+	</herramientas>    
+	<pvd>
+		<conn esquema="mod_persona" usuario="zeolides" password="74144226958272815089 47449500496945353204 16905952519330303663 49601985842461726884 8541063394422092086"/>
+	</pvd>
+	<metadatos>
+		<conn esquema="mod_estructuracomp, mod_datosmaestros" usuario="zeolides" password="74144226958272815089 47449500496945353204 16905952519330303663 49601985842461726884 8541063394422092086"/>
+	</metadatos>
+	<configuracion>
+                <conn esquema="mod_datosmaestros" usuario="zeolides" password="74144226958272815089 47449500496945353204 16905952519330303663 49601985842461726884 8541063394422092086"/>
+	</configuracion>
+	<logistica>
+                <conn usuario="zeolides" password="74144226958272815089 47449500496945353204 16905952519330303663 49601985842461726884 8541063394422092086" esquema="mod_logistica, mod_datosmaestros, mod_logubicacion, mod_loginventario, mod_logdistribucion, mod_logfacturacion, mod_logactivofijotangible, mod_logtaller, mod_datosmaestrosmeta"/>
+	</logistica>
+        <planificacion>
+                <conn usuario="zeolides" password="74144226958272815089 47449500496945353204 16905952519330303663 49601985842461726884 8541063394422092086" esquema="mod_planificacion,mod_planificacionmeta,mod_metadata,mod_planifimportacion,mod_objetivos,mod_flujotrabajo,public"/>
+        </planificacion>
+	<portal>
+		<conn esquema="mod_portal"/>
+	</portal>
+	<crm>
+		<customer_provider>       
+			<conn esquema="mod_crmcliente, mod_crmcontratacion, mod_crmadministracion" usuario="zeolides" password="74144226958272815089 47449500496945353204 16905952519330303663 49601985842461726884 8541063394422092086"/>
+		</customer_provider>
+	</crm>
+	<xmetacomponent>
+		<conn esquema="mod_planificacion,mod_planificacionmeta,mod_metadata" usuario="zeolides" password="74144226958272815089 47449500496945353204 16905952519330303663 49601985842461726884 8541063394422092086"/>
+	</xmetacomponent>
+	<planificacion>
+		<conn esquema="mod_planificacion,mod_planificacionmeta,mod_metadata,mod_planifimportacion,mod_objetivos,mod_flujotrabajo,mod_sami,public" usuario="zeolides" password="74144226958272815089 47449500496945353204 16905952519330303663 49601985842461726884 8541063394422092086"/>		
+	</planificacion>
+	<sami>
+		<conn esquema="mod_sami"/>		
+	</sami>
+	<gestordocumental>
+		<conn esquema="mod_documentacionfisica"/>
+	</gestordocumental> 
+	<pki>
+		<conn esquema="mod_cfw"/>
+	</pki>
+	<fleetControl>
+		<conn bd="git-xetid" gestor="pgsql" host="git.BD.xetid" usuario="zeolides" password="74144226958272815089 47449500496945353204 16905952519330303663 49601985842461726884 8541063394422092086" port="5432"/>
+	</fleetControl>
+	<traza_api>
+		    <endpoint>http://10.50.252.15:5002/api/trazas/</endpoint>
+		    <client_id>client_id</client_id>
+	</traza_api>
+
+</config>

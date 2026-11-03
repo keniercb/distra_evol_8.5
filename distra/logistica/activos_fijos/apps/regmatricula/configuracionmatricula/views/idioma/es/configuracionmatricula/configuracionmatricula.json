@@ -1,0 +1,10 @@
+{
+
+lbNomenlcadores: 'Listado de nomencladores',
+        lbTipoTramite:'Tipo de tr&aacute;mite',
+        lbtabTipoTramite:'Nomenclador de tipo tramite',
+        lbTipoChapa:'Tipo de chapa',
+        lbtabTipoChapa:'Nomenclador de tipo chapa',
+        lbSector:'Sector',
+        lbtabSector:'Nomenclador de sector',
+}

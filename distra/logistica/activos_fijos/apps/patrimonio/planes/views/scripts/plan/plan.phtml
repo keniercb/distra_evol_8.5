@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Plan aprobado</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+        <script language="javascript" type="text/javascript">importarCSS(window.parent.parent.UCID.portal.perfil.dirCss);</script>
+        <!--para cargar las css a cualquier nivel--> 
+        <link href="<?php echo $this->dir_ext_ccs; ?>css/ext-all.css" rel="stylesheet" type="text/css" media="screen"/>
+    </head>
+    <body>
+        <script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>	
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-integra-interfaz.js"></script>
+        <script type="text/javascript" src="/logistica/utiles/comun/views/js/logistica-all.js"></script>
+        <script type="text/javascript" src="/logistica/activos_fijos/utiles/views/js/gestarearesponsabilidad/gestarearesponsabilidad.js"></script>
+        <script type="text/javascript" src="../../views/js/planaprobado/ventanaAdicionar.js"></script>
+        <script type="text/javascript" src="../../views/js/planaprobado/planes.js"></script>
+        <script type="text/javascript" src="../../views/js/planaprobado/index.js"></script>
+        <?php
+        foreach ($this->arrayJs as $js) {
+            echo $js;
+        }
+        ?>
+    </body>
+</html>

@@ -1,0 +1,2269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ioc>
+    <datosmaestros src="configuracion"> 
+        <!-- SUBSISTEMAS-->
+        <getObjEstructSubsisById reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="getObjEstructSubsisById" />
+            <prototipo>
+                <parametro nombre="idEstructurasubsist" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </getObjEstructSubsisById>
+        <buscarInstancia reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="BuscarEstructuraSubsist" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </buscarInstancia>        
+        <buscarEstSubSistPorId reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="buscarEstSubSistPorId" />
+            <prototipo>
+                <parametro nombre="idestsubsist" tipo="enterospos" />
+                <resultado tipo="enterospos" />
+            </prototipo>
+        </buscarEstSubSistPorId>
+        <subsistemadeCierre reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="subsistemadeCierre" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </subsistemadeCierre>
+        <buscarSubsistemasEstructura reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="buscarSubsistemasEstructura" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </buscarSubsistemasEstructura>
+        <buscarSubsistemasEstructuraContabilizan reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="buscarSubsistemasEstructuraContabilizan" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </buscarSubsistemasEstructuraContabilizan>
+        <BuscarSubsistInactivosContab reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="BuscarSubsistInactivosContab" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <parametro nombre="idsubsistema" tipo="array" />
+                <resultado tipo="array" />
+            </prototipo>
+        </BuscarSubsistInactivosContab>
+        <obtenerSubsistemas reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="obtenerSubsistemas" />
+            <prototipo>
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerSubsistemas>        
+        <obtenerSubsistemasFecha reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="obtenerSubsistemasFecha" />
+            <prototipo>
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerSubsistemasFecha>        
+        <bienvenida reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="bienvenida" />
+            <prototipo />
+        </bienvenida>        
+        <buscarSubsistemasPorEntidad reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="buscarSubsistemasPorEntidad" />
+            <prototipo>
+                <parametro nombre="identidad" />
+                <parametro nombre="idsubsistemas" tipo="array" />
+                <resultado tipo="array" />
+            </prototipo>
+        </buscarSubsistemasPorEntidad>        
+        <buscarSubsistemasActivosPorEntidad reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="buscarSubsistemasActivosPorEntidad" />
+            <prototipo>
+                <parametro nombre="identidad" />
+                <parametro nombre="idsubsistemas" tipo="array" />
+                <resultado tipo="array" />
+            </prototipo>
+        </buscarSubsistemasActivosPorEntidad>        
+        <encuentraIdestructurasubsist reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="EncuentraId" />
+            <prototipo>
+                <parametro nombre="idsubsistema" tipo="enteropos" />
+                <parametro nombre="idestructura" tipo="enteropos" />
+                <resultado tipo="enteropos" />
+            </prototipo>
+        </encuentraIdestructurasubsist>        
+        <encuentraIdestructurasubsistByIdestructura reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="EncuentraIdByIdestructura" />
+            <prototipo>
+                <parametro nombre="idsubsistema" tipo="enteropos" />
+                <parametro nombre="idestructura"/>
+                <resultado tipo="enteropos" />
+            </prototipo>
+        </encuentraIdestructurasubsistByIdestructura>        
+        <cierreP reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="CierreCI" />
+            <prototipo>
+                <parametro nombre="idestructura" tipo="enterospos" />
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+            </prototipo>
+        </cierreP>        
+        <buscarSubsistemaEntidad reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="buscarSubsistemaEntidad" />
+            <prototipo>
+                <parametro nombre="idsubsistemaent" tipo="enterospos" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </buscarSubsistemaEntidad> 
+        <buscarEstructuraSubsit reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="buscarEstructuraSubsit" />
+            <prototipo>
+                <parametro nombre="identidad" />
+                <parametro nombre="idsubsistemas" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </buscarEstructuraSubsit>       
+        <finalizar reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="finalizar" />
+            <prototipo />
+        </finalizar>        
+        <escribirBienvenidaCinicial reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="EscribirBienvenida" />
+            <prototipo>
+                <parametro nombre="idestructura" tipo="enterospos" />
+            </prototipo>
+        </escribirBienvenidaCinicial>        
+        <cierreCinicial reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="EscribirCierre" />
+            <prototipo>
+                <parametro nombre="idestructura" tipo="enterospos" />
+            </prototipo>
+        </cierreCinicial>        
+        <buscarSubsistema reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="SubSistemas" />
+            <prototipo>
+                <resultado clase="NomSubsistema" />
+            </prototipo>
+        </buscarSubsistema>        
+        <buscarSubsistemaPorId reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="BuscarSubsistemabyid" />
+            <prototipo>
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </buscarSubsistemaPorId>        
+        <obtenerSubsitemaURI reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="obtenerSubsitemaURI" />
+            <prototipo>
+                <parametro nombre="uri" clase="stdClass" />
+                <parametro nombre="identidad" tipo="enteropos" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </obtenerSubsitemaURI>        
+        <buscarEstadoPorId reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="BuscarEstadobyid" />
+            <prototipo>
+                <parametro nombre="idestado" tipo="enterospos" />
+                <resultado clase="NomEstadosubsistema" />
+            </prototipo>
+        </buscarEstadoPorId>        
+        <verificarMenuSubsistemas reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="verificarMenuSubsistemas" />
+            <prototipo>
+                <parametro nombre="array" tipo="array" />
+                <parametro nombre="idestructura" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </verificarMenuSubsistemas>                
+        <subsistemaAperturado reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="subsistemaAperturado" />
+            <prototipo>
+                <parametro nombre="idestructura" tipo="enterospos" />
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+                <resultado tipo="enterospos" />
+            </prototipo>
+        </subsistemaAperturado>        
+        <realizarApertura reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="realizarApertura" />
+            <prototipo>
+                <parametro nombre="idestructura" tipo="enterospos" />
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+            </prototipo>
+        </realizarApertura>        
+        <obtenerSubsistemasCont reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="obtenerSubsistemasCont" />
+            <prototipo>
+                <parametro nombre="idestructura" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerSubsistemasCont>
+        <obtenerSubsistemasFnz reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="obtenerSubsistemasFnz" />
+            <prototipo>
+                <parametro nombre="idestructura" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </obtenerSubsistemasFnz>
+        <buscarSubsistemasPrecedentes reference="subsistemas">
+            <inyector clase="SubsistemasService" metodo="buscarSubsistemasPrecedentes" />
+            <prototipo>
+                <parametro nombre="idestructurasubsist" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </buscarSubsistemasPrecedentes>
+
+        <!-- DOCUMENTO-->      
+        <tipoDocumentos reference="documento">
+            <inyector clase="DocumentoService" metodo="tipoDocumentos" />
+            <prototipo>
+                <resultado tipo="array" />
+            </prototipo>
+        </tipoDocumentos>
+        <tipoDocumentoByAlias reference="documento">
+            <inyector clase="DocumentoService" metodo="tipoDocumentosByAlias" />
+            <prototipo>
+                <parametro nombre="alias" tipo="numerosletras" />
+                <parametro nombre="subsistema" tipo="enterospos" default="0" />
+                <parametro nombre="idestructura" tipo="enterospos" default="0" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </tipoDocumentoByAlias>
+        <tipoDocumentoByAliasByIdestructutra reference="documento">
+            <inyector clase="DocumentoService" metodo="tipoDocumentoByAliasByIdestructutra" />
+            <prototipo>
+                <parametro nombre="alias" tipo="numerosletras" />
+                <parametro nombre="idestructura" tipo="enterospos" />
+                <parametro nombre="subsistema" tipo="enterospos" default="0" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </tipoDocumentoByAliasByIdestructutra>
+        <idDocumentoPorAlia reference="documento">
+            <inyector clase="DocumentoService" metodo="idDocumentoPorAlia" />
+            <prototipo>
+                <parametro nombre="aliascat" tipo="letras" />
+                <parametro nombre="idsubsistema" tipo="enterospos" default="0" />
+                <parametro nombre="idestructura" tipo="enterospos" default="0" />
+                <resultado tipo="enteropos" />
+            </prototipo>
+        </idDocumentoPorAlia>
+        <tipoDocumentoPorCategoria reference="documento">
+            <inyector clase="DocumentoService" metodo="tipoDocumentosPorCategoria" />
+            <prototipo>
+                <parametro nombre="aliascat" tipo="letras" />
+                <parametro nombre="identidad" tipo="enterospos" default="0" />
+                <parametro nombre="idsubsistema" tipo="enterospos" default="0" />
+                <parametro nombre="whereIn" tipo="array" default="0" />
+                <parametro nombre="whereNotIn" tipo="array" default="0" />
+                <resultado tipo="array" />
+            </prototipo>
+        </tipoDocumentoPorCategoria>
+        <tipoDocumentoPorCategoriaByIdestructutra reference="documento">
+            <inyector clase="DocumentoService" metodo="tipoDocumentoPorCategoriaByIdestructutra" />
+            <prototipo>
+                <parametro nombre="aliascat" tipo="letras" />
+                <parametro nombre="identidad" tipo="enterospos" default="0" />
+                <parametro nombre="idsubsistema" tipo="enterospos" default="0" />
+                <resultado tipo="array" />
+            </prototipo>
+        </tipoDocumentoPorCategoriaByIdestructutra>
+        <tipoDocumentoById reference="documento">
+            <inyector clase="DocumentoService" metodo="tipoDocumentosById" />
+            <prototipo>
+                <parametro nombre="iddocumento" tipo="enterospos" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </tipoDocumentoById>
+        <innerJoinDocumentoPrim reference="documento">
+            <inyector clase="DocumentoService" metodo="innerJoinDocumentoPrim" />
+            <prototipo>
+                <parametro nombre="query" clase="Doctrine_Query" />
+                <parametro nombre="alias" tipo="numerosletras" />
+                <resultado clase="Doctrine_Query" />
+            </prototipo>
+        </innerJoinDocumentoPrim>
+        <documentosPorSubsistemaEntidad reference="documento">
+            <inyector clase="DocumentoService" metodo="documentosPorSubsistemaEntidad" />
+            <prototipo>
+                <parametro nombre="idsubsistema" tipo="enterospos" default="0" />
+                <parametro nombre="idestructura" default="0" />
+                <parametro nombre="filter" tipo="array" />
+                <resultado tipo="array" />
+            </prototipo>
+        </documentosPorSubsistemaEntidad>
+        <insertarDocumentosAEntidad reference="documento">
+            <inyector clase="DocumentoService" metodo="insertarDocumentosAEntidad" />
+            <prototipo>
+                <parametro nombre="subsistema" tipo="enteropos" />
+                <parametro nombre="iddocumentos" tipo="array" />
+                <parametro nombre="idestructura" tipo="enteropos" />
+            </prototipo>
+        </insertarDocumentosAEntidad>
+        <obtenerNomdocs reference="documento">
+            <inyector clase="DocumentoService" metodo="obtenerNomdocs" />
+            <prototipo>
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerNomdocs>
+        <obtenerDocumentoPrimPorId reference="documento">
+            <inyector clase="DocumentoService" metodo="obtenerDocumentoPrimPorId" />
+            <prototipo>
+                <parametro nombre="iddocprim" tipo="enterospos" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </obtenerDocumentoPrimPorId>
+        <obtenerNomDocPrimPorId reference="documento">
+            <inyector clase="DocumentoService" metodo="obtenerNomDocPrimPorId" />
+            <prototipo>
+                <parametro nombre="agIddocumento" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerNomDocPrimPorId>
+        <obtenerIdDocPorIdDocNom reference="documento">
+            <inyector clase="DocumentoService" metodo="obtenerIdDocPorIdDocNom" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+                <parametro nombre="iddocnom" tipo="enterospos" />
+                <resultado tipo="enteropos" />
+            </prototipo>
+        </obtenerIdDocPorIdDocNom>
+        <documentosPorSubsistema reference="documento">
+            <inyector clase="DocumentoService" metodo="documentosPorSubsistema" />
+            <prototipo>
+                <parametro nombre="idsubsistema" tipo="enterospos" default="0" />
+                <parametro nombre="filter" tipo="array" default="0" />
+                <parametro nombre="idestructura" tipo="enterospos" default="0" />
+                <resultado tipo="array" />
+            </prototipo>
+        </documentosPorSubsistema>
+        <obtenerSubsistPorIdDoc reference="documento">
+            <inyector clase="DocumentoService" metodo="obtenerSubsistPorIdDoc" />
+            <prototipo>
+                <parametro nombre="iddocumento" tipo="enterospos" />
+                <resultado tipo="enterospos" />
+            </prototipo>
+        </obtenerSubsistPorIdDoc>
+        <cantidadDocumentoPrimarioIn reference="documento">
+            <inyector clase="DocumentoService" metodo="cantidadDocumentoPrimarioIn" />
+            <prototipo>
+                <resultado tipo="enteropos" />
+            </prototipo>
+        </cantidadDocumentoPrimarioIn>
+        <getDocumentsByParams reference="documento">
+            <inyector clase="DocumentoService" metodo="getDocumentsByParams" />
+            <prototipo>
+                <parametro nombre="paramas" tipo="array" />
+                <resultado tipo="array" />
+            </prototipo>
+        </getDocumentsByParams>
+        <getDocPrimByParams reference="documento">
+            <inyector clase="DocumentoService" metodo="getDocPrimByParams" />
+            <prototipo>
+                <parametro nombre="idsusbsistema" tipo="enterospos" />
+                <parametro nombre="idestructura" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </getDocPrimByParams>
+        <obtenerDocumentoPorCodigo reference="documento">
+            <inyector clase="DocumentoService" metodo="obtenerDocumentoPorCodigo" />
+            <prototipo>
+                <parametro nombre="codigo" tipo="numerosletras" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerDocumentoPorCodigo>
+
+        <!-- EJERCICIOSYPERIODOS-->
+        <ejercicio reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="EjercicioCI" />
+            <prototipo />
+        </ejercicio>
+        <obtenerEjercicio reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="EjercicioContables" />
+            <prototipo>
+                <parametro nombre="idejercicio" tipo="enterospos" default="0" />
+                <parametro nombre="identidad" tipo="enterospos" default="0" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerEjercicio>
+        <obtenerEjercicios reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="EjerciciosContablesPorEntidad" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" default="0" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerEjercicios>
+        <primerEjercicio reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="PrimerEjercicioC" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <resultado tipo="enterospos" />
+            </prototipo>
+        </primerEjercicio>
+        <ejercicioSiguiente reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="ejercicioSiguiente" />
+            <prototipo>
+                <parametro nombre="idejercicio" tipo="enterospos" />
+                <resultado tipo="enteropos" />
+            </prototipo>
+        </ejercicioSiguiente>
+        <ejercicioAnterior reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="ejercicioAnterior" />
+            <prototipo>
+                <parametro nombre="idejercicio" tipo="enterospos" />
+                <resultado tipo="enteropos" />
+            </prototipo>
+        </ejercicioAnterior>
+        <obtenerEjerciciosAnteriores reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="obtenerEjerciciosAnteriores" />
+            <prototipo>
+                <parametro nombre="idejercicio" tipo="enteropos" />
+                <resultado class="array" />
+            </prototipo>
+        </obtenerEjerciciosAnteriores>
+        <obtenerEjerciciosSiguientes reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="obtenerEjerciciosSiguientes" />
+            <prototipo>
+                <parametro nombre="idejercicio" tipo="enteropos" />
+                <resultado class="array" />
+            </prototipo>
+        </obtenerEjerciciosSiguientes>
+        <cantidadEjercicioIn reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="cantidadEjercicioIn" />
+            <prototipo>
+                <resultado tipo="enteropos" />
+            </prototipo>
+        </cantidadEjercicioIn>
+        <obtenerEjerciciosConfiguradosCargaInicial reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="obtenerEjerciciosConfiguradosCargaInicial" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enteropos" />
+                <resultado class="array" />
+            </prototipo>
+        </obtenerEjerciciosConfiguradosCargaInicial>
+        <obtenerEjercicioDadoAnno reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="obtenerEjercicioDadoAnno" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="fechacont" />
+                <parametro nombre="fechainicio" tipo="fechacont" />
+                <parametro nombre="fechafin" tipo="fechacont" />
+                <resultado clase="array" />
+            </prototipo>
+        </obtenerEjercicioDadoAnno>
+        <ejercicioPorFecha reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="ejercicioPorFecha" />
+            <prototipo>
+                <parametro nombre="fecha" tipo="fechacont" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </ejercicioPorFecha>
+        <obtenerPeriodo reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="Periodo" />
+            <prototipo>
+                <parametro nombre="idperiodo" tipo="enterospos" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </obtenerPeriodo>
+        <obtenerPeriodos reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="Periodos" />
+            <prototipo>
+                <parametro nombre="idejercicio" tipo="enterospos" />
+                <resultado tipo="Array" />
+            </prototipo>
+        </obtenerPeriodos>
+        <primerPeriodoC reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="primerPeriodoC" />
+            <prototipo>
+                <parametro nombre="idejercicio" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </primerPeriodoC>
+        <primerPeriodo reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="primerPeriodo" />
+            <prototipo>
+                <parametro nombre="idejercicio" tipo="enterospos" />
+                <resultado tipo="enteropos" />
+            </prototipo>
+        </primerPeriodo>
+        <primerPeriodoObjeto reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="primerPeriodoObjeto" />
+            <prototipo>
+                <parametro nombre="idejercicio" tipo="enterospos" />
+                <resultado tipo="stdClass" />
+            </prototipo>
+        </primerPeriodoObjeto>
+        <ultimoPeriodoObjeto reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="ultimoPeriodoObjeto" />
+            <prototipo>
+                <parametro nombre="idejercicio" tipo="enterospos" />
+                <resultado tipo="stdClass" />
+            </prototipo>
+        </ultimoPeriodoObjeto>
+        <cantidadPeriodoIn reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="cantidadPeriodoIn" />
+            <prototipo>
+                <resultado tipo="enteropos" />
+            </prototipo>
+        </cantidadPeriodoIn>
+        <periodoSiguiente reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="periodoSiguiente" />
+            <prototipo>
+                <parametro nombre="idperiodo" tipo="enterospos" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </periodoSiguiente>
+        <periodoAnterior reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="periodoAnterior" />
+            <prototipo>
+                <parametro nombre="idperiodo" tipo="enterospos" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </periodoAnterior>
+        <periodosAnteriores reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="periodosAnteriores" />
+            <prototipo>
+                <parametro name="idperiodo" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </periodosAnteriores>
+        <ultimoPeriodo reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="ultimoPeriodo" />
+            <prototipo>
+                <parametro nombre="idejercicio" tipo="enterospos" />
+                <resultado tipo="enteropos" />
+            </prototipo>
+        </ultimoPeriodo>
+        <periodoPorFecha reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="periodoPorFecha" />
+            <prototipo>
+                <parametro nombre="fecha" tipo="fechacont" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </periodoPorFecha>
+        <existeEjercicioPeriodo reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="existeEjercicioPeriodo" />
+            <prototipo>
+                <parametro nombre="$nombreejercicio" tipo="numerosletras" />
+                <parametro nombre="$nombreperiodo" tipo="numerosletras" />
+                <parametro nombre="$idestructurale" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </existeEjercicioPeriodo>
+        <hayEjercicioyPeriodo reference="ejerciciosyperiodos">
+            <inyector clase="EjercicioService" metodo="hayEjercicioyPeriodo" />
+            <prototipo>
+                <parametro nombre="idejercicio" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </hayEjercicioyPeriodo>
+
+        <!-- BANCOSYSUCURSALES-->
+        <obtenerBancos reference="bancos">
+            <inyector clase="BancosService" metodo="obtenerBancos" />
+            <prototipo>
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerBancos>
+        <obtenerBancoPorId reference="bancos">
+            <inyector clase="BancosService" metodo="obtenerBancoPorId" />
+            <prototipo>
+                <parametro nombre="idbanco" tipo="enteropos" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </obtenerBancoPorId>
+        <obtenerSucursales reference="bancos">
+            <inyector clase="BancosService" metodo="obtenerSucursales" />
+            <prototipo>
+                <parametro nombre="idbanco" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerSucursales>
+        <obtenerSucursalPorId reference="bancos">
+            <inyector clase="BancosService" metodo="obtenerSucursalPorId" />
+            <prototipo>
+                <parametro nombre="idsucursal" tipo="enteropos" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </obtenerSucursalPorId>
+        <obtenerBancosConSucursales reference="bancos">
+            <inyector clase="BancosService" metodo="obtenerBancosConSucursales" />
+            <prototipo>
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerBancosConSucursales>
+
+        <addQueryJoinBanco reference="bancos">
+            <inyector clase="BancosService" metodo="addQueryJoin" />
+            <prototipo>
+                <parametro nombre="dql" tipo="Doctrine_Query"/>
+                <parametro nombre="asExt" tipo="letras"/>
+                <parametro nombre="asLoc" tipo="letras"/>
+                <parametro nombre="join" tipo="enterospos"/>
+                <resultado tipo="Doctrine_Query" />
+            </prototipo>
+        </addQueryJoinBanco>
+        <addQuerySelectBanco reference="bancos">
+            <inyector clase="BancosService" metodo="addQuerySelect" />
+            <prototipo>
+                <parametro nombre="dql" tipo="Doctrine_Query"/>
+                <parametro nombre="asLoc" tipo="letras"/>
+                <resultado tipo="Doctrine_Query" />
+            </prototipo>
+        </addQuerySelectBanco>
+
+        <addQueryJoinSucursal reference="bancos">
+            <inyector clase="BancosService" metodo="addQueryJoinSucursal" />
+            <prototipo>
+                <parametro nombre="dql" tipo="Doctrine_Query"/>
+                <parametro nombre="asExt" tipo="letras"/>
+                <parametro nombre="asLoc" tipo="letras"/>
+                <parametro nombre="join" tipo="enterospos"/>
+                <resultado tipo="Doctrine_Query" />
+            </prototipo>
+        </addQueryJoinSucursal>
+        <addQuerySelectSucursal reference="bancos">
+            <inyector clase="BancosService" metodo="addQuerySelectSucursal" />
+            <prototipo>
+                <parametro nombre="dql" tipo="Doctrine_Query"/>
+                <parametro nombre="asLoc" tipo="letras"/>
+                <resultado tipo="Doctrine_Query" />
+            </prototipo>
+        </addQuerySelectSucursal>
+
+
+        <!-- CARGAINICIAL-->
+        <entidadConfigurada reference="cargainicial">
+            <inyector clase="CargainicialService" metodo="entidadConfigurada" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <resultado tipo="enteropos" />
+            </prototipo>
+        </entidadConfigurada>
+        <actualizarEntidadImportacion reference="cargainicial">
+            <inyector clase="CargainicialService" metodo="actualizarEntidadImportacion" />
+            <prototipo>
+                <parametro nombre="idestructura" tipo="enterospos" />
+                <parametro nombre="valor" tipo="enterospos" />
+            </prototipo>
+        </actualizarEntidadImportacion>
+        <limpiarEntidadConfigurada reference="cargainicial">
+            <inyector clase="CargainicialService" metodo="limpiarEntidadConfigurada" />
+            <prototipo>
+                <resultado tipo="bool" />
+            </prototipo>
+        </limpiarEntidadConfigurada>
+        <existenEntidadesConfiguradas reference="cargainicial">
+            <inyector clase="CargainicialService" metodo="existenEntidadesConfiguradas" />
+            <prototipo>
+                <parametro nombre="param" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </existenEntidadesConfiguradas>
+
+        <!-- ESPECIALIDAD-->
+        <obtenerEspecialidadPorId reference="especialidad">
+            <inyector clase="EspecialidadService" metodo="BuscarPorId" />
+            <prototipo>
+                <parametro name="idespecialidad"/>
+                <resultado class="stdClass" />
+            </prototipo>
+        </obtenerEspecialidadPorId>
+        <arbolEspecialidad reference="especialidad">
+            <inyector clase="EspecialidadService" metodo="arbolespecialidad" />
+            <prototipo>
+                <resultado tipo="array" />
+            </prototipo>
+        </arbolEspecialidad>
+        <obtenerEspecialidadesHojas reference="especialidad">
+            <inyector clase="EspecialidadService" metodo="GetEspecialidadesHoja" />
+            <prototipo>
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerEspecialidadesHojas>
+        <obtenerArbolEspecialidad reference="especialidad">
+            <inyector clase="EspecialidadService" metodo="getArbolEspecialidad" />
+            <prototipo>
+                <parametro nombre="idEspecialidad" tipo="enterospos" default="0" />
+                <parametro nombre="busqueda" tipo="enterospos" default="0" />
+                <parametro nombre="filtro" tipo="numerosletras" default="" />
+                <parametro nombre="onlyContableCode" tipo="boolean" default="false" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerArbolEspecialidad>
+        <getTodosHijosEspecialidad reference="especialidad">
+            <inyector clase="EspecialidadService" metodo="getTodosHijosEspecialidad" />
+            <prototipo>
+                <parametro nombre="idEspecialidad" tipo="enterospos" default="0" />
+                <resultado tipo="array" />
+            </prototipo>
+        </getTodosHijosEspecialidad>
+        <obtenerEspecialidadParametros reference="especialidad">
+            <inyector clase="EspecialidadService" metodo="obtenerEspecialidadParametros" />
+            <prototipo>
+                <parametro nombre="parametros" tipo="array"/>
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerEspecialidadParametros>
+
+
+        <!-- FECHA-->
+        <fechaContableSubsistema reference="fecha">
+            <inyector clase="FechaService" metodo="fechaContableSubsistema" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+                <resultado />
+            </prototipo>
+        </fechaContableSubsistema>
+        <fechaContableSubsistemaObj reference="fecha">
+            <inyector clase="FechaService" metodo="fechaContableSubsistemaObj" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </fechaContableSubsistemaObj>
+        <actualizarFechaSubsistema reference="fecha">
+            <inyector clase="FechaService" metodo="actualizarFechaSubsistema" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+                <parametro nombre="fecha" />
+            </prototipo>
+        </actualizarFechaSubsistema>
+        <actFechContabSubsist reference="fecha">
+            <inyector clase="FechaService" metodo="actFechContabSubsist" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+                <resultado tipo="date" />
+            </prototipo>
+        </actFechContabSubsist>
+        <fecha reference="fecha">
+            <inyector clase="FechaService" metodo="FechaCI" />
+            <prototipo />
+        </fecha>
+        <fechaCinicial reference="fecha">
+            <inyector clase="FechaService" metodo="EscribirFecha" />
+            <prototipo>
+                <parametro nombre="idestructura" tipo="enterospos" />
+            </prototipo>
+        </fechaCinicial>
+        <tieneFechaConfContabilidad reference="fecha">
+            <inyector clase="FechaService" metodo="tieneFechaConfContabilidad" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </tieneFechaConfContabilidad>
+        <tieneFechaConfCostosProcesos reference="fecha">
+            <inyector clase="FechaService" metodo="tieneFechaConfCostosProcesos" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </tieneFechaConfCostosProcesos>
+        <tieneFechaConfPlanificacion reference="fecha">
+            <inyector clase="FechaService" metodo="tieneFechaConfPlanificacion" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </tieneFechaConfPlanificacion>
+        <tieneFechaConfCapitalHumano reference="fecha">
+            <inyector clase="FechaService" metodo="tieneFechaConfCapitalHumano" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </tieneFechaConfCapitalHumano>
+        <tieneFechaConfInventario reference="fecha">
+            <inyector clase="FechaService" metodo="tieneFechaConfInventario" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enteropos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </tieneFechaConfInventario>
+        <tieneFechaConfActivosFijos reference="fecha">
+            <inyector clase="FechaService" metodo="tieneFechaConfActivosFijos" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enteropos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </tieneFechaConfActivosFijos>
+        <tieneFechaConfFacturacion reference="fecha">
+            <inyector clase="FechaService" metodo="tieneFechaConfFacturacion" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enteropos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </tieneFechaConfFacturacion>
+        <tieneFechaConfCobroPago reference="fecha">
+            <inyector clase="FechaService" metodo="tieneFechaConfCobroPago" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enteropos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </tieneFechaConfCobroPago>
+        <tieneFechaConfConfiguracion reference="fecha">
+            <inyector clase="FechaService" metodo="tieneFechaConfConfiguracion" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </tieneFechaConfConfiguracion>
+        <tieneFechaConfMultimoneda reference="fecha">
+            <inyector clase="FechaService" metodo="tieneFechaConfMultimoneda" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </tieneFechaConfMultimoneda>
+        <tieneFechaConfAuditoria reference="fecha">
+            <inyector clase="FechaService" metodo="tieneFechaConfAuditoria" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </tieneFechaConfAuditoria>
+        <tieneFechaConfEstructurayComposicion reference="fecha">
+            <inyector clase="FechaService" metodo="tieneFechaConfEstructurayComposicion" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </tieneFechaConfEstructurayComposicion>
+        <tieneFechaConfBanco reference="fecha">
+            <inyector clase="FechaService" metodo="tieneFechaConfBanco" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </tieneFechaConfBanco>
+        <tieneFechaConfCaja reference="fecha">
+            <inyector clase="FechaService" metodo="tieneFechaConfCaja" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </tieneFechaConfCaja>
+        <tieneFechaConfUsuario reference="fecha">
+            <inyector clase="FechaService" metodo="tieneFechaConfUsuario" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </tieneFechaConfUsuario>
+        <tieneFechaConfPortal reference="fecha">
+            <inyector clase="FechaService" metodo="tieneFechaConfPortal" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </tieneFechaConfPortal>
+        <proximaFecha reference="fecha">
+            <inyector clase="FechaService" metodo="proximaFecha" />
+            <prototipo>
+                <parametro nombre="fecha" tipo="fechacont" />
+                <parametro nombre="dias" tipo="enterospos" />
+                <resultado tipo="fechacont" />
+            </prototipo>
+        </proximaFecha>
+        <diferenciasFechas reference="fecha">
+            <inyector clase="FechaService" metodo="diferenciasFechas" />
+            <prototipo>
+                <parametro nombre="fecha1" tipo="fechacont" />
+                <parametro nombre="fecha2" tipo="fechacont" />
+                <resultado tipo="enterospos" />
+            </prototipo>
+        </diferenciasFechas>
+        <compararFechas reference="fecha">
+            <inyector clase="FechaService" metodo="compararFechas" />
+            <prototipo>
+                <parametro nombre="fecha1" tipo="fechacont" />
+                <parametro nombre="fecha2" tipo="fechacont" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </compararFechas>
+        <compararFechasIguales reference="fecha">
+            <inyector clase="FechaService" metodo="compararFechasIguales" />
+            <prototipo>
+                <parametro nombre="fecha1" />
+                <parametro nombre="fecha2" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </compararFechasIguales>
+        <restaFechas reference="fecha">
+            <inyector clase="FechaService" metodo="restaFechas" />
+            <prototipo>
+                <parametro nombre="dFecIni" tipo="fechacont" />
+                <parametro nombre="dFecFin" tipo="fechacont" />
+                <resultado tipo="ireal" />
+            </prototipo>
+        </restaFechas>
+
+        <!-- FORMATOS-->
+        <buscarFormato reference="formatos">
+            <inyector clase="FormatoService" metodo="Formato" />
+            <prototipo>
+                <resultado tipo="array" />
+            </prototipo>
+        </buscarFormato>
+        <buscarFormatos reference="formatos">
+            <inyector clase="FormatoService" metodo="Formatos" />
+            <prototipo>
+                <parametro nombre="idformato" tipo="enterospos" default="0" />
+                <parametro nombre="identidad" tipo="enterospos" default="0" />
+                <resultado tipo="array" />
+            </prototipo>
+        </buscarFormatos>
+        <buscarParteFormato reference="formatos">
+            <inyector clase="FormatoService" metodo="NiveldeFormato" />
+            <prototipo>
+                <parametro nombre="idformato" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </buscarParteFormato>
+        <obtenerParteFormatoPorId reference="formatos">
+            <inyector clase="FormatoService" metodo="obtenerParteFormatoPorId" />
+            <prototipo>
+                <parametro nombre="idparteformato" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerParteFormatoPorId>
+        <obtenerParteFormatosPorNivel reference="formatos">
+            <inyector clase="FormatoService" metodo="obtenerParteFormatosPorNivel" />
+            <prototipo>
+                <parametro nombre="idformato" tipo="enterospos" default="0" />
+                <parametro nombre="nivel" tipo="enterospos" default="0" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerParteFormatosPorNivel>
+        <buscarFormatosPorSubsist reference="formatos">
+            <inyector clase="FormatoService" metodo="buscarFormatosPorSubsist" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" default="0" />
+                <parametro nombre="idsubsistema" tipo="enterospos" default="0" />
+                <resultado tipo="array" />
+            </prototipo>
+        </buscarFormatosPorSubsist>
+        <buscarFormatosPorIdSubsis reference="formatos">
+            <inyector clase="FormatoService" metodo="buscarFormatosPorSubsist" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </buscarFormatosPorIdSubsis>
+        <buscarFormatoPorID reference="formatos">
+            <inyector clase="FormatoService" metodo="FormatoPorIdFormato" />
+            <prototipo>
+                <parametro nombre="idformato" tipo="enterospos" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </buscarFormatoPorID>
+        <formatoParrafo reference="formatos">
+            <inyector clase="FormatoService" metodo="formatoParrafo" />
+            <prototipo>
+                <resultado tipo="array" />
+            </prototipo>
+        </formatoParrafo>
+        <heredarFormato reference="formatos">
+            <inyector clase="FormatoService" metodo="heredarFormato" />
+            <prototipo>
+                <parametro nombre="idestructura" tipo="enterospos" />
+                <parametro nombre="idformato" tipo="enterospos" />
+                <resultado tipo="enteropos" />
+            </prototipo>
+        </heredarFormato>
+        <cantidadFormatoIn reference="formatos">
+            <inyector clase="FormatoService" metodo="cantidadFormatoIn" />
+            <prototipo>
+                <resultado tipo="enteropos" />
+            </prototipo>
+        </cantidadFormatoIn>
+        <cantidadParteFormatoIn reference="formatos">
+            <inyector clase="FormatoService" metodo="cantidadParteFormatoIn" />
+            <prototipo>
+                <resultado tipo="enteropos" />
+            </prototipo>
+        </cantidadParteFormatoIn>
+        <obtenerParteFormatoPorNivel reference="formatos">
+            <inyector clase="FormatoService" metodo="obtenerParteFormatoPorNivel" />
+            <prototipo>
+                <parametro nombre="idformato" tipo="enterospos" default="0" />
+                <parametro nombre="nivel" tipo="enterospos" default="0" />
+                <resultado tipo="stdClass" />
+            </prototipo>
+        </obtenerParteFormatoPorNivel>
+        <listarFormatos reference="formatos">
+            <inyector clase="FormatoService" metodo="listarFormatos" />
+            <prototipo>
+                <resultado tipo="array" />
+            </prototipo>
+        </listarFormatos>
+
+        <!-- CIERRE-->
+        <buscarObjCierre reference="cierre">
+            <inyector clase="CierreService" metodo="buscarObjCierre" />
+            <prototipo>
+                <parametro nombre="idestructurasubsist" tipo="enterospos" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </buscarObjCierre>
+        <asignarEjercicioPeriodo reference="cierre">
+            <inyector clase="CierreService" metodo="asignarEjercicioPeriodo" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+                <parametro nombre="idejercicio" tipo="enterospos" />
+                <parametro nombre="idperiodo" tipo="enterospos" />
+            </prototipo>
+        </asignarEjercicioPeriodo>
+        <periodoActualSubsistema reference="cierre">
+            <inyector clase="CierreService" metodo="periodoActualSubsistema" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+                <parametro nombre="instancia" tipo="enterospos" />
+                <resultado />
+            </prototipo>
+        </periodoActualSubsistema>
+        <ejercicioActualSubsistema reference="cierre">
+            <inyector clase="CierreService" metodo="ejercicioActualSubsistema" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+                <resultado tipo="enterospos" />
+            </prototipo>
+        </ejercicioActualSubsistema>
+        <cierreActualSubsistema reference="cierre">
+            <inyector clase="CierreService" metodo="cierreActualSubsistema" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </cierreActualSubsistema>
+        <subsistemasPeriodo reference="cierre">
+            <inyector clase="CierreService" metodo="subsistemasPeriodo" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <parametro nombre="idperiodo" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </subsistemasPeriodo>
+        <subsistemasPeriodoSinCerrarContab reference="cierre">
+            <inyector clase="CierreService" metodo="subsistemasPeriodoSinCerrarContab" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <parametro nombre="idperiodo" tipo="enterospos" />
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </subsistemasPeriodoSinCerrarContab>
+        <subsistemasCierreEntidad reference="cierre">
+            <inyector clase="CierreService" metodo="subsistemasCierreEntidad" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </subsistemasCierreEntidad>
+        <subsistemasEjercicio reference="cierre">
+            <inyector clase="CierreService" metodo="subsistemasEjercicio" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <parametro nombre="idejercicio" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </subsistemasEjercicio>
+        <cerrarPeriodo reference="cierre">
+            <inyector clase="CierreService" metodo="cerrarPeriodo" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </cerrarPeriodo>
+        <aperturarPeriodo reference="cierre">
+            <inyector clase="CierreService" metodo="aperturarPeriodo" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+            </prototipo>
+        </aperturarPeriodo>
+        <cerrarEjercicio reference="cierre">
+            <inyector clase="CierreService" metodo="cerrarEjercicio" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </cerrarEjercicio>
+        <adicionarCierre reference="cierre">
+            <inyector clase="CierreService" metodo="adicionarCierre" />
+            <prototipo>
+                <parametro nombre="idestructurasubsist" tipo="enterospos" />
+                <parametro nombre="periodo" tipo="enterospos" />
+                <parametro nombre="ejercicio" tipo="enterospos" />
+            </prototipo>
+        </adicionarCierre>
+        <modificarCierre reference="cierre">
+            <inyector clase="CierreService" metodo="modificarCierre" />
+            <prototipo>
+                <parametro nombre="idestructurasubsist" tipo="enterospos" />
+                <parametro nombre="periodo" tipo="enterospos" />
+                <parametro nombre="ejercicio" tipo="enterospos" />
+            </prototipo>
+        </modificarCierre>
+        <eliminarCierre reference="cierre">
+            <inyector clase="CierreService" metodo="eliminarCierre" />
+            <prototipo>
+                <parametro nombre="idestructurasubsist" tipo="enterospos" />
+            </prototipo>
+        </eliminarCierre>
+        <buscarCierre reference="cierre">
+            <inyector clase="CierreService" metodo="buscarCierre" />
+            <prototipo>
+                <parametro nombre="idestructurasubsist" tipo="enterospos" />
+                <resultado tipo="enterospos" />
+            </prototipo>
+        </buscarCierre>
+        <tieneCierreDiario reference="cierre">
+            <inyector clase="CierreService" metodo="tieneCierreDiario" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+                <resultado tipo="enterospos" />
+            </prototipo>
+        </tieneCierreDiario>
+        <cierreDiario reference="cierre">
+            <inyector clase="CierreService" metodo="cierreDiario" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+                <parametro nombre="es_cierrediario" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </cierreDiario>
+        <obtenerCierrePeriodoSubsistema reference="cierre">
+            <inyector clase="CierreService" metodo="obtenerCierrePeriodoSubsistema" />
+            <prototipo>
+                <parametro nombre="idestructurasubsist" tipo="enterospos" />
+                <parametro nombre="idperiodo" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </obtenerCierrePeriodoSubsistema>
+        <!-- CIERRE ABRIR-->
+        <validarCondicionesGeneralesAbrirPeriodo reference="cierre">
+            <inyector clase="SubsistemasService" metodo="validarCondicionesGeneralesAbrirPeriodo" />
+            <prototipo>
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+                <parametro nombre="idestructuracomun" tipo="enterospos" />
+                <resultado />
+            </prototipo>
+        </validarCondicionesGeneralesAbrirPeriodo>
+        <solicitarAbrirPeriodoPorSubsistema reference="cierre">
+            <inyector clase="SubsistemasService" metodo="solicitarAbrirPeriodoPorSubsistema" />
+            <prototipo>
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+                <parametro nombre="idestructuracomun" tipo="enterospos" />
+                <parametro nombre="observacion" tipo="numerosletras" />
+                <resultado />
+            </prototipo>
+        </solicitarAbrirPeriodoPorSubsistema>
+        <cerrarPeriodoReabiertoPorSubsistema reference="cierre">
+            <inyector clase="SubsistemasService" metodo="cerrarPeriodoReabiertoPorSubsistema" />
+            <prototipo>
+                <parametro nombre="idsubsistema" tipo="enterospos" />
+                <parametro nombre="idestructuracomun" tipo="enterospos" />
+                <resultado />
+            </prototipo>
+        </cerrarPeriodoReabiertoPorSubsistema>	
+
+        <!-- PARRAFOFISCAL-->
+        <buscarParrafoPorId reference="parrafofiscal">
+            <inyector clase="ParrafosService" metodo="BuscarPorId" />
+            <prototipo>
+                <parametro nombre="idparrafofiscal" tipo="enterospos" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </buscarParrafoPorId>
+        <interfazparrafos reference="parrafofiscal">
+            <inyector clase="ParrafosService" metodo="ArbolParrafos" />
+            <prototipo />
+        </interfazparrafos>
+        <obtenerIngresosEntidad reference="parrafofiscal">
+            <inyector clase="ParrafosService" metodo="obtenerIngresosEntidad" />
+            <prototipo>
+                <parametro nombre="idestructura" tipo="enterospos" />
+                <parametro nombre="idnodo" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerIngresosEntidad>
+
+        <!-- UNIDADMEDIDA-->
+        <listarUnidadesMedida reference="unidadmedida">
+            <inyector clase="UnidadMedidaService" metodo="listarUnidadesMedida" />
+            <prototipo>
+                <parametro nombre="idmagnitud" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </listarUnidadesMedida>
+        <unidadMedidaCategoria reference="unidadmedida">
+            <inyector clase="UnidadMedidaService" metodo="unidadMedidaCategoria" />
+            <prototipo>
+                <parametro nombre="idunidadmedida" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </unidadMedidaCategoria>
+        <listarUnidadesMedidaTodas reference="unidadmedida">
+            <inyector clase="UnidadMedidaService" metodo="listarUnidadesMedidaTodas" />
+            <prototipo>
+                <resultado tipo="array" />
+            </prototipo>
+        </listarUnidadesMedidaTodas>
+        <obtenerUnidadesMedidaPorMagnitud reference="unidadmedida">
+            <inyector clase="UnidadMedidaService" metodo="ObtenerUnidadesMedida" />
+            <prototipo>
+                <parametro nombre="idmagnitud" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerUnidadesMedidaPorMagnitud>
+        <obtenerUnidadesMedidaTiempo reference="unidadmedida">
+            <inyector clase="UnidadMedidaService" metodo="obtenerUnidadesMedidaTiempo" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerUnidadesMedidaTiempo>
+        <obtenerUnidadesMedidaDadoUriMagnitud reference="unidadmedida">
+            <inyector clase="UnidadMedidaService" metodo="obtenerUnidadesMedidaDadoUriMagnitud" />
+            <prototipo>
+                <parametro nombre="uri" tipo="letras" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerUnidadesMedidaDadoUriMagnitud>
+        <obtenerFactorConversion reference="unidadmedida">
+            <inyector clase="UnidadMedidaService" metodo="obtenerFactorConversion" />
+            <prototipo>
+                <parametro nombre="idumorigen" tipo="enterospos" />
+                <parametro nombre="uriunidadmedida" tipo="letras" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerFactorConversion>
+        <obtenerFactorConversionDadoIds reference="unidadmedida">
+            <inyector clase="UnidadMedidaService" metodo="obtenerFactorConversionDadoIds" />
+            <prototipo>
+                <parametro nombre="idorigen" tipo="enterospos" />
+                <parametro nombre="iddestino" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerFactorConversionDadoIds>
+        <obtenerFactorBaseDadoidUmedida reference="gestunidadmedida">
+            <inyector clase="UnidadMedidaService" metodo="obtenerFactorBaseDadoidUmedida" />
+            <prototipo>
+                <parametro nombre="idumedida" tipo="enteropos" />
+                <resultado tipo="enteropos" />
+            </prototipo>
+        </obtenerFactorBaseDadoidUmedida>
+        <existeConversion reference="gestunidadmedida">
+            <inyector clase="UnidadMedidaService" metodo="existeConversion" />
+            <prototipo>
+                <resultado tipo="enterospos" />
+            </prototipo>
+        </existeConversion>
+        <obtenerUnidadMedidaDadoId reference="unidadmedida">
+            <inyector clase="UnidadMedidaService" metodo="obtenerUnidadMedidaDadoId" />
+            <prototipo>
+                <parametro nombre="arrIds" tipo="array" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerUnidadMedidaDadoId>
+        <btenerObjetoDatConversionum reference="gestunidadmedida">
+            <inyector clase="UnidadMedidaService" metodo="ObtenerObjetoDatConversionum" />
+            <prototipo>
+                <resultado tipo="stdClass" />
+            </prototipo>
+        </btenerObjetoDatConversionum>
+        <obtenerTodosDatosDatConversion reference="gestunidadmedida">
+            <inyector clase="UnidadMedidaService" metodo="obtenerTodosDatosDatConversion" />
+            <prototipo>
+                <parametro nombre="parametros" tipo="array" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerTodosDatosDatConversion>
+        <salvarDatosDatConversionum reference="gestunidadmedida">
+            <inyector clase="UnidadMedidaService" metodo="salvarDatosDatConversionum" />
+            <prototipo>
+                <parametro nombre="datos" tipo="array" />
+                <resultado tipo="stdClass" />
+            </prototipo>
+        </salvarDatosDatConversionum>
+        <eliminarDatosDatConversion reference="gestunidadmedida">
+            <inyector clase="UnidadMedidaService" metodo="eliminarDatosDatConversion" />
+            <prototipo>
+                <parametro nombre="$idconversion" tipo="enterospos" />
+                <resultado tipo="boolean" />
+            </prototipo>
+        </eliminarDatosDatConversion>
+        <obtenerUMedidasConfIndicador reference="gestunidadmedida">
+            <inyector clase="UnidadMedidaService" metodo="obtenerUMedidasConfIndicador" />
+            <prototipo>
+                <parametro nombre="parametros" tipo="array" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerUMedidasConfIndicador>
+        <obtenerUnidadesMedidaConFactor reference="unidadmedida">
+            <inyector clase="UnidadMedidaService" metodo="obtenerUnidadesMedidaConFactor" />
+            <prototipo>
+                <parametro nombre="idunidadmedida" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerUnidadesMedidaConFactor>
+        <obtenerJSArbolUM reference="unidadmedida">
+            <inyector clase="UnidadMedidaService" metodo="getJSArbolUM" />
+            <prototipo>
+                <resultado class="array" />
+            </prototipo>
+        </obtenerJSArbolUM>
+        <obtenerDatosArbolUM reference="unidadmedida">
+            <inyector clase="UnidadMedidaService" metodo="getDatosArbolUM" />
+            <prototipo>
+                <parametro nombre="node" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerDatosArbolUM>
+        <getQueryJoinUnidadMedida reference="unidadmedida">
+            <inyector clase="UnidadMedidaService" metodo="getQueryJoinUnidadMedida" />
+            <prototipo>
+                <parametro nombre="query" />
+                <parametro nombre="table" />
+                <parametro nombre="alias_um" />
+                <parametro nombre="select" />
+                <parametro nombre="start" />
+                <parametro nombre="limit" />
+                <parametro nombre="tipoJoin" />
+                <resultado />
+            </prototipo>
+        </getQueryJoinUnidadMedida>
+        <obtenerUnidadesMedidaByAbreviatura reference="unidadmedida">
+            <inyector clase="UnidadMedidaService" metodo="obtenerUnidadesMedidaByAbreviatura" />
+            <prototipo>
+                <parametro nombre="alias" tipo="letras" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerUnidadesMedidaByAbreviatura>
+
+        <!-- MULTIMONEDA-->
+        <calcImpMonBase reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="ImporteMonedCont" />
+            <prototipo>
+                <parametro nombre="idnommonedaentidad" tipo="enterospos" />
+                <parametro nombre="importmonorig" tipo="real" />
+                <resultado tipo="double" />
+            </prototipo>
+        </calcImpMonBase>
+        <convertirImporte reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="convertirImporte" />
+            <prototipo>
+                <parametro nombre="idnommonedaentidadto" tipo="enterospos" />
+                <parametro nombre="idnommonedaentidadfrom" tipo="enterospos" />
+                <parametro nombre="idtipotasa" tipo="enterospos" />
+                <parametro nombre="importmonorig" tipo="real" />
+                <parametro nombre="compraventa" tipo="enterospos" default="0"/>
+                <resultado tipo="double" />
+            </prototipo>
+        </convertirImporte>
+        <calcularImporteDadoMonedas reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="calcularImporteDadoMonedas" />
+            <prototipo>
+                <parametro nombre="idmonedacontable" tipo="enterospos" />
+                <parametro nombre="importmonbase" tipo="real" />
+                <parametro nombre="idestructura" tipo="enterospos" default="0" />
+                <parametro nombre="exception" tipo="bool" default="true" />
+                <resultado tipo="double" />
+            </prototipo>
+        </calcularImporteDadoMonedas>
+        <calcularImporteMoneda reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="calcularImporteMoneda" />
+            <prototipo>
+                <parametro nombre="idmoneda" tipo="enterospos" />
+                <parametro nombre="importe" tipo="real" />
+                <parametro nombre="idestructura" tipo="enterospos" default="0" />
+                <parametro nombre="exception" tipo="enterospos"/>
+                <resultado tipo="double" />
+            </prototipo>
+        </calcularImporteMoneda>
+        <calcImpMonBaseXetid reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="ImporteMonedContXetid" />
+            <prototipo>
+                <parametro nombre="idnommonedaentidad" tipo="enterospos" />
+                <parametro nombre="importmonorig" />
+                <parametro nombre="exception" tipo="bool" />
+                <parametro nombre="idtasa" tipo="enterospos" default="0"/>
+                <resultado tipo="double" />
+            </prototipo>
+        </calcImpMonBaseXetid>
+        <buscarTasasPorMonedas reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="buscarTasasPorMonedas" />
+            <prototipo>
+                <parametro nombre="idmonedas" tipo="array" />
+                <parametro nombre="idestructura" tipo="enterospos" default="0" />
+                <resultado tipo="array" />
+            </prototipo>
+        </buscarTasasPorMonedas>
+        <buscarTasa reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="Tasa" />
+            <prototipo>
+                <parametro nombre="idmoneda" tipo="enterospos" />
+                <parametro nombre="idtasa" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </buscarTasa>
+        <buscarTasasVigentes reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="buscarTasasVigentes" />
+            <prototipo>
+                <parametro nombre="idnommonedaentidad" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </buscarTasasVigentes>
+        <buscarTasaPorId reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="buscarTasaPorId" />
+            <prototipo>
+                <parametro nombre="idtasa" tipo="enterospos" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </buscarTasaPorId>
+        <buscarTasaActual reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="TasaActual" />
+            <prototipo>
+                <parametro nombre="idmonedaentidad" tipo="enterospos" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </buscarTasaActual>
+        <buscarTasaActualXetid reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="TasaActualXetid" />
+            <prototipo>
+                <parametro nombre="idmonedaentidad" tipo="enterospos" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </buscarTasaActualXetid>
+        <obtenerAllTasasByMoneda reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="AllTasasByMoneda" />
+            <prototipo>
+                <parametro nombre="idnommonedaentidad" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerAllTasasByMoneda>
+        <tasaByMonedaIdTipoTasa reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="TasaByMonedaIdTipoTasa" />
+            <prototipo>
+                <parametro nombre="idnommonedaentidad" tipo="enterospos" />
+                <parametro nombre="idtipotasa" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </tasaByMonedaIdTipoTasa>
+        <buscarTasaPorFecha reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="ObtenerTasaVigentePorFecha" />
+            <prototipo>
+                <parametro nombre="idnommonedaentidad" tipo="enterospos" />
+                <parametro nombre="fecha" tipo="fecha" default="fecha" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </buscarTasaPorFecha>
+        <buscarTasaPorFechaXetid reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="ObtenerTasaVigentePorFechaXetid" />
+            <prototipo>
+                <parametro nombre="idnommonedaentidad" tipo="enterospos" />
+                <parametro nombre="fecha" tipo="fecha" default="fecha" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </buscarTasaPorFechaXetid>
+        <buscarNomMoneda reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="buscarNomMoneda" />
+            <prototipo>
+                <resultado tipo="array" />
+            </prototipo>
+        </buscarNomMoneda>
+        <buscarMonedaContable reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="MonedaContable" />
+            <prototipo>
+                <resultado clase="stdClass" />
+            </prototipo>
+        </buscarMonedaContable>
+        <convertirContableAlternativa reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="MonedaAlternativa" />
+            <prototipo>
+                <parametro nombre="importe" tipo="enterospos" />
+                <resultado tipo="enteropos" />
+            </prototipo>
+        </convertirContableAlternativa>
+        <buscarIdMonedaEntidad reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="buscarIdMonedaEntidad" />
+            <prototipo>
+                <parametro nombre="idmoneda" tipo="enterospos" />
+                <parametro nombre="identidad" tipo="enterospos" />
+                <resultado tipo="enteropos" />
+            </prototipo>
+        </buscarIdMonedaEntidad>
+        <buscarMonedaPorIdMonedaentidad reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="buscarMonedaPorIdMonedaentidad" />
+            <prototipo>
+                <parametro nombre="idmonedaentidad" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </buscarMonedaPorIdMonedaentidad>
+        <buscarMonedaPorId reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="buscarMonedaPorId" />
+            <prototipo>
+                <parametro nombre="idmoneda" tipo="enterospos" />
+                <resultado tipo="stdClass" />
+            </prototipo>
+        </buscarMonedaPorId>
+        <obtenerMonedasPorIdEntidad reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="obtenerMonedasPorIdEntidad" />
+            <prototipo>
+                <parametro nombre="idmoneda" tipo="enterospos" />
+                <parametro nombre="identidad" tipo="enterospos" />
+                <resultado tipo="stdClass" />
+            </prototipo>
+        </obtenerMonedasPorIdEntidad>
+        <monedaC reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="monedaC" />
+            <prototipo />
+        </monedaC>
+        <monedaE reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="monedaE" />
+            <prototipo />
+        </monedaE>
+        <existeMonedaAlertnativa reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="existeMonedaAlertnativa" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </existeMonedaAlertnativa>
+        <buscarMonedaAlertnativa reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="buscarMonedaAlertnativa" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+                <resultado class="stdClass" />
+            </prototipo>
+        </buscarMonedaAlertnativa>
+        <monContAlter reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="monContAlter" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </monContAlter>
+        <soloMonedaCont reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="soloMonedaCont" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+            </prototipo>
+        </soloMonedaCont>
+        <obtenerMonedasPorEntidad reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="obtenerMonedasPorEntidad" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerMonedasPorEntidad>
+        <esMonedaCont reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="esMonedaCont" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+                <parametro nombre="moneda" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </esMonedaCont>
+        <monedaContableEntidad reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="monedaContableEntidad" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+                <parametro nombre="dualidad" tipo="enterospos" default="1"/>
+                <resultado class="stdClass" />
+            </prototipo>
+        </monedaContableEntidad>
+        <tieneMonedaContable reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="tieneMonedaContable" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </tieneMonedaContable>
+        <tieneMonedas reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="tieneMonedas" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </tieneMonedas>
+        <tieneTasas reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="tieneTasas" />
+            <prototipo>
+                <parametro nombre="entidad" tipo="enterospos" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </tieneTasas>
+        <reevaluaciondeCuentas reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="reevaluaciondeCuentas" />
+            <prototipo>
+                <parametro nombre="denominacion" tipo="letras" />
+                <parametro nombre="ctasorigen" tipo="array" />
+                <parametro nombre="ctasdestino" tipo="array" />
+                <resultado tipo="bool" />
+            </prototipo>
+        </reevaluaciondeCuentas>
+        <obtenerDesgloseMoneda reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="getDesgloseEnMonedas" />
+            <prototipo>
+                <parametro nombre="idmonedaentidad" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerDesgloseMoneda>
+        <obtenerDesgloseBilletes reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="getDesgloseEnBilletes" />
+            <prototipo>
+                <parametro nombre="idmonedaentidad" tipo="enterospos" />
+                <parametro nombre="$catDesglose" tipo="enterospos" default="2" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerDesgloseBilletes>
+        <obtenerCuentSinReev reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="ObtenerCuentasSinReeval" />
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerCuentSinReev>
+        <insertarTasa reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="insertarTasa" />
+            <prototipo />
+        </insertarTasa>
+        <buscarTasasContratadas reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="TasasContratadas" />
+            <prototipo>
+                <parametro nombre="idmoneda" tipo="enterospos" />
+                <parametro nombre="idcliente" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </buscarTasasContratadas>
+        <buscarTasasActualyContratadas reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="TasasActualyControladas" />
+            <prototipo>
+                <parametro nombre="idmoneda" tipo="enterospos" />
+                <parametro nombre="idcliente" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </buscarTasasActualyContratadas>
+        <tasaInicial reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="tasaInicial" />
+            <prototipo>
+                <resultado class="stdClass" />
+            </prototipo>
+        </tasaInicial>
+        <obtenerObjMoneda reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="obtenerObjetoMonedaEntidad" />
+            <prototipo>
+                <parametro nombre="idmonedaentidad" tipo="enterospos" />
+                <resultado clase="stdClass" />
+            </prototipo>
+        </obtenerObjMoneda>
+        <calcImpMonBaseByEntidad reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="ImporteMonedContByEntidad" />
+            <prototipo>
+                <parametro nombre="idnommonedaentidad" tipo="enterospos" />
+                <parametro nombre="importmonorig" tipo="real" />
+                <parametro nombre="idestructura" tipo="enterospos" />
+                <resultado tipo="real" />
+            </prototipo>
+        </calcImpMonBaseByEntidad>
+        <cantidadMonedaIn reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="cantidadMonedaIn" />
+            <prototipo>
+                <resultado tipo="enteropos" />
+            </prototipo>
+        </cantidadMonedaIn>
+        <getNomencladorMoneda reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="getNomencladorMoneda" />
+            <prototipo>
+                <parametro nombre="$argFilter" tipo="array" />
+                <parametro nombre="$start" tipo="int" />
+                <parametro nombre="$limit" tipo="int" />
+                <resultado tipo="array" />
+            </prototipo>
+        </getNomencladorMoneda>
+        <ObtenerMonedasTasasConfiguradas reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="ObtenerMonedasTasasConfiguradas" />
+            <prototipo>
+                <parametro nombre="idestructura" tipo="enteropos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </ObtenerMonedasTasasConfiguradas>
+        <addQueryJoinMoneda reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="addQueryJoinMoneda" />
+            <prototipo>
+                <parametro nombre="dql" tipo="Doctrine_Query"/>
+                <parametro nombre="asExt" tipo="letras"/>
+                <parametro nombre="asLoc" tipo="letras"/>
+                <parametro nombre="join" tipo="enterospos"/>
+                <resultado tipo="Doctrine_Query" />
+            </prototipo>
+        </addQueryJoinMoneda>
+        <getTipoTasas reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="getTipoTasas" />
+            <prototipo>
+                <parametro nombre="$cond" tipo="array" />
+                <parametro nombre="$start" tipo="int" />
+                <parametro nombre="$limit" tipo="int" />
+                <resultado tipo="array" />
+            </prototipo>
+        </getTipoTasas>
+        <getTasaByMonedas reference="multimoneda">
+            <inyector clase="MultimonedaService" metodo="getTasaByMonedas" />
+            <prototipo>
+                <parametro nombre="$idMonedaContable" tipo="enterospos" />
+                <parametro nombre="$idMoneda" tipo="enterospos" />
+                <parametro nombre="$idTipoTasa" tipo="enterospos" default="2"/>
+                <resultado tipo="array" />
+            </prototipo>
+        </getTasaByMonedas>
+
+        <!-- DIVISION POLITICA-->
+        <mostrarIUBuscarDPT reference="divisionpolitica">
+            <inyector clase="ConfigsecodenaService" metodo="mostrarIUBuscarDPT" />
+            <prototipo>
+                <resultado />
+            </prototipo>
+        </mostrarIUBuscarDPT>
+        <obtenerPaises reference="divisionpolitica">
+            <inyector clase="NomPaisService" metodo="obtenerPaises" />
+            <prototipo>
+                <parametro nombre="arrCond" tipo="array" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerPaises>
+        <getPaises reference="divisionpolitica">
+            <inyector clase="NomPaisService" metodo="getPaises" />
+            <prototipo>
+                <parametro nombre="arrCond" tipo="array" />
+                <parametro nombre="start" tipo="int" />
+                <parametro nombre="limit" tipo="int" />
+                <resultado tipo="array" />
+            </prototipo>
+        </getPaises>
+        <obtenerRutaDPT reference="divisionpolitica">
+            <inyector clase="GestdpaService" metodo="obtenerRutaDPT" />
+            <prototipo>
+                <parametro nombre="iddpa" tipo="enterospos" />
+                <parametro nombre="completo" tipo="bool"/>
+                <resultado />
+            </prototipo>
+        </obtenerRutaDPT>
+        <!-- Devuelve un pais dado su id -->
+        <obtenerPais reference="divisionpolitica">
+            <inyector clase="NomPaisService" metodo="obtenerPais" />
+            <prototipo>
+                <parametro nombre="idpais" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerPais>
+        <getElementoid reference="divisionpolitica">
+            <inyector clase="GestdpaService" metodo="getElementoid" />
+            <prototipo>
+                <parametro nombre="iddpa" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </getElementoid>
+        <!-- Servicio que me brida las estructuras del DPA -->
+        <cargarEstruturadpa reference="divisionpolitica">
+            <inyector clase="ConfigsecodenaService" metodo="cargarEstruturadpa" />
+            <prototipo>
+                <parametro nombre="node" tipo="numerosletras" />
+                <parametro nombre="idpais" />
+                <resultado tipo="stdclass" />
+            </prototipo>
+        </cargarEstruturadpa>
+        <dameHijos reference="divisionpolitica">
+            <inyector clase="GestdpaService" metodo="getHijos" />
+            <prototipo>
+                <parametro nombre="idpadre" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </dameHijos>
+        <!--  Servicio que dado el concepto de nivel brinda los niveles estructurales definidos para ese pais -->
+        <obtenerNivelEstructuralPorPais reference="divisionpolitica">
+            <inyector clase="GestdpaService" metodo="getNivelEstructuralPorPais" />
+            <prototipo>
+                <parametro nombre="idpais" tipo="enterospos" />
+                <parametro nombre="idconceptoNivel" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerNivelEstructuralPorPais>
+        <!-- INDICADORES -->
+        <obtenerIndicadoresKeyIdIndicador reference="indicadores">
+            <inyector clase="IndicadoresProxyService" metodo="getIndicadoresFetchColumnIdIndicador" />
+            <prototipo>
+                <parametro nombre="whereIn" />
+                <parametro nombre="parametros" />
+                <resultado class="array" />
+            </prototipo>
+        </obtenerIndicadoresKeyIdIndicador>
+        <obtenerIndicadoresTreeGrid reference="indicadores">
+            <inyector clase="IndicadoresProxyService" metodo="getIndicadoresTreeGrid" />
+            <prototipo>
+                <parametro nombre="parametros" />
+                <parametro nombre="start" />
+                <parametro nombre="limit" />
+                <resultado class="array" />
+            </prototipo>
+        </obtenerIndicadoresTreeGrid>
+        <getIndicadoresTreeConHojas reference="indicadores">
+            <inyector clase="IndicadoresProxyService" metodo="getIndicadoresTreeConHojas" />
+            <prototipo>
+                <parametro nombre="parametros" />
+                <resultado class="array" />
+            </prototipo>
+        </getIndicadoresTreeConHojas>
+        <obtenerDatosTreeGrid reference="indicadores">
+            <inyector clase="IndicadoresProxyService" metodo="getDatosTreeGrid" />
+            <prototipo>
+                <parametro nombre="parametros" />
+                <resultado class="array" />
+            </prototipo>
+        </obtenerDatosTreeGrid>
+        <obtenerJSVentanaIndicadores reference="indicadores">
+            <inyector clase="IndicadoresProxyService" metodo="getJSWindowIndicadores" />
+            <prototipo>
+                <resultado tipo="" />
+            </prototipo>
+        </obtenerJSVentanaIndicadores>
+        <getWinMostrarDetallesIndicador reference="indicadores">
+            <inyector clase="IndicadoresProxyService" metodo="getWinMostrarDetallesIndicador" />
+            <prototipo>
+                <resultado tipo="" />
+            </prototipo>
+        </getWinMostrarDetallesIndicador>
+        <dameQueryJoinNomIndicadores reference="indicadores">
+            <inyector clase="IndicadoresProxyService" metodo="dameQueryJoinNomIndicadores" />
+            <prototipo>
+                <parametro nombre="query" />
+                <parametro nombre="table" />
+                <parametro nombre="aliasRama" default="i" />
+                <parametro nombre="aliasHoja" default="ih" />
+                <parametro nombre="tipoJoin" default="leftJoin" />
+                <parametro nombre="parametros" default="0" />
+                <parametro nombre="count" default="0" />
+                <parametro nombre="marca" default="true" />
+                <parametro nombre="pais" default="true" />
+                <parametro nombre="grupo" default="true" />
+                <resultado />
+            </prototipo>
+        </dameQueryJoinNomIndicadores>
+        <dameQueryRootIndicador reference="indicadores">
+            <inyector clase="IndicadoresProxyService" metodo="dameQueryRootIndicador" />
+            <prototipo>
+                <parametro nombre="query" tipo="Doctrine_Query" default="0" />
+                <parametro nombre="aliasRama" default="i" />
+                <parametro nombre="aliasHoja" default="ih" />
+                <parametro nombre="tipoJoin" default="L" />
+                <resultado />
+            </prototipo>
+        </dameQueryRootIndicador>
+        <getQueryNomIndicadoreshojas reference="indicadores">
+            <inyector clase="IndicadoresProxyService" metodo="getQueryNomIndicadoreshojas" />
+            <prototipo>
+                <parametro nombre="parametros" type="array" />
+                <parametro nombre="aliasRama" />
+                <parametro nombre="aliasHoja" />
+                <parametro nombre="count" />
+                <resultado />
+            </prototipo>
+        </getQueryNomIndicadoreshojas>
+        <getArrIndicadoresDescendencia reference="indicadores">
+            <inyector clase="IndicadoresProxyService" metodo="getArrIndicadoresDescendencia" />
+            <prototipo>
+                <parametro nombre="idarbol" />
+                <parametro nombre="ordenizq" />
+                <parametro nombre="ordender" />
+                <parametro nombre="naturalezas" type="array" />
+                <resultado type="array" />
+            </prototipo>
+        </getArrIndicadoresDescendencia>
+
+        <!-- NOMENCLADORES GENERALES -->
+        <obtenerDatosArbolNaturaleza reference="nomgenerales">
+            <inyector clase="NomgeneralesProxyService" metodo="getDatosArbolNaturaleza" />
+            <prototipo>
+                <parametro nombre="node" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerDatosArbolNaturaleza>
+        <obtenerJSArbolNaturaleza reference="nomgenerales">
+            <inyector clase="NomgeneralesProxyService" metodo="getJSNomNaturaleza" />
+            <prototipo>
+                <resultado tipo="" />
+            </prototipo>
+        </obtenerJSArbolNaturaleza>
+        <obtenerMiPadre reference="gruposubgrupo">
+            <inyector clase="GruposubgrupoProxyService" metodo="ObtenerMiPadre" />
+            <prototipo>
+                <parametro nombre="idgruposubgrupo" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerMiPadre>
+        <obtenerJSArbolMarcaModelo reference="nomgenerales">
+            <inyector clase="NomgeneralesProxyService" metodo="getJSNomMarcaModelo" />
+            <prototipo>
+                <resultado tipo="" />
+            </prototipo>
+        </obtenerJSArbolMarcaModelo>
+        <obtenerDatosArbolMarcaModelo reference="nomgenerales">
+            <inyector clase="NomgeneralesProxyService" metodo="getDatosArbolMarcaModelo" />
+            <prototipo>
+                <resultado class="array" />
+            </prototipo>
+        </obtenerDatosArbolMarcaModelo>
+        <obtenerNaturalezasAsociadasIndicador reference="nomgenerales">
+            <inyector clase="NomgeneralesProxyService" metodo="getNaturalezasAsociadas" />
+            <prototipo>
+                <parametro nombre="offset" tipo="enterospos" />
+                <parametro nombre="limit" tipo="enterospos" />
+                <parametro nombre="where" />
+                <resultado class="array" />
+            </prototipo>
+        </obtenerNaturalezasAsociadasIndicador>
+        <obteneCualquierGrupoPorID reference="gruposubgrupo">
+            <inyector clase="GruposubgrupoProxyService" metodo="ObteneCualquierGrupoPorID" />
+            <prototipo>
+                <parametro nombre="idgruposubgrupo" tipo="enteropos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obteneCualquierGrupoPorID>
+        <obtenerGruposHojas reference="gruposubgrupo">
+            <inyector clase="GruposubgrupoProxyService" metodo="ObtenerGruposHojas" />
+            <prototipo>
+                <parametro nombre="parametros" tipo="array" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerGruposHojas>
+        <obteneCualquierGruposHijoPorID reference="gruposubgrupo">
+            <inyector clase="GruposubgrupoProxyService" metodo="ObteneCualquierGruposHijoPorID" />
+            <prototipo>
+                <parametro nombre="idpadre" tipo="enteropos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obteneCualquierGruposHijoPorID>
+        <getNaturalezas reference="nomgenerales">
+            <inyector clase="NomgeneralesProxyService" metodo="getNaturalezas" />
+            <prototipo>
+                <parametro nombre="array" clase="Doctrine_Query" />
+                <resultado tipo="array" />
+            </prototipo>
+        </getNaturalezas>
+        <innerJoinNomNaturaleza reference="nomgenerales">
+            <inyector clase="NomgeneralesProxyService" metodo="InnerJoinNomNaturaleza" />
+            <prototipo>
+                <parametro nombre="query" clase="Doctrine_Query" />
+                <parametro nombre="alias" tipo="numerosletras" />
+                <parametro nombre="aliasExterno" tipo="numerosletras" />
+                <parametro nombre="select" tipo="bool" default="0" />
+                <parametro nombre="join" tipo="numerosletras" default="" />
+                <resultado clase="Doctrine_Query" />
+            </prototipo>
+        </innerJoinNomNaturaleza>
+        <queryRootNomNaturaleza reference="nomgenerales">
+            <inyector clase="NomgeneralesProxyService" metodo="devolverQueryNomNaturalezaRoot" />
+            <prototipo>
+                <parametro nombre="query" tipo="Doctrine_Query" />
+                <parametro nombre="alias" tipo="numerosletras" default="na" />
+                <resultado tipo="Doctrine_Query" />
+            </prototipo>
+        </queryRootNomNaturaleza>
+        <mostrarNomencladoresGenerales reference="nomgenerales">
+            <inyector clase="NomgeneralesProxyService" metodo="mostrarNomencladoresGenerales" />
+            <prototipo>
+                <resultado tipo="" />
+            </prototipo>
+        </mostrarNomencladoresGenerales>
+        <getNaturalezasAsociadasIndicadores reference="nomgenerales">
+            <inyector clase="NomgeneralesProxyService" metodo="getNaturalezasAsociadasIndicadores" />
+            <prototipo>
+                <parametro nombre="start" />
+                <parametro nombre="limit" />
+                <parametro nombre="filtro" />
+                <resultado tipo="array" />
+            </prototipo>
+        </getNaturalezasAsociadasIndicadores>
+        
+        <!-- CONTABILIZACION -->        
+        <getModeloContab reference="modeloscontabilizacion/gestmodelos">
+            <inyector clase="ModelosContabilizacionServices" metodo="obtenerModeloPorId" />
+            <prototipo>
+                <parametro nombre="idmodelo" tipo="enterospos" />
+                <resultado tipo="array" />
+            </prototipo>
+        </getModeloContab>    
+             
+        <!-- OPERACIONES -->
+        <obtenerOperaciones reference="modeloscontabilizacion/gestoperaciones">
+            <inyector clase="GestoperacionesServices" metodo="obtenerOperaciones" />
+            <prototipo>
+                <parametro nombre="idestructura"/>
+                <parametro nombre="idsubsistema" tipo="enterospos"/>
+                <parametro nombre="iddocumento" tipo="enterospos"/>
+                <parametro nombre="idoperacion" tipo="enterospos"/>
+                <parametro nombre="start" tipo="enterospos"/>
+                <parametro nombre="limit" tipo="enterospos"/>
+                <parametro nombre="filtro" tipo="array"/>
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerOperaciones>
+        <addQueryJoinOperacion reference="modeloscontabilizacion/gestoperaciones">
+        <inyector clase="GestoperacionesServices" metodo="addQueryJoinOperacion" />
+        <prototipo>
+            <parametro nombre="dql" tipo="Doctrine_Query"/>
+            <parametro nombre="asExt" tipo="letras"/>
+            <parametro nombre="asLoc" tipo="letras"/>
+            <parametro nombre="join" tipo="enterospos"/>
+            <resultado tipo="Doctrine_Query" />
+        </prototipo>
+        </addQueryJoinOperacion>
+
+        <addQuerySelectOperacion reference="modeloscontabilizacion/gestoperaciones">
+            <inyector clase="GestoperacionesServices" metodo="addQuerySelectOperacion" />
+            <prototipo>
+                <parametro nombre="dql" tipo="Doctrine_Query"/>
+                <parametro nombre="asLoc" tipo="letras"/>
+                <resultado tipo="Doctrine_Query" />
+            </prototipo>
+        </addQuerySelectOperacion>
+
+        <obtenerModeloPorSubsistema reference="modeloscontabilizacion/gestmodelos">
+            <inyector clase="ModelosContabilizacionServices" metodo="obtenerModeloPorSubsistema" />
+            <prototipo>
+                <parametro nombre="idestructura" tipo="enterospos"/>
+                <parametro nombre="idsubsistema" tipo="enterospos" default = '0'/>
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerModeloPorSubsistema>
+
+        <!-- ClienteProveedores-->
+        <getClientesProveedorByParams reference="clientesyproveedores">
+            <inyector clase="ClientesyproveedoresServices" metodo="getClientesProveedorByParams" />
+            <prototipo>
+                <parametro nombre="idCliente" tipo="enterospos" default = 'null'/>
+                <parametro nombre="idEstructura" tipo="enterospos" default = 'null'/>
+                <parametro nombre="cliente" tipo="bool" default = 'false'/>
+                <parametro nombre="proveedor" tipo="bool" default = 'false'/>
+                <parametro nombre="filtros" tipo="array" default = 'null'/>
+                <parametro nombre="$start" tipo="enterospos" default = 'null'/>
+                <parametro nombre="limit" tipo="enterospos" default = 'null'/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getClientesProveedorByParams>
+		<getCuentasClientesProveedor reference="clientesyproveedores">
+            <inyector clase="ClientesyproveedoresServices" metodo="getCuentasClientesProveedor" />
+            <prototipo>
+                <parametro nombre="idCliente" tipo="enterospos"/>
+                <parametro nombre="filtros" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getCuentasClientesProveedor>
+		<getQuery reference="clientesyproveedores">
+            <inyector clase="ClientesyproveedoresServices" metodo="getQuery" />
+            <prototipo>
+                <parametro nombre="alias" tipo="letras"/>
+                <resultado tipo="Doctrine_Query" />
+            </prototipo>
+        </getQuery>
+		<getClienteProveedorByUser reference="clientesyproveedores">
+            <inyector clase="ClientesyproveedoresServices" metodo="getClienteProveedorByUser" />
+            <prototipo>
+                <parametro nombre="idusuario" tipo="enterospos"/>
+                <resultado tipo="enterospos"/>
+            </prototipo>
+        </getClienteProveedorByUser>
+        <devolverJS reference="clientesyproveedores">
+            <inyector clase="ClientesyproveedoresServices" metodo="devolverJS" />
+            <prototipo>
+                <resultado tipo=""/>
+            </prototipo>
+        </devolverJS>
+        <devolverCSS reference="clientesyproveedores">
+            <inyector clase="ClientesyproveedoresServices" metodo="devolverCSS" />
+            <prototipo>
+                <resultado tipo=""/>
+            </prototipo>
+        </devolverCSS>
+        <obtenerEspacioTrabajo reference="clientesyproveedores">
+            <inyector clase="ClientesyproveedoresServices" metodo="obtenerEspacioTrabajo" />
+            <prototipo>
+                <parametro nombre="parametros" tipo="array" default = 'null'/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerEspacioTrabajo>
+        <adicionarClienteProveedor reference="clientesyproveedores">
+            <inyector clase="ClientesyproveedoresServices" metodo="adicionarClienteProveedor" />
+            <prototipo>
+                <parametro nombre="parametros" tipo="array" default = 'null'/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </adicionarClienteProveedor>
+        <eliminarClienteProveedor reference="clientesyproveedores">
+            <inyector clase="ClientesyproveedoresServices" metodo="eliminarClienteProveedor" />
+            <prototipo>
+                <parametro nombre="parametros" tipo="array" default = 'null'/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </eliminarClienteProveedor>
+        <getOrganismos reference="clientesyproveedores">
+            <inyector clase="ClientesyproveedoresServices" metodo="getOrganismos" />
+            <prototipo>
+                <parametro nombre="parametros" tipo="array" default = 'null'/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getOrganismos>
+        <!--servicio de nomdinamico-->
+        <getJSAtributosDinamicos reference="nomdinamicos">
+            <inyector clase="AtributosDinamicosService" metodo="getJSAtributosDinamicos" />
+            <prototipo>
+                <resultado tipo="" />
+            </prototipo>
+        </getJSAtributosDinamicos>
+		
+		 <getNomencladoresDinamicos reference="nomdinamicos">
+            <inyector clase="AtributosDinamicosService" metodo="getNomencladoresDinamicos" />
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getNomencladoresDinamicos>
+		 <getDatosFromNomencladorDinamico reference="nomdinamicos">
+            <inyector clase="AtributosDinamicosService" metodo="getDatosFromNomencladorDinamico" />
+            <prototipo>
+				<parametro nombre="idtabla" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDatosFromNomencladorDinamico>
+        <getDatosFromNomencladoresDinamicos reference="nomdinamicos">
+            <inyector clase="AtributosDinamicosService" metodo="getDatosFromNomencladoresDinamicos"/>
+            <prototipo>
+                <parametro nombre="arridtablas" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDatosFromNomencladoresDinamicos>
+        <getAtributosDinamicosIndicador reference="nomdinamicos">
+            <inyector clase="AtributosDinamicosModel" metodo="GetDatosPropertyGrid" />
+            <prototipo>
+                <parametro nombre= "parametros" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getAtributosDinamicosIndicador>
+
+        <!-- PLANTILLA -->
+        <insertarPlantilla reference="plantilla">
+            <inyector clase="PlantillaService" metodo="insertarPlantilla"/>
+            <prototipo>
+                <parametro nombre="params" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </insertarPlantilla>
+
+        <listarPlantillas reference="plantilla">
+            <inyector clase="PlantillaService" metodo="listarPlantillas"/>
+            <prototipo>
+                <parametro nombre="params" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </listarPlantillas>
+
+		
+
+        <!--servicio de agrupaciones-->
+        <getSJArbolAgrupaciones reference="agrupaciones">
+            <inyector clase="AtributosporagrupacionesService" metodo="getSJArbolAgrupaciones" />
+            <prototipo>prototipo
+                <resultado tipo="" />
+            </prototipo>
+        </getSJArbolAgrupaciones>
+
+        <getAtributosAgrupacionIndicador reference="agrupaciones">
+            <inyector clase="AtributosporagrupacionesService" metodo="getAtributosAgrupacionIndicador" />
+            <prototipo>
+                <parametro nombre= "parametros" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getAtributosAgrupacionIndicador>
+
+        <!--servicio de marcas-->
+        <obtenerMarcas reference="nomgenerales">
+            <inyector clase="NomgeneralesProxyService" metodo="getMarcas" />
+            <prototipo>
+                <parametro nombre="parametros" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerMarcas>
+
+        <!--servicio de modelos-->
+        <obtenerModelos reference="nomgenerales">
+            <inyector clase="NomgeneralesProxyService" metodo="getModelos" />
+            <prototipo>
+                <parametro nombre="parametros" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerModelos>
+
+        <!--Condiciones de pago-->
+        <obtenerCondicionesPago reference="terminospago">
+            <inyector clase="TerminosPagoService" metodo="obtenerCondicionesPago" />
+            <prototipo>
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerCondicionesPago>
+        <obtenerCondicionPago reference="terminospago">
+            <inyector clase="TerminosPagoService" metodo="obtenerCondicionPago" />
+            <prototipo>
+                <parametro nombre="idcondicion" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerCondicionPago>
+
+        <!-- servicio firma digital-->
+        <obtenerFirmaDigital reference="firmadigital">
+            <inyector clase="FirmaDigitalService" metodo="firmaDigital" />
+            <prototipo>
+                <parametro nombre="nombreTema" tipo="string" />
+                <parametro nombre="proceso" tipo="string" />
+                <parametro nombre="docs" tipo="array" />
+                <resultado tipo=""  />
+            </prototipo>
+        </obtenerFirmaDigital>
+
+        <listarDocumentosPorCaso reference="listarDocumentosPorCaso">
+            <inyector clase="FirmaDigitalService" metodo="listarDocumentosPorCaso" />
+            <prototipo>
+                <parametro nombre="caseID" tipo="string" />
+                <resultado tipo="array"  />
+            </prototipo>
+        </listarDocumentosPorCaso>
+
+
+        <mostrarCaso reference="mostrarCaso">
+            <inyector clase="FirmaDigitalService" metodo="mostrarCaso" />
+            <prototipo>
+                <parametro nombre="caseID" tipo="string" />
+                <resultado tipo="array"  />
+            </prototipo>
+        </mostrarCaso>
+
+
+
+
+
+
+
+    </datosmaestros>
+</ioc>

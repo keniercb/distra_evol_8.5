@@ -1,0 +1,47 @@
+{
+    "name": "configurar",
+    "concat":{
+    	"js":{
+	    	"files":[
+			    "comun/Msg.js",
+			    "comun/treeFilter.js",
+                "model/ModelDependencias.js",
+                "model/ModelPack.js",
+	    		"store/StoreDependencias.js",
+	    		"store/StorePacks.js",
+	    		"views/package/PanelCenter.js",
+	    		"views/package/PanelEast.js",
+	    		"views/package/TreePanelRepositorio.js",
+	    		"views/package/WinAddPack.js",
+	    		"views/package/WinAddRepo.js",
+	    		"views/package/WinAutentication.js",
+	    		"views/Principal.js",
+			    "controller/KeyMapController.js",
+	    		"controller/ActionView.js",
+	    		"aplication.js"
+	    	],
+	    	"outputFile": "build/package.js"
+    	},
+    	"css":{
+    		"files":[
+
+    		],
+    		"outputFile":"build/package.css"
+    	}
+    },
+    "minify":{
+    	"js":{
+	    	"files":[
+	    		"build/package.js"
+	    	],
+	    	"outputDir": "build/"
+    	},
+    	"css":{
+    		"files":[
+				"comun/Msg.css"
+    		],
+    		"outputDir":"build/"
+    	}
+    }
+
+}

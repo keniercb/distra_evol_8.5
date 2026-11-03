@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>Gestion de movimientos laborales</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+        <script language="javascript" type="text/javascript">importarCSS("/pvd/persona/views/css/icons.css");</script>
+        <script language="javascript" type="text/javascript">importarCSS(window.parent.parent.UCID.portal.perfil.dirCss);</script>
+        <link rel="stylesheet" type="text/css" href="/pvd/movimientoslaborales/views/css/iconos.css" />
+        <script language="javascript" type="text/javascript">importarCSS("/pvd/persona/views/css/nom_style.css");</script>
+        <link rel="stylesheet" type="text/css" href="../../views/css/LovCombo.css" />
+    </head>
+    <body>
+        <script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-win-iframe.js"></script>
+
+        <script type="text/javascript" src="../../../comun/views/js/utiles/RowExpander.js"></script>
+        <script type="text/javascript" src="../../../comun/views/js/utiles/DateRange.js"></script>
+        <script type="text/javascript" src="../../../comun/views/js/utiles/validadores.js"></script>
+
+        <script type="text/javascript" src="../../../../planificacion/planmeta/views/js/comun/filtros/EditableItem.js"></script>
+        <script type="text/javascript" src="../../../../planificacion/planmeta/views/js/comun/filtros/ComboItem.js"></script>
+        <script type="text/javascript" src="../../../../planificacion/planmeta/views/js/comun/filtros/TextFieldItem.js"></script>
+        <script type="text/javascript" src="../../../../planificacion/planmeta/views/js/comun/filtros/RangeMenu.js"></script>
+        <script type="text/javascript" src="../../../../planificacion/planmeta/views/js/comun/filtros/GridFilters.js"></script>
+        <script type="text/javascript" src="../../../../planificacion/planmeta/views/js/comun/filtros/Filter.js"></script>
+        <script type="text/javascript" src="../../../../planificacion/planmeta/views/js/comun/filtros/StringFilter.js"></script>
+        <script type="text/javascript" src="../../../../planificacion/planmeta/views/js/comun/filtros/DateFilter.js"></script>
+        <script type="text/javascript" src="../../../../planificacion/planmeta/views/js/comun/filtros/ListFilter.js"></script>
+        <script type="text/javascript" src="../../../../planificacion/planmeta/views/js/comun/filtros/NumericFilter.js"></script>
+        <script type="text/javascript" src="../../../../planificacion/planmeta/views/js/comun/filtros/ListadoFilter.js"></script>
+        <script type="text/javascript" src="../../../../planificacion/planmeta/views/js/comun/filtros/String_adaptadoFilter.js"></script>
+
+<!--        <script type="text/javascript" src="../../../../pvd/comun/plugins/grid/GridFilters.js"></script>
+        <script type="text/javascript" src="../../../../pvd/comun/plugins/grid/filter/BooleanFilter.js"></script>
+        <script type="text/javascript" src="../../../../pvd/comun/plugins/grid/filter/DateFilter.js"></script>
+        <script type="text/javascript" src="../../../../pvd/comun/plugins/grid/filter/Filter.js"></script>
+        <script type="text/javascript" src="../../../../pvd/comun/plugins/grid/filter/ListFilter.js"></script>
+        <script type="text/javascript" src="../../../../pvd/comun/plugins/grid/filter/NumericFilter.js"></script>
+        <script type="text/javascript" src="../../../../pvd/comun/plugins/grid/filter/StringFilter.js"></script>-->
+
+        <script type="text/javascript" src="/pvd/comun/views/js/utiles/searchComboBox.js"></script>
+        <script type="text/javascript" src="/pvd/comun/views/js/utiles/extensiones.js"></script>
+        <script type="text/javascript" src="/pvd/comun/views/js/utiles/Utiles.js"></script>
+        <script type="text/javascript" src="/pvd/comun/views/js/utiles/treeComboBox.js"></script>
+        <script type="text/javascript" src="/pvd/comun/plugins/toolbar/PanelToolbarSrollerPlugin.js"></script>
+        <script language="javascript" type="text/javascript">importarCSS("/pvd/comun/views/css/TreeGrid.css");</script>
+        <script type="text/javascript" src="/pvd/comun/views/js/treegrid/TreeGrid.js"></script>
+        <link rel="stylesheet" type="text/css" href="/pvd/movimientoslaborales/views/css/completamiento.css" />
+
+        <?php echo $this->plantilla; ?>
+        <?php echo $this->estructura; ?>
+        <script type="text/javascript" src="../../views/js/movimientopersona/LovCombo.js"></script>
+        <!--<script type="text/javascript" src="../../views/js/movimientopersona/cmpReserva.js"></script>-->
+        <script type="text/javascript" src="../../views/js/movimientopersona/cmpHistorico.js"></script>
+        <!--<script type="text/javascript" src="../../views/js/movimientopersona/cmpTrabajadoresInterruptos.js"></script>-->
+        <!--<script type="text/javascript" src="../../views/js/movimientopersona/cmpTrabajadoresDisponibles.js"></script>-->
+        <script type="text/javascript" src="../../views/js/movimientopersona/cmpProblemasDetectados.js"></script>
+        <script type="text/javascript" src="../../views/js/movimientopersona/movimientopersona.model.js"></script>
+        <script type="text/javascript" src="../../views/js/movimientopersona/movimientopersona.controller.js"></script>
+        <script type="text/javascript" src="../../views/js/movimientopersona/movimientopersona.view.js"></script>
+        <script type="text/javascript" src="../../views/js/movimientopersona/cmpWinBuscarPersona.js"></script>
+        <!--<script type="text/javascript" src="../../views/js/movimientopersona/cmpReporteRelCargosCuadros.js"></script>-->
+    </body>
+</html>

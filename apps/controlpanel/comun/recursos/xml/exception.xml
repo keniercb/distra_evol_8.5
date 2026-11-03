@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Excepciones>
+    <S001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de seguridad. Configure correctamente la seguridad del sistema.</mensaje>
+            <descripcion>En estos momentos los servicios de seguridad no están disponibles. Por favor intente acceder al
+                sistema más tarde. Si el problema persiste contacte al administrador.
+            </descripcion>
+        </es>
+    </S001>
+    <S002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de seguridad. Verifique que el servicio de autenticación esté disponible.</mensaje>
+            <descripcion>En estos momentos el servicio de autenticación no está disponible. Por favor intente acceder al
+                sistema más tarde. Si el problema persiste contacte al administrador.
+            </descripcion>
+        </es>
+    </S002>
+    <S003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de seguridad. Verifique que el servicio de configuración de perfiles esté disponible.
+            </mensaje>
+            <descripcion>En estos momentos el servicio para obtener la configuración del perfil del usuario no está
+                disponible. Por favor intente acceder al sistema más tarde. Si el problema persiste contacte al
+                administrador.
+            </descripcion>
+        </es>
+    </S003>
+    <S004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de seguridad. Verifique que el servicio de carga de funcionalidades esté disponible.
+            </mensaje>
+            <descripcion>En estos momentos el servicio para obtener las funcionalidades del sistema no está disponible.
+                Por favor intente acceder al sistema más tarde. Si el problema persiste contacte al administrador.
+            </descripcion>
+        </es>
+    </S004>
+    <SEG001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de seguridad. No ha realizado la configuración de claves para los usuarios.</mensaje>
+            <descripcion>Realice la configuración de claves antes de insertar un usuario.</descripcion>
+        </es>
+    </SEG001>
+    <SEG002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de seguridad. No ha cumplido con el requerimiento de la clave de tener números.</mensaje>
+            <descripcion>La clave debe contener números.</descripcion>
+        </es>
+    </SEG002>
+    <SEG003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de seguridad. No ha cumplido con el requerimiento de la clave de tener letras.</mensaje>
+            <descripcion>La clave debe contener letras.</descripcion>
+        </es>
+    </SEG003>
+    <SGIS003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Certificado inválido.</mensaje>
+            <descripcion>Certificado inválido.</descripcion>
+        </es>
+    </SGIS003>
+    <SEG004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de seguridad. No ha cumplido con el requerimiento de la clave de tener signos.</mensaje>
+            <descripcion>La clave debe contener signos.</descripcion>
+        </es>
+    </SEG004>
+    <SEG005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de seguridad. No ha cumplido con el requerimiento de la clave de tener números y letras.
+            </mensaje>
+            <descripcion>La clave debe contener números y letras.</descripcion>
+        </es>
+    </SEG005>
+    <SEG006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de seguridad. No ha cumplido con el requerimiento de la clave de tener letras y signos.
+            </mensaje>
+            <descripcion>La clave debe contener letras y signos.</descripcion>
+        </es>
+    </SEG006>
+    <SEG007>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de seguridad. No ha cumplido con el requerimiento de la clave de tener números y signos.
+            </mensaje>
+            <descripcion>La la clave debe contener números y signos.</descripcion>
+        </es>
+    </SEG007>
+    <SEG008>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de seguridad. No ha cumplido con el requerimiento de la clave de tener letras, números y
+                signos.
+            </mensaje>
+            <descripcion>La la clave debe contener letras, números y signos.</descripcion>
+        </es>
+    </SEG008>
+    <SEG009>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de seguridad. Ha intentado crear un usuario que ya existe.</mensaje>
+            <descripcion>El usuario que quiere adicionar ya existe.</descripcion>
+        </es>
+    </SEG009>
+    <SEG010>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de seguridad. Se ha intentado modificar un servidor que es utilizado por sistemas.</mensaje>
+            <descripcion>No se puede modificar, está siendo utilizado por algún sistema.</descripcion>
+        </es>
+    </SEG010>
+    <SEG011>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El gestor seleccionado no se puede eliminar debido a que está en uso.</mensaje>
+            <descripcion>El gestor seleccionado no se puede eliminar debido a que está en uso.</descripcion>
+        </es>
+    </SEG011>
+    <SEG012>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de seguridad. Se ha intentado insertar un rol sin funcionalidades.</mensaje>
+            <descripcion>Debe seleccionar al menos una funcionalidad o un grupo.</descripcion>
+        </es>
+    </SEG012>
+    <SEG013>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de seguridad. La contraseña introducida es incorrecta.</mensaje>
+            <descripcion>La contraseña introducida es incorrecta.</descripcion>
+        </es>
+    </SEG013>
+    <SEG014>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El idioma que quiere adicionar ya existe.</mensaje>
+            <descripcion>El idioma que quiere adicionar ya existe.</descripcion>
+        </es>
+    </SEG014>
+    <SEG015>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El idioma ya existe.</mensaje>
+            <descripcion>El idioma ya existe.</descripcion>
+        </es>
+    </SEG015>
+    <SEG016>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ya existe un tema con esta denominación.</mensaje>
+            <descripcion>Ya existe un tema con esta denominación.</descripcion>
+        </es>
+    </SEG016>
+    <SEG018>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El rol que quiere adicionar ya existe.</mensaje>
+            <descripcion>El rol que quiere adicionar ya existe.</descripcion>
+        </es>
+    </SEG018>
+    <SEG019>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El rol ya existe.</mensaje>
+            <descripcion>El rol ya existe.</descripcion>
+        </es>
+    </SEG019>
+    <SEG020>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de seguridad. La nueva contraseña no cumple con los requerimientos especificados.</mensaje>
+            <descripcion>La nueva contraseña no cumple con los requerimientos especificados.</descripcion>
+        </es>
+    </SEG020>
+    <SEG021>
+        <tipo>LPV</tipo>
+        <es>
+            <mensaje>Error de seguridad. La contraseña no cumple con las políticas de configuración establecidas (mínimo
+                de caracteres).
+            </mensaje>
+            <descripcion>La clave debe tener al menos %s caracteres.</descripcion>
+        </es>
+    </SEG021>
+    <SEG022>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de seguridad.Uno de los usuarios seleccionados tiene roles diferentes asignados.</mensaje>
+            <descripcion>Uno de los usuarios seleccionados tiene roles diferentes asignados.</descripcion>
+        </es>
+    </SEG022>
+    <SEG023>
+        <tipo>C</tipo>
+        <es>
+            <mensaje>Error en la conexión a la Base de Datos. Contraseña o usuario incorrecto.</mensaje>
+            <descripcion>Contraseña o usuario incorrecto.</descripcion>
+        </es>
+    </SEG023>
+    <SEG024>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en la conexión a la Base de Datos. Configure correctamente la dirección ip y el puerto del
+                servidor.
+            </mensaje>
+            <descripcion>Error en la conexión a la Base de Datos. Posibles causas: Incorrecta configuración del servidor
+                en el sistema de seguridad, el servidor no está disponible en estos momentos.
+            </descripcion>
+        </es>
+    </SEG024>
+    <SEG025>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en la conexión a la Base de Datos. Contraseña o usuario incorrecto.</mensaje>
+            <descripcion>Error en la conexión a la Base de Datos.</descripcion>
+        </es>
+    </SEG025>
+    <SEG026>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Privilegios insuficientes.</mensaje>
+            <descripcion>El usuario no tiene privilegios de administración.</descripcion>
+        </es>
+    </SEG026>
+    <SEGIDIOMA01>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El idioma seleccionado no se puede eliminar debido a que está en uso.</mensaje>
+            <descripcion>El idioma seleccionado no se puede eliminar debido a que está en uso.</descripcion>
+        </es>
+    </SEGIDIOMA01>
+    <SEGIDIOMA02>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ya existe un idioma con esta denominación.</mensaje>
+            <descripcion>Ya existe un idioma con esta denominación.</descripcion>
+        </es>
+    </SEGIDIOMA02>
+    <SEGIDIOMA03>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ya existe un idioma con esta abreviatura.</mensaje>
+            <descripcion>Ya existe un idioma con esta abreviatura.</descripcion>
+        </es>
+    </SEGIDIOMA03>
+    <SEGTEMA01>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ya existe un tema con esta abreviatura.</mensaje>
+            <descripcion>Ya existe un tema con esta abreviatura.</descripcion>
+        </es>
+    </SEGTEMA01>
+    <SEGTEMA02>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El tema ya existe.</mensaje>
+            <descripcion>El tema ya existe.</descripcion>
+        </es>
+    </SEGTEMA02>
+    <SEGTEMA03>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El tema seleccionado no se puede eliminar debido a que está en uso.</mensaje>
+            <descripcion>El tema seleccionado no se puede eliminar debido a que está en uso.</descripcion>
+        </es>
+    </SEGTEMA03>
+    <SEGDESK01>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ya existe un escritorio con esta denominación.</mensaje>
+            <descripcion>Ya existe un escritorio con esta denominación.</descripcion>
+        </es>
+    </SEGDESK01>
+    <SEGDESK02>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ya existe un escritorio con esta abreviatura.</mensaje>
+            <descripcion>Ya existe un escritorio con esta abreviatura.</descripcion>
+        </es>
+    </SEGDESK02>
+    <SEGDESK03>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El escritorio seleccionado no se puede eliminar debido a que está en uso.</mensaje>
+            <descripcion>El escritorio seleccionado no se puede eliminar debido a que está en uso.</descripcion>
+        </es>
+    </SEGDESK03>
+    <SEGEXPRS01>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ya existe una expresión con esta denominación.</mensaje>
+            <descripcion>Ya existe una expresión con esta denominación.</descripcion>
+        </es>
+    </SEGEXPRS01>
+    <SEGEXPRS02>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ya existe una expresión con esta expresión regular.</mensaje>
+            <descripcion>Ya existe una expresión con esta expresión regular.</descripcion>
+        </es>
+    </SEGEXPRS02>
+    <SEGSIST01>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El sistema que quiere adicionar ya existe.</mensaje>
+            <descripcion>El sistema que quiere adicionar ya existe.</descripcion>
+        </es>
+    </SEGSIST01>
+    <SEGSIST02>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El sistema ya existe.</mensaje>
+            <descripcion>El sistema ya existe.</descripcion>
+        </es>
+    </SEGSIST02>
+    <SEGSIST03>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El sistema que quiere eliminar está en uso por un usuario.</mensaje>
+            <descripcion>El sistema que quiere eliminar está en uso por un usuario.</descripcion>
+        </es>
+    </SEGSIST03>
+    <SEGSIST04>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>'El archivo introducido no es válido.'</mensaje>
+            <descripcion>'El archivo introducido no es válido.'</descripcion>
+        </es>
+    </SEGSIST04>
+    <SEGFUNCIONALIDAD01>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ya existe una funcionalidad con esta denominación.</mensaje>
+            <descripcion>Ya existe una funcionalidad con esta denominación.</descripcion>
+        </es>
+    </SEGFUNCIONALIDAD01>
+    <SEGFUNCIONALIDAD02>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ya existe una funcionalidad con esta referencia.</mensaje>
+            <descripcion>Ya existe una funcionalidad con esta referencia.</descripcion>
+        </es>
+    </SEGFUNCIONALIDAD02>
+    <SEGFUNCIONALIDAD03>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>La funcionalidad que quiere eliminar está en uso por un usuario.</mensaje>
+            <descripcion>La funcionalidad que quiere eliminar está en uso por un usuario.</descripcion>
+        </es>
+    </SEGFUNCIONALIDAD03>
+    <SEGCAMPO01>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ya existe un campo con esta denominación.</mensaje>
+            <descripcion>Ya existe un campo con esta denominación.</descripcion>
+        </es>
+    </SEGCAMPO01>
+    <SEGCAMPO02>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ya existe un campo con este "Nombre a mostrar".</mensaje>
+            <descripcion>Ya existe un campo con este "Nombre a mostrar".</descripcion>
+        </es>
+    </SEGCAMPO02>
+    <SEGCAMPO03>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El campo que quiere eliminar está siendo usado.</mensaje>
+            <descripcion>El campo que quiere eliminar está siendo usado.</descripcion>
+        </es>
+    </SEGCAMPO03>
+    <SEGUSUARIO01>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ya existe un usuario que tiene asignado este perfil.</mensaje>
+            <descripcion>Ya existe un usuario que tiene asignado este perfil.</descripcion>
+        </es>
+    </SEGUSUARIO01>
+    <SEGUSUARIO02>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El usuario no existe en el servidor de autenticación seleccionado.</mensaje>
+            <descripcion>El usuario no existe en el servidor de autenticación seleccionado.</descripcion>
+        </es>
+    </SEGUSUARIO02>
+    <SEGUSUARIO03>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de seguridad. Ha intentado crear un usuario que ya existe.</mensaje>
+            <descripcion>El usuario ya existe.</descripcion>
+        </es>
+    </SEGUSUARIO03>
+    <SEGUSUARIO04>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Se ha intentado eliminar al único administrador del sistema.</mensaje>
+            <descripcion>Algún(os) usuario(s) no se ha(n) podido eliminar. El sistema quedaría inoperable.</descripcion>
+        </es>
+    </SEGUSUARIO04>
+    <SEGPASS01>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Contraseña anterior incorrecta. Por favor repita nuevamente la contraseña anterior.</mensaje>
+            <descripcion>Contraseña anterior incorrecta. Por favor repita nuevamente la contraseña anterior.
+            </descripcion>
+        </es>
+    </SEGPASS01>
+    <SEGDOM01>
+        <tipo>C</tipo>
+        <es>
+            <mensaje>El nuevo dominio no contiene todas las entidades donde el usuario tiene configurado un rol.
+            </mensaje>
+            <descripcion>El nuevo dominio no contiene todas las entidades donde el usuario tiene configurado un rol.
+                ¿Desea modificarlo?
+            </descripcion>
+        </es>
+    </SEGDOM01>
+    <SEGDOM02>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El dominio no puede ser modificado porque existen usuarios de este dominio que tienen configurado
+                roles en algunas de las entidades que se van a eliminar.
+            </mensaje>
+            <descripcion>El dominio no puede ser modificado porque existen usuarios de este dominio que tienen
+                configurado roles en algunas de las entidades que se van a eliminar.
+            </descripcion>
+        </es>
+    </SEGDOM02>
+    <SEGDOM03>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El dominio que quiere adicionar ya existe.</mensaje>
+            <descripcion>El dominio que quiere adicionar ya existe.</descripcion>
+        </es>
+    </SEGDOM03>
+    <SEGDOM04>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El dominio ya existe.</mensaje>
+            <descripcion>El dominio ya existe.</descripcion>
+        </es>
+    </SEGDOM04>
+    <SEGDOM05>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El dominio debe contener al menos una entidad.</mensaje>
+            <descripcion>El dominio debe contener al menos una entidad.</descripcion>
+        </es>
+    </SEGDOM05>
+    <SEGROL01>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El rol debe tener al menos una funcionalidad.</mensaje>
+            <descripcion>El rol debe tener al menos una funcionalidad.</descripcion>
+        </es>
+    </SEGROL01>
+    <SEGCONTR001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Para volver a usar esa contraseña tiene que esperar un plazo de tiempo mayor a 180 días.</mensaje>
+            <descripcion>Para volver a usar esa contraseña tiene que esperar un plazo de tiempo mayor a 180 días.
+            </descripcion>
+        </es>
+    </SEGCONTR001>
+    <SEG050>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El servidor que quiere adicionar ya existe.</mensaje>
+            <descripcion>El servidor que quiere adicionar ya existe.</descripcion>
+        </es>
+    </SEG050>
+    <SEG051>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El servidor ya existe.</mensaje>
+            <descripcion>El servidor ya existe.</descripcion>
+        </es>
+    </SEG051>
+    <SEG010>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El(Los) servidor(es) seleccionado(s) no se puede(n) eliminar debido a que está(n) en uso.</mensaje>
+            <descripcion>El(Los) servidor(es) seleccionado(s) no se puede(n) eliminar debido a que está(n) en uso.
+            </descripcion>
+        </es>
+    </SEG010>
+    <SEGACC001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ya existe una acción con esa denominación en la funcionalidad seleccionada.</mensaje>
+            <descripcion>La acción que quiere adicionar ya existe.</descripcion>
+        </es>
+    </SEGACC001>
+    <SEGACC002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ya existe una acción con esa denominación en la funcionalidad seleccionada.</mensaje>
+            <descripcion>La acción ya existe.</descripcion>
+        </es>
+    </SEGACC002>
+    <SEGSERV051>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en la configuración. Algunos de los parametros definidos en la conexión no son correctos.
+            </mensaje>
+            <descripcion>Error en la configuración. Algunos de los parametros definidos en la conexión no son
+                correctos.
+            </descripcion>
+        </es>
+    </SEGSERV051>
+    <SEGROLBD001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Su cliente no tiene acceso al servidor con la configuracion especificada.</mensaje>
+            <descripcion>Su cliente no tiene acceso al servidor con la configuracion especificada.</descripcion>
+        </es>
+    </SEGROLBD001>
+    <SEGROL001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Su acción no puede ser ejecutada porque el framework puede quedar disfuncional.</mensaje>
+            <descripcion>Su acción no puede ser ejecutada porque el framework puede quedar disfuncional.</descripcion>
+        </es>
+    </SEGROL001>
+    <SEGREC001>
+        <tipo>C</tipo>
+        <es>
+            <mensaje>El recurso esta sin acciones.</mensaje>
+            <descripcion>Si le retira todas las acciones al recurso dejará de existir. ¿Desea seguir con la operación?
+            </descripcion>
+        </es>
+    </SEGREC001>
+    <SEGREC002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ya existe un recurso con esta denominación.</mensaje>
+            <descripcion>Ya existe un recurso con esta denominación.</descripcion>
+        </es>
+    </SEGREC002>
+    <SEGREC003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ya existe un recurso con esta abreviatura.</mensaje>
+            <descripcion>Ya existe un recurso con esta abreviatura.</descripcion>
+        </es>
+    </SEGREC003>
+    <SEGGestor01>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El gestor que quiere adicionar ya existe.</mensaje>
+            <descripcion>El gestor que quiere adicionar ya existe.</descripcion>
+        </es>
+    </SEGGestor01>
+    <SEGGestor02>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El gestor ya existe.</mensaje>
+            <descripcion>El gestor ya existe.</descripcion>
+        </es>
+    </SEGGestor02>
+    <SEGCLAVES001>
+        <tipo>C</tipo>
+        <es>
+            <mensaje>Cambiando la caducidad de la contraseña.</mensaje>
+            <descripcion>Si cambia los días de caducidad de la restricción por una cantidad menor de la vigente, es
+                posible que se encuentren afectados los tiempos de expiración de algunas claves. ¿Está seguro que quiere
+                continuar?
+            </descripcion>
+        </es>
+    </SEGCLAVES001>
+    <SEGCLAVES002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Violación del historico de claves.</mensaje>
+            <descripcion>No puede usar esa contraseña nuevamente, pues no cumple con las restricciones definidas en el
+                histórico de claves.
+            </descripcion>
+        </es>
+    </SEGCLAVES002>
+    <SEGRUPO001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El grupo que quiere adicionar ya existe.</mensaje>
+            <descripcion>El grupo que quiere adicionar ya existe.</descripcion>
+        </es>
+    </SEGRUPO001>
+    <SEGRUPO002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El grupo ya existe.</mensaje>
+            <descripcion>El grupo ya existe.</descripcion>
+        </es>
+    </SEGRUPO002>
+    <LOGNULL>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ha dejado en blanco un campo obligatorio.</mensaje>
+            <descripcion>Campo obligatorio.</descripcion>
+        </es>
+    </LOGNULL>
+    <SEGALFANUMERIC>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Solo admite caracteres alfanuméricos.</mensaje>
+            <descripcion>Solo admite caracteres alfanuméricos.</descripcion>
+        </es>
+    </SEGALFANUMERIC>
+    <VALDLETRASPTOYPTOCOMA>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Solo admite letras y los caracteres especiales (,;).</mensaje>
+            <descripcion>Solo admite letras y los caracteres especiales (,;).</descripcion>
+        </es>
+    </VALDLETRASPTOYPTOCOMA>
+    <VALDLETRAS>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Solo admite letras.</mensaje>
+            <descripcion>Solo admite letras.</descripcion>
+        </es>
+    </VALDLETRAS>
+    <DENOMLOGNULL>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El campo denominación es obligatorio.</mensaje>
+            <descripcion>El campo denominación es obligatorio.</descripcion>
+        </es>
+    </DENOMLOGNULL>
+    <ABREVLOGNULL>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El campo abreviatura es obligatorio.</mensaje>
+            <descripcion>El campo abreviatura es obligatorio.</descripcion>
+        </es>
+    </ABREVLOGNULL>
+    <EXPRESIONLOGNULL>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El campo expresión es obligatorio.</mensaje>
+            <descripcion>El campo expresión es obligatorio.</descripcion>
+        </es>
+    </EXPRESIONLOGNULL>
+    <VALDDENOMALFANUMERIC>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El campo &quot;Denominación&quot; solo admite caracteres alfanuméricos.</mensaje>
+            <descripcion>El campo &quot;Denominación&quot; solo admite caracteres alfanuméricos.</descripcion>
+        </es>
+    </VALDDENOMALFANUMERIC>
+    <VALDTEMAABREV>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El campo &quot;Abreviatura&quot; solo admite caracteres alfanuméricos y los caracteres especiales
+                (-_).
+            </mensaje>
+            <descripcion>El campo &quot;Abreviatura&quot; solo admite caracteres alfanuméricos y los caracteres
+                especiales (-_).
+            </descripcion>
+        </es>
+    </VALDTEMAABREV>
+    <VALDDESKTABREV>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El campo &quot;Abreviatura&quot; solo admite letras.</mensaje>
+            <descripcion>El campo &quot;Abreviatura&quot; solo admite letras.</descripcion>
+        </es>
+    </VALDDESKTABREV>
+    <VALDEXPRESION>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El campo expresión tiene que seguir el formato &quot;/Expresión regular/&quot;.</mensaje>
+            <descripcion>El campo expresión tiene que seguir el formato &quot;/Expresión regular/&quot;.</descripcion>
+        </es>
+    </VALDEXPRESION>
+    <MINCARACTERESNUMEROS>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El campo &quot;Mínimo de caracteres&quot; solo admite números.</mensaje>
+            <descripcion>El campo &quot;Mínimo de caracteres&quot; solo admite números.</descripcion>
+        </es>
+    </MINCARACTERESNUMEROS>
+    <MINCARACTERESLOGNULL>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El campo &quot;Mínimo de caracteres&quot; es obligatorio.</mensaje>
+            <descripcion>El campo &quot;Mínimo de caracteres&quot; es obligatorio.</descripcion>
+        </es>
+    </MINCARACTERESLOGNULL>
+    <VALDMINCARACTERES>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El valor mínimo de caracteres es de 8.</mensaje>
+            <descripcion>El valor mínimo de caracteres es de 8.</descripcion>
+        </es>
+    </VALDMINCARACTERES>
+    <VALDMAXCARACTERES>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El valor máximo del campo &quot;Mínimo de caracteres&quot; es 100.</mensaje>
+            <descripcion>El valor máximo del campo &quot;Mínimo de caracteres&quot; es 100.</descripcion>
+        </es>
+    </VALDMAXCARACTERES>
+    <CADUCIDADLOGNULL>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El campo &quot;Días de caducidad&quot; es obligatorio.</mensaje>
+            <descripcion>El campo &quot;Días de caducidad&quot; es obligatorio.</descripcion>
+        </es>
+    </CADUCIDADLOGNULL>
+    <VALDCADUCIDAD>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El campo &quot;Días de caducidad&quot; solo admite números.</mensaje>
+            <descripcion>El campo &quot;Días de caducidad&quot; solo admite números.</descripcion>
+        </es>
+    </VALDCADUCIDAD>
+    <VALDMINDIASCAD>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El valor mínimo del campo &quot;Días de caducidad&quot; es 10.</mensaje>
+            <descripcion>El valor mínimo del campo &quot;Días de caducidad&quot; es 10.</descripcion>
+        </es>
+    </VALDMINDIASCAD>
+    <VALDMAXDIASCAD>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El valor máximo del campo &quot;Días de caducidad&quot; es 365.</mensaje>
+            <descripcion>El valor máximo del campo &quot;Días de caducidad&quot; es 365.</descripcion>
+        </es>
+    </VALDMAXDIASCAD>
+    <HISTPASSWLOGNULL>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El campo &quot;Histórico de contraseñas&quot; es obligatorio.</mensaje>
+            <descripcion>El campo &quot;Histórico de contraseñas&quot; es obligatorio.</descripcion>
+        </es>
+    </HISTPASSWLOGNULL>
+    <VALDHISTPASSW>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El campo &quot;Histórico de contraseñas&quot; solo admite números.</mensaje>
+            <descripcion>El campo &quot;Histórico de contraseñas&quot; solo admite números.</descripcion>
+        </es>
+    </VALDHISTPASSW>
+    <VALDMINHISTPASSW>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El valor mínimo del campo &quot;Histórico de contraseñas&quot; es 1.</mensaje>
+            <descripcion>El valor mínimo del campo &quot;Histórico de contraseñas&quot; es 1.</descripcion>
+        </es>
+    </VALDMINHISTPASSW>
+    <VALDMAXHISTPASSW>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El valor máximo del campo &quot;Histórico de contraseñas&quot; es 10.</mensaje>
+            <descripcion>El valor máximo del campo &quot;Histórico de contraseñas&quot; es 10.</descripcion>
+        </es>
+    </VALDMAXHISTPASSW>
+    <IPLOGNULL>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El campo &quot;IP&quot; es obligatorio.</mensaje>
+            <descripcion>El campo &quot;IP&quot; es obligatorio.</descripcion>
+        </es>
+    </IPLOGNULL>
+    <VALDIP>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El campo &quot;IP&quot; tiene que tener el formato 255.255.255.255.</mensaje>
+            <descripcion>El campo &quot;IP&quot; tiene que tener el formato 255.255.255.255.</descripcion>
+        </es>
+    </VALDIP>
+    <PUERTOLOGNULL>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El campo &quot;Puerto&quot; es obligatorio.</mensaje>
+            <descripcion>El campo &quot;Puerto&quot; es obligatorio.</descripcion>
+        </es>
+    </PUERTOLOGNULL>
+    <VALPUERTO>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El campo &quot;Puerto&quot; solo admite números.</mensaje>
+            <descripcion>El campo &quot;Puerto&quot; solo admite números.</descripcion>
+        </es>
+    </VALPUERTO>
+</Excepciones>

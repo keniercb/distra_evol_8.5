@@ -1,0 +1,120 @@
+/*
+ * Ext JS Library 2.2
+ * Copyright(c) 2006-2008, Ext JS, LLC.
+ * licensing@extjs.com
+ * 
+ * http://extjs.com/license
+ */
+
+.x-column-tree .x-tree-node {
+    zoom: 1;
+}
+
+.x-column-tree .x-tree-node-el {
+    /*border-bottom:1px solid #eee; borders? */
+    zoom: 1;
+}
+
+.x-column-tree .x-tree-selected {
+    background: #d9e8fb;
+}
+
+.x-column-tree  .x-tree-node a {
+    line-height: 18px;
+    vertical-align: middle;
+}
+
+.x-column-tree  .x-tree-node a span {
+
+}
+
+.x-column-tree  .x-tree-node .x-tree-selected a span {
+    background: transparent;
+    color: #000;
+}
+
+.x-tree-col {
+    float: left;
+    overflow: hidden;
+    padding: 0 1px;
+    zoom: 1;
+}
+
+.x-tree-col-text, .x-tree-hd-text {
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    padding: 3px 3px 3px 5px;
+    white-space: nowrap;
+    font: normal 11px arial, tahoma, helvetica, sans-serif;
+}
+
+.x-tree-headers {
+    background: #f9f9f9 url(../images/grid3-hrow.gif) repeat-x 0 bottom;
+    cursor: default;
+    zoom: 1;
+}
+
+.x-tree-hd {
+    float: left;
+    overflow: hidden;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #d0d0d0;
+}
+
+.task {
+    background-image: url(../shared/icons/fam/cog.png) !important;
+}
+
+.task-folder {
+    background-image: url(../shared/icons/fam/folder_go.png) !important;
+}
+
+.barra_progreso {
+    /* Formato estructural */
+    border: solid red 0px;
+    /* Estilo por defecto */
+    width: 500px;
+    text-align: center;
+}
+
+.barra_arriba {
+    /* Formato estructural */
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    /* Estilo por defecto */
+    background-color: navy;
+    color: white;
+    clip: rect(0px, 300px, auto, 0px);
+}
+
+.barra_abajo {
+    /* Formato estructural */
+    height: inherit;
+    /* Estilo por defecto */
+    background-color: lightblue;
+    color: navy;
+}
+
+#barra1 {
+    width: 400px; /* Es obligatorio que sea en px */
+    height: auto;
+    margin: auto;
+}
+
+#barra1 .barra_arriba {
+    /* SÃ³lo modificar la segunda coordenada (_, X, _, _) */
+    clip: rect(0px, 220px, auto, 0px);
+    background-color: green;
+    color: white;
+}
+
+#barra1 .barra_abajo {
+    color: black;
+    background-color: #EEEE33;
+}
+
+.x-grid3-row-body p {
+    margin: 5px 5px 10px 5px !important;
+}

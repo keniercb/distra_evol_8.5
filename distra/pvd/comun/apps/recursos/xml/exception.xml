@@ -1,0 +1,3078 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<excepciones>
+    <!-- INICIO DE LAS EXCEPSIONES DE LA LINEA DE CAPITAL HUMANO -->
+    <!-- INICIO DE LAS EXCEPSIONES DEL COMPONENTE PERSONA -->
+    <CHP001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de consulta</mensaje>
+            <descripcion>Ocurrió un error en el servidor mientras se cargaba el registro de personas. Póngase en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHP001>
+    <CHP002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de consulta</mensaje>
+            <descripcion>Ocurrió un error en el servidor mientras se cargaba el nomenclador de sexos. Póngase en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHP002>
+    <CHP003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de consulta</mensaje>
+            <descripcion>Ocurrió un error en el servidor mientras se cargaba el nomenclador de colores de ojos. Póngase en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHP003>
+    <CHP004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de consulta</mensaje>
+            <descripcion>Ocurrió un error en el servidor mientras se cargaba el nomenclador de colores de pelo. Póngase en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHP004>
+    <CHP005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de consulta</mensaje>
+            <descripcion>Ocurrió un error en el servidor mientras se cargaba el nomenclador de niveles escolares. Póngase en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHP005>
+    <CHP006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de consulta</mensaje>
+            <descripcion>Ocurrió un error en el servidor mientras se cargaba el nomenclador de colores de piel. Póngase en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHP006>
+    <CHP007>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de consulta</mensaje>
+            <descripcion>Ocurrió un error en el servidor mientras se cargaba el nomenclador de grupos sanguíneos. Póngase en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHP007>
+    <CHP008>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de consulta</mensaje>
+            <descripcion>Ocurrió un error en el servidor mientras se cargaba el nomenclador de categorías docentes. Póngase en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHP008>
+    <CHP009>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de consulta</mensaje>
+            <descripcion>Ocurrió un error en el servidor mientras se cargaba el nomenclador de grados científicos. Póngase en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHP009>
+    <CHP010>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de Consulta</mensaje>
+            <descripcion>Ocurrió un error en el servidor mientras se cargaba el nomenclador de estados civiles. Póngase en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHP010>
+    <CHP011>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de consulta</mensaje>
+            <descripcion>Ocurrió un error en el servidor mientras se cargaba el nomenclador de grados escolares. Póngase en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHP011>
+    <CHP012>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de consulta</mensaje>
+            <descripcion>Ocurrió un error en el servidor mientras se cargaba el nomenclador de extracciónes sociales. Póngase en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHP012>
+    <CHP013>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de consulta</mensaje>
+            <descripcion>Ocurrió un error en el servidor mientras se cargaba el nomenclador de tallas de pantalón y saya. Póngase en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHP013>
+    <CHP014>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de Consulta</mensaje>
+            <descripcion>Ocurrió un error en el servidor mientras se cargaba el nomenclador de tallas de calzado. Póngase en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHP014>
+    <CHP015>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de consulta</mensaje>
+            <descripcion>Ocurrió un error en el servidor mientras se cargaba el nomenclador de tallas de camisa y blusa. Póngase en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHP015>
+    <CHP016>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de consulta</mensaje>
+            <descripcion>Ocurrió un error en el servidor mientras se cargaba el nomenclador de tallas de gorra. Póngase en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHP016>
+    <CHP017>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar</mensaje>
+            <descripcion>Ocurrió un error en el servidor mientras se trataba de insertar la persona. Póngase en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHP017>
+    <CHP018>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al modificar.</mensaje>
+            <descripcion>Ocurrió un error en el servidor mientras se trataba de modificar la persona. Póngase en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHP018>
+    <CHP019>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de concurrencia al modificar.</mensaje>
+            <descripcion>Los datos del colaborador fueron modificados por otra persona. Por favor recargue los datos e intente realizar la modificacion nuevamente.</descripcion>
+        </es>
+    </CHP019>
+    <CHP020>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar.</mensaje>
+            <descripcion>Ocurrió un error en el servidor mientras se trataba de eliminar la persona. Póngase en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHP020>
+    <CHP021>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al modificar.</mensaje>
+            <descripcion>Ocurrió un error en el servidor mientras se trataba de modificar la foto. Póngase en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHP021>
+    <CHP022>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de búsqueda.</mensaje>
+            <descripcion>La persona buscada no existe</descripcion>
+        </es>
+    </CHP022>
+    <CHP023>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos.</mensaje>
+            <descripcion>El identificador de la persona no debe ser vacío.</descripcion>
+        </es>
+    </CHP023>
+    <CHP024>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El identificador de persona debe ser numérico.</descripcion>
+        </es>
+    </CHP024>
+    <CHP025>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>La versión no debe ser vacío.</descripcion>
+        </es>
+    </CHP025>
+    <CHP026>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>La versión debe ser numérica.</descripcion>
+        </es>
+    </CHP026>
+    <CHP027>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El número del carnet de identidad no debe ser vacío.</descripcion>
+        </es>
+    </CHP027>
+    <CHP028>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El número del carnet de identidad debe ser numérico.</descripcion>
+        </es>
+    </CHP028>
+    <CHP029>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El primer apellido de la persona es un campo obligatorio.</mensaje>
+            <descripcion>El primer apellido de la persona es un campo obligatorio.</descripcion>
+        </es>
+    </CHP029>
+    <CHP030>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El primer apellido de la persona debe ser solo letras.</mensaje>
+            <descripcion>El primer apellido de la persona debe ser solo letras.</descripcion>
+        </es>
+    </CHP030>
+    <CHP031>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El segundo apellido de la persona es un campo obligatorio.</mensaje>
+            <descripcion>El primer apellido de la persona es un campo obligatorio.</descripcion>
+        </es>
+    </CHP031>
+    <CHP032>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El segundo apellido de la persona debe ser solo letras.</mensaje>
+            <descripcion>El primer apellido de la persona debe ser solo letras.</descripcion>
+        </es>
+    </CHP032>
+    <CHP033>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El nombre de la persona es un campo obligatorio.</mensaje>
+            <descripcion>El nombre de la persona es un campo obligatorio.</descripcion>
+        </es>
+    </CHP033>
+    <CHP034>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El nombre de la persona debe ser solo letras.</mensaje>
+            <descripcion>El nombre de la persona debe ser solo letras.</descripcion>
+        </es>
+    </CHP034>
+    <CHP035>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El identificador de la categoría docente debe ser numérico.</mensaje>
+            <descripcion>El identificador de la categoría docente debe ser numérico.</descripcion>
+        </es>
+    </CHP035>
+    <CHP036>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El identificador de grado científico debe ser numérico</mensaje>
+            <descripcion>El identificador de grado científico debe ser numérico</descripcion>
+        </es>
+    </CHP036>
+    <CHP037>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El identificador del estado civil no debe ser vacío.</descripcion>
+        </es>
+    </CHP037>
+    <CHP038>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El identificador del estado civil debe ser numérico.</descripcion>
+        </es>
+    </CHP038>
+    <CHP039>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El identificador de la extracción social no debe ser vacío.</descripcion>
+        </es>
+    </CHP039>
+    <CHP040>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El identificador de la extracción social debe ser numérico.</descripcion>
+        </es>
+    </CHP040>
+    <CHP041>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El teléfono debe ser numérico.</descripcion>
+        </es>
+    </CHP041>
+    <CHP042>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El identificador del nivel escolar debe ser numérico.</descripcion>
+        </es>
+    </CHP042>
+    <CHP043>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El identificador del grado de escolaridad debe ser numérico.</descripcion>
+        </es>
+    </CHP043>
+    <CHP044>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>La fecha de nacimiento no debe ser vacío.</descripcion>
+        </es>
+    </CHP044>
+    <CHP045>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>La fecha de nacimiento debe ser de tipo fecha.</descripcion>
+        </es>
+    </CHP045>
+    <CHP046>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El nombre de la persona es un campo obligatorio.</mensaje>
+            <descripcion>El lugar de nacimiento de la persona es un campo obligatorio.</descripcion>
+        </es>
+    </CHP046>
+    <CHP047>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El nombre de la persona debe ser solo letras.</mensaje>
+            <descripcion>El lugar de nacimiento de la persona debe ser solo letras.</descripcion>
+        </es>
+    </CHP047>
+    <CHP048>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El identificador del sexo no debe ser vacío.</descripcion>
+        </es>
+    </CHP048>
+    <CHP049>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El identificador del sexo debe ser numérico.</descripcion>
+        </es>
+    </CHP049>
+    <CHP050>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El identificador del color de los ojos no debe ser vacío.</descripcion>
+        </es>
+    </CHP050>
+    <CHP051>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El identificador del color de los ojos debe ser numérico.</descripcion>
+        </es>
+    </CHP051>
+    <CHP052>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El identificador del color de la piel no debe ser vacío.</descripcion>
+        </es>
+    </CHP052>
+    <CHP053>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El identificador del color de la piel debe ser numérico.</descripcion>
+        </es>
+    </CHP053>
+    <CHP054>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El identificador del color del pelo no debe ser vacío.</descripcion>
+        </es>
+    </CHP054>
+    <CHP055>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El identificador del color del pelo debe ser numérico.</descripcion>
+        </es>
+    </CHP055>
+    <CHP056>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El identificador del grupo sanguíneo debe ser numérico.</descripcion>
+        </es>
+    </CHP056>
+    <CHP057>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El peso debe ser numérico.</descripcion>
+        </es>
+    </CHP057>
+    <CHP058>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>La estatura debe ser numérica.</descripcion>
+        </es>
+    </CHP058>
+    <CHP059>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El identificador de la talla de pantalón o saya debe ser numérica.</descripcion>
+        </es>
+    </CHP059>
+    <CHP060>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El identificador de la talla del calzado debe ser numérica.</descripcion>
+        </es>
+    </CHP060>
+    <CHP061>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El identificador de la talla de la camisa o blusa debe ser numérica.</descripcion>
+        </es>
+    </CHP061>
+    <CHP062>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El identificador de la talla de la gorra debe ser numérica.</descripcion>
+        </es>
+    </CHP062>
+    <CHP063>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al modificar.</mensaje>
+            <descripcion>Ocurrió un error en el servidor mientras se trataba de modificar la persona. Póngase en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHP063>
+    <CHP064>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de concurrencia al modificar.</mensaje>
+            <descripcion>Los datos de la persona fueron modificados por otra persona. Por favor recargue los datos e intente realizar la modificacion nuevamente.</descripcion>
+        </es>
+    </CHP064>
+    <CHP065>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos.</mensaje>
+            <descripcion>Error en alteracion de datos. Por favor contacte con el administrador.</descripcion>
+        </es>
+    </CHP065>
+    <CHP066>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos.</mensaje>
+            <descripcion>El campo Descripcion debe ser solo letras y numeros.</descripcion>
+        </es>
+    </CHP066>
+    <CHP067>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos.</mensaje>
+            <descripcion>El campo Descripcion no puede ser vacio.</descripcion>
+        </es>
+    </CHP067>
+
+    <!-- FIN DE LAS EXCEPCIONES DEL COMPONENTE PERSONA -->
+
+    <!-- INICIO DE LAS EXCEPCIONES DEL COMPONENTE TRABAJADOR -->
+
+    <CHT044>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El movimiento ya existe.</descripcion>
+        </es>
+    </CHT044>
+    <CHT045>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El trabajador ya existe.</descripcion>
+        </es>
+    </CHT045>
+    <CHT046>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo idmovimiento no debe ser vacío.</descripcion>
+        </es>
+    </CHT046>
+    <CHT047>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El idmovimiento admite solamente un formato de ocho caracteres(números y letras).</descripcion>
+        </es>
+    </CHT047>
+    <CHT048>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo motivo del movimiento no puede ser null.</descripcion>
+        </es>
+    </CHT048>
+    <CHT049>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo motivo del movimiento admite solamente números.</descripcion>
+        </es>
+    </CHT049>
+    <CHT050>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo puesto de trabajo no puede ser vacío.</descripcion>
+        </es>
+    </CHT050>
+    <CHT051>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo puesto de trabajo admite solamente números.</descripcion>
+        </es>
+    </CHT051>
+    <CHT052>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo tipo de contrato no puede ser null.</descripcion>
+        </es>
+    </CHT052>
+    <CHT053>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo tipo de contrato admite solamente números.</descripcion>
+        </es>
+    </CHT053>
+    <CHT054>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo expediente interno no puede ser null.</descripcion>
+        </es>
+    </CHT054>
+    <CHT055>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo expediente admite solamente números y letras.</descripcion>
+        </es>
+    </CHT055>
+    <CHT056>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo constribución social no puede ser null.</descripcion>
+        </es>
+    </CHT056>
+    <CHT057>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo constribución social admite solamente números.</descripcion>
+        </es>
+    </CHT057>
+    <CHT058>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo sistema de pago no puede ser null.</descripcion>
+        </es>
+    </CHT058>
+    <CHT059>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo sistema de pago admite solamente números.</descripcion>
+        </es>
+    </CHT059>
+    <CHT060>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo observaciones admite solamente un formato de números y letras.</descripcion>
+        </es>
+    </CHT060>
+    <CHT061>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo fecha fin debe tener el formato (día-mes-año).</descripcion>
+        </es>
+    </CHT061>
+
+    <CHT062>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>Debe seleccionar un centro de costo.</descripcion>
+        </es>
+    </CHT062>
+    <CHT063>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El id del centro de costo  solo puede ser un número.</descripcion>
+        </es>
+    </CHT063>
+
+    <CHT064>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>Debe seleccionar un cuenta. </descripcion>
+        </es>
+    </CHT064>
+
+    <CHT065>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El id de la cuenta solo puede ser un número.</descripcion>
+        </es>
+    </CHT065>
+
+    <CHT066>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El número de trajeta debe ser distinto del nulo.</descripcion>
+        </es>
+    </CHT066>
+
+    <CHT067>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El número de tarjeta debe ser un número y 16 dígitos. </descripcion>
+        </es>
+    </CHT067>
+
+    <CHT068>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion> Debe seleccionar un motivo. </descripcion>
+        </es>
+    </CHT068>
+    <CHT069>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El id  motivo tiene que ser un número. </descripcion>
+        </es>
+    </CHT069>
+    <CHT070>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion> Error al cargar las cuentas. </descripcion>
+        </es>
+    </CHT070>
+    <CHT071>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>Error al cargar los centros de costos. </descripcion>
+        </es>
+    </CHT071>
+    <CHT072>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>Error al cargar Datos contables. </descripcion>
+        </es>
+    </CHT072>
+    <CHT073>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo de el tipo de reubicación no puede estar vacío. </descripcion>
+        </es>
+    </CHT073>
+
+
+    <CHT074>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo de el tipo de reubicación admite solo números. </descripcion>
+        </es>
+    </CHT074>
+
+
+    <CHT075>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo fecha fin del tipo de contrato debe tener el formato (día-mes-año).</descripcion>
+        </es>
+    </CHT075>
+
+    <CHT076>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo fecha fin del tipo de contrato no debe ser null.</descripcion>
+        </es>
+    </CHT076>
+
+
+    <CHT077>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo fecha fin del tipo de reubicación no sebe ser null.</descripcion>
+        </es>
+    </CHT077>
+
+
+    <CHT078>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo fecha fin del tipo de reubicación debe tener el formato (día-mes-año).</descripcion>
+        </es>
+    </CHT078>
+    <CHT080>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>Error al cargar datos de persona. </descripcion>
+        </es>
+    </CHT080>
+    <CHT081>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar</mensaje>
+            <descripcion>El trabajador seleccionado ya está de baja. </descripcion>
+        </es>
+    </CHT081>
+
+    <!-- FIN DE LAS EXCEPSIONES DEL COMPONENTE TRABAJADOR -->
+
+    <!-- INICIO DE LAS EXCEPSIONES DEL COMPONENTE PUESTO TRABAJO -->
+    <CHPT001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>No exiten grupos de trabajo asignados al cargo seleccionado.</descripcion>
+        </es>
+    </CHPT001>
+    <CHPT002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>No puede adicionar más puestos de trabajo al cargo seleccionado.</descripcion>
+        </es>
+    </CHPT002>
+    <CHPT003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>Ya existe un puesto de trabajo con esa Denominación</descripcion>
+        </es>
+    </CHPT003>
+    <CHPT004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>Ya existe un puesto de trabajo con ese código</descripcion>
+        </es>
+    </CHPT004>
+    <CHPT005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo Denominación no puede ser vacío</descripcion>
+        </es>
+    </CHPT005>
+    <CHPT006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>La Denominación debe ser solo letras</descripcion>
+        </es>
+    </CHPT006>
+    <CHPT007>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo código no puede ser vacío</descripcion>
+        </es>
+    </CHPT007>
+    <CHPT008>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El código debe ser solo letras y números.</descripcion>
+        </es>
+    </CHPT008>
+    <CHPT009>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El identificadora del área no puede ser vacío.</descripcion>
+        </es>
+    </CHPT009>
+    <CHPT010>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El identificador del área debe ser numérico.</descripcion>
+        </es>
+    </CHPT010>
+    <CHPT011>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El identificador del cargo no puede ser vacío.</descripcion>
+        </es>
+    </CHPT011>
+    <CHPT012>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El identificador del cargo debe ser numérico</descripcion>
+        </es>
+    </CHPT012>
+    <CHPT013>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El identificador del grupo de trabajo no puede ser vacío.</descripcion>
+        </es>
+    </CHPT013>
+    <CHPT014>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El identificador del grupo de trabajo debe ser numérico</descripcion>
+        </es>
+    </CHPT014>
+    <CHPT015>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El id de movimiento de nómina ya se encuentra asignado a otro modelo de nómina</descripcion>
+        </es>
+    </CHPT015>
+
+    <CHPT016>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>Valores erroneos entrados al registrar movimiento de nómina. Compruebe datos.</descripcion>
+        </es>
+    </CHPT016>
+
+    <CHPT017>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de validación</mensaje>
+            <descripcion>Ha excedido el número de puestos de trabajo que pueden serle asignados al cargo seleccionado</descripcion>
+        </es>
+    </CHPT017>
+
+    <CHPT018>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de validación</mensaje>
+            <descripcion>Existen puestos de trabajos asignados a un trabajador en un grupo de puestos de trabajo</descripcion>
+        </es>
+    </CHPT018>
+
+    <CHPT019>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de validación</mensaje>
+            <descripcion>Este grupo de puestos de trabajo tiene puestos asignados</descripcion>
+        </es>
+    </CHPT019>
+
+    <CHPT020>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>Debe seleccionar una área de trabajo</descripcion>
+        </es>
+    </CHPT020>
+    <CHPT021>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El identificador del área de trabajo seleccionada tiene que ser un número</descripcion>
+        </es>
+    </CHPT021>
+
+    <CHPT022>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>Debe seleccionar cargo</descripcion>
+        </es>
+    </CHPT022>
+    <CHPT023>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El identificador del cargo seleccionado tiene que ser un número</descripcion>
+        </es>
+    </CHPT023>
+
+    <CHPT024>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo fondo de tiempo no puede ser null</descripcion>
+        </es>
+    </CHPT024>
+    <CHPT025>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El fondo de tiempo tiene que ser un número.</descripcion>
+        </es>
+    </CHPT025>
+
+    <CHPT026>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo jornada laboral no puede ser null.</descripcion>
+        </es>
+    </CHPT026>
+    <CHPT027>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>La jornada laboral tiene que ser un número.</descripcion>
+        </es>
+    </CHPT027>
+    <CHPT028>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo fecha efectiva no puede ser null.</descripcion>
+        </es>
+    </CHPT028>
+    <CHPT029>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>La fecha efectiva debe tener el formato (día-mes-año).</descripcion>
+        </es>
+    </CHPT029>
+
+    <CHPT030>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo Denominación es obligatorio.</descripcion>
+        </es>
+    </CHPT030>
+    <CHPT031>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>La denominación solo puede contener números y letras. No admite otro tipo de caracteres.</descripcion>
+        </es>
+    </CHPT031>
+
+    <CHPT032>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo jornada laboral no puede ser null.</descripcion>
+        </es>
+    </CHPT032>
+    <CHPT033>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>La jornada laboral tiene que ser un número.</descripcion>
+        </es>
+    </CHPT033>
+    <CHPT034>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El código entrado o se encuentra asiganado a otro grupo de puestos de trabajo, o no cumple con el formato establecido, el código debe ser de no más de ocho caracteres(números y letras)</descripcion>
+        </es>
+    </CHPT034>
+    <CHPT035>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>La denominación entrada ya ha sido asignada a otro grupo de puestos de trabajo</descripcion>
+        </es>
+    </CHPT035>
+    <CHPT036>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>Todas las capacidades asignadas al cargo seleccionado ya han sido ocupadas</descripcion>
+        </es>
+    </CHPT036>
+    <CHPT037>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo código no puede ser null</descripcion>
+        </es>
+    </CHPT037>
+    <CHPT038>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El código admite solamente un formato de ocho caracteres(números y letras)</descripcion>
+        </es>
+    </CHPT038>
+    <CHPT039>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo fecha efectiva no debe ser vacío.</descripcion>
+        </es>
+    </CHPT039>
+    <CHPT038>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo fecha inicio no debe ser vacío.</descripcion>
+        </es>
+    </CHPT038>
+    <CHPT039>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo fecha efectiva no debe ser vacío.</descripcion>
+        </es>
+    </CHPT039>
+    <CHPT040>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo fecha efectiva debe tener el formato d-m-y.</descripcion>
+        </es>
+    </CHPT040>
+    <CHPT041>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo fecha inicio no debe ser vacío.</descripcion>
+        </es>
+    </CHPT041>
+    <CHPT042>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo fecha inicio debe tener el formato d-m-y.</descripcion>
+        </es>
+    </CHPT042>
+    <CHPT043>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El puesto de trabajo está asignado a un trabajador.</descripcion>
+        </es>
+    </CHPT043>
+    <CHPT044>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>Existen campos del movimiento de nómina con valores incorrectos.</descripcion>
+        </es>
+    </CHPT044>
+    <CHPT045>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El id de movimiento entrado ya está asignado a un movimiento de nómina.</descripcion>
+        </es>
+    </CHPT045>
+    <CHPT046>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al cargar los datos</mensaje>
+            <descripcion>Los datos no se cargaron correctamente.</descripcion>
+        </es>
+    </CHPT046>
+    <CHPT047>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al obtener los datos</mensaje>
+            <descripcion>El puesto de trabajo no está disponible.</descripcion>
+        </es>
+    </CHPT047>
+    <CHPT048>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al cargar los datos</mensaje>
+            <descripcion>El código no se encuentra.</descripcion>
+        </es>
+    </CHPT048>
+    <CHPT049>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de conexión</mensaje>
+            <descripcion>Hubo un error al acceder a la Base de Datos.</descripcion>
+        </es>
+    </CHPT049>
+
+    <!-- FIN DE LAS EXCEPSIONES DEL COMPONENTE PUESTO TRABAJO -->
+
+    <!-- INICIO DE LAS EXCEPSIONES DEL COMPONENTE PAGOS ADICIONALES -->
+    <CHPA213>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura.</mensaje>
+            <descripcion>El campo código solo acepta números y letras</descripcion>
+        </es>
+    </CHPA213>
+    <CHPA201>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error el código insertado ya existe.</mensaje>
+            <descripcion>Error el código insertado ya existe. Por favor elija otro.</descripcion>
+        </es>
+    </CHPA201>
+    <CHPA203>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No existen pagos adicionales en la base de datos.</mensaje>
+            <descripcion>Agregue.</descripcion>
+        </es>
+    </CHPA203>
+    <CHPA204>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error faltan datos obligatorios.</mensaje>
+            <descripcion>El campo código es obligatorio.Por favor llénelo.</descripcion>
+        </es>
+    </CHPA204>
+    <CHPA205>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error faltan datos obligatorios </mensaje>
+            <descripcion>El campo Comportamiento es obligatorio.Por favor llénelo.</descripcion>
+        </es>
+    </CHPA205>
+    <CHPA213>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura </mensaje>
+            <descripcion>El campo Comportamiento solo admite letras.</descripcion>
+        </es>
+    </CHPA213>
+    <CHPA214>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura </mensaje>
+            <descripcion>El campo Elementos del gasto solo admite letras.</descripcion>
+        </es>
+    </CHPA214>
+    <CHPA215>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura </mensaje>
+            <descripcion>El campo Asociado a: solo admite letras.</descripcion>
+        </es>
+    </CHPA215>
+    <CHPA206>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error faltan datos obligatorios</mensaje>
+            <descripcion>El campo Elementos del gasto es obligatorio.Por favor llénelo.</descripcion>
+        </es>
+    </CHPA206>
+    <CHPA207>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error faltan datos obligatorios. </mensaje>
+            <descripcion>El campo Asociado a: es obligatorio.Por favor llénelo.</descripcion>
+        </es>
+    </CHPA207>
+    <CHPA208>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error faltan datos obligatorios.</mensaje>
+            <descripcion>El campo Denominación es obligatorio.Por favor llénelo.</descripcion>
+        </es>
+    </CHPA208>
+    <CHPA216>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura </mensaje>
+            <descripcion>El campo Denominación solo admite letras.</descripcion>
+        </es>
+    </CHPA216>
+    <CHPA209>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error faltan datos obligatorios.</mensaje>
+            <descripcion>El campo descripcion es obligatorio.Por favor llénelo.</descripcion>
+        </es>
+    </CHPA209>
+    <CHPA217>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura </mensaje>
+            <descripcion>El campo descripcion solo admite letras.</descripcion>
+        </es>
+    </CHPA217>
+    <CHPA210>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error faltan datos obligatorios.</mensaje>
+            <descripcion>El campo Valor es obligatorio.Por favor llénelo.</descripcion>
+        </es>
+    </CHPA210>
+    <CHPA211>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error faltan datos obligatorios.</mensaje>
+            <descripcion>El campo Fecha efectiva es obligatorio.Por favor llénelo.</descripcion>
+        </es>
+    </CHPA211>
+    <CHPA218>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura </mensaje>
+            <descripcion>El campo Fecha efectiva solo admite fechas en el formato requerido d-m-a.</descripcion>
+        </es>
+    </CHPA218>
+    <CHPA212>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje> Error</mensaje>
+            <descripcion>El pago seleccionado no puede ser eliminado debido a que está asignado a un puesto de trabajo o a un trabajador.</descripcion>
+        </es>
+    </CHPA212>
+    <CHPA219>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura </mensaje>
+            <descripcion>El campo valor solo números reales.</descripcion>
+        </es>
+    </CHPA219>
+    <CHPA220>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error campo vacío </mensaje>
+            <descripcion>Al seleccionar la opción porciento debe seleccionar también los parámetros de la ecuación.</descripcion>
+        </es>
+    </CHPA220>
+
+    <!-- FIN DE LAS EXCEPSIONES DEL COMPONENTE PAGOS ADICIONALES -->
+
+    <!-- INICIO DE LAS EXCEPSIONES DEL COMPONENTE INCIDENCIAS -->
+    <CHI001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando tipo de impuesto</mensaje>
+            <descripcion>Ya existe un impuesto con ese código.</descripcion>
+        </es>
+    </CHI001>
+    <CHI002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo código no puede ser vacío.</descripcion>
+        </es>
+    </CHI002>
+    <CHI003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El código debe ser numérico.</descripcion>
+        </es>
+    </CHI003>
+    <CHI004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo Denominación no puede ser vacío.</descripcion>
+        </es>
+    </CHI004>
+    <CHI005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>La Denominación debe ser solo letras.</descripcion>
+        </es>
+    </CHI005>
+    <CHI006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo porciento no puede ser vacío.</descripcion>
+        </es>
+    </CHI006>
+    <CHI007>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El porciento debe ser numérico.</descripcion>
+        </es>
+    </CHI007>
+    <CHI008>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El porciento debe ser un número entre 0 y 100.</descripcion>
+        </es>
+    </CHI008>
+    <CHI009>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos.</mensaje>
+            <descripcion>La cantidad de horas acumuladas por incidencias no puede ser mayor que la cantidad de horas que el trabajador tiene que trabajar en ese período de pago.</descripcion>
+        </es>
+    </CHI009>
+    <CHI010>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El campo inporte no puede ser vacío.</descripcion>
+        </es>
+    </CHI010>
+    <CHI011>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de entrada de datos</mensaje>
+            <descripcion>El importe debe ser numérico.</descripcion>
+        </es>
+    </CHI011>
+    <CHI012>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando tipo de impuesto</mensaje>
+            <descripcion>Ya existe un tipo de impuesto con esa Denominación.</descripcion>
+        </es>
+    </CHI012>
+    <CHI013>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando tipo de incidencia</mensaje>
+            <descripcion>Ya existe un tipo de incidencia con ese código.</descripcion>
+        </es>
+    </CHI013>
+    <CHI014>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando tipo de incidencia</mensaje>
+            <descripcion>Ya existe un tipo de incidencia con esa Denominación.</descripcion>
+        </es>
+    </CHI014>
+    <CHI015>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando tipo de incidencia</mensaje>
+            <descripcion>El tipo de incidencia ya fue registrada a algún trabajador.</descripcion>
+        </es>
+    </CHI015>
+    <CHI016>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando incidencia al trabajador</mensaje>
+            <descripcion>El registro no puede ser modificado porque ya fue procesado en alguna nómina.</descripcion>
+        </es>
+    </CHI016>
+    <CHI017>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error asociando impuesto a incidencia</mensaje>
+            <descripcion>La asociación de ese impuesto a esa incidencia ya existe.</descripcion>
+        </es>
+    </CHI017>
+    <CHI018>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando tipo de información</mensaje>
+            <descripcion>El tipo de información que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI018>
+    <CHI019>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando el grado de veracidad</mensaje>
+            <descripcion>El grado de veracidad que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI019>
+    <CHI020>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando el rol de actor</mensaje>
+            <descripcion>El rol de actor que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI020>
+    <CHI021>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El tipo de información seleccionado no se puede eliminar debido a que está en uso.</descripcion>
+        </es>
+    </CHI021>
+    <CHI022>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando el costo político </mensaje>
+            <descripcion>El costo político que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI022>
+    <CHI025>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El costo pilítico seleccionado no se puede eliminar debido a que está en uso.</descripcion>
+        </es>
+    </CHI025>
+    <CHI026>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando el grado de tolerancia </mensaje>
+            <descripcion>El grado de tolerancia que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI026>
+    <CHI028>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando el tipo de impacto </mensaje>
+            <descripcion>El tipo de impacto que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI028>
+    <CHI030>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando el nivel de participación </mensaje>
+            <descripcion>El nivel de participación que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI030>
+    <CHI032>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando la posición del actor</mensaje>
+            <descripcion>La posición del actor que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI032>
+    <CHI034>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando la clasificación</mensaje>
+            <descripcion>La clasificación del la situación que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI034>
+    <CHI036>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando la dimensión de seguridad y defensa integral</mensaje>
+            <descripcion>La dimensión de seguridad que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI036>
+    <CHI038>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando el grado de afectación</mensaje>
+            <descripcion>El grado de afectación que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI038>
+    <CHI040>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando el efecto</mensaje>
+            <descripcion>El efecto que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI040>
+    <CHI042>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando el nivel de afectación</mensaje>
+            <descripcion>El nivel de afectación que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI042>
+    <CHI043>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El nivel de afectación seleccionado  no se puede eliminar debido a que está en uso.</descripcion>
+        </es>
+    </CHI043>
+    <CHI044>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando el nivel de importancia</mensaje>
+            <descripcion>El nivel de importancia que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI044>
+    <CHI046>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando el nivel de influencia</mensaje>
+            <descripcion>El nivel de influencia que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI046>
+    <CHI048>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando la prioridad</mensaje>
+            <descripcion>La prioridad del evento que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI048>
+    <CHI050>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El tipo de interés que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI050>
+    <CHI051>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El tipo de interés seleccionado no se puede eliminar debido a que está en uso.</descripcion>
+        </es>
+    </CHI051>
+    <CHI052>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El tipo de limitación que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI052>
+    <CHI054>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El tipo de potencial que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI054>
+    <CHI056>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El área de interación que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI056>
+    <CHI058>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El tipo de relación que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI058>
+    <CHI059>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El tipo de relación seleccionado no se puede eliminar debido a que está en uso.</descripcion>
+        </es>
+    </CHI059>
+    <CHI060>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El grado de tensión que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI060>
+    <CHI062>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>La matriz de clasificación que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI062>
+    <CHI064>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El tipo de solicitante que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI064>
+    <CHI066>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El tipo de estrategia que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHI066>
+    <CHI068>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando el rol de actor</mensaje>
+            <descripcion>El rol de actor ya existe.</descripcion>
+        </es>
+    </CHI068>
+    <CHI069>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando el costo político </mensaje>
+            <descripcion>El costo político  ya existe.</descripcion>
+        </es>
+    </CHI069>
+    <CHI070>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando el grado de tolerancia </mensaje>
+            <descripcion>El grado de tolerancia ya existe.</descripcion>
+        </es>
+    </CHI070>
+    <CHI071>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando el tipo de impacto </mensaje>
+            <descripcion>El tipo de impacto  ya existe.</descripcion>
+        </es>
+    </CHI071>
+    <CHI072>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando el nivel de participación </mensaje>
+            <descripcion>El nivel de participación ya existe.</descripcion>
+        </es>
+    </CHI072>
+
+    <CHI073>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando la posición del actor</mensaje>
+            <descripcion>La posición del actor  ya existe.</descripcion>
+        </es>
+    </CHI073>
+
+    <CHI074>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando la clasificación</mensaje>
+            <descripcion>La clasificación de la situación  ya existe.</descripcion>
+        </es>
+    </CHI074>
+    <CHI075>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando la dimensión de seguridad y defensa integral</mensaje>
+            <descripcion>La dimensión de seguridad  ya existe.</descripcion>
+        </es>
+    </CHI075>
+    <CHI076>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando el grado de afectación</mensaje>
+            <descripcion>El grado de afectación  ya existe.</descripcion>
+        </es>
+    </CHI076>
+    <CHI077>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando el efecto</mensaje>
+            <descripcion>El efecto  ya existe.</descripcion>
+        </es>
+    </CHI077>
+
+    <CHI078>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando el nivel de afectación</mensaje>
+            <descripcion>El nivel de afectación  ya existe.</descripcion>
+        </es>
+    </CHI078>
+
+    <CHI079>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando el nivel de importancia</mensaje>
+            <descripcion>El nivel de importancia  ya existe.</descripcion>
+        </es>
+    </CHI079>
+
+    <CHI080>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando el nivel de influencia</mensaje>
+            <descripcion>El nivel de influencia  ya existe.</descripcion>
+        </es>
+    </CHI080>
+
+    <CHI081>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error gestionando la prioridad</mensaje>
+            <descripcion>La prioridad del evento  ya existe.</descripcion>
+        </es>
+    </CHI081>
+
+    <CHI082>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El tipo de interés  ya existe.</descripcion>
+        </es>
+    </CHI082>
+
+    <CHI083>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El tipo de limitación  ya existe.</descripcion>
+        </es>
+    </CHI083>
+
+    <CHI084>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El tipo de potencial  ya existe.</descripcion>
+        </es>
+    </CHI084>
+
+    <CHI085>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El área de interacción  ya existe.</descripcion>
+        </es>
+    </CHI085>
+
+    <CHI086>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El tipo de relación  ya existe.</descripcion>
+        </es>
+    </CHI086>
+
+    <CHI087>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El grado de tensión  ya existe.</descripcion>
+        </es>
+    </CHI087>
+
+    <CHI088>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>La matriz de clasificación  ya existe.</descripcion>
+        </es>
+    </CHI088>
+
+    <CHI089>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El tipo de solicitante  ya existe.</descripcion>
+        </es>
+    </CHI089>
+    <CHI090>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El tipo de estrategia  ya existe.</descripcion>
+        </es>
+    </CHI090>
+    <CHI091>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El grado de veracidad  ya existe.</descripcion>
+        </es>
+    </CHI091>
+
+    <CHI092>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El tipo de información ya existe.</descripcion>
+        </es>
+    </CHI092>
+    <!-- FIN DE LAS EXCEPSIONES DEL COMPONENTE INCIDENCIAS -->
+
+
+    <!-- INICIO DE LAS EXCEPSIONES DEL COMPONENTE NOMENCLADORES DE CONFIGURACION -->
+    <NCI01>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>La clasificación de la información que quiere adicionar ya existe.</descripcion>
+        </es>
+    </NCI01>
+    <NCI02>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>La clasificación de la información ya existe.</descripcion>
+        </es>
+    </NCI02>
+    <NCI03>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El medio de  información que quiere adicionar ya existe.</descripcion>
+        </es>
+    </NCI03>
+    <NCI04>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El medio de información ya existe.</descripcion>
+        </es>
+    </NCI04>
+    <NCI05>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El grado de confiabilidad que quiere adicionar ya existe.</descripcion>
+        </es>
+    </NCI05>
+    <NCI06>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El grado de confiabilidad ya existe.</descripcion>
+        </es>
+    </NCI06>
+    <NCI07>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>La comuna que quiere adicionar ya existe.</descripcion>
+        </es>
+    </NCI07>
+    <NCI08>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>La comuna ya existe.</descripcion>
+        </es>
+    </NCI08>
+    <NCI09>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El tipo de servidor que quiere adicionar ya existe.</descripcion>
+        </es>
+    </NCI09>
+    <NCI10>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El tipo de servidor ya existe.</descripcion>
+        </es>
+    </NCI10>
+    <NCI11>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El abrae que quiere adicionar ya existe.</descripcion>
+        </es>
+    </NCI11>
+    <NCI12>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El abrae ya existe.</descripcion>
+        </es>
+    </NCI12>
+    <NCI13>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El ámbito que quiere adicionar ya existe.</descripcion>
+        </es>
+    </NCI13>
+    <NCI14>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El ámbito ya existe.</descripcion>
+        </es>
+    </NCI14>
+    <NCI15>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El tipo de medio de contacto que quiere adicionar ya existe.</descripcion>
+        </es>
+    </NCI15>
+    <NCI16>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error </mensaje>
+            <descripcion>El tipo de medio de contacto ya existe.</descripcion>
+        </es>
+    </NCI16>
+    <!-- FIN DE LAS EXCEPSIONES DEL COMPONENTE NOMENCLADORES DE CONFIGURACION-->
+
+    <!-- INICIO DE LAS EXCEPSIONES DEL COMPONENTE SUBMAYORES -->
+    <CHS001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar el programa</mensaje>
+            <descripcion>El programa está siendo utilizado.</descripcion>
+        </es>
+    </CHS001>
+    <CHS002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de campo</mensaje>
+            <descripcion>Incorrecto formato de tipo de programa.</descripcion>
+        </es>
+    </CHS002>
+    <CHS003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error la Denominación ya existe.</mensaje>
+            <descripcion>La Denominación no puede repetirse.</descripcion>
+        </es>
+    </CHS003>
+    <CHS004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de campo.</mensaje>
+            <descripcion>El campo Denominación es incorrecto.</descripcion>
+        </es>
+    </CHS004>
+    <CHS005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de campo.</mensaje>
+            <descripcion>El campo fecha es incorrecto.</descripcion>
+        </es>
+    </CHS005>
+    <CHS006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar el tipo de retención.</mensaje>
+            <descripcion>El tipo de retención está siendo utilizado.</descripcion>
+        </es>
+    </CHS006>
+    <CHS007>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de campo</mensaje>
+            <descripcion>Incorrecto formato de tipo de retención.</descripcion>
+        </es>
+    </CHS007>
+    <CHS008>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de campo.</mensaje>
+            <descripcion>La Denominación o el código no pueden repetirse.</descripcion>
+        </es>
+    </CHS008>
+    <CHS009>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de campo.</mensaje>
+            <descripcion>El campo prioridad es incorrecto.</descripcion>
+        </es>
+    </CHS009>
+    <CHS010>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de campo.</mensaje>
+            <descripcion>El campo condición de parada es incorrecto.</descripcion>
+        </es>
+    </CHS010>
+    <CHS011>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de campo</mensaje>
+            <descripcion>Incorrecto formato de tipo de cuenta.</descripcion>
+        </es>
+    </CHS011>
+    <CHS012>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de campo.</mensaje>
+            <descripcion>El campo porciento es incorrecto.</descripcion>
+        </es>
+    </CHS012>
+    <CHS013>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de campo.</mensaje>
+            <descripcion>Incorrecto formato para el campo.</descripcion>
+        </es>
+    </CHS013>
+    <CHS090>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error campos vacíos.</mensaje>
+            <descripcion>El campo segunda quincena no debe ser vacío. Por favor llénelo.</descripcion>
+        </es>
+    </CHS090>
+    <CHS015>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura.</mensaje>
+            <descripcion>El campo segunda quincena solo admite números. Por favor rectifique.</descripcion>
+        </es>
+    </CHS015>
+    <CHS016>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error campos vacíos.</mensaje>
+            <descripcion>El campo mensual no debe ser vacío. Por favor llénelo.</descripcion>
+        </es>
+    </CHS016>
+    <CHS017>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura.</mensaje>
+            <descripcion>El campo mensual solo admite números. Por favor rectifique.</descripcion>
+        </es>
+    </CHS017>
+    <CHS018>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error campos vacíos.</mensaje>
+            <descripcion>El campo primera quincena no debe ser vacío. Por favor llénelo.</descripcion>
+        </es>
+    </CHS018>
+    <CHS019>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura.</mensaje>
+            <descripcion>El campo primera quincena solo admite números. Por favor rectifique.</descripcion>
+        </es>
+    </CHS019>
+    <CHS020>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error campos vacíos.</mensaje>
+            <descripcion>El campo semestral no debe ser vacío. Por favor llénelo.</descripcion>
+        </es>
+    </CHS020>
+    <CHS021>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura.</mensaje>
+            <descripcion>El campo semestral solo admite números. Por favor rectifique.</descripcion>
+        </es>
+    </CHS021>
+    <CHS022>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error campos vacíos.</mensaje>
+            <descripcion>El campo Saldo de la deuda no debe ser vacío. Por favor llénelo.</descripcion>
+        </es>
+    </CHS022>
+    <CHS023>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura.</mensaje>
+            <descripcion>El campo Saldo de la deuda solo admite números. Por favor rectifique.</descripcion>
+        </es>
+    </CHS023>
+    <CHS024>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error campos vacíos.</mensaje>
+            <descripcion>El campo Cantidad de plazos: no debe ser vacío. Por favor llénelo.</descripcion>
+        </es>
+    </CHS024>
+    <CHS025>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura.</mensaje>
+            <descripcion>El campo Cantidad de plazos solo admite números. Por favor rectifique.</descripcion>
+        </es>
+    </CHS025>
+    <CHS026>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error campos vacíos.</mensaje>
+            <descripcion>El campo Sucursal bancaria no debe ser vacío. Por favor llénelo.</descripcion>
+        </es>
+    </CHS026>
+    <CHS027>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura.</mensaje>
+            <descripcion>El campo Sucursal bancaria solo admite letras. Por favor rectifique.</descripcion>
+        </es>
+    </CHS027>
+    <CHS028>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error campos vacíos.</mensaje>
+            <descripcion>El campo Tipo de retención no debe ser vacío. Por favor llénelo.</descripcion>
+        </es>
+    </CHS028>
+    <CHS029>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura.</mensaje>
+            <descripcion>El campo Tipo de retención solo admite letras. Por favor rectifique.</descripcion>
+        </es>
+    </CHS029>
+    <CHS030>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error campos vacíos.</mensaje>
+            <descripcion>El campo Importe por plazo no debe ser vacío. Por favor llénelo.</descripcion>
+        </es>
+    </CHS030>
+    <CHS031>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura.</mensaje>
+            <descripcion>El campo Importe por plazo solo admite números. Por favor rectifique.</descripcion>
+        </es>
+    </CHS031>
+    <CHS033>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error campos vacíos.</mensaje>
+            <descripcion>El campo Fecha de retención no debe ser vacío. Por favor llénelo.</descripcion>
+        </es>
+    </CHS033>
+    <CHS034>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura.</mensaje>
+            <descripcion>El campo Fecha de retención solo admite fechas en formato d/m/a. Por favor rectifique.</descripcion>
+        </es>
+    </CHS034>
+    <CHS035>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura.</mensaje>
+            <descripcion>El campo No.carnet solo números. Por favor rectifique.</descripcion>
+        </es>
+    </CHS035>
+    <CHS036>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura.</mensaje>
+            <descripcion>El campo Nombre solo admite letras. Por favor rectifique.</descripcion>
+        </es>
+    </CHS036>
+    <CHS037>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura.</mensaje>
+            <descripcion>El campo Primer apellido solo admite letras. Por favor rectifique.</descripcion>
+        </es>
+    </CHS037>
+    <CHS038>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura.</mensaje>
+            <descripcion>El campo Segundo apellido solo admite letras. Por favor rectifique.</descripcion>
+        </es>
+    </CHS038>
+    <CHS039>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de escritura.</mensaje>
+            <descripcion>El campo Tercera quincena: solo admite números. Por favor rectifique.</descripcion>
+        </es>
+    </CHS039>
+    <CHS040>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error campos vacíos.</mensaje>
+            <descripcion>El campo Tercera quincena: no debe ser vacío. Por favor llénelo.</descripcion>
+        </es>
+    </CHS040>
+    <CHS041>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en la cantidad de programas.</mensaje>
+            <descripcion>El cantidad de programas no puede ser mayor que cinco.</descripcion>
+        </es>
+    </CHS041>
+    <!-- FIN DE LAS EXCEPSIONES DEL COMPONENTE SUBMAYORES -->
+    <!-- INICIO DE LAS EXCEPCIONES DEL COMPONENTE evaluacion -->
+    <CHE001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo denominación.</mensaje>
+            <descripcion>El campo denominación no puede estar vacio.</descripcion>
+        </es>
+    </CHE001>
+    <CHE002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo denominación.</mensaje>
+            <descripcion>El campo denominación solo puede contener números y letras.</descripcion>
+        </es>
+    </CHE002>
+    <CHE003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo código.</mensaje>
+            <descripcion>El campo código no puede estar vacio.</descripcion>
+        </es>
+    </CHE003>
+    <CHE004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo código.</mensaje>
+            <descripcion>El campo código solo puede contener números.</descripcion>
+        </es>
+    </CHE004>
+    <CHE005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo tipo de planilla.</mensaje>
+            <descripcion>El campo tipo de planilla solo puede contener números.</descripcion>
+        </es>
+    </CHE005>
+    <CHE006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo fecha de inicio.</mensaje>
+            <descripcion>El campo fecha de inicio solo puede contener una fecha.</descripcion>
+        </es>
+    </CHE006>
+    <CHE007>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de Consulta.</mensaje>
+            <descripcion>Ocurrio un error en el servidor mientras se cargaban las planillas. Ponganse en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHE007>
+
+    <CHE008>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo tipo de planilla.</mensaje>
+            <descripcion>El campo tipo de planilla no debe contener valores Vacio.</descripcion>
+        </es>
+    </CHE008>
+    <CHE009>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo fecha inicio.</mensaje>
+            <descripcion>El campo fecha inicio no debe contener valores Vacio.</descripcion>
+        </es>
+    </CHE009>
+    <CHE010>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo fecha inicio.</mensaje>
+            <descripcion>El campo fecha inicio debe ser de tipo fecha.</descripcion>
+        </es>
+    </CHE010>
+    <CHE011>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo fecha fin.</mensaje>
+            <descripcion>El campo fecha fin no debe contener valores Vacio.</descripcion>
+        </es>
+    </CHE011>
+    <CHE012>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo fecha fin.</mensaje>
+            <descripcion>El campo fecha fin debe ser de tipo fecha.</descripcion>
+        </es>
+    </CHE012>
+
+    <CHE013>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo nombre del indicador.</mensaje>
+            <descripcion>El campo nombre del indicador no debe ser vacio.</descripcion>
+        </es>
+    </CHE013>
+    <CHE014>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo nombre del indicador.</mensaje>
+            <descripcion>El campo  nombre del indicador debe ser cargado.</descripcion>
+        </es>
+    </CHE014>
+    <CHE015>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo evaluado del indicador.</mensaje>
+            <descripcion>El campo  evaluado del indicador debe estar chequeado.</descripcion>
+        </es>
+    </CHE015>
+    <CHE016>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo evaluado del indicador.</mensaje>
+            <descripcion>El campo  evaluado del indicador debe ser de tipo numerico.</descripcion>
+        </es>
+    </CHE016>
+    <CHE017>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo escala del indicador.</mensaje>
+            <descripcion>El campo  escala del indicador no debe ser vacio.</descripcion>
+        </es>
+    </CHE017>
+    <CHE018>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo escala del indicador.</mensaje>
+            <descripcion>El campo escala del indicador debe ser de tipo numerico.</descripcion>
+        </es>
+    </CHE018>
+    <CHE019>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo descripcion del indicador.</mensaje>
+            <descripcion>El campo descripcion del indicador debe ser vacio.</descripcion>
+        </es>
+    </CHE019>
+    <CHE020>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo descripcion del indicador.</mensaje>
+            <descripcion>El campo descripcion del indicador debe ser de tipo alfanumerico.</descripcion>
+        </es>
+    </CHE020>
+    <CHE021>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo recomendacion del indicador.</mensaje>
+            <descripcion>El campo recomendacion del indicador debe ser chequeado.</descripcion>
+        </es>
+    </CHE021>
+    <CHE022>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo recomendacion del indicador.</mensaje>
+            <descripcion>El campo recomendacion del indicador debe ser de tipo numerico.</descripcion>
+        </es>
+    </CHE022>
+    <CHE023>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de Campo Oculto.</mensaje>
+            <descripcion>Ocurrio un error de moficacion de campo oculto. Ponganse en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </CHE023>
+    <CHE024>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de Campo Fecha.</mensaje>
+            <descripcion>El campo fecha no puede ser nulo o vacio.</descripcion>
+        </es>
+    </CHE024>
+    <CHE025>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo Descripcion.</mensaje>
+            <descripcion>El campo Descripcion no puede ser nulo o vacio.</descripcion>
+        </es>
+    </CHE025>
+    <CHE026>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El nomenclador que está tratando de crear ya existe</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </CHE026>
+    <CHE027>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo descripción.</mensaje>
+            <descripcion>El campo descripción solo puede contener números y letras.</descripcion>
+        </es>
+    </CHE027>
+    <CHE028>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo código.</mensaje>
+            <descripcion>El campo código solo puede contener números positivos.</descripcion>
+        </es>
+    </CHE028>
+    <CHE029>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo fecha de fin.</mensaje>
+            <descripcion>El campo fecha de fin solo puede contener una fecha.</descripcion>
+        </es>
+    </CHE029>
+    <CHE030>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error Campo Oculto.</mensaje>
+            <descripcion>El campo oculto no puede ser vacio.</descripcion>
+        </es>
+    </CHE030>
+    <CHE031>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de campo nulo.</mensaje>
+            <descripcion>El campo Valor Inicial no puede ser vacio.</descripcion>
+        </es>
+    </CHE031>
+    <CHE032>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo Valor Inicial.</mensaje>
+            <descripcion>El campo Valor Inicial solo puede contener numeros.</descripcion>
+        </es>
+    </CHE032>
+    <CHE033>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de campo nulo.</mensaje>
+            <descripcion>El campo Valor Final no puede ser vacio.</descripcion>
+        </es>
+    </CHE033>
+    <CHE034>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo Valor Final.</mensaje>
+            <descripcion>El campo Valor Final solo puede contener numeros.</descripcion>
+        </es>
+    </CHE034>
+    <CHE035>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en el campo de fecha de recomendación.</mensaje>
+            <descripcion>El campo Valor Final solo puede contener numeros.</descripcion>
+        </es>
+    </CHE035>
+    <CHE036>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>La planilla que está tratando de crear ya existe.</mensaje>
+            <descripcion>La planilla que está tratando de crear ya existe.</descripcion>
+        </es>
+    </CHE036>
+    <CHE037>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No puede eliminar la planilla pues ya está en uso.</mensaje>
+            <descripcion>No puede eliminar la planilla pues ya está en uso.</descripcion>
+        </es>
+    </CHE037>
+    <CHE038>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El señalamiento que está tratando de crear ya existe.</mensaje>
+            <descripcion>Ya existe un señalamiento con esa denominación.</descripcion>
+        </es>
+    </CHE038>
+    <CHE039>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El tipo de señalamiento que está tratando de crear ya existe.</mensaje>
+            <descripcion>Ya existe un tipo de señalamiento con esa denominación.</descripcion>
+        </es>
+    </CHE039>
+    <CHE041>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>La recomendación que intenta crear ya existe.</mensaje>
+            <descripcion>Ya existe una recomendación con esa denominación.</descripcion>
+        </es>
+    </CHE041>
+    <CHE045>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El indicador que desea eliminar se encuentra en uso.</mensaje>
+            <descripcion>No se puede eliminar el indicador debido a que el mismo se encuentra en uso.</descripcion>
+        </es>
+    </CHE045>
+    <CHE046>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>La planilla que desea eliminar se encuentra en uso.</mensaje>
+            <descripcion>No se puede eliminar la planilla debido a que la misma se encuentra en uso.</descripcion>
+        </es>
+    </CHE046>
+
+    <CHE048>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El tipo de proceso evaluativo que intenta crear ya existe.</mensaje>
+            <descripcion>Ya existe un tipo de proceso evaluativo con esa denominación.</descripcion>
+        </es>
+    </CHE048>
+    <CHE049 >
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El período que intenta crear ya existe.</mensaje>
+            <descripcion>Ya existe un período con esa denominación y con esa medida de tiempo.</descripcion>
+        </es>
+    </CHE049 >
+    <CHE051>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No puede eliminar el período.</mensaje>
+            <descripcion>No puede eliminar el período pues se encuentra en uso.</descripcion>
+        </es>
+    </CHE051>
+    <CHE052>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No puede eliminar el tipo de proceso.</mensaje>
+            <descripcion>No puede eliminar el tipo de proceso evaluativo pues se encuentra en uso.</descripcion>
+        </es>
+    </CHE052>
+    <CHE0541>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No puede eliminar la recomendación.</mensaje>
+            <descripcion>No puede eliminar la recomendación pues se encuentra en uso.</descripcion>
+        </es>
+    </CHE0541>
+    <CHE054>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No puede adicionar la escala.</mensaje>
+            <descripcion>Ya existe una escala con esa denominación.</descripcion>
+        </es>
+    </CHE054>
+    <CHE055>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No se puede eliminar el evaluador debido a que el mismo se encuentra en uso.</mensaje>
+            <descripcion>No se puede eliminar el evaluador debido a que el mismo se encuentra en uso.</descripcion>
+        </es>
+    </CHE055>
+    <CHE056>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ya existe un indicador con el mismo código o denominación.</mensaje>
+            <descripcion>No se puede adicionar el indicador debido a que ya existe uno con el mismo código  o denominación.</descripcion>
+        </es>
+    </CHE056>
+    <CHE057>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El recurso que intenta crear ya existe.</mensaje>
+            <descripcion>Ya existe un recurso con esa denominación.</descripcion>
+        </es>
+    </CHE057>
+    <CHE058>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El hecho que intenta adicionar ya existe.</mensaje>
+            <descripcion>El hecho que intenta adicionar ya existe.</descripcion>
+        </es>
+    </CHE058>
+    <CHE059>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El modelo que intenta adicionar ya existe.</mensaje>
+            <descripcion>Ya existe un modelo con esa denominación.</descripcion>
+        </es>
+    </CHE059>
+    <CHE060>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El modelo matemático que intenta eliminar se encuentra en uso.</mensaje>
+            <descripcion>No puede eliminar el modelo matemático debido a que el mismo se encuentra en uso.</descripcion>
+        </es>
+    </CHE060>
+    <CHE061>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>La escala que intenta adicionar ya existe.</mensaje>
+            <descripcion>Ya existe una escala con la misma denominación.</descripcion>
+        </es>
+    </CHE061>
+    <CHE062>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El proceso que intenta adicionar ya existe.</mensaje>
+            <descripcion>Ya existe un proceso con la misma denominación.</descripcion>
+        </es>
+    </CHE062>
+    <CHE063>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El proceso evaluativo que intenta eliminar se encuentra en uso.</mensaje>
+            <descripcion>No puede eliminar el proceso evaluativo debido a que el mismo se encuentra en uso.</descripcion>
+        </es>
+    </CHE063>
+    <CHE064>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El planilla que intenta eliminar se encuentra en uso.</mensaje>
+            <descripcion>No puede eliminar la planilla debido a que la misma se encuentra en uso.</descripcion>
+        </es>
+    </CHE064>
+    <CHEVALVC002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El valor cualitativo que intenta eliminar se encuentra en uso.</mensaje>
+            <descripcion>No puede eliminar el valor cualitativo debido a que el mismo -se encuentra en uso.</descripcion>
+        </es>
+    </CHEVALVC002>
+
+    <!-- FIN DE LAS EXCEPCIONES DEL COMPONENTE evaluacion -->
+
+    <!-- INICIO de las excepciones del Componente SELECCION -->
+    <CHSN01>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>Ya existe una agrupación con esta denominación.</descripcion>
+        </es>
+    </CHSN01>
+    <CHSN02>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>Ya existe un listado de pronóstico con esta denominación.</descripcion>
+        </es>
+    </CHSN02>
+    <CHSN03>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>Ya existe un listado de pronóstico con esta denominación.</descripcion>
+        </es>
+    </CHSN03>
+    <CHSN025>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ya existe una bolsa de candidatos con esa denominación.</mensaje>
+            <descripcion>Ya existe una bolsa de candidatos con esa denominación.</descripcion>
+        </es>
+    </CHSN025>
+    <CHSN026>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El tipo proceso no se puede eliminar debido a que está en uso.</mensaje>
+            <descripcion>El tipo proceso no se puede eliminar debido a que está en uso.</descripcion>
+        </es>
+    </CHSN026>
+
+    <!-- FIN de las excepciones del Componente SELECCION -->
+    <!-- INICIO de las excepciones del Componente Integracion Penal -->
+    <IP0001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>El registro de la denuncia que quire adicionar ya existe.</descripcion>
+        </es>
+    </IP0001>
+    <!-- FIN de las excepciones del Componente Integracion Penal -->
+    <!-- INICIO de las excepciones del Componente Nómina -->
+	<CHN001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>La causa de exclusión de la nómina que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN001>
+	<CHN002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>La causa de exclusión de la nómina ya existe.</descripcion>
+        </es>
+	</CHN002>
+	<CHN003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>El concepto de la retribución monetaria que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN003>
+	<CHN004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar y modificar.</mensaje>
+            <descripcion>Ya existe un concepto de la retribución monetaria con esta abreviatura.</descripcion>
+        </es>
+    </CHN004>
+	<CHN005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>El concepto de la retribución monetaria ya existe.</descripcion>
+        </es>
+    </CHN005>
+	<CHN006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>La forma de pago que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN006>
+	<CHN007>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>La forma de pago ya existe.</descripcion>
+        </es>
+	</CHN007>
+	<CHN008>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>El sistema de pago que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN008>
+	<CHN009>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>El sistema de pago ya existe.</descripcion>
+        </es>
+	</CHN009>
+	<CHN010>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>El grupo escala que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN010>
+	<CHN011>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>El grupo escala ya existe.</descripcion>
+        </es>
+	</CHN011>
+	<CHN012>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>El período de pago que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN012>
+	<CHN013>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar y modificar.</mensaje>
+            <descripcion>Ya existe un período de pago con esta cantidad de días.</descripcion>
+        </es>
+    </CHN013>
+	<CHN014>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>El período de pago ya existe.</descripcion>
+        </es>
+    </CHN014>
+	<CHN015>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>El período de vacaciones que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN015>
+	<CHN016>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>El período de vacaciones ya existe.</descripcion>
+        </es>
+	</CHN016>
+	<CHN017>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>El salario escala que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN017>
+	<CHN018>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>El salario escala ya existe.</descripcion>
+        </es>
+	</CHN018>
+	<CHN019>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>El salario específico que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN019>
+	<CHN020>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>El salario específico ya existe.</descripcion>
+        </es>
+	</CHN020>
+	<CHN021>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>El sector salarial que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN021>
+	<CHN022>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar y modificar.</mensaje>
+            <descripcion>Ya existe un sector salarial con esta abreviatura.</descripcion>
+        </es>
+    </CHN022>
+	<CHN023>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>El sector salarial ya existe.</descripcion>
+        </es>
+    </CHN023>
+	<CHN024>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>La situación laboral que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN024>
+	<CHN025>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar y modificar.</mensaje>
+            <descripcion>Ya existe una situación laboral con esta abreviatura.</descripcion>
+        </es>
+    </CHN025>
+	<CHN026>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>La situación laboral ya existe.</descripcion>
+        </es>
+    </CHN026>
+	<CHN027>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>La tarifa que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN027>
+	<CHN028>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>La tarifa ya existe.</descripcion>
+        </es>
+	</CHN028>
+	<CHN029>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>El tipo de nómina que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN029>
+	<CHN030>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>El tipo de nómina ya existe.</descripcion>
+        </es>
+	</CHN030>
+	<CHN031>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>El tipo de concepto de percepción y descuento que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN031>
+	<CHN032>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>El tipo de concepto de percepción y descuento ya existe.</descripcion>
+        </es>
+	</CHN032>
+	<CHN033>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>El tipo de pago que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN033>
+	<CHN034>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>El tipo de pago ya existe.</descripcion>
+        </es>
+	</CHN034>
+	<CHN035>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>El tipo de retención que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN035>
+	<CHN036>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar y modificar.</mensaje>
+            <descripcion>Ya existe un tipo de retención con esta abreviatura.</descripcion>
+        </es>
+    </CHN036>
+	<CHN037>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>El tipo de retención ya existe.</descripcion>
+        </es>
+    </CHN037>
+	<CHN038>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>La variable global que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN038>
+	<CHN039>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar y modificar.</mensaje>
+            <descripcion>Ya existe una variable global con esta abreviatura.</descripcion>
+        </es>
+    </CHN039>
+	<CHN040>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>La variable global ya existe.</descripcion>
+        </es>
+    </CHN040>
+	<CHN041>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>El concepto de percepción o descuento que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN041>
+	<CHN042>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar y modificar.</mensaje>
+            <descripcion>Ya existe un concepto de percepción o descuento con esta abreviatura.</descripcion>
+        </es>
+    </CHN042>
+	<CHN043>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>El concepto de percepción o descuento ya existe.</descripcion>
+        </es>
+    </CHN043>
+	<CHN044>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>La tarifa que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN044>
+	<CHN045>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>La tarifa ya existe.</descripcion>
+        </es>
+    </CHN045>
+	<CHN046>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>La variable auxiliar de fórmula que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN046>
+	<CHN047>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>La variable auxiliar de fórmula ya existe.</descripcion>
+        </es>
+    </CHN047>
+	<CHN048>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>La estructura escalar que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN048>
+	<CHN049>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>La estructura escalar ya existe.</descripcion>
+        </es>
+    </CHN049>
+	<CHN050>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>El tipo de reporte o certificación que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN050>
+	<CHN051>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>El tipo de reporte o certificación ya existe.</descripcion>
+        </es>
+    </CHN051>
+	<CHN052>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar.</mensaje>
+            <descripcion>El campo que quiere adicionar ya existe.</descripcion>
+        </es>
+    </CHN052>
+	<CHN053>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de modificar.</mensaje>
+            <descripcion>El campo ya existe.</descripcion>
+        </es>
+    </CHN053>
+	<CHN054>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la hora de adicionar y modificar.</mensaje>
+            <descripcion>Ya existe un campo con esta abreviatura.</descripcion>
+        </es>
+    </CHN054>
+   <!-- FIN de las excepciones del Componente Nómina -->
+    <!--Excepciones de control de acceso -->
+    <CHCA001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar.</mensaje>
+            <descripcion>La información que intenta eliminar esta siendo usada.</descripcion>
+        </es>
+    </CHCA001>
+    <!--Fin de las Excepciones de control de acceso -->
+	 <!--Excepciones de puesto de trabajo -->
+    <CHPT001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El nombre del puesto de trabajo que desea adicionar ya existe.</descripcion>
+        </es>
+    </CHPT001>
+	    <CHPT002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El código del puesto de trabajo que desea adicionar ya existe.</descripcion>
+        </es>
+    </CHPT002>
+	  <CHPT003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El nombre del puesto de trabajo ya existe.</descripcion>
+        </es>
+    </CHPT003>
+	    <CHPT004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>El código del puesto de trabajo ya existe.</descripcion>
+        </es>
+    </CHPT004>
+    <!--Fin de de puesto de trabajo -->
+    <!-- FIN DE LAS ExcepciónES DE LA LINEA DE CAPITAL HUMANO -->
+</excepciones>

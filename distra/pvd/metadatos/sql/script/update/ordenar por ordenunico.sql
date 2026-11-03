@@ -1,0 +1,2 @@
+SELECT mod_estructuracomp.f_actualizar_orden_completo();
+SELECT mod_estructuracomp.f_poner_orden_unico_por_nivel();

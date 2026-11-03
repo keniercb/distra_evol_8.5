@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <cant>4</cant>
+    <row>
+        <idcriterioe>1</idcriterioe>
+        <criterioe>CENTRO&#160;RECTOR&#160;PADRE</criterioe>
+    </row>
+    <row>
+        <idcriterioe>2</idcriterioe>
+        <criterioe>CENTRO&#160;RECTOR&#160;DEFINE&#160;ANÁLISIS</criterioe>
+    </row>
+    <row>
+        <idcriterioe>3</idcriterioe>
+        <criterioe>CENTRO&#160;RECTOR&#160;NO&#160;DEFINE&#160;ANÁLISIS</criterioe>
+    </row>
+    <row>
+        <idcriterioe>4</idcriterioe>
+        <criterioe>CENTRO&#160;NO&#160;RECTOR</criterioe>
+    </row>
+</dataset>

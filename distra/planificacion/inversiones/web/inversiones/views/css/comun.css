@@ -1,0 +1,37 @@
+.x-grid3-row-body p {
+    margin:3px 5px 5px 5px !important;
+}
+
+.fila-aprobada3{
+	background:#00ffff !important;
+}
+
+.fila-aprobada2{
+	background:#ccffcc !important;
+}
+
+.fila-comentada{
+	border:2px solid #FF0000  !important;
+}
+
+.superior{
+	background-color:#FFCCCC !important;
+}
+.verde{
+	background-color:#CCFFCC !important;
+}
+
+.azul{
+	background-color:#CCCCFF !important;
+}
+
+.amarillo{
+	background-color:#FFFFCC !important;
+}
+
+/*.area{
+    
+        border-image-repeat: stretch; 
+        background-image: url(area.png);
+        background-repeat: no-repeat;
+}*/

@@ -1,0 +1,64 @@
+
+.x-column-tree .x-tree-node {}
+.x-column-tree .x-tree-node-el {}
+
+.x-column-tree .x-tree-selected
+ {
+    background:#D9E8FB none repeat scroll 0%;
+ }
+ 
+ 
+.x-column-tree .x-tree-node a 
+ {
+  line-height:18px;
+  vertical-align:middle;
+}
+
+
+.x-column-tree .x-tree-node a span {}
+.x-column-tree .x-tree-node .x-tree-selected a span
+ {
+  background:transparent none repeat scroll 0%;
+  color:#000000;
+ }
+ 
+ 
+.x-tree-col 
+ {
+  float:left;
+  overflow:hidden;
+  padding:0pt 1px;
+}
+
+
+.x-tree-col-text, .x-tree-hd-text {
+font-family:arial,tahoma,helvetica,sans-serif;
+font-size:14px;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:normal;
+font-variant:normal;
+font-weight:normal;
+line-height:normal;
+overflow:hidden;
+padding:3px 3px 3px 5px;
+white-space:nowrap;
+}
+
+.x-tree-headers {
+background:#F9F9F9 ;
+cursor:default;
+}
+
+.x-tree-hd {
+border-left:1px solid #EEEEEE;
+border-right:1px solid #D0D0D0;
+float:left;
+overflow:hidden;
+}
+.task {
+background-image:url(../shared/icons/fam/cog.png) !important;
+}
+.task-folder {
+background-image:url(../shared/icons/fam/folder_go.png) !important;
+}

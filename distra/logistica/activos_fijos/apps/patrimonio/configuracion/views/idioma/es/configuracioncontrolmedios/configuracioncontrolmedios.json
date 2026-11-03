@@ -1,0 +1,50 @@
+{
+// Columnas del grid
+        cgTipoDato: 'Tipo de dato',
+        cgLongitud: 'Longitud',
+        cgIdentificador: 'Identificador',
+        cgRecuperable: 'Control',
+        cgCodigo: 'C\xf3digo',
+        cgDenominacion: 'Denominaci\xf3n',
+        //Botones de la interfaz
+        BtnAdicionar: 'Adicionar',
+        BtnModificar: 'Modificar',
+        BtnCerrar: 'Cerrar',
+        BtnMarcar: 'Marcar todos',
+        BtnMedios: 'Tipo de medio: ',
+        BtnDesmaracar: 'Desmarcar todos',
+        //Label
+        labelBuscar: 'C\xf3digo',
+        //Títulos
+        tlAdicionar: 'Adicionar atributos',
+        tlSeleccionar: 'Seleccionar tipo de medio',
+        tlModificar: 'Modificar atributos',
+        tlNaturaleza: 'Atributos por naturaleza',
+        tlDinamicos: 'Atributos din\xe1micos',
+        //Mensajes
+        msgSalvandoObjeto: 'Guardando atributo(s).',
+        msgCargandoDatosIniciales: 'Cargando datos iniciales',
+        msgEspere: 'Por favor espere...',
+        MsgObjetoSalvado: 'El(Los) atributo(s) ha(n) sido guardado(s) satisfactoriamente.',
+        msjLoadMask: 'Por favor espere...',
+        msjLoadMod: 'Comprobando medio en uso.',
+        msjNoAtributos: 'No existen atributos que mostrar para el tipo de medio seleccionada.',
+        msgDeleteObjeto: '\xbfEst\xe1 seguro que desea eliminar el(los) atributo(s) seleccionado(s)\x3f',
+        msgEliminandoAtributo: 'Eliminando atributo(s).',
+        msgAtributoEliminado: 'El(Los) atributo(s) ha(n) sido eliminado(s) satisfactoriamente.',
+        msgAtributoNoEliminado: 'El(Los) atributo(s) est\xe1(n) siendo usado(s) por otra funcionalidad.',
+        msgAtributoNoModificado: 'El(Los) atributo(s) est\xe1(n) siendo usado(s) por otra funcionalidad.',
+        msgAtributoExistente: 'El(Los) atributo(s) seleccionado(s) ya existe(n).',
+        msgdatosExistente: 'No existen datos que mostrar.',
+        //Tooltip de botones
+        ttBtnNuevo: 'Adicionar atributo(s) <b>(Alt+A)</b>',
+        ttBtnModificar: 'Modificar atributo(s) <b>(Alt+M)</b>',
+        ttBtnIdentificador: 'Establecer identificador',
+        ttBtnEliminar: 'Eliminar atributo(s) <b>(DEL)</b>',
+        ttBtnGuaradar: 'Guardar datos del atributo(s)',
+        ttBtnCerrar: 'Cerrar ventana sin guardar los datos <b>(Ctrl+Alt+X)</b>',
+        ttBtnMarcar: 'Marcar todos los atributos a recuperar',
+        ttBtnDesmaracar: 'Desmarcar todos los atributos',
+        ttBuscar: 'tipo de medio(s)',
+}
+

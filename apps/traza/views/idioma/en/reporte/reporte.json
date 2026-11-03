@@ -1,0 +1,120 @@
+{
+  date: {
+    todayText: 'Today',
+    minText: 'This date is earlier than the max date',
+    maxText: 'This date is later than the max date',
+    nextText: 'Next month (Control+Right)',
+    prevText: 'Previous month (Control+Left)',
+    monthYearText: 'Pick a month to move through the years (Control+Up/Down)',
+    monthNames: [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    dayNames: [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    okText: 'Apply',
+    cancelText: 'Cancel'
+  },
+  tooltips: {
+    exportar: 'Export traces <b>(Alt+E)</b>',
+    buscar: 'Search traces <b>(Alt+B)</b>',
+    limpiar: 'Clean filter(s) <b>(Alt+L)</b>'
+  },
+  texts: {
+    loadingText: 'Loading data...',
+    exportar: 'Export',
+    lbDfDesde: 'From',
+    lbDfHasta: 'To',
+    msgValorIncorrecto: 'Wrong value for this field',
+    emptyText: '[-Select-]',
+    labelSubsistema: 'Subsystem',
+    labelUsuario: 'Users',
+    labelIP: 'IP',
+    labelTipoTraza: 'Trace types',
+    labelReferencia: 'Reference',
+    labelAccion: 'Action',
+    labelCodigo: 'Code',
+    labelIdioma: 'Language',
+    labelTipo: 'Type',
+    labelMensaje: 'Message',
+    labelDescripcion: 'Description',
+    labelRegistro: 'Register',
+    labelEsquema: 'Scheme',
+    labelTabla: 'Table',
+    textMostrarDatos: 'Show data',
+    textColumnCampo: 'Field',
+    textColumnValor: 'Value',
+    labelOrigen: 'Origin',
+    labelInterno: 'Intern',
+    labelTipoBloqueo: 'Block type',
+    textBtnBuscar: 'Search',
+    textBtnLimpiar: 'Clean',
+    textCerrar: 'Close',
+    gridHeaderFecha: 'Date',
+    gridHeaderHora: 'Hour',
+    gridHeaderSubsistema: 'Subsystem',
+    gridHeaderFuncionalidad: 'Functionality',
+    gridHeaderConsumoMemoria: 'Memory consumption (Mb)',
+    gridHeaderTiempoEjecucion: 'Execution time (s)',
+    warningFecha: 'Date To: must be greather than or equal',
+    warningFiltroVacio: 'You must introduce at least one search criteria.\n Verify please.'
+  },
+  titles: {
+    ventanaTrazaAccion: 'Action trace details',
+    ventanaTrazaExcepcion: 'Exception trace details',
+    ventanaTrazaDatos: 'Data trace details',
+    ventanaTrazaIntegracion: 'Integration trace details',
+    ventanaTrazaBloqueo: 'Block trace details'
+  },
+  ventanaTimeReal: {
+    title: 'Real time',
+    timerecarga: 'Reload time <b>(in seconds)</b>',
+    minText: 'The minimum reload time is {0} seconds',
+    maxValueText: 'The maximum reload time is {0} seconds'
+  },
+  panelgraf: {
+    timereal: 'Real time',
+    pastel: 'Pie',
+    barra: 'Bar',
+    curva: 'Curve',
+    desde: 'From',
+    hasta: 'To',
+    combo: 'Graph type',
+    minText: 'The date in the field must be greather than or equal {0}',
+    maxText: 'The date in the field must be lesser than or equal {0}'
+  },
+  general: {
+    blankText: 'This field is mandatory.',
+    textCancelar: 'Cancel',
+    tooltipCancelar: 'Close window without save data <b>(Alt+X)</b>',
+    textAceptar: 'Accept',
+    tooltipAceptar: 'Save data and close the window <b>(Enter)</b>',
+    textBuscar: 'Search',
+    tooltipBuscar: 'Search trace <b>(Alt+B)</b>',
+    textLimpiar: 'Clean',
+    tooltipLimpiar: 'Clean filter(s) <b>(Alt+L)</b>',
+    textAyuda: 'Help'
+  },
+  controllerGrafica: {
+    msgInfo: 'Info',
+    msgText1: 'There are no data that meet the search criteria',
+    msgText2: 'Date To: must be greather than or equal '
+  }
+}

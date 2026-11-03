@@ -1,0 +1,128 @@
+@font-face {
+  font-family: 'CRM';
+  src:  url('fonts/CRM.eot?kxk7e');
+  src:  url('fonts/CRM.eot?kxk7e#iefix') format('embedded-opentype'),
+    url('fonts/CRM.ttf?kxk7e') format('truetype'),
+    url('fonts/CRM.woff?kxk7e') format('woff'),
+    url('fonts/CRM.svg?kxk7e#CRM') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="iconcrm-"], [class*=" iconcrm-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'CRM',tahoma,arial,verdana,sans-serif !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.iconcrm-areacrm:before {
+  content: "\e900";
+}
+.iconcrm-chequeotrabajocrm:before {
+  content: "\e901";
+}
+.iconcrm-clausulacrm:before {
+  content: "\e902";
+}
+.iconcrm-clienteproveedorcrm:before {
+  content: "\e903";
+}
+.iconcrm-comiteaprobacioncrm:before {
+  content: "\e904";
+}
+.iconcrm-compartimentacioncrm:before {
+  content: "\e905";
+}
+.iconcrm-configuracioncrm:before {
+  content: "\e906";
+}
+.iconcrm-contactoscrm:before {
+  content: "\e907";
+}
+.iconcrm-demandacrm:before {
+  content: "\e90a";
+}
+.iconcrm-reclamacionescrm:before {
+  content: "\e919";
+}
+.iconcrm-contratocrm:before {
+  content: "\e908";
+}
+.iconcrm-dashboardcrm:before {
+  content: "\e909";
+}
+.iconcrm-entregablescrm:before {
+  content: "\e90a";
+}
+.iconcrm-estadocrm:before {
+  content: "\e90b";
+}
+.iconcrm-formatocrm:before {
+  content: "\e90c";
+}
+.iconcrm-incotermcrm:before {
+  content: "\e90d";
+}
+.iconcrm-iniciocrm:before {
+  content: "\e90e";
+}
+.iconcrm-mediosdepagocrm:before {
+  content: "\e90f";
+}
+.iconcrm-nomencladorescrm:before {
+  content: "\e910";
+}
+.iconcrm-ofertacrm:before {
+  content: "\e911";
+}
+.iconcrm-oportunidadescrm:before {
+  content: "\e912";
+}
+.iconcrm-periodicidadcrm:before {
+  content: "\e913";
+}
+.iconcrm-planillacrm:before {
+  content: "\e914";
+}
+.iconcrm-prioridadcrm:before {
+  content: "\e915";
+}
+.iconcrm-procesocrm:before {
+  content: "\e916";
+}
+.iconcrm-publicidadcrm:before {
+  content: "\e917";
+}
+.iconcrm-recuperacionescrm:before {
+  content: "\e918";
+}
+.iconcrm-sectorcrm:before {
+  content: "\e919";
+}
+.iconcrm-solicitudclientecrm:before {
+  content: "\e91a";
+}
+.iconcrm-solicitudcrm:before {
+  content: "\e91b";
+}
+.iconcrm-solicitudpagocrm:before {
+  content: "\e91c";
+}
+.iconcrm-terminodepagocrm:before {
+  content: "\e91d";
+}
+.iconcrm-tipocontratocrm:before {
+  content: "\e91e";
+}
+.iconcrm-transicionescrm:before {
+  content: "\e91f";
+}

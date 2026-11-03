@@ -1,0 +1,54 @@
+.ux-row-action-cell .x-grid3-cell-inner {
+padding:1px 0 0;
+}
+.ux-row-action-item {
+background-repeat:no-repeat;
+cursor:pointer;
+float:left;
+height:16px;
+margin:0 5px 0 0;
+min-width:16px;
+overflow:hidden;
+}
+.ext-ie .ux-row-action-item {
+width:16px;
+}
+.ext-ie .ux-row-action-text {
+width:auto;
+}
+.ux-row-action-item span {
+line-height:18px;
+padding:0 0 0 20px;
+vertical-align:middle;
+}
+.ext-ie .ux-row-action-item span {
+width:auto;
+}
+.x-grid-group-hd div {
+height:16px;
+position:relative;
+}
+.ux-grow-action-item {
+background-position:0 50% !important;
+background-repeat:no-repeat;
+cursor:pointer;
+float:left;
+height:16px;
+margin:0 0 0 4px;
+min-width:16px;
+padding:0 !important;
+}
+.ext-ie .ux-grow-action-item {
+width:16px;
+}
+.ux-action-right {
+float:right;
+margin:0 3px 0 2px;
+padding:0 !important;
+}
+.ux-grow-action-text {
+background:transparent none repeat scroll 0 0 !important;
+float:left;
+margin:0 !important;
+padding:0 !important;
+}

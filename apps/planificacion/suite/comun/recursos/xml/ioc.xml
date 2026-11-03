@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ioc>
+<planificacion_suite src="planificacion/suite">
+
+        <EstadosVerDoc reference="integracion">
+            <inyector clase="IntegracionServices" metodo="CargarAreasNegocio" />
+            <prototipo>
+                <parametro nombre="parametros" tipo="array" />
+                <resultado tipo="array" />
+            </prototipo>
+        </EstadosVerDoc>
+
+ </planificacion_suite>
+</ioc>

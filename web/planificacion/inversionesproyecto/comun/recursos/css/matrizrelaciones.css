@@ -1,0 +1,87 @@
+
+.x-grid3-colname {
+    background: transparent url("../images/gridSelRow/grid3-special-col-bg.gif") bottom;
+    background-repeat: repeat-y;
+    background-size: cover;
+    vertical-align: center;
+}
+
+/*.x-grid3-colname-sel {
+    background: transparent url("../images/gridSelRow/grid3-special-col-sel-bg.gif") bottom;
+}*/
+.x-grid3-col-selected {
+    background: #dfe8f6 none repeat scroll 0 0 !important;
+    border: 1px dotted #a3bae9;
+}
+
+.group {
+    /*border-top: 5px solid #25657b;*/
+    background-color: #2f7d9c;
+    /*padding-bottom: 30px;*/
+}
+
+.text-bbar-editor {
+    background: white !important;
+    border: none !important;
+}
+
+.col-delete-text {
+    height: 16px !important;
+    width: 16px !important;
+    background-repeat: no-repeat;
+}
+
+.text-grid-editor .x-grid3-scroller {
+    overflow-x: hidden !important;
+}
+
+.text-grid-editor-over {
+    background-color: lightyellow;
+    border-color: buttonshadow;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.nobackground-matrizrelaciones div {
+    background: none !important;
+}
+
+.fields-matrizrelaciones {
+    width: 100% !important;
+}
+
+.x-grid-cell-3 * {
+    color: #FFEEEE;
+    background-color: #0e7801 !important;
+
+}
+
+.x-grid-cell-2 * {
+    color: #FFEEEE;
+    background-color: #12ad49 !important;
+}
+
+.x-grid-cell-1 * {
+    color: #FFEEEE;
+    background-color: #07ff64 !important;
+}
+
+.x-grid-row-atrasada * {
+    color: #ce352c;
+    font: bold;
+    font-size: 14;
+
+}
+
+.x-grid-row-ejecutadas * {
+    color: #60a917;
+    font: bold;
+    font-size: 14;
+}
+
+.x-grid-row-ejecucion * {
+    color: gold;
+    font: bold;
+    font-size: 14;
+
+}

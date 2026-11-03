@@ -1,0 +1,382 @@
+
+.up {
+    background: url(../recursos/images/fam/package_editors.ico) no-repeat !important;
+}
+
+.ur {
+    background: url(../recursos/images/fam/page_white_gear.png) no-repeat !important;
+}
+
+.tipohoja {
+    background: url(../recursos/images/fam/nomencladores.png) no-repeat !important;
+}
+
+.uir {
+    background: url(../recursos/images/fam/user.gif) no-repeat !important;
+}
+
+.ui {
+    background: url(../recursos/images/fam/user_edit.png) no-repeat !important;
+}
+
+.usuario {
+    background: url(../recursos/images/fam/user.gif) no-repeat !important;
+}
+
+.usuarioejecutor {
+    background: url(../recursos/images/fam/user.gif) no-repeat !important;
+}
+
+.usuarioresponsable {
+    background: url(../recursos/images/fam/user_red.png) no-repeat !important;
+}
+
+.grupos {
+    background: url(../recursos/images/fam/cog.png) no-repeat !important;
+}
+
+.grupo {
+    background: url(../recursos/images/fam/grupo.png) no-repeat !important;
+}
+
+.grupoejecutor {
+    background: url(../recursos/images/fam/grupo.png) no-repeat !important;
+}
+
+.gruporesponsable {
+    background: url(../recursos/images/fam/grupored.png) no-repeat !important;
+}
+
+.gantt {
+    background: url(../recursos/images/fam/gantt.png) no-repeat !important;
+}
+
+.otrosgrupos {
+    background: url(../recursos/images/fam/cog_edit.png) !important;
+}
+
+.grupoplanes {
+    background: url(../recursos/images/fam/gear.png) no-repeat !important;
+}
+
+.entidad {
+
+    background-image: url(../recursos/images/fam/entidad.png) !important;
+}
+
+.area {
+
+    background-image: url(../recursos/images/fam/area.png) !important;
+}
+
+.cargo {
+
+    background-image: url(../recursos/images/fam/cargo.png) !important;
+}
+
+.plan {
+    background-image: url(../recursos/images/fam/plan.png) !important;
+}
+
+.planns {
+    background-image: url(../recursos/images/fam/plan.png) !important;
+}
+
+.arc {
+    background-image: url(../recursos/images/fam/arc_ejec.png) !important;
+}
+
+.arcns {
+    background-image: url(../recursos/images/fam/arc_resp.png) !important;
+}
+
+.objetivo {
+    background-image: url(../recursos/images/fam/obj_ejec.png) !important;
+}
+
+.objetivons {
+    background-image: url(../recursos/images/fam/obj_resp.png) !important;
+}
+
+.criterio {
+    background-image: url(../recursos/images/fam/criterio.png) !important;
+}
+
+.actividad {
+    background-image: url(../recursos/images/fam/act_ejec.png) !important;
+}
+
+.actividadns {
+    background-image: url(../recursos/images/fam/act_resp.png) !important;
+}
+
+.fip {
+    background-image: url(../recursos/images/fam/books_open.gif) !important;
+
+}
+
+.recursos {
+    background-image: url(../recursos/images/fam/chart_pie_edit.png) !important;
+
+}
+
+.incidencias {
+    background: url(../recursos/images/fam/ticket_pte.png) left no-repeat !important;
+    background-size: 16px !important;
+}
+
+.superior {
+    background-color: #F8E0E0 !important;
+}
+
+.actual {
+    background-color: #A8FF40 !important;
+}
+
+.superior2 {
+    background-color: #F6CECE !important;
+}
+
+.nomencladores {
+    background-image: url(images/fam/reporte.png) !important;
+}
+
+.linearoja {
+    border: 1px solid red;
+
+}
+
+.sipac-azul:before {
+    color: #0595F8 !important;
+}
+
+.tachar_black{
+    text-decoration:line-through;
+    text-decoration-color: black;
+}
+
+.tachar_red{
+    /*animation: blinker 2s linear;*/
+    /*animation-iteration-count: 1;*/
+    position: relative;
+    /*text-decoration:line-through;*/
+    /*text-decoration-color: red;*/
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+        text-decoration-color: black;
+        color:black;
+        font-weight:bold;
+        border-top: 0px solid;
+        border-color: black;
+
+        -webkit-transform:rotate(0deg);
+        -moz-transform:rotate(0deg);
+        -ms-transform:rotate(0deg);
+        -o-transform:rotate(0deg);
+        transform:rotate(0deg);
+    }
+}
+
+/*.tachar {*/
+    /*position: relative;*/
+/*}*/
+
+.tachar_red:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 50%;
+    right: 0;
+    border-top: 1px solid;
+    border-color: red;
+
+    -webkit-transform:rotate(-10deg);
+    -moz-transform:rotate(-10deg);
+    -ms-transform:rotate(-10deg);
+    -o-transform:rotate(-10deg);
+    transform:rotate(-10deg);
+}
+
+/*.tachar{*/
+    /*position: relative;*/
+    /*color: #000;*/
+    /*text-decoration: none;*/
+/*}*/
+
+/*.tachar:before {*/
+    /*content: "";*/
+    /*position: absolute;*/
+    /*width: 100%;*/
+    /*height: 2px;*/
+    /*bottom: -5px;*/
+    /*left: 0;*/
+    /*background-color: #000;*/
+    /*visibility: hidden;*/
+    /*-webkit-transform: scaleX(0);*/
+    /*transform: scaleX(0);*/
+    /*-webkit-transition: all 0.3s ease-in-out 0s;*/
+    /*transition: all 0.3s ease-in-out 0s;*/
+/*}*/
+
+/*.tachar:hover:before {*/
+    /*visibility: visible;*/
+    /*-webkit-transform: scaleX(1);*/
+    /*transform: scaleX(1);*/
+/*}*/
+
+
+.sipac-verde:before {
+    color: #136735 !important;
+}
+
+.sipac-verde-reasignacion:before {
+    color: #00CC33 !important;
+}
+
+.sipac-roja:before {
+    color: #a42020 !important;
+}
+
+.sipac-amarilla:before {
+    color: #ECB41B !important;
+}
+
+.sipac-grisclaro:before {
+    color: #9c99a0 !important;
+}
+
+.sipac-gris:before {
+    color: #59565d !important;
+}
+
+.sipac-rosado:before {
+    color: #e1147c !important;
+}
+
+.sipac-naranja:before {
+    color: #e86225 !important;
+}
+
+.sipac-carmelita:before {
+    color: #A36252 !important;
+}
+
+.sipac-morado:before {
+    color: #734bd2 !important;
+}
+
+
+.imagen-none {
+    display: none;
+}
+
+[class*="sipac-"]::before {
+    font-size: 1.45em !important;
+    margin-right: 5px;
+    vertical-align: -10% !important;
+}
+
+a.x-menu-list-item span {
+    color: #222 !important;
+}
+
+.panel-repeticion .x-panel-body.x-panel-body-noheader .ytb-text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.panel-repeticion .x-panel-body.x-panel-body-noheader .x-form-text.x-form-field.x-form-num-field {
+    margin-left: 4px;
+    margin-top: 0px;
+}
+
+.panel-repeticion [id*="panel-repeticion-"] .x-panel-body.x-panel-body-noheader {
+    margin-top: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.oculto {
+    display: none !important;
+}
+
+.miclase {
+    height: 87%;
+}
+
+.full {
+    height: 100%;
+}
+
+.disabledsipac {
+    /*border: 1px solid #b5b8c8;*/
+    color: black !important;
+}
+
+.disabledsipac input {
+    /* border: 1px solid #b5b8c8;*/
+    color: black !important;
+}
+
+.sinfondo {
+    background: none !important;
+}
+
+/*.x-panel-header-sipac {
+    padding: 2px 3px 4px 2px;
+    background: transparent url("/lib/ExtJS/temas/default/images/panel/white-top-bottom.gif") repeat-x scroll 0 -1px;
+    border: 1px solid #99bbe8;
+    color: #15428b;
+    font: bold 11px/15px tahoma, arial, verdana, sans-serif;
+    overflow: hidden;
+}*/
+
+.x-panel-header-sipac {
+    background: transparent url("/lib/ExtJS/temas/default/images/panel/white-top-bottom.gif") repeat-x scroll 0 -1px;
+    border: 1px solid #99bbe8;
+    color: #15428b;
+    font: bold 11px/15px tahoma,arial,verdana,sans-serif;
+    overflow: hidden;
+    padding: 0px !important;
+}
+
+.x-window-header-sipac {
+    color: #15428b;
+    font: bold 11px tahoma,arial,verdana,sans-serif;
+    padding: 0px !important;
+}
+
+/*estilo para centrar la imagen del icono
+.x-btn-icon [class*="icondistra-"] {
+    margin-bottom: 1px;
+    margin-right: 5px;
+}*/
+/*poner el borde a los tab cuando son enfocados*/
+.x-tab-right:focus
+{
+    outline: dotted thin
+}
+
+/* para poner los bonotes centrados , con -3px nos sale bien a nosotros pero mal a calidad
+con 0px sale bien en calidad pero mal a nosotros */
+.empty-text::before {
+    margin-left: 0px !important;
+}
+
+.x-collapsed-title{color:#15428b;font:bold 11px/15px tahoma,arial,verdana,sans-serif;padding:2px 5px;}
+
+.x-grid3-hd-row td.ux-filtered-column {
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* solucion al height del grid gdActividades de historial */
+/*#ext-gen512 {height: 95% !important;}*/
+
+/* solucion al height del grid gdObjetivos de historial */
+/*#ext-gen400 {height: 95% !important;}*/
+
+/*#ext-comp-1073 {height: 200px !important;}*/

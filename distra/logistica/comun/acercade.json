@@ -1,0 +1,10 @@
+{
+    "nombre": " ", //nombre del subsitema
+    "version": "5.0", //version
+    "fecha": "<dd/mm/aaaa>", // fecha de liberacion del producto
+    "autor": "Centro de log\xedstica, gesti\xF3n de entidades, Xetid", //autor
+    "dependencia": ["Zeolides 2.2.0","Quarseg 2.1","Ayuda 3.0"], // base tecnologica
+    "descripcion": "<p style='text-align: justify'>El sistema permite el control de los procesos que gestionan la cadena logística comenzando con el pedido que realizan los clientes, los cuáles pueden ser satisfechos con lo que gestiona el módulo de inventario o se puede solicitar su adquisición a través del módulo de compras. Se realizan distribuciones masivas de productos y se factura todo lo que se haya distribuido. Las entidades productoras pueden utilizar el módulo de producción para gestionar la misma, mientras que una entidad cuyo enfoque es la prestación de servicios pueden realizar las órdenes de prestación y facturar las mismas a través del módulo de servicio. Permite además llevar el control de los activos fijos tangibles, y si lo requiere, su integración con el módulo de inventario. Si la entidad lleva el control de reserva de los productos puede utilizar dicho módulo asociado al de inventario.Se permite mostrar la información actualizada y detallada del estado de los productos y sus movimientos; y cuenta con una herramienta de análisis de información apoyando la toma de decisiones.</p>",
+    "logo":"logistica/utiles/comun/views/images/logolog.png",
+    "equipo":"Centro de Logistica"//descripcion
+}

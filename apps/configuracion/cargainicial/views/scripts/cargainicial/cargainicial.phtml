@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>SISTEMA INTEGRAL DE GESTI&Oacute;N CEDRUX</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+        <link href="<?php echo $this->dir_ext_ccs; ?>css/ext-all.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link href="<?php echo $this->dir_ext_ccs; ?>css/icon-clases.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="/configuracion/comun/views/css/styles-grid.css"/>
+    </head>
+    <body id="idConfInicial">
+        <input type="hidden" id="dir_ext_css" name="dir_extjs" value="<?php echo $this->dir_ext_ccs; ?>" />
+        <div id="ux-taskbar">
+            <div id="ux-taskbar-start"></div>
+            <div id="ux-taskbuttons-panel"></div>
+            <div class="x-clear"></div>
+        </div>
+        <script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-win-iframe.js"></script>
+        <script type="text/javascript" src="/contabilidad/comun/js/php-js.js"></script>  
+
+        <script type="text/javascript" src="/configuracion/comun/views/js/Notification/js/Ext.Cont.Notification.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/views/js/PagingToolbar/Ext.Cont.PagingToolbar.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/views/js/Ext.Cont.SearchField.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/views/js/overrides.js"></script>
+
+        <!--componente ejercicios-->
+        <script type="text/javascript" src="/configuracion/comun/plugins/GridFilters/menu/EditableItem.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/plugins/GridFilters/menu/RangeMenu.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/plugins/GridFilters/grid/GridFilters.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/plugins/GridFilters/grid/filter/Filter.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/plugins/GridFilters/grid/filter/StringFilter.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/plugins/GridFilters/grid/filter/DateFilter.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/plugins/GridFilters/grid/filter/ListFilter.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/plugins/GridFilters/grid/filter/NumericFilter.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/plugins/GridFilters/grid/filter/BooleanFilter.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/views/js/actionValidator.js"></script>
+        <script type="text/javascript" src="/configuracion/organos/views/js/CmbOrganos.js"></script>
+        <script type="text/javascript" src="/configuracion/ejerciciosyperiodos/views/js/idioma/es/etiquetascomponentEjer.js"></script>
+        <script type="text/javascript" src="/configuracion/ejerciciosyperiodos/views/js/ejercicios/componentEjercicio.js"></script>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+
+        <!--componente fecha-->
+        <script type="text/javascript" src="/configuracion/fecha/views/js/gestionarfecha/componentDate.js"></script>
+        <script type="text/javascript" src="/configuracion/fecha/views/js/idioma/es/etiquetasComponentFecha.js"></script>
+
+        <!--formatos-->
+        <script type="text/javascript" src="/configuracion/formatos/views/idioma/es/formatos/etiquetasComponentFormatos.js"></script>
+        <script type="text/javascript" src="/configuracion/formatos/views/js/formatos/componentFormatos.js"></script>
+
+        <!--componente nomenclador de moneda-->
+        <script type="text/javascript" src="/configuracion/multimoneda/views/js/gestnommoneda/component/componentNomMoneda.js"></script>
+        <script type="text/javascript" src="/configuracion/multimoneda/views/js/idioma/es/etiquetasComponentNomMoneda.js"></script>
+
+
+        <script type="text/javascript"	src="<?php echo $this->dir_ucid; ?>js/utiles/validadores.js"></script>
+        <script type="text/javascript"	src="<?php echo $this->dir_ucid; ?>js/utiles/Utiles.js"></script>
+        <script type="text/javascript"src="<?php echo $this->dir_ucid; ?>js/utiles/extensiones.js"></script>
+        <!--?php echo $this->jsayuda; ?-->
+        <script type="text/javascript" src="../../views/js/cargainicial/cargainicial.js"></script>
+        <script type="text/javascript" src="/configuracion/reportes/views/js/SCFPrintView.js"></script>
+        <style>
+            .gris:before {
+                color: #59565d !important;
+            }
+        </style>
+    </body>
+</html>

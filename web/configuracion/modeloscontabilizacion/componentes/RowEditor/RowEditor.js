@@ -1,0 +1,549 @@
+Ext.namespace('Ext.contabilidad.util');
+/**
+ * @class Ext.contabilidad.util.RowEditor
+ * @extends Ext.Panel
+ * Componente que permite editar una fila del grid Editor
+ * @constructor
+ * Crea un Row Editor.
+ * @param {Object} config Opciones de configuracion
+ * @category Componente
+ * @author Ing. Rodain Terrer Molina <rterrer@xetid.cu>
+ * @version 1.0
+ */
+Ext.contabilidad.util.RowEditor = Ext.extend(Ext.Panel, {
+    floating: true,
+    shadow: false,
+    layout: 'table',
+    cls: 'x-small-editor',
+    buttonAlign: 'center',
+    baseCls: 'x-row-editor',
+    elements: 'header,footer,body',
+    frameWidth: 5,
+    buttonPad: 3,
+    clicksToEdit: 'auto',
+    monitorValid: true,
+    focusDelay: 250,
+    errorSummary: true,
+    defaults: {
+        normalWidth: true
+    },
+    initComponent: function () {
+        Ext.contabilidad.util.RowEditor.superclass.initComponent.call(this);
+
+        Ext.override(Ext.grid.ColumnModel, {
+            getColumnAt: function (index) {
+                return this.config[index];
+            }
+        });
+
+        this.addEvents(
+            /**
+             * @event beforeedit
+             * Se dispara antes de que el editor de la fila(row) sea activado.
+             * Si el listener devuelve <tt>false</tt> el editor no sera activado.
+             * @param {Ext.contabilidad.util.RowEditor} roweditor This object
+             * @param {Ext.grid.EditorGridPanel} grid Grid que esta siendo editado.
+             * @param {Ext.data.Record} r El Record que ha sido editado.
+             * @param {Number} rowIndex Numero de la fila a editar
+             */
+            'beforeedit',
+            /**
+             * @event validateedit
+             * Se dispara despues de que una fila ha sido editada y pasa la validacion
+             * If the listener returns <tt>false</tt> changes to the record will not be set.
+             * @param {Ext.contabilidad.util.RowEditor} roweditor Este objeto
+             * @param {Ext.grid.EditorGridPanel} grid Grid que esta siendo editado.
+             * @param {Object} changes Objeto con todos los cambios hechos al record.
+             * @param {Ext.data.Record} r El Record que ha sido editado.
+             * @param {Number} rowIndex El numero de la fila a editar
+             */
+            'validateedit',
+            /**
+             * @event afteredit
+             * Se dispara despues de que una fila ha sido editada y despues
+             * que el evento update del store ha sido disparado con la edicion.
+             * @param {Ext.contabilidad.util.RowEditor} roweditor Este objeto
+             * @param {Ext.grid.EditorGridPanel} grid Grid que esta siendo editado.
+             * @param {Object}  Objeto con todos los cambios hechos al record.
+             * @param {Ext.data.Record} r El Record que ha sido editado.
+             * @param {Number} rowIndex El numero de la fila editada
+             */
+            'afteredit',
+            /**
+             * @event canceledit
+             * Se dispara despues cuando se cancela la edición del record.
+             * @param {Ext.contabilidad.util.RowEditor} roweditor Este objeto
+             * @param {Ext.data.Record} r El Record que ha sido editado.
+             * @param {Number} rowIndex El numero de la fila editada
+             */
+            'canceledit'
+        );
+    },
+    init: function (grid) {
+        this.grid = grid;
+        this.ownerCt = grid;
+        if (this.clicksToEdit === 2) {
+            grid.on('rowdblclick', this.onRowDblClick, this);
+        } else {
+            grid.on('rowclick', this.onRowClick, this);
+            if (Ext.isIE) {
+                grid.on('rowdblclick', this.onRowDblClick, this);
+            }
+        }
+
+        // stopEditing without saving when a record is removed from Store.
+        grid.getStore().on('remove', function () {
+            this.stopEditing(false);
+        }, this);
+
+        grid.on({
+            scope: this,
+            keydown: this.onGridKey,
+            columnresize: this.verifyLayout,
+            columnmove: this.refreshFields,
+            reconfigure: this.refreshFields,
+            destroy: this.destroy,
+            bodyscroll: {
+                buffer: 250,
+                fn: this.positionButtons
+            },
+            validateedit: function (evtObj) {
+                /* remover el evento para que no actualice los cambios hasta tanto
+                 * no se presione guardar */
+                return false;
+            }
+        });
+        grid.getColumnModel().on('hiddenchange', this.verifyLayout, this, {delay: 1});
+        grid.getView().on('refresh', this.stopEditing.createDelegate(this, []));
+    },
+    refreshFields: function () {
+        this.initFields();
+        this.verifyLayout();
+    },
+    isDirty: function () {
+        var dirty;
+        this.items.each(function (f) {
+            if (String(this.values[f.id]) !== String(f.getValue())) {
+                dirty = true;
+                return false;
+            }
+        }, this);
+        return dirty;
+    },
+    startEditing: function (rowIndex, doFocus) {
+        if (typeof rowIndex == 'object') {
+            rowIndex = this.grid.getStore().indexOf(rowIndex);
+        }
+        var g = this.grid, view = g.getView();
+        var row = view.getRow(rowIndex);
+        if (!Ext.isEmpty(row)) {
+
+            this.editing = true;
+            var record = g.store.getAt(rowIndex);
+            if (this.fireEvent('beforeedit', this, this.grid, record, rowIndex) !== false) {
+                this.record = record;
+                /* Si el record fue annadido y no editado se define como record fantasma */
+                this.record.isGostRecord = (this.record.json) ? false : !this.record.dirty;
+
+                this.rowIndex = rowIndex;
+                this.values = {};
+                if (!this.rendered) {
+                    this.render(view.getEditorParent());
+                }
+
+                var w = Ext.fly(row).getSize().width;
+                this.setSize(w);
+                if (!this.initialized) {
+                    this.initFields();
+                }
+                var cm = g.getColumnModel(), fields = this.items.items, f, val;
+                for (var i = 0; i < fields.length; i++) {
+                    val = this.preEditValue(record, cm.getDataIndex(i));
+                    f = fields[i];
+                    f.setValue(val);
+                    this.values[f.id] = val || '';
+                }
+                this.verifyLayout(true);
+                if (!this.isVisible()) {
+                    this.setPagePosition(Ext.fly(row).getXY());
+                } else {
+                    this.el.setXY(Ext.fly(row).getXY(), {duration: 0.15});
+                }
+                if (!this.isVisible()) {
+                    this.show().doLayout();
+                }
+                if (doFocus !== false) {
+                    this.doFocus.defer(this.focusDelay, this);
+                }
+                this.getComponent(0).focus();
+            }
+        }
+    },
+    removeAll: function (autoDestroy) {
+        this.initItems();
+        var item, rem = [], items = [];
+        this.items.each(function (i) {
+            rem.push(i);
+        });
+        for (var i = 0, len = rem.length; i < len; ++i) {
+            item = rem[i];
+            this.remove(item, autoDestroy);
+            if (item.ownerCt !== this) {
+                items.push(item);
+            }
+        }
+        return items;
+    },
+    stopEditing: function (saveChanges) {
+        this.editing = false;
+        if (!this.isVisible()) {
+            return;
+        }
+        var isValid = this.isValid();
+        if (saveChanges === false || !isValid) {
+            this.hide();
+            this.fireEvent('canceledit', this, this.record, this.rowIndex);
+            /* Si es un record que no posee ningun valor (record fantasma) se eliminar el record anadido */
+            if (this.record.isGostRecord) {
+                this.grid.getSelectionModel().clearSelections();
+                this.grid.getStore().remove(this.record);
+            }
+            return;
+        }
+        var changes = {}, r = this.record, hasChange = false;
+        var cm = this.grid.colModel, fields = this.items.items;
+        for (var i = 0, len = cm.getColumnCount(); i < len; i++) {
+            if (!cm.isHidden(i)) {
+                var dindex = cm.getDataIndex(i),
+                    isEditable = cm.isCellEditable(i, this.rowIndex);
+
+                if (isEditable && !Ext.isEmpty(dindex)) {
+                    var oldValue = r.data[dindex];
+                    var val = (fields[i].savedisplayField) ? fields[i].getRawValue() : fields[i].getValue();
+                    var value = this.postEditValue(val, oldValue, r, dindex);
+
+                    if (String(oldValue) !== String(value)) {
+                        changes[dindex] = value;
+                        hasChange = true;
+                    }
+                }
+            }
+        }
+
+        var flagValidate = this.fireEvent('validateedit', this, this.grid, changes, r, this.rowIndex);
+
+        if (hasChange && flagValidate !== false) {
+            r.beginEdit();
+            for (var k in changes) {
+                if (changes.hasOwnProperty(k)) {
+                    r.set(k, changes[k]);
+                }
+            }
+            delete this.record.isGost;
+            r.endEdit();
+            this.fireEvent('afteredit', this, this.grid, changes, r, this.rowIndex);
+        }
+        if (flagValidate !== false) {
+            this.hide();
+        }
+    },
+    verifyLayout: function (force) {
+        if (this.el && (this.isVisible() || force === true)) {
+            var row = this.grid.getView().getRow(this.rowIndex);
+            this.setSize(Ext.fly(row).getSize().width, Ext.isIE ? Ext.fly(row).getSize().height + (Ext.isBorderBox ? 9 : 0) : undefined);
+            var cm = this.grid.getColumnModel(), fields = this.items.items;
+            for (var i = 0, len = fields.length; i < len; i++) {
+                if (!cm.isHidden(i)) {
+                    var adjust = 0;
+                    if (i === 0) {
+                        adjust += 0; // outer padding
+                    }
+                    if (i === (len - 1)) {
+                        adjust += 3; // outer padding
+                    } else {
+                        adjust += 1;
+                    }
+                    fields[i].show();
+                    fields[i].setWidth(cm.getColumnWidth(i) - adjust);
+                } else {
+                    fields[i].hide();
+                }
+            }
+            this.doLayout();
+            this.positionButtons();
+        }
+    },
+    slideHide: function () {
+        this.hide();
+    },
+    initFields: function () {
+        var cm = this.grid.getColumnModel(), pm = Ext.layout.ContainerLayout.prototype.parseMargins;
+        this.removeAll(false);
+        for (var i = 0, len = cm.getColumnCount(); i < len; i++) {
+            var c = cm.getColumnAt(i);
+            if (c.editor) { // si la columna tiene editor
+                var ed = c.editor.field;
+                if (!ed) {
+                    ed = c.displayEditor || new Ext.form.TextField();
+                }
+
+                ed.style = 'margin-left: 2px';
+//                if (i == 0) {
+////                      ed.getEl().applyStyles('margin-left: 2px');
+////                    ed.style = 'margin-left: 2px';
+////                    ed.x = 2;
+////                    ed.margins = pm('0 1 2 1');
+//                } else {
+////                    ed.getEl().applyStyles('margin-left: 2px');
+////                    ed.style = 'margin-left: 2px';
+////                    ed.x = 2;
+//                }
+                ed.setWidth(cm.getColumnWidth(i) - 2);
+                ed.column = c;
+                if (ed.ownerCt !== this) {
+                    ed.on('focus', this.ensureVisible, this);
+                    ed.on('specialkey', this.onKey, this);
+                }
+                this.insert(i, ed);
+            }
+        }
+        this.initialized = true;
+    },
+    onKey: function (f, e) {
+        if (e.getKey() === e.ENTER) {
+            this.stopEditing(true);
+            e.stopPropagation();
+        }
+    },
+    onGridKey: function (e) {
+        if (e.getKey() === e.ENTER && !this.isVisible()) {
+            var r = this.grid.getSelectionModel().getSelected();
+            if (r) {
+                var index = this.grid.store.indexOf(r);
+                this.startEditing(index);
+                e.stopPropagation();
+            }
+        }
+    },
+    ensureVisible: function (editor) {
+        if (this.isVisible()) {
+            this.grid.getView().ensureVisible(this.rowIndex, this.grid.colModel.getIndexById(editor.column.id), true);
+        }
+    },
+    onRowClick: function (g, rowIndex, e) {
+        if (this.clicksToEdit == 'auto') {
+            var li = this.lastClickIndex;
+            this.lastClickIndex = rowIndex;
+            if (li != rowIndex && !this.isVisible()) {
+                return;
+            }
+        }
+        this.startEditing(rowIndex, false);
+        this.doFocus.defer(this.focusDelay, this, [e.getPoint()]);
+    },
+    onRowDblClick: function (g, rowIndex, e) {
+        this.startEditing(rowIndex, false);
+        this.doFocus.defer(this.focusDelay, this, [e.getPoint()]);
+    },
+    onRender: function () {
+        Ext.contabilidad.util.RowEditor.superclass.onRender.apply(this, arguments);
+        this.el.swallowEvent(['keydown', 'keyup', 'keypress']);
+
+        var saveBtnConf = {
+            id: 'saveBtn',
+            text: this.saveText || 'Save',
+            minWidth: this.minButtonWidth,
+            handler: this.stopEditing.createDelegate(this, [true]),
+            tooltip: this.saveTooltip || 'Guardar cambios'
+        };
+
+        var cancelBtnConf = {
+            id: 'cancelBtn',
+            text: this.cancelText || 'Cancel',
+            minWidth: this.minButtonWidth,
+            handler: this.stopEditing.createDelegate(this, [false]),
+            tooltip: this.cancelTooltip || 'Cancelar edici&oacute;n'
+        };
+
+        if (this.iconSave) {
+            saveBtnConf.iconCls = this.iconSave;
+        }
+
+        if (this.iconCancel) {
+            cancelBtnConf.iconCls = this.iconCancel;
+        }
+
+        this.saveBtn = new Ext.Button(saveBtnConf);
+        this.cancelBtn = new Ext.Button(cancelBtnConf);
+
+        this.btns = new Ext.Panel({
+            baseCls: 'x-plain',
+            cls: 'x-btns',
+            elements: 'body',
+            layout: 'table',
+//            width: (this.minButtonWidth * 2) + (this.frameWidth * 2) + (this.buttonPad * 4), // width must be specified for IE
+            items: [this.cancelBtn, this.saveBtn]
+        });
+        this.btns.render(this.bwrap);
+    },
+    afterRender: function () {
+        Ext.contabilidad.util.RowEditor.superclass.afterRender.apply(this, arguments);
+        this.positionButtons();
+        if (this.monitorValid) {
+            this.startMonitoring();
+        }
+    },
+    onShow: function () {
+        if (this.monitorValid) {
+            this.startMonitoring();
+        }
+        Ext.contabilidad.util.RowEditor.superclass.onShow.apply(this, arguments);
+    },
+    onHide: function () {
+        Ext.contabilidad.util.RowEditor.superclass.onHide.apply(this, arguments);
+        this.stopMonitoring();
+        this.grid.getView().focusRow(this.rowIndex);
+    },
+    positionButtons: function () {
+        if (this.btns) {
+            var h = this.el.dom.clientHeight;
+            var view = this.grid.getView();
+            var scroll = view.scroller.dom.scrollLeft;
+            var width = view.mainBody.getSize().width;
+            var bw = this.btns.getSize().width;
+            this.btns.el.shift({left: (width / 2) - (bw / 2) + scroll, top: h - 2, stopFx: true, duration: 0.2});
+        }
+    },
+    // private
+    preEditValue: function (r, field) {
+        var value = r.data[field];
+        return this.autoEncode && typeof value === 'string' ? Ext.util.Format.htmlDecode(value) : value;
+    },
+    // private
+    postEditValue: function (value, originalValue, r, field) {
+        return this.autoEncode && typeof value == 'string' ? Ext.util.Format.htmlEncode(value) : value;
+    },
+    doFocus: function (pt) {
+        if (this.isVisible()) {
+            var index = 0;
+            if (pt) {
+                index = this.getTargetColumnIndex(pt);
+            }
+            var cm = this.grid.getColumnModel();
+            var fields = this.items.items;
+            for (var i = 0; i < fields.length; i++) {
+                if (fields[i].hidden) {
+                    fields[i].focus();
+                    break;
+                }
+            }
+        }
+    },
+    getTargetColumnIndex: function (pt) {
+        var grid = this.grid, v = grid.view;
+        var x = pt.left;
+        var cms = grid.colModel.config;
+        var i = 0, match = false;
+        for (var len = cms.length, c; c = cms[i]; i++) {
+            if (!c.hidden) {
+                if (Ext.fly(v.getHeaderCell(i)).getRegion().right >= x) {
+                    match = i;
+                    break;
+                }
+            }
+        }
+        return match;
+    },
+    startMonitoring: function () {
+        if (!this.bound && this.monitorValid) {
+            this.bound = true;
+            Ext.TaskMgr.start({
+                run: this.bindHandler,
+                interval: this.monitorPoll || 200,
+                scope: this
+            });
+        }
+    },
+    stopMonitoring: function () {
+        this.bound = false;
+//        if (this.tooltip) {
+//            this.tooltip.hide();
+//        }
+    },
+    isValid: function () {
+        var valid = true;
+        if (this.items) {
+            this.items.each(function (f) {
+                var value = f.getValue(),
+                regex = /^\s+$/g ;
+                if (!f.isValid(true)) {
+                    valid = false;
+                    return false;
+                }else if(!f.allowBlank && (!value || regex.test(value))){
+                    valid = false;
+                    f.markInvalid(f.blankText);
+                }
+            });
+        }
+        return valid;
+    },
+    // private
+    bindHandler: function () {
+        if (!this.bound) {
+            return false; // stops binding
+        }
+        var valid = this.isValid(), changes = {}, hasChange = false;
+        var validateChange=(this.validateChange!==false)?true:false;
+        if (valid && validateChange) {
+            Ext.each(this.items.items, function (item) {
+                var field = item.column.dataIndex;
+                var oldvalue = this.record.data[field];
+                if (item.getValue() != oldvalue) {
+                    changes[field] = oldvalue;
+                    hasChange = true;
+                    return false;
+                }
+
+            }, this);
+        }
+//        if (!valid && this.errorSummary) {
+//            this.showTooltip(this.getErrorText().join(''));
+//        }
+        this.saveBtn.setDisabled(!(validateChange?(valid && hasChange):valid));
+        this.fireEvent('validation', this, valid, hasChange,changes);
+    },
+    showTooltip: function (msg) {
+        var t = this.tooltip;
+        if (!t) {
+            t = this.tooltip = new Ext.ToolTip({
+                maxWidth: 600,
+                cls: 'errorTip',
+                width: 300,
+                title: 'Errors',
+                autoHide: false,
+                anchor: 'left',
+                anchorToTarget: true,
+                mouseOffset: [40, 0]
+            });
+        }
+        t.initTarget(this.items.last().getEl());
+        if (!t.rendered) {
+            t.show();
+            t.hide();
+        }
+        t.body.update(msg);
+        t.doAutoWidth();
+        t.show();
+    },
+    getErrorText: function () {
+        var data = ['<ul>'];
+        this.items.each(function (f) {
+            if (!f.isValid(true)) {
+                data.push('<li>', f.activeError, '</li>');
+            }
+        });
+        data.push('</ul>');
+        return data;
+    }
+});
+Ext.reg('roweditor', Ext.contabilidad.util.RowEditor);

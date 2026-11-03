@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>Nomencladores est&aacute;ticos</title>
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+        <script language="javascript" type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+        <link rel="stylesheet" type="text/css" href="/configuracion/nomgenerales/views/css/comun/nomencladores.css"/>
+    </head>
+    <body>
+        <script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+        <?php echo $this->jsnomgen; ?>
+        <?php echo $this->jsArbolNaturaleza; ?>
+        <?php echo $this->jsayuda; ?>
+        <?php
+        foreach ($this->arrayJs as $js) {
+            echo $js . '<br/>';
+        }
+        ?>
+        <script type="text/javascript" src="/configuracion/nomgenerales/views/js/nomencladoresgenerales/naturaleza.component.js"></script>
+		<script type="text/javascript" src="/configuracion/nomgenerales/views/js/nomencladoresgenerales/tipoembalaje.component.js"></script>
+        <script type="text/javascript" src="/configuracion/nomgenerales/views/js/nomencladoresgenerales/tipoenvase.component.js"></script>
+        <script type="text/javascript" src="/configuracion/nomgenerales/views/js/nomencladoresgenerales/marcamodelo.component.js"></script>
+        <script type="text/javascript" src="/configuracion/nomgenerales/views/js/nomencladoresgenerales/viaadquisicion.component.js"></script>
+        <script type="text/javascript" src="/configuracion/nomgenerales/views/js/nomencladoresgenerales/organo.component.js"></script>
+        <script type="text/javascript" src="/configuracion/nomgenerales/views/js/nomencladoresgenerales/nomencladores.main.js"></script>
+
+    </body>
+</html>

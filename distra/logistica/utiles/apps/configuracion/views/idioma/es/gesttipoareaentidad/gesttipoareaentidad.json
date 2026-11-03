@@ -1,0 +1,34 @@
+{
+    lbAdicionar: 'Adicionar',
+    tiplbAdicionar: 'Crear un nuevo tipo de &aacuterea entidad.',
+
+    lbModificar: 'Modificar',
+    tiplbModificar: 'Modificar tipo de &aacuterea entidad.',
+
+
+    lbEliminar: 'Eliminar',
+    tiplbEliminar: 'Eliminar tipo de &aacuterea entidad.',
+
+
+    lbCodigo: 'C&oacute;digo',
+    lbDescripcion: 'Descripci&oacute;n',
+    lbExtFv: 'Extensi&oacute;n de vencimiento',
+    lbTituloGrid: 'Tipo de &aacute;rea',
+
+
+    lbTitituloAdd: 'Adicionar tipo de &aacuterea entidad',
+    lbBtnAceptar: 'Aceptar',
+    lbBtnCancelar: 'Cancelar',
+    lbBtnAplicar: 'Aplicar',
+
+    msgDatosVacios: 'Existen campos vac&iacute;os. Por favor verifique los datos.',
+    msgAdicionarOk: 'Se ha adicionado el tipo de &aacuterea entidad satisfactoriamente.',
+    msgErrorAdicionar: 'Ha ocurrido un error al adicionar el tipo de &aacuterea entidad.',
+    msgEliminarOrden: 'Est&aacute; seguro que desea eliminar el tipo de &aacuterea entidad ?',
+    msgEliminado: 'El tipo de &aacuterea entidad ha sido eliminado correctamente',
+    msgEliminando: 'Eliminando el tipo de &aacuterea entidad...',
+    msgAdicionando: 'Adicionando el tipo de &aacuterea entidad...',
+    msgCargando: 'Cargando...'
+
+
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tipos>
+    <L>ZendExt_Exception_Log</L>
+    <P>ZendExt_Exception_Presentation</P>
+    <LP>ZendExt_Exception_LogPresentation</LP>
+    <B>ZendExt_Exception_Blind</B>
+    <C>ZendExt_Exception_Confirmation</C>
+    <LPV>ZendExt_Exception_LPWithValues</LPV>
+</tipos>

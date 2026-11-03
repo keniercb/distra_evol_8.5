@@ -1,0 +1,51 @@
+.x-grid3-progresscol .x-grid3-cell-inner {
+    padding: 0 0 0 5px;
+}
+.x-grid3-progresscol .x-progress-bar {
+    height: 16px;
+}
+.x-grid3-progresscol .x-progress-inner {
+    height: 16px;
+}
+.x-grid3-progresscol .x-progress-text-front-ie6 {
+    padding: 2.5px 5px;
+}
+.x-grid3-progresscol .x-progress-text-front {
+    padding: 2px 5px;
+}
+.x-grid3-progresscol .x-progress-text-wrong {
+    padding: 2px 5px;
+    color: red;
+}
+.x-progress-bar-red, .x-progress-bar-orange, .x-progress-bar-green {
+    border-bottom: 1px solid #7FA9E4;
+    float: left;
+	color:#000000;
+    height: 16px;
+}
+.x-progress-bar-red {
+    background: url("../images/progress-bg-red.gif") repeat-x scroll left center #FF0000;
+    border-top: 1px solid #ECB7AD;
+}
+.x-progress-bar-orange {
+    background: url("../images/progress-bg-orange.gif") repeat-x scroll left center #9CBFEE;
+    border-right: 1px solid #DEAB7E;
+    border-top: 1px solid #D7B290;
+}
+.x-progress-bar-green {
+    background: url("../images/progress-bg-green.gif") repeat-x scroll left center #00FF00;
+    border-right: 1px solid #5BD976;
+    border-top: 1px solid #79E18F;
+}
+.x-progress-txt-back {
+    color: #000;
+    font-size: 11px;
+    font-weight: bold;
+}
+.x-progress-txt-back {
+    left: 0;
+    overflow: hidden;
+    padding: 1px 5px;
+    position: absolute;
+    text-align: center;
+}

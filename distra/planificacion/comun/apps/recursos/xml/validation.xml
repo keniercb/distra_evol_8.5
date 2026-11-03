@@ -1,0 +1,297 @@
+<validador>
+    <planificacion>
+        <planmeta>
+            <GestindicadoresController>
+                <adicionarAction>
+                    <precondition>
+                        <validator class="GestindicadoresValidator" method="validarExistenciaCodigo" error="PLAN014"/>
+                    </precondition>
+                </adicionarAction>
+            </GestindicadoresController>
+            <GesttipomodeloController>
+                <adicionartipomodeloAction>
+                    <precondition>
+                        <validator class="GesttipomodeloValidator" method="validarExistenciaCodigo" error="PLAN0114"/>
+                    </precondition>
+                </adicionartipomodeloAction>
+            </GesttipomodeloController>
+            <!--GestcolumnasController>
+                <adicionarColumnaAction>
+                    <precondition>
+                        <validator class="GestcolumnasValidator" method="validarExistenciaDenominacion" error="PLAN016"/>
+                    </precondition>
+                </adicionarColumnaAction>
+            </GestcolumnasController-->
+            <!--<GestplanesController>
+                <adicionarPlanAction>
+                    <precondition>
+                        <validator class="GestplanesValidator" method="validarExistenciaCodigo" error="PLAN014"/>
+                    </precondition>
+                </adicionarPlanAction>
+            </GestplanesController>-->
+            <BpgestactividadesController>
+               <!-- <adicionarActividadAction>
+                    <precondition>
+                        <validator class="BpgestactividadesValidator" method="validarExistenciaCodigoActividad" error="PLABP001"/>
+                    </precondition>
+                </adicionarActividadAction>-->
+                <eliminarActividadAction>
+                    <precondition>
+                        <validator class="BpgestactividadesValidator" method="validarActividadAsociadaEntidad" error="PLABP002"/>
+                    </precondition>
+                </eliminarActividadAction>
+                <!--activarDesactivarActividadAction>
+                    <precondition>
+                        <validator class="BpgestactividadesValidator" method="validarActividadAprobada" error="PLABP006"/>
+                    </precondition>
+                </activarDesactivarActividadAction-->
+                <!--aprobarDesaprobarActividadAction>
+                    <precondition>
+                        <validator class="BpgestactividadesValidator" method="validarActividadNormada" error="PLABP007"/>
+                    </precondition>
+                </aprobarDesaprobarActividadAction-->
+            </BpgestactividadesController>
+            <BpdesgloseController>
+                <adicionarConfigDesgloseAction>
+                    <precondition>
+                        <validator class="BpdesgloseValidator" method="validarUsoDeTodosNomencladores" error="PLABP004"/>
+                    </precondition>
+                </adicionarConfigDesgloseAction>
+            </BpdesgloseController>
+            <GestnomencladoresController>
+                <adicionarAction>
+                    <precondition>
+                        <validator class="GestnomencladoresValidator" method="validarAdModifNom" error="PLAN016"/>
+                    </precondition>
+                </adicionarAction>
+            </GestnomencladoresController>
+        </planmeta>
+        <nomencladores>
+            <GestionartipoplanController>
+                <modificartipoplanAction>
+                    <precondition>
+                        <validator class="PlanValidator" method="validarModificarExistenciaTipoPlan" error="PLAN001"/>
+                    </precondition>
+                    <param name="descripcionpl"  not_null="false" null_error="PLAN006" />
+                </modificartipoplanAction>
+                <insertartipoplanAction>
+                    <precondition>
+                        <validator class="PlanValidator" method="validarModificarExistenciaTipoPlan" error="PLAN001"/>
+                    </precondition>
+                    <param name="descripcionpl"  not_null="false" null_error="PLAN006" />
+                    <param name="codigo" type="enterospos" not_null="false" null_error="PLAN006" type_error="PLAN004"/>
+                </insertartipoplanAction>
+            </GestionartipoplanController>
+
+            <GestionartipoetapaController>
+                <modificartipoetapaAction>
+                    <precondition>
+                        <validator class="PlanValidator" method="validarModificarExistenciaTipoEtapa" error="PLAN001"/>
+                    </precondition>
+                    <param name="descripcione"  not_null="false" null_error="PLAN006" />
+                </modificartipoetapaAction>
+                <insertartipoetapaAction>
+                    <precondition>
+                        <validator class="PlanValidator" method="validarModificarExistenciaTipoEtapa" error="PLAN001"/>
+                    </precondition>
+                    <param name="descripcione"  not_null="false" null_error="PLAN006" />
+                    <param name="codigo" type="enterospos" not_null="false" null_error="PLAN006" type_error="PLAN004"/>
+                </insertartipoetapaAction>
+            </GestionartipoetapaController>
+
+            <GestionartipomodeloController>
+                <modificartipomodeloAction>
+                    <precondition>
+                        <validator class="PlanValidator" method="validarModificarExistenciaTipoModelo" error="PLAN001"/>
+                    </precondition>
+                    <param name="descripcionm"  not_null="false" null_error="PLAN006" />
+                </modificartipomodeloAction>
+                <insertartipomodeloAction>
+                    <precondition>
+                        <validator class="PlanValidator" method="validarModificarExistenciaTipoModelo" error="PLAN001"/>
+                    </precondition>
+                    <param name="descripcionm"  not_null="false" null_error="PLAN006" />
+                    <param name="codigo" type="enterospos" not_null="false" null_error="PLAN006" type_error="PLAN004"/>
+                </insertartipomodeloAction>
+            </GestionartipomodeloController>
+        </nomencladores>
+
+        <calculo_de_necesidades>
+            <GestionarcriterioController>
+                <insertarCriterioAction>
+                    <precondition>
+                        <validator class="CalnecesidadesValidator" method="validarGestionarcriterio" error="PLAN001"/>
+                    </precondition>
+                    <param name="denominacioncriterio" type="numerosletras" not_null="false" null_error="PLAN006" type_error="PLAN007"/>
+                </insertarCriterioAction>
+                <modificarCriterioAction>
+                    <precondition>
+                        <validator class="CalnecesidadesValidator" method="validarGestionarcriterio" error="PLAN001"/>
+                    </precondition>
+                    <param name="denominacioncriterio" type="numerosletras" not_null="false" null_error="PLAN006" type_error="PLAN007"/>
+                </modificarCriterioAction>
+            </GestionarcriterioController>
+
+            <GestionaractividadController>
+                <insertarActividadAction>
+                    <precondition>
+                        <validator class="CalnecesidadesValidator" method="validarAdicionarActividad" error="PLAN001"/>
+                    </precondition>
+                    <param name="denominacionactividad" type="numerosletras" not_null="false" null_error="PLAN006" type_error="PLAN007"/>
+                </insertarActividadAction>
+                <modificarActividadAction>
+                    <precondition>
+                        <validator class="CalnecesidadesValidator" method="validarAdicionarActividad" error="PLAN001"/>
+                    </precondition>
+                    <param name="denominacionactividad" type="numerosletras" not_null="false" null_error="PLAN006" type_error="PLAN007"/>
+                </modificarActividadAction>
+            </GestionaractividadController>
+
+            <GestionarconceptoController>
+                <insertarConceptoAction>
+                    <precondition>
+                        <validator class="CalnecesidadesValidator" method="validarGestionarConcepto" error="PLAN001"/>
+                    </precondition>
+                    <param name="denominacionconcepto" type="numerosletras" not_null="false" null_error="PLAN006" type_error="PLAN007"/>
+                </insertarConceptoAction>
+                <modificarConceptoAction>
+                    <precondition>
+                        <validator class="CalnecesidadesValidator" method="validarGestionarConcepto" error="PLAN001"/>
+                    </precondition>
+                    <param name="denominacionconcepto" type="numerosletras" not_null="false" null_error="PLAN006" type_error="PLAN007"/>
+                </modificarConceptoAction>
+            </GestionarconceptoController>
+
+            <AsociarcriactController>
+                <insertarasociacionAction>
+                    <precondition>
+                        <validator class="CalnecesidadesValidator" method="validarAsociacionActCrit" error="PLAN015"/>
+                    </precondition>
+                    <param name="denominacionactividad" not_null="false" null_error="PLAN006"/>
+                    <param name="denominacionconcepto" not_null="false" null_error="PLAN006"/>
+                </insertarasociacionAction>
+            </AsociarcriactController>
+
+            <AsociarcriconcController>
+                <insertarasociacionAction>
+                    <precondition>
+                        <validator class="CalnecesidadesValidator" method="validarAsociacionCritConc" error="PLAN015"/>
+                    </precondition>
+                    <param name="denominacioncriterio" not_null="false" null_error="PLAN006"/>
+                    <param name="denominacionconcepto" not_null="false" null_error="PLAN006"/>
+                </insertarasociacionAction>
+            </AsociarcriconcController>
+        </calculo_de_necesidades>
+
+        <indicadores>
+            <GestindicadoresController>
+                <insertarIndicadoresAction>
+                    <precondition>
+                        <validator class="IndicadorValidator" method="validarCodigo" error="PLAN014"/>
+                    </precondition>
+                    <param name="codigo" type="enterospos" not_null="false" null_error="PLAN006" type_error="PLAN007"/>
+                    <!--param name="denominacion" type="numerosletras" not_null="false" null_error="PLAN006" type_error="PLAN007"/-->
+                </insertarIndicadoresAction>
+                <modificarIndicadorAction>
+                    <precondition>
+                        <validator class="IndicadorValidator" method="validarCodigo" error="PLAN001"/>
+                    </precondition>
+                    <param name="idindicador" type="enterospos" not_null="false" null_error="PLAN006" type_error="PLAN007"/>
+                    <param name="codigo" type="enterospos" not_null="false" null_error="PLAN006" type_error="PLAN007"/>
+                    <param name="denominacion" type="numerosletras" not_null="false" null_error="PLAN006" type_error="PLAN007"/>
+                </modificarIndicadorAction>
+                <insertarIndicadorExtAction>
+                    <precondition>
+                        <validator class="IndicadorValidator" method="validarCodigoE" error="PLAN014"/>
+                    </precondition>
+                    <param name="codigoe" type="enterospos" not_null="false" null_error="PLAN006" type_error="PLAN007"/>
+                    <param name="denominacione" type="numerosletras" not_null="false" null_error="PLAN006" type_error="PLAN007"/>
+                </insertarIndicadorExtAction>
+            </GestindicadoresController>
+        </indicadores>
+
+        <realizacion_de_plan>
+            <GestrestriccionController>
+                <insertarRestriccionAction>
+                    <param name="maximo" type="enterospos" not_null="false" null_error="PLAN006" type_error="PLAN007"/>
+                    <param name="minimo" type="enterospos" not_null="false" null_error="PLAN006" type_error="PLAN007"/>
+                </insertarRestriccionAction>
+            </GestrestriccionController>
+        </realizacion_de_plan>
+
+        <construccion_planes>
+            <ConstplanesController>
+                <adicionarPlanAction>
+                    <precondition>
+                        <validator class="ConstplanesValidator" method="validarExistenciaCodigo" error="PLAN014"/>
+                    </precondition>
+                    <param name="tfCodigo" type="enterospos" not_null="true" null_error="PLAN006" type_error="PLAN007"/>
+                </adicionarPlanAction>
+                <modificarplanAction>
+                    <precondition>
+                        <validator class="ConstplanesValidator" method="validarExistenciaCodigo" error="PLAN014"/>
+                    </precondition>
+                    <param name="tfCodigo" type="enterospos" not_null="true" null_error="PLAN006" type_error="PLAN007"/>
+                </modificarplanAction>
+            </ConstplanesController>
+        </construccion_planes>
+
+        <estructura>
+            <EstructuraController>
+                <adicionarestructuraAction>
+                    <precondition>
+                        <validator class="EstructuraValidator" method="validarExistenciaId" error="PLAN014"/>
+                    </precondition>
+                    <param name="idestructura" type="enterospos" not_null="true" null_error="PLAN006" type_error="PLAN007"/>
+                </adicionarestructuraAction>
+                <adicionarentidadesAction>
+                    <precondition>
+                        <validator class="EstructuraValidator" method="validarExistenciaIdentidad" error="PLAN014"/>
+                    </precondition>
+                    <param name="identidad" type="enterospos" not_null="true" null_error="PLAN006" type_error="PLAN007"/>
+                </adicionarentidadesAction>
+            </EstructuraController>
+        </estructura>
+
+        <plantilla>
+            <GescolumnaController>
+                <insertarcolumnasAction>
+                    <precondition>
+                        <validator class="PlantillaValidator" method="validarCodigoColumna" error="PLAN014"/>
+                        <validator class="PlantillaValidator" method="validarDenominacionColumna" error="PLAN016"/>
+                    </precondition>
+                    <param name="codigo" type="enterospos" not_null="true" null_error="PLAN006" type_error="PLAN007"/>
+                </insertarcolumnasAction>
+                <modificarcolumnasAction>
+                    <precondition>
+                        <validator class="PlantillaValidator" method="validarCodigoColumnaMod" error="PLAN014"/>
+                    </precondition>
+                    <param name="idcolumna" type="enterospos" not_null="false" null_error="PLAN006" type_error="PLAN007"/>
+                    <param name="codigo" type="enterospos" not_null="false" null_error="PLAN006" type_error="PLAN007"/>
+                    <param name="denominacion" type="numerosletras" not_null="false" null_error="PLAN006" type_error="PLAN007"/>
+                </modificarcolumnasAction>
+            </GescolumnaController>
+
+            <GesplantillaController>
+                <duplicarplantillaAction>
+                    <precondition>
+                        <validator class="PlantillaValidator" method="validarCodigoPlantillaDuplicar" error="PLAN014"/>
+                    </precondition>
+                </duplicarplantillaAction>
+
+            </GesplantillaController>
+
+        </plantilla>
+
+        <configurar_plan>
+            <ConfigurarplanController>
+                <guardarconfAction>
+                    <precondition>
+                        <validator class="ConfPlanValidator" method="validarExistenciaDenom" error="PLACP001"/>
+                    </precondition>
+                    <param name="nombre" type="numerosletras" not_null="false" null_error="PLAN006" type_error="PLAN007"/>
+                </guardarconfAction>
+            </ConfigurarplanController>
+        </configurar_plan>
+    </planificacion>
+</validador>

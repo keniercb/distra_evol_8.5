@@ -1,0 +1,294 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions name="servicio" targetNamespace="urn:servicio"
+             xmlns:typens="urn:servicio"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns="http://schemas.xmlsoap.org/wsdl/">
+    <message name="webservice">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="autenticarUsuario">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="enviarSugerencia">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerActividades">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="cargarFips">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="adicionarAcuerdo">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="asociarInvolucrados">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="adicionarActividad">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="getActividadesBienestar">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="getIdusuarios">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="actualizarCumplimiento">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="cargarclasificadorinvol">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="cargarNotificaciones">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="cargarContratos">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="webserviceResponse">
+        <part name="webserviceReturn" type="xsd:anyType"/>
+    </message>
+    <portType name="PlanificacionSoapServicePortType">
+
+        <operation name="autenticarUsuario">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+
+        <operation name="enviarSugerencia">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+
+        <operation name="obtenerPrecombsTraslado">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+
+        <operation name="cargarrecursosasociados">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+
+        <operation name="obtenerActividades">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+
+        <operation name="cargarFips">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+        <operation name="adicionarAcuerdo">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+
+        <operation name="asociarInvolucrados">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+
+        <operation name="adicionarActividad">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+
+        <operation name="getActividadesBienestar">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+
+        <operation name="getIdusuarios">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+
+        <operation name="actualizarCumplimiento">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+
+        <operation name="cargarclasificadorinvol">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+
+        <operation name="cargarNotificaciones">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+
+        <operation name="cargarContratos">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+
+    </portType>
+
+    <binding name="PlanificacionSoapServiceBinding" type="typens:PlanificacionSoapServicePortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+        <operation name="autenticarUsuario">
+            <soap:operation soapAction="urn:PlanificacionSoapServiceAction"/>
+            <input>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+        <operation name="enviarSugerencia">
+            <soap:operation soapAction="urn:PlanificacionSoapServiceAction"/>
+            <input>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+        <operation name="obtenerPrecombsTraslado">
+            <soap:operation soapAction="urn:PlanificacionSoapServiceAction"/>
+            <input>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+        <operation name="cargarrecursosasociados">
+            <soap:operation soapAction="urn:PlanificacionSoapServiceAction"/>
+            <input>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+        <operation name="adicionarActividad">
+            <soap:operation soapAction="urn:PlanificacionSoapServiceAction"/>
+            <input>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+        <operation name="getActividadesBienestar">
+            <soap:operation soapAction="urn:PlanificacionSoapServiceAction"/>
+            <input>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+        <operation name="getIdusuarios">
+            <soap:operation soapAction="urn:PlanificacionSoapServiceAction"/>
+            <input>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+        <operation name="actualizarCumplimiento">
+            <soap:operation soapAction="urn:PlanificacionSoapServiceAction"/>
+            <input>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+        <operation name="cargarclasificadorinvol">
+            <soap:operation soapAction="urn:PlanificacionSoapServiceAction"/>
+            <input>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+        <operation name="cargarNotificaciones">
+            <soap:operation soapAction="urn:PlanificacionSoapServiceAction"/>
+            <input>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+        <operation name="cargarContratos">
+            <soap:operation soapAction="urn:PlanificacionSoapServiceAction"/>
+            <input>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+        <operation name="obtenerActividades">
+            <soap:operation soapAction="urn:PlanificacionSoapServiceAction"/>
+            <input>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+        <operation name="cargarFips">
+            <soap:operation soapAction="urn:PlanificacionSoapServiceAction"/>
+            <input>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+        <operation name="adicionarAcuerdo">
+            <soap:operation soapAction="urn:PlanificacionSoapServiceAction"/>
+            <input>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+        <operation name="asociarInvolucrados">
+            <soap:operation soapAction="urn:PlanificacionSoapServiceAction"/>
+            <input>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:servicio" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+    </binding>
+    <service name="servicioService">
+        <port name="PlanificacionSoapServicePort" binding="typens:PlanificacionSoapServiceBinding">
+            <soap:address location=""/>
+            <!--<soap:address location="http://sipac-calidad.prod.xetid.cu/planificacion/pdo/plan/services.php"/>-->
+            <!--soap:address location="https://gestion-empresarial.xetid.cu/planificacion/pdo/plan/services.php"/-->
+            <!--soap:address location=""/-->
+        </port>
+    </service>
+</definitions>

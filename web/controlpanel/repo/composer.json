@@ -1,0 +1,2 @@
+{"name":"xetid\/localrepo","description":"Este es el fichero utilizado para instalar los paquetes","authors":[{"name":"administrador","email":"administrador@zeolides.xetid.cu"}],"repositories":[{"packagist":false}],"config":{"vendor-dir":"..\/repo\/Install"}}
+

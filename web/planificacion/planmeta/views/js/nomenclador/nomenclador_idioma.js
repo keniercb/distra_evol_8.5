@@ -1,0 +1,97 @@
+
+initEtiquetas = function () {
+    etiqueta.lbCargando = 'Cargando...';
+    etiqueta.lbNomenclador = 'Nomencladores';
+    etiqueta.lbMostrando = 'Mostrando de 1 - ';
+    etiqueta.lbDe = ' de ';
+    etiqueta.lbDenominacion = 'Denominación';
+    etiqueta.lbDescripcion = 'Descripción';
+    etiqueta.lbActivacion = 'Activación';
+    etiqueta.lbValorDefecto = 'Valor por defecto';
+    etiqueta.lbNo = 'No';
+    etiqueta.lbSi = 'Sí';
+    etiqueta.lbAdicionar = 'Adicionar nomenclador';
+    etiqueta.lbModificar = 'Modificar nomenclador';
+    etiqueta.lbEliminar = 'Eliminar nomenclador';
+    etiqueta.lbDefinirValorDefecto = 'Definir valor defecto';
+    etiqueta.lbActivar = 'Activar';
+    etiqueta.lbDesactivar = 'Desactivar';
+    etiqueta.lbOrdenAlfabetico = 'Ordenar alfabéticamente';
+    etiqueta.lbSubir = 'Subir';
+    etiqueta.lbBajar = 'Bajar';
+    etiqueta.lbGuardar = 'Guardar';
+    etiqueta.lbExportar = 'Exportar datos';
+    etiqueta.lbImportar = 'Importar';
+    etiqueta.lbActualizar = 'Actualizar';
+    etiqueta.lbImportarDatos = 'Importar datos';
+    etiqueta.lbImportarExcel = 'Importar hoja de cálculo (.xls)';
+    etiqueta.lbLimpiar = 'Limpiar';
+    etiqueta.lbFiltradoPor = ' - Filtrado por: ';
+    etiqueta.lbEspere = 'Espere...';
+    etiqueta.lbCancelar = 'Cancelar';
+    etiqueta.lbAceptar = 'Aceptar';
+    etiqueta.lbAplicar = 'Aplicar';
+    etiqueta.lbAddNomenclador = 'Adicionar nomenclador';
+    etiqueta.lbModNomenclador = 'Modificar nomenclador';
+    etiqueta.lbDelNomenclador = 'Eliminar nomenclador';
+    etiqueta.lbImportarDatos = 'Importar datos';
+    etiqueta.lbCargarDoc = 'Cargar documento';
+    etiqueta.lbSeleccioneArch = 'Seleccione el archivo';
+    etiqueta.lbRelColOrden = 'Relacionar columnas por orden';
+    etiqueta.lbRelCol = 'Relacionar columnas';
+    etiqueta.lbColRel = 'Relación de columnas';
+    etiqueta.lbelimRel = 'Eliminar relación';
+    etiqueta.lbelimRels = 'Eliminar todas las relaciones';
+    etiqueta.lbImportarExcel = 'Importar hoja de cálculo (.xls)';
+    etiqueta.lbColExcel = 'Columnas en el excel';
+    etiqueta.lbColSistema = 'Columnas del sistema';
+    etiqueta.lbColRel = 'Columnas relacionadas';
+    etiqueta.lbValidar = 'Validar';
+    etiqueta.lbValidarD = 'Validar relaciones';
+    etiqueta.lbTitlewinDatosVal = 'Validar datos';
+    etiqueta.lbDatosImportar = 'Datos a importar';
+    etiqueta.lbDatVal = 'Datos validados';
+    etiqueta.lbBtnImp = 'Importar';
+    etiqueta.lbEstado = 'Estado';
+    etiqueta.lbBuscarNomenclador = 'Buscar nomenclador...';
+    etiqueta.lbBuscar = 'Buscar';
+
+    etiqueta.msgNoExistenDatosFiltro = 'No existen datos que se correspondan con los criterios de búsqueda especificados.';
+    etiqueta.msgNoExistenDatos = 'No existen datos que mostrar.';
+    etiqueta.msgCerrarSinGuardar = 'Cerrar ventana sin guardar los datos';
+    etiqueta.msgGuardarSinCerrar = 'Guardar los datos sin cerrar la ventana';
+    etiqueta.msgGuardaryCerrar = 'Guardar los datos y cerrar la ventana';
+    etiqueta.lbValDenom = 'Solo admite caracteres alfanuméricos y los caracteres especiales(-),(_).';
+    etiqueta.lbValDenomTam = 'El tamaño máximo requerido es 255 caracteres.';
+    etiqueta.lbValDescTam = 'El tamaño máximo requerido es 255 caracteres.';
+    etiqueta.lbRequerido = 'Este campo es obligatorio.';
+    etiqueta.msgAdicionarNomencladorOK = 'El nomenclador ha sido adicionado satisfactoriamente.';
+    etiqueta.msgDenominacionNomencladorExiste = 'Ya existe un nomenclador con esa denominación.';
+    etiqueta.msgModificarNomencladorOK = 'El nomenclador ha sido modificado satisfactoriamente.';
+    etiqueta.msgEliminandoNomenclador = 'Eliminando nomenclador(es). Espere ...';
+    etiqueta.msgEliminarNomencladorOK = 'El(Los) nomenclador(es) fue(ron) eliminado(s) satisfactoriamente.';
+    etiqueta.msgEliminarNomencladorNO = 'El(Los) nomenclador(es) no ha(n) sido eliminado(s) porque está(n) en uso.';
+    etiqueta.msgEliminarNomencladorAlgunosNO = 'Alguno(s) nomenclador(es) no ha(n) sido eliminado(s) porque está(n) en uso.';
+    etiqueta.msgDefiniendoValorDefecto = 'Definiendo valor por defecto. Espere ...';
+    etiqueta.msgDefinirValorDefectoOK = 'El nomenclador ha sido definido como valor por defecto satisfactoriamente.';
+    etiqueta.msgDefinirValorDefectoNO = 'El nomenclador no ha sido definido como valor por defecto.';
+    etiqueta.msgActivando = 'Activando nomenclador(es). Espere ...';
+    etiqueta.msgDesactivando = 'Desactivando nomenclador(es). Espere ...';
+    etiqueta.msgActivadoOK = 'El(Los) nomenclador(es) ha(n) sido activado(s) satisfactoriamente.';
+    etiqueta.msgDesactivadoOK = 'El(Los) nomenclador(es) ha(n) sido desactivado(s) satisfactoriamente.';
+    etiqueta.msgActivadoNO = 'El(Los) nomenclador(es) no ha(n) activado(s).';
+    etiqueta.msgDesactivadoNO = 'El(Los) nomenclador(es) no ha(n) desactivado(s).';
+    etiqueta.msgOrdenarOK = 'Los nomencladores se han ordenado satisfactoriamente.';
+    etiqueta.msgOrdenarNO = 'Los nomencladores no se han podido ordenar';
+    etiqueta.msgSegEliminarNomenclador = '¿Está seguro que quiere eliminar el(los) nomencladore(s) seleccionado(s)?';
+    etiqueta.msgImportadoOK = 'Los nomencladores han sido importados satisfactoriamente.';
+    etiqueta.msgImportadoParcial = 'Algunos datos no pudieron ser importados.';
+    etiqueta.msgMoverNomencladorOK = 'El nomenclador ha sido movido satisfactoriamente.';
+    etiqueta.msgMoverNomencladorNO = 'El nomenclador no ha podido ser movido.';
+    etiqueta.msgSoloALfa = 'Solo admite caracteres alfanuméricos y los caracteres especiales( - ); (_).';
+
+    cargarInterfaz();
+}
+
+
+

@@ -1,0 +1,3845 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ioc>
+    <pvd src="pvd">
+        <!--SERVICIOS PARA LA CONFIGURACION DE LOS COMPLEMENTOS SALARIALES PARA ESTRUCTURA
+		--><!--SERVICIO PARA LA OBTENCION DE LOS CONCEPTOS-->
+        <getConceptosPD reference="nomina">
+            <inyector clase="NominaService" metodo="GetAllConceptosPD"/>
+            <prototipo>
+                <parametro nombre="idconcepto"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="busqueda"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getConceptosPD>
+        <!--SERVICIO QUE DEVUELVE LOS IMPORES DE LOS PAGOS ADICIONALES DE LOS CARGOS
+		-->
+        <obtenerDatosPagosAdicionalesCargo reference="nomina">
+            <inyector clase="NominaService" metodo="obtenerDatosPagosAdicionalesCargo"/>
+            <prototipo>
+                <parametro nombre="arraycargos" tipo="array"/>
+                <parametro nombre="arrayconceptospd" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerDatosPagosAdicionalesCargo>
+
+        <!--SERVICIO QUE DEVUELVE LOS IMPORES DE LOS PAGOS ADICIONALES DE LOS CARGOS Y LAS PERSONAS
+		-->
+        <obtenerDatosPagosAdicionalesCargoyPersona reference="nomina">
+            <inyector clase="NominaService" metodo="obtenerDatosPagosAdicionalesCargoyPersona"/>
+            <prototipo>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <parametro nombre="arrayIdsPersonas" tipo="array"/>
+                <parametro nombre="arrayconceptospd" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerDatosPagosAdicionalesCargoyPersona>
+        <!--SERVICIO QUE DEVUELVE LOS DATOS DEL CIERRE DEL MES PARA CONTABILIDAD-->
+        <obtenerDatosCierreNomina reference="nomina">
+            <inyector clase="NominaService" metodo="obtenerDatosCierreNomina"/>
+            <prototipo>
+                <parametro nombre="identidad" tipo="enteropos"/>
+                <parametro nombre="cajacajero" tipo="enteropos"/>
+                <!--1 CAJA, 2 CAJERO-->
+                <parametro nombre="codigomoneda" tipo="enteropos"/>
+                <!--CODIGO DE LA MONEDA-->
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerDatosCierreNomina>
+        <acualizarCuentasPorCobrarRetencionesDesdeCaja reference="nomina">
+            <inyector clase="NominaService" metodo="acualizarCuentasPorCobrarRetencionesDesdeCaja"/>
+            <prototipo>
+                <!--Id obligacion de la persona en Cobros y pagos para liquidar las retenciones que son cuentas por cobrar y se liquidaron desde caja-->
+                <parametro nombre="iddocumentoobligacion" tipo="enteropos"/>
+                <parametro nombre="montoliquidado" tipo="enteropos"/>
+
+                <resultado tipo="string"/>
+            </prototipo>
+        </acualizarCuentasPorCobrarRetencionesDesdeCaja>
+        <cancelarCuentasPorCobrarRetencionesDesdeCaja reference="nomina">
+            <inyector clase="NominaService" metodo="cancelarCuentasPorCobrarRetencionesDesdeCaja"/>
+            <prototipo>
+                <!--Id obligacion de la persona en Cobros y pagos para liquidar las retenciones que son cuentas por cobrar y se liquidaron desde caja-->
+                <parametro nombre="iddocumentoobligacion" tipo="enteropos"/>
+                <parametro nombre="importe" tipo="enteropos"/>
+
+                <resultado tipo="string"/>
+            </prototipo>
+        </cancelarCuentasPorCobrarRetencionesDesdeCaja>
+
+	  <cancelarReintegrosDesdeFinanzas reference="nomina">
+            <inyector clase="NominaService" metodo="cancelarReintegrosDesdeFinanzas"/>
+            <prototipo>
+                <!--Servicio para cancelar operaciones del submayor de reintegro a partir de finanzas-->
+                <parametro nombre="arraydatos" tipo="array"/>
+                <parametro nombre="operacion" tipo="enteropos"/>
+
+                <resultado tipo="bool"/>
+            </prototipo>
+        </cancelarReintegrosDesdeFinanzas >	
+
+        <obtenerCCostoPersona reference="nomina">
+            <inyector clase="NominaService" metodo="obtenerCCostoPersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <parametro nombre="identidad" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerCCostoPersona>
+
+        <!--SERVICIO QUE ACTUALIZA EL SUBMAYOR DE REINTEGROS DESDE BANCO-->
+        <actualizarSubmayorReintegro reference="nomina">
+            <inyector clase="NominaService" metodo="actualizarSubmayorReintegro"/>
+            <prototipo>
+                <parametro nombre="objCierre" tipo="array"/>
+                <parametro nombre="objMoneda" tipo="array"/>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </actualizarSubmayorReintegro>
+
+        <!--SERVICIO QUE DEVUELVE LOS SALDOS DE LAS VACACIONES DE LAS PERSONAS DADOS LOS DIAS HABILES-->
+        <buscarsaldosVacacionesPersonas reference="nomina">
+            <inyector clase="NominaService" metodo="buscarsaldosVacacionesPersonas"/>
+            <prototipo>
+                <parametro nombre="arraypersonas" tipo="array"/>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </buscarsaldosVacacionesPersonas>
+
+        <getDiasImpAcumuladosVacPersEntidad reference="nomina">
+            <inyector clase="NominaService" metodo="getDiasImpAcumuladosVacPersEntidad"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDiasImpAcumuladosVacPersEntidad>
+
+		<obtenerSaldosVacacionesPersonaEntidadMesAnno reference="nomina">
+            <inyector clase="NominaService" metodo="obtenerSaldosVacacionesPersonaEntidadMesAnno"/>
+            <prototipo>
+                <parametro nombre="arraypersona" tipo="array"/>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <parametro nombre="mes" tipo="enteropos"/>
+                <parametro nombre="anno" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerSaldosVacacionesPersonaEntidadMesAnno>
+
+        <obtenerUltimoCierreSalarioEntidad reference="nomina">
+            <inyector clase="NominaService" metodo="obtenerUltimoCierreSalarioEntidad"/>
+            <prototipo>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerUltimoCierreSalarioEntidad>
+
+        <CerrarPeriodoNomina reference="nomina">
+            <inyector clase="NominaService" metodo="CerrarPeriodo"/>
+            <prototipo>
+                <parametro nombre="idfechacierre" tipo="enteropos"/>
+                <parametro nombre="cajacajero" tipo="enteropos"/>
+                <parametro nombre="cerrar" tipo="enteropos"/>
+                <parametro nombre="objMoneda" tipo="array"/>
+                <parametro nombre="perosnasCaja" tipo="array"/>
+
+                <resultado tipo="array"/>
+            </prototipo>
+        </CerrarPeriodoNomina>
+
+        <obtenerFechasCierresPeriodos reference="nomina">
+            <inyector clase="NominaService" metodo="obtenerFechasCierresPeriodos"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="array"/>
+
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerFechasCierresPeriodos>
+
+        <obtenerSalarioFechaCierrePeriodosPersona reference="nomina">
+            <inyector clase="NominaService" metodo="obtenerSalarioFechaCierrePeriodosPersona"/>
+            <prototipo>
+                <parametro nombre="arrayidfechascierre" tipo="array"/>
+                <parametro nombre="arraypersonas" tipo="array"/>
+
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerSalarioFechaCierrePeriodosPersona>
+
+        <!--FIN-->
+        <!--Servicios de la V 2.0 de Persona-->
+        <!--Servicio que devuelve los datos para el jabber-->
+        <obtenerDatosdePersonaparaJabber reference="persona">
+            <inyector clase="PersonaService" metodo="getDatosToJabber"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerDatosdePersonaparaJabber>
+        <!--Servicio que devuelve la foto de la persona-->
+        <obtenerFotoPersona reference="persona">
+            <inyector clase="PersonaService" metodo="getFotoToPersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerFotoPersona>
+        <!--Servicio que devuelve los datos para el jabber-->
+        <mostrarIUPerfilSeguridadPersona reference="persona">
+            <inyector clase="PersonaService" metodo="mostrarIUPerfilSeguridadPersona"/>
+            <prototipo>
+                <resultado tipo="string"/>
+            </prototipo>
+        </mostrarIUPerfilSeguridadPersona>
+        <!--Servicio que devuelve la interfaz de buscar persona
+		-->
+        <mostrarIUBuscarPersona reference="persona">
+            <inyector clase="PersonaService" metodo="mostrarIUBuscarPersona"/>
+            <prototipo>
+                <resultado tipo="string"/>
+            </prototipo>
+        </mostrarIUBuscarPersona>
+        <!--Agrega sencitas Dql a datos de la persona-->
+        <agregarDqlDatosPersona reference="persona">
+            <inyector clase="PersonaService" metodo="agregarDqlDatosPersona"/>
+            <prototipo>
+                <parametro nombre="objDoctrineQuery" clase="Doctrine_Query"/>
+                <parametro nombre="aliasReferenceTable" tipo="numerosletras"/>
+                <parametro nombre="aliasTable" tipo="numerosletras"/>
+                <parametro nombre="includeDqlSelect" tipo="bool"/>
+                <parametro nombre="includeTablas" tipo="array"/>
+                <parametro nombre="relacion" tipo="string"/>
+                <resultado tipo="Doctrine_Query"/>
+            </prototipo>
+        </agregarDqlDatosPersona>
+        <!--Servicio para obtener principales datos de la persona dado arry ids persona
+		-->
+        <BuscarPersonaPorArreglodeID reference="persona">
+            <inyector clase="PersonaService" metodo="BuscarPersonasArregloId"/>
+            <prototipo>
+                <parametro nombre="arrIdPersonas" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </BuscarPersonaPorArreglodeID>
+
+        <getPersonaBuscador reference="persona">
+            <inyector clase="PersonaByFiltros" metodo="getPersonaFiltro"/>
+            <prototipo>
+                <parametro nombre="personaBasicData" tipo="bool"/>
+                <resultado tipo="PersonaByFiltros"/>
+            </prototipo>
+        </getPersonaBuscador>
+
+        <getPrincipalesDatosPersona reference="persona">
+            <inyector clase="PersonaService" metodo="getPrincipalesDatosPersona"/>
+            <prototipo>
+                <parametro nombre="arridPersona" tipo="array" default=""/>
+                <parametro nombre="filtro" tipo="string" default=""/>
+                <parametro nombre="limit" tipo="enterospos" default=""/>
+                <parametro nombre="start" tipo="enterospos" default=""/>
+                <parametro nombre="identidad" tipo="array" default=""/>
+                <parametro nombre="idcargo" tipo="array" default=""/>
+                <parametro nombre="idestructura" tipo="enterospos" default=""/>
+                <parametro nombre="boolfoto" tipo="string" default=""/>
+                <parametro nombre="boolcargo" tipo="string" default=""/>
+                <parametro nombre="boolcategoria" tipo="string" default=""/>
+                <parametro nombre="boolregimen" tipo="string" default=""/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getPrincipalesDatosPersona>
+
+        <getPrincipalesDatosPersonaEvaluaciones reference="persona">
+            <inyector clase="PersonaService" metodo="getPrincipalesDatosPersonaEvaluaciones"/>
+            <prototipo>
+                <parametro nombre="arridPersona" tipo="array" default=""/>
+                <parametro nombre="filtro" tipo="string" default=""/>
+                <parametro nombre="limit" tipo="enterospos" default=""/>
+                <parametro nombre="start" tipo="enterospos" default=""/>
+                <parametro nombre="identidad" tipo="array" default=""/>
+                <parametro nombre="idcargo" tipo="array" default=""/>
+                <parametro nombre="idestructura" tipo="enterospos" default=""/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getPrincipalesDatosPersonaEvaluaciones>
+
+        <getDatosFenotipicosPersona reference="persona">
+            <inyector clase="PersonaService" metodo="getDatosFenotipicosPersona"/>
+            <prototipo>
+                <parametro nombre="arridPersona" tipo="array" default=""/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDatosFenotipicosPersona>
+
+        <getDatosAfiliacionPersona reference="persona">
+            <inyector clase="PersonaService" metodo="getDatosIntegracionPoliticaPersona"/>
+            <prototipo>
+                <parametro nombre="arridPersona" tipo="array" default=""/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDatosAfiliacionPersona>
+
+        <addPersona reference="persona">
+            <inyector clase="PersonaService" metodo="addPersona"/>
+            <prototipo>
+                <parametro nombre="persona" tipo="array"/>
+                <parametro nombre="foto" tipo="array"/>
+                <resultado tipo="enterospos"/>
+            </prototipo>
+        </addPersona>
+
+        <getNomencladores reference="persona">
+            <inyector clase="ProyectoService" metodo="getNomencladores"/>
+            <prototipo>
+                <parametro nombre="idnomenclador" tipo="enterospos"/>
+                <parametro nombre="filtro" tipo="string"/>
+                <parametro nombre="limit" tipo="enterospos"/>
+                <parametro nombre="start" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getNomencladores>
+
+        <getConceptosyCampos reference="persona">
+            <inyector clase="ProyectoService" metodo="getConceptAndCampos"/>
+            <prototipo>
+                <parametro nombre="idproyecto" tipo="string"/>
+                <parametro nombre="idproyectoconcepto" tipo="enterospos"/>
+                <parametro nombre="widthChecks" tipo="bool"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getConceptosyCampos>
+
+        <loadTreeConcept reference="persona">
+            <inyector clase="ProyectoService" metodo="loadTreeConcept"/>
+            <prototipo>
+                <parametro nombre="idproyecto" tipo="string" default="siac"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </loadTreeConcept>
+
+
+        <getDatosFormConceptosyCampos reference="persona">
+            <inyector clase="ProyectoService" metodo="getDatosFormConceptosyCampos"/>
+            <prototipo>
+                <parametro nombre="id" tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDatosFormConceptosyCampos>
+        <!--Devuelve los valores de una persona dado el campo del concepto
+		-->
+        <getDataByCampo reference="persona">
+            <inyector clase="ProyectoService" metodo="getDataByCampo"/>
+            <prototipo>
+                <parametro nombre="id" tipo="array"/>
+                <parametro nombre="param" tipo="array"/>
+                <parametro nombre="idtupla" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDataByCampo>
+
+        <getDataByCampoPersona reference="persona">
+            <inyector clase="ProyectoService" metodo="getDataByCampoPersona"/>
+            <prototipo>
+                <parametro nombre="id" tipo="array"/>
+                <parametro nombre="idpersona" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDataByCampoPersona>
+
+        <getPrincipalesDatosPersonaSIAC reference="persona">
+            <inyector clase="PersonaSiacService" metodo="getPrincipalesDatosPersonaSIAC"/>
+            <prototipo>
+                <parametro nombre="arridPersona" tipo="array"/>
+                <parametro nombre="filtro" tipo="string"/>
+                <parametro nombre="limit" tipo="enterospos"/>
+                <parametro nombre="start" tipo="enterospos"/>
+                <parametro nombre="identidad" tipo="array"/>
+                <parametro nombre="idcargo" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getPrincipalesDatosPersonaSIAC>
+
+        <getDatosBasicosByIdPersona reference="persona">
+            <inyector clase="PersonaSiacService" metodo="getDatosBasicosByIdPersona"/>
+            <prototipo>
+                <parametro nombre="arridPersona" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDatosBasicosByIdPersona>
+
+        <getDocIdentidadPrincipal reference="persona">
+            <inyector clase="DocIdentidadService" metodo="getDocIdentidadPrincipal"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enterospos"/>
+                <parametro nombre="principal" tipo="enterospos" default="1"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDocIdentidadPrincipal>
+
+        <setDocIdentidad reference="persona">
+            <inyector clase="DocIdentidadService" metodo="setDocIdentidad"/>
+            <prototipo>
+                <parametro nombre="iddocidentidad" tipo="enterospos"/>
+                <parametro nombre="datos" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </setDocIdentidad>
+
+
+        <!--SERVICIOS DE SIAC DE INTEGRACION ENTRE ORDENES Y RESOLUCIONES CON PERSONA-->
+        <setGradoMilitar reference="persona">
+            <inyector clase="PersonaSiacService" metodo="setGradoMilitar"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="numerico"/>
+                <parametro nombre="grado" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </setGradoMilitar>
+
+        <setTrayectoriaLaboral reference="persona">
+            <inyector clase="PersonaSiacService" metodo="setTrayectoriaLaboral"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="numerico"/>
+                <parametro nombre="trayectoria" tipo="array"/>
+                <parametro nombre="idpersonaocupa" tipo="numerico"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </setTrayectoriaLaboral>
+
+        <updateSituacionServicio reference="persona">
+            <inyector clase="PersonaSiacService" metodo="updateSituacionServicio"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="numerico"/>
+                <parametro nombre="situacion" tipo="letras"/>
+                <parametro nombre="desde" tipo="date"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </updateSituacionServicio>
+
+        <getOcupacionByPersona reference="persona">
+            <inyector clase="PersonaSiacService" metodo="updateSituacionServicio"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="numerico"/>
+                <parametro nombre="situacion" tipo="letras"/>
+                <parametro nombre="desde" tipo="date"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getOcupacionByPersona>
+
+        <getFicherosRegistroPersona reference="persona">
+            <inyector clase="PersonaLuchaService" metodo="getFicherosRegistroPersona"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getFicherosRegistroPersona>
+
+
+        <!--SERVICIOS DE LUCHA-->
+        <damePersonasporEstructuras reference="persona">
+            <inyector clase="PersonaLuchaService" metodo="getDatosBasicosById"/>
+            <prototipo>
+                <parametro nombre="arridEstructua" tipo="array"/>
+                <parametro nombre="arridPersona" tipo="array"/>
+                <parametro nombre="filtro" tipo="string"/>
+                <parametro nombre="limit" tipo="enterospos" default="15"/>
+                <parametro nombre="start" tipo="enterospos" default="0"/>
+                <resultado tipo="array"/>
+            </prototipo>
+
+        </damePersonasporEstructuras>
+
+        <eliminarPorIdpersonaIdestructura reference="persona">
+            <inyector clase="PersonaLuchaService" metodo="eliminarPorIdpersonaIdestructura"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enterospos"/>
+                <parametro nombre="idestructura" tipo="enterospos"/>
+                <resultado tipo="bool"/>
+            </prototipo>
+        </eliminarPorIdpersonaIdestructura>
+
+        <!--Servicio que devuelve el sql para la compartimentacion de las personas en rcomplejas por usuario-->
+        <getSqlUserCompartimentacionPersona reference="maestro/compartimentacion">
+            <inyector clase="CompartimentacionService" metodo="getSqlUserCompartimentacionPersona"/>
+            <prototipo>	
+                <parametro nombre="idusuario" tipo="array"/>		    
+                <resultado tipo="string"/>
+            </prototipo>
+        </getSqlUserCompartimentacionPersona>
+
+
+        <getCategoriasPersona reference="persona">
+            <inyector clase="NomencladoresPersonaService" metodo="getNomCategorias"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getCategoriasPersona>
+
+        <!-- Servicio para el componente buscar persona para PGM -->
+        <mostrarIUBuscadorPersonaPGM reference="persona">
+            <inyector clase="PersonaService" metodo="mostrarIUBuscadorPersonaPGM"/>
+            <prototipo>
+                <resultado tipo="string"/>
+            </prototipo>
+        </mostrarIUBuscadorPersonaPGM>
+        <!-- Servicio para el componente ficha persona para PGM que devuelve vista -->
+        <mostrarIUFichaPersonaPGM reference="persona">
+            <inyector clase="PersonaService" metodo="mostrarIUFichaPersonaPGM"/>
+            <prototipo>
+                <resultado tipo="string"/>
+            </prototipo>
+        </mostrarIUFichaPersonaPGM>
+        <!-- Servicio para el componente experto para PGM que devuelve vista -->
+        <mostrarIUExpertoPGM reference="persona">
+            <inyector clase="PersonaService" metodo="mostrarIUExpertoPGM"/>
+            <prototipo>
+                <resultado tipo="string"/>
+            </prototipo>
+        </mostrarIUExpertoPGM>
+        <!-- Servicio para PGM que devuelve personas de distintas fuentes -->
+        <buscarPersonasEnFuente reference="persona">
+            <inyector clase="PersonaService" metodo="buscarPersonasEnFuente"/>
+            <prototipo>
+                <parametro nombre="params" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </buscarPersonasEnFuente>
+        <!-- Servicio para PGM que devuelve los idcargo de las personas de distintas fuentes dado los numid-->
+        <buscarIdsCargosporNumidEnFuente reference="persona">
+            <inyector clase="PersonaService" metodo="BuscarIdsCargosporNumidEnFuente"/>
+            <prototipo>
+                <parametro nombre="idfuenteinfo" tipo="string"/>
+                <parametro nombre="arraynumid" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </buscarIdsCargosporNumidEnFuente>
+        <!-- Servicio para PGM que devuelve personas por entidades y cargo -->
+        <buscarPersonasXidentidadidcargo reference="persona">
+            <inyector clase="PersonaService" metodo="buscarPersonasXidentidadidcargo"/>
+            <prototipo>
+                <parametro nombre="arrayidentidades" tipo="array"/>
+                <parametro nombre="arrayidcargos" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </buscarPersonasXidentidadidcargo>
+        <!-- Servicio para el componente tribunales para PGM que devuelve vista-->
+        <mostrarIUTribunalesDetalles reference="persona">
+            <inyector clase="PersonaService" metodo="mostrarIUTribunalesDetalles"/>
+            <prototipo>
+                <resultado tipo="string"/>
+            </prototipo>
+        </mostrarIUTribunalesDetalles>
+        <!-- Servicio para el componente tribunales para PGM que devuelve datos-->
+        <getDatosServicioTribunales reference="persona">
+            <inyector clase="PersonaService" metodo="buscarDatosTribunales"/>
+            <prototipo>
+                <parametro nombre="numid" tipo="array"/>
+                <parametro nombre="focurrencia" tipo="date"/>
+                <parametro nombre="sintesis" tipo="string"/>
+                <parametro nombre="boolfp" tipo="bool"/>
+                <parametro nombre="boolacusado" tipo="bool"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDatosServicioTribunales>
+        <!-- Servicio para el componente fiscalia para PGM que devuelve vista -->
+        <mostrarIUFiscaliaDetalles reference="persona">
+            <inyector clase="PersonaService" metodo="mostrarIUFiscaliaDetalles"/>
+            <prototipo>
+                <resultado tipo="string"/>
+            </prototipo>
+        </mostrarIUFiscaliaDetalles>
+        <!-- Servicio para el componente fiscalia para PGM que devuelve datos -->
+        <getDatosFiscalia reference="persona">
+            <inyector clase="PersonaService" metodo="getDatosFiscalia"/>
+            <prototipo>
+                <parametro nombre="numid" tipo="array"/>
+                <parametro nombre="focurrencia" tipo="date"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDatosFiscalia>
+        <!-- Servicio para el componente ficha persona SIAC para PGM que devuelve PDF -->
+        <getFichaPersonaSIACPDF reference="persona">
+            <inyector clase="PersonaService" metodo="cargarFichaSIACPDF"/>
+            <prototipo>
+                <parametro nombre="numid" tipo="enterospos"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getFichaPersonaSIACPDF>
+        <!-- Servicio para el componente ficha persona SIAC para PGM que devuelve vista -->
+        <mostrarIUFichaPersonaSIAC reference="persona">
+            <inyector clase="PersonaService" metodo="mostrarIUFichaPersonaSIAC"/>
+            <prototipo>
+                <resultado tipo="string"/>
+            </prototipo>
+        </mostrarIUFichaPersonaSIAC>
+        <!-- Servicio para PGM que devuelve los datos de contacto de las personas de SIAC -->
+        <getDatosContactoSIAC reference="persona">
+            <inyector clase="PersonaService" metodo="getDatosContactoSIAC"/>
+            <prototipo>
+                <parametro nombre="arraynumid" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDatosContactoSIAC>
+        <obtenerDatosContacto reference="persona">
+            <inyector clase="PersonaService" metodo="obtenerDatosContacto"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerDatosContacto>
+
+        <getPersonasSL reference="movimientoslaborales">
+            <inyector clase="MovimientoslaboralesService" metodo="getSituacionesLaborales"/>
+            <prototipo>
+                <parametro nombre="filtro" tipo="enteropos"/>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <parametro nombre="idcargo" tipo="enteropos"/>
+                <parametro nombre="inicio" tipo="enteropos"/>
+                <parametro nombre="limite" tipo="enteropos"/>
+                <parametro nombre="activo" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getPersonasSL>
+
+        <!-- SERVICIOS PARA FARMACIA -->
+        <!--Adicionar-->
+        <addPersonaFarmacia reference="persona">
+            <inyector clase="PersonaFarmaciaService" metodo="addPersonaFarmacia"/>
+            <prototipo>
+                <parametro nombre="datospersona" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </addPersonaFarmacia>
+        <!--Obtener-->
+        <getPersonaFarmacia reference="persona">
+            <inyector clase="PersonaFarmaciaService" metodo="getPersonaFarmacia"/>
+            <prototipo>
+                <parametro nombre="numid" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getPersonaFarmacia>
+    </pvd>
+    <!-- Fin de los servicos externos de PVD -->
+
+    <!--Servicios Internos del Subsistema Persona V2-->
+    <persona src="pvd/persona">
+        <getCategoria reference="">
+            <inyector clase="PersonaService" metodo="getCategoriaPersona"/>
+            <prototipo>
+                <parametro nombre="idPersona" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getCategoria>
+
+        <getDireccionesByPersona reference="">
+            <inyector clase="PersonaService" metodo="getDireccionesByPersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="array"/>
+                <parametro nombre="filtro" tipo="string"/>
+                <parametro nombre="limit" tipo="enterospos"/>
+                <parametro nombre="start" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDireccionesByPersona>
+
+        <getDocIdentidadByPersona reference="">
+            <inyector clase="PersonaService" metodo="getDocIdentidadByPersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="array"/>
+                <parametro nombre="filtro" tipo="string"/>
+                <parametro nombre="limit" tipo="enterospos"/>
+                <parametro nombre="start" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDocIdentidadByPersona>
+
+        <obtenerNacionalidades reference="">
+            <inyector clase="PersonaService" metodo="obtenerNacionalidades"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerNacionalidades>
+
+        <obtenerCiudadanias reference="">
+            <inyector clase="PersonaService" metodo="obtenerCiudadanias"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerCiudadanias>
+
+        <obtenerIdiomas reference="">
+            <inyector clase="PersonaService" metodo="getLanguageByIdperson"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerIdiomas>
+
+        <getTallajesByPersona reference="">
+            <inyector clase="PersonaService" metodo="getTallajesByPersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getTallajesByPersona>
+
+        <getMediosByPerson reference="">
+            <inyector clase="PersonaService" metodo="getMediosByPerson"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getMediosByPerson>
+
+        <obtenerIngresoPorPersona reference="">
+            <inyector clase="PersonaService" metodo="obtenerIngresoPorPersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerIngresoPorPersona>
+
+        <getObservacion reference="">
+            <inyector clase="PersonaService" metodo="getObservacion"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getObservacion>
+
+        <getTrayectoriaLaboralByPersona reference="">
+            <inyector clase="PersonaService" metodo="getTrayectoriaLaboralByPersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getTrayectoriaLaboralByPersona>
+
+        <getSitDefensaByPersona reference="">
+            <inyector clase="PersonaService" metodo="getSitDefensaByPersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getSitDefensaByPersona>
+
+        <getSituacExcep reference="">
+            <inyector clase="PersonaService" metodo="getSituacExcep"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getSituacExcep>
+
+        <getSancionesByPersona reference="">
+            <inyector clase="PersonaService" metodo="getSancionesByPersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getSancionesByPersona>
+        <getCondecoracionesByPersona reference="">
+            <inyector clase="PersonaService" metodo="getCondecoracionesByPersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getCondecoracionesByPersona>
+        <getEducacionByPersona reference="">
+            <inyector clase="PersonaService" metodo="getEducacionByPersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getEducacionByPersona>
+        <getNivelEduByPersona reference="">
+            <inyector clase="PersonaService" metodo="getNivelEduByPersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getNivelEduByPersona>
+        <getCategoriasByPersona reference="">
+            <inyector clase="PersonaService" metodo="getCategoriasByPersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getCategoriasByPersona>
+
+        <getAfiliacionesByPersona reference="">
+            <inyector clase="PersonaService" metodo="getAfiliacionesByPersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getAfiliacionesByPersona>
+
+        <addDQLPersona reference="">
+            <inyector clase="PersonaService" metodo="addDQLPersona"/>
+            <prototipo>
+                <parametro nombre="objDQL" tipo="Doctrine_Query"/>
+                <parametro nombre="aTR" tipo="string"/>
+                <parametro nombre="aliasTablas" tipo="string"/>
+                <parametro nombre="typeR" tipo="string"/>
+                <parametro nombre="inDQL" tipo="bool"/>
+                <parametro nombre="inOT" tipo="bool"/>
+                <resultado tipo="Doctrine_Query"/>
+            </prototipo>
+        </addDQLPersona>
+
+        <addSelectDQLPersona reference="persona">
+            <inyector clase="PersonaService" metodo="addSelectDQLPersona"/>
+            <prototipo>
+                <parametro nombre="objDQ" tipo="Doctrine_Query"/>
+                <parametro nombre="aliasTablas" tipo="array"/>
+                <parametro nombre="inOT" tipo="bool"/>
+                <resultado tipo="Doctrine_Query"/>
+            </prototipo>
+        </addSelectDQLPersona>
+
+        <addDQLRegimenTrabajo reference="">
+            <inyector clase="RegimenTrabajoService" metodo="addDQLRegimenTrabajo"/>
+            <prototipo>
+                <parametro nombre="objDQL" tipo="Doctrine_Query"/>
+                <parametro nombre="aTR" tipo="string"/>
+                <parametro nombre="aT" tipo="string"/>
+                <parametro nombre="typeR" tipo="string"/>
+                <parametro nombre="inDQL" tipo="bool"/>
+                <resultado tipo="Doctrine_Query"/>
+            </prototipo>
+        </addDQLRegimenTrabajo>
+
+        <!--Servicio que inyecta al objecto Doctrine las tablas de la ocupacion acutal
+		   Doctrine_Query objDQ : objeto de doctrine para establecer la relacion (es tratado como un variable por referencia)
+		   String aTR : alia de la tabla que va a establecer relacion
+		   Array aliasTablas : arreglo de alias para las tablas internas por si se desea definir para otro uso Ejem: array('dpe0', 'dsl0', 'nst0') solo 3 valores
+		   String typeR : tipo de relacion leftjoin o innerjoin
+		   Bool active : true para los datos actuales y false todos los datos historicos incluidos
+		   Bool inDQL : agregar los select
+		   Bool inOT : agregar relaciones internar para obtener mayor cantidad de datos
+		-->
+        <addDQLOcupacion reference="persona">
+            <inyector clase="OcupacionService" metodo="addDQLOcupacion"/>
+            <prototipo>
+                <parametro nombre="objDQ" tipo="Doctrine_Query"/>
+                <parametro nombre="aTR" tipo="string"/>
+                <parametro nombre="aliasTablas" tipo="array"/>
+                <parametro nombre="typeR" tipo="string"/>
+                <parametro nombre="active" tipo="bool"/>
+                <parametro nombre="inDQL" tipo="bool"/>
+                <parametro nombre="inOT" tipo="bool"/>
+                <resultado tipo="Doctrine_Query"/>
+            </prototipo>
+        </addDQLOcupacion>
+
+        <!--Servicio que inyecta al objecto Doctrine los select de la relacion con las 3 tablas que conforman la ocupacion
+		   Doctrine_Query objDQ : objeto de doctrine para establecer la relacion (es tratado como un variable por referencia)
+		   Array aliasTablas : arreglo de alias para las tablas internas por si se desea definir para otro uso Ejem: array('dpe0', 'dsl0', 'nst0') solo 3 valores
+		   Bool inOT : agregar select y relaciones internar para obtener mayor cantidad de datos
+		-->
+        <addSelectDQLOcupacion reference="persona">
+            <inyector clase="OcupacionService" metodo="addDQLOcupacion"/>
+            <prototipo>
+                <parametro nombre="objDQ" tipo="Doctrine_Query"/>
+                <parametro nombre="aliasTablas" tipo="array"/>
+                <parametro nombre="inOT" tipo="bool"/>
+                <resultado tipo="Doctrine_Query"/>
+            </prototipo>
+        </addSelectDQLOcupacion>
+
+        <!--Servicio para sincronizar cualquier clase del dominion de Persona con una Tabla que tenga relacion con ellas-->
+        <syncClasesDomain reference="">
+            <inyector clase="PersonaService" metodo="syncClasesDomain"/>
+            <prototipo>
+                <parametro nombre="objDoctrineQuery" clase="Doctrine_Query"/>
+                <!--Formato del array
+				array(
+					array(
+						'union'=>'leftjoin',
+						'relacion'=>'dcomi.DatPersona dp'
+					),
+					array(
+						'union'=>'innerjoin',
+						'relacion'=>'dp.DatCategorizacion dcateg'
+					)
+				)-->
+                <parametro nombre="arrClases" tipo="array"/>
+                <resultado tipo="Doctrine_Query"/>
+            </prototipo>
+        </syncClasesDomain>
+
+        <!--Servicio para obtener los conceptos y campos dado un proyecto de Persona-->
+        <getConceptosyCampos reference="">
+            <inyector clase="ProyectoService" metodo="getConceptAndCampos"/>
+            <prototipo>
+                <parametro nombre="idproyecto" tipo="string"/>
+                <parametro nombre="idproyectoconcepto" tipo="enterospos"/>
+                <parametro nombre="widthChecks" tipo="bool"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getConceptosyCampos>
+
+        <!--Devuelve la denominacion del campo y el concepto al que pertenece-->
+        <getDatosFormConceptosyCampos reference="">
+            <inyector clase="ProyectoService" metodo="getDatosFormConceptosyCampos"/>
+            <prototipo>
+                <parametro nombre="id" tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDatosFormConceptosyCampos>
+
+        <!--Devuelve los nomecladores registrados-->
+        <getNomencladores reference="">
+            <inyector clase="ProyectoService" metodo="getNomencladores"/>
+            <prototipo>
+                <parametro nombre="idnomenclador" tipo="enterospos"/>
+                <parametro nombre="filtro" tipo="string"/>
+                <parametro nombre="limit" tipo="enterospos"/>
+                <parametro nombre="start" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getNomencladores>
+
+        <!--Devuelve los datos del nomenclador dado su id-->
+        <getDataByNomenclador reference="">
+            <inyector clase="ProyectoService" metodo="getDataByNomenclador"/>
+            <prototipo>
+                <parametro nombre="idnomenclador" tipo="enterospos"/>
+                <parametro nombre="param" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDataByNomenclador>
+
+        <!--Devuelve los valores de una persona dado el campo del concepto-->
+        <getDataByCampo reference="">
+            <inyector clase="ProyectoService" metodo="getDataByCampo"/>
+            <prototipo>
+                <parametro nombre="id" tipo="array"/>
+                <parametro nombre="param" tipo="array"/>
+                <parametro nombre="idtupla" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDataByCampo>
+
+        <!--Servicio que obtiene los datos del nomenclador tipo documento de identidad-->
+        <getNomTipoDocumentoIdentidad reference="">
+            <inyector clase="NomencladoresPersonaService" metodo="getNomTipoDocumentoIdentidad"/>
+            <prototipo>
+                <parametro nombre="start" tipo="enterospos"/>
+                <parametro nombre="limit" tipo="enterospos"/>
+                <parametro nombre="filtro" tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getNomTipoDocumentoIdentidad>
+
+        <!--Servicio que obtiene datos de nomenclador tipo documento de identidad dado idtipodocidentidad-->
+        <getDatosNomTipoDocById reference="">
+            <inyector clase="NomencladoresPersonaService" metodo="getDatosNomTipoDocById"/>
+            <prototipo>
+                <parametro nombre="idtipodocidentidad" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDatosNomTipoDocById>
+
+        <!--Servicio que obtiene todos los datos activos del nomenclador categorias-->
+        <getNomCategorias reference="">
+            <inyector clase="NomencladoresPersonaService" metodo="getNomCategorias"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getNomCategorias>
+        <!--Servicio que obtiene todos los datos activos que sean padres generales del nomenclador categorias-->
+        <getNomCategoriasPadres reference="">
+            <inyector clase="NomencladoresPersonaService" metodo="getNomCategoriasPadres"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getNomCategoriasPadres>
+
+        <!--Servicion que obtiene las cuentas bancarias-->
+        <getCuentaBancaria reference="">
+            <inyector clase="PersonaService" metodo="getCuentaBancaria"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="array"/>
+                <parametro nombre="limit" tipo="enterospos"/>
+                <parametro nombre="start" tipo="enterospos"/>
+                <!--Parametro all: 0-Todos, 1-> Cuentas activas 2-> Cuentas caducadas-->
+                <parametro nombre="all" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getCuentaBancaria>
+
+        <!--Servicio que obtien los datos de la categoría dado idcategorizacion-->
+        <getNomCategoriaById reference="">
+            <inyector clase="NomencladoresPersonaService" metodo="getNomCategoriaById"/>
+            <prototipo>
+                <parametro nombre="idcategoria" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getNomCategoriaById>
+
+        <!--Servicio que obtien los datos de la situacion de la persona dado el id o el alia-->
+        <getSituacionByIds reference="">
+            <inyector clase="NomencladoresPersonaService" metodo="getSituacionByIds"/>
+            <prototipo>
+                <parametro nombre="id" tipo="string"/>
+                <parametro nombre="limit" tipo="enterospos"/>
+                <parametro nombre="start" tipo="enterospos"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </getSituacionByIds>
+
+        <!--Servicios del proyecto Cayo Coco-->
+        <!--Servicio que obtiene el cargo actual de la persona dado id de entidad-->
+        <getOcupacionActualPersonaXEntidad reference="">
+            <inyector clase="PersonaCayoService" metodo="getOcupacionActualPersonaXEntidad"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <parametro nombre="identidad" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getOcupacionActualPersonaXEntidad>
+
+        <!--Servicios del proyecto SIAC-->
+        <!--Servicio que obtiene los datos principales de la persona dado array ids de persona para el Subsistema de SIAC-->
+        <getPrincipalesDatosPersonaSIAC reference="">
+            <inyector clase="PersonaSiacService" metodo="getPrincipalesDatosPersonaSIAC"/>
+            <prototipo>
+                <parametro nombre="arridPersona" tipo="array"/>
+                <parametro nombre="filtro" tipo="string"/>
+                <parametro nombre="limit" tipo="enterospos"/>
+                <parametro nombre="start" tipo="enterospos"/>
+                <parametro nombre="identidad" tipo="array"/>
+                <parametro nombre="idcargo" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getPrincipalesDatosPersonaSIAC>
+
+        <getDocIdentidadPrincipal reference="">
+            <inyector clase="DocIdentidadService" metodo="getPrincipalesDatosPersonaSIAC"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enterospos"/>
+                <parametro nombre="principal" tipo="enterospos" default="1"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDocIdentidadPrincipal>
+
+        <!--Servicio que obtiene los datos principales de la persona dado array ids de persona-->
+        <getRegimenByPerson reference="">
+            <inyector clase="PersonaService" metodo="getRegimenByPerson"/>
+            <prototipo>
+                <parametro nombre="arridPersona" tipo="array"/>
+                <parametro nombre="filtro" tipo="string"/>
+                <parametro nombre="limit" tipo="enterospos"/>
+                <parametro nombre="start" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getRegimenByPerson>
+
+        <saveRegimentrabajoMasivo reference="">
+            <inyector clase="RegimenTrabajoService" metodo="saveRegimentrabajoMasivo"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="array"/>
+                <parametro nombre="idregimentrabajo" tipo="enterospos"/>
+                <parametro nombre="idgrupodescanso" tipo="enterospos"/>
+                <!--<parametro nombre="idturnotrabajo" tipo="enterospos"/>-->
+                <parametro nombre="fdesde" tipo="string"/>
+                <resultado tipo="bool"/>
+            </prototipo>
+        </saveRegimentrabajoMasivo>
+
+        <obtenerCorreoByPers reference="">
+            <inyector clase="PersonaService" metodo="obtenerCorreoByPers"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="array"/>
+                <parametro nombre="todos" tipo="bool"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerCorreoByPers>
+
+        <!-- SERVICIOS PARA FARMACIA -->
+        <!--Adicionar-->
+        <addPersonaFarmacia reference="persona">
+            <inyector clase="PersonaFarmaciaService" metodo="addPersonaFarmacia"/>
+            <prototipo>
+                <parametro nombre="datospersona" tipo="array"/>
+                <resultado tipo="bool"/>
+            </prototipo>
+        </addPersonaFarmacia>
+        <!--Obtener-->
+        <getPersonaFarmacia reference="persona">
+            <inyector clase="PersonaFarmaciaService" metodo="getPersonaFarmacia"/>
+            <prototipo>
+                <parametro nombre="numid" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getPersonaFarmacia>
+    </persona>
+
+
+    <!--Servicios Internos del Subsistemas Evaluacion-->
+    <procesoevaluativo src="pvd/evaluaciones/procesoevaluativo">
+        <TipoProcesoEnUso reference="">
+            <inyector clase="definirprocesoService" metodo="TipoProcesoEnUso"/>
+            <prototipo>
+                <parametro nombre="idtipoprocesoevaluativo" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </TipoProcesoEnUso>
+        <getScriptFichaProcesoEval reference="">
+            <inyector clase="PrepararprocesoService" metodo="getScriptFichaProcesoEval"/>
+            <prototipo>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getScriptFichaProcesoEval>
+        <eliminarEvaluado reference="">
+            <inyector clase="PrepararprocesoService" metodo="eliminarEvaluado"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="numerospos"/>
+                <parametro nombre="idprocesoevaluadores" tipo="numerospos"/>
+                <parametroeliminarEvaluado nombre="idpreprocesoevaluativo" tipo="numerospos"/>
+                <resultado tipo="bool"/>
+            </prototipo>
+        </eliminarEvaluado>
+        <adicionarEvaluado reference="">
+            <inyector clase="PrepararprocesoService" metodo="adicionarEvaluado"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="numerospos"/>
+                <parametro nombre="idpreprocesoevaluativo" tipo="numerospos"/>
+                <parametro nombre="idprocesoevaluadores" tipo="numerospos"/>
+                <resultado tipo="bool"/>
+            </prototipo>
+        </adicionarEvaluado>
+        <getIdEvaluadorProceso reference="">
+            <inyector clase="PrepararprocesoService" metodo="getIdEvaluadorProceso"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="numerospos"/>
+                <parametro nombre="idpreprocesoevaluativo" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getIdEvaluadorProceso>
+        <existePersonaSenalamiento reference="">
+            <inyector clase="senyalamientosService" metodo="existePersonaSenalamiento"/>
+            <prototipo>
+                <parametro nombre="idpreprocesoevaluativo" tipo="numerospos"/>
+                <parametro nombre="idrecurso" tipo="numerospos"/>
+                <parametro nombre="idsenyalamiento" tipo="numerospos"/>
+                <resultado tipo="bool"/>
+            </prototipo>
+        </existePersonaSenalamiento>
+        <eliminarPersonaSenalamiento reference="">
+            <inyector clase="senyalamientosService" metodo="eliminarPersonaSenalamiento"/>
+            <prototipo>
+                <parametro nombre="idpersonasenyalamientos" tipo="numerospos"/>
+                <resultado tipo="numerospos"/>
+            </prototipo>
+        </eliminarPersonaSenalamiento>
+        <adicionarPersonaSenalamiento reference="">
+            <inyector clase="senyalamientosService" metodo="adicionarPersonaSenalamiento"/>
+            <prototipo>
+                <parametro nombre="idsenyalamiento" tipo="numerospos"/>
+                <parametro nombre="idpreprocesoevaluativo" tipo="numerospos"/>
+                <parametro nombre="idrecurso" tipo="numerospos"/>
+                <resultado tipo="numerospos"/>
+            </prototipo>
+        </adicionarPersonaSenalamiento>
+        <existePersonaRecomendacion reference="">
+            <inyector clase="recomendacionesService" metodo="existePersonaRecomendacion"/>
+            <prototipo>
+                <parametro nombre="idpreprocesoevaluativo" tipo="numerospos"/>
+                <parametro nombre="idrecurso" tipo="numerospos"/>
+                <parametro nombre="idrecomendacion" tipo="numerospos"/>
+                <resultado tipo="bool"/>
+            </prototipo>
+        </existePersonaRecomendacion>
+        <eliminarPersonaRecomendacion reference="">
+            <inyector clase="recomendacionesService" metodo="eliminarPersonaRecomendacion"/>
+            <prototipo>
+                <parametro nombre="idpersonarecomendaciones" tipo="numerospos"/>
+                <resultado tipo="numerospos"/>
+            </prototipo>
+        </eliminarPersonaRecomendacion>
+        <adicionarPersonaRecomendacion reference="">
+            <inyector clase="recomendacionesService" metodo="adicionarPersonaRecomendacion"/>
+            <prototipo>
+                <parametro nombre="idrecomendacion" tipo="numerospos"/>
+                <parametro nombre="idpreprocesoevaluativo" tipo="numerospos"/>
+                <parametro nombre="idrecurso" tipo="numerospos"/>
+                <resultado tipo="numerospos"/>
+            </prototipo>
+        </adicionarPersonaRecomendacion>
+        <getCantPersonaSenalamiento reference="">
+            <inyector clase="senyalamientosService" metodo="getCantPersonaSenalamiento"/>
+            <prototipo>
+                <parametro nombre="idpreprocesoevaluativo" tipo="numerospos"/>
+                <parametro nombre="idrecurso" tipo="numerospos"/>
+                <resultado tipo="numerospos"/>
+            </prototipo>
+        </getCantPersonaSenalamiento>
+        <getPersonaSenalamiento reference="">
+            <inyector clase="senyalamientosService" metodo="getPersonaSenalamiento"/>
+            <prototipo>
+                <parametro nombre="idpreprocesoevaluativo" tipo="numerospos"/>
+                <parametro nombre="idrecurso" tipo="numerospos"/>
+                <parametro nombre="limit" tipo="numerospos"/>
+                <parametro nombre="start" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getPersonaSenalamiento>
+        <getCantPersonaRecomendacion reference="">
+            <inyector clase="recomendacionesService" metodo="getCantPersonaRecomendacion"/>
+            <prototipo>
+                <parametro nombre="idpreprocesoevaluativo" tipo="numerospos"/>
+                <parametro nombre="idrecurso" tipo="numerospos"/>
+                <resultado tipo="numerospos"/>
+            </prototipo>
+        </getCantPersonaRecomendacion>
+        <getPersonaRecomendacion reference="">
+            <inyector clase="recomendacionesService" metodo="getPersonaRecomendacion"/>
+            <prototipo>
+                <parametro nombre="idpreprocesoevaluativo" tipo="numerospos"/>
+                <parametro nombre="idrecurso" tipo="numerospos"/>
+                <parametro nombre="limit" tipo="numerospos"/>
+                <parametro nombre="start" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getPersonaRecomendacion>
+        <getCantSenalamientosPE reference="">
+            <inyector clase="senyalamientosService" metodo="getCantSenalamientosPE"/>
+            <prototipo>
+                <parametro nombre="iddefprocesoevaluativo" tipo="numerospos"/>
+                <resultado tipo="numerospos"/>
+            </prototipo>
+        </getCantSenalamientosPE>
+        <getSenalamientosPE reference="">
+            <inyector clase="senyalamientosService" metodo="getSenalamientosPE"/>
+            <prototipo>
+                <parametro nombre="iddefprocesoevaluativo" tipo="numerospos"/>
+                <parametro nombre="limit" tipo="enterospos" default="15"/>
+                <parametro nombre="start" tipo="enterospos" default="0"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getSenalamientosPE>
+        <getCantRecomendacionesPE reference="">
+            <inyector clase="recomendacionesService" metodo="getCantRecomendacionesPE"/>
+            <prototipo>
+                <parametro nombre="iddefprocesoevaluativo" tipo="numerospos"/>
+                <resultado tipo="numerospos"/>
+            </prototipo>
+        </getCantRecomendacionesPE>
+        <getRecomendacionesPE reference="">
+            <inyector clase="recomendacionesService" metodo="getRecomendacionesPE"/>
+            <prototipo>
+                <parametro nombre="iddefprocesoevaluativo" tipo="numerospos"/>
+                <parametro nombre="limit" tipo="enterospos" default="15"/>
+                <parametro nombre="start" tipo="enterospos" default="0"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getRecomendacionesPE>
+        <obtenerPlanillaByIdProceso reference="">
+            <inyector clase="definirprocesoService" metodo="obtenerPlanillaByIdProceso"/>
+            <prototipo>
+                <parametro nombre="iddefprocesoevaluativo" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerPlanillaByIdProceso>
+        <BuscarPlanillaSiExiste reference="">
+            <inyector clase="definirprocesoService" metodo="BuscarPlanilla"/>
+            <prototipo>
+                <parametro nombre="idplanilla" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </BuscarPlanillaSiExiste>
+        <ObtenerTodosIdPlanillas reference="">
+            <inyector clase="definirprocesoService" metodo="ObtenerTodosIdPlanillas"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerTodosIdPlanillas>
+        <getProcesoEvalPreparados reference="">
+            <inyector clase="PrepararprocesoService" metodo="getProcesoEvalPreparados"/>
+            <prototipo>
+                <parametro nombre="limit" tipo="enterospos" default="15"/>
+                <parametro nombre="start" tipo="enterospos" default="0"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getProcesoEvalPreparados>
+        <getCantTotalProcPrep reference="">
+            <inyector clase="PrepararprocesoService" metodo="getCantTotalProcPrep"/>
+            <prototipo>
+                <resultado tipo="enterospos"/>
+            </prototipo>
+        </getCantTotalProcPrep>
+    </procesoevaluativo>
+
+    <evaluaciones src="pvd/evaluaciones">
+
+        <!--Servicio para mostrar la interfaz de Periodos Evaluativos-->
+        <getUIPeriodosEvaluativos reference="procesoevaluativo">
+            <inyector clase="PrepararprocesoService" metodo="getUIPeriodosEvaluativos"/>
+            <prototipo>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getUIPeriodosEvaluativos>
+
+        <!--Servicio para mostrar la interfaz de Periodos Evaluativos-->
+        <getEvaluadosByPeriodo reference="procesoevaluativo">
+            <inyector clase="ResultadoEvaluacionService" metodo="getEvaluadosByPeriodo"/>
+            <prototipo>
+                <parametro nombre="idperiodoproceso" tipo="array"/>
+                <parametro nombre="estado" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getEvaluadosByPeriodo>
+
+        <getEvaluadosByPeriodoTRD reference="procesoevaluativo">
+            <inyector clase="ResultadoEvaluacionService" metodo="getEvaluadosByPeriodoTRD"/>
+            <prototipo>
+                <parametro nombre="idperiodoproceso" tipo="array"/>
+                <parametro nombre="estado" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getEvaluadosByPeriodoTRD>
+
+        <!--Devuelve todas las evaluaciones de una persona-->
+        <getEvaluacionesPersona reference="procesoevaluativo">
+            <inyector clase="ResultadoEvaluacionService" metodo="getEvaluacionesPersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enterospos"/>
+                <parametro nombre="limit" tipo="enterospos"/>
+                <parametro nombre="start" tipo="enterospos"/>
+                <parametro nombre="idprocesoevaluativo" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getEvaluacionesPersona>
+        <getPlanillasByPeriodo reference="procesoevaluativo">
+            <inyector clase="ResultadoEvaluacionService" metodo="getPlanillasByPeriodo"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getPlanillasByPeriodo>
+        <getValuesByIdEscala reference="plantillas">
+            <inyector clase="DatEvalescala" metodo="getValuesByIdEscala"/>
+            <prototipo>
+                <parametro nombre="idescala" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getValuesByIdEscala>
+
+        <getEvaluacionesByIdPersona reference="analisis">
+            <inyector clase="DatEvalpersonaevaluacionfinal" metodo="getEvaluacionesByIdPersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getEvaluacionesByIdPersona>
+
+        <agregarDqlDatosEscala reference="plantillas">
+            <inyector clase="DatEvalescalavalorescualitativos" metodo="agregarDqlDatosEscala"/>
+            <prototipo>
+                <parametro nombre="objDoctrineQuery" clase="Doctrine_Query"/>
+                <parametro nombre="aliasReferenceTable" tipo="numerosletras"/>
+                <parametro nombre="aliasTable" tipo="numerosletras"/>
+                <parametro nombre="includeDqlSelect" tipo="bool"/>
+                <resultado tipo="Doctrine_Query"/>
+            </prototipo>
+        </agregarDqlDatosEscala>
+
+        <addDqlEscala reference="plantillas">
+            <inyector clase="DatEvalescala" metodo="addDqlEscala"/>
+            <prototipo>
+                <parametro nombre="objDoctrineQuery" clase="Doctrine_Query"/>
+                <parametro nombre="aliasTablaReferencia" tipo="numerosletras"/>
+                <parametro nombre="aliasTabla" tipo="numerosletras"/>
+                <resultado tipo="Doctrine_Query"/>
+            </prototipo>
+        </addDqlEscala>
+
+        <getArbolIndicadores reference="plantillas">
+            <inyector clase="plantillasService" metodo="getArbolIndicadores"/>
+            <prototipo>
+                <parametro nombre="idplanilla" tipo="enterospos"/>
+                <parametro nombre="idnodopadre" tipo="numeros"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getArbolIndicadores>
+        <getHechosByModelo reference="plantillas">
+            <inyector clase="modelosService" metodo="getHechosByModelo"/>
+            <prototipo>
+                <parametro nombre="idmodelo" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getHechosByModelo>
+        <getAllModelos reference="plantillas">
+            <inyector clase="modelosService" metodo="getAllModelos"/>
+            <prototipo>
+                <parametro nombre="limit" tipo="enterospos" default="15"/>
+                <parametro nombre="start" tipo="enterospos" default="0"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getAllModelos>
+        <BuscarPlanillasPorLimite reference="plantillas">
+            <inyector clase="plantillasService" metodo="GetPlanillasPorLimite"/>
+            <prototipo>
+                <parametro nombre="limit" tipo="enterospos" default="15"/>
+                <parametro nombre="start" tipo="enterospos" default="0"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </BuscarPlanillasPorLimite>
+        <BuscarPlanillasPorDomEval reference="plantillas">
+            <inyector clase="plantillasService" metodo="GetPlanillasPorDominioEvaluativo"/>
+            <prototipo>
+                <parametro nombre="iddominioevaluativo" tipo="numerospos"/>
+                <parametro nombre="limit" tipo="enterospos" default="15"/>
+                <parametro nombre="start" tipo="enterospos" default="0"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </BuscarPlanillasPorDomEval>
+        <GetPlanillasPorTexto reference="plantillas">
+            <inyector clase="plantillasService" metodo="GetPlanillasPorTexto"/>
+            <prototipo>
+                <parametro nombre="texto" tipo="numeroletras"/>
+                <parametro nombre="limit" tipo="enterospos" default="15"/>
+                <parametro nombre="start" tipo="enterospos" default="0"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetPlanillasPorTexto>
+        <BuscarReglasPorPlanilla reference="plantillas">
+            <inyector clase="reglasService" metodo="BuscarReglasPorPlanilla"/>
+            <prototipo>
+                <parametro nombre="idplanilla" tipo="numerospos"/>
+                <parametro nombre="limit" tipo="enterospos" default="15"/>
+                <parametro nombre="start" tipo="enterospos" default="0"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </BuscarReglasPorPlanilla>
+        <CargarEstados reference="plantillas">
+            <inyector clase="EstadoService" metodo="CargarEstados"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </CargarEstados>
+        <ValidarExpresion reference="plantillas">
+            <inyector clase="reglasService" metodo="ValidarExpresion"/>
+            <prototipo>
+                <parametro nombre="expresion"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ValidarExpresion>
+        <AdicionarRegla reference="plantillas">
+            <inyector clase="reglasService" metodo="AdicionarRegla"/>
+            <prototipo>
+                <parametro nombre="regla" tipo="stdClass"/>
+                <!-- <parametro nombre="denom" tipo="letras" />
+				<parametro nombre="descripcion" tipo="numeroletras" />
+				<parametro nombre="expnatural" />
+				<parametro nombre="exppolaca" />
+				<parametro nombre="idplanilla" tipo="numerospos" />
+				<parametro nombre="idestado" tipo="numerospos" /> -->
+                <resultado tipo="bool"/>
+            </prototipo>
+        </AdicionarRegla>
+        <BuscarEscalaNumerica reference="plantillas">
+            <inyector clase="EscalasService" metodo="BuscarEscalaNumerica"/>
+            <prototipo>
+                <parametro nombre="id" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </BuscarEscalaNumerica>
+        <BuscarEscalaPorId reference="plantillas">
+            <inyector clase="EscalasService" metodo="BuscarEscalaPorId"/>
+            <prototipo>
+                <parametro nombre="id" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </BuscarEscalaPorId>
+        <getConfigEscalaNum reference="plantillas">
+            <inyector clase="EscalasService" metodo="getConfigEscalaNum"/>
+            <prototipo>
+                <parametro nombre="idescala" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getConfigEscalaNum>
+        <BuscarValoresnumericos reference="plantillas">
+            <inyector clase="EscalasService" metodo="BuscarValoresnumericos"/>
+            <prototipo>
+                <parametro nombre="id" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </BuscarValoresnumericos>
+        <BuscarEscalaVaoresPoridescala reference="plantillas">
+            <inyector clase="EscalasService" metodo="BuscarEscalaVaoresPoridescala"/>
+            <prototipo>
+                <parametro nombre="id" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </BuscarEscalaVaoresPoridescala>
+
+        <GetResultByEscalaValor reference="plantillas">
+            <inyector clase="EscalasService" metodo="GetResultByEscalaValor"/>
+            <prototipo>
+                <parametro nombre="idescala" tipo="numerospos"/>
+                <parametro nombre="idvalor" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetResultByEscalaValor>
+
+        <BuscarDemonCualitativoPorId reference="plantillas">
+            <inyector clase="EscalasService" metodo="BuscarDemonCualitativoPorId"/>
+            <prototipo>
+                <parametro nombre="id" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </BuscarDemonCualitativoPorId>
+
+        <BuscarModelosPorPlanilla reference="plantillas">
+            <inyector clase="modelosService" metodo="BuscarModelosPorPlanilla"/>
+            <prototipo>
+                <parametro nombre="id" tipo="numerospos"/>
+                <parametro nombre="inicio" tipo="enterospos"/>
+                <parametro nombre="limite" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </BuscarModelosPorPlanilla>
+
+        <BuscarModelosByPlanilla reference="plantillas">
+            <inyector clase="modelosService" metodo="BuscarModelosByPlanilla"/>
+            <prototipo>
+                <parametro nombre="id" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </BuscarModelosByPlanilla>
+
+        <CantidadModelosPorPlanilla reference="plantillas">
+            <inyector clase="modelosService" metodo="CantidadModelosPorPlanilla"/>
+            <prototipo>
+                <parametro nombre="id" tipo="numerospos"/>
+                <resultado tipo="numerospos"/>
+            </prototipo>
+        </CantidadModelosPorPlanilla>
+
+        <GetModeloByIdPlanilla reference="plantillas">
+            <inyector clase="modelosService" metodo="ObtenerModeloPorIdPlanilla"/>
+            <prototipo>
+                <parametro nombre="id" tipo="numerospos"/>
+                <resultado tipo="numerospos"/>
+            </prototipo>
+        </GetModeloByIdPlanilla>
+
+        <getModelosActivosPorPlanilla reference="plantillas">
+            <inyector clase="modelosService" metodo="getModelosActivosPorPlanilla"/>
+            <prototipo>
+                <parametro nombre="idplanilla" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getModelosActivosPorPlanilla>
+
+        <getModeloById reference="plantillas">
+            <inyector clase="modelosService" metodo="getModeloById"/>
+            <prototipo>
+                <parametro nombre="idmodelo" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getModeloById>
+
+        <ObtenerPlanillasActivas reference="plantillas">
+            <inyector clase="plantillasService" metodo="GetPlanillasActivas"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerPlanillasActivas>
+
+        <ObtenerPlanillaPorId reference="plantillas">
+            <inyector clase="plantillasService" metodo="GetPlanillaPorId"/>
+            <prototipo>
+                <parametro nombre="idplanilla" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerPlanillaPorId>
+        <obtenerListadoIndicadoresXPlanilla reference="plantillas">
+            <inyector clase="indicadoresService" metodo="obtenerListadoIndicadoresXPlanilla"/>
+            <prototipo>
+                <parametro nombre="idplanilla" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerListadoIndicadoresXPlanilla>
+        <ObtenerIndicadoresPorPlanilla reference="plantillas">
+            <inyector clase="indicadoresService" metodo="GetIndicadoresPorPlanilla"/>
+            <prototipo>
+                <parametro nombre="idplanilla" tipo="numerospos"/>
+                <parametro nombre="idpadre" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerIndicadoresPorPlanilla>
+        <buscarIndicador reference="plantillas">
+            <inyector clase="indicadoresService" metodo="buscarIndicador"/>
+            <prototipo>
+                <parametro nombre="idindicadorplanilla" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </buscarIndicador>
+        <ObtenerIndicadoresTextPorId reference="plantillas">
+            <inyector clase="indicadoresService" metodo="GetArrIndicadoresTextPorId"/>
+            <prototipo>
+                <parametro nombre="arrIndTexto" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerIndicadoresTextPorId>
+        <ObtenerIndicadoresImagenPorId reference="plantillas">
+            <inyector clase="indicadoresService" metodo="GetArrIndicadoresImagenPorId"/>
+            <prototipo>
+                <parametro nombre="arrIndImagen" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerIndicadoresImagenPorId>
+        <ObtenerValoresEscalaPorIndicador reference="plantillas">
+            <inyector clase="EscalasService" metodo="ObtenerValoresEscalaPorIndicador"/>
+            <prototipo>
+                <parametro nombre="idindicador" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerValoresEscalaPorIndicador>
+        <SincronizarImgBDconFicheroServer reference="plantillas">
+            <inyector clase="indicadoresService" metodo="SincronizarImgBDconFicheroServer"/>
+            <prototipo>
+                <parametro nombre="idindicadorimagen" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </SincronizarImgBDconFicheroServer>
+        <verificarImgArchivo reference="plantillas">
+            <inyector clase="indicadoresService" metodo="verificarImgArchivo"/>
+            <prototipo>
+                <parametro nombre="idindicadorimagen"/>
+                <resultado tipo="bool"/>
+            </prototipo>
+        </verificarImgArchivo>
+        <GetDominioEvaluativo reference="plantillas">
+            <inyector clase="recursosService" metodo="GetDominioEvaluativo"/>
+            <prototipo>
+                <parametro nombre="iddominio" tipo="numerospos"/>
+                <parametro nombre="idrecurso" tipo="numerospos"/>
+                <resultado tipo="bool"/>
+            </prototipo>
+        </GetDominioEvaluativo>
+        <GetTodosRecursos reference="plantillas">
+            <inyector clase="recursosService" metodo="GetTodosRecursos"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetTodosRecursos>
+    </evaluaciones>
+
+    <!--Servicios Internos del Subsistemas Nomina-->
+    <nomina src="pvd/nomina">
+
+        <ExportarReporte reference="">
+            <inyector clase="NominaService" metodo="obtenerCampoReporteAusencia"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ExportarReporte>
+
+        <ObtenerDatosNominaPersona reference="">
+            <inyector clase="NominaService" metodo="obtenerDatosNominaPersona"/>
+            <prototipo>
+                <parametro nombre="identidad" tipo="enteropos"/>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerDatosNominaPersona>
+
+        <getDenominacionDadoIdService reference="">
+            <inyector clase="NominaService" metodo="getDenominacionDadoIdService"/>
+            <prototipo>
+                <parametro nombre="idvariablesconfreportescertificaciones" tipo="numerospos"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getDenominacionDadoIdService>
+
+        <!--Servicios de los nomencladores-->
+        <GetSectoresSalariales reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="getSectoresSalariales"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetSectoresSalariales>
+        <GetGruposEscalas reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="getGruposEscalas"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetGruposEscalas>
+        <GetSueldoCargoByIdSectorIdEscala reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="getSueldoCargoByIdSectorIdEscala"/>
+            <prototipo>
+                <parametro nombre="idescala" tipo="enteropos"/>
+                <parametro nombre="idsector" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetSueldoCargoByIdSectorIdEscala>
+        <GetGrupoEscalaById reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="getGrupoEscalaById"/>
+            <prototipo>
+                <parametro nombre="idescala" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetGrupoEscalaById>
+        <GetSectorSalarialById reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="getSectorSalarialById"/>
+            <prototipo>
+                <parametro nombre="idsector" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetSectorSalarialById>
+        <GetConceptosByTipo reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="getConceptosByTipo"/>
+            <prototipo>
+                <parametro nombre="idtipo" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetConceptosByTipo>
+        <GetAllConceptosPD reference="">
+            <inyector clase="NominaService" metodo="GetAllConceptosPD"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetAllConceptosPD>
+        <GetEscalaEsHoja reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="getEscalaEsHoja"/>
+            <prototipo>
+                <parametro nombre="idpadre" tipo="enteropos"/>
+                <parametro nombre="idconcep" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetEscalaEsHoja>
+        <GetConceptosEscalasById reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="getConceptosEscalasById"/>
+            <prototipo>
+                <parametro nombre="idpadre" tipo="enteropos"/>
+                <parametro nombre="idconcep" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetConceptosEscalasById>
+        <GetConceptoById reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="getConceptoById"/>
+            <prototipo>
+                <parametro nombre="idconcep" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetConceptoById>
+        <GetEscalaById reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="getEscalaById"/>
+            <prototipo>
+                <parametro nombre="idescala" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetEscalaById>
+        <GetCaminoEscala reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="getCaminoEscala"/>
+            <prototipo>
+                <parametro nombre="idescala" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetCaminoEscala>
+        <GetConceptosPagoResto reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="getConceptosPagoResto"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetConceptosPagoResto>
+        <GetConceptosDistArrayId reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="getConceptosDistArrayId"/>
+            <prototipo>
+                <parametro nombre="idconcepto" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetConceptosDistArrayId>
+        <agregarDatosSectorArray reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="agregarDatosSectorArray"/>
+            <prototipo>
+                <parametro nombre="arrDatos" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </agregarDatosSectorArray>
+        <agregarDatosGrupoEscalaArray reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="agregarDatosGrupoEscalaArray"/>
+            <prototipo>
+                <parametro nombre="arrDatos" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </agregarDatosGrupoEscalaArray>
+        <agregarSueldoPorCargoArray reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="agregarSueldoPorCargoArray"/>
+            <prototipo>
+                <parametro nombre="arrDatos" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </agregarSueldoPorCargoArray>
+
+        <!--Servicios del modulo de configuracion-->
+        <GetEscalaConceptoByIdEscConf reference="configuracion">
+            <inyector clase="ConfiguracionService" metodo="getEscalaConceptoByIdEscConf"/>
+            <prototipo>
+                <parametro nombre="idesconf" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetEscalaConceptoByIdEscConf>
+
+
+        <getDenominacionConceptoById reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="getDenominacionConceptoById"/>
+            <prototipo>
+                <parametro nombre="idconcepto" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDenominacionConceptoById>
+
+        <getDenEscalaById reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="getDenEscalaById"/>
+            <prototipo>
+                <parametro nombre="idescala" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDenEscalaById>
+
+        <Configpersona reference="nomencladores">
+            <inyector clase="RegistroService" metodo="Configpersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <parametro nombre="idplantilla" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </Configpersona>
+
+        <GetTodosByIdCargo reference="nomencladores">
+            <inyector clase="RegistroService" metodo="GetTodosByIdCargo"/>
+            <prototipo>
+                <parametro nombre="idcargo" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetTodosByIdCargo>
+
+        <GetAgrupacionDocumentos reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetAgrupacionDocumentos"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetAgrupacionDocumentos>
+
+        <GetAgrupacionDocumentosXId reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetAgrupacionDocumentosXId"/>
+            <prototipo>
+                <parametro nombre="id" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetAgrupacionDocumentosXId>
+
+        <GetEstadoDocumentos reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetEstadoDocumentos"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetEstadoDocumentos>
+        <GetEstadoDocumentosXId reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetEstadoDocumentosXId"/>
+            <prototipo>
+                <parametro nombre="id" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetEstadoDocumentosXId>
+        <GetTipoDocumentos reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetTipoDocumentos"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetTipoDocumentos>
+        <GetTipoDocumentosXId reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetTipoDocumentosXId"/>
+            <prototipo>
+                <parametro nombre="id" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetTipoDocumentosXId>
+        <GetFormasSistPago reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetFormasSistPago"/>
+            <prototipo>
+                <parametro nombre="idformassistpago" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetFormasSistPago>
+        <GetDenomxId reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetDenomxId"/>
+            <prototipo>
+                <parametro nombre="id" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetDenomxId>
+        <GetRetencion reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetRetencion"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetRetencion>
+        <GetCantRetencion reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetCantRetencion"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetCantRetencion>
+        <GetRetencionById reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetRetencionById"/>
+            <prototipo>
+                <parametro nombre="idret" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetRetencionById>
+        <GetHaberById reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetHaberById"/>
+            <prototipo>
+                <parametro nombre="idhaber" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetHaberById>
+        <GetHaberPadreById reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetHaberPadreById"/>
+            <prototipo>
+                <parametro nombre="idhaber" tipo="enteropos"/>
+                <parametro nombre="idpadre" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetHaberPadreById>
+        <GetHijosHaberesByArray reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetHijosHaberesByArray"/>
+            <prototipo>
+                <parametro nombre="idpadre" tipo="enteropos"/>
+                <parametro nombre="idhaberes" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetHijosHaberesByArray>
+
+        <GetHaberesSalariosById reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetHaberesSalariosById"/>
+            <prototipo>
+                <parametro nombre="idhab" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetHaberesSalariosById>
+
+        <GetHijosHaberes reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetHijosHaberes"/>
+            <prototipo>
+                <parametro nombre="idpadre" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetHijosHaberes>
+
+        <GetTiposAusencias reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetTiposAusencias"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetTiposAusencias>
+
+        <GetCantTiposAusencias reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetCantTiposAusencias"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetCantTiposAusencias>
+
+        <GetTiposAusenciasById reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetTiposAusenciasById"/>
+            <prototipo>
+                <parametro nombre="idtipo" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetTiposAusenciasById>
+
+        <GetTiposFechasPago reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetTiposFechasPago"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetTiposFechasPago>
+
+        <GetTipoFechaPagoById reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetTipoFechaPagoById"/>
+            <prototipo>
+                <parametro nombre="idtipopago" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetTipoFechaPagoById>
+
+        <GetCausasExclusion reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetCausasExclusion"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetCausasExclusion>
+
+        <GetCausasExclusionById reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetCausasExclusionById"/>
+            <prototipo>
+                <parametro nombre="idcaus" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetCausasExclusionById>
+
+        <GetEscalaTipoConcep reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetEscalaTipoConcep"/>
+            <prototipo>
+                <parametro nombre="idesc" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetEscalaTipoConcep>
+
+
+        <GetPlantillaNomByIdEst reference="registro">
+            <inyector clase="RegistroService" metodo="GetPlantillaNomByIdEst"/>
+            <prototipo>
+                <parametro nombre="idestruc" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetPlantillaNomByIdEst>
+
+        <getPlantillaNominalByIdPlant reference="registro">
+            <inyector clase="RegistroService" metodo="getPlantillaNominalByIdPlant"/>
+            <prototipo>
+                <parametro nombre="idestruc" tipo="enteropos"/>
+                <parametro nombre="checked" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getPlantillaNominalByIdPlant>
+
+        <getTodosCargos reference="registro">
+            <inyector clase="RegistroService" metodo="getTodosCargos"/>
+            <prototipo>
+                <parametro nombre="idplant" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getTodosCargos>
+
+        <getPlantCargoByIds reference="registro">
+            <inyector clase="RegistroService" metodo="getPlantCargoByIds"/>
+            <prototipo>
+                <parametro nombre="idplant" tipo="enteropos"/>
+                <parametro nombre="idcargo" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getPlantCargoByIds>
+
+
+        <GetFechaspagoById reference="configuracion">
+            <inyector clase="ConfiguracionService" metodo="GetFechaspagoById"/>
+            <prototipo>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <parametro nombre="idestruc" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetFechaspagoById>
+
+        <GetCantFechasByIdEst reference="configuracion">
+            <inyector clase="ConfiguracionService" metodo="GetCantFechasByIdEst"/>
+            <prototipo>
+                <parametro nombre="idestruc" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetCantFechasByIdEst>
+
+        <GetTiposFechasPagoById reference="configuracion">
+            <inyector clase="ConfiguracionService" metodo="GetTiposFechasPagoById"/>
+            <prototipo>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <parametro nombre="idestruc" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetTiposFechasPagoById>
+
+        <GetPeriodosPago reference="configuracion">
+            <inyector clase="ConfiguracionService" metodo="GetPeriodosPago"/>
+            <prototipo>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetPeriodosPago>
+
+        <GetCantPeriodosPago reference="configuracion">
+            <inyector clase="ConfiguracionService" metodo="GetCantPeriodosPago"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetCantPeriodosPago>
+
+        <GetPersonasFechas reference="configuracion">
+            <inyector clase="ConfiguracionService" metodo="GetPersonasFechas"/>
+            <prototipo>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <parametro nombre="idfecha" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetPersonasFechas>
+
+        <GetCantPersonasFechas reference="configuracion">
+            <inyector clase="ConfiguracionService" metodo="GetCantPersonasFechas"/>
+            <prototipo>
+                <parametro nombre="idfecha" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetCantPersonasFechas>
+
+        <getInfoElementoSalarialService reference="nomina">
+            <inyector clase="NominaService" metodo="getInfoElementoSalarialService"/>
+            <prototipo>
+                <parametro nombre="idcargo" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getInfoElementoSalarialService>
+
+    </nomina>
+
+    <!--  Servicios de resolucion-->
+    <resoluciones src="pvd/resoluciones">
+        <getLugarEmision>
+            <inyector clase="ResolucionesService" metodo="getLugarEmision"/>
+            <prototipo>
+                <parametro nombre="filtro" tipo="string"/>
+                <parametro nombre="limit" tipo="numerospos"/>
+                <parametro nombre="start" tipo="numerospos"/>
+                <parametro nombre="idestructuraop" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getLugarEmision>
+        <getLugarEmisionById>
+            <inyector clase="ResolucionesService" metodo="getLugarEmisionById"/>
+            <prototipo>
+                <parametro nombre="idlugaresemision" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getLugarEmisionById>
+    </resoluciones>
+
+    <!--Servicios de agenda-->
+    <agendareunion src="pvd/agendareunion">
+        <getCargosFacultadosporIdproposición>
+            <inyector clase="ConfigurarFacultadDecisionService" metodo="obtenercargosdadoidproposicion"/>
+            <prototipo>
+                <parametro nombre="idpropocion" tipo="numerospos"/>
+                <parametro nombre="identificador" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getCargosFacultadosporIdproposición>
+
+        <getPersonaporIdConcptoEnEntidadporFacultad>
+            <inyector clase="ConfigurarFacultadDecisionService" metodo="obtenerpersonadadidconcpidentidfacultad"/>
+            <prototipo>
+                <parametro nombre="idconcepto" tipo="numerospos"/>
+                <parametro nombre="identidad" tipo="numerospos"/>
+                <parametro nombre="idfacultad" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getPersonaporIdConcptoEnEntidadporFacultad>
+
+        <getIUActa>
+            <inyector clase="ActaService" metodo="getIUActa"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getIUActa>
+
+        <getIUProposiciones>
+            <inyector clase="ProposicionesService" metodo="getIUProposiciones"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getIUProposiciones>
+
+        <getIUPropuestas>
+            <inyector clase="PropuestasService" metodo="getIUPropuestas"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getIUPropuestas>
+
+        <getPersonasPorPropuesta>
+            <inyector clase="PropuestasService" metodo="getPersonasPorPropuesta"/>
+            <prototipo>
+                <parametro nombre="filtro" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getPersonasPorPropuesta>
+
+        <getDatosByIdPersonaPropuesta>
+            <inyector clase="PropuestasService" metodo="getDatosByIdPersonaPropuesta"/>
+            <prototipo>
+                <parametro nombre="idpersonapropuesta" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDatosByIdPersonaPropuesta>
+
+        <getByIdPersonaPropuesta>
+            <inyector clase="PropuestasService" metodo="getByIdPersonaPropuesta"/>
+            <prototipo>
+                <parametro nombre="idpersonapropuesta" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getByIdPersonaPropuesta>
+
+        <getPersonasPropuestas>
+            <inyector clase="PropuestasService" metodo="getPersonasPropuestas"/>
+            <prototipo>
+                <parametro nombre="filtro" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getPersonasPropuestas>
+
+        <getCountPersonasPorPropuesta>
+            <inyector clase="PropuestasService" metodo="getCountPersonasPorPropuesta"/>
+            <prototipo>
+                <parametro nombre="filtro" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getCountPersonasPorPropuesta>
+
+        <getDenomProposicion>
+            <inyector clase="ProposicionesService" metodo="getDenomProposicion"/>
+            <prototipo>
+                <parametro nombre="arreglo" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDenomProposicion>
+
+
+        <getNomProposiciones>
+            <inyector clase="ProposicionesService" metodo="getNomProposiciones"/>
+            <prototipo>
+                <parametro nombre="arreglo" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getNomProposiciones>
+
+
+        <getIUOrdenDelDia>
+            <inyector clase="OrdenDelDiaService" metodo="getIUOrdenDelDia"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getIUOrdenDelDia>
+
+        <getFacultadoCargo>
+            <inyector clase="ConfigurarFacultadDecisionService" metodo="obtenerFacultadoCargo"/>
+            <prototipo>
+                <parametro nombre="arraycargo" tipo="array"/>
+                <parametro nombre="arrayfacultad" tipo="array"/>
+                <parametro nombre="arrayconcepto" tipo="array"/>
+                <parametro nombre="idtipoconcepto" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getFacultadoCargo>
+
+
+        <getInfoPersonaPropuestaid>
+            <inyector clase="PropuestasService" metodo="getInfoPersonaPropuestaid"/>
+            <prototipo>
+                <parametro nombre="idpersonapropuesta" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getInfoPersonaPropuestaid>
+
+    </agendareunion>
+
+    <agendas src="pvd/agendas">
+        <GetPorlimiteTodosFacultad reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetPorlimiteTodosFacultad"/>
+            <prototipo>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetPorlimiteTodosFacultad>
+
+        <GetListTodosFacultad reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetListTodosFacultad"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetListTodosFacultad>
+
+        <GetTodosTipoNodo reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetTodosTipoNodo"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetTodosTipoNodo>
+
+
+        <GetFuncionByid reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetFuncionByid"/>
+            <prototipo>
+                <parametro nombre="idfuncionmiembro" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetFuncionByid>
+
+        <GetEstadomupByid reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetEstadomupByid"/>
+            <prototipo>
+                <parametro nombre="idestadomup" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetEstadomupByid>
+
+        <GetProcesoByid reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetProcesoByid"/>
+            <prototipo>
+                <parametro nombre="idprocesos" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetProcesoByid>
+
+        <GetFacultadByid reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetFacultadByid"/>
+            <prototipo>
+                <parametro nombre="idfacultad" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetFacultadByid>
+        <GetTemasagendaByidpersona reference="registro">
+            <inyector clase="RegistroService" metodo="GetTemasagendaByidpersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetTemasagendaByidpersona>
+
+        <GetTemaspormesByidpersona reference="registro">
+            <inyector clase="RegistroService" metodo="GetTemaspormesByidpersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetTemaspormesByidpersona>
+
+        <GetPlanByidestruct reference="registro">
+            <inyector clase="RegistroService" metodo="GetPlanByidestruct"/>
+            <prototipo>
+                <parametro nombre="idestructuracomision" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetPlanByidestruct>
+
+
+        <GetMUPByidestruct reference="registro">
+            <inyector clase="RegistroService" metodo="GetMUPByidestruct"/>
+            <prototipo>
+                <parametro nombre="idestructuracomision" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetMUPByidestruct>
+
+        <GetMupByid reference="registro">
+            <inyector clase="RegistroService" metodo="GetMupByid"/>
+            <prototipo>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetMupByid>
+
+        <GetModeloByid reference="registro">
+            <inyector clase="RegistroService" metodo="GetModeloByid"/>
+            <prototipo>
+                <parametro nombre="idmup" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetModeloByid>
+
+        <GetTodosAprobados reference="registro">
+            <inyector clase="RegistroService" metodo="GetTodosAprobados"/>
+            <prototipo>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetTodosAprobados>
+
+
+        <GetFacultadTodos reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetFacultadTodos"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetFacultadTodos>
+
+
+        <GetTodosEstadosmup reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetTodosEstadosmup"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetTodosEstadosmup>
+
+
+        <GetFacultad reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetFacultad"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetFacultad>
+
+
+        <GetArbolProcesos reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetArbolProcesos"/>
+            <prototipo>
+                <parametro nombre="idpadre" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetArbolProcesos>
+
+        <GetPorLimiteTodosMUP reference="registro">
+            <inyector clase="RegistroService" metodo="GetPorLimiteTodosMUP"/>
+            <prototipo>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetPorLimiteTodosMUP>
+
+        <GetLimiteTodosPropuesta reference="registro">
+            <inyector clase="RegistroService" metodo="GetLimiteTodosPropuesta"/>
+            <prototipo>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetLimiteTodosPropuesta>
+
+        <GetTemacomisionByid reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetTemacomisionByid"/>
+            <prototipo>
+                <parametro nombre="idtemacomision" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetTemacomisionByid>
+
+        <GetMiembroscomisionPorestructura reference="configuracion">
+            <inyector clase="ConfiguracionService" metodo="GetMiembroscomisionPorestructura"/>
+            <prototipo>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetMiembroscomisionPorestructura>
+
+        <GetEstrucComisionByidestruct reference="configuracion">
+            <inyector clase="ConfiguracionService" metodo="GetEstrucComisionByidestruct"/>
+            <prototipo>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetEstrucComisionByidestruct>
+
+        <GetEstrucByidestructComision reference="configuracion">
+            <inyector clase="ConfiguracionService" metodo="GetEstrucByidestructComision"/>
+            <prototipo>
+                <parametro nombre="idestructuracomision" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetEstrucByidestructComision>
+
+        <GetModelosByidestructuraCom reference="registro">
+            <inyector clase="RegistroService" metodo="GetModelosByidestructuraCom"/>
+            <prototipo>
+                <parametro nombre="idestructuracomision" tipo="enteropos"/>
+                <parametro nombre="idfacultad" tipo="enteropos"/>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetModelosByidestructuraCom>
+
+
+    </agendas>
+
+    <!--Servicios Internos del comun de PVD-->
+    <comun src="pvd/comun">
+
+        <ExportarReporte reference="">
+            <inyector clase="ExportarReporteService" metodo="GetReporte"/>
+            <prototipo>
+                <parametro nombre="formato" tipo="string"/>
+                <parametro nombre="tituloReporte" tipo="string"/>
+                <parametro nombre="datos" tipo="array"/>
+                <parametro nombre="header" tipo="array"/>
+                <parametro nombre="usuario" tipo="string"/>
+                <parametro nombre="fecha" tipo="string"/>
+                <parametro nombre="objLogo" tipo="stdClass"/>
+            </prototipo>
+        </ExportarReporte>
+        <GuardarExpresionMatematica reference="">
+            <inyector clase="ExpresionmatematicacompService" metodo="guardarExpresionMatematica"/>
+            <prototipo>
+                <parametro nombre="expresionamostrar" tipo="string"/>
+                <parametro nombre="expresionacalcular" tipo="string"/>
+                <parametro nombre="arrElementos" tipo="array"/>
+                <parametro nombre="expresionamostrarconformato" tipo="string"/>
+                <parametro nombre="denominacion" tipo="string"/>
+                <parametro nombre="idexpresionmatematica" tipo="enteropos"/>
+                <resultado tipo="enteropos"/>
+            </prototipo>
+        </GuardarExpresionMatematica>
+        <AdicionarExpresionMatematica reference="">
+            <inyector clase="ExpresionmatematicacompService" metodo="adicionarExpresionMatematica"/>
+            <prototipo>
+                <parametro nombre="arrExpresion" tipo="array"/>
+                <parametro nombre="arrElementos" tipo="array"/>
+                <resultado tipo="enteropos"/>
+            </prototipo>
+        </AdicionarExpresionMatematica>
+        <BuscarTodosporarrIdExpresionMatematica reference="">
+            <inyector clase="ExpresionmatematicacompService" metodo="GetTodosporarrIdExpresionMatematica"/>
+            <prototipo>
+                <parametro nombre="arrIdexpresionmatematica" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </BuscarTodosporarrIdExpresionMatematica>
+        <ObtenerarrIdIndicadoresporExpresionMatematica reference="">
+            <inyector clase="ExpresionmatematicacompService" metodo="GetIDIndicadoresporExpresionMatematica"/>
+            <prototipo>
+                <parametro nombre="idexpresionmatematica" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerarrIdIndicadoresporExpresionMatematica>
+        <ReplicarExpresionMatematica reference="">
+            <inyector clase="ExpresionmatematicacompService" metodo="ReplicarExpresionMatematica"/>
+            <prototipo>
+                <parametro nombre="idexpresionmatematica" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ReplicarExpresionMatematica>
+        <ObtenerarrIdIndicadoresporArrayExpresionMatematica reference="">
+            <inyector clase="ExpresionmatematicacompService" metodo="GetIndicadoresporArrayExpresionMatematica"/>
+            <prototipo>
+                <parametro nombre="arrIdsExpMat" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerarrIdIndicadoresporArrayExpresionMatematica>
+        <EvaluarExpresionMatematica reference="">
+            <inyector clase="ExpresionmatematicacompService" metodo="EvaluarExpresionMatematica"/>
+            <prototipo>
+                <parametro nombre="idexpresionmatematica" tipo="enteropos"/>
+                <parametro nombre="arrIndicadoresValor" tipo="array"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </EvaluarExpresionMatematica>
+        <EliminarExpresionMatematica reference="">
+            <inyector clase="ExpresionmatematicacompService" metodo="EliminarExpresionMatematica"/>
+            <prototipo>
+                <parametro nombre="idexpresionmatematica" tipo="enteropos"/>
+                <resultado tipo="bool"/>
+            </prototipo>
+        </EliminarExpresionMatematica>
+        <ExportarReporte reference="">
+            <inyector clase="ExportarReporteService" metodo="GetReporte"/>
+            <prototipo>
+                <parametro nombre="formato" tipo="string"/>
+                <parametro nombre="tituloReporte" tipo="string"/>
+                <parametro nombre="datos" tipo="array"/>
+                <parametro nombre="header" tipo="array"/>
+                <parametro nombre="usuario" tipo="string"/>
+                <parametro nombre="fecha" tipo="string"/>
+                <parametro nombre="objLogo" tipo="stdClass"/>
+            </prototipo>
+        </ExportarReporte>
+        <GuardarTodasExpresionesMatematicas reference="">
+            <inyector clase="ExpresionmatematicacompService"
+                      metodo="guardarTodosIndicadoresExpresionesMatematica"/>
+            <prototipo>
+                <resultado/>
+            </prototipo>
+        </GuardarTodasExpresionesMatematicas>
+        <GuardarExpresionesMatematicas reference="">
+            <inyector clase="ExpresionmatematicacompService" metodo="guardarIndicadoresExpresionesMatematica"/>
+            <prototipo>
+                <parametro nombre="arrFormulas" tipo="array"/>
+				<resultado tipo="string"/>
+            </prototipo>
+        </GuardarExpresionesMatematicas>
+
+
+        <enviarCorreo reference="">
+            <inyector clase="NotificacionService" metodo="enviarCorreo"/>
+            <prototipo>
+                <parametro nombre="identidad" tipo="enteropos"/>
+                <parametro nombre="iddominio" tipo="enteropos"/>
+                <parametro nombre="datos" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </enviarCorreo>
+
+        <getScriptsFichaBasicaPersona reference="">
+            <inyector clase="FichabasicapersonacompService" metodo="obtenerScriptsFichaBasicaPersona"/>
+            <prototipo>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getScriptsFichaBasicaPersona>
+
+        <getScriptsGestionDocumentos reference="">
+            <inyector clase="GestiondocumentosService" metodo="obtenerScriptsGestionDocumentos"/>
+            <prototipo>
+                <parametro nombre="compToLoad" tipo="enteropos"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getScriptsGestionDocumentos>
+
+        <verDocumento reference="">
+            <inyector clase="GestiondocumentosService" metodo="viewDocument"/>
+            <prototipo>
+                <parametro nombre="id" tipo="string"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </verDocumento>
+
+        <eliminarDocumento reference="">
+            <inyector clase="GestiondocumentosService" metodo="deleteDocument"/>
+            <prototipo>
+                <parametro nombre="arrIds" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </eliminarDocumento>
+        <buscarPersonaFUC reference="">
+            <inyector clase="BuscarPersonaFUCService" metodo="buscarPersonaFUC"/>
+            <prototipo>
+                <parametro nombre="id" tipo="string"/>
+                <parametro nombre="numid" tipo="string"/>
+                <parametro nombre="datos" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </buscarPersonaFUC>
+
+    </comun>
+
+    <!--Servicios del subsistema de Regimen de trabajo -->
+    <regimentrabajo src="pvd/regimentrabajo">
+
+        <GetRegimenTrabajo reference="">
+            <inyector clase="RegimentrabajoServices" metodo="getRegimenTrabajo"/>
+            <prototipo>
+                <parametro nombre="filtro" tipo="string"/>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetRegimenTrabajo>
+
+        <registrarAsistencia reference="">
+            <inyector clase="RegimentrabajoServices" metodo="registrarAsistencia"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <parametro nombre="estado" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </registrarAsistencia>
+
+        <GetGruposRegimenTrabajo reference="">
+            <inyector clase="RegimentrabajoServices" metodo="getGrupoDescansoByRegimen"/>
+            <prototipo>
+                <parametro nombre="idregimentrabajo" tipo="enteropos"/>
+                <parametro nombre="filtro" tipo="string"/>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetGruposRegimenTrabajo>
+
+        <getTurnoTrabajo reference="">
+            <inyector clase="RegimentrabajoServices" metodo="getTurnoTrabajo"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getTurnoTrabajo>
+
+        <GetAPA reference="">
+            <inyector clase="RegimentrabajoServices" metodo="GetAPA"/>
+            <prototipo>
+                <parametro nombre="idspersona" tipo="array"/>
+                <parametro nombre="fdesde" tipo="string"/>
+                <parametro nombre="fhasta" tipo="string"/>
+                <parametro nombre="configuracion" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetAPA>
+
+        <getCausas reference="">
+            <inyector clase="RegimentrabajoServices" metodo="getCausasNomina"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getCausas>
+
+
+        <GetAsistenciaByIdpersonasFecha reference="">
+            <inyector clase="RegimentrabajoServices" metodo="GetAsistenciaByIdpersonasFecha"/>
+            <prototipo>
+                <parametro nombre="fecha" tipo="string"/>
+                <parametro nombre="idpersonas" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetAsistenciaByIdpersonasFecha>
+
+        <getMes reference="">
+            <inyector clase="RegimentrabajoServices" metodo="getMes"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getMes>
+
+        <getDenomRegimenGrupoTurnoTrabajo reference="">
+            <inyector clase="RegimentrabajoServices" metodo="getRegimenGrupoTurnoTrabajo"/>
+            <prototipo>
+                <parametro nombre="idregimentrabajo" tipo="enteropos"/>
+                <parametro nombre="idgrupo" tipo="enteropos"/>
+                <parametro nombre="idturno" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDenomRegimenGrupoTurnoTrabajo>
+
+        <generarReporteAsistencia reference="">
+            <inyector clase="RegimentrabajoServices" metodo="generarReporteAsistencia"/>
+            <prototipo>
+                <parametro nombre="fdesde" tipo="string"/>
+                <parametro nombre="fhasta" tipo="string"/>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </generarReporteAsistencia>
+
+        <getAsistenciaByCargos reference="">
+            <inyector clase="RegimentrabajoServices" metodo="getAsistenciaByCargos"/>
+            <prototipo>
+                <parametro nombre="fecha" tipo="string"/>
+                <parametro nombre="idcargos" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getAsistenciaByCargos>
+
+    </regimentrabajo>
+
+    <!-- Servicios del subsistema de competencias -->
+    <competencia src="pvd/competencias">
+        <getCompetencias reference="">
+            <inyector clase="CompetenciaService" metodo="getCompetencias"/>
+            <prototipo>
+                <parametro nombre="start" tipo="numerospos"/>
+                <parametro nombre="limit" tipo="numerospos"/>
+                <parametro nombre="filtro" tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getCompetencias>
+
+        <getCompetenciabyCargo reference="">
+            <inyector clase="CompetenciaService" metodo="getCompetenciabyCargo"/>
+            <prototipo>
+                <parametro nombre="idcargo" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getCompetenciabyCargo>
+
+        <getGapCompetencia reference="">
+            <inyector clase="CompetenciaService" metodo="getGapCompetencia"/>
+            <prototipo>
+                <parametro nombre="idpuesto" tipo="numerospos"/>
+                <parametro nombre="idpersona" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getGapCompetencia>
+
+        <getCompetenciabyDen reference="">
+            <inyector clase="CompetenciaService" metodo="getCompetenciabyDen"/>
+            <prototipo>
+                <parametro nombre="denominacion" tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getCompetenciabyDen>
+
+    </competencia>
+
+    <control_acceso src="pvd/control_acceso">
+
+        <GetArbolPtosControlCompleto reference="administracion">
+            <inyector clase="AdministracionService" metodo="GetArbolPtosControlCompleto"/>
+            <prototipo>
+                <parametro nombre="idpadre" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetArbolPtosControlCompleto>
+
+        <GetHijosArbolPtosControl reference="administracion">
+            <inyector clase="AdministracionService" metodo="GetHijosArbolPtosControl"/>
+            <prototipo>
+                <parametro nombre="idpadre" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetHijosArbolPtosControl>
+
+        <GetPersonasDentroLocales reference="controlacceso">
+            <inyector clase="ControlaccesoService" metodo="GetPersonasDentroLocales"/>
+            <prototipo>
+                <parametro nombre="idpuntos" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetPersonasDentroLocales>
+
+        <getAccesosVisitantes reference="controlacceso">
+            <inyector clase="ControlaccesoService" metodo="getAccesosVisitantes"/>
+            <prototipo>
+                <parametro nombre="fechaini" tipo="date"/>
+                <parametro nombre="fechafin" tipo="date"/>
+                <parametro nombre="hinicio" tipo="time"/>
+                <parametro nombre="hfin" tipo="time"/>
+                <parametro nombre="inicio" tipo="enteropos"/>
+                <parametro nombre="limite" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getAccesosVisitantes>
+
+        <getPersonasSalenTarde reference="controlacceso">
+            <inyector clase="ControlaccesoService" metodo="getPersonasSalenTarde"/>
+            <prototipo>
+                <parametro nombre="fechaini" tipo="date"/>
+                <parametro nombre="fechafin" tipo="date"/>
+                <parametro nombre="hinicio" tipo="time"/>
+                <parametro nombre="hfin" tipo="time"/>
+                <parametro nombre="inicio" tipo="enteropos"/>
+                <parametro nombre="limite" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getPersonasSalenTarde>
+
+        <GetAccesosByFechas reference="controlacceso">
+            <inyector clase="ControlaccesoService" metodo="GetAccesosByFechas"/>
+            <prototipo>
+                <parametro nombre="fechainicio" tipo="date"/>
+                <parametro nombre="fechafin" tipo="date"/>
+                <parametro nombre="inicio" tipo="enteropos"/>
+                <parametro nombre="limite" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetAccesosByFechas>
+
+        <getAccesosVisitantesOrgano reference="controlacceso">
+            <inyector clase="ControlaccesoService" metodo="getAccesosVisitantesOrgano"/>
+            <prototipo>
+                <parametro nombre="origen" tipo="enteropos"/>
+                <parametro nombre="idgrado" tipo="enteropos"/>
+                <parametro nombre="nombre" tipo="string"/>
+                <parametro nombre="papel" tipo="string"/>
+                <parametro nombre="sapel" tipo="string"/>
+                <parametro nombre="ci" tipo="string"/>
+                <parametro nombre="inicio" tipo="enteropos"/>
+                <parametro nombre="limite" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getAccesosVisitantesOrgano>
+
+        <GetCantPaseProvisionalPersona reference="controlacceso">
+            <inyector clase="ControlaccesoService" metodo="GetCantPaseProvisionalPersona"/>
+            <prototipo>
+                <parametro nombre="inicio" tipo="enteropos"/>
+                <parametro nombre="limite" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetCantPaseProvisionalPersona>
+
+        <getAccesosVisitantesTarde reference="controlacceso">
+            <inyector clase="ControlaccesoService" metodo="getAccesosVisitantesTarde"/>
+            <prototipo>
+                <parametro nombre="inicio" tipo="enteropos"/>
+                <parametro nombre="limite" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getAccesosVisitantesTarde>
+
+        <cantAccesosByVisitante reference="controlacceso">
+            <inyector clase="ControlaccesoService" metodo="cantAccesosByVisitante"/>
+            <prototipo>
+                <parametro nombre="idvisitante" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </cantAccesosByVisitante>
+
+        <getPasesPerdidosDeteriorados reference="controlacceso">
+            <inyector clase="ControlaccesoService" metodo="getPasesPerdidosDeteriorados"/>
+            <prototipo>
+                <parametro nombre="inicio" tipo="enteropos"/>
+                <parametro nombre="limite" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getPasesPerdidosDeteriorados>
+
+        <getpersonasCredencial reference="controlacceso">
+            <inyector clase="ControlaccesoService" metodo="getpersonasCredencial"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <parametro nombre="idgrado" tipo="enteropos"/>
+                <parametro nombre="nombre" tipo="string"/>
+                <parametro nombre="papel" tipo="string"/>
+                <parametro nombre="sapel" tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getpersonasCredencial>
+
+        <getVisitantesById reference="controlvisitantes">
+            <inyector clase="ControlvisitantesService" metodo="getVisitantesById"/>
+            <prototipo>
+                <parametro nombre="idvisitante" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getVisitantesById>
+
+        <getVisitantesByLimit reference="controlvisitantes">
+            <inyector clase="ControlvisitantesService" metodo="getVisitantesByLimit"/>
+            <prototipo>
+                <parametro nombre="inicio" tipo="enteropos"/>
+                <parametro nombre="limite" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getVisitantesByLimit>
+
+        <getVisitantesAutorizados reference="controlvisitantes">
+            <inyector clase="ControlvisitantesService" metodo="getVisitantesAutorizados"/>
+            <prototipo>
+                <parametro nombre="inicio" tipo="enteropos"/>
+                <parametro nombre="limite" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getVisitantesAutorizados>
+
+        <GetListMotivosolicitudpase reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetListMotivosolicitudpase"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetListMotivosolicitudpase>
+        <ObtenerMotivosolicitudpasePorId reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="ObtenerMotivosolicitudpasePorId"/>
+            <prototipo>
+                <parametro nombre="idMotivoSolicitudPase" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerMotivosolicitudpasePorId>
+
+        <BuscarMotivosolicitudpasePorId reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="BuscarMotivosolicitudpasePorId"/>
+            <prototipo>
+                <parametro nombre="idMotivoSolicitudPase" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </BuscarMotivosolicitudpasePorId>
+
+        <ListSoportesInformacion reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="ListSoportes"/>
+            <prototipo>
+                <parametro nombre="start" tipo="numerospos"/>
+                <parametro nombre="limit" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ListSoportesInformacion>
+
+        <ListSoportesMenosArrayId reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="ListSoportesMenosArrayId"/>
+            <prototipo>
+                <parametro nombre="limit" tipo="numerospos"/>
+                <parametro nombre="start" tipo="numerospos"/>
+                <parametro nombre="ids" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ListSoportesMenosArrayId>
+
+        <GetSoporteByID reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetSoporteById"/>
+            <prototipo>
+                <parametro nombre="idsoporte" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetSoporteByID>
+
+        <GetListMotivonoautorizo reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetListMotivonoautorizo"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetListMotivonoautorizo>
+
+        <GetListPisos reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetPisos"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetListPisos>
+
+        <GetMetodosAcceso reference="nomencladores">
+            <inyector clase="AdministracionService" metodo="getMetodosAcceso"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetMetodosAcceso>
+
+        <GetListTipoPase reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetListTipoPase"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetListTipoPase>
+        <ObtenerTipoPasePorId reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="ObtenerTipoPasePorId"/>
+            <prototipo>
+                <parametro nombre="idTipoPase" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerTipoPasePorId>
+
+        <GetAllByType reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetAllByType"/>
+            <prototipo>
+                <parametro nombre="type" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetAllByType>
+
+        <GetPisoById reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="BuscarPidoById"/>
+            <prototipo>
+                <parametro nombre="idpiso" tipo="numerospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetPisoById>
+
+        <GetListEstadopase reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetListEstadopase"/>
+            <prototipo>
+                <parametro nombre="idestadopase" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetListEstadopase>
+
+        <GetListCategoriaPase reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetListCategoriaPase"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetListCategoriaPase>
+        <GetListAutorizaciones reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetListAutorizaciones"/>
+            <prototipo>
+                <parametro nombre="inicio" tipo="idcargo"/>
+                <parametro nombre="inicio" tipo="enteropos"/>
+                <parametro nombre="limite" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetListAutorizaciones>
+
+        <TodosAutorizaciones reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="TodosAutorizaciones"/>
+            <prototipo>
+                <parametro nombre="inicio" tipo="enteropos"/>
+                <parametro nombre="limite" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </TodosAutorizaciones>
+        <GetListAutorizacionesSinRep reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetListAutorizacionesSinRep"/>
+            <prototipo>
+                <parametro nombre="inicio" tipo="idcargo"/>
+                <parametro nombre="inicio" tipo="enteropos"/>
+                <parametro nombre="limite" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetListAutorizacionesSinRep>
+        <GetTodosActual reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetTodosActual"/>
+            <prototipo>
+                <parametro nombre="inicio" tipo="enteropos"/>
+                <parametro nombre="limite" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetTodosActual>
+
+        <GetCantListAutorizaciones reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetCantListAutorizaciones"/>
+            <prototipo>
+                <parametro nombre="inicio" tipo="idcargo"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetCantListAutorizaciones>
+        <GetCantListAutorizacionesSinRep reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetCantListAutorizacionesSinRep"/>
+            <prototipo>
+                <parametro nombre="inicio" tipo="idcargo"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetCantListAutorizacionesSinRep>
+        <GetCantTotalActual reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetCantTotalActual"/>
+            <prototipo>
+                <resultado tipo="enteropos"/>
+            </prototipo>
+        </GetCantTotalActual>
+
+        <GetAllByArregloId reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetAllByArregloId"/>
+            <prototipo>
+                <parametro nombre="arreglo" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetAllByArregloId>
+
+        <GetAllByArregloIdPaginado reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetAllByArregloIdPaginado"/>
+            <prototipo>
+                <parametro nombre="arreglo" tipo="array"/>
+                <parametro nombre="inicio" tipo="enteropos"/>
+                <parametro nombre="limite" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetAllByArregloIdPaginado>
+
+        <GetCredencialDadoId reference="registro">
+            <inyector clase="RegistroService" metodo="GetCredencialDadoId"/>
+            <prototipo>
+                <parametro nombre="idautrorizacion" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetCredencialDadoId>
+
+        <GetIdPersonaDadoIdCred reference="registro">
+            <inyector clase="RegistroService" metodo="GetIdPersonaDadoIdCred"/>
+            <prototipo>
+                <parametro nombre="idcredencialactiva" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetIdPersonaDadoIdCred>
+
+        <GetAllMenosByArregloId reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetAllMenosByArregloId"/>
+            <prototipo>
+                <parametro nombre="arreglo" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetAllMenosByArregloId>
+
+        <GetAllMenosByArregloIdPaginado reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetAllMenosByArregloIdPaginado"/>
+            <prototipo>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <parametro nombre="arreglo" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetAllMenosByArregloIdPaginado>
+
+        <GetCantAllMenosByArregloIdPaginado reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetCantAllMenosByArregloIdPaginado"/>
+            <prototipo>
+                <parametro nombre="arreglo" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetCantAllMenosByArregloIdPaginado>
+
+        <GetAutorizacionByIdCargo reference="configuracion">
+            <inyector clase="ConfiguracionService" metodo="GetAutorizacionByIdCargo"/>
+            <prototipo>
+                <parametro nombre="idcargo" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetAutorizacionByIdCargo>
+
+        <GetCantAutorizacionByIdCargo reference="configuracion">
+            <inyector clase="ConfiguracionService" metodo="GetCantAutorizacionByIdCargo"/>
+            <prototipo>
+                <parametro nombre="idcargo" tipo="enteropos"/>
+                <resultado tipo="enteropos"/>
+            </prototipo>
+        </GetCantAutorizacionByIdCargo>
+        <GetListNivelAutorizo reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetListNivelAutorizo"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetListNivelAutorizo>
+        <DevolverListNivelAutorizoById reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="GetListNivelAutorizoById"/>
+            <prototipo>
+                <parametro nombre="arreglo" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </DevolverListNivelAutorizoById>
+
+        <GetPtoEventosDistActiva reference="administracion">
+            <inyector clase="AdministracionService" metodo="obtenerPtoEventosDistActiva"/>
+            <prototipo>
+                <parametro nombre="ip" tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetPtoEventosDistActiva>
+
+        <GetArbolPtosControl reference="administracion">
+            <inyector clase="AdministracionService" metodo="GetArbolPtosControl"/>
+            <prototipo>
+                <parametro nombre="idpadre" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetArbolPtosControl>
+
+        <getGruposByEvento reference="administracion">
+            <inyector clase="AdministracionService" metodo="getGruposByEvento"/>
+            <prototipo>
+                <parametro nombre="start" tipo="enteropos"/>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="idgrupoevento" tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getGruposByEvento>
+
+        <getSoportesNotInArray reference="nomencladores">
+            <inyector clase="NomencladoresService" metodo="getSoportesNotInArray"/>
+            <prototipo>
+                <parametro nombre="idsoportes" tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getSoportesNotInArray>
+
+
+        <DevolverAutorizacionByIdPersona reference="configuracion">
+            <inyector clase="ConfiguracionService" metodo="GetAutorizacionByIdPersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </DevolverAutorizacionByIdPersona>
+        <GetArbolCompleto reference="administracion">
+            <inyector clase="AdministracionService" metodo="GetArbolCompleto"/>
+            <prototipo>
+                <parametro nombre="node" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetArbolCompleto>
+        <GetListHijos reference="administracion">
+            <inyector clase="AdministracionService" metodo="GetListHijos"/>
+            <prototipo>
+                <parametro nombre="idpadre" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetListHijos>
+        <GetGrupos reference="administracion">
+            <inyector clase="AdministracionService" metodo="GetGrupos"/>
+            <prototipo>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetGrupos>
+        <GetEventos reference="administracion">
+            <inyector clase="AdministracionService" metodo="GetEventos"/>
+            <prototipo>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetEventos>
+
+        <GetEventoById reference="administracion">
+            <inyector clase="AdministracionService" metodo="GetEventoByIdevento"/>
+            <prototipo>
+                <parametro nombre="idevento" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetEventoById>
+
+        <GetdatospersonaXarraydatosCredencial reference="configuracion">
+            <inyector clase="ConfiguracionService" metodo="BuscardatospersonaXarraydatosCredencial"/>
+            <prototipo>
+                <parametro nombre="arrDatCredencial" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetdatospersonaXarraydatosCredencial>
+
+        <getAccesosByIdpersonaFecha reference="controlacceso">
+            <inyector clase="ControlaccesoService" metodo="getAccesosByIdpersonaFecha"/>
+            <prototipo>
+                <parametro nombre="arraypersonas" tipo="array"/>
+                <parametro nombre="fecha" tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getAccesosByIdpersonaFecha>
+
+    </control_acceso>
+
+    <seleccion src="pvd/seleccion">
+        <getCandidatosSeleccionadosByUbicacion reference="">
+            <inyector clase="SeleccionService" metodo="getCandidatosSeleccionadosByUbicacion"/>
+            <prototipo>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <parametro nombre="arrayubicaciones" tipo="array"/>
+                <parametro nombre="idcargo" tipo="enteropos"/>
+                <parametro nombre="numid" tipo="string"/>
+                <parametro nombre="nombre" tipo="string"/>
+                <parametro nombre="papel" tipo="string"/>
+                <parametro nombre="sapel" tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getCandidatosSeleccionadosByUbicacion>
+        <getProcesosByPersona reference="">
+            <inyector clase="SeleccionService" metodo="getProcesosByPersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getProcesosByPersona>
+        <getProcesosActivos reference="">
+            <inyector clase="SeleccionService" metodo="getProcesosActivos"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getProcesosActivos>
+        <addCandidato reference="">
+            <inyector clase="SeleccionService" metodo="addCandidato"/>
+            <prototipo>
+                <parametro nombre="idproceso" tipo="enteropos"/>
+                <parametro nombre="idviareclutamiento" tipo="enteropos"/>
+                <parametro nombre="arrcandidatos" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </addCandidato>
+
+        <addProcesoActivo reference="">
+            <inyector clase="SeleccionService" metodo="addProcesoActivo"/>
+            <prototipo>
+                <parametro nombre="valores" tipo="array"/>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </addProcesoActivo>
+
+        <modProcesoActivo reference="">
+            <inyector clase="SeleccionService" metodo="modProcesoActivo"/>
+            <prototipo>
+                <parametro nombre="valores" tipo="array"/>
+                <parametro nombre="id" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </modProcesoActivo>
+
+        <delProcesoActivo reference="">
+            <inyector clase="SeleccionService" metodo="delProcesoActivo"/>
+            <prototipo>
+                <parametro nombre="valores" tipo="array"/>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <resultado/>
+            </prototipo>
+        </delProcesoActivo>
+
+        <getEstados reference="">
+            <inyector clase="SeleccionService" metodo="getEstados"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getEstados>
+
+        <getViasReclutamiento reference="">
+            <inyector clase="SeleccionService" metodo="getViasReclutamiento"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getViasReclutamiento>
+
+        <getEstadoCandidatos reference="">
+            <inyector clase="SeleccionService" metodo="getEstadoCandidatos"/>
+            <prototipo>
+                <parametro nombre="start" tipo="enteropos"/>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="filtro" tipo="string"/>
+                <parametro nombre="idproceso" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getEstadoCandidatos>
+    </seleccion>
+
+    <orgtrabajo src="pvd/orgtrabajo">
+        <getProcesosByEstructura reference="">
+            <inyector clase="OrgtrabajoService" metodo="getProcesosByEstructura"/>
+            <prototipo>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getProcesosByEstructura>
+        <getDatosAreas reference="">
+            <inyector clase="OrgtrabajoService" metodo="getDatosAreas"/>
+            <prototipo>
+                <parametro nombre="estructuras" tipo="array"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDatosAreas>
+        <getDatosAreasInternas reference="">
+            <inyector clase="OrgtrabajoService" metodo="getDatosAreasInternas"/>
+            <prototipo>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDatosAreasInternas>
+    </orgtrabajo>
+
+    <movimientoslaborales src="pvd/movimientoslaborales">
+        <getActiveTiposContrato reference="">
+            <inyector clase="MovimientoslaboralesService" metodo="getActiveTiposContrato"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getActiveTiposContrato>
+        <getActiveMotivosMovimiento reference="">
+            <inyector clase="MovimientoslaboralesService" metodo="getActiveMotivosMovimiento"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getActiveMotivosMovimiento>
+        <getActiveMotivosBaja reference="">
+            <inyector clase="MovimientoslaboralesService" metodo="getActiveMotivosBaja"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getActiveMotivosBaja>
+        <getActiveSituaciones reference="">
+            <inyector clase="MovimientoslaboralesService" metodo="getActiveSituaciones"/>
+            <prototipo>
+                <parametro nombre="asociadocargo" tipo="bool"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getActiveSituaciones>
+        <getTrayectoriaLaboralPersona reference="">
+            <inyector clase="MovimientoslaboralesService" metodo="getTrayectoriaLaboralPersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getTrayectoriaLaboralPersona>
+        <addTrayectoriaLaboralPersona reference="">
+            <inyector clase="MovimientoslaboralesService" metodo="addTrayectoriaLaboralPersona"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <parametro nombre="identidad" tipo="enteropos"/>
+                <parametro nombre="fdesde" tipo="string"/>
+                <parametro nombre="fhasta" tipo="string"/>
+                <parametro nombre="idcargo" tipo="enteropos"/>
+                <parametro nombre="idsituacion" tipo="enteropos"/>
+                <parametro nombre="noalta" tipo="string"/>
+                <parametro nombre="idtipocontrato" tipo="enteropos"/>
+                <parametro nombre="idarea" tipo="enteropos"/>
+                <parametro nombre="principal" tipo="enteropos"/>
+                <parametro nombre="idprocedenciasocial" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </addTrayectoriaLaboralPersona>
+        <setTrayectoriaLaboralPersona reference="">
+            <inyector clase="MovimientoslaboralesService" metodo="setTrayectoriaLaboralPersona"/>
+            <prototipo>
+                <parametro nombre="idsituacionlaboralp" tipo="enteropos"/>
+                <parametro nombre="identidad" tipo="enteropos"/>
+                <parametro nombre="fdesde" tipo="string"/>
+                <parametro nombre="fhasta" tipo="string"/>
+                <parametro nombre="idsituacion" tipo="enteropos"/>
+                <parametro nombre="noalta" tipo="string"/>
+                <parametro nombre="idtipocontrato" tipo="enteropos"/>
+                <parametro nombre="idarea" tipo="enteropos"/>
+                <parametro nombre="principal" tipo="enteropos"/>
+                <parametro nombre="idcargo" tipo="enteropos"/>
+                <parametro nombre="idtipocontrato" tipo="enteropos"/>
+                <parametro nombre="idprocedenciasocial" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </setTrayectoriaLaboralPersona>
+        <deleteTrayectoriaLaboralPersona reference="">
+            <inyector clase="MovimientoslaboralesService" metodo="deleteTrayectoriaLaboralPersona"/>
+            <prototipo>
+                <parametro nombre="idsituacionlaboralp" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </deleteTrayectoriaLaboralPersona>
+        <getSituacionLabPorPersonaEntidad reference="">
+            <inyector clase="MovimientoslaboralesService" metodo="getSituacionLabPorPersonaEntidad"/>
+            <prototipo>
+                <parametro nombre="identidad" tipo="enteropos"/>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getSituacionLabPorPersonaEntidad>
+
+        <getDenomById reference="">
+            <inyector clase="MovimientoslaboralesService" metodo="getDenomById"/>
+            <prototipo>
+                <parametro nombre="idmotivomovimiento" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDenomById>
+        <getDatosPersonaReserva reference="">
+            <inyector clase="MovimientoslaboralesService" metodo="getDatosPersonaReserva"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getDatosPersonaReserva>
+        <getSituacionesLaborales reference="">
+            <inyector clase="MovimientoslaboralesService" metodo="getSituacionesLaborales"/>
+            <prototipo>
+                <parametro nombre="filtro" tipo="enteropos"/>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <parametro nombre="idcargo" tipo="enteropos"/>
+                <parametro nombre="inicio" tipo="enteropos"/>
+                <parametro nombre="limite" tipo="enteropos"/>
+                <parametro nombre="activo" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getSituacionesLaborales>
+        <obtenerIdsConfig reference="">
+            <inyector clase="ConfiguracionFTService" metodo="obtenerIdsConfig"/>
+            <prototipo>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerIdsConfig>
+        <getGraficasApk reference="">
+            <inyector clase="MovimientoslaboralesService" metodo="getGraficasApk"/>
+            <prototipo>
+                <parametro nombre="idusuario" tipo="enteropos"/>
+                <parametro nombre="iddominio" tipo="enteropos"/>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <parametro nombre="fecha" tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getGraficasApk>
+        <obtenerCargosPorPersonaEntidad reference="">
+            <inyector clase="MovimientoslaboralesService" metodo="obtenerCargosPorPersonaEntidad"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerCargosPorPersonaEntidad>
+    </movimientoslaborales>
+
+    <maestro src="pvd/maestro">
+
+        <mostrarIUPlantilla reference="documentos">
+            <inyector clase="PlantillaService" metodo="mostrarIUPlantilla"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enterospos"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </mostrarIUPlantilla>
+        <getEstructurasControlByDominioyEstructura reference="estructcontrol">
+            <inyector clase="EstructcontrolService" metodo="getEstructurasControlByDominioyEstructura"/>
+            <prototipo>
+                <parametro nombre="iddominio" tipo="enteropos"/>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getEstructurasControlByDominioyEstructura>
+        <getControladosByDominioEstructuraPersona reference="estructcontrol">
+            <inyector clase="EstructcontrolService" metodo="getControladosByDominioEstructuraPersona"/>
+            <prototipo>
+                <parametro nombre="iddominio" tipo="enteropos"/>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getControladosByDominioEstructuraPersona>
+        <getControledByDominioEstructuraPersonaPluriempleo reference="estructcontrol">
+            <inyector clase="EstructcontrolService" metodo="getControledByDominioEstructuraPersonaPluriempleo"/>
+            <prototipo>
+                <parametro nombre="iddominio" tipo="enteropos"/>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getControledByDominioEstructuraPersonaPluriempleo>
+        <getControlerByDominioEstructuraPersonaPluriempleo reference="estructcontrol">
+            <inyector clase="EstructcontrolService" metodo="getControlerByDominioEstructuraPersonaPluriempleo"/>
+            <prototipo>
+                <parametro nombre="iddominio" tipo="enteropos"/>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getControlerByDominioEstructuraPersonaPluriempleo>
+        <getContenidoByIdPlantilla reference="documentos">
+            <inyector clase="PlantillaService" metodo="getContenidoByIdPlantilla"/>
+            <prototipo>
+                <parametro nombre="idplantilla" tipo="enteropos"/>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getContenidoByIdPlantilla>
+        <getContenidoReemplazado reference="documentos">
+            <inyector clase="PlantillaService" metodo="getContenidoReemplazado"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <parametro nombre="idplantilla" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getContenidoReemplazado>
+        <!-- Servicios del paquete maestro.configuraciones -->
+        <obtenerConfEstructuraConcepto reference="configuraciones">
+            <inyector clase="EstructuraconceptoService" metodo="obtenerConfEstructuraConcepto"/>
+            <prototipo>
+                <parametro nombre="idestructconcepto" tipo="enteropos"/>
+                <resultado tipo="enteropos"/>
+            </prototipo>
+        </obtenerConfEstructuraConcepto>
+        <obtenerConfImportarExcel reference="configuraciones">
+            <inyector clase="ImportarexcelService" metodo="obtenerConfImportarExcel"/>
+            <prototipo>
+                <parametro nombre="iddominio" tipo="enteropos"/>
+                <parametro nombre="identidad" tipo="enteropos"/>
+                <parametro nombre="idselementos" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerConfImportarExcel>
+        <obtenerConceptos reference="configuraciones">
+            <inyector clase="EstructuraconceptoService" metodo="obtenerConceptos"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerConceptos>
+        <getCategoriasOcup reference="configuraciones">
+            <inyector clase="CategocupacionalService" metodo="getCategoriasOcup"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getCategoriasOcup>
+        <obtenerConfigNotificacion reference="configuraciones">
+            <inyector clase="ConfNotificacionService" metodo="obtenerConfigNotificacion"/>
+            <prototipo>
+                <parametro nombre="identidad" tipo="enteropos"/>
+                <parametro nombre="iddominio" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerConfigNotificacion>
+
+        <obtenerConfConceptoSalarial reference="configuraciones">
+            <inyector clase="ConceptosalarialService" metodo="obtenerConfConceptoSalarial"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerConfConceptoSalarial>
+
+        <obtenerEscalas reference="configuraciones">
+            <inyector clase="ConfEscalaService" metodo="obtenerEscalas"/>
+            <prototipo>
+                <parametro nombre="tipo" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerEscalas>
+        <obtenerEscalasPorId reference="configuraciones">
+            <inyector clase="ConfEscalaService" metodo="obtenerEscalasPorId"/>
+            <prototipo>
+                <parametro nombre="idescala" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerEscalasPorId>
+        <getValoresByEscala reference="configuraciones">
+            <inyector clase="ConfEscalaService" metodo="getValoresByEscala"/>
+            <prototipo>
+                <parametro nombre="idescala" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getValoresByEscala>
+        <getDenomValorByIdEscalaIdValor reference="configuraciones">
+            <inyector clase="ConfEscalaService" metodo="getDenomValorByIdEscalaIdValor"/>
+            <prototipo>
+                <parametro nombre="idescala" tipo="enteropos"/>
+                <parametro nombre="idvalor" tipo="enteropos"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getDenomValorByIdEscalaIdValor>
+        <getValorByIdEscalaIdValor reference="configuraciones">
+            <inyector clase="ConfEscalaService" metodo="getValorByIdEscalaIdValor"/>
+            <prototipo>
+                <parametro nombre="idescala" tipo="enteropos"/>
+                <parametro nombre="idvalor" tipo="enteropos"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getValorByIdEscalaIdValor>
+
+        <obtenerComisiones reference="configuraciones">
+            <inyector clase="ComisionService" metodo="obtenerComisiones"/>
+            <prototipo>
+                <parametro nombre="iddominio" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerComisiones>
+        <obtenerMiembrosPorComision reference="configuraciones">
+            <inyector clase="ComisionService" metodo="obtenerMiembrosPorComision"/>
+            <prototipo>
+                <parametro nombre="idescala" tipo="enteropos"/>
+                <parametro nombre="filtro" tipo="string"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerMiembrosPorComision>
+		 <obtenerPeriodoVacaciones reference="configuraciones">
+            <inyector clase="NomperiodovacacionesService" metodo="obtenerPeriodoVacaciones"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerPeriodoVacaciones>
+        <getPieFirmaDocumentoXIdEntidad reference="configuraciones">
+            <inyector clase="ConfpiefirmaService" metodo="getPieFirmaDocumentoXIdEntidad"/>
+            <prototipo>
+                <parametro nombre="identidad" tipo="enteropos"/>
+                <parametro nombre="iddocumento" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getPieFirmaDocumentoXIdEntidad>
+
+        <!-- Servicios del paquete maestro.cargos -->
+        <obtenerFuncionesCargo reference="cargos">
+            <inyector clase="FuncCargoService" metodo="obtenerFuncionesCargo"/>
+            <prototipo>
+                <parametro nombre="idestructura" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerFuncionesCargo>
+
+        <!-- Servicios para mejorar el rendimiento den el sistema de evaluaciones-->
+        <getEstructurascontrolEvaluaciones reference="estructcontrol">
+            <inyector clase="EstructcontrolService" metodo="getEstructurascontrolEvaluaciones"/>
+            <prototipo>
+                <parametro nombre="iddominio" tipo="enteropos"/>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getEstructurascontrolEvaluaciones>
+        <getEstructurasControlTiene reference="estructcontrol">
+            <inyector clase="EstructcontrolService" metodo="getEstructurasControlTiene"/>
+            <prototipo>
+                <parametro nombre="iddominio" tipo="enteropos"/>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getEstructurasControlTiene>
+	</maestro>
+	<!--Servicios de Competencias laborales-->
+	<competencias src="pvd/competencias">
+		<getCompetenciaByPersonaCargo reference="">
+			<inyector clase="CompetenciaService" metodo="getCompetenciaByPersonaCargo"/>
+			<prototipo>
+				<parametro nombre="idcargo" tipo="enteropos"/>
+				<parametro nombre="idpersona" tipo="enteropos"/>
+				<resultado tipo="array"/>
+			</prototipo>
+		</getCompetenciaByPersonaCargo>
+	</competencias>
+
+    <!--Servicios de Capacitacion-->
+    <capacitacion src="pvd/capacitacion">
+        <getAccionesByPersona reference="">
+            <inyector clase="CapacitacionService" metodo="getAccionesByPersona"/>
+            <prototipo>
+                <parametro nombre="activo" tipo="enteropos"/>
+                <parametro nombre="idpersona" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getAccionesByPersona>
+    </capacitacion>
+
+    <!--Servicios de PCI-->
+    <pci src="pvd/pci">
+        <obtenerSolicitantes reference="maestro">
+            <inyector clase="MaestroService" metodo="getSolicitante"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerSolicitantes>
+        <obtenerClasificacion reference="maestro">
+            <inyector clase="MaestroService" metodo="getClasificacion"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerClasificacion>
+        <obtenerTipoSolicitud reference="maestro">
+            <inyector clase="MaestroService" metodo="getTipoSolicitud"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerTipoSolicitud>
+        <obtenerEspecialista reference="maestro">
+            <inyector clase="MaestroService" metodo="getEspecialista"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerEspecialista>
+        <obtenerMotivo reference="maestro">
+            <inyector clase="MaestroService" metodo="getMotivo"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerMotivo>
+        <obtenerMovimiento reference="maestro">
+            <inyector clase="MaestroService" metodo="getMovimiento"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerMovimiento>
+    </pci>
+
+    <!--Servicios de familia cubana-->
+    <familiacubana src="pvd/familiacub">
+        <getNomParentesco reference="">
+            <inyector clase="FamiliacubanaService" metodo="getNomParentesco"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getNomParentesco>
+        <getSectores reference="">
+            <inyector clase="FamiliacubanaService" metodo="getSectores"/>
+            <prototipo>
+                <parametro nombre="node" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getSectores>
+        <getMiembrosByIdNucleo reference="">
+            <inyector clase="FamiliacubanaService" metodo="getMiembrosByIdNucleo"/>
+            <prototipo>
+                <parametro nombre="idnucleo" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getMiembrosByIdNucleo>
+        <addPersonaSuin reference="">
+            <inyector clase="FamiliacubanaService" metodo="addPersonaSuin"/>
+            <prototipo>
+                <parametro nombre="nombre" tipo="string"/>
+                <parametro nombre="snombre" tipo="string"/>
+                <parametro nombre="papel" tipo="string"/>
+                <parametro nombre="sapel" tipo="string"/>
+                <parametro nombre="sexo" tipo="enterospos"/>
+                <parametro nombre="idsuin" tipo="string"/>
+                <parametro nombre="numid" tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </addPersonaSuin>
+    </familiacubana>
+
+</ioc>

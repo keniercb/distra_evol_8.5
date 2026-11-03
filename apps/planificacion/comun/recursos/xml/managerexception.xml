@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<exceptions>
+    <planificacion>
+        <viaje>
+            <planeacion>
+                <GestionarservicioController>
+                    <createAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE001" filter="ak_codigo_servicio" />
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE002" filter="ak_denominacioncorta_servicio" />
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE003" filter="ak_denominacionlarga_servicio" />
+                    </createAction>
+                    <updateAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE001" filter="ak_codigo_servicio" />
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE002" filter="ak_denominacioncorta_servicio" />
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE003" filter="ak_denominacionlarga_servicio" />
+                    </updateAction>
+                </GestionarservicioController>
+                <GestionarpuertoController>
+                    <createAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE004" filter="ak_codigo_puerto" />
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE005" filter="ak_denominacion_puerto" />
+                    </createAction>
+                    <updateAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE004" filter="ak_codigo_puerto" />
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE005" filter="ak_denominacion_puerto" />
+                    </updateAction>
+                </GestionarpuertoController>
+                <GestionaractividadmelfiController>
+                    <createAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE006" filter="ak_abreviatura_actividadmelfi" />
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE007" filter="ak_denominacion_actividadmelfi" />
+                    </createAction>
+                    <updateAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE006" filter="ak_abreviatura_actividadmelfi" />
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE007" filter="ak_denominacion_actividadmelfi" />
+                    </updateAction>
+                </GestionaractividadmelfiController>
+                <GestionarcausaController>
+                    <createAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE008" filter="ak_abreviatura_causa" />
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE009" filter="ak_denominacion_causa" />
+                    </createAction>
+                    <updateAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE008" filter="ak_abreviatura_causa" />
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE009" filter="ak_denominacion_causa" />
+                    </updateAction>
+                </GestionarcausaController>
+                <ViajeController>
+                    <deleteAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE010" filter="fk_viaje_bl" />
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE011" filter="fk_planviajes_ordenliberacion" />
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE012" filter="fk_escala_solicitudbuqueo" />
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE013" filter="fk_viaje_movcontenedor" />
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE014" filter="fk_viaje_cartatransbordo_idviajedescarga" />
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="PLANVIAJE015" filter="fk_viaje_cartatransbordo_idviajetransbordo" />
+
+                    </deleteAction>
+
+                </ViajeController>
+            </planeacion>
+        </viaje>
+
+        <plantilla>
+            <GesplantillaController>
+                <adicionarplantillaAction>
+                    <exception type="Doctrine_Connection_Pgsql_Exception" code="LOGAFT008" />
+                </adicionarplantillaAction>
+                <modificarplantillaAction>
+                    <exception type="ZendExt_Exception" code="PLAP001" />
+                </modificarplantillaAction>
+            </GesplantillaController>
+        </plantilla>
+        <planmeta>
+            <GestindicadoresController>
+                <eliminarAction>
+                    <exception type="Doctrine_Connection_Pgsql_Exception" code="PLAIP001" />
+                </eliminarAction>
+            </GestindicadoresController>
+            <GestmodeloController>
+                <adicionarModeloAction>
+                    <exception type="ZendExt_Exception" code="PLAP001" />
+                </adicionarModeloAction>
+            </GestmodeloController>
+            <GestcomentarioController>
+                <adicionarComentarioAction>
+                    <exception type="ZendExt_Exception" code="PLAP001" />
+                </adicionarComentarioAction>
+            </GestcomentarioController>
+            <BpgestnivelesactividadController>
+                <actualizarNivActividadAction>
+                    <exception type="Doctrine_Connection_Pgsql_Exception" code="PLABP005" filter="CONCURRENCE RESTRICTION" />
+                </actualizarNivActividadAction>
+            </BpgestnivelesactividadController>
+            <GesttipocodificadorController>
+                <adicionarAction>
+                    <exception type="Doctrine_Connection_Pgsql_Exception" code="PLATC001" />
+                </adicionarAction>
+            </GesttipocodificadorController>
+        </planmeta>
+        <estructura>
+            <EstructuraController>
+                <adicionarestructuraAction>
+                    <exception type="Doctrine_Connection_Pgsql_Exception" code="LOGAFT008" />
+                </adicionarestructuraAction>
+                <adicionarentidadesAction>
+                    <exception type="Doctrine_Connection_Pgsql_Exception" code="LOGAFT008" />
+                </adicionarentidadesAction>
+            </EstructuraController>
+        </estructura>
+        <CalnecesidadesController>
+            <cargargriddatosAction>
+                <exception type="Doctrine_Excepcion" code="PLA001" />
+            </cargargriddatosAction>
+            <cargargridresultadosAction>
+                <exception type="Doctrine_Excepcion" code="PLA001" />
+            </cargargridresultadosAction>
+            <calnormafinancieraAction>
+                <exception type="Doctrine_Excepcion" code="PLA001" />
+            </calnormafinancieraAction>
+        </CalnecesidadesController>
+    </planificacion>
+
+</exceptions>
+

@@ -1,0 +1,53 @@
+//Inicializando la vista.
+Ext.QuickTips.init();
+var perfil = window.parent.perfil;
+perfil.etiquetas = Object();
+
+Ext.Msg.wait('Cargando...', 'Por favor espere...');
+
+Ext.Ajax.request({
+    method: "POST",
+    url: "cargaretiquetas",
+    callback: function(options, success, response)
+    {
+        var etiquetas = Ext.decode(response.responseText);
+
+        Ext.Ajax.request({
+            url: 'loadDataIni',
+            callback: function (options, success, response) {
+                if (success) {
+                    var response = Ext.decode(response.responseText);
+                    fechaContable = response.dataFecha.fechacontable;
+                    periodoActual = response.dataFecha.nombre;
+                    fechaInicio = response.dataFecha.inicio;
+                    fechaFin = response.dataFecha.fin;
+                    ejercicioActual = response.ejercicio;
+                    var dataAnota = response.dataAnota;
+
+                    //Inicializar el modelo
+                    model = Caja.DietaNacional.Model;
+                    model.init(0,this);
+
+                    //Inicializar la vista.
+                    var view = Caja.DietaNacional.View;
+                    view.init(perfil, etiquetas, model, 0);
+
+                    if (response.aperturado == 0 ) {
+                        mostrarMensaje(1, etiquetas.lbCargaInicial, function (btn) {
+                            //if (btn == 'ok' || btn == 'cencel')
+                                view.panel.disable();
+                        });
+                        return;
+                    }
+
+                    //Inicializar controlador.
+                    var controller = Caja.DietaNacional.Controller;
+                    controller.init(perfil, etiquetas, view, model, 0, dataAnota);
+
+                    // view.lfdPeriodo.setText('Per\u00EDodo actual: ' + periodoActual + ' desde ' + fechaInicio + ' hasta ' + fechaFin + '|' + 'Fecha contable: ' + fechaContable);
+                    view.lfdPeriodo.setText('Fecha contable: ' + fechaContable);
+                }
+            }
+        });
+    }
+});

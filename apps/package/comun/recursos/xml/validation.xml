@@ -1,0 +1,72 @@
+<validation>
+    <package>
+        <PackageController>
+            <isAuthenticateAction>
+                <param name="idpadre" type="vtalfanumericosguiones" not_null="true"/>
+            </isAuthenticateAction>
+            <authenticateCorrectAction>
+                <param name="idpadre" type="vtalfanumericosguiones" not_null="true"/>
+                <param name="url" type="todoMenosPtoComa" not_null="true"/>
+                <param name="user" type="todoMenosTabEnter" not_null="true"/>
+                <param name="password" type="todoMenosTabEnter" not_null="true"/>
+            </authenticateCorrectAction>
+            <getListPackagesAction>
+                <param name="_dc" type="enterospos" not_null="true"/>
+                <param name="filtro" type="todoMenosTabEnter" not_null="false"/>
+                <param name="page" type="enterospos" not_null="true"/>
+                <param name="start" type="enterospos" not_null="true"/>
+                <param name="limit" type="enterospos" not_null="true"/>
+            </getListPackagesAction>
+            <pushRepositoriesAction>
+                <param name="newUrl" type="todoMenosPtoComa" not_null="true"/>
+                <param name="oldUrl" type="todoMenosPtoComa" not_null="false"/>
+            </pushRepositoriesAction>
+            <modifyRepositoryAction>
+                <param name="newUrl" type="todoMenosPtoComa" not_null="true"/>
+                <param name="oldUrl" type="todoMenosPtoComa" not_null="false"/>
+            </modifyRepositoryAction>
+            <deleteRepositoryAction>
+                <param name="url" type="todoMenosPtoComa" not_null="true"/>
+            </deleteRepositoryAction>
+            <deletePackageRepositoryAction>
+                <param name="arrayDatos" type="json" not_null="true"/>
+            </deletePackageRepositoryAction>
+            <getRepositoriesAction>
+                <param name="_dc" type="enterospos" not_null="true"/>
+                <param name="node" type="vtalfanumericosguiones" not_null="true"/>
+                <param name="sort" type="json" not_null="true"/>
+            </getRepositoriesAction>
+            <getTagsRepositoriesAction>
+                <param name="_dc" type="enterospos" not_null="true"/>
+                <param name="node" type="vtalfanumericosguiones" not_null="true"/>
+                <param name="url" type="todoMenosPtoComa" not_null="true"/>
+                <param name="idpadre" type="vtalfanumericosguiones" not_null="true"/>
+                <param name="user" type="todoMenosTabEnter" not_null="false"/>
+                <param name="password" type="todoMenosTabEnter" not_null="false"/>
+                <param name="sort" type="json" not_null="true"/>
+            </getTagsRepositoriesAction>
+            <getRequireIsNotPackagesAction>
+                <param name="_dc" type="enterospos" not_null="true"/>
+                <param name="nameTags" type="todoMenosEspacios" not_null="true"/>
+                <param name="url" type="todoMenosPtoComa" not_null="true"/>
+                <param name="idpadre" type="vtalfanumericosguiones" not_null="true"/>
+                <param name="page" type="enterospos" not_null="true"/>
+                <param name="start" type="enterospos" not_null="true"/>
+                <param name="limit" type="enterospos" not_null="true"/>
+            </getRequireIsNotPackagesAction>
+            <!--<involvePackageAction>-->
+            <!--<param name="idpadre" type="vtalfanumericosguiones" not_null="true" />-->
+            <!--<param name="url" type="todoMenosPtoComa" not_null="true" />-->
+            <!--<param name="nameTags" type="todoMenosEspacios" not_null="true" />-->
+            <!--<param name="filtroTree" type="todoMenosTabEnter" not_null="false" />-->
+            <!--<param name="nameprod" type="todoMenosEspacios" not_null="true" />-->
+            <!--<param name="autor" type="todoMenosEspacios" not_null="true" />-->
+            <!--<param name="tipoV" type="letras" not_null="true" />-->
+            <!--<param name="frase" type="todoMenosTabEnter" not_null="true" />-->
+            <!--</involvePackageAction>-->
+            <releasePackagesAction>
+                <param name="arrayDatos" type="json" not_null="true"/>
+            </releasePackagesAction>
+        </PackageController>
+    </package>
+</validation>

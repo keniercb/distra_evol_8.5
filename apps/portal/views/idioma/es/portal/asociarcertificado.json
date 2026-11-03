@@ -1,0 +1,13 @@
+{
+  lbFraseSecreta: 'Frase secreta',
+  invalidTextp12: 'Este campo solo admite archivos en formato pkcs12.',
+  blankText: 'Este campo es obligatorio.',
+  lbpkcs: 'PKCS#12',
+  lbUsuario: 'Usuario',
+  lbBtnAsociarCert: 'Asociar certificado a usuario',
+  lbBtnAceptar: 'Aceptar',
+  lbMsgErrorEnCampos: 'Por favor verifique nuevamente que hay campo(s) con valor(es) incorrecto(s).',
+  lbBtnCancelar: 'Cancelar',
+  lbBtnCancelarTip: 'Cancelar acci&oacute;n',
+  lbResultadoSatisfactorio: 'Certificado asociado al usuario satisfactoriamente.'
+}

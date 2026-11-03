@@ -1,0 +1,21 @@
+CREATE TYPE mod_logpuntoventa.td_listadocumentosfarmacia AS (
+  iddocumento NUMERIC(19,0),
+  nrodoc NUMERIC(19,0),
+  fecha DATE,
+  importe NUMERIC(25,6),
+  productos NUMERIC(19,0),
+  cliente VARCHAR(255),
+  nrodocpadre VARCHAR(255),
+  fechadocpadre DATE,
+  tipo_modopago VARCHAR(100),
+  observaciones VARCHAR(255),
+  vendedor VARCHAR(255),
+  areaventa VARCHAR(255),
+  hora VARCHAR(100),
+  entidad VARCHAR(100),
+  logo VARCHAR(255),
+  preciocosto NUMERIC(25,6)
+);
+
+ALTER TYPE mod_logpuntoventa.td_listadocumentosfarmacia
+  OWNER TO zeolides;

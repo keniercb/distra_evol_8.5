@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<projectProfile type="default">
+  <projectDirectory>
+    <projectProfileFile filesystemName=".zeolides_project.xml"/>
+    <viewsDirectory>
+      <directoryDirectory directoryName=".src">
+        <jsonFile fileName="MainView"/>
+      </directoryDirectory>
+      <directoryDirectory directoryName="package">
+        <mainFile fileName="mainpackage"/>
+      </directoryDirectory>
+      <viewFile fileName="MainView"/>
+    </viewsDirectory>
+    <modelsDirectory>
+      <directoryDirectory directoryName=".src"/>
+    </modelsDirectory>
+    <viewModelDirectory>
+      <viewModelFile fileName="MainViewModel"/>
+    </viewModelDirectory>
+    <resourcesDirectory>
+      <cssDirectory/>
+      <imagesDirectory/>
+      <idiomaDirectory>
+        <enDirectory/>
+        <esDirectory/>
+      </idiomaDirectory>
+    </resourcesDirectory>
+    <mainIndexFile fileName="index"/>
+    <testFile fileName="test"/>
+  </projectDirectory>
+</projectProfile>

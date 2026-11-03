@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weaver>
+    <planificacion>
+        <ceBeca>
+            <residencia>
+                <GestaptoController>
+                    <insertaraptoAction aspecttemplate="aspectemplate1"/>
+                    <modificaaptoAction aspecttemplate="aspectemplate1"/>
+                </GestaptoController>
+                <GestresController>
+                    <insertarresAction aspecttemplate="aspectemplate1"/>
+                    <modificaresAction aspecttemplate="aspectemplate1"/>
+                </GestresController>
+            </residencia>
+        </ceBeca>
+        <nomencladores>
+            <GestionarplanController>
+                <insertarplanAction aspecttemplate="aspectemplate1"/>
+                <modificarplanAction aspecttemplate="aspectemplate1"/>
+            </GestionarplanController>
+            <ClasifmodelController>
+                <adicionarmodeloAction aspecttemplate="aspectemplate1"/>
+                <modificarmodeloAction aspecttemplate="aspectemplate1"/>
+            </ClasifmodelController>
+
+            <GestionarmodeloController>
+                <insertarmodeloAction aspecttemplate="aspectemplate1"/>
+                <modificarmodeloAction aspecttemplate="aspectemplate1"/>
+            </GestionarmodeloController>
+            <GestionarestadoController>
+                <insertarestadoAction aspecttemplate="aspectemplate1"/>
+                <modificarestadoAction aspecttemplate="aspectemplate1"/>
+            </GestionarestadoController>
+            <GestionaretapaController>
+                <insertaretapaAction aspecttemplate="aspectemplate1"/>
+                <modificaretapaAction aspecttemplate="aspectemplate1"/>
+            </GestionaretapaController>
+            <GestionargrupoindicadorController>
+                <insertargrupoindicadorAction aspecttemplate="aspectemplate1"/>
+                <modificargrupoindicadorAction aspecttemplate="aspectemplate1"/>
+            </GestionargrupoindicadorController>
+            <GestionarindicadorController>
+                <insertarindicadorAction aspecttemplate="aspectemplate1"/>
+                <modificarindicadorAction aspecttemplate="aspectemplate1"/>
+            </GestionarindicadorController>
+            <GestionartipoceldaController>
+                <insertartipoceldaAction aspecttemplate="aspectemplate1"/>
+                <modificartipoceldaAction aspecttemplate="aspectemplate1"/>
+            </GestionartipoceldaController>
+            <GestionarniveldeaprobacionController>
+                <adicionarnivelAction aspecttemplate="aspectemplate1"/>
+                <modificarnivelAction aspecttemplate="aspectemplate1"/>
+            </GestionarniveldeaprobacionController>
+
+
+            <GestionarniveldeaprobacionController>
+                <adicionarnivelAction aspecttemplate="aspectemplate1"/>
+                <modificarnivelAction aspecttemplate="aspectemplate1"/>
+            </GestionarniveldeaprobacionController>
+            <GestionaratributoController>
+                <adicionaratributoAction aspecttemplate="aspectemplate1"/>
+                <modificaratributoAction aspecttemplate="aspectemplate1"/>
+            </GestionaratributoController>
+
+        </nomencladores>
+        <gestiondeformatos>
+            <GestplantillaController>
+                <insertarplantillaAction aspecttemplate="aspectemplate1"/>
+                <modificarplantillaAction aspecttemplate="aspectemplate1"/>
+            </GestplantillaController>
+        </gestiondeformatos>
+
+        <pdo>
+            <administracion>
+                <GestionarnomencladoresController>
+                    <eliminarnomTipoatAction aspecttemplate="aspectemplate1"/>
+                    <eliminarnomEstadoAction aspecttemplate="aspectemplate1"/>
+                    <eliminarnomOrigenAction aspecttemplate="aspectemplate1"/>
+                    <eliminarnomUmedidaAction aspecttemplate="aspectemplate1"/>
+                    <eliminarnomImportanciaAction aspecttemplate="aspectemplate1"/>
+                    <eliminarnomTipoinvolucradoAction aspecttemplate="aspectemplate1"/>
+                </GestionarnomencladoresController>
+            </administracion>
+        </pdo>
+
+        <configurar_plan>
+            <ConfigurarplanController>
+                <eliminarconfAction aspecttemplate="aspectemplate1"/>
+            </ConfigurarplanController>
+        </configurar_plan>
+
+        <indicadores>
+            <GestindicadoresController>
+                <insertarIndicadoresAction aspecttemplate="aspectemplate1"/>
+                <modificarIndicadorAction aspecttemplate="aspectemplate1"/>
+                <insertarIndicadorExtAction aspecttemplate="aspectemplate1"/>
+            </GestindicadoresController>
+        </indicadores>
+
+        <plantilla>
+            <GescolumnaController>
+                <insertarcolumnasAction aspecttemplate="aspectemplate1"/>
+                <modificarcolumnasAction aspecttemplate="aspectemplate1"/>
+                <activarcolumnaAction aspecttemplate="aspectemplate1"/>
+                <desactivararcolumnaAction aspecttemplate="aspectemplate1"/>
+            </GescolumnaController>
+
+            <GesplantillaController>
+                <duplicarplantillaAction aspecttemplate="aspectemplate1"/>
+            </GesplantillaController>
+
+            <!--<GesplantillaController>
+                        				<insertarPlantillaAction aspecttemplate="aspectemplate1"/>
+                        				<adicionarplantillaAction aspecttemplate="aspectemplate1"/>
+                        				<modificarplantillaAction aspecttemplate="aspectemplate1"/>
+                        				<adicionarceldasAction aspecttemplate="aspectemplate1"/>
+                        				<activarplantillaAction aspecttemplate="aspectemplate1"/>
+                        				<desactivarplantillaAction aspecttemplate="aspectemplate1"/>
+                        				 <adicionarformulaAction aspecttemplate="aspectemplate1"/>
+         			</GesplantillaController>-->
+        </plantilla>
+
+        <estructura>
+            <EstructuraController>
+                <adicionarestructuraAction aspecttemplate="aspectemplate1"/>
+                <adicionarentidadesAction aspecttemplate="aspectemplate1"/>
+            </EstructuraController>
+        </estructura>
+
+        <calculo_de_necesidades>
+            <GestionarcriterioController>
+                <insertarCriterioAction aspecttemplate="aspectemplate1"/>
+                <modificarCriterioAction aspecttemplate="aspectemplate1"/>
+            </GestionarcriterioController>
+
+            <GestionarconceptoController>
+                <insertarConceptoAction aspecttemplate="aspectemplate1"/>
+                <modificarConceptoAction aspecttemplate="aspectemplate1"/>
+            </GestionarconceptoController>
+
+            <GestionaractividadController>
+                <insertarActividadAction aspecttemplate="aspectemplate1"/>
+                <modificarActividadAction aspecttemplate="aspectemplate1"/>
+            </GestionaractividadController>
+
+            <GestnormasController>
+                <insertarprodAction aspecttemplate="aspectemplate1"/>
+                <modificarprodAction aspecttemplate="aspectemplate1"/>
+                <insertarnormaAction aspecttemplate="aspectemplate1"/>
+                <modificarnormaAction aspecttemplate="aspectemplate1"/>
+            </GestnormasController>
+
+            <AsociarcriactController>
+                <insertarasociacionAction aspecttemplate="aspectemplate1"/>
+            </AsociarcriactController>
+
+            <AsociarcriconcController>
+                <insertarasociacionAction aspecttemplate="aspectemplate1"/>
+            </AsociarcriconcController>
+
+            <GesnivelactividadController>
+                <insertarnivelactividadAction aspecttemplate="aspectemplate1"/>
+                <modificarnivelactividadAction aspecttemplate="aspectemplate1"/>
+            </GesnivelactividadController>
+
+            <CalnecesidadesController>
+                <InsertarCapturaAction aspecttemplate="aspectemplate1"/>
+                <ModificarCapturaAction aspecttemplate="aspectemplate1"/>
+            </CalnecesidadesController>
+        </calculo_de_necesidades>
+
+        <realizacion_de_plan>
+            <GestmodeloController>
+                <cambiarEstadoModeloAction aspecttemplate="aspectemplate1"/>
+                <modificarComentarioAction aspecttemplate="aspectemplate1"/>
+                <oficializarPlanAction aspecttemplate="aspectemplate1"/>
+            </GestmodeloController>
+
+        </realizacion_de_plan>
+        <construccion_planes>
+            <ConstplanesController>
+                <adicionarPlanAction aspecttemplate="aspectemplate1"/>
+                <modificarPlanAction aspecttemplate="aspectemplate1"/>
+            </ConstplanesController>
+        </construccion_planes>
+        <planmeta>
+            <GestindicadoresController>
+                <adicionarAction aspecttemplate="aspectemplate2"/>
+            </GestindicadoresController>
+            <GesttipomodeloController>
+                <adicionartipomodeloAction aspecttemplate="aspectemplate2"/>
+            </GesttipomodeloController>
+            <GestcolumnasController>
+                <adicionarColumnaAction aspecttemplate="aspectemplate2"/>
+            </GestcolumnasController>
+            <GestplanesController>
+                <adicionarPlanAction aspecttemplate="aspectemplate2"/>
+            </GestplanesController>
+            <GestmodeloController>
+                <adicionarIndicadorAction aspecttemplate="aspectemplate2"/>
+            </GestmodeloController>
+            <!-- <BasesparaplanController>
+              <adicionarActividadAction aspecttemplate="aspectemplate1"/>
+              <eliminarActividadAction aspecttemplate="aspectemplate1"/>
+              <asociarActividadEntidadAction aspecttemplate="aspectemplate1"/>
+            </BasesparaplanController>  -->
+            <BpgestactividadesController>
+                <adicionarActividadAction aspecttemplate="aspectemplate2"/>
+                <eliminarActividadAction aspecttemplate="aspectemplate2"/>
+                <activarDesactivarActividadAction aspecttemplate="aspectemplate2"/>
+                <aprobarDesaprobarActividadAction aspecttemplate="aspectemplate2"/>
+            </BpgestactividadesController>
+            <BpgestnivelesactividadController>
+                <actualizarNivActividadAction aspecttemplate="aspectemplate2"/>
+            </BpgestnivelesactividadController>
+            <BpdesgloseController>
+                <adicionarConfigDesgloseAction aspecttemplate="aspectemplate2"/>
+            </BpdesgloseController>
+            <GestnomencladoresController>
+                <adicionarAction aspecttemplate="aspectemplate2"/>
+            </GestnomencladoresController>
+        </planmeta>
+        <viaje>
+            <planeacion>
+                <GestionarservicioController>
+                    <createAction aspecttemplate="aspecttemplate2"/>
+                </GestionarservicioController>
+            </planeacion>
+        </viaje>
+
+    </planificacion>
+
+</weaver>

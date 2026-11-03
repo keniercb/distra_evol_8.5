@@ -1,0 +1,75 @@
+.detallessolicitud{
+    font: 12px Arial, Helvetica, sans-serif;
+}
+.detallessolicitud label{
+    font-weight: bold;
+    color: #124872;
+}
+.detallessolicitud fieldset{
+    border: 1px solid #99BCE8;
+}
+.solicitudneogico-columnheader div{
+    border: 1px solid #C5C5C5;
+    float: left;
+    background-color: #C5C5C5;
+    background-image: -moz-linear-gradient(center top , #F9F9F9, #E3E4E6);
+    text-overflow: ellipsis;
+    padding: 2px 3px 2px;
+}
+.detallessolicitud-general{
+    padding: 10px;
+    border: 1px solid #99BCE8;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.solicitudneogico-block{
+    float: left;
+    overflow: hidden;
+    width: 50%;
+}
+.solicitudneogico-allrow{
+    width: 100%;
+}
+.solicitudneogico-item{
+    font: 12px Arial, Helvetica, sans-serif;
+    margin: 0 0 10px 0;
+}
+.solicitudneogico-item label{
+    font-weight: bold;
+    margin-right: 8px;
+}
+.solicitudnegocio-row{
+    clear: left;
+}
+.solicitudnegocio-row div{
+    float: left;
+    border: 1px solid #C5C5C5;
+    padding: 2px 3px 2px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.search-item {
+    font:normal 11px tahoma, arial, helvetica, sans-serif;
+    padding:3px 10px 3px 10px;
+    border:1px solid #fff;
+    border-bottom:1px solid #eeeeee;
+    white-space:normal;
+    color:#555;
+}
+.search-item h3 {
+    display:block;
+    font:inherit;
+    font-weight:bold;
+    color:#222;
+}
+
+.search-item h3 span {
+    float: right;
+    font-weight:normal;
+    margin:0 0 5px 5px;
+    width:100px;
+    display:block;
+    clear:none;
+}

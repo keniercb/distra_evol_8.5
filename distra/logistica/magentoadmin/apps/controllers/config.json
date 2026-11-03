@@ -1,0 +1,17 @@
+{
+  "columnsToShow": [
+    {
+      "name": "",
+      "header": "",
+      "dataIndex": ""
+    }
+  ],
+  "acceptPayOnImport": 0,
+  "reportsCodes": {
+    "rptTotal": 12690451,
+    "rptConsol": 12690435,
+    "rptTransit": 12690372,
+    "rptAvailable": 12690391
+  },
+  "isNovaBankcSource" : 1
+}

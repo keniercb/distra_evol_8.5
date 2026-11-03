@@ -1,0 +1,9 @@
+{
+    tlOrganismos: 'Organismos',
+    btnAyuda: 'Ayuda',
+    btnAyudatoll: 'Ayuda <b>(Alt+A)</b>',
+    lbExpandirTodasEnts: 'Expandir todas las entidades',
+    lbColapsarTodasEnts: 'Colapsar todas las entidades',
+    lbRefresTodasEnts: 'Refrescar todas las entidades',
+    lbFiltrarEnts: 'Filtrar entidad...'
+}

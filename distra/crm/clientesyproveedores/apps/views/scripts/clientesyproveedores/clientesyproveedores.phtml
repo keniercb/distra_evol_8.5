@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+        <link rel="stylesheet" type="text/css" href="<?php echo $this->dir_ext_ccs; ?>css/ext-all.css"/>
+        <!--<link href="/contabilidad/comun/css/file-upload.css" media="screen" rel="stylesheet" type="text/css" >-->
+        <link rel="stylesheet" type="text/css" href="/configuracion/clientesyproveedores/views/js/clientesyproveedores/RowEditor/css/RowEditor.css"/>
+        <link rel="stylesheet" type="text/css" href="/configuracion/clientesyproveedores/views/css/data-view.css"/>
+        <link rel="stylesheet" type="text/css" href="/configuracion/clientesyproveedores/views/css/iconFont.css"/>
+        <link rel="stylesheet" type="text/css" href="/configuracion/clientesyproveedores/views/css/OpenLayersStyle.css"/>
+        <link rel="stylesheet" type="text/css" href="/configuracion/comun/views/css/styles-grid.css"/>
+        <!--<link type="text/css" rel="stylesheet" href="/configuracion/comun/views/css/searchField.css">-->
+    </head>
+    <body>
+        <script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+        <!--script type="text/javascript" src="<?php echo $this->dir_CuentasClass;?>"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_CuentasUI;?>"></script-->
+        <script type="text/javascript" src="/contabilidad/contabilidad_financiera/cuentacontable/views/js/componentes/Cuentas/Cuentas.Class.js"></script>
+        <script type="text/javascript" src="/contabilidad/contabilidad_financiera/cuentacontable/views/js/componentes/Cuentas/Cuentas.UI.js"></script>
+
+
+        <script type="text/javascript" src="/lib/UCID/js/utiles/ViewModel.js"></script>
+        <!--<script type="text/javascript" src="/configuracion/comun/views/js/FileUploadField.js"></script>-->
+        <script type="text/javascript" src="/configuracion/comun/views/js/Base64cypt.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/views/js/RowActionColumn/Ext.grid.RowActions.js"></script>
+        <script type="text/javascript" src="/configuracion/organos/views/js/CmbOrganos.js"></script>
+        <!--script type="text/javascript" src="/configuracion/modeloscontabilizacion/componentes/RowEditor/RowEditor.js"></script-->
+        <script type="text/javascript" src="/configuracion/comun/views/js/Ext.ux.form.LovCombo.plugins.js"></script>
+        <script type="text/javascript" src="/configuracion/divisionpolitica/views/idioma/es/dpt/es_dpt.js"></script>
+        <script type="text/javascript" src="/configuracion/divisionpolitica/views/js/gestdpa/views/winSelectDPA.js"></script>
+        <script type="text/javascript" src="/configuracion/divisionpolitica/views/js/gestdpa/models/DPA.js"></script>
+        <!-- Integracion con Estructura-->
+        <!--<script type="text/javascript" src="/metadatos/comun/componentes/utiles.js"></script>-->
+        <script type="text/javascript" src="/metadatos/comun/goUtil.js"></script>
+        <script type="text/javascript" src="/metadatos/proyecto/views/js/idioma/etiquetas.js"></script>
+        <script type="text/javascript" src="/metadatos/proyecto/views/js/estructura/componentes/qtipTreeEstructura.js"></script>
+        <script type="text/javascript" src="/metadatos/estructura/views/js/iuService/panelIUEstructura.js"></script>
+        <script type="text/javascript" src="/metadatos/estructura/views/js/iuService/ventanaIU.js"></script>
+        <script type="text/javascript" src="/configuracion/reportes/views/js/SCFPrintView.js"></script>
+        <script type="text/javascript" src="/metadatos/comun/componentes/MultiComboSelect/MultiComboSelect.js"></script>
+        <!-- Integracion con Persona-->
+        <link href="/pvd/persona/views/js/perfilpersona/perfilpersona.css" media="screen" rel="stylesheet" type="text/css" >
+        <script type="text/javascript" src="/pvd/persona/views/js/perfilpersona/perfilpersona.js"></script>
+        <script type="text/javascript" src="/pvd/comun/views/js/utiles/searchComboBox.js"></script>
+        <link href="/pvd/persona/views/ext/ComboBoxBtn/ComboBoxBtn.css" media="screen" rel="stylesheet" type="text/css" >
+        <script type='text/javascript' src='/pvd/persona/views/ext/ComboBoxBtn/ComboBoxBtn.js'></script>
+        <script type='text/javascript' src='/pvd/persona/views/js/buscarpersona/buscarpersona.js'></script>
+        <!-- Integracion con GIS-->
+        <?php echo $this->jsrepresentacion;?>
+        <!-- Filtros en las columnas-->
+        <script type="text/javascript" src="/configuracion/comun/plugins/GridFilters/menu/EditableItem.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/plugins/GridFilters/menu/RangeMenu.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/plugins/GridFilters/grid/GridFilters.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/plugins/GridFilters/grid/filter/Filter.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/plugins/GridFilters/grid/filter/StringFilter.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/plugins/GridFilters/grid/filter/DateFilter.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/plugins/GridFilters/grid/filter/ListFilter.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/plugins/GridFilters/grid/filter/NumericFilter.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/plugins/GridFilters/grid/filter/BooleanFilter.js"></script>
+        <!-- JS especifico de la vista-->
+        <script type="text/javascript" src="/configuracion/clientesyproveedores/views/js/clientesyproveedores/data-view-plugins.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/views/js/dataView.plugins.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/views/js/PagingToolbar/Ext.Cont.PagingToolbar.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/views/js/Notification/js/Ext.Cont.Notification.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/views/js/Ext.Cont.SearchField.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/views/js/overrides.js"></script>
+        <script type="text/javascript" src="/configuracion/clientesyproveedores/views/js/clientesyproveedores/clientesyproveedores.js"></script>
+        <script type="text/javascript" src="/configuracion/clientesyproveedores/views/js/clientesyproveedores/Ext.DatMaest.ClientProveed.Panel.js"></script>
+        <script type="text/javascript" src="/configuracion/clientesyproveedores/views/js/clientesyproveedores/RowEditor/RowEditor.js"></script>
+        <script type="text/javascript" src="/configuracion/clientesyproveedores/views/js/clientesyproveedores/Ext.Conf.ModContb.GridEditor.js"></script>
+        <script type="text/javascript" src="/configuracion/clientesyproveedores/views/js/clientesyproveedores/Ext.DatMaest.ClientProveed.EspacioTrabajo.js"></script>
+        <script type="text/javascript" src="/configuracion/clientesyproveedores/views/js/clientesyproveedores/Ext.DatMaest.ClientProveed.GridVehiculos.js"></script>
+        <script type="text/javascript" src="/configuracion/clientesyproveedores/views/js/clientesyproveedores/Ext.DatMaest.ClientProveed.WindowProducto.js"></script>
+        <script type="text/javascript" src="/configuracion/clientesyproveedores/views/js/clientesyproveedores/Ext.DatMaest.ClientProveed.WindowHabilitar.js"></script>
+        <script type="text/javascript" src="/configuracion/clientesyproveedores/views/js/clientesyproveedores/Ext.DatMaest.ClientProveed.WindowDeudas.js"></script>
+        <script type="text/javascript" src="/configuracion/clientesyproveedores/views/js/clientesyproveedores/Ext.DatMaest.ClientProveed.WindowConfig.js"></script>
+        <!-- Integracion con contabilidad-->
+        <?php echo $this->existecont;?>
+    </body>
+</html>
+
+

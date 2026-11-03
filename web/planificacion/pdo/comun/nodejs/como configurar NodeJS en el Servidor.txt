@@ -1,0 +1,84 @@
+﻿
+Hacer un enlace simbólico de la cartpeta NodeJS
+
+ln -s /dir/donde/esta/Nodejs/libreria/node-v0.12.0-linux-x64/bin/node /usr/local/bin/node
+
+
+Pasos para ejecutar el Servico NodeJS en el servidor.
+
+1. Hacer el script que se va a poner en /etc/init.d , que va a ser el que va a lenvantar el servico NodeJS
+
+	#sudo cp miscript.sh /etc/init.d/
+
+2. Darle permisos de ejecucion al script
+
+	#sudo chmod -x miscript.sh
+
+3. Nos paramos en el directorio donde esta el script /etc/init.d y lo convertimos en daemon, es decir, que se ejecute al inicio de la sesión en caso de que el servidor por alguna razon de apague o reinicie, usuar el comando siguiente:
+
+   #sudo update-rc.d miscript.sh defaults
+
+   Esto creara los enlaces simbólicos automáticos para todos los runlevels, así dependiendo del tipo de inicio, arrancara nuestro script, y ya lo tendremos hecho.
+
+   Listamos todo lo que hay en el directorio por ejemplo /etc/rc2.d/, y veremos como ahora sale nuestro script
+
+   NOTA:
+
+   Si deseamos borrar el script, deberemos que escribir
+
+   #sudo update-rc.d -f miscript.sh remove
+
+   Y nos borrara los enlaces simbólicos en los runlevels del sistema.
+
+ 4. Una vez ralizados todos lo pasos ya podemos ejecutar nuestro script en el servidor con los siguientes comandos:
+
+ 	#sudo /etc/init.d/miscript.sh start
+ 	#sudo /etc/init.d/miscript.sh stop
+ 	#sudo /etc/init.d/miscript.sh restart
+
+5. Validar los archivos log que se generan en /var/log/nodejs.log
+	crear un archivo en /etc/logrotate.d con el nombre nodejs que contenga el siguiente codigo
+
+	archivo nodejs
+	
+	/var/log/nodejs.log {
+	
+		daily
+	
+		compress
+	
+	notifempty
+	
+		rotate 5
+	
+}
+
+	luego ejecutar el comando : logrotate -vf /etc/logrotate.conf
+
+
+   ************** Codigo de ejemplo del Script *************************
+
+	#!/bin/bash
+
+	## Script para inicializar el servicio NodeJS
+
+	##Direccion del archivo que inicia el servidor nodejs
+	DIR="/var/www/vhosts/distra/htdocs/sige/web/planificacion/pdo/comun/nodejs/index.js"
+
+	case "$1" in
+	     start)
+			echo "Se ha iniciado el servicio NodeJS"
+			nodejs $DIR >>/var/loog/nodejs.log &
+	     ;;
+	     stop)
+			echo "Se ha detenido el servicio NodeJS"
+			pkill nodejs
+	     ;;
+	     restart)
+			echo "Se ha reiniciado el servicio NodeJS"
+			pkill nodejs
+			sleep 2
+			nodejs $DIR >>/var/log/nodejs.log &
+	     ;;
+	esac
+	exit 0

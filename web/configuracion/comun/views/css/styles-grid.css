@@ -1,0 +1,38 @@
+.FilaVerde .x-grid3-cell-inner{
+    color:black;
+    background-color:#dffbda;
+}
+.FilaRoja .x-grid3-cell-inner{
+    color:black;
+    background-color:#f2e2e2;
+}
+.FilaAzul .x-grid3-cell-inner{
+    color:black;
+    background-color:#99bbe8;
+}
+.negrita .x-grid3-cell-inner{
+    color:black;
+    font-weight: bold;
+}
+
+<!--SUMARY-->
+.x-grid3-summary-row {
+    border-left:1px solid #fff;
+    border-right:1px solid #fff;
+    color:#333;
+    background: #f1f2f4;
+}
+.x-grid3-summary-row .x-grid3-cell-inner {
+    font-weight:bold;
+    padding-bottom:4px;
+}
+.x-grid3-cell-first .x-grid3-cell-inner {
+    padding-left:16px;
+}
+.x-grid-hide-summary .x-grid3-summary-row {
+    display:none;
+}
+.x-grid3-summary-msg {
+    padding:4px 16px;
+    font-weight:bold;
+}

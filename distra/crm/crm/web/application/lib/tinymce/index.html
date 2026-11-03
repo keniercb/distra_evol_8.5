@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+</head>
+<body>
+<!-- Load jQuery build -->
+<script src="tinymce/tinymce.dev.js"></script>
+<script src="tinymce/plugins/table/plugin.dev.js"></script>
+<script src="tinymce/plugins/paste/plugin.dev.js"></script>
+<script src="tinymce/plugins/spellchecker/plugin.dev.js"></script>
+<script>
+    var RTL = false;
+
+    tinymce.init({
+        selector: "textarea#small",
+        toolbar_items_size: 'small',
+        language: 'es',
+        theme: "modern",
+        skin: 'extjs',
+        image_advtab: true,
+        plugins: [
+            "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak imagetools",
+            "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime nonbreaking",
+            "save table contextmenu directionality template textcolor paste textcolor colorpicker codesample"
+        ],
+        menubar: false,
+        statusbar:false,
+        toolbar1: "fontselect fontsizeselect removeformat | bullist numlist outdent indent | charmap hr | searchreplace | addelement | code",
+        toolbar2: "undo redo | bold italic underline strikethrough subscript superscript | forecolor backcolor | alignleft aligncenter alignright alignjustify | table",
+
+        setup: function (editor) {
+            editor.on('init', function (e) {
+                setTimeout(function(){
+                    editor.execCommand('mceFullScreen', false);
+                    editor.execCommand('mceNewDocument', false);
+                },5);
+            });
+
+
+        }
+    });
+
+</script>
+
+<form method="post" action="#">
+    <div>
+        <textarea id="small" name="small" style="width: 100%;height: 100%">
+        </textarea>
+    </div>
+</form>
+
+</body>
+</html>

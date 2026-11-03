@@ -1,0 +1,34 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Nomenclador de Grupo-Subgrupos</title>
+
+    <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+    <script language="javascript" type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+</head>
+<body>
+<script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-win-iframe.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-integra-interfaz.js"></script>
+<script type="text/javascript"><?php echo $this->estructura; ?></script>
+<!--script type="text/javascript" src="../../../comun/views/js/loadScript.js"></script>
+<script type="text/javascript" src="../../../comun/views/js/PagingRowNumberer.js"></script>
+<script type="text/javascript" src="../../../comun/views/js/comun.js"></script>
+<!--<script type="text/javascript" src="../../../comun/views/js/atributosdinamicos/atributosdinamicos.js"></script>-->
+<script type="text/javascript" src="/configuracion/comun/views/js/comun.js"></script>
+<script type="text/javascript" src="/logistica/utiles/comun/views/idioma/es/global.js"></script>
+<script type="text/javascript" src="/logistica/utiles/comun/views/js/util/ui.manager.js"></script>
+<script type="text/javascript" src="/contabilidad/comun/JasperReports/report.view.js"></script>
+<!--<script type="text/javascript" src="../../views/js/gestgruposubgrupo/validator.js"></script>-->
+<script type="text/javascript" src="../../views/js/gestgruposubgrupo/grupo.main.js"></script>
+<script type="text/javascript" src="../../views/js/gestgruposubgrupo/grupo.tree.js"></script>
+<script type="text/javascript" src="../../views/js/gestgruposubgrupo/grupo.grid.js"></script>
+<?php
+foreach ($this->arrayJs as $js) {
+    echo $js;
+}
+?>
+</body>
+</html>

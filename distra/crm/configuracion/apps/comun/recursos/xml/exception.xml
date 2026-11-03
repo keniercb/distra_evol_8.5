@@ -1,0 +1,1123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : exception.xml
+    Created on : 6 de marzo de 2012, 16:22
+    Description:
+    Purpose of the document follows.
+-->
+<Excepciones>
+   <!-- EXCEPCIONES DEL MODULO DE configuración-->
+   <CONF01>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error de concurrencia al modificar.</mensaje>
+         <descripcion>Los datos del formato fueron modificados por otra persona. Por favor recargue los datos e
+                intente realizar la modificación nuevamente.</descripcion>
+      </es>
+   </CONF01>
+   <CONF108>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al modificar el formato.</mensaje>
+         <descripcion>Error al modificar el formato.</descripcion>
+      </es>
+   </CONF108>
+   <CONF109>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al modificar el nivel del formato.</mensaje>
+         <descripcion>Error al modificar el nivel del formato.</descripcion>
+      </es>
+   </CONF109>
+   <CONF110>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar el nivel del formato.</mensaje>
+         <descripcion>Error al insertar el nivel del formato.</descripcion>
+      </es>
+   </CONF110>
+   <CONF111>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al eliminar el nivel del formato.</mensaje>
+         <descripcion>Error al eliminar el nivel del formato.</descripcion>
+      </es>
+   </CONF111>
+   <CONF112>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cargar los formatos de la entidad.</mensaje>
+         <descripcion>Error al cargar los formatos de la entidad.</descripcion>
+      </es>
+   </CONF112>
+   <CONF113>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cargar los niveles del formato.</mensaje>
+         <descripcion>Error al cargar los niveles del formato.</descripcion>
+      </es>
+   </CONF113>
+   <CONF114>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cargar los niveles del formato.</mensaje>
+         <descripcion>Los niveles del formato no han sido configurados.</descripcion>
+      </es>
+   </CONF114>
+   <CONF115>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cargar los niveles del formato.</mensaje>
+         <descripcion>Los niveles del formato no han sido configurados.</descripcion>
+      </es>
+   </CONF115>
+   <CONF116>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cargar la entidad.</mensaje>
+         <descripcion>Por favor selecione una entidad.</descripcion>
+      </es>
+   </CONF116>
+   <CONF117>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cargar los subsistemas de la entidad.</mensaje>
+         <descripcion>Los subsistemas no han sido configurados.</descripcion>
+      </es>
+   </CONF117>
+   <CONF118>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cargar los ejercicios contables de la entidad.</mensaje>
+         <descripcion>Los ejercicios contables no han sido configurados.</descripcion>
+      </es>
+   </CONF118>
+   <CONF119>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cargar los períodos contables del ejercicio.</mensaje>
+         <descripcion>Los períodos contables no han sido configurados.</descripcion>
+      </es>
+   </CONF119>
+   <CONF120>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cargar los monedas nomencladas.</mensaje>
+         <descripcion>El nomenclador de monedas no ha sido configurado.</descripcion>
+      </es>
+   </CONF120>
+   <CONF1211>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cargar los monedas nomencladas.</mensaje>
+         <descripcion>Por favor verifique las monedas.</descripcion>
+      </es>
+   </CONF1211>
+   <CONF123>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar la moneda.</mensaje>
+         <descripcion>Error al insertar la moneda.</descripcion>
+      </es>
+   </CONF123>
+   <CONF124>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al modificar la moneda.</mensaje>
+         <descripcion>Error al modificar la moneda.</descripcion>
+      </es>
+   </CONF124>
+   <CONF125>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al eliminar la(s) moneda(s), est\xE1(n) siendo usada(s).</mensaje>
+         <descripcion>Error al eliminar la(s) moneda(s), est\xE1(n) siendo usada(s).</descripcion>
+      </es>
+   </CONF125>
+   <CONF126>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cargar las monedas.</mensaje>
+         <descripcion>Error al cargar las monedas.</descripcion>
+      </es>
+   </CONF126>
+   <!-- EXCEPCIONES Conf Gnral/Multimoneda/Gestion de tasas-->
+   <CONF03>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error de concurrencia al modificar.</mensaje>
+         <descripcion>Los datos de la tasa fueron modificados por otra persona. Por favor recargue los datos e
+                intente realizar la modificacion nuevamente.</descripcion>
+      </es>
+   </CONF03>
+   <CONF127>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cargar las tasas.</mensaje>
+         <descripcion>Error al cargar las tasas.</descripcion>
+      </es>
+   </CONF127>
+   <CONF130>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cargar los tipo de tasas.</mensaje>
+         <descripcion>Error al cargar los tipos de tasas. No existen datos del nomenclador.</descripcion>
+      </es>
+   </CONF130>
+   <CONF138>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error.</mensaje>
+         <descripcion>No existen tasas de cambio para las monedas en la base de datos.</descripcion>
+      </es>
+   </CONF138>
+   <CONF140>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error.</mensaje>
+         <descripcion>No existen tasas de cambio configurada para la moneda.</descripcion>
+      </es>
+   </CONF140>
+   <CONF301>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>La tasa actual de la moneda ha excedido su período de vigencia.</mensaje>
+         <descripcion>La tasa actual de la moneda ha excedido su período de vigencia.</descripcion>
+      </es>
+   </CONF301>
+   <CONF302>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al buscar las tasas contratadas de la moneda.</mensaje>
+         <descripcion>Las tasas contratadas de la moneda han excedido su período de vigencia.</descripcion>
+      </es>
+   </CONF302>
+   <CONF303>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al buscar la tasa actual de la moneda.</mensaje>
+         <descripcion>Error al buscar la tasa actual de la moneda.</descripcion>
+      </es>
+   </CONF303>
+   <CONF304>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al eliminar la tasa.</mensaje>
+         <descripcion>Error al eliminar la tasa. Ha ocurrido un error al tratar de eliminar la tasa seleccionada.</descripcion>
+      </es>
+   </CONF304>
+   <!-- EXCEPCIONES Conf Gnral/Multimoneda/Gestion de tasas-->
+   <CONF128>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cargar las monedas de la entidad.</mensaje>
+         <descripcion>No est\xE1n configuradas las monedas de la entidad.</descripcion>
+      </es>
+   </CONF128>
+   <CONF129>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cargar los proveedores y clientes.</mensaje>
+         <descripcion>Error al cargar los proveedores y clientes. No existen datos del nomenclador.</descripcion>
+      </es>
+   </CONF129>
+   <CONF201>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al eliminar el cliente/proveedor.</mensaje>
+         <descripcion>Error al eliminar el cliente/proveedor, est\xE1 siendo utilizado.</descripcion>
+      </es>
+   </CONF201>
+   <CONF131>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cargar las monedas.</mensaje>
+         <descripcion>Error al cargar las monedas. No existen datos del nomenclador.</descripcion>
+      </es>
+   </CONF131>
+   <CONF132>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cargar la moneda contable.</mensaje>
+         <descripcion>Error al cargar. No est\xE1 registrada la moneda contable.</descripcion>
+      </es>
+   </CONF132>
+   <CONF133>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cargar los países.</mensaje>
+         <descripcion>Error al cargar los países. No existen datos del nomenclador.</descripcion>
+      </es>
+   </CONF133>
+   <CONF134>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cargar los objetos.</mensaje>
+         <descripcion>Error al cargar los objetos. No existen datos del nomenclador.</descripcion>
+      </es>
+   </CONF134>
+   <CONF135>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cargar las operaciones.</mensaje>
+         <descripcion>Error al cargar las operaciones. No existen datos del nomenclador.</descripcion>
+      </es>
+   </CONF135>
+   <CONF136>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cargar los documentos.</mensaje>
+         <descripcion>Error al cargar los documentos. No existen datos del nomenclador.</descripcion>
+      </es>
+   </CONF136>
+   <CONF137>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cargar las cuentas.</mensaje>
+         <descripcion>Error al cargar las cuentas. No existen datos del nomenclador.</descripcion>
+      </es>
+   </CONF137>
+   <CONF200>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar cliente o proveedor.</mensaje>
+         <descripcion>Error al insertar cliente o proveedor. El cliente o proveedor a insertar ya existe.</descripcion>
+      </es>
+   </CONF200>
+   <CONF201>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al eliminar cliente o proveedor.</mensaje>
+         <descripcion>Error al eliminar cliente o proveedor. OcurriÃ³ un error al eliminar el cliente o proveedor.</descripcion>
+      </es>
+   </CONF201>
+   <CONF202>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al modificar cliente o proveedor.</mensaje>
+         <descripcion>Error al modificar cliente o proveedor. El cliente o proveedor a modificar ya existe.</descripcion>
+      </es>
+   </CONF202>
+   <CONF203>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al pasar día.</mensaje>
+         <descripcion>No se puede realizar cierre diario pasando a una fecha posterior a la fecha actual.</descripcion>
+      </es>
+   </CONF203>
+   <CONF66>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar el ejercicio contable.</mensaje>
+         <descripcion>Error al insertar el ejercicio contable.</descripcion>
+      </es>
+   </CONF66>
+   <CONF67>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al modificar el ejercicio contable.</mensaje>
+         <descripcion>Error al modificar el ejercicio contable.</descripcion>
+      </es>
+   </CONF67>
+   <CONF68>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar el período contable.</mensaje>
+         <descripcion>Error al insertar el período contable.</descripcion>
+      </es>
+   </CONF68>
+   <CONF69>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar los períodos contables.</mensaje>
+         <descripcion>Error al insertar los períodos contables.</descripcion>
+      </es>
+   </CONF69>
+   <CONF70>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al eliminar el ejercicio contable seleccionado.</mensaje>
+         <descripcion>El(los) ejercicio(s) contable(s) seleccionado(s) no se puede(n) eliminar debido a que esta(n) en uso.</descripcion>
+      </es>
+   </CONF70>
+   <CONF72>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al eliminar la especialidad seleccionada.</mensaje>
+         <descripcion>La especialidad seleccionada no se puede eliminar debido a que esta en uso.</descripcion>
+      </es>
+   </CONF72>
+   <CONFI72>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al eliminar el parrafo fiscal seleccionado.</mensaje>
+         <descripcion>El parrafo fiscal seleccionado no se puede eliminar debido a que esta en uso.</descripcion>
+      </es>
+   </CONFI72>
+   <CONF73>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al eliminar los ejercicios contables seleccionados.</mensaje>
+         <descripcion>Los ejercicios estan en uso.</descripcion>
+      </es>
+   </CONF73>
+   <CONF71>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al eliminar el o los períodos contables.</mensaje>
+         <descripcion>El(los) período(s) contable(s) seleccionado(s) esta(n) en uso.</descripcion>
+      </es>
+   </CONF71>
+   <CONF121>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al modificar los períodos contables.</mensaje>
+         <descripcion>Error al modificar los períodos contables.</descripcion>
+      </es>
+   </CONF121>
+   <CONF122>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al modificar el período contable.</mensaje>
+         <descripcion>Error al modificar el período contable.</descripcion>
+      </es>
+   </CONF122>
+   <CONF02>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error de concurrencia al modificar.</mensaje>
+         <descripcion>Los datos de la parte de formato fueron modificados por otra persona. Por favor recargue los
+                datos e intente realizar la modificacion nuevamente.</descripcion>
+      </es>
+   </CONF02>
+   <CONF04>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error de concurrencia al modificar.</mensaje>
+         <descripcion>Los datos de la moneda alternativa fueron modificados por otra persona. Por favor recargue los
+                datos e intente realizar la modificacion nuevamente.</descripcion>
+      </es>
+   </CONF04>
+   <CONF05>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error de concurrencia al modificar.</mensaje>
+         <descripcion>Los datos del formato fueron modificados por otra persona. Por favor recargue los datos e
+                intente realizar la modificacion nuevamente.</descripcion>
+      </es>
+   </CONF05>
+   <CONF06>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al tratar de adicionar.</mensaje>
+         <descripcion>Ha ocurrido un error en el servidor mientras se trataba de adicionar la(s) moneda(s) por entidad.</descripcion>
+      </es>
+   </CONF06>
+   <CONF07>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error de concurrencia al modificar</mensaje>
+         <descripcion>Los datos del ejercicio fueron modificados por otra persona. Por favor recargue los datos e
+                intente realizar la modificacion nuevamente.</descripcion>
+      </es>
+   </CONF07>
+   <CONF08>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar el ejercicio.</mensaje>
+         <descripcion>Error al insertar.</descripcion>
+      </es>
+   </CONF08>
+   <CONF09>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar.</mensaje>
+         <descripcion>Error al insertar.</descripcion>
+      </es>
+   </CONF09>
+   <CONF10>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar.</mensaje>
+         <descripcion>Error al insertar.</descripcion>
+      </es>
+   </CONF10>
+   <CONF11>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar.</mensaje>
+         <descripcion>Error al insertar.</descripcion>
+      </es>
+   </CONF11>
+   <CONF12>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar.</mensaje>
+         <descripcion>Error al insertar.</descripcion>
+      </es>
+   </CONF12>
+   <CONF13>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar.</mensaje>
+         <descripcion>Error al insertar.</descripcion>
+      </es>
+   </CONF13>
+   <CONF14>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar.</mensaje>
+         <descripcion>Error al insertar.</descripcion>
+      </es>
+   </CONF14>
+   <CONF15>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar.</mensaje>
+         <descripcion>Error al insertar.</descripcion>
+      </es>
+   </CONF15>
+   <CONF16>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar.</mensaje>
+         <descripcion>Error al insertar.</descripcion>
+      </es>
+   </CONF16>
+   <CONF17>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar.</mensaje>
+         <descripcion>Error al insertar.</descripcion>
+      </es>
+   </CONF17>
+   <CONF18>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar.</mensaje>
+         <descripcion>Error al insertar.</descripcion>
+      </es>
+   </CONF18>
+   <CONF19>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar.</mensaje>
+         <descripcion>Error al insertar.</descripcion>
+      </es>
+   </CONF19>
+   <CONF20>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar.</mensaje>
+         <descripcion>Error al insertar.</descripcion>
+      </es>
+   </CONF20>
+   <CONF21>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar.</mensaje>
+         <descripcion>Error al insertar.</descripcion>
+      </es>
+   </CONF21>
+   <CONF22>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar.</mensaje>
+         <descripcion>Error al insertar.</descripcion>
+      </es>
+   </CONF22>
+   <CONF23>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>No se puede eliminar la unidad de medida, est\xE1 siendo utilizada.</mensaje>
+         <descripcion>No se puede eliminar la unidad de medida, est\xE1 siendo utilizada.</descripcion>
+      </es>
+   </CONF23>
+   <CONF24>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al eliminar la unidad de medida.</mensaje>
+         <descripcion>Error al eliminar la unidad de medida.</descripcion>
+      </es>
+   </CONF24>
+   <CONF106>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar el formato.</mensaje>
+         <descripcion>Error al insertar el formato.</descripcion>
+      </es>
+   </CONF106>
+   <CONF063>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar la operacion.</mensaje>
+         <descripcion>Error al insertar la operación, por favor verifique.</descripcion>
+      </es>
+   </CONF063>
+   <CONF0634>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>La operación ya existe1.</mensaje>
+         <descripcion>La operación ya existe1.</descripcion>
+      </es>
+   </CONF0634>
+   <CONF064>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al eliminar la operación.</mensaje>
+         <descripcion>Error al eliminar la operación, est\xE1 siendo referenciada.</descripcion>
+      </es>
+   </CONF064>
+   <CONF065>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al eliminar el formato , esta siendo referenciado.</mensaje>
+         <descripcion>El formato no pudo ser eliminado porque est\xE1 referenciado por un subsistema.</descripcion>
+      </es>
+   </CONF065>
+   <CONF066>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al eliminar la moneda seleccionada por la entidad, esta siendo usada.</mensaje>
+         <descripcion>La moneda seleccionada por la entidad no pudo ser eliminada porque est\xE1 siendo usada.</descripcion>
+      </es>
+   </CONF066>
+   <CONF107>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al eliminar el formato.</mensaje>
+         <descripcion>Error al eliminar el formato.</descripcion>
+      </es>
+   </CONF107>
+   <CONF143>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al modificar el documento.</mensaje>
+         <descripcion>Error al modificar el documento.</descripcion>
+      </es>
+   </CONF143>
+   <CONF002>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al eliminar el documento, est\xE1 siendo usado.</mensaje>
+         <descripcion>Error al eliminar el documento, est\xE1 siendo usado.</descripcion>
+      </es>
+   </CONF002>
+   <CONF033>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al eliminar la moneda, est\xE1 en uso.</mensaje>
+         <descripcion>Error al eliminar la moneda, est\xE1 en uso.</descripcion>
+      </es>
+   </CONF033>
+   <CONF144>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar, el documento ya existe.</mensaje>
+         <descripcion>Error al insertar, el documento ya existe.</descripcion>
+      </es>
+   </CONF144>
+   <CONF145>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al modificar el documento primario.</mensaje>
+         <descripcion>El documento primario seleccionado no puede ser modificado.</descripcion>
+      </es>
+   </CONF145>
+   <CONF146>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar un estado.</mensaje>
+         <descripcion>Error al insertar un estado.</descripcion>
+      </es>
+   </CONF146>
+   <CONF147>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al eliminar estados.</mensaje>
+         <descripcion>Error al eliminar estados.</descripcion>
+      </es>
+   </CONF147>
+   <!-- EXCEPCIONES Conf Gnral/Multimoneda/Desglose de monedas-->
+   <CONF148>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al eliminar desgloses.</mensaje>
+         <descripcion>Error al eliminar desgloses.</descripcion>
+      </es>
+   </CONF148>
+   <CONF149>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al adicionar desgloses.</mensaje>
+         <descripcion>Error al adicionar desgloses.</descripcion>
+      </es>
+   </CONF149>
+   <!-- EXCEPCIONES Conf Gnral/Multimoneda/Desglose de monedas-->
+   <CONF150>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>No existen subistemas configurados para la entidad.</mensaje>
+         <descripcion>No existen subistemas configurados para la entidad.</descripcion>
+      </es>
+   </CONF150>
+   <CONF151>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al modificar, el cliente(s) ya existe.</mensaje>
+         <descripcion>Error al modificar, el cliente(s) ya existe.</descripcion>
+      </es>
+   </CONF151>
+   <CONF152>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al modificar, el cliente(s) ya existe.</mensaje>
+         <descripcion>Error al modificar, el cliente(s) ya existe.</descripcion>
+      </es>
+   </CONF152>
+   <CONF092>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al modificar fechas.</mensaje>
+         <descripcion>El subsistema tiene problemas en las fechas.</descripcion>
+      </es>
+   </CONF092>
+   <CONF093>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Existen comprobantes sin terminar.</mensaje>
+         <descripcion>Verifique en contabilidad.</descripcion>
+      </es>
+   </CONF093>
+   <CONF094>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Existen nóminas sin confirmar.</mensaje>
+         <descripcion>Verifique en capital humano.</descripcion>
+      </es>
+   </CONF094>
+   <CONF99>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al modificar.</mensaje>
+         <descripcion>Error en la acción modificar.</descripcion>
+      </es>
+   </CONF99>
+   <CONF105>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar.</mensaje>
+         <descripcion>Error al insertar un nivel del formato.</descripcion>
+      </es>
+   </CONF105>
+   <CONF101>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar.</mensaje>
+         <descripcion>Error al insertar el nivel del formato.</descripcion>
+      </es>
+   </CONF101>
+   <CONF102>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al eliminar.</mensaje>
+         <descripcion>Error al eliminar el nivel del formato.</descripcion>
+      </es>
+   </CONF102>
+   <CONF103>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error de concurrencia al modificar.</mensaje>
+         <descripcion>Error de concurrencia al modificar el nivel del formato. Los datos de el nivel del formato
+                fueron modificados por otra persona. Por favor recargue los datos e intente realizar la modificacion
+                nuevamente.</descripcion>
+      </es>
+   </CONF103>
+   <CONF104>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error de concurrencia al modificar.</mensaje>
+         <descripcion>Error de concurrencia al modificar el formato. Los datos del formato fueron modificados por
+                otra persona. Por favor recargue los datos e intente realizar la modificacion nuevamente.</descripcion>
+      </es>
+   </CONF104>
+   <CONF123>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error de concurrencia al modificar.</mensaje>
+         <descripcion>Error de concurrencia al modificar la moneda entidad. Los datos fueron modificados por otra
+                persona. Por favor recargue los datos e intente realizar la modificacion nuevamente.</descripcion>
+      </es>
+   </CONF123>
+   <CONF139>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error, La fecha próxima, no cumple con las fechas del periodo actual del subsistema..</mensaje>
+         <descripcion>La fecha próxima, no cumple con las fechas del periodo actual del subsistema.</descripcion>
+      </es>
+   </CONF139>
+   <CONF141>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error.</mensaje>
+         <descripcion>No tiene pases uno de los asientos.</descripcion>
+      </es>
+   </CONF141>
+   <CONFCONCURR>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error de concurrencia. Alquien mas est\xE1 utilizando el componente. Intente m\xE1s tarde.</mensaje>
+         <descripcion>Error de concurrencia accediendo a la base de datos.</descripcion>
+      </es>
+   </CONFCONCURR>
+   <PCT001>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al contabilizar. La cuenta no tiene apertura para el cliente...</mensaje>
+         <descripcion>Error al contabilizar. La cuenta no tiene apertura para el cliente...</descripcion>
+      </es>
+   </PCT001>
+   <PCT002>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al contabilizar. Todos los asientes deben tener pases.</mensaje>
+         <descripcion>Error al contabilizar. Todos los asientes deben tener pases.</descripcion>
+      </es>
+   </PCT002>
+   <PCT003>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al contabilizar. Todos los comprobantes deben tener asientos.</mensaje>
+         <descripcion>Error al contabilizar. Todos los comprobantes deben tener asientos.</descripcion>
+      </es>
+   </PCT003>
+   <!--EXCEPCIONES DEL COMPONENTE SUBBSISTEMAS -->
+   <CONFE001>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>El código de la especialidad no puede repetirse.</mensaje>
+         <descripcion>El código de la especialidad no puede repetirse.</descripcion>
+      </es>
+   </CONFE001>
+   <CONFE002>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>La denominación de la especialidad no puede repetirse.</mensaje>
+         <descripcion>La denominación de la especialidad no puede repetirse.</descripcion>
+      </es>
+   </CONFE002>
+   <CONFE003>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>La abreviatura de la especialidad no puede repetirse.</mensaje>
+         <descripcion>La abreviatura de la especialidad no puede repetirse.</descripcion>
+      </es>
+   </CONFE003>
+   <CONFE004>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>La especialidad no pudo ser insertada.</mensaje>
+         <descripcion>La especialidad no pudo ser insertada por problemas en la base de datos.</descripcion>
+      </es>
+   </CONFE004>
+   <CONFE005>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>La especialidad no pudo ser modificada por problemas en la base de datos.</mensaje>
+         <descripcion>La especialidad no pudo ser modificada.</descripcion>
+      </es>
+   </CONFE005>
+   <CONFE006>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>La especialidad no pudo ser eliminada porque est\xE1 referenciada por una entidad.</mensaje>
+         <descripcion>La especialidad no pudo ser eliminada porque est\xE1 referenciada por una entidad.</descripcion>
+      </es>
+   </CONFE006>
+   <CONFE007>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>La especialidad no pudo ser insertada.</mensaje>
+         <descripcion>Existe una especialidad en este nivel con el mismo código.</descripcion>
+      </es>
+   </CONFE007>
+   <CONFE008>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>El parrafo fiscal no pudo ser insertado.</mensaje>
+         <descripcion>Existe un parrafo fiscal con el mismo codigo.</descripcion>
+      </es>
+   </CONFE008>
+   <CONFE009>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>El parrafo fiscal no pudo ser insertado.</mensaje>
+         <descripcion>Existe un parrafo fiscal con la misma descripcion.</descripcion>
+      </es>
+   </CONFE009>
+   <CONFE010>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>El p\xE1rrafo fiscal no pudo ser insertado.</mensaje>
+         <descripcion>El p\xE1rrafo fiscal no pudo ser insertado por problemas en la base de datos.</descripcion>
+      </es>
+   </CONFE010>
+   <CONFE011>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>No existen subistemas configurados para la entidad.</mensaje>
+         <descripcion>No existen subistemas configurados para la entidad.</descripcion>
+      </es>
+   </CONFE011>
+   <!--FIN DE LAS EXCEPCIONES DEL COMPONENTE SUBBSISTEMAS -->
+   <!--EXCEPCIONES DEL COMPONENTE CIERRE -->
+   <CONFC001>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cerrar el subsistema.</mensaje>
+         <descripcion>El subsistema no puede efectuar cierre.</descripcion>
+      </es>
+   </CONFC001>
+   <CONFC002>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cerrar el período</mensaje>
+         <descripcion>El subsistema se encuentra en el último período del ejercicio. Debe efectuar el cierre de
+                ejercicio.</descripcion>
+      </es>
+   </CONFC002>
+   <CONFC003>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cerrar el ejercicio</mensaje>
+         <descripcion>No se puede cerrar el ejercicio contable. El subsistema no ha efectuado el cierre del último
+                período definido para el ejercicio contable.</descripcion>
+      </es>
+   </CONFC003>
+   <CONFC004>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al revaluar cuenta</mensaje>
+         <descripcion>No se puede reevaluar. Algunos subsistemas no han cerrado aun.</descripcion>
+      </es>
+   </CONFC004>
+   <CONFC005>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al aperturar el periodo</mensaje>
+         <descripcion>No se puede aperturar el periodo. No se ha configurado el próximo ejercicio contable.</descripcion>
+      </es>
+   </CONFC005>
+   <CONFC006>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al aperturar el periodo.</mensaje>
+         <descripcion>El subsistema no puede efectuar la partura.No existe un periodo anterior.</descripcion>
+      </es>
+   </CONFC006>
+   <CONFC007>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cerrar el período</mensaje>
+         <descripcion>El subsistema se encuentra en el último período del ejercicio. Debe efectuar el cierre de
+                ejercicio.</descripcion>
+      </es>
+   </CONFC007>
+   <CONFC008>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>El subsistema no ha sido configurado para la entidad.</mensaje>
+         <descripcion>La carga inicial del sistema no ha sido configurada.</descripcion>
+      </es>
+   </CONFC008>
+   <CONFC009>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al cerrar el período.</mensaje>
+         <descripcion>El subsistema no puede efectuar cierre. Existen subsistemas precedentes que no han cerrado.</descripcion>
+      </es>
+   </CONFC009>
+   <CONFC010>
+       <tipo>LP</tipo>
+       <es>
+           <mensaje>Error al cerrar el período.</mensaje>
+           <descripcion>El subsistema no puede efectuar cierre. No se permite más de un período de diferencia con respecto al resto de los subsistemas.</descripcion>
+       </es>
+   </CONFC010>
+   <CONFC011>
+       <tipo>LP</tipo>
+       <es>
+           <mensaje>Error al cerrar el período.</mensaje>
+           <descripcion>El subsistema no puede efectuar cierre. Existen subsistemas precedentes con solicitudes de reabrir que no han sido atendidas.</descripcion>
+       </es>
+   </CONFC011>
+   <CONFC012>
+       <tipo>LP</tipo>
+       <es>
+           <mensaje>Error al cerrar el período.</mensaje>
+           <descripcion>El subsistema no puede efectuar cierre. La fecha de inicio del próximo período no es válida, la fecha contable del subsistema no puede tener un valor del futuro.</descripcion>
+       </es>
+   </CONFC012>
+   <CONFDPT001>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al tratar de eliminar el país.</mensaje>
+         <descripcion>El país no se puede eliminar ya que posee dependencias con otras objetos del sistema.</descripcion>
+      </es>
+   </CONFDPT001>
+   <CONFDPT002>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>El nomenclador de paises no ha sido configurado.</mensaje>
+         <descripcion>El nomenclador de paises no ha sido configurado.</descripcion>
+      </es>
+   </CONFDPT002>
+   <!--FIN DE LAS EXCEPCIONES DEL COMPONENTE CIERRE -->
+   <!--EXCEPCIONES DEL COMPONENTE FECHA -->
+   <CONF001>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al modificar las fechas.</mensaje>
+         <descripcion>Error al modificar las fechas.</descripcion>
+      </es>
+   </CONF001>
+   <CONF090>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al modificar las fechas.</mensaje>
+         <descripcion>Error al modificar las fechas ya que la configuración de fecha del subsistema es autom\xE1tica.</descripcion>
+      </es>
+   </CONF090>
+   <CONF091>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al modificar las fechas.</mensaje>
+         <descripcion>El subsistema no tiene configurado período actual.</descripcion>
+      </es>
+   </CONF091>
+   <CONF095>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>El subsistema tiene subsistemas que dependen de el.</mensaje>
+         <descripcion>Error al modificar las fechas.</descripcion>
+      </es>
+   </CONF095>
+   <CONF096>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>No existen subsistemas para est\xE1 entidad.</mensaje>
+         <descripcion>Error al modificar las fechas.</descripcion>
+      </es>
+   </CONF096>
+   <CONF097>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al adicionar la fecha, ya existe.</mensaje>
+         <descripcion>La fecha ya existe.</descripcion>
+      </es>
+   </CONF097>
+   <CONF098>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al adicionar la fecha.</mensaje>
+         <descripcion>La fecha ya existe.</descripcion>
+      </es>
+   </CONF098>
+   <CONF099>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al actualizar las fechas autom\xE1ticas.</mensaje>
+         <descripcion>Error al actualizar las fechas autom\xE1ticas.</descripcion>
+      </es>
+   </CONF099>
+   <CONF100>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al actualizar la fecha manual, su fecha est\xE1 configurada como autom\xE1tica.</mensaje>
+         <descripcion>Error al actualizar la fecha manual, su fecha est\xE1 configurada como autom\xE1tica.</descripcion>
+      </es>
+   </CONF100>
+   <CONF142>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al modificar la fecha.</mensaje>
+         <descripcion>Error al modificar la fecha, la misma no puede ser mayor que la fecha fin del período actual
+                del subsistema.</descripcion>
+      </es>
+   </CONF142>
+   <CONF152>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al modificar.</mensaje>
+         <descripcion>Error en la acción pasar la fecha.</descripcion>
+      </es>
+   </CONF152>
+   <CONF153>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al tratar de modificar.</mensaje>
+         <descripcion>La fecha seleccionada ya ha sido modificada por otro usuario.</descripcion>
+      </es>
+   </CONF153>
+   <CONF154>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al adicionar la fecha, ya existe el subsistema con una fecha configurada.</mensaje>
+         <descripcion>El subsistema ya tiene la fecha configurada.</descripcion>
+      </es>
+   </CONF154>
+   <CONF155>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error configurar fecha, no existen ejercicios configurados.</mensaje>
+         <descripcion>El subsistema no tiene ejercicios contables configurados.</descripcion>
+      </es>
+   </CONF155>
+   <CONF156>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error, no existen usuario en Alfresco.</mensaje>
+         <descripcion>El usuario logiado no existe en Alfresco.</descripcion>
+      </es>
+   </CONF156>
+   <CONFIND001>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Indicador en uso.</mensaje>
+         <descripcion>No se puede modificar el atributo almacenar porque el indicador est\xE1 en uso.</descripcion>
+      </es>
+   </CONFIND001>
+   <CONTB048>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al eliminar una sucursal, la sucursal esta siendo usada.</mensaje>
+         <descripcion>La sucursal seleccionada no se puede eliminar debido a que est\xE1 en uso.</descripcion>
+      </es>
+   </CONTB048>
+   <CONTB049>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>No existen formatos configurados para la entidad.</mensaje>
+         <descripcion>No existen formatos configurados para la entidad.</descripcion>
+      </es>
+   </CONTB049>
+   <CONTB160>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>El nomenclador de cuentas no ha sido configurado.</mensaje>
+         <descripcion>El nomenclador de cuentas no ha sido configurado.</descripcion>
+      </es>
+   </CONTB160>
+   <!--FIN DE LAS EXCEPCIONES DEL COMPONENTE FECHA -->
+   <!-- FIN DE LAS EXCEPCIONES DEL MODULO DE configuración-->
+   <!--Inicio de las Excepciónes de trazas-->
+   <TRACE001>
+      <tipo>LP</tipo>
+      <es>
+         <mensaje>Error al insertar una traza.</mensaje>
+         <descripcion>Error al insertar una traza.</descripcion>
+      </es>
+   </TRACE001>
+   <!--Fin de las Excepciónes de trazas-->
+   <!--  FIN EXCEPCIONES DE LA LINEA configuración -->
+</Excepciones>

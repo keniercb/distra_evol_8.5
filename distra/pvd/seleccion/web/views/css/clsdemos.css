@@ -1,0 +1,60 @@
+.inicio{background-image:url(../images/inicio.png) !important;}
+
+#images-view .x-panel-body{
+	background: white;
+	font: 11px Arial, Helvetica, sans-serif;
+}
+
+#images-view .thumb-wrap{
+	float: left;
+	margin: 4px;
+	padding: 5px;
+}
+
+#images-view .thumb-wrap dd {
+    float:left;
+    width:300px;
+    height:100px;
+    margin:5px 5px 5px 10px;
+    cursor:pointer;
+    zoom:1;
+}
+
+#images-view .thumb-wrap dd img {
+    width:120px;
+    height:90px;
+    margin:5px 0 0 5px;
+    float:left;
+}
+
+#images-view .thumb-wrap dd h4 {
+    margin: 5px 0 5px 0px;
+    font-family:tahoma,arial,san-serif;
+    color:#555;
+    font-size:11px;
+    font-weight:bold;
+}
+#images-view .thumb-wrap dd p {
+    color:#777;
+}
+
+#images-view .thumb-wrap dd div{
+	float:left;
+    width:160px;
+    margin-left:10px;
+}
+
+#images-view .thumb-wrap span{
+	display: block;
+	overflow: hidden;
+	text-align: center;
+}
+
+#images-view  .x-view-over dd{
+    background: #F5FDE3 url(../images/sample-over.gif) no-repeat;
+}
+
+#images-view .x-view-selected {
+	background:transparent;
+}
+

@@ -1,0 +1,6 @@
+{
+    "require": {
+        "silex/silex": "2.0",
+        "illuminate/database": "5.2"
+    }
+}

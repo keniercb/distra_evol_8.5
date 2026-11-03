@@ -1,0 +1,505 @@
+@charset "UTF-8";
+
+body {
+    background-color: #FFFFFF !important;
+    font-family: helvetica, tahoma, verdana, sans-serif;
+    font-size: 13px;
+    padding: 32px 20px 20px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: large;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #9BD;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px 0pt;
+}
+
+.example-info {
+    background: #ECF5FE url(info-bg.gif) repeat-x scroll 0%;
+    border-color: #DCEAFB rgb(195, 218, 249) rgb(195, 218, 249) rgb(220, 234, 251);
+    border-style: solid;
+    border-width: 1px;
+    font-size: 10px;
+    padding: 8px;
+    width: 150px;
+}
+
+pre.code {
+    background: #F8F8F8 none repeat scroll 0%;
+    border-color: #E8E8E8;
+    border-style: solid;
+    border-width: 1px 1px 1px 5px;
+    font-size: 12px !important;
+    line-height: 14px !important;
+    margin: 10px 10px 10px 0px;
+    padding: 10px;
+}
+
+.msg .x-box-mc {
+    font-size: 14px;
+}
+
+#msg-div {
+    left: 35%;
+    position: absolute;
+    top: 10px;
+    width: 250px;
+    z-index: 20000;
+}
+
+.x-grid3-row-body p {
+    margin: 5px 5px 10px !important;
+}
+
+.x-panel-header-text i {
+    font-style: normal;
+    font-weight: normal !important;
+}
+
+.centrar {
+    position: absolute;
+    /*nos posicionamos en el centro del navegador*/
+    top: 7%;
+    left: 8%; /*determinamos una anchura*/
+    width: 190px; /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+    margin-left: -200px; /*determinamos una altura*/
+    height: 170px; /*indicamos que el margen superior, es la mitad de la altura*/
+    margin-top: -150px;
+    padding: 5px;
+}
+
+.derecha {
+    position: absolute;
+    /*nos posicionamos en el centro del navegador*/
+    top: 7%;
+    left: 40%; /*determinamos una anchura*/
+    width: 190px; /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+    margin-left: -200px; /*determinamos una altura*/
+    height: 170px; /*indicamos que el margen superior, es la mitad de la altura*/
+    margin-top: -150px;
+    padding: 5px;
+}
+
+.last {
+    position: absolute;
+    /*nos posicionamos en el centro del navegador*/
+    top: 7%;
+    left: 70%; /*determinamos una anchura*/
+    width: 190px; /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+    margin-left: -200px; /*determinamos una altura*/
+    height: 170px; /*indicamos que el margen superior, es la mitad de la altura*/
+    margin-top: -150px;
+    padding: 5px;
+}
+
+.fondoconfperf {
+    background-color: #4679BD !important;
+}
+
+.contimage5 > img {
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+    height: auto;
+    margin: 0;
+}
+
+.arriba {
+    position: absolute;
+    /*nos posicionamos en el centro del navegador*/
+    top: 7%;
+    left: 12%; /*determinamos una anchura*/
+    width: 100px; /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+    margin-left: -200px; /*determinamos una altura*/
+    height: 100px; /*indicamos que el margen superior, es la mitad de la altura*/
+    margin-top: -150px;
+    padding: 5px;
+}
+
+.centrovert {
+    position: absolute;
+    /*nos posicionamos en el centro del navegador*/
+    top: 37%;
+    left: 12%; /*determinamos una anchura*/
+    width: 100px; /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+    margin-left: -200px; /*determinamos una altura*/
+    height: 100px; /*indicamos que el margen superior, es la mitad de la altura*/
+    margin-top: -150px;
+    padding: 5px;
+}
+
+.bajo {
+    position: absolute;
+    /*nos posicionamos en el centro del navegador*/
+    top: 67%;
+    left: 12%; /*determinamos una anchura*/
+    width: 100px; /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+    margin-left: -200px; /*determinamos una altura*/
+    height: 100px; /*indicamos que el margen superior, es la mitad de la altura*/
+    margin-top: -150px;
+    padding: 5px;
+}
+
+.seleccionado {
+    border-top: 3px solid #0080FF;
+    border-left: 3px solid #0080FF;
+    border-right: 3px solid #0080FF;
+    border-bottom: 3px solid #0080FF;
+}
+
+.centrarcirc {
+    position: relative;
+    /*nos posicionamos en el centro del navegador*/
+    top: -5%;
+    left: -15%; /*determinamos una anchura*/
+}
+
+.circle {
+    width: 120px;
+    height: 120px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #4679BD;
+}
+
+.circleb {
+    width: 120px;
+    height: 120px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #4679BD;
+}
+
+.nobrefunccentro > h3 {
+    position: absolute;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #4679BD;
+    top: 55%;
+    left: 10%;
+}
+
+.circleb:hover {
+    cursor: pointer;
+    opacity: 1;
+    -moz-transform: scale(1.10);
+    -ms-transform: scale(1.10);
+    -o-transform: scale(1.10);
+    -webkit-transform: scale(1.10);
+    transform: scale(1.10);
+    -moz-transition-timing-function: cubic-bezier(0.37, 0.74, 0.15, 1.65);
+    -o-transition-timing-function: cubic-bezier(0.37, 0.74, 0.15, 1.65);
+    -webkit-transition-timing-function: cubic-bezier(0.37, 0.74, 0.15, 1.65);
+    transition-timing-function: cubic-bezier(0.37, 0.74, 0.15, 1.65);
+    background: none;
+    border: 1px solid #4679BD;
+}
+
+@media screen and (max-width: 1366px) {
+    .tileImg > img {
+        vertical-align: middle;
+        position: absolute;
+        z-index: 1;
+        top: 25%;
+        left: 23%;
+        width: 150px;
+        height: 150px;
+        margin: 0;
+    }
+
+    .tileTitle {
+        margin: 5px 3px 5px 15px;
+        padding: 0px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .centrar {
+        position: absolute;
+        /*nos posicionamos en el centro del navegador*/
+        top: 20%;
+        left: 8%; /*determinamos una anchura*/
+        width: 290px; /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+        margin-left: -200px; /*determinamos una altura*/
+        height: 270px; /*indicamos que el margen superior, es la mitad de la altura*/
+        margin-top: -150px;
+        padding: 5px;
+    }
+
+    .derecha {
+        position: absolute;
+        /*nos posicionamos en el centro del navegador*/
+        top: 20%;
+        left: 39%; /*determinamos una anchura*/
+        width: 290px; /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+        margin-left: -200px; /*determinamos una altura*/
+        height: 270px; /*indicamos que el margen superior, es la mitad de la altura*/
+        margin-top: -150px;
+        padding: 5px;
+    }
+
+    .last {
+        position: absolute;
+        /*nos posicionamos en el centro del navegador*/
+        top: 20%;
+        left: 70%; /*determinamos una anchura*/
+        width: 290px; /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+        margin-left: -200px; /*determinamos una altura*/
+        height: 270px; /*indicamos que el margen superior, es la mitad de la altura*/
+        margin-top: -150px;
+        padding: 5px;
+    }
+
+}
+
+@media screen and (max-width: 1024px) {
+
+    .tileImg > img {
+        vertical-align: middle;
+        position: absolute;
+        z-index: 1;
+        top: 25%;
+        left: 22%;
+        width: 120px;
+        height: 120px;
+        margin: 0;
+    }
+
+    .tileTitle {
+        margin: 5px 3px 5px 15px;
+        padding: 0px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .centrar {
+        position: absolute;
+        /*nos posicionamos en el centro del navegador*/
+        top: 14%;
+        left: 8%; /*determinamos una anchura*/
+        width: 220px; /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+        margin-left: -200px; /*determinamos una altura*/
+        height: 200px; /*indicamos que el margen superior, es la mitad de la altura*/
+        margin-top: -150px;
+        padding: 5px;
+    }
+
+    .derecha {
+        position: absolute;
+        /*nos posicionamos en el centro del navegador*/
+        top: 14%;
+        left: 40%; /*determinamos una anchura*/
+        width: 220px; /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+        margin-left: -200px; /*determinamos una altura*/
+        height: 200px; /*indicamos que el margen superior, es la mitad de la altura*/
+        margin-top: -150px;
+        padding: 5px;
+    }
+
+    .last {
+        position: absolute;
+        /*nos posicionamos en el centro del navegador*/
+        top: 14%;
+        left: 70%; /*determinamos una anchura*/
+        width: 220px; /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+        margin-left: -200px; /*determinamos una altura*/
+        height: 200px; /*indicamos que el margen superior, es la mitad de la altura*/
+        margin-top: -150px;
+        padding: 5px;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+
+    .tileImg > img {
+        vertical-align: middle;
+        position: absolute;
+        z-index: 1;
+        top: 25%;
+        left: 22%;
+        width: 100px;
+        height: 100px;
+        margin: 0;
+    }
+
+    .tileTitle {
+        margin: 5px 3px 5px 15px;
+        padding: 0px;
+        text-align: center;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .centrar {
+        position: absolute;
+        /*nos posicionamos en el centro del navegador*/
+        top: 7%;
+        left: 8%; /*determinamos una anchura*/
+        width: 190px; /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+        margin-left: -200px; /*determinamos una altura*/
+        height: 170px; /*indicamos que el margen superior, es la mitad de la altura*/
+        margin-top: -150px;
+        padding: 5px;
+    }
+
+    .derecha {
+        position: absolute;
+        /*nos posicionamos en el centro del navegador*/
+        top: 7%;
+        left: 40%; /*determinamos una anchura*/
+        width: 190px; /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+        margin-left: -200px; /*determinamos una altura*/
+        height: 170px; /*indicamos que el margen superior, es la mitad de la altura*/
+        margin-top: -150px;
+        padding: 5px;
+    }
+
+    .last {
+        position: absolute;
+        /*nos posicionamos en el centro del navegador*/
+        top: 7%;
+        left: 70%; /*determinamos una anchura*/
+        width: 190px; /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+        margin-left: -200px; /*determinamos una altura*/
+        height: 170px; /*indicamos que el margen superior, es la mitad de la altura*/
+        margin-top: -150px;
+        padding: 5px;
+    }
+}
+
+.gantt_task_progress {
+    text-align: left;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+.gantt_task_link.start_to_start .gantt_line_wrapper div {
+    background-color: #dd5640;
+}
+
+.gantt_task_link.start_to_start:hover .gantt_line_wrapper div {
+    box-shadow: 0 0 5px 0px #dd5640;
+}
+
+.gantt_task_link.start_to_start .gantt_link_arrow_right {
+    border-left-color: #dd5640;
+}
+
+.gantt_task_link.finish_to_start .gantt_line_wrapper div {
+    background-color: #7576ba;
+}
+
+.gantt_task_link.finish_to_start:hover .gantt_line_wrapper div {
+    box-shadow: 0 0 5px 0px #7576ba;
+}
+
+.gantt_task_link.finish_to_start .gantt_link_arrow_right {
+    border-left-color: #7576ba;
+}
+
+.high {
+    border: 1px solid #C70000;
+    color: #FF5261;
+    background: #FFEFED;
+
+}
+
+.high .gantt_task_progress {
+    background: #FF5261 linear-gradient(to top, #FF786E 0px, #FFB6B1 36%, #FF786E 100%) repeat scroll 0 0;
+}
+
+.cumplida {
+    border: 1px solid #179C12;
+    color: #FF5261;
+    background: #FFEFED;
+}
+
+.cumplida .gantt_task_progress {
+    background: #db2536 linear-gradient(to top, #72D572 0px, #ADEDAA 36%, #72D572 100%) repeat scroll 0 0;
+}
+
+.normal {
+    border: 1px solid #DB9917;
+    color: #FF5261;
+    background: #FFF7E5;
+}
+
+.normal .gantt_task_progress {
+    background: #db2536 linear-gradient(to top, #F9E58B 0px, #F9F97E 36%, #F9E58B 100%) repeat scroll 0 0;
+}
+
+.obj {
+    background: transparent linear-gradient(to top, transparent 0px, transparent 65%, #BB7662 90%) repeat scroll 0 0;
+    border-bottom: none;
+    border-top: 1px solid #872C25;
+    border-left: 2px solid #872C25;
+    border-right: 2px solid #872C25;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.obj .gantt_task_progress {
+    border-top-left-radius: 4px;
+    background: transparent linear-gradient(to top, transparent 0px, transparent 65%, #9B4033 90%) repeat scroll 0 0;
+}
+
+.planes {
+    color: #DAEBF9;
+    background: transparent linear-gradient(to top, transparent 0px, transparent 65%, #42A0E2 90%) repeat scroll 0 0;
+    border-bottom: none;
+    border-top: 1px solid #2560AE;
+    border-left: 2px solid #2560AE;
+    border-right: 2px solid #2560AE;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px
+}
+
+.planes .gantt_task_progress {
+    border-top-left-radius: 4px;
+    background: transparent linear-gradient(to top, transparent 0px, transparent 65%, #145CAE 90%) repeat scroll 0 0;
+}
+
+.today {
+    background-color: #ffe6b1;
+}
+
+.gantt_task_link.finish_to_finish .gantt_line_wrapper div {
+    background-color: #55d822;
+}
+
+.gantt_task_link.finish_to_finish:hover .gantt_line_wrapper div {
+    box-shadow: 0 0 5px 0px #55d822;
+}
+
+.gantt_task_link.finish_to_finish .gantt_link_arrow_left {
+    border-right-color: #55d822;
+}
+
+/*para eliminar las lineas horizontales*/
+.gantt_task_row, .gantt_row {
+    border-bottom: 0px;
+}
+
+#tpInvolucradosUserEst {width: 99.5% !important;}
+
+/* solucion al height del grid gpPermisos de gestionar permisos */
+#ext-gen87 {height: 95% !important;}
+
+

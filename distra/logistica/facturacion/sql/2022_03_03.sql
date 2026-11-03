@@ -1,0 +1,2 @@
+ALTER TABLE mod_logfacturacion.dat_docfactura
+  DROP CONSTRAINT fk_docfactura_nomterminopago RESTRICT;

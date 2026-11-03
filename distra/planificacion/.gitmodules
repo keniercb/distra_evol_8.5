@@ -1,0 +1,51 @@
+[submodule "workflow"]
+	path = workflow
+	url = http://gitlab-distra.xutil.net/distra/planificacion/distra/workflow.git
+[submodule "suite"]
+	path = suite
+	url = http://gitlab-distra.xutil.net/distra/planificacion/distra/suite.git
+[submodule "resources"]
+	path = resources
+	url = http://gitlab-distra.xutil.net/distra/planificacion/distra/resources.git
+[submodule "reportes"]
+	path = reportes
+	url = http://gitlab-distra.xutil.net/distra/planificacion/distra/reportes.git
+[submodule "proyecto"]
+	path = proyecto
+	url = http://gitlab-distra.xutil.net/distra/planificacion/distra/proyecto.git
+[submodule "producciones"]
+	path = producciones
+	url = http://gitlab-distra.xutil.net/distra/planificacion/distra/producciones.git
+[submodule "planproeza"]
+	path = planproeza
+	url = http://gitlab-distra.xutil.net/distra/planificacion/distra/planproeza.git
+[submodule "planmeta"]
+	path = planmeta
+	url = http://gitlab-distra.xutil.net/distra/planificacion/distra/planmeta.git
+[submodule "planindustrial"]
+	path = planindustrial
+	url = http://gitlab-distra.xutil.net/distra/planificacion/distra/planindustrial.git
+[submodule "planifintegracion"]
+	path = planifintegracion
+	url = http://gitlab-distra.xutil.net/distra/planificacion/distra/planifintegracion.git
+[submodule "plan711"]
+	path = plan711
+	url = http://gitlab-distra.xutil.net/distra/planificacion/distra/plan711.git
+[submodule "pdo"]
+	path = pdo
+	url = http://gitlab-distra.xutil.net/distra/planificacion/distra/pdo.git
+[submodule "inversiones"]
+	path = inversiones
+	url = http://gitlab-distra.xutil.net/distra/planificacion/distra/inversiones.git
+[submodule "herramientasintegracion"]
+	path = herramientasintegracion
+	url = http://gitlab-distra.xutil.net/distra/planificacion/distra/herramientasintegracion.git
+[submodule "help"]
+	path = help
+	url = http://gitlab-distra.xutil.net/distra/planificacion/distra/help.git
+[submodule "comun"]
+	path = comun
+	url = http://gitlab-distra.xutil.net/distra/planificacion/distra/comun.git
+[submodule "inversionesproyecto"]
+	path = inversionesproyecto
+	url = http://gitlab-distra.xutil.net/distra/planificacion/distra/inversionesproyecto.git

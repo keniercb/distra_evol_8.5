@@ -1,0 +1,115 @@
+#!/usr/bin/env php
+<?php
+
+$dir_app = __DIR__;
+$yuiCompresorPath = $dir_app . '/utiles/yuicompressor.jar';
+$dirModulo = __DIR__."/../../../";
+if($_SERVER['argc'] > 1)
+    $dirModulo.= $_SERVER['argv'][1];
+else{
+    echo "Especifique la direccion de la aplicacion a construir.\n";
+    echo "Ej. php BuildApp web/seguridad/views/js/configaccesos/\n";
+    return;
+}
+
+function concat($config){
+    $temp = "";
+    global $dirModulo;
+    if(isset($config->files) && count($config->files)){
+        foreach ($config->files as $file) {
+            $temp.= file_get_contents($dirModulo."/".$file);
+        }
+        $outputFile = $dirModulo."/".$config->outputFile;
+        if(isset($config->outputFile) && ((is_file($outputFile) && is_writable($outputFile)) ||
+                is_writable(dirname($outputFile)))
+        ){
+           file_put_contents($dirModulo."/".$config->outputFile, $temp);
+           echo "Archivos concatenados correctamente.\n";
+        }else{
+            echo "El archivo {$config->outputFile} no existe o no se puede escribir en el.\n";
+        }
+    }
+}
+
+function minifyJs($config){
+   global $dirModulo,$yuiCompresorPath;
+    if(isset($config->files) && count($config->files)){
+        foreach ($config->files as $file) {            
+           
+            $fileName = end(explode("/", $file));
+            $cmd1 = 'cd ' . dirname($dirModulo."/".$file);
+             if(isset($config->outputDir) && is_dir($dirModulo."/".$config->outputDir)){
+                $fileOutput = $dirModulo."/".$config->outputDir."/".str_replace(".js",".min.js",$fileName);
+            }else{
+                $fileOutput = $dirModulo."/".$file;
+            }
+            
+            $cmd2 = "java -jar " .  $yuiCompresorPath . " -o '".$fileOutput."' ".$fileName;
+            passthru($cmd1 .';'. $cmd2, $request);
+            echo "Archivo ".$fileName." minificado correctamente.\n";
+        }
+    }   
+}
+
+function minifyCss($config){
+    global $dirModulo,$yuiCompresorPath;
+    if(isset($config->files) && count($config->files)){
+        foreach ($config->files as $file) {            
+           
+            $fileName = end(explode("/", $file));
+            $cmd1 = 'cd ' . dirname($dirModulo."/".$file);
+             if(isset($config->outputDir) && is_dir($dirModulo."/".$config->outputDir)){
+                $fileOutput = $dirModulo."/".$config->outputDir."/".str_replace(".css",".min.css",$fileName);
+            }else{
+                $fileOutput = $dirModulo."/".$file;
+            }
+            
+            $cmd2 = "java -jar " .  $yuiCompresorPath . " -o '".$fileOutput."' ".$fileName;
+            passthru($cmd1 .';'. $cmd2, $request);
+            echo "Archivo ".$fileName." minificado correctamente.\n";
+        }
+    }   
+}
+
+
+
+$config = @file_get_contents($dirModulo."/application.json");
+if(!$config){
+    echo "No se encuentra el fichero application.json.\n";
+    echo "Especifique la ruta al módulo en el siguiente formato:\n";
+    echo "Ej. [web/seguridad/views/js/configaccesos/]\n";
+    return;
+}
+$config = @json_decode($config);
+if(!is_object($config)){
+    echo "El fichero de configuracion esta mal formado.\n";
+    return;
+}
+
+foreach ($config as $key=>$value) {
+
+    switch ($key) {
+        case 'concat':
+            if(isset($value->js)){
+                concat($value->js);
+            }
+
+            if(isset($value->css)){
+                concat($value->css);
+            }
+            break;
+        case 'minify':
+            if(isset($value->js)){
+                minifyJs($value->js);
+            }
+
+            if(isset($value->css)){
+                minifyCss($value->css);
+            }
+            break;
+        
+        default:
+            # code...
+            break;
+    }
+}

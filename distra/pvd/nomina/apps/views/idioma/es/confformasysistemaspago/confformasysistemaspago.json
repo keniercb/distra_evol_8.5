@@ -1,0 +1,20 @@
+{
+lbMsgEsperaEnviarDatos:                         'Cargando datos de tipos de reportes y certificaciones',
+lbMsgEspera: 'Por favor espere...',
+
+textToolTipAddConcepto:    		       			'Adicionar concepto de percepci&oacute;n y descuento(<b>Alt+I</b>)',
+textToolTipAyuda:    		       			    'Mostrar ayuda de la funcionalidad(<b>Alt+H</b>)',
+textToolTipElimConcepto:    		       		'Eliminar concepto de percepci&oacute;n y descuento(<b>DEL</b>)',
+textToolTipBuscarConcepto:    		       		'Buscar concepto de percepci&oacute;n y descuento(<b>Alt+B</b>)',
+textToolTipGuardarConfig:    		       		'Guardar la configuraci&oacute;n del concepto de percepci&oacute;n y descuento(<b>Alt+G</b>)',
+textToolTipCancelar:                            'Cerrar ventana sin guardar los datos (<b>Alt+X</b>)',
+textToolTipAplicar:                             'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+textToolTipAceptar:                             'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+
+textToolTipAddVarAux:    		       			'Adicionar variable auxiliar (<b>Alt+I</b>)',
+textToolTipElimVarAux:    		       		    'Eliminar variable auxiliar (<b>Del</b>)',
+
+textToolTipCancelarVar:                         'Cerrar ventana sin guardar los datos (<b>Alt+X</b>)',
+textToolTipAplicarVar:                          'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+textToolTipAceptarVar:                          'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+}

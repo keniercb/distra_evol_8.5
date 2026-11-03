@@ -1,0 +1,7 @@
+Notificaciones para las violaciones en BD de Zeolides a traves de un demonio:
+1- Copiar zeolides_db_violations_notifications.php y zeolides_db_violations_notifications.sh en apps/lib/Amqp/Worker
+2- Copiar zeolides_db_violations_notifications en /etc/init.d/
+3- Cambiar las direcciones de los ficheros a ejecutar en zeolides_db_violations_notifications, zeolides_db_violations_notifications.sh y zeolides_db_violations_notifications.php
+4- Cambiar en zeolides_db_violations_notifications.php:
+	La direccion del fichero que contiene las violaciones en la base de datos, en dependencia de la version de postgresql (lineas 10, 19 y 72).
+	El usuario y contraseña del usuario que envia y las direcciones de correo que deben recibir en dependencia del nombre de la base de datos.

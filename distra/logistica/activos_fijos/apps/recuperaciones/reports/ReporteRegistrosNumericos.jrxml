@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteRegistrosNumericos" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" >
+    <property name="ireport.zoom" value="2.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <queryString language="SQL">
+		<![CDATA[select distinct
+                    rn.idregnumerico,
+					i.denominacion,
+					modelo.denominacion as modelo,
+					marca.denominacion as marca,
+                    eu.descripcion as ubicacion,
+                    rna.idarearesp,
+                    rna.nroinventario,
+                    rna.valoradquisicion,
+                    rna.valorcontable,
+                    rna.vidautil,
+                    rna.tasafiscal,
+                    rna.depreciacionacumulada,
+                    rna.fechaadq,
+                    rna.fechaexpini,
+                    rna.fechaexpfin,
+                    rna.esbaja,
+                    rna.estaentidad,
+                    rnat.nromatricula as matricula,
+                    rnat.indicativo,
+                    rnat.nrocirculacion as numcirculacion,
+                    rnat.nromotor1 as numeromotor1,
+                    rnat.nromotor2 as numeromotor2,
+                    rnat.kilometraje,
+                    rnat.indiceconsumo,
+                    rnat.ficav,
+                    rnat.lot,
+                    rnat.capacidad as pax,
+                    tipcom.denominacion as tipocombustible,
+                    et.denominacion as estado,
+                    es.denominacion as entidad,
+                    deop.denominacion as arearesponsabilidad,
+                    cat.denominacion as categoria,
+                    cat.idcategoria as idcategoria,
+                    rn.nroserie,
+                    resp.idresponsable,
+                    rn.idregnumerico,
+	'yoendy' as responsable
+
+from mod_logactivofijotangible.dat_regnumericoactivo rna
+                  inner join mod_logactivofijotangible.dat_registronumerico rn on rn.idregnumerico = rna.idregnumerico
+                  left join mod_logactivofijotangible.dat_regnumericoactivotransp rnat
+                   on rn.idregnumerico = rnat.idregnumerico
+                  left join mod_logactivofijotangible.nom_tipocombustible tipcom
+                  on rnat.idtipocombustible = tipcom.idtipocombustible
+                  left join mod_logactivofijotangible.nom_estatustecnico et
+                  on rna.idestatustecnico = et.idestatustecnico
+                  inner join mod_logistica.dat_producto p on p.idproducto = rn.idproducto
+                  inner join mod_datosmaestros.nom_indicador i on p.idindicador = i.idindicador
+                  inner join mod_logistica.dat_movimiento mv on p.idproducto = mv.idproducto
+                  inner join mod_logistica.dat_documento doc on mv.iddocumento = doc.iddocumento
+                  left join mod_logistica.nom_categoria cat on cat.idcategoria = rna.idcategoria
+                  left join mod_logistica.dat_estructuraubicacion eu on rna.idubicacion = eu.idestructuraubicacion
+                  inner join mod_estructuracomp.dat_estructuraop deop on deop.idestructuraop = rna.idarearesp
+                  inner join mod_estructuracomp.nom_filaestruc f on f.idfila = deop.idestructuraop
+                  inner join mod_estructuracomp.dat_estructura es on f.idpadre = es.idestructura
+                  inner join mod_estructuracomp.nom_filaestruc fp on f.lft >= fp.lft and f.rgt <= fp.rgt
+                 left join mod_logistica.dat_responsable resp on rna.idresponsable = resp.idresponsable
+				  inner join mod_datosmaestros.nom_indicadorhoja ih on i.idindicador = ih.idindicador
+
+				  left join mod_datosmaestros.nom_marca marca on ih.idmarca = marca.idmarca
+                  left join mod_datosmaestros.nom_modelo modelo on ih.idmodelo = modelo.idmodelo
+
+WHERE doc.estado = 3 AND p.idestructura IN (
+                    SELECT idfila FROM mod_estructuracomp.nom_filaestruc
+                        WHERE
+                    lft >= (SELECT lft FROM mod_estructuracomp.nom_filaestruc WHERE idfila = 100000532) AND
+                    rgt <= (SELECT rgt FROM mod_estructuracomp.nom_filaestruc WHERE idfila = 100000532)
+                    )]]>
+    </queryString>
+    <field name="denominacion" class="java.lang.String"/>
+    <field name="modelo" class="java.lang.String">
+        <fieldDescription><![CDATA[Columna que indica si está registrado el modelo de cada medio.]]></fieldDescription>
+    </field>
+    <field name="marca" class="java.lang.String">
+        <fieldDescription><![CDATA[Columna que indica si está registrada la marca de cada medio.]]></fieldDescription>
+    </field>
+    <field name="nroinventario" class="java.lang.String">
+        <fieldDescription><![CDATA[Número de inventario.]]></fieldDescription>
+    </field>
+    <field name="nroserie" class="java.lang.String"/>
+    <field name="valorcontable" class="java.math.BigDecimal">
+        <fieldDescription><![CDATA[Valor contable.]]></fieldDescription>
+    </field>
+    <field name="depreciacionacumulada" class="java.math.BigDecimal">
+        <fieldDescription><![CDATA[Depresiación acumulada.]]></fieldDescription>
+    </field>
+    <field name="estado" class="java.lang.String">
+        <fieldDescription><![CDATA[Estado del estado financiero. 1 Configurado 2 Aprobado]]></fieldDescription>
+    </field>
+    <field name="entidad" class="java.lang.String"/>
+    <field name="arearesponsabilidad" class="java.lang.String"/>
+    <field name="responsable" class="java.lang.String"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="79" splitType="Stretch">
+            <image>
+                <reportElement x="0" y="0" width="147" height="79" />
+            </image>
+            <staticText>
+                <reportElement x="156" y="11" width="282" height="20" />
+                <textElement>
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[UEB Transgaviota Ciudad Habana]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="156" y="31" width="282" height="20" />
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Listado de medios / Acta de responsabilidad]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="708" y="0" width="19" height="20" />
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[N.º]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="726" y="0" width="26" height="20" />
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="5" splitType="Stretch"/>
+    </pageHeader>
+    <columnHeader>
+        <band height="21" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="24" height="21" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[N.º]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="24" y="0" width="69" height="21" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Tipo]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="93" y="0" width="87" height="21" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Marca-modelo]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="180" y="0" width="72" height="21" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[N.º inventario]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="252" y="0" width="58" height="21" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[N.º registro]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="310" y="0" width="55" height="21" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[V. contable]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="365" y="0" width="73" height="21" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[D. acumulada]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="438" y="0" width="77" height="21" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Estatus técnico]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="515" y="0" width="83" height="21" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Estructura]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="598" y="0" width="71" height="21" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Área resp.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="669" y="0" width="83" height="21" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.0"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Responsable]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="40" splitType="Stretch">
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="0" width="24" height="40" />
+                <box leftPadding="2">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="24" y="0" width="69" height="40" />
+                <box leftPadding="2">
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{denominacion}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="93" y="0" width="87" height="40" />
+                <box leftPadding="2">
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[($F{modelo})?$F{marca}+'-'+$F{modelo}:$F{marca}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="180" y="0" width="72" height="40" />
+                <box leftPadding="2">
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{nroinventario}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="252" y="0" width="58" height="40" />
+                <box leftPadding="2">
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{nroserie}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="310" y="0" width="55" height="40" />
+                <box leftPadding="2">
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{valorcontable}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="365" y="0" width="73" height="40" />
+                <box leftPadding="2">
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{depreciacionacumulada}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="438" y="0" width="77" height="40" />
+                <box leftPadding="2">
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="515" y="0" width="83" height="40" />
+                <box leftPadding="2">
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{entidad}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="598" y="0" width="71" height="40" />
+                <box leftPadding="2">
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{arearesponsabilidad}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="669" y="0" width="83" height="40" />
+                <box leftPadding="2">
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$F{responsable}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="45" splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band height="54" splitType="Stretch"/>
+    </pageFooter>
+    <summary>
+        <band height="42" splitType="Stretch"/>
+    </summary>
+</jasperReport>

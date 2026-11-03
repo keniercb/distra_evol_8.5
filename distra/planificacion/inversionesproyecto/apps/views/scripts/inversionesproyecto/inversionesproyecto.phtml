@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+        <script language="javascript" type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+        <link rel="stylesheet" type="text/css" href="/planificacion/inversiones/views/css/treegrid.css"/>
+
+        <!--para el tree combo-->
+        <link rel="stylesheet" type="text/css" href="/planificacion/inversiones/views/js/comun/xcombo/views/css/TreeGrid.css" />
+        <link rel="stylesheet" type="text/css" href="/planificacion/inversiones/views/js/comun/xcombo/views/css/combos.css" />
+
+    </head>
+    <body>
+        <!--        Librerias Ext-->
+        <style type="text/css">
+            .superior, .rojo
+            {
+                background-color:#F8E0E0 !important;
+            }
+            .verde{
+                background-color:#CCFFCC !important;
+            }
+
+            .azul{
+                background-color:#CCCCFF !important;
+            }
+
+            .amarillo{
+                background-color:#FFFFCC !important;
+            }
+        </style>
+        <script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid.metadatos.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/utiles/extensiones.js"></script>
+
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/comun/filtros/EditableItem.js"></script>
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/comun/filtros/ComboItem.js"></script>
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/comun/filtros/TextFieldItem.js"></script>
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/comun/FileUploadField.js"></script>
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/comun/filtros/RangeMenu.js"></script>
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/comun/filtros/GridFilters.js"></script>
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/comun/filtros/Filter.js"></script>
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/comun/filtros/StringFilter.js"></script>
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/comun/filtros/DateFilter.js"></script>
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/comun/filtros/ListFilter.js"></script>
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/comun/filtros/NumericFilter.js"></script>
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/comun/filtros/ListadoFilter.js"></script>
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/comun/filtros/String_adaptadoFilter.js"></script>
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/comun/GroupSummaryNew.js"></script>
+        
+        <script type="text/javascript" id="nodejs" src="/planificacion/pdo/comun/nodejs/assets/js/socket-io-client/socket.io.js"></script>
+
+        <!--Mapaas
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/adicionarinversiones/adicionarinversiones.modelo.js"></script>
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/adicionarinversiones/adicionarinversiones.controller.js"></script>
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/adicionarinversiones/adicionarinversiones.view.js"></script>
+        -->
+
+
+        <!--Mapaas-->
+        <?php
+        echo $this->jsrepresentacion;
+        ?>
+
+        <!--Sipac-->
+        <?php
+        echo $this->sipac_elementos;
+        ?>
+
+        <!--para el tree combo-->
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/comun/xcombo/views/js/ClassXCombo.js"></script>
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/comun/xcombo/views/js/UIXCombo.js"></script>
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/comun/xcombo/views/js/TreeGrid.js"></script>
+
+        <!--Graficas-->
+        <!--script type="text/javascript" src="/planificacion/inversiones/views/js/comun/CmpBarraProgreso.js"></script-->
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/comun/graficos/jquery.min.js"></script>
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/comun/graficos/highcharts.js"></script>
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/analisisinversionesgraficar/analisisinversionesgraficar.view.js"></script>
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/analisisinversiones/botonGrafica.js"></script>
+
+        <!--Ventana adicionar inversdiones-->
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/adicionarinversiones/adicionarinversiones.modelo.js"></script>
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/adicionarinversiones/adicionarinversiones.controller.js"></script>
+        <script type="text/javascript" src="/planificacion/inversiones/views/js/adicionarinversiones/adicionarinversiones.view.js"></script>
+
+
+
+        <script type="text/javascript" src="/planificacion/inversionesproyecto/views/js/inversionesproyecto/inversiones.modelo.js"></script>
+        <script type="text/javascript" src="/planificacion/inversionesproyecto/views/js/inversionesproyecto/inversiones.controller.js"></script>
+        <script type="text/javascript" src="/planificacion/inversionesproyecto/views/js/inversionesproyecto/inversiones.view.js"></script>
+
+
+
+
+        <!--  ficheros JS de Estructura--DPT-->
+        <?php echo $this->dpt; ?>
+
+        <script type="text/javascript" src="/lib/UCID/js/utiles/ViewModel.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/views/js/Ext.ux.form.LovCombo.plugins.js"></script>
+
+        <script type="text/javascript" src="/configuracion/divisionpolitica/views/idioma/es/dpt/es_dpt.js"></script>
+        <script type="text/javascript" src="/configuracion/divisionpolitica/views/js/gestdpa/views/winSelectDPA.js"></script>
+        <script type="text/javascript" src="/configuracion/divisionpolitica/views/js/gestdpa/models/DPA.js"></script>
+
+        <!--scrips de gestor documental-->
+        <script type="text/javascript" src="/gestordocumental/comun/js/open_jacob/ArrayList.js"></script>
+        <script type="text/javascript" src="/gestordocumental/comun/js/comun.js"></script>
+        <link rel="stylesheet" type="text/css" href="/planificacion/inversiones/views/css/inversiones.css" />
+
+
+        <!--?php echo $this->jsayuda; ?-->
+        <?php echo $this->gestdoc; ?>
+    </body>
+</html>

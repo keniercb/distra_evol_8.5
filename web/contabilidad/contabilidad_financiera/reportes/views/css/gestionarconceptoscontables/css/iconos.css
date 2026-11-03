@@ -1,0 +1,45 @@
+.sumar {
+    background-image:url(../images/sumar.png) !important;
+}
+.restar {
+    background-image:url(../images/restar.png) !important;
+}
+.multiplicar {
+    background-image:url(../images/multiplicar.png) !important;
+}
+.dividir{
+    background-image:url(../images/dividir.png) !important;
+}
+.igual {
+    background-image:url(../images/igual.png) !important;
+}
+.mayor {
+    background-image:url(../images/mayor.png) !important;
+}
+.menor {
+    background-image:url(../images/menor.png) !important;
+}
+.corcheteA {
+    background-image:url(../images/corcheteA.png) !important;
+}
+.corcheteC {
+    background-image:url(../images/corcheteC.png) !important;
+}
+.parentesisA {
+    background-image:url(../images/parentesisA.png) !important;
+}
+.parentesisC {
+    background-image:url(../images/parentesisC.png) !important;
+}
+.deshacer {
+    background-image:url(../images/deshacer.png) !important;
+}
+.limpiar {
+    background-image:url(../images/limpiar.png) !important;
+}
+.exponente {
+    background-image:url(../images/exponente.png) !important;
+}
+.porciento {
+    background-image:url(../images/porciento.png) !important;
+}

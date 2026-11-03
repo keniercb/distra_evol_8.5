@@ -1,0 +1,115 @@
+/* 
+    Document   : dvCliente
+    Created on : 08-mar-2012, 16:18:36
+    Author     : Miguel Diaz Riveaux
+    Description: Color de las filas para listar los conceptos contables.
+*/
+
+
+.FilaAzul .x-grid3-cell-inner{
+    color:black;
+    background-color:#D3E1F1;
+}
+.FilaVerde .x-grid3-cell-inner{
+    color:black;
+    background-color:#dffbda;
+}
+.FilaAmarilla .x-grid3-cell-inner{
+    color:black;
+    background-color:#FFFFE0;
+}
+.negrita .x-grid3-cell-inner{
+    color:black;
+    font-weight: bold;
+}
+#fpDetalles .details{ 
+    padding: 10px; 
+    text-align: center; 
+} 
+#fpDetalles .details-info{ 
+    border-top: 1px solid #cccccc; 
+    font: 11px Arial, Helvetica, sans-serif; 
+    margin-top: 5px; 
+    padding-top: 5px; 
+    text-align: left; 
+} 
+#fpDetalles .inforeport{ 
+    display: block; 
+    padding: 10px;
+} 
+#fpDetalles .details-info b{ 
+    color: #555555; 
+    display: block; 
+    margin-bottom: 4px; 
+} 
+#fpDetalles .details-info span{ 
+    display: block; 
+    margin-bottom: 5px; 
+    margin-left: 5px; 
+} 
+
+#img-chooser-view{ 
+    background: white; 
+    font: 11px Arial, Helvetica, sans-serif;
+    float: left;
+} 
+#img-chooser-view .thumb{ 
+    padding: 2px; 
+    width: 150px; 
+} 
+#img-chooser-view .thumb img{ 
+    height: 80px; 
+    float: left;
+    width: 55%;
+} 
+#img-chooser-view .thumb-wrap{ 
+    font-weight: bold;
+    float: left; 
+    margin: 4px; 
+    padding: 5px;
+} 
+#img-chooser-view .thumb-wrap span{ 
+    display: block; 
+    overflow: hidden; 
+    float: left;
+    width: 200px;
+    width: 35%;
+    margin-left: 5px
+} 
+#img-chooser-view .x-view-over{
+    /*border:1px solid #5C5C5C;*/ 
+    border: 1px solid #FEBE47; 
+    background: #efefef url(/configuracion/comun/views/images/row-over.gif) repeat-x left top; 
+}
+#img-chooser-view .x-view-over img{
+    float: left;
+    background: #efefef url(/configuracion/comun/views/images/row-over.gif) repeat-x left top; 
+    border:1px solid #5C5C5C; 
+    width: 45%;
+}
+#img-chooser-view .x-view-over span{
+    float: right;
+    background: #efefef url(/configuracion/comun/views/images/row-over.gif) repeat-x left top; 
+    width: 35%;
+    overflow: hidden;
+    margin-left: 5px
+}
+#img-chooser-view .x-view-selected{ 
+    background: #DFEDFF; 
+    border: 1px solid #6593cf; 
+    width: 180px;
+} 
+#img-chooser-view .x-view-selected .thumb{ 
+    background:transparent; 
+    width: auto;
+    padding: 5px;
+}
+#img-chooser-view .x-view-selected img{ 
+    width: 55%;
+    float: left;
+}
+#img-chooser-view .x-view-selected span{ 
+    width: 35%;
+    margin-left: 5px;
+    float: right;
+}

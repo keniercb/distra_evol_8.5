@@ -1,0 +1,52 @@
+#grid-example .x-grid-col-1 {
+text-align:right;
+}
+#grid-example .x-grid-col-2 {
+text-align:right;
+}
+#grid-example .x-grid-col-3 {
+text-align:right;
+}
+#grid-example .x-grid-col-4 {
+text-align:right;
+}
+#grid-example.x-grid-mso {
+border:1px solid #6593CF;
+}
+#grid-example.x-grid-vista {
+border:1px solid #B3BCC0;
+}
+#xml-grid-example {
+border:1px solid #CBC7B8;
+left:0pt;
+position:relative;
+top:0pt;
+}
+#editor-grid .x-grid-col-2 {
+text-align:right;
+}
+.x-grid3-td-topic b {
+display:block;
+font-family:tahoma,verdana;
+}
+.x-grid3-td-topic b i {
+color:#000000;
+font-style:normal;
+font-weight:normal;
+}
+.x-grid3-td-topic .x-grid3-cell-inner {
+white-space:normal;
+}
+.x-grid3-td-topic a {
+color:#385F95;
+text-decoration:none;
+}
+.x-grid3-td-topic a:hover {
+text-decoration:underline;
+}
+.details .x-btn-text {
+background-image:url(details.gif);
+}
+.x-resizable-pinned .x-resizable-handle-south {
+background:transparent url(../../resources/images/default/sizer/s-handle-dark.gif) repeat scroll center top;
+}

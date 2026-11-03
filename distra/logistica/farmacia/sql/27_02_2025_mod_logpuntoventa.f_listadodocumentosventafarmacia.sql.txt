@@ -1,0 +1,77 @@
+CREATE OR REPLACE FUNCTION mod_logpuntoventa.f_listadodocumentosventafarmacia (
+  p_idestructuraop varchar,
+  p_fechainicio date,
+  p_fechafin date,
+  p_idestructura numeric,
+  p_idcliente numeric,
+  p_creadopor numeric,
+  p_idproducto numeric,
+  p_busqueda varchar,
+  p_idmodopago numeric,
+  p_estado numeric
+)
+RETURNS SETOF mod_logpuntoventa.td_listadocumentosfarmacia AS
+$body$
+  DECLARE
+  v_rec mod_logpuntoventa.td_listadocumentosfarmacia;
+  v_idperiodo numeric;
+  v_ejercicio record;
+  BEGIN
+  if p_idestructura is not null and p_fechainicio is null and p_fechafin is null then
+  	v_ejercicio = mod_logistica.f_obtenerejercicioactivo(13, p_idestructura);
+    v_idperiodo = v_ejercicio.idperiodoactual;
+  else 
+  	v_idperiodo = null; 
+  end if;
+    for v_rec in 
+    SELECT distinct d.iddocumento, d.nrodoc,d.fechacontable, v.importe - COALESCE(v.importedevuelto,0) +
+		(case when v.conceptoventa = '-' then COALESCE(-1*v.calculoconcepto,0) when v.conceptoventa = '+' then COALESCE(v.calculoconcepto,0) else 0 end), 
+    count(vp.idventaproducto)
+    /*(select count(vp.idventaproducto) FROM mod_logpuntoventa.dat_ventaproducto vp 
+    WHERE vp.idventas = d.iddocumento)*/ as productos,
+    (vc.numeroidentidad ||' - '||vc.nombre) as cliente,
+    (cast(d.nrodoc as varchar)||'-'||coalesce(vo.nroorden, '')) as nroventa,null as fechaventa, mp.denominacion,
+    d.observaciones, v.vendedor,(es.codigo||' - '||es.denominacion) as areaventa,d.hora,de.codigo||' - '||de.denominacion,
+    i.urllogo, sum(coalesce(dm.preciocontable, 0)) as preciocosto
+    FROM mod_logistica.dat_documento d 
+    INNER JOIN mod_logpuntoventa.dat_ventas v ON d.iddocumento = v.idventas 
+    INNER JOIN mod_logistica.dat_movimiento dm ON dm.iddocumento = d.iddocumento 
+    --INNER JOIN mod_logistica.dat_producto dp on dp.idproducto = dm.idproducto
+    INNER JOIN mod_logpuntoventa.dat_ventaproducto vp on vp.idventas = v.idventas
+    LEFT JOIN mod_logpuntoventa.dat_cierreventa cv ON v.idcierreventa = cv.idcierreventa 
+    LEFT JOIN mod_logpuntoventa.dat_ventacliente vc ON v.idpersona = vc.idventacliente 
+    LEFT JOIN mod_logpuntoventa.dat_ventaorden vo ON vo.idventas = v.idventas 
+    INNER JOIN mod_logpuntoventa.nom_modopago mp ON v.idpago = mp.idmodopago
+    INNER JOIN mod_datosmaestros.dat_documentoprim ddp ON ddp.iddoc = d.iddoc 
+    INNER JOIN mod_datosmaestros.dat_estructurasubsist des ON des.idestructurasubsist = ddp.idestructurasubsist
+    LEFT JOIN mod_estructuracomp.v_dametodasestructuras de on de.idestructura = p_idestructura
+    LEFT JOIN mod_estructuracomp.v_dametodasestructuras es on es.idestructura = d.idestructuracomun
+    INNER JOIN mod_logistica.conf_general i on i.idestructura = de.idestructura
+    WHERE des.idestructuracomun = p_idestructura AND 1 = 1 
+    AND (d.fechacontable >= p_fechainicio or p_fechainicio is null)
+    AND (d.fechacontable <= p_fechafin or p_fechafin is null)
+    AND (CASE WHEN v_idperiodo is null then true ELSE d.idperiodo = v_idperiodo end)
+    AND (vc.idventacliente = p_idcliente or p_idcliente is null)
+    AND (d.idusuario = p_creadopor or p_creadopor is null)
+    AND (vp.idproducto = p_idproducto or p_idproducto is null)
+    AND (d.idestructuracomun = cast(p_idestructuraop as numeric) or p_idestructuraop is null)
+    AND (d.nrodoc::varchar = p_busqueda or vc.numeroidentidad = p_busqueda or p_busqueda is null )
+    AND (d.estado = p_estado or p_estado is null)
+    group by d.iddocumento, d.nrodoc,d.fechacontable, v.importe,v.importedevuelto,v.conceptoventa,v.calculoconcepto,
+    vc.numeroidentidad,vc.nombre,mp.denominacion,d.observaciones, v.vendedor,es.codigo,es.denominacion,
+    d.hora,de.codigo,de.denominacion,i.urllogo,cv.fecha, vo.nroorden
+    ORDER BY areaventa,d.iddocumento desc
+    loop
+      return next v_rec;
+    end loop;
+  END;
+$body$
+LANGUAGE 'plpgsql'
+VOLATILE
+CALLED ON NULL INPUT
+SECURITY INVOKER
+PARALLEL UNSAFE
+COST 100 ROWS 1000;
+
+ALTER FUNCTION mod_logpuntoventa.f_listadodocumentosventafarmacia (p_idestructuraop varchar, p_fechainicio date, p_fechafin date, p_idestructura numeric, p_idcliente numeric, p_creadopor numeric, p_idproducto numeric, p_busqueda varchar, p_idmodopago numeric, p_estado numeric)
+  OWNER TO zeolides;

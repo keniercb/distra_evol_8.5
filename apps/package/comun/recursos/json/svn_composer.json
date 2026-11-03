@@ -1,0 +1,6 @@
+{
+    "url": "http:\/\/zeolides-dev.xetid.cu\/package\/repositorio",
+    "packages": "packages.json",
+    "llave_publica": "clave_publica",
+    "file": "\/opt\/zeolides-dev.xetid.cu\/web\/package\/repositorio"
+}

@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions name="CrmSoapService" targetNamespace="urn:CrmSoapService"
+             xmlns:typens="urn:CrmSoapService" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+    <message name="webservice">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="webserviceResponse">
+        <part name="webserviceReturn" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerEspacioTrabajoContratos">
+        <part name="parametros" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerEspacioTrabajoContratosResponse">
+        <part name="obtenerEspacioTrabajoContratosReturn" type="xsd:anyType"/>
+    </message>
+    <message name="crearOferta">
+        <part name="parametros" type="xsd:anyType"/>
+    </message>
+    <message name="crearOfertaResponse">
+        <part name="crearOfertaReturn" type="xsd:anyType"/>
+    </message>
+    <message name="autenticarUsuario">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerContratos">
+        <part name="parametros" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerDatosContrato">
+        <part name="parametros" type="xsd:anyType"/>
+    </message>
+    <message name="cargarContratos">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="cargarSolicitudesNegocio">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="cargarOfertasNegocio">
+        <part name="contenido" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerClientesProveedores">
+        <part name="parametros" type="xsd:anyType"/>
+    </message>
+    <message name="crearClienteProveedor">
+        <part name="parametros" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerContratosResponse">
+        <part name="obtenerContratosReturn" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerDatosContratoResponse">
+        <part name="obtenerDatosContratoReturn" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerClientesProveedoresResponse">
+        <part name="obtenerClientesProveedoresReturn" type="xsd:anyType"/>
+    </message>
+    <message name="crearClienteProveedorResponse">
+        <part name="crearClienteProveedorReturn" type="xsd:anyType"/>
+    </message>
+    <portType name="CrmSoapServicePortType">
+        <operation name="obtenerEspacioTrabajoContratos">
+            <input message="typens:obtenerEspacioTrabajoContratos"/>
+            <output message="typens:obtenerEspacioTrabajoContratosResponse"/>
+        </operation>
+        <operation name="autenticarUsuario">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+        <operation name="crearOferta">
+            <input message="typens:crearOferta"/>
+            <output message="typens:crearOfertaResponse"/>
+        </operation>
+        <operation name="obtenerContratos">
+            <input message="typens:obtenerContratos"/>
+            <output message="typens:obtenerContratosResponse"/>
+        </operation>
+        <operation name="obtenerDatosContrato">
+            <input message="typens:obtenerDatosContrato"/>
+            <output message="typens:obtenerDatosContratoResponse"/>
+        </operation>
+        <operation name="cargarContratos">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+        <operation name="cargarSolicitudesNegocio">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+        <operation name="cargarOfertasNegocio">
+            <input message="typens:webservice"/>
+            <output message="typens:webserviceResponse"/>
+        </operation>
+        <operation name="obtenerClientesProveedores">
+            <input message="typens:obtenerClientesProveedores"/>
+            <output message="typens:obtenerClientesProveedoresResponse"/>
+        </operation>
+        <operation name="crearClienteProveedor">
+            <input message="typens:crearClienteProveedor"/>
+            <output message="typens:crearClienteProveedorResponse"/>
+        </operation>
+    </portType>
+    <binding name="CrmSoapServiceBinding" port="CrmSoapServicePort" type="typens:CrmSoapServicePortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="autenticarUsuario">
+            <soap:operation soapAction="urn:CrmSoapServicePortAction"/>
+            <input>
+                <soap:body namespace="urn:CrmSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:CrmSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="cargarContratos">
+            <soap:operation soapAction="urn:CrmSoapServicePortAction"/>
+            <input>
+                <soap:body namespace="urn:CrmSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:CrmSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="cargarSolicitudesNegocio">
+            <soap:operation soapAction="urn:CrmSoapServicePortAction"/>
+            <input>
+                <soap:body namespace="urn:CrmSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:CrmSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="cargarOfertasNegocio">
+            <soap:operation soapAction="urn:CrmSoapServicePortAction"/>
+            <input>
+                <soap:body namespace="urn:CrmSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:CrmSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="obtenerEspacioTrabajoContratos">
+            <soap:operation soapAction="urn:obtenerEspacioTrabajoContratosPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:CrmSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:CrmSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="crearOferta">
+            <soap:operation soapAction="urn:crearOfertaPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:CrmSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:CrmSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="obtenerContratos">
+            <soap:operation soapAction="urn:obtenerContratosPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:CrmSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:CrmSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="obtenerDatosContrato">
+            <soap:operation soapAction="urn:obtenerDatosContratoPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:CrmSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:CrmSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="obtenerClientesProveedores">
+            <soap:operation soapAction="urn:obtenerClientesProveedoresPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:CrmSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:CrmSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="crearClienteProveedor">
+            <soap:operation soapAction="urn:crearClienteProveedorPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:CrmSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:CrmSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name="CrmSoapServiceService">
+        <port name="CrmSoapServicePort" binding="typens:CrmSoapServiceBinding">
+            <soap:address location="http://10.12.46.202:5902/crm/comun/webservices/services.php"/>
+        </port>
+    </service>
+</definitions>
+
+<!--        https://distra.prod.xetid.cu/crm/comun/webservices/services.php"-->

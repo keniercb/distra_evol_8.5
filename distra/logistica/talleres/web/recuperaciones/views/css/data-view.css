@@ -1,0 +1,61 @@
+/*#idwingestregnumeric .x-panel-body {
+    background: white;
+    font: 11px Arial, Helvetica, sans-serif;
+}*/
+
+#idwingestregnumeric .thumb {
+    background: #dddddd;
+    padding: 3px;
+}
+
+#idwingestregnumeric .thumb img {
+    height: 110px;
+    width: 140px;
+}
+
+#idwingestregnumeric .thumb-wrap {
+    float: left;
+    margin: 4px;
+    margin-right: 0;
+    padding: 5px;
+}
+
+#idwingestregnumeric .thumb-wrap span {
+    display: block;
+    overflow: hidden;
+    text-align: center;
+}
+
+#idwingestregnumeric .x-view-over {
+    border: 1px solid #dddddd;
+    background: #efefef url('../images/row-over.gif') repeat-x left top;
+    padding: 4px;
+}
+
+#idwingestregnumeric .x-view-selected {
+    border: 1px solid #99bbe8;
+    padding: 4px;
+}
+
+#idwingestregnumeric .x-view-selected .thumb {
+    background: transparent;
+}
+
+#idwingestregnumeric .loading-indicator {
+    font-size: 11px;
+    background-image: url('../images/loading.gif');
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 20px;
+    margin: 10px;
+}
+/*#idwinvistaOrganigrama .mask-css {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;      
+    z-index: 50;     
+        top:  50px; 
+        left: 50px;
+}*/

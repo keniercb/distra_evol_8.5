@@ -1,0 +1,13 @@
+{
+    "nombre": "Gestor de Metadatos",
+    "version": "1.1",
+    "fecha": "28\/5\/14",
+    "autor": "Centro de Herramientas y Tecnologías de Desarrollo",
+    "dependencia": [
+        "Zeolides 2.0",
+        "Ayuda 2.0"
+    ],
+    "descripcion": "Herramienta para administración de metadatos. Permite la gestión dinámica de tablas, campos y nomencladores.",
+    "logo": "",
+    "equipo": ["Centro de Herramientas y Tecnologías de Desarrollo"]
+}

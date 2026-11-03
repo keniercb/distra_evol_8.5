@@ -1,0 +1,24 @@
+.anchoFilas .x-grid3-cell-inner{
+    padding: 0px 0px 0px 0px;
+    overflow: visible;
+    white-space: inherit;
+    vertical-align: middle;
+}
+.filaPreferencia .x-grid3-cell-inner{
+    color: #C00000; font: bold; font-size: 14;
+}
+.filaDescarte .x-grid3-cell-inner{
+    background-color: #b8cfee; font: bold; font-size: 14;
+}
+.filaRow .x-grid3-row .x-grid3-cell-inner{
+    border-style: none !important;
+}
+.center-check-editor{
+    text-align: center !important;
+}
+*.x-tip, .x-tip-body {
+    width: auto !important;
+}
+.x-grid-cell-celda * {
+    color: #0000FF !important;
+}

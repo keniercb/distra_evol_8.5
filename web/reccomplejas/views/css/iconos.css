@@ -1,0 +1,84 @@
+.key{
+	background-image:url(../images/key.png) !important;
+}
+.save{
+	background-image:url(../images/save.png) !important;
+}
+.tag_blue{
+    background-image:url(../images/tag_blue.png) !important;
+}
+.pencil{
+	background-image:url(../images/pencil.png) !important;
+}
+.check{
+	background-image:url(../images/accept.png) !important;
+}
+.add{
+	background-image:url(../images/add.png) !important;
+}
+.del{
+	background-image:url(../images/delete.png) !important;
+}
+.database{
+	background-image:url(../images/database.png) !important;
+}
+.icon_map{
+	background-image:url(../images/map_magnify.png) !important;
+}
+.schema{
+	background-image:url(../images/folder_table.png) !important;
+}
+.table{
+	background-image:url(../images/grid.png) !important;
+}
+.campo{
+	background-image:url(../images/table_column.png) !important;
+}
+.collapse-all{
+	background-image:url(../images/collapse-all.gif) !important;
+}
+.expand-all{
+	background-image:url(../images/expand-all.gif) !important;
+}
+.pk{
+	background-image:url(../images/table_key.png) !important;
+}
+.fk{
+	background-image:url(../images/table_fkey.png) !important;
+}
+.conf_reporte{
+	background-image:url(../images/conf_reporte.gif) !important;
+}
+.activo{
+	background-image:url(../images/activo.png) !important;
+}
+.inactivo{
+	background-image:url(../images/inactivo.png) !important;
+}
+.tick{
+	background-image:url(../images/tick.png) !important;
+	background-repeat: no-repeat;
+	background-position: center;
+	height:16;
+}
+.imgactiva{
+	background-image:url(../images/activo.png) !important;
+	background-repeat: no-repeat;
+	background-position: center;
+	height:16;
+}
+.imginactiva{
+	background-image:url(../images/inactivo.png) !important;
+	background-repeat: no-repeat;
+	background-position: center;
+	height:16;
+}
+
+.rowSave {
+    width: 100%;
+    height: 16px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-image: url(../images/save.png);
+}

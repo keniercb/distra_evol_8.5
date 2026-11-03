@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="resources/bootstrap/3.0.0/css/docs.css" rel="stylesheet">
+</head>
+<body>
+<script src="resources/bootstrap/3.0.0/js/jquery.js" type="text/javascript"></script><script src="resources/bootstrap/3.0.0/js/bootstrap.min.js" type="text/javascript"></script><script type="text/javascript" src="/comun/helps/application.js"></script><div class="container"><div class="row">
+<div class="col-md-3"><div id="indice" class="bs-sidebar hidden-print"><ul id="menu-indice" class="nav bs-sidenav"><li id="xhomeGestordemetadato" class="active xinitProyect">
+<a href="#xhomeGestordemetadato_context" uri="herramientas/xmetacomponent">Gestor de metadato</a><ul class="nav">
+<li id="xhomeGestordemetadato_239" title="gesttablas">
+<a href="#xhomeGestordemetadato_239_context">Gesti&oacute;n de metadatos</a><ul class="nav">
+<li id="xhomeGestordemetadato_240"><a href="#xhomeGestordemetadato_240_context">Adicionar tabla</a></li>
+<li id="xhomeGestordemetadato_241"><a href="#xhomeGestordemetadato_241_context">Eliminar tabla</a></li>
+<li id="xhomeGestordemetadato_242"><a href="#xhomeGestordemetadato_242_context">Importar tabla</a></li>
+<li id="xhomeGestordemetadato_243"><a href="#xhomeGestordemetadato_243_context">Adicionar relaci&oacute;n</a></li>
+<li id="xhomeGestordemetadato_244"><a href="#xhomeGestordemetadato_244_context">Eliminar relaci&oacute;n</a></li>
+<li id="xhomeGestordemetadato_245"><a href="#xhomeGestordemetadato_245_context">Adicionar campo</a></li>
+<li id="xhomeGestordemetadato_246"><a href="#xhomeGestordemetadato_246_context">Eliminar campo</a></li>
+<li id="xhomeGestordemetadato_247"><a href="#xhomeGestordemetadato_247_context">Ordenar campos</a></li>
+</ul>
+</li>
+<li id="xhomeGestordemetadato_248" title="metadata">
+<a href="#xhomeGestordemetadato_248_context">Gesti&oacute;n de nomencladores</a><ul class="nav">
+<li id="xhomeGestordemetadato_249"><a href="#xhomeGestordemetadato_249_context">Adicionar tupla</a></li>
+<li id="xhomeGestordemetadato_250"><a href="#xhomeGestordemetadato_250_context">Modificar tupla</a></li>
+<li id="xhomeGestordemetadato_251"><a href="#xhomeGestordemetadato_251_context">Eliminar tupla</a></li>
+</ul>
+</li>
+<li title="" id="index_13568"><a href="#index_13568_context">Videos Tutoriales</a></li>
+</ul>
+</li></ul></div></div>
+<div class="col-md-9" role="main"><div id="context" class="bs-docs-section"><div id="xhomeGestordemetadato_context" class="bs-docs-section">
+<section><section id="info"><div id="top" style="text-align: center;">
+<h1 class="name">&nbsp;</h1>
+<h1 class="name"><span style="font-size: 12pt;"><img style="display: block; margin-left: auto; margin-right: auto;" src="resources/images/logo-zeolides.png" alt="" width="237" height="62"></span></h1>
+<h1 class="name" style="text-align: center;"><span style="font-size: 12pt;">Gestor de Metadatos</span></h1>
+<h5 class="version"><span style="font-size: 12pt;">1.1</span></h5>
+<h3 class="fecha"><span style="font-size: 12pt;">28/5/14</span></h3>
+</div>
+<div id="center" style="text-align: center;">
+<h3 style="text-align: center;"><span style="font-size: 12pt;">Descripci&oacute;n:</span></h3>
+<span style="font-size: 12pt;"><label>Herramienta para administraci&oacute;n de metadatos. Permite la gesti&oacute;n din&aacute;mica de tablas, campos y nomencladores.</label></span>
+<h3><span style="font-size: 12pt;">Compuesto por:</span></h3>
+<span style="font-size: 12pt; text-align: left;"><span style="font-size: 12pt;">Zeolides 2.0</span><br></span><span style="font-size: 12pt; text-align: left;">Ayuda 2.0</span><br><h3 style="text-align: center;"><span style="font-size: 12pt;">Desarrollado por:</span></h3>
+<span style="font-size: 12pt;"><label>Centro de Herramientas y Tecnolog&iacute;as de Desarrollo</label></span>
+</div>
+<footer id="footer"><h5 style="text-align: center;"><span style="font-size: 12pt;">2006-2015 &copy; Copyrigh XETID</span></h5>
+</footer><p style="text-indent: 0px; margin: 0px; text-align: justify;"><span style="font-size: 12pt;"><!--StartFragment--><span style="font-family: verdana,geneva; font-size: 11pt;">La gesti&oacute;n de datos propios de las aplicaciones, es imprescindible en la construcci&oacute;n de productos enfocados a clientes. El proceso de la construcci&oacute;n de los metadatos es un tema a resolver en el centro debido a su realizaci&oacute;n manual. El poder hacerlos directamente desde el framework base, y aplicarlas a los sistemas que lo integran es una ventajas de grandes valores agregados. Sin embargo, en la empresa no existe una herramienta capaz de lograr las realizaciones de &ldquo;datos sobre datos&rdquo; integradas ya al Marco de trabajo Zeolides. Por ello, los objetivos de la realizaci&oacute;n de este componente son:</span><br></span></p>
+<span style="font-size: 11pt; font-family: verdana,geneva;">1.&nbsp;&nbsp;&nbsp; Desarrollar una soluci&oacute;n que permita la gesti&oacute;n de metadatos en el portal de aplicaciones de Zeolides.</span><br><span style="font-size: 11pt; font-family: verdana,geneva;">2.&nbsp;&nbsp;&nbsp; Evitar errores de asimilaci&oacute;n de componentes de gesti&oacute;n de datos hechos sobre otras tecnolog&iacute;as.</span><br><span style="font-size: 11pt; font-family: verdana,geneva;">3.&nbsp;&nbsp;&nbsp; Reducir el tiempo y el costo de las implementaciones de metadatos.</span><br><span style="font-size: 11pt; font-family: verdana,geneva;">4.&nbsp;&nbsp;&nbsp; Gestionar asistencias en tiempos cortos y eficazmente.</span>
+<p style="text-indent: 0px; margin: 0px; text-align: justify;"><span style="font-size: 11pt; font-family: verdana,geneva;">Problemas que resuelve:<br>&bull;&nbsp;&nbsp;&nbsp; Poco conocimiento de la realizaci&oacute;n de metadatos.<br>&bull;&nbsp;&nbsp;&nbsp; Realizaci&oacute;n manual de la asimilaci&oacute;n de los productos de gesti&oacute;n de datos.<br>&bull;&nbsp;&nbsp;&nbsp; Tiempo invertido en las elaboraciones de estos componentes.<br>&bull;&nbsp;&nbsp;&nbsp; Eficiencia y rapidez en la construcci&oacute;n de productos dentro de Zeolides.<br>&bull;&nbsp;&nbsp;&nbsp; Minimiza el margen de errores.<br></span></p>
+<p style="text-indent: 0px; margin: 0px; text-align: justify;"><span style="font-size: 11pt; font-family: verdana,geneva;">&nbsp;</span></p>
+<p style="text-indent: 0px; margin: 0px; text-align: justify;"><span style="font-size: 11pt; font-family: verdana,geneva;">El sistema tiene dos componentes b&aacute;sicos el de gesti&oacute;n de datos de los datos y el de gesti&oacute;n general de los nomencladores.<br>Permite gestionar los metadatos de los subsistemas a desplegar en instalaciones clientes, posibilitando adicionar tabla, eliminar tabla, importar tabla, adicionar relaciones, eliminar relaciones, adicionar campos y eliminar campos. Adem&aacute;s mediante este se puede adicionar, modificar y eliminar nomencladores.<br>El primer proceso a llevar a cabo es de la gesti&oacute;n del metadato y luego, si este constituye un nomenclador, se realiza la gesti&oacute;n del nomenclador en s&iacute;.</span></p>
+<span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;</span></section></section><div id="xhomeGestordemetadato_239_context" class="bs-docs-section">
+<section><p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2; text-align: justify;" align="JUSTIFY"><span style="font-family: Arial,sans-serif; font-size: 14pt;"><strong><span style="font-size: 11pt; font-family: verdana,geneva;">Gesti&oacute;n de metadatos</span></strong></span> </p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2; text-align: justify;" align="JUSTIFY"><span style="font-family: verdana,geneva; font-size: 11pt;"><strong>&iquest;C&oacute;mo acceder al gestor de metadatos?</strong></span></p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2; text-align: justify;" align="JUSTIFY"><span style="font-family: verdana,geneva; font-size: 11pt;">En el men&uacute; de opciones del sistema que se despliega al presionar el bot&oacute;n <strong>Inicio</strong>, se debe seleccionar el subsistema <strong>Herramientas.</strong> De este modo se muestran los m<span lang="es-ES">&oacute;</span>dulos correspondientes al mismo. Entre los componentes se observar&aacute; <strong>Metadatos </strong>y al seleccionarlo se despliegan los dos subcomponentes <strong>Gestionar metadatos</strong> para gestionar toda la informaci&oacute;n y <strong>Gestionar nomencladores</strong> para el trabajo con las tablas de tipo nomenclador, ver Figura 1.</span></p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="JUSTIFY"><span style="font-family: Arial,sans-serif; font-size: 12pt;"><img style="display: block; margin-left: auto; margin-right: auto;" src="resources/images/Captura%20de%20pantalla%20de%202015-02-16%20144136.png" alt="" width="100%" height="NaN"></span></p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="CENTER"><span style="font-size: 11pt; font-family: verdana,geneva;">&nbsp; Figura 1. Men&uacute; de acceso al Gestor de metadatos.</span></p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2; text-align: justify;" align="JUSTIFY"><span style="font-family: verdana,geneva; font-size: 11pt;">Para acceder a la interfaz principal se selecciona el subcomponente <strong>Gestionar metadatos</strong> en el men&uacute; mostrado en la Figura 1 y aparecer&aacute; en pantalla la interfaz <strong>Gestionar metadatos</strong>, ver Figura 2.</span> </p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2; text-align: justify;" align="JUSTIFY"><span style="font-family: Arial,sans-serif; font-size: 12pt;"><img src="resources/images/Captura%20de%20pantalla%20de%202015-02-16%20150530.png" alt="" width="100%" height="NaN"></span></p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="CENTER"><span style="font-family: verdana,geneva; font-size: 11pt;">Figura 2. Interfaz principal para la gesti&oacute;n de metadatos.</span></p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2; text-align: justify;" align="JUSTIFY"><span style="font-family: verdana,geneva; font-size: 11pt;">Los componentes que agrupa la ventana son:</span></p>
+<ol>
+<li style="text-align: justify;">
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="JUSTIFY"><span style="font-family: verdana,geneva; font-size: 11pt;"><strong>Barra de opciones de la gesti&oacute;n de tablas</strong>: Muestra las acciones que se pueden ejecutar con las tablas de la base de datos.</span></p>
+</li>
+<li style="text-align: justify;">
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="JUSTIFY"><span style="font-family: verdana,geneva; font-size: 11pt;"><strong>Listado de tablas gestionadas</strong>: Listado de las tablas existentes hasta le momento ya se hayan adicionado en el componente o importado desde la base de datos.</span></p>
+</li>
+<li style="text-align: justify;">
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="JUSTIFY"><span style="font-family: verdana,geneva; font-size: 11pt;"><strong>Barra de opciones de la gesti&oacute;n de campos de una tabla</strong>: Muestra las opciones que se pueden ejecutar con los campos de una tabla seleccionada en el listado de tablas gestionadas.</span></p>
+</li>
+<li>
+<p><span style="font-family: verdana,geneva; font-size: 11pt;"><strong>Listado de campos gestionados pertenecientes a la tabla seleccionada en el listado de tablas</strong>: Listado de los campos que tiene hasta el momento la tabla seleccionada.</span> </p>
+</li>
+</ol></section><div id="xhomeGestordemetadato_240_context" class="bs-docs-section"><section><p style="text-align: justify;"><span style="font-size: 11pt; font-family: verdana,geneva;"><strong>Adicionar Tabla</strong></span></p>
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: verdana,geneva;">En la interfaz principal se selecciona la opci&oacute;n Adicionar, ubicada en la barra de opciones de la gesti&oacute;n de tablas. Aparece el formulario Adicionar tabla, ver Figura 3.<br></span></p>
+<p style="text-align: center;"><span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;</span><span style="font-family: verdana,geneva; font-size: 11pt;"><img style="display: block; margin-left: auto; margin-right: auto;" src="resources/images/Captura%20de%20pantalla%20de%202015-02-16%20143320.png" alt="" width="657" height="223"></span><span style="font-size: 11pt; font-family: verdana,geneva;">Figura 3. Formulario para adicionar una tabla.</span></p>
+<div align="center">
+<br><div style="text-align: justify;" align="left"><span style="font-size: 11pt; font-family: verdana,geneva;">Se introducen los campos Denominaci&oacute;n y Alias y se selecciona el esquema al cual pertenece en el campo Esquemas y el tipo del cual va a ser la tabla en el de Tipo tabla. <br>Si la tabla constituye un &aacute;rbol se presiona el checkbox &Aacute;rbol y se muestra un recuadro con los campos a introducir del &aacute;rbol, ver Figura 4.</span></div>
+<div style="text-align: justify;" align="left">
+<span style="font-size: 11pt; font-family: verdana,geneva;"><br></span>
+<div align="center">
+<span style="font-family: verdana,geneva; font-size: 11pt;"><img src="resources/images/Captura%20de%20pantalla%20de%202015-02-16%20143803.png" alt="" width="659" height="302"></span><br><span style="font-size: 11pt; font-family: verdana,geneva;">Figura 4. Campos a llenar en una tabla &aacute;rbol.</span>
+</div>
+<span style="font-size: 11pt; font-family: verdana,geneva;"><br></span>
+</div>
+<div style="text-align: justify;" align="left">
+<span style="font-size: 11pt; font-family: verdana,geneva;">Si es &aacute;rbol se introducen los campos <strong>Etiqueta</strong> y <strong>Longitud</strong> y se selecciona la expresi&oacute;n regular que tiene en el de <strong>Expresi&oacute;n regular</strong>. </span><span style="font-size: 11pt; font-family: verdana,geneva;">Si no constituye un &aacute;rbol se deja esta opci&oacute;n desmarcada.</span> <span style="font-size: 11pt; font-family: verdana,geneva;">Se presiona el bot&oacute;n <strong>Aceptar</strong>, en caso de que se quiera adicionar otra tabla se presiona el de <strong>Aplicar</strong> y se observa el mensaje: &ldquo;La tabla fue adicionada satisfactoriamente.&rdquo;.</span> <span style="font-size: 11pt; font-family: verdana,geneva;">Si se presion&oacute; el bot&oacute;n <strong>Aceptar</strong> se cierra el formulario y si fue el de <strong>Aplicar</strong> se limpian los campos y se deja listo el formulario para adicionar nuevas tablas. Las tablas tendr&aacute;n delante de la denominaci&oacute;n introducida un prefijo seg&uacute;n el tipo de tabla, estos prefijos son:</span>
+</div>
+<div align="left">
+<br><div align="center">
+<table><tbody>
+<tr style="text-align: justify;">
+<td style="border: 2px solid #000;" width="20%"><span style="font-family: verdana,geneva; font-size: 11pt;">Tipo de tabla</span></td>
+<td style="border: 2px solid #000;" width="20%"><span style="font-family: verdana,geneva; font-size: 11pt;">Prefijo</span></td>
+</tr>
+<tr style="text-align: justify;">
+<td style="border: 2px solid #000;" width="20%"><span style="font-family: verdana,geneva; font-size: 11pt;">Historial</span></td>
+<td style="border: 2px solid #000;" width="20%"><span style="font-family: verdana,geneva; font-size: 11pt;">his_</span></td>
+</tr>
+<tr style="text-align: justify;">
+<td style="border: 2px solid #000;" width="20%"><span style="font-family: verdana,geneva; font-size: 11pt;">Nomenclador</span></td>
+<td style="border: 2px solid #000;" width="20%"><span style="font-family: verdana,geneva; font-size: 11pt;">nom_</span></td>
+</tr>
+<tr style="text-align: justify;">
+<td style="border: 2px solid #000;" width="20%"><span style="font-family: verdana,geneva; font-size: 11pt;">Datos</span></td>
+<td style="border: 2px solid #000;" width="20%"><span style="font-family: verdana,geneva; font-size: 11pt;">dat_</span></td>
+</tr>
+<tr style="text-align: justify;">
+<td style="border: 2px solid #000;" width="20%"><span style="font-family: verdana,geneva; font-size: 11pt;">Cubo</span></td>
+<td style="border: 2px solid #000;" width="20%"><span style="font-family: verdana,geneva; font-size: 11pt;">cub_</span></td>
+</tr>
+<tr>
+<td style="border: 2px solid #000000; text-align: justify;" width="20%"><span style="font-family: verdana,geneva; font-size: 11pt;">Dimensi&oacute;n</span></td>
+<td style="border: 2px solid #000;" width="20%"><span style="font-family: verdana,geneva; font-size: 11pt;">dim_</span></td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div></section></div>
+<div id="xhomeGestordemetadato_241_context" class="bs-docs-section"><section><p style="text-align: justify;"><span style="font-size: 11pt; font-family: verdana,geneva;"><strong>Eliminar tabla</strong></span></p>
+<p style="text-align: justify;"><span style="font-family: verdana,geneva; font-size: 11pt;">Para eliminar una tabla, en el listado de tablas del panel superior de la interfaz principal se selecciona la que se desea eliminar. Luego se presiona encima de la tabla a eliminar quedando seleccionada. Se presiona el bot&oacute;n Eliminar ubicado en la barra de opciones del panel superior, ver Figura 5.<br></span></p>
+<p style="text-align: center;"><span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;</span><span style="font-family: verdana,geneva; font-size: 11pt;"><img style="display: block; margin-left: auto; margin-right: auto;" src="resources/images/Captura%20de%20pantalla%20de%202015-02-16%20145335.png" alt="" width="100%" height="NaN"></span><span style="font-size: 11pt; font-family: verdana,geneva;">Figura 5. Eliminar tabla.</span></p>
+<div style="text-align: justify;" align="center"><span style="font-size: 11pt; font-family: verdana,geneva;">Finalmente se muestra el mensaje de confirmaci&oacute;n: &ldquo;&iquest;Est&aacute; seguro que desea eliminar la tabla seleccionada?&rdquo;. Se presiona el bot&oacute;n Aceptar del mismo y se observar&aacute; que se actualiza el listado de tablas y se muestra el mensaje: &ldquo;La tabla ha sido eliminada satisfactoriamente.&rdquo;. Ver Figura 6.<br></span></div>
+<p><span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;</span></p>
+<p style="text-align: center;"><span style="font-size: 11pt; font-family: verdana,geneva;"><img style="display: block; margin-left: auto; margin-right: auto;" src="resources/images/Captura%20de%20pantalla%20de%202015-02-16%20145341.png" alt="" width="327" height="97">Figura 6. Mensaje de informaci&oacute;n, cuando se elimina una tabla.</span></p></section></div>
+<div id="xhomeGestordemetadato_242_context" class="bs-docs-section"><section><p style="text-align: justify;"><span style="font-size: 11pt; font-family: verdana,geneva;"><strong>Importar tabla</strong></span></p>
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: verdana,geneva;">En la barra de opciones de gesti&oacute;n de tablas,&nbsp;&nbsp; se presiona el bot&oacute;n Importar. Aparece la interfaz Importar tabla que muestra el listado de tablas de la base de datos configurada en el marco de trabajo, agrupadas por los esquemas al que pertenecen, ver&nbsp; Figura 7.<br></span></p>
+<p style="text-align: justify;"><span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;</span></p>
+<div align="center">
+<span style="font-family: verdana,geneva; font-size: 11pt;"><img src="resources/images/Captura%20de%20pantalla%20de%202015-02-16%20151141.png" alt="" width="401" height="362"></span><br><span style="font-size: 11pt; font-family: verdana,geneva;">Figura 7. Importar tabla.</span>
+</div>
+<div align="center"><span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;</span></div>
+<p><span style="font-size: 11pt; font-family: verdana,geneva;">Se selecciona la tabla a importar y se observa que se activa el bot&oacute;n Aceptar. Ver&nbsp; Figura 8.</span></p>
+<p><span style="font-size: 11pt; font-family: verdana,geneva;">&nbsp;<img style="display: block; margin-left: auto; margin-right: auto;" src="resources/images/Captura%20de%20pantalla%20de%202015-02-16%20151357.png" alt="" width="407" height="368"></span></p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="CENTER"><span style="font-family: verdana,geneva; font-size: 11pt;"><span lang="es-ES">Figura 8. Ejemplo de selecci&oacute;n de una tabla a importar.</span></span></p>
+<p style="text-align: justify;"><br><span style="font-family: verdana,geneva; font-size: 11pt;">Se presiona el bot&oacute;n y aparece el mensaje de &eacute;xito de la operaci&oacute;n: &ldquo;La tabla ha sido importada satisfactoriamente.&rdquo;. Finalmente se aprec&iacute;a que cierra esta interfaz y en la principal se actualiza el listado de tablas mostrando la tabla importada y sus caracter&iacute;sticas.</span></p></section></div>
+<div id="xhomeGestordemetadato_243_context" class="bs-docs-section"><section><p style="text-align: justify;"><span style="font-size: 11pt; font-family: verdana,geneva;"><strong>Adicionar Relaci&oacute;n</strong></span></p>
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: verdana,geneva;">Se selecciona en el panel superior de la interfaz principal la opci&oacute;n Gestionar relaciones, luego de haber seleccionado en el listado, la tabla destino de las relaciones a gestionar. Aparece la interfaz Gestionar relaciones, ver Figura 9.<br></span></p>
+<p style="text-align: center;"><span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;</span><span style="font-family: verdana,geneva; font-size: 11pt;"><img style="display: block; margin-left: auto; margin-right: auto;" src="resources/images/Captura%20de%20pantalla%20de%202015-02-16%20151830.png" alt="" width="682" height="268"></span><span style="font-size: 11pt; font-family: verdana,geneva;">Figura 9. Gestionar relaciones</span></p>
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: verdana,geneva;">En esta ventana se presiona el bot&oacute;n Adicionar ubicado en la esquina superior izquierda y aparece en pantalla el formulario Adicionar relaci&oacute;n, ver Figura 10.<br></span></p>
+<div align="center">
+<span style="font-family: verdana,geneva; font-size: 11pt;"><img src="resources/images/Captura%20de%20pantalla%20de%202015-02-16%20152013.png" alt="" width="404" height="224"></span><br><span style="font-size: 11pt; font-family: verdana,geneva;">Figura 10. Adicionar relaci&oacute;n.</span>
+</div>
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: verdana,geneva;">Se selecciona la Tabla origen que no es m&aacute;s que la tabla que se va a relacionar con la seleccionada en el listado y se observa que el identificador de dicha tabla se introduce autom&aacute;ticamente por el sistema en el Campo origen que es el que se va a adicionar en la relaci&oacute;n. En el caso de que la relaci&oacute;n es visible se marca el checkbox Es visible y se activa el listado de opciones con las que va a representar la relaci&oacute;n. Estas opciones son:<br>1.&nbsp;&nbsp;&nbsp; <strong>Grid chequeable</strong>: Indica que se representar&aacute; la relaci&oacute;n en forma de grid.<br>2.&nbsp;&nbsp;&nbsp; <strong>&Aacute;rbol chequeable</strong>: Indica que se representar&aacute; en forma de &aacute;rbol.<br>3.&nbsp;&nbsp;&nbsp;<strong> Nomenclador chequeable</strong>: Indica que se representar&aacute; como un nomenclador.</span></p>
+<p style="text-align: justify;"><span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;</span></p>
+<p><span style="font-size: 11pt; font-family: verdana,geneva;"><img style="display: block; margin-left: auto; margin-right: auto;" src="resources/images/imagen.png" alt="" width="406" height="230"></span></p>
+<p style="text-align: center;"><span style="font-size: 11pt; font-family: verdana,geneva;">Figura 11. Ejemplo de adici&oacute;n de una relaci&oacute;n.</span></p>
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: verdana,geneva;">En el caso de que se vaya a representar como un nomenclador se debe seleccionar de forma obligatoria el campo visible de la relaci&oacute;n. </span></p>
+<p><span style="font-size: 11pt; font-family: verdana,geneva;"><img style="display: block; margin-left: auto; margin-right: auto;" src="resources/images/imagen1.png" alt="" width="406" height="274"></span></p>
+<p style="text-align: center;"><span style="font-size: 11pt; font-family: verdana,geneva;">Figura 12. Ejemplo de inserci&oacute;n de una relaci&oacute;n visible como nomenclador.</span></p>
+<p style="text-align: justify;"><span style="font-size: medium;"><span style="font-family: verdana,geneva; font-size: 11pt;">Finalmente se presiona el bot&oacute;n Aceptar y se muestra el mensaje: &ldquo;La relaci&oacute;n ha sido adicionada satisfactoriamente.&rdquo; y se actualiza el listado de relaciones de la tabla mostrando la adicionada.</span> <span style="font-family: verdana,geneva; font-size: 11pt;">Para continuar adicionando otras relaciones se presiona el bot&oacute;n Aplicar que adicionar&aacute; la relaci&oacute;n de la forma descrita y mantendr&aacute; el formulario en pantalla para nuevas adiciones.</span> <span style="font-family: verdana,geneva; font-size: 11pt;">Para terminar el proceso sin salvar informaci&oacute;n, se presiona el bot&oacute;n Cancelar.</span><br></span></p></section></div>
+<div id="xhomeGestordemetadato_244_context" class="bs-docs-section"><section><p style="text-align: justify;"><span style="font-size: 11pt; font-family: verdana,geneva;"><strong>Eliminar Relaci&oacute;n</strong></span></p>
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: verdana,geneva;">Para eliminar una relaci&oacute;n ya adicionada se selecciona en el panel superior de la interfaz principal la opci&oacute;n Gestionar relaciones, luego de haber seleccionado en el listado, la tabla destino de las relaciones a gestionar. Aparece la interfaz Gestionar relaciones. Se selecciona una relaci&oacute;n de la lista de la interfaz anterior y se observa que se activa el bot&oacute;n Eliminar, ver Figura 13.<br></span></p>
+<p style="text-align: center;"><span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;</span><span style="font-family: verdana,geneva; font-size: 11pt;"><img style="display: block; margin-left: auto; margin-right: auto;" src="resources/images/eliminarrelacion.png" alt="" width="686" height="270"></span><span style="font-size: 11pt; font-family: verdana,geneva;">Figura 13. Eliminar relaci&oacute;n</span></p>
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: verdana,geneva;">Se presiona el bot&oacute;n y se muestra el mensaje de confirmaci&oacute;n: &ldquo;&iquest;Est&aacute; seguro que quiere eliminar la relaci&oacute;n seleccionada?&rdquo;. Se acepta el mensaje y se actualiza el listado de relaciones y finalmente se muestra el mensaje de &eacute;xito de la operaci&oacute;n: &ldquo;La relaci&oacute;n fue eliminada satisfactoriamente.&rdquo;.</span></p></section></div>
+<div id="xhomeGestordemetadato_245_context" class="bs-docs-section"><section><p style="text-align: justify;"><span style="font-size: 11pt; font-family: verdana,geneva;"><strong>Adicionar Campo</strong></span></p>
+<p style="text-align: justify;"><span style="font-family: verdana,geneva; font-size: 11pt;">En el panel superior de la interfaz principal se selecciona la tabla a la que se desea agregar el campo. Se observa que en el panel inferior aparecen los campos de la tabla, y en la parte superior de este panel el bot&oacute;n Adicionar, ver Figura 14. <br></span></p>
+<div align="center"><span style="font-family: verdana,geneva; font-size: 11pt;"><img style="display: block; margin-left: auto; margin-right: auto;" src="resources/images/imagen3.png" alt="" width="650" height="399"></span></div>
+<div align="center"><span style="font-size: 11pt; font-family: verdana,geneva;">Figura 14. Opci&oacute;n para adicionar campo.</span></div>
+<div align="center"><span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;</span></div>
+<p><span style="font-size: 11pt; font-family: verdana,geneva;">Se presiona el bot&oacute;n y aparece el formulario Adicionar campos, ver Figura 15.<br></span></p>
+<p><span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;</span><span style="font-family: verdana,geneva; font-size: 11pt;"><img style="display: block; margin-left: auto; margin-right: auto;" src="resources/images/imagen4.png" alt="" width="653" height="208"></span></p>
+<div align="center"><span style="font-size: 11pt; font-family: verdana,geneva;">Figura 15. Formulario para adicionar campo.</span></div>
+<p style="text-align: justify;"><span style="font-size: medium;"><span style="font-family: verdana,geneva; font-size: 11pt;">En este se introducen los campos <strong>Denominaci&oacute;n</strong> y <strong>Etiqueta</strong>.</span><br><span style="font-family: verdana,geneva; font-size: 11pt;">Si el campo no permite valores nulos se marca el checkbox No permite valores nulos.</span><br><span style="font-family: verdana,geneva; font-size: 11pt;">Se selecciona el tipo del cual va a ser la tabla y en dependencia de este se muestra un recuadro debajo para que se introduzcan los valores de los campos requeridos en dependencia del tipo. </span><br><span style="font-family: verdana,geneva; font-size: 11pt;">Los tipos pueden ser:</span><br></span></p>
+<ul>
+<li><span style="font-size: medium;"><span style="font-family: verdana,geneva; font-size: 11pt;">Num&eacute;rico: Se introducen los campos Longitud, L&iacute;mite inferior, L&iacute;mite superior y se indica si puede ser un n&uacute;mero decimal en el checkbox Decimal.</span></span></li>
+</ul>
+<ul>
+<li><span style="font-size: medium;"><span style="font-family: verdana,geneva; font-size: 11pt;">Cadena de caracteres: Se introducen los campos Longitud y se selecciona la Expresi&oacute;n regular.</span></span></li>
+</ul>
+<ul>
+<li><span style="font-size: medium;"><span style="font-family: verdana,geneva; font-size: 11pt;">Fecha: Se introducen los campos Fecha inicio y Fecha fin.</span></span></li>
+</ul>
+<ul>
+<li><span style="font-size: medium;"><span style="font-family: verdana,geneva; font-size: 11pt;">S&iacute;/No: No se introducen campos ya que estos son los &uacute;nicos valores que podr&aacute; tomar el campo, es decir &ldquo;Verdadero&rdquo; o &ldquo;Falso&rdquo; respectivamente.</span></span></li>
+</ul>
+<ul>
+<li><span style="font-size: medium;"><span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;Nomenclador: Se introduce cuando el campo es un nomenclador, se especifican los datos Tabla y si contiene Filtrado.</span></span></li>
+</ul>
+<ul>
+<li><span style="font-size: medium;"><span style="font-family: verdana,geneva; font-size: 11pt;">&Aacute;rea de texto: Se introduce el campo Longitud solamente para este tipo.</span></span></li>
+</ul>
+<p style="text-align: justify;"><span style="font-size: medium;"><span style="font-family: verdana,geneva; font-size: 11pt;">Cuando se termine de introducir los campos se presiona el bot&oacute;n <strong>Aceptar</strong> y se muestra el mensaje: &ldquo;El campo fue adicionado satisfactoriamente.&rdquo;. Se actualiza el listado de campos en el panel inferior de la tabla seleccionada en el panel superior, mostrando el campo adicionado.</span><br><span style="font-family: verdana,geneva; font-size: 11pt;">Para introducir otros campos sin cerrar el formulario se presiona el bot&oacute;n <strong>Aplicar</strong>.</span><br><span style="font-family: verdana,geneva; font-size: 11pt;">Para abortar la operaci&oacute;n se presiona el bot&oacute;n <strong>Cancelar</strong>.</span><br><br></span></p></section></div>
+<div id="xhomeGestordemetadato_246_context" class="bs-docs-section"><section><p style="text-align: justify;"><span style="font-size: 11pt; font-family: verdana,geneva;"><strong>Eliminar Campo</strong></span></p>
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: verdana,geneva;">En el panel superior de la interfaz principal se selecciona la tabla donde est&aacute; contenido el campo. Se observa que en el panel inferior aparecen los campos de la tabla, y en la parte superior de este panel el bot&oacute;n <strong>Eliminar</strong>, ver Figura 16.<br></span></p>
+<p><span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;</span><span style="font-family: verdana,geneva; font-size: 11pt;"><img style="display: block; margin-left: auto; margin-right: auto;" src="resources/images/imagen5.png" alt="" width="613" height="376"></span></p>
+<div align="center"><span style="font-size: 11pt; font-family: verdana,geneva;">Figura 16. Opci&oacute;n eliminar campo.</span></div>
+<div align="center"><span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;</span></div>
+<p style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-family: verdana,geneva;">Finalmente se muestra el mensaje de confirmaci&oacute;n: &ldquo;&iquest;Est&aacute; seguro que desea eliminar el campo?&rdquo;. Se presiona el bot&oacute;n Aceptar del mismo y se observar&aacute; que se actualiza el listado de campos y se muestra el mensaje: &ldquo;El campo ha sido eliminada satisfactoriamente.&rdquo;.</span> </span></p></section></div>
+<div id="xhomeGestordemetadato_247_context" class="bs-docs-section"><section><p style="text-align: justify;"><span style="font-size: 11pt; font-family: verdana,geneva;"><strong>Ordenar Campos</strong></span></p>
+<p style="text-align: justify;"><span style="font-size: 11pt; font-family: verdana,geneva;">En el panel superior de la interfaz principal se selecciona la tabla a la que se desea ordenar los campos. Se observa que en el panel inferior aparecen los campos de la tabla, y en la parte superior de este panel el bot&oacute;n Ordenar.Se presiona el bot&oacute;n y aparece el formulario Modificar orden de los campos visibles, ver Figura 17.<br></span></p>
+<p><span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;</span><span style="font-family: verdana,geneva; font-size: 11pt;"><img style="display: block; margin-left: auto; margin-right: auto;" src="resources/images/imagen6.png" alt="" width="629" height="388"></span></p>
+<div style="text-align: center;" align="center"><span style="font-size: 11pt; font-family: verdana,geneva;">Figura 17. Modificar campos visibles.</span></div>
+<div align="center">
+<br><div style="text-align: justify;" align="left"><span style="font-size: 11pt; font-family: verdana,geneva;">En este formulario se seleccionan los campos y se reordenan utilizando los botones con las flechas que se muestran en la parte derecha, luego de obtenido el orden deseado se presiona el bot&oacute;n <strong>Aceptar</strong> y autom&aacute;ticamente se observa que se actualiza el listado de campos.</span></div>
+<div style="text-align: justify;" align="left"><span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;</span></div>
+<div style="text-align: center;" align="left"><span style="font-size: 11pt; font-family: verdana,geneva;"><img style="display: block; margin-left: auto; margin-right: auto;" src="resources/images/imagen7.png" alt="" width="418" height="292">Figura 18.Formulario para ordenar los campos.</span></div>
+</div></section></div>
+</div>
+<div id="xhomeGestordemetadato_248_context" class="bs-docs-section">
+<section><p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2; text-align: justify;" align="JUSTIFY"><span style="font-family: verdana,geneva; font-size: 11pt;"><strong>Gesti&oacute;n de Nomencladores</strong></span></p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2; text-align: justify;" align="JUSTIFY"><span style="font-family: verdana,geneva; font-size: 11pt;"><strong>&iquest;C&oacute;mo acceder al gestor de nomencladores?</strong></span></p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2; text-align: justify;" align="JUSTIFY"><span style="font-family: verdana,geneva; font-size: 11pt;">En el men&uacute; de opciones del sistema que se despliega al presionar el bot&oacute;n <strong>Inicio</strong>, se debe seleccionar el subsistema <strong>Herramientas.</strong> De este modo se muestran los m<span lang="es-ES">&oacute;</span>dulos correspondientes al mismo. Entre los componentes se observar&aacute; <strong>Metadatos </strong>y al seleccionarlo se despliegan los dos subcomponentes <strong>Gestionar metadatos</strong> para gestionar toda la informaci&oacute;n y <strong>Gestionar nomencladores</strong> para el trabajo con las tablas de tipo nomenclador, ver Figura 19.</span></p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2; text-align: center;" align="JUSTIFY"><span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;<img src="resources/images/Captura%20de%20pantalla%20de%202015-02-17%20082033.png" alt="" width="680" height="269"></span></p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2; text-align: center;" align="JUSTIFY"><span style="font-family: verdana,geneva; font-size: 11pt;">Figura 19. Men&uacute; de acceso al Gestor de nomencladores.</span></p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="JUSTIFY"><span style="font-family: verdana,geneva; font-size: 11pt;">Para acceder a la interfaz principal se selecciona el subcomponente <strong>Gestionar nomencladores</strong> en el men&uacute; mostrado en la Figura 20 y aparecer&aacute; en pantalla la interfaz <strong>Gestionar nomencladores</strong>,ver Figura 20. </span></p>
+<p><span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;<img style="display: block; margin-left: auto; margin-right: auto;" src="resources/images/imagen_1.png" alt="" width="676" height="415"></span></p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="CENTER"><span style="font-size: 11pt; font-family: verdana,geneva;">&nbsp; <span lang="es-ES">Figura 20. Interfaz principal de la gesti&oacute;n de nomencladores.</span></span></p>
+<p class="western" lang="es-ES" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2; text-align: justify;" align="JUSTIFY"><span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;Como muestra la figura los componentes de la gesti&oacute;n de nomencladores son: <br></span></p>
+<ol>
+<li>
+<p class="western" lang="es-ES" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2; text-align: justify;" align="JUSTIFY"><span style="font-family: verdana,geneva; font-size: 11pt;">Listado de tablas adicionadas de tipo nomenclador. Se muestra de cada nomenclador el alias con el cual se adicion&oacute; mediante la funcionalidad de Adicionar tabla .<br></span></p>
+</li>
+<li style="text-align: justify;">
+<p class="western" lang="es-ES" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="JUSTIFY"><span style="font-family: verdana,geneva; font-size: 11pt;">Barra de opciones que se activan cuando se selecciona un nomenclador del listado. </span></p>
+</li>
+<li>
+<p style="text-align: justify;"><span style="font-family: verdana,geneva; font-size: 11pt;"><span lang="es-ES">Listado de datos del nomenclador seleccionado en el listado. En las columnas se mostrar&aacute;n los campos que tiene el nomenclador adem&aacute;s de los de </span><span lang="es-ES"><strong>Denominaci&oacute;n</strong></span><span lang="es-ES">, </span><span lang="es-ES"><strong>Fecha inicio</strong></span><span lang="es-ES"> y </span><span lang="es-ES"><strong>Fecha fin</strong></span><span lang="es-ES"> que son los que siempre tienen por defecto todos los nomencladores.</span></span></p>
+</li>
+</ol></section><div id="xhomeGestordemetadato_249_context" class="bs-docs-section"><section><div style="text-align: center;">
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2; text-align: justify;" align="JUSTIFY"><span style="font-family: Arial,sans-serif;"><span style="font-size: 11pt;"><span lang="es-ES"><strong><span style="font-size: 12pt;"><span style="font-family: verdana,geneva; font-size: 11pt;">Adicionar Tupla</span></span></strong></span></span></span></p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="JUSTIFY"><span style="font-family: verdana,geneva;"><span style="font-size: 11pt;"><span lang="es-ES">Se presiona el bot&oacute;n </span><span lang="es-ES"><strong>Adicionar </strong></span><span lang="es-ES">y aparece el formulario </span><span lang="es-ES"><strong>Adicionar</strong>, ver Figura 21<strong>.</strong></span></span></span></p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="JUSTIFY"><span style="font-family: Arial,sans-serif;"><span style="font-size: 11pt;"><span lang="es-ES"><strong>&nbsp;</strong></span></span></span></p>
+</div>
+<div style="text-align: center;"><img src="resources/images/imagen1_1.png" alt="" width="508" height="144"></div>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: verdana,geneva;">Figgura 21 Interfaz de Adicionar</span></div>
+<div style="text-align: center;">&nbsp;</div>
+<div style="text-align: left;">
+<p class="western" lang="es-ES" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="JUSTIFY"><span style="font-family: verdana,geneva;"><span style="font-size: 11pt;">Posteriormente se introducen los campos b&aacute;sicos:</span></span></p>
+<ul>
+<li>
+<p class="western" lang="es-ES" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="JUSTIFY"><span style="font-family: verdana,geneva;"><span style="font-size: 11pt;"><strong>Denominaci&oacute;n</strong>: Nombre de la tupla. </span></span></p>
+</li>
+<li>
+<p class="western" lang="es-ES" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="JUSTIFY"><span style="font-family: verdana,geneva;"><span style="font-size: 11pt;"><strong>Fecha inicio</strong>: Fecha a partir de la cual estar&aacute; activa la tupla.</span></span></p>
+</li>
+<li>
+<p class="western" lang="es-ES" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="JUSTIFY"><span style="font-family: verdana,geneva;"><span style="font-size: 11pt;"><strong>Fecha fin</strong>: Fecha hasta la cual estar&aacute; activa la tupla, si se deja vac&iacute;o, significa que estar&aacute; siempre activa, hasta que sea eliminada o modificada. </span></span></p>
+</li>
+</ul>
+<p class="western" lang="es-ES" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="JUSTIFY"><span style="font-family: verdana,geneva;"><span style="font-size: 11pt;">Estos aparecer&aacute;n siempre por defecto, adem&aacute;s, si a la tabla de tipo nomenclador se le adicionaron otros campos, estos se muestran tambi&eacute;n en el formulario, para que el usuario pueda introducir la informaci&oacute;n correspondiente. Se presiona el bot&oacute;n <strong>Aceptar</strong> y para el caso de que se quieran adicionar otros datos al nomenclador seleccionado se presiona el <strong>Aplicar</strong>.</span></span></p>
+<p class="western" lang="es-ES" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="JUSTIFY"><span style="font-family: Arial,sans-serif;"><span style="font-size: 11pt;">Finalmente se muestra el mensaje: <em>&ldquo;Los datos han sido adicionados satisfactoriamente.&rdquo;</em>.</span></span></p>
+</div></section></div>
+<div id="xhomeGestordemetadato_250_context" class="bs-docs-section"><section><div style="text-align: center;">
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2; text-align: justify;" align="JUSTIFY"><span style="font-family: Arial,sans-serif;"><span style="font-size: 11pt;"><span lang="es-ES"><strong><span style="font-size: 12pt;"><span style="font-family: verdana,geneva; font-size: 11pt;">Modificar Tupla</span></span></strong></span></span></span></p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="JUSTIFY"><span style="font-family: verdana,geneva; font-size: 11pt;"><span lang="es-ES">Se selecciona el nomenclador al que se le va a modificar la informaci&oacute;n en el listado de nomencladores</span><span style="line-height: 150%; text-align: center;">&nbsp;y se presiona el bot&oacute;n </span><strong style="font-size: 11pt; font-family: Arial, sans-serif; line-height: 150%; text-align: center;">Modificar</strong><span style="line-height: 150%; text-align: center;"> ubicado en la barra de opciones de la interfaz, se observa que se cargan los datos del nomenclador, ver Figura 22.</span></span></p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="JUSTIFY"><span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;</span><span style="font-family: verdana,geneva; font-size: 11pt;"> <br></span></p>
+</div>
+<div style="text-align: center;"><span style="font-family: verdana,geneva; font-size: 11pt;"><img src="resources/images/imagen3_1.png" alt="" width="685" height="419"></span></div>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: verdana,geneva;">Figura 22 Interfaz de Modificar nomenclador</span></div>
+<div style="text-align: center;"><span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;</span></div>
+<div style="text-align: center;">
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; text-align: left;" align="CENTER"><span style="font-family: verdana,geneva; font-size: 11pt;"><span lang="es-ES">Se presiona el bot&oacute;n <strong>Modificar</strong> y aparece el formulario </span><span lang="es-ES"><strong>Modificar</strong></span><span lang="es-ES"> mostrando los datos insertados, ver Figura 23.</span></span></p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; text-align: left;" align="CENTER"><span style="font-family: verdana,geneva; font-size: 11pt;"><span lang="es-ES"><img style="display: block; margin-left: auto; margin-right: auto;" src="resources/images/imagen4_1.png" alt="" width="490" height="221"></span></span></p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%;" align="CENTER"><span style="font-family: verdana,geneva; font-size: 11pt;"><span lang="es-ES">Figura 23. Formulario para modificar tupla.</span></span></p>
+<p class="western" lang="es-ES" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2; text-align: justify;" align="JUSTIFY"><span style="font-size: 11pt; font-family: verdana,geneva;">Luego se modifican los datos pertinentes, se presiona el bot&oacute;n <strong>Aceptar</strong> y aparece el mensaje de &eacute;xito de la operaci&oacute;n: <em>&ldquo;El dato ha sido modificado satisfactoriamente.&rdquo;</em>En caso de que no se desee cerrar el formulario se presiona el bot&oacute;n <strong>Aplicar</strong> para guardar los cambios. <span style="line-height: 115%; text-align: center;">Para abortar la operaci&oacute;n sin salvar informaci&oacute;n se presiona el bot&oacute;n </span><strong style="font-size: 11pt; font-family: Arial, sans-serif; line-height: 115%; text-align: center;">Cancelar</strong><span style="line-height: 115%; text-align: center;">.</span></span></p>
+</div></section></div>
+<div id="xhomeGestordemetadato_251_context" class="bs-docs-section"><section><div style="text-align: center;">
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2; text-align: justify;" align="JUSTIFY"><span style="font-family: Arial,sans-serif;"><span style="font-size: 11pt;"><span lang="es-ES"><strong><span style="font-size: 12pt;"><span style="font-family: verdana,geneva; font-size: 11pt;">Eliminar Tupla</span></span></strong></span></span></span></p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="JUSTIFY"><span style="font-family: verdana,geneva; font-size: 11pt;"><span style="line-height: 150%; text-align: center;">Se selecciona el nomenclador al que se le va a eliminar la especificaci&oacute;n en el listado de nomencladores. Luego se selecciona en el listado de tuplas ya adicionadas al nomenclador, la que se quiere eliminar y se observa que se activa el bot&oacute;n </span><strong style="font-size: 11pt; font-family: Arial, sans-serif; line-height: 150%; text-align: center;">Eliminar</strong><span style="line-height: 150%; text-align: center;"> ubicado en la barra de opciones de la interfaz.&nbsp;</span><span style="line-height: 150%; text-align: center;">Se presiona el bot&oacute;n y se muestra el mensaje de confirmaci&oacute;n: </span><em style="font-size: 11pt; font-family: Arial, sans-serif; line-height: 150%; text-align: center;">&ldquo;&iquest;Est&aacute; seguro que quiere eliminar el dato seleccionado?&rdquo;.&nbsp; </em>Ver <span style="line-height: 150%; text-align: center;">Figura 24.</span></span></p>
+<p class="western" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="JUSTIFY">&nbsp;</p>
+</div>
+<div style="text-align: center;">&nbsp;<img src="resources/images/imagen2.png" alt="" width="732" height="489">
+</div>
+<div style="text-align: center;">&nbsp;</div>
+<div style="text-align: center;"><span style="font-size: 11pt; font-family: verdana,geneva;">Figura 24. <span lang="es-ES">Opci&oacute;n para eliminar una tupla de datos</span></span></div>
+<div style="text-align: center;">
+<span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;</span>
+<p class="western" lang="es-ES" style="margin-bottom: 0cm; line-height: 150%; widows: 2; orphans: 2;" align="JUSTIFY"><span style="font-family: verdana,geneva; font-size: 11pt;">Se acepta este y se muestra el mensaje de &eacute;xito: <em>&ldquo;El dato ha sido eliminado satisfactoriamente.&rdquo;</em> y se actualiza el listado de tuplas donde no se encuentra la eliminada.</span></p>
+</div></section></div>
+</div>
+<div class="bs-docs-section" id="index_13568_context"><section><p style="text-align: justify;"><span style="font-family: verdana,geneva; font-size: 11pt;"><strong>Videos Tutoriales</strong></span></p>
+<p style="text-align: center;"><span style="font-family: verdana,geneva; font-size: 11pt;">Video Acceso al Gestor de Metadatos</span></p>
+<table style="height: 412px; margin-left: auto; margin-right: auto;" width="807"><tbody><tr>
+<td><video style="display: block; margin-left: auto; margin-right: auto;" controls="controls" width="700" height="350"><source src="resources/images/video1.webm" type="video/webm"></source></video></td>
+</tr></tbody></table>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: justify;"><span style="font-family: verdana,geneva; font-size: 11pt;">Video Adicionar Tabla</span></p>
+<table style="height: 409px; margin-left: auto; margin-right: auto;" width="818"><tbody><tr>
+<td style="text-align: center;"><video controls="controls" width="700" height="350"><source src="resources/images/adicionarTabla.webm" type="video/webm"></source></video></td>
+</tr></tbody></table>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: justify;"><span style="font-family: verdana,geneva; font-size: 11pt;">Video Eliminar Tabla</span></p>
+<table style="height: 401px; margin-left: auto; margin-right: auto;" width="814"><tbody><tr>
+<td style="text-align: justify; padding-left: 60px;"><video controls="controls" width="700" height="350"><source src="resources/images/eliminarTabla.webm" type="video/webm"></source></video></td>
+</tr></tbody></table>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: justify;"><span style="font-family: verdana,geneva; font-size: 11pt;">Video Adicionar Relaci&oacute;n</span></p>
+<table style="margin-left: auto; margin-right: auto; height: 400px;" width="802"><tbody><tr>
+<td style="text-align: center;"><video controls="controls" width="700" height="350"><source src="resources/images/gestionarRelacion.webm" type="video/webm"></source></video></td>
+</tr></tbody></table>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: justify;"><span style="font-family: verdana,geneva; font-size: 11pt;">Video Eliminar Relaci&oacute;n</span></p>
+<table style="height: 398px; margin-left: auto; margin-right: auto;" width="816"><tbody><tr>
+<td style="padding-left: 60px;"><video controls="controls" width="700" height="350"><source src="resources/images/eliminarRelacion.webm" type="video/webm"></source></video></td>
+</tr></tbody></table>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: justify;"><span style="font-family: verdana,geneva; font-size: 11pt;">Video Adicionar y Eliminar Campo</span></p>
+<table style="margin-left: auto; margin-right: auto; height: 400px;" width="817"><tbody><tr>
+<td style="padding-left: 60px;"><video controls="controls" width="700" height="350"><source src="resources/images/AdicionarEliminarcampo.webm" type="video/webm"></source></video></td>
+</tr></tbody></table>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: justify;"><span style="font-family: verdana,geneva; font-size: 11pt;">Video Ordenar Campos</span></p>
+<table style="margin-left: auto; margin-right: auto; height: 401px;" width="812"><tbody><tr>
+<td style="padding-left: 60px;"><video controls="controls" width="700" height="350"><source src="resources/images/ordenarcampos.webm" type="video/webm"></source></video></td>
+</tr></tbody></table>
+<p>&nbsp;</p>
+<p style="text-align: justify;"><span style="font-family: verdana,geneva; font-size: 11pt;">Video Acceso al Gestor de Nomencladores</span></p>
+<table style="height: 401px; margin-left: auto; margin-right: auto;" width="809"><tbody><tr>
+<td style="text-align: center;"><video controls="controls" width="700" height="350"><source src="resources/images/gestionarNomencladores.webm" type="video/webm"></source></video></td>
+</tr></tbody></table>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: justify;"><span style="font-family: verdana,geneva; font-size: 11pt;">Video Adicionar Tupla</span></p>
+<table style="margin-left: auto; margin-right: auto; height: 400px;" width="813"><tbody><tr>
+<td style="padding-left: 60px;"><video controls="controls" width="700" height="350"><source src="resources/images/adicionarTupla.webm" type="video/webm"></source></video></td>
+</tr></tbody></table>
+<p>&nbsp;</p>
+<p style="text-align: justify;"><span style="font-family: verdana,geneva; font-size: 11pt;">Video Modificar Tupla</span></p>
+<table style="margin-left: auto; margin-right: auto; height: 401px;" width="812"><tbody><tr>
+<td style="padding-left: 60px;"><video controls="controls" width="700" height="350"><source src="resources/images/modificarTupla.webm" type="video/webm"></source></video></td>
+</tr></tbody></table>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: justify;"><span style="font-family: verdana,geneva; font-size: 11pt;">&nbsp;Video Eliminar Tupla</span></p>
+<table style="margin-left: auto; margin-right: auto; height: 401px;" width="812"><tbody><tr>
+<td style="padding-left: 60px;"><video controls="controls" width="700" height="350"><source src="resources/images/eliminarTupla.webm" type="video/webm"></source></video></td>
+</tr></tbody></table></section></div>
+</div></div></div>
+</div></div>
+</body>
+</html>

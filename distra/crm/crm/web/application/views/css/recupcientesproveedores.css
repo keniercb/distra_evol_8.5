@@ -1,0 +1,35 @@
+.recupcp-pprincipal{
+    padding: 10px;
+}
+.recupcp-logo-container{
+    height: 128px;
+    width: 128px;
+    float: left;
+}
+.recupcp-logo-container img{
+    height: 100%;
+    width: 100%;
+}
+.recupcp-container-info{
+    margin-left: 150px;
+    font-size: 12px;
+    line-height: 15px;
+}
+.recupcp-info-item{
+    margin-top: 5px;
+}
+.recupcp-info-item label{
+    color: #04408c;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: tahoma,arial,verdana,sans-serif;
+}
+.recupcp-info-item span{
+    margin-left: 5px;
+}
+.recupcp-columns div:first-child{
+    float: left;
+    width: 50%;
+    overflow: hidden;
+    margin-top: 0px;
+}

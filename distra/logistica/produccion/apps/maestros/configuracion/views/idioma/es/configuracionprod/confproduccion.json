@@ -1,0 +1,30 @@
+{
+    "lbAdicionar": "Adicionar",
+    "lbAdicionarDepositos": "Adicionar dep&oacute;sitos",
+    "lbEliminar": "Eliminar",
+    "lbEliminarDepositos": "Eliminar depósitos seleccionados",
+
+    "lbHColNro": "Nro",
+    "lbHColDepMP": "Dep&oacute;sito de materia prima",
+    "lbHColDepPT": "Dep&oacute;sito de producción terminada",
+
+    "lbTitlePanelMP": "Almacenes de materia prima y materiales",
+    "lbTitlePanelPT": "Almacenes de producci&oacute;n terminada",
+
+
+    "lbconcepto": "dep&oacute;sito",
+
+    "lbColCodigo": "C&oacute;digo",
+    "lbColDepositos": "Dep&oacute;sitos",
+    "lbColChechMP": "Materia prima y materiales",
+    "lbColChechPT": "Producci&oacute;n terminada",
+
+    "lbMsgDepConfOk": "Los dep&oacute;sitos han sido clasificados satisfactoriamente.",
+    "lbMsgDepConfError": "Los dep&oacute;sitos no se han podido clasificar.",
+    "lbMsgDesclasificarConfirm": "¿Est&aacute; seguro que desea desclasificar los dep&oacute;sitos seleccionados?",
+    "lbMsgDesclasificarOk": "Los dep&oacute;sitos han sido desclasificados satisfactoriamente.",
+    "lbMsgDesclasificarError": "Los dep&oacute;sitos no se han podido desclasificar."
+
+
+}
+

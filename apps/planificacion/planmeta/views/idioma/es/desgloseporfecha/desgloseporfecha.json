@@ -1,0 +1,16 @@
+{
+    lbCodigo: 'C&oacute;digo',
+    lbDenominacion: 'Denominaci&oacute;n',
+    lbNAP: 'NAP',
+    lbAjuste: 'Ajuste',
+    lbNAR: 'NAR',
+    lbNAD: 'NAD',
+    lbNivel: 'Nivel',
+    lbFechaInicio: 'Fecha inicio',
+    lbFechafin: 'Fecha fin',
+    lbBtnLimpiar: '<u>L</u>impiar',
+    lbTtBtnLimpiar: 'Limpiar filtros(s) <b>(Alt+L)</b>',
+    lbTtBtnAy: 'Ayuda',
+    lbTtBtnAyuda: 'Mostrar ayuda de la funcionalidad <b>(Alt+H)</b>',
+    lbTituloAyudaDesglose: 'Ayuda de Desglose de Actividades por Fecha'
+}

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datos>
+  <campo>
+      <valor>1</valor>
+      <denominacion>Cargo</denominacion>
+      <select>ncc.denominacion as "1"</select>
+      <join>left join mod_estructuracomp.dat_cargo dc on (dc.idcargo = dco.idcargo and dc.idestado=0)
+            left join mod_estructuracomp.nom_cargo ncc on (ncc.idnomcargo = dc.idnomcargo)</join>
+      <where></where>
+  </campo>
+  <campo>
+	  <valor>2</valor>
+	  <denominacion>Situación laboral</denominacion>
+	  <select>nsl.denominacion as "2"</select>
+	  <join>left join mod_nomina.nom_situacionlaboral nsl  on (nsl.idsituacionlaboral = dco.idsituacionlaboral)</join>
+	  <where></where>
+  </campo>
+  <campo>
+	  <valor>3</valor>
+	  <denominacion>Sexo</denominacion>
+	  <select>(CASE WHEN dp.sexo = 1 THEN 'M' ELSE 'F' END) as "3"</select>
+	  <join></join>
+	  <where></where>
+  </campo>
+  <campo>
+      <valor>4</valor>
+	  <denominacion>Nombre y apellidos</denominacion>
+	  <select>(CASE WHEN dp.snombre = '' or dp.snombre is null THEN dp.nombre||' '||dp.papel||' '||dp.sapel ELSE dp.nombre||' '||dp.snombre||' '||dp.papel||' '||dp.sapel END) as "4"</select>
+	  <join></join>
+	  <where></where>
+  </campo>
+  <campo>
+	  <valor>5</valor>
+	  <denominacion>Categoría de la persona</denominacion>
+	  <select>ncp.denominacion as "5"</select>
+	  <join>left join mod_personaext.dat_categorizacion dcat  on (dcat.idpersona = dp.idpersona and dp.feliminado is null)>>>left join mod_personaext.nom_categoria ncp  on (ncp.idcategoria = dcat.idcategoria)</join>
+	  <where></where>
+  </campo>
+  <campo>
+	  <valor>6</valor>
+	  <denominacion>Categoría ocupacional</denominacion>
+	  <select>ncatocup.abreviatura as "6"</select>
+	  <join>left join mod_estructuracomp.dat_cargo dcc on (dcc.idcargo = dco.idcargo and dcc.idestado=0)>>>left join mod_estructuracomp.dat_cargocivil datcc on (dcc.idcargo = datcc.idcargo)>>>left join mod_estructuracomp.nom_categocup ncatocup on (ncatocup.idcategocup = datcc.idcategocup)</join>
+	  <where></where>
+  </campo>
+  <campo>
+	  <valor>7</valor>
+	  <denominacion>No. de identidad</denominacion>
+	  <select>docid.numero as "7"</select>
+	  <join>left join mod_persona.dat_docidentidad docid  on (docid.idpersona = dp.idpersona and dp.feliminado is null and docid.principal = 1)</join>
+	  <where></where>
+  </campo>
+  <campo>
+	  <valor>8</valor>
+	  <denominacion>Cod. Contable</denominacion>
+	  <select>codcont.cdgocontable as "8"</select>
+	  <join>left join mod_nomina.conf_personacdgocontable codcont on (codcont.idpersona = dp.idpersona)</join>
+	  <where></where>
+  </campo>
+  <campo>
+	  <valor>9</valor>
+	  <denominacion>Grupo Escala</denominacion>
+	  <select>ge.denominacion as "9"</select>
+	  <join>left join mod_nomina.conf_elementosalarialcargo escarg on (escarg.idcargo = dco.idcargo)>>>left join mod_estructuracomp.nom_grupocomplejidad ge on (ge.idgrupocomplejidad = escarg.idgrupoescala)</join>
+	  <where></where>
+  </campo>
+  <campo>
+	  <valor>10</valor>
+	  <denominacion>Tipo Escala</denominacion>
+	  <select>nte.abreviatura as "10"</select>
+	  <join>left join mod_estructuracomp.dat_cargo dc1 on (dc1.idcargo = dco.idcargo)>>>left join mod_estructuracomp.nom_tipoescala nte on (nte.idtipoescala = dc1.idtipoescala)</join>
+	  <where></where>
+  </campo>
+</datos>

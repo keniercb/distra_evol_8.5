@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        p#logo {
+            text-align: center;
+            padding : 10 0 0 0px;
+        }
+        .acercade{font-size: 1.1em;}
+        .txtprincipal{
+            text-align: center;
+            font: bold 2.3em "Droid Sans",arial, sans-serif;
+            color: rgb(0, 155, 194);
+            text-shadow:1px 1px 2px rgba(185, 185, 185, 0.84);
+
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript" src="../../../bootstrap/js/jquery.js"></script>
+<script type="text/javascript">
+    window.onload = function(){
+        $.ajax({
+            url:   '../../../../../portal/index.php/portal/getacercade',
+            type:  'post',
+            data: {
+                uri: '/zeolhelp/'
+
+            },
+            success:  function (response) {
+                var items=[];
+                datos = JSON.parse(response);
+                $('.txtprincipal').html(datos.nombre);
+                $('.version').html('Versi\u00f3n:'+datos.version);
+                $('.fecha').html('Fecha:'+datos.fecha);
+                $('.descrip').html('Descripci\u00f3n:<br>'+datos.descripcion);
+                $('.autor').html('Autor:<br>'+datos.autor);
+
+
+            }
+        });
+    }
+</script>
+
+<section id="infoApp">
+    <div style="border-bottom: solid 1px #eeeeee; box-shadow: 1px 1px 4px rgba(198, 198, 198, 0.44); text-align: center; padding-bottom: 17px; padding-top: 10px ">
+        <img style="width: 40%;" src='../../../../../portal/views/images/index/logo-zeolides.png'>
+        <h1 style="font-size:  1.4em;" class="txtprincipal"></h1>
+        <h5 style="font-size:  0.9em;color: rgb(0, 155, 194);position:absolute;top:84px;left: 180px" class="version"></h5>
+        <h5 style="font-size:  0.9em;color: rgb(0, 155, 194);position:absolute;top:100px;left: 175px" class="fecha"></h5>
+    </div>
+    <div class = "acercade" style="margin-bottom:20px;height:100%;overflow:auto; padding: 10px 5px 5px 5px;text-align: center; background-color: rgba(240, 240, 240, 0.18)">
+        <h5 class = "descrip"></h5>
+        <h5 class = "autor"></h5>
+    </div>
+    <footer style="position:absolute;bottom:0;width: 100%; right:0.5px; height:7;text-align: center;background-color:rgb(0, 155, 194);color: white ">
+        <h5>2011-2015 © Copyright XETID </h5>
+    </footer>
+</section>
+</body>
+</html>

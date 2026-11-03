@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subsistemas>
+    <metadatos idsubsistema="1" denomsubsistema="Estructura y Composición" uri="metadatos" nombre="metadatos"/>
+    <portal idsubsistema="96" denomsubsistema="Portal" uri="portal" nombre="portal"/>
+    <seguridad idsubsistema="97" denomsubsistema="Seguridad" uri="seguridad" nombre="seguridad"/>
+    <traza idsubsistema="98" denomsubsistema="Traza" uri="traza" nombre="traza"/>
+    <notificaciones idsubsistema="95" denomsubsistema="Notificaciones" uri="herramientas/notificaciones" nombre="notificaciones"/>
+    <pvd idsubsistema="104" denomsubsistema="Persona" uri="pvd" nombre="pvd"/>
+    <controlpanel idsubsistema="100" denomsubsistema="Panel de control" uri="controlpanel" nombre="controlpanel"/>
+    <package idsubsistema="101" denomsubsistema="Empaquetador" uri="package" nombre="package"/>
+    <zeolhelp idsubsistema="200" denomsubsistema="Ayuda del sistema" uri="zeolhelp" nombre="zeolhelp"/>
+    <xmetacomponent idsubsistema="201" denomsubsistema="Metadatos" uri="herramientas/xmetacomponent" nombre="xmetacomponent"/>
+    <ide idsubsistema="202" denomsubsistema="IDE" uri="herramientas/ide" nombre="ide"/>
+    <controllers idsubsistema="300000001785" denomsubsistema="Licenciador" uri="herramientas/licenciadorsrv/controllers" nombre="controllers"/>
+    <datosmaestros idsubsistema="2" denomsubsistema="Datos maestros" uri="configuracion"/>
+    <crm idsubsistema="115" denomsubsistema="Gestion Comercial" uri="crm"/>
+    <contabilidad idsubsistema="4" denomsubsistema="Contabilidad y finanzas" uri="contabilidad"/>
+    <mostrarEventosUrgentes idsubsistema="300000001151" denomsubsistema="Complementos" uri="mostrarEventosUrgentes" nombre="mostrarEventosUrgentes"/>
+</subsistemas>

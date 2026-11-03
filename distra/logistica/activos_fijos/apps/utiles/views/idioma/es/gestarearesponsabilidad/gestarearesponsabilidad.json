@@ -1,0 +1,15 @@
+{
+lbCarg: 'Cargando...',
+        lbCrit: "Criterio:",
+        lbBlaT: 'Debe llenar el campo.',
+        lbBus: 'Buscar',
+        lbAre: '\xC1reas',
+        lbTitleWin: 'Entidades / \xc1reas de responsabilidad',
+        lbTitleWinEntidadesDominio: 'Entidades',
+        lbBtnAceptar: 'Aceptar',
+        lbBtnCambiar: 'Cambiar',
+        lbBtnCerrar: 'Cerrar',
+        lbTtBtnAceptar: 'Abrir datos relacionados a la entidad o &aacute;rea de responsabilidad seleccionada y cerrar la ventana',
+        lbTtBtnCambiar: 'Cambiar el modo de vista de la ventana',
+        lbTtBtnCerrar: 'Cerrar la ventana sin seleccionar ning&uacute;na entidad o &aacute;rea de responsabilidad',
+}

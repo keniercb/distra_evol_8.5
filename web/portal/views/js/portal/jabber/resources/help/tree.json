@@ -1,0 +1,18 @@
+{
+"iconCls":"icon-docs",
+"text":XMPP.idioma.es.etiqueta.containers.jabberHelp,
+"singleClickExpand":true,
+"children":
+	  [
+		{
+			"text":"Ext",
+			"iconCls":"icon-pkg",
+			"cls":"package",
+			"singleClickExpand":true,
+			"children":
+			[
+				
+			]
+		}
+	  ]
+}

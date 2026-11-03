@@ -1,0 +1,4 @@
+include:
+    project: 'distra/gestion-configuracion/plantillas_yml'
+    file: '.plantilla-gitlab-ci.yml'
+

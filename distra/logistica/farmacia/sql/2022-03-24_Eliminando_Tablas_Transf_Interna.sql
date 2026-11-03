@@ -1,0 +1,6 @@
+DROP FUNCTION mod_logfarmacia.f_aprobartransfinterna(p_iddocumento numeric, p_cronologia numeric);
+DROP TABLE mod_logfarmacia.dat_transfinternalote;
+DROP TABLE mod_logfarmacia.dat_prodtransfinterna;
+DROP TABLE mod_logfarmacia.dat_transfinterna;
+DROP SEQUENCE mod_logfarmacia.sec_dadprodtransfinterna_seq;
+DROP SEQUENCE mod_logfarmacia.sec_dattransfinternalote_seq;

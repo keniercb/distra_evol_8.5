@@ -1,0 +1,16 @@
+{
+		"lbgestructuras"           : "Estructuras",
+		"lbbtnEliminar"            : "Eliminar subordinación",
+		"lbbtnActualizarSub"       : "Actualizar subordinaciones",
+		"lbbtnActualizarEstruc"    : "Actualizar estructuras",
+		"lbTooltipActualizarSub"   : "Actualizar subordinaciones",
+		"lbTooltipActualizarEstruc": "Actualizar estructuras",
+		"lbAyuda"                  : "Ayuda",
+		"lbAyudaTitle"             : "Mostrar ayuda de la funcionalidad <b>(Alt+H)</b>",
+		"lbSubordinaciones"        : "Subordinaciones",
+		"lbMsgExisteElemento"      : "El elemento ya se encuentra subordinado.",
+		"lbMsgEliminar"            : "¿Está seguro que quiere eliminar la subordinación seleccionada?",
+		"lbInformacion"            : "Información",
+		"lbError"                  : "Error",
+		"lbConfirmacion"           : "Confirmación"
+}

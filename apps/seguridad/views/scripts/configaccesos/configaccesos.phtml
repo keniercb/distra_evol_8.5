@@ -1,0 +1,36 @@
+<?php
+$dirCerts = substr($_SERVER['DOCUMENT_ROOT'], 0, strrpos($_SERVER['DOCUMENT_ROOT'], 'web')) . 'config' . DIRECTORY_SEPARATOR . 'certs' . DIRECTORY_SEPARATOR . 'auth' . DIRECTORY_SEPARATOR;
+$configCert = parse_ini_file($dirCerts . 'rsa.ini');
+$publicKey = addcslashes(file_get_contents($dirCerts . $configCert['publicKey']), '\\');
+?>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Configurar Accesos"</title>
+    <link rel="stylesheet" href="../../views/css/build/configaccesos/configaccesos.min.css"/>
+</head>
+
+<body>
+<input id="publicKey" name="publicKey" type="text" style="display:none" hidden="true" value="<?php echo $publicKey; ?>"/>
+<input id="arrayTemas" name="arrayTemas" type="text" style="display:none" hidden="true" value="<?php echo $this->arrayTemas; ?>"/>
+<input id="arrayDomIns" name="arrayDomIns" type="text" style="display:none" hidden="true" value="<?php echo $this->arrayDomIns; ?>"/>
+<input id="arrayDomBusc" name="arrayDomBusc" type="text" style="display:none" hidden="true" value="<?php echo $this->arrayDomBusc; ?>"/>
+<input id="arrayCombDesk" name="arrayCombDesk" type="text" style="display:none" hidden="true" value="<?php echo $this->arrayCombDesk; ?>"/>
+<input id="arrayCombIdio" name="arrayCombIdio" type="text" style="display:none" hidden="true" value="<?php echo $this->arrayCombIdio; ?>"/>
+<input id="arrayComServA" name="arrayComServA" type="text" style="display:none" hidden="true" value="<?php echo $this->arrayComServA; ?>"/>
+<input id="profile" name="profile" type="text" style="display:none" hidden="true" value="<?php echo $this->profile; ?>"/>
+<script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+<script language="javascript" type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid;?>js/utiles/extensiones.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid;?>js/validadores.js"></script>
+<script language="JavaScript" type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/security/rsa/jsbn.js"></script>
+<script language="JavaScript" type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/security/rsa/rsa.js"></script>
+<?php echo $this->includeperfilseguridad; ?>
+<?php echo $this->mostrarIUBuscarPersona; ?>
+<script type="text/javascript" src="../../../lib/ExtJS/idioma/es/js/ext-lang-es.js"> </script>
+<!--<script type="text/javascript" src="../../views/js/build/configaccesos/configaccesos.min.js"> </script>-->
+<script type="text/javascript" src="../../views/js/configaccesos/configaccesos.js"> </script>
+</body>
+</html>

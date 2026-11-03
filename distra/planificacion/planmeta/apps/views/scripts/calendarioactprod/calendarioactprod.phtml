@@ -1,0 +1,80 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+    <script language="javascript" type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+    <link rel="stylesheet" type="text/css" href="../../views/css/treegrid.css"/>
+    <style type="text/css">
+        .empty-text::before {
+            margin-left: 0px !important;
+        }
+    </style>
+</head>
+<body>
+
+<!--        <script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+        <script type="text/javascript" src="../../../../lib/UCID/js/ucid-gen-dinamico.js"></script>-->
+
+<!-- Ext includes -->
+<link rel="stylesheet" type="text/css" href="../../views/js/comun/calendar/resources/css/ext-all.css"/>
+<script type="text/javascript" src="../../views/js/comun/calendar/ext-base-debug.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/ext-all-debug.js"></script>
+<!-- Calendar-specific includes -->
+
+<link rel="stylesheet" type="text/css" href="../../views/js/comun/calendar/resources/css/calendar.css"/>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/Ext.calendar.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/templates/DayHeaderTemplate.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/templates/DayBodyTemplate.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/templates/DayViewTemplate.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/templates/BoxLayoutTemplate.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/templates/MonthViewTemplate.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/dd/CalendarScrollManager.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/dd/StatusProxy.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/dd/CalendarDD.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/dd/DayViewDD.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/EventRecord.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/views/MonthDayDetailView.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/widgets/CalendarPicker.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/WeekEventRenderer.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/views/CalendarView.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/views/MonthView.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/views/DayHeaderView.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/views/DayBodyView.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/views/DayView.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/views/WeekView.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/widgets/DateRangeField.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/widgets/ReminderField.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/EventEditForm.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/EventEditWindow.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/src/CalendarPanel.js"></script>
+<!-- App -->
+<link rel="stylesheet" type="text/css" href="../../views/js/comun/calendar/resources/css/examples.css"/>
+<script type="text/javascript" src="../../views/js/comun/calendar/app/calendar-list.js"></script>
+<script type="text/javascript" src="../../views/js/comun/calendar/app/event-list.js"></script>
+<!--<script type="text/javascript" src="../../views/js/comun/calendar/app/test-app.js"></script>-->
+
+<script type="text/javascript" src="../../views/js/calendarioactprod/listar.js"></script>
+<script type="text/javascript" src="../../views/js/calendarioactprod/calendarioactprod.js"></script>
+
+<div style="display:none;">
+    <div id="app-header-content">
+        <div id="app-logo">
+            <div class="logo-top">&nbsp;</div>
+            <div id="logo-body">&nbsp;</div>
+            <div class="logo-bottom">&nbsp;</div>
+        </div>
+        <h1>CALENDARIO DE ACTIVIDADES - GRANJA: BARNET</h1>
+        <span id="app-msg" class="x-hidden"></span>
+    </div>
+</div>
+<script>
+    var updateLogoDt = function () {
+        document.getElementById('logo-body').innerHTML = new Date().getDate();
+    }
+    updateLogoDt();
+    //setInterval(updateLogoDt, 1000);
+</script>
+</body>
+</html>

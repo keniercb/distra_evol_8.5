@@ -1,0 +1,27 @@
+.imagen-none{
+    display: none;
+}
+
+[class*="sisplanico-"]::before {
+    font-size: 1.45em !important;
+    margin-right: 5px;
+    vertical-align: -10% !important;
+}
+
+.sisplanico-verde::before{
+    color: #137d3e !important;
+}
+.sisplanico-rojo::before{
+    color: #7d0603 !important;
+}
+.sisplanico-amarillo::before{
+    color: #c9ca04 !important;
+}
+.sisplanico-naranja::before{
+    color: #ca8124 !important;
+}
+.sisplanico-negro::before{
+    color: #101701 !important;
+}.sisplanico-rosado::before{
+     color: #dda6e5 !important;
+ }

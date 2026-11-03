@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conceptos>	
+	<GlobalConcept nombre="Estructura" active='false'/>
+	<GlobalConcept nombre="Subsistema" active='false'/>
+	<GlobalConcept nombre="Periodo" active='false'/>
+	<GlobalConcept nombre="Moneda" active='false'/>
+	<GlobalConcept nombre="Ejercicio" active='false'/>
+	<GlobalConcept nombre="FechaContable" active='false'/>
+	<GlobalConcept nombre="Perfil" active='false'/>
+</conceptos>	
+	
+	

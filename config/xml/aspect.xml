@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<aspects>
+	<preValidation active="true">
+		<class name="ZendExt_Aspect_Validation" singlenton="true">
+			<method name="preValidateAction" static="false" idXML="validation"/>
+		</class>
+	</preValidation>
+
+    <validateParamsAction active="true">
+        <class name="ZendExt_Aspect_Validation" singlenton="true">
+            <method name="validateParamsAction" static="false" idXML="validation"/>
+        </class>
+    </validateParamsAction>
+
+	<postValidation active="true">
+		<class name="ZendExt_Aspect_Validation" singlenton="true">
+			<method name="postValidateAction" static="false" idXML="validation"/>
+		</class>
+	</postValidation>
+	<autoSaveModels active="true">
+		<class name="ZendExt_Aspect_TransactionManager" singlenton="true">
+			<method name="saveModels" static="false"/>
+		</class>
+	</autoSaveModels>
+	<commitTransactions active="true">
+		<class name="ZendExt_Aspect_TransactionManager" singlenton="true">
+			<method name="commitTransactions" static="false"/>
+		</class>
+	</commitTransactions>
+	<rollbackTransactions active="true">
+		<class name="ZendExt_Aspect_TransactionManager" singlenton="true">
+			<method name="rollbackTransactions" static="false"/>
+		</class>
+	</rollbackTransactions>
+	<globalConcept active="true">
+		<class name="ZendExt_GlobalConcept" singlenton="true">
+			<method name="init" static="false"/>
+		</class>
+	</globalConcept>
+	<managerException active="true">
+		<class name="ZendExt_Aspect_ExceptionManager" singlenton="true">
+			<method name="handle" static="false" idXML="managerexception"/>
+		</class>
+	</managerException>
+	<beginTraceAction active="true">
+		<class name="ZendExt_Aspect_Trace" singlenton="true">
+			<method name="beginTraceAction" static="false"/>
+		</class>
+	</beginTraceAction>
+         <!--Aspect trace-->
+	<failedTraceAction active="true">
+		<class name="ZendExt_Aspect_Trace" singlenton="true">
+			<method name="failedTraceAction" static="false"/>
+		</class>
+	</failedTraceAction>
+	<beginTraceIoC active="true">
+		<class name="ZendExt_Aspect_Trace" singlenton="true">
+			<method name="beginTraceIoC" static="false"/>
+		</class>
+	</beginTraceIoC>
+	<endTraceAction active="true">
+		<class name="ZendExt_Aspect_Trace" singlenton="true">
+			<method name="endTraceAction" static="false"/>
+		</class>
+	</endTraceAction>
+	
+        <!--Notification aspects begin-->
+        <preDispatchEventNotification active="true">
+            <class name="ZendExt_Aspect_Notification" singlenton="true">
+                <method name="preDispatchEventNotification" static="false"    idXML="notification"/>
+            </class>
+        </preDispatchEventNotification>
+        <postDispatchEventNotification active="true">
+            <class name="ZendExt_Aspect_Notification" singlenton="true">
+                <method name="postDispatchEventNotification" static="false"   idXML="notification"/>
+            </class>
+        </postDispatchEventNotification>
+        <failDispatchEventNotification active="true">
+            <class name="ZendExt_Aspect_Notification" singlenton="true">
+                <method name="failedDispatchEventNotification" static="false" idXML="notification"/>
+            </class>
+        </failDispatchEventNotification>
+        <!--Notification aspects end-->
+</aspects>

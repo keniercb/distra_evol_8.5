@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+	<service>
+	  <name>Adjunto</name>
+	  <description>Servicio de envío de ficheros adjuntos en los mensajes por medio del Gestor Documental Alfresco.</description>
+	  <accion>adjunto</accion>
+	</service>
+</services>

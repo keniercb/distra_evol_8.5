@@ -1,0 +1,68 @@
+{
+	lbTitlePlantillaN:                  		'Listado de plantillas nominales',
+	lbTitleArbolPlantillaNominal:               'Estructura de plantilla nominal',
+	lbTitleTreeRest:               				'Estructuras restantes',
+	lbTitleTreeInsert:               			'Estructuras insertadas',
+
+	lbTitleVentAdicionarPlantillaN:             'Adicionar plantilla nominal',
+	lbTitleVentModificarPlantillaN:             'Modificar plantilla nominal',
+
+	lbTitleVentAddElimEstrucP:             		'Estructurar plantilla nominal',
+
+	lbColDenominacion:							'Denominaci&oacute;n',
+	lbColDesde:									'Fecha inicio',
+	lbColHasta:									'Fecha fin',
+	lbColDescripcion:                    		'Descripci&oacute;n',
+
+	lbMaskGridCargando:							'Cargando…',
+	lbMsgEsperaEnviarDatos:						'Por favor espere…',
+
+	lbTitleEliminarPlantillaN:					'¿Est&aacute; seguro que desea eliminar la plantilla nominal seleccionada?',
+
+	lbMsgAdicionarPlantillaN:					'Adicionando datos de plantilla nominal...',
+	lbMsgModificarPlantillaN:					'Modificando datos de plantilla nominal...',
+	lbMsgEliminarPlantillaN:					'Eliminando datos de la plantilla nominal...',
+
+	lbMsgAddEstructuraP:						'Adicionando datos de estructura de plantilla nominal...',
+	lbMsgEliminarEstructuraP:					'Eliminando datos de estructura de plantilla nominal...',
+
+	lbMsgCorrectoAdicionadoPlantillaN:			'La plantilla nominal ha sido adicionada satisfactoriamente.',
+	lbMsgCorrectoModificadoPlantillaN:			'La plantilla nominal ha sido modificada satisfactoriamente.',
+	lbMsgCorrectoEliminadoPlantillaN:			'La plantilla nominal ha sido eliminada satisfactoriamente.',
+
+	lbMsgCorrectoAddEstructuraP:				'La estructura de plantilla nominal ha sido adicionada satisfactoriamente.',
+	lbMsgCorrectoEliminadoEstructuraP:			'La estructura de plantilla nominal ha sido eliminada satisfactoriamente.',
+
+	lbBtnAdicionar:              	    		'Ad<u>i</u>cionar',
+	textToolTipAddPlantillaN:    		       	'Adicionar plantilla nominal (<b>Alt+I</b>)',
+	lbBtnModificar:                   			'<u>M</u>odificar',
+	textToolTipModPlantillaN:					'Modificar plantilla nominal (<b>Alt+M</b>)',
+	lbBtnEliminar:                	 			'Eliminar',
+	textToolTipElimPlantillaN: 					'Eliminar plantilla nominal (<b>DEL</b>)',
+	lbBtnEstructurar:                	 		'Estructurar',
+	textToolTipEstructurarPlantillaN: 			'Estructurar plantilla nominal',
+	lbBtnBuscar:                	 		    '<u>B</u>uscar',
+	textToolTiplbBtnBuscarPlantillaN: 			'Buscar plantilla nominal (<b>Alt+B</b>)',
+	lbBtnAyuda:                         		'Ayuda',
+	textToolTipAyudaPlantillaN:             	'Mostrar ayuda de la funcionalidad (<b>Alt+H</b>)',
+
+	textToolTipAddEstructP:    		       		'Adicionar plantilla nominal',
+	textToolTipElimEstructP:  		       		'Eliminar plantilla nominal',
+
+	lbBtnCancelar:								'Cancelar',
+	textToolTipCancelar:						'Cerrar ventana sin guardar los datos (<b>Alt+X</b>)',
+	lbBtnAplicar:								'Aplicar',
+	textToolTipAplicar:                        	'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+	lbBtnAceptar:								'Aceptar',
+	textToolTipAceptar:                         'Guardar datos y cerrar ventana (<b>Enter</b>)',
+	lbBtnCerrar:								'Cerrar',
+	textToolTipCerrar:							'Cerrar ventana',
+
+	lbErrorCampoVacio:                          'Este campo es obligatorio.', 
+	lbMaxText_100:                              'El tama&ntilde;o m&aacute;ximo requerido es 100 caracteres.',
+	lbDenomIncorr:                              'Solo admite caracteres alfanum&eacute;ricos y el caracter especial ( ).',
+	lbFechaMaxima:                   			'La fecha de inicio tiene que ser anterior o igual a la fecha fin.',
+	lbFechaMinima:                             	'La fecha fin tiene que ser posterior o igual a la fecha de inicio.',
+	invalidTextFecha:                           'Formato: dd/mm/aaaa.',
+	lbErrorFormulario:							'Por favor verifique nuevamente que hay campo(s) con valor(es) incorrecto(s).',
+}

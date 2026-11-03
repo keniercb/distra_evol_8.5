@@ -1,0 +1,5 @@
+ALTER TABLE mod_logtaller.conf_talleres
+  ADD COLUMN cerraroperarios NUMERIC(19,0) DEFAULT 0;
+
+COMMENT ON COLUMN mod_logtaller.conf_talleres.cerraroperarios
+IS 'Configuracion pera controlar si una orden puede o no cerrar con operarios asignados';

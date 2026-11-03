@@ -1,0 +1,150 @@
+{
+	lbTitleConcepto:                  				'Listado de conceptos de percepciones o descuentos',
+	lbTitleTarifa:                  				'Formas de c&aacute;lculo',
+	lbTitleVariable:                  				'Listado de variables auxiliares de f&oacute;rmulas',
+	lbTitleTabConfigEscala:                  		'Estructura escalar',
+	lbTitleTabEscala:                  				'Escala',
+	lbTitleEstrucEsc:                  				'Listado de estructuras escalares',
+	lbTitleMatrizAdy:								'Matriz de adyacencia',
+	lbTitleEscala:                  				'Listado de escalas',
+
+	lbTitleVentAdicionarConcepto:                	'Adicionar concepto de percepci&oacute;n o descuento',
+	lbTitleVentModificarConcepto:                	'Modificar concepto de percepci&oacute;n o descuento',
+
+	lbTitleVentAdicionarTarifa:                		'Adicionar forma de c&aacute;lculo',
+	lbTitleVentModificarTarifa:                		'Modificar forma de c&aacute;lculo',
+
+	lbTitleVentAdicionarVariable:                	'Adicionar variable auxiliar de f&oacute;rmula ',
+	lbTitleVentModificarVariable:                	'Modificar variable auxiliar de f&oacute;rmula ',
+
+	lbTitleVentAdicionarEstrucEsc:                	'Adicionar estructura escalar',
+	lbTitleVentModificarEstrucEsc:                	'Modificar estructura escalar',
+
+	lbTitleVentAdicionarMatrizAdy:                	'Adicionar estructura escalar adyacente',
+
+	lbTitleVentAdicionarEscala:                		'Adicionar escala',
+	lbTitleVentModificarEscala:                		'Modificar escala',
+
+	lbBtnAdicionar:              	    			'Ad<u>i</u>cionar',
+	textToolTipAddConcepto:    		       			'Adicionar concepto de percepci&oacute;n o descuento (<b>Alt+I</b>)',
+	lbBtnModificar:                   				'<u>M</u>odificar',
+	textToolTipModConcepto:							'Modificar concepto de percepci&oacute;n o descuento (<b>Alt+M</b>)',
+	lbBtnEliminar:                	 				'Eliminar',
+	textToolTipElimConcepto: 						'Eliminar concepto de percepci&oacute;n o descuento (<b>DEL</b>)',
+
+	textToolTipAddTarifa:    		       			'Adicionar forma de c&aacute;lculo (<b>Alt+I</b>)',
+	textToolTipModTarifa:    		       			'Modificar forma de c&aacute;lculo (<b>Alt+M</b>)',
+	textToolTipElimTarifa:    		       			'Eliminar forma de c&aacute;lculo (<b>DEL</b>)',
+
+	textToolTipAddVariable:    		       			'Adicionar variable auxiliar de fórmula  (<b>Alt+I</b>)',
+	textToolTipModVariable:    		       			'Modificar variable auxiliar de fórmula  (<b>Alt+M</b>)',
+	textToolTipElimVariable:    		       		'Eliminar variable auxiliar de fórmula  (<b>DEL</b>)',
+
+	textToolTipAddEstEsc:    		       			'Adicionar estructura escalar  (<b>Alt+I</b>)',
+	textToolTipModEstEsc:    		       			'Modificar estructura escalar  (<b>Alt+M</b>)',
+	textToolTipElimEstEsc:    		       			'Eliminar estructura escalar  (<b>DEL</b>)',
+
+	textToolTipAddMatrizAdy:    		       		'Adicionar estructura escalar adyacente  (<b>Alt+I</b>)',
+	textToolTipElimMatrizAdy:    		       		'Eliminar estructura escalar adyacente  (<b>Del</b>)',
+
+	textToolTipAddEscala:    		       			'Adicionar escala  (<b>Alt+I</b>)',
+	textToolTipModEscala:    		       			'Modificar escala  (<b>Alt+M</b>)',
+	textToolTipElimEscala:    		       			'Eliminar escala  (<b>Del</b>)',
+
+	lbTitleEliminarConcepto:						'¿Est&aacute; seguro que quiere eliminar el concepto de percepci&oacute;n o descuento seleccionado?',
+	lbTitleEliminarTarifa:							'¿Est&aacute; seguro que quiere eliminar la forma de c&aacute;lculo seleccionada?',
+	lbTitleEliminarVariable:						'¿Est&aacute; seguro que quiere eliminar la variable auxiliar de f&oacute;rmula seleccionada?',
+	lbTitleEliminarEstrucEsc:						'¿Est&aacute; seguro que quiere eliminar la estructura escalar seleccionada?',
+	lbTitleEliminarAdyacente:						'¿Est&aacute; seguro que quiere eliminar la estructura escalar adyacente seleccionada?',
+
+	lbTitleEliminarEscala:							'¿Est&aacute; seguro que quiere eliminar la escala seleccionada?',
+
+	lbColAbreviatura:								'Abreviatura',
+	lbColDenominacion:                         	 	'Denominaci&oacute;n',
+	lbColDesde:               	    				'Fecha inicio',
+	lbColHasta:                    					'Fecha fin',
+	lbColDescripcion:                    			'Descripci&oacute;n',
+	lbColTipoConcepto:                    			'Tipo concepto',
+
+	lbColTarifa:                    				'Frecuencia de pago',
+	lbColFormaCalculo:                    			'Forma de c&aacute;lculo',
+	lbColImporteFormula:                    		'Importe',
+	lbColLugaresDecimalesGrid:                    		'Lugares decimales',
+	lbColLugaresDecimales:                    		'Lugares decimales',
+
+	lbColFormaEntrada:                    			'Forma de entrada',
+	lbColDenomReporte:                    			'Reporte',
+	lbColDenomVarReporte:                    		'Variable reporte',
+
+	lbColTipoCampo:                    				'Tipo campo',
+	lbColHoja:                    					'Hoja',
+	lbColNomenclador:                    			'Nomenclador',
+	lbColOperador:                    				'Operador',
+	lbColValInicial:                    			'Valor inicial',
+	lbColValFinal:                    				'Valor final',
+
+	lbColEstrucEsc:                    				'Estructura escalar',
+
+	lbMaskGridCargando:								'Cargando…', 
+	lbMsgEsperaEnviarDatos:							'Por favor espere…',
+
+	lbMsgAdicionarConcepto:							'Adicionando datos de concepto de percepci&oacute;n o descuento...',
+	lbMsgModificarConcepto:							'Modificando datos de concepto de percepci&oacute;n o descuento...',
+	lbMsgEliminarConcepto:							'Eliminando datos de concepto de percepci&oacute;n o descuento...',
+
+	lbMsgAdicionarTarifa:							'Adicionando datos de la forma de c&aacute;lculo...',
+	lbMsgModificarTarifa:							'Modificando datos de la forma de c&aacute;lculo...',
+	lbMsgEliminarTarifa:							'Eliminando datos de la forma de c&aacute;lculo...',
+
+	lbMsgAdicionarVariable:							'Adicionando datos de variable auxiliar de f&oacute;rmula...',
+	lbMsgModificarVariable:							'Modificando datos de variable auxiliar de f&oacute;rmula...',
+	lbMsgEliminarVariable:							'Eliminando datos de variable auxiliar de f&oacute;rmula...',
+
+	lbMsgAdicionarEstrucEsc:						'Adicionando datos de estructura escalar...',
+	lbMsgModificarEstrucEsc:						'Modificando datos de estructura escalar...',
+	lbMsgEliminarEstrucEsc:							'Eliminando datos de estructura escalar...',
+
+	lbMsgAdicionarAdyacente:						'Adicionando datos de estructura escalar adyacente...',
+	lbMsgEliminarAdyacente:							'Eliminando datos de estructura escalar adyacente...',
+
+	lbMsgAdicionarEscala:							'Adicionando datos de escala...',
+	lbMsgModificarEscala:							'Modificando datos de escala...',
+	lbMsgEliminarEscala:							'Eliminando datos de escala...',
+
+	lbBtnCancelar:									'Cancelar',
+	textToolTipCancelar:							'Cerrar ventana sin guardar los datos (<b>Alt+X</b>)',
+	lbBtnAplicar:									'Aplicar',
+	textToolTipAplicar:                        	 	'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+	lbBtnAceptar:									'Aceptar',
+	textToolTipAceptar:                         	'Guardar datos y cerrar ventana (<b>Enter</b>)',
+
+	lbMsgCorrectoAdicionadoConcepto:				'El concepto de percepci&oacute;n o descuento ha sido adicionado satisfactoriamente.',
+	lbMsgCorrectoModificadoConcepto:				'El concepto de percepci&oacute;n o descuento ha sido modificado satisfactoriamente.',
+	lbMsgCorrectoEliminadoConcepto:					'El concepto de percepci&oacute;n o descuento ha sido eliminado satisfactoriamente.',
+
+	lbMsgCorrectoAdicionadoTarifa:					'La forma de c&aacute;lculo ha sido adicionada satisfactoriamente.',
+	lbMsgCorrectoModificadoTarifa:					'La forma de c&aacute;lculo ha sido modificada satisfactoriamente.',
+	lbMsgCorrectoEliminadoTarifa:					'La forma de c&aacute;lculo ha sido eliminada satisfactoriamente.',
+
+	lbMsgCorrectoAdicionadoVariable:				'La variable auxiliar de f&oacute;rmula ha sido adicionada satisfactoriamente.',
+	lbMsgCorrectoModificadoVariable:				'La variable auxiliar de f&oacute;rmula ha sido modificada satisfactoriamente.',
+	lbMsgCorrectoEliminadoVariable:					'La variable auxiliar de f&oacute;rmula ha sido eliminada satisfactoriamente.',
+
+	lbMsgCorrectoAdicionadoEstrucEsc:				'La estructura escalar ha sido adicionada satisfactoriamente.',
+	lbMsgCorrectoModificadoEstrucEsc:				'La estructura escalar ha sido modificada satisfactoriamente.',
+	lbMsgCorrectoEliminadoEstrucEsc:				'La estructura escalar ha sido eliminada satisfactoriamente.',
+
+	lbMsgCorrectoAdicionadoAdyacente:				'La estructura escalar adyacente ha sido adicionada satisfactoriamente.',
+	lbMsgCorrectoEliminadoAdyacente:				'La estructura escalar adyacenteha sido eliminada satisfactoriamente.',
+
+	lbMsgCorrectoAdicionadoEscala:					'La escala ha sido adicionada satisfactoriamente.',
+	lbMsgCorrectoModificadoEscala:					'La escala ha sido modificada satisfactoriamente.',
+	lbMsgCorrectoEliminadoEscala:					'La escala ha sido eliminada satisfactoriamente.',
+
+	lbErrorCampoVacio:                          	'Este campo es obligatorio.',
+    lbColFomula:                          	        'F&oacute;rmula',
+	lbFechaMaxima:                   				'La fecha de inicio tiene que ser anterior o igual a la fecha fin.',
+	lbFechaMinima:                             		'La fecha fin tiene que ser posterior o igual a la fecha de inicio.',
+	invalidTextFecha:                           	'Formato: dd/mm/aaaa.',
+	lbErrorFormulario:								'Por favor verifique nuevamente que hay campo(s) con valor(es) incorrecto(s).',
+}

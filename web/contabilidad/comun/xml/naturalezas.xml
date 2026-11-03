@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <cant>3</cant>
+    <row>
+        <idnaturaleza>8030</idnaturaleza>
+        <naturaleza>ACREEDORA</naturaleza>
+    </row>
+    <row>
+        <idnaturaleza>8031</idnaturaleza>
+        <naturaleza>DEUDORA</naturaleza>
+    </row>
+    <row>
+        <idnaturaleza>8032</idnaturaleza>
+        <naturaleza>MIXTA</naturaleza>
+    </row>
+</dataset>

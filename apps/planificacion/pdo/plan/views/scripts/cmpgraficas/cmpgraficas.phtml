@@ -1,0 +1,93 @@
+﻿<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>Gestionar actividades</title>
+
+        <style type="text/css">
+            .padding-expander {
+                padding-top: 0px;
+                padding-right: 0px;
+                padding-bottom: 0px;
+                padding-left: 35px;
+            }
+        </style>
+        <link rel="stylesheet" type="text/css" id="TreeGridcss" href="../../../comun/css/TreeGrid.css"/>
+        <link rel="stylesheet" id="icons" type="text/css" href="../../../comun/css/icons.css"/>
+        <link rel="stylesheet" type="text/css" id="file-upload" href="../../../comun/css/file-upload.css"/>
+        <link rel="stylesheet" type="text/css" id="examplescss" href="../../../comun/css/examples.css"/>
+        <link rel="stylesheet" type="text/css" id="datepickerpluscss" href="../../../comun/css/datepickerplus.css"/>
+
+    </head>
+
+    <body>
+    <!-- archivos que estaban en el head -->
+    <script type="text/javascript" id="imporcss" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+    <script language="javascript" type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+
+    <script type="text/javascript" id="imporcss" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+    <script type="text/javascript" id="ext-all" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+
+    <script type="text/javascript" id="ucid-all" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+    <script type="text/javascript" id="extensiones" src="<?php echo $this->dir_ucid; ?>js/utiles/extensiones.js"></script>
+
+    <!-- FIn archivos que estaban en el head -->
+
+        <!--clases para los filtros por columna -->
+
+        <script type="text/javascript" id="EditableItem" src="../../../comun/filtros/EditableItem.js"></script>
+        <script type="text/javascript" id="ComboItem" src="../../../comun/filtros/ComboItem.js"></script>
+        <script type="text/javascript" id="TextFieldItem" src="../../../comun/filtros/TextFieldItem.js"></script>
+        <script type="text/javascript" id="RangeMenu" src="../../../comun/filtros/RangeMenu.js"></script>
+        <script type="text/javascript" id="GridFilters" src="../../../comun/filtros/GridFilters.js"></script>
+        <script type="text/javascript" id="Filter" src="../../../comun/filtros/Filter.js"></script>
+        <script type="text/javascript" id="StringFilter" src="../../../comun/filtros/StringFilter.js"></script>
+        <script type="text/javascript" id="DateFilter" src="../../../comun/filtros/DateFilter.js"></script>
+        <script type="text/javascript" id="ListFilter" src="../../../comun/filtros/ListFilter.js"></script>
+        <script type="text/javascript" id="NumericFilter" src="../../../comun/filtros/NumericFilter.js"></script>
+        <script type="text/javascript" id="ListadoFilter" src="../../../comun/filtros/ListadoFilter.js"></script>
+        <script type="text/javascript" id="String_adaptadoFilter" src="../../../comun/filtros/String_adaptadoFilter.js"></script>
+
+        <script type="text/javascript" id="vtype" src="../../../comun/js/vtype.js"></script>
+        <script type="text/javascript" id="CmpBase" src="../../../comun/js/CmpBase.js"></script>
+        <script type="text/javascript" id="notificaciones" src="/planificacion/pdo/comun/js/notificaciones.js"></script>
+        <script type="text/javascript" id="CmpBarraProgreso" src="../../../comun/js/CmpBarraProgreso.js"></script>
+        <script type="text/javascript" id="RowExpander" src="../../../comun/js/RowExpander.js"></script>
+        <script type="text/javascript" id="TreeGridjs" src="../../../comun/js/TreeGrid.js"></script>
+        <script type="text/javascript" id="CmpPaginadoTreegrid" src="../../../comun/js/CmpPaginadoTreegrid.js"></script>
+        <script type="text/javascript" id="CmpMenuRelacionesDinamicas" src="../../../comun/js/CmpMenuRelacionesDinamicas.js"></script>
+        <script type="text/javascript" id="FileUploadField" src="../../../comun/js/FileUploadField.js"></script>
+        <script type="text/javascript" id="examplesjs" src="../../../comun/js/examples.js"></script>
+        <script type="text/javascript" id="bpexportarconcepto" src="../../../comun/js/bpexportarconcepto.js"></script>
+        <script type="text/javascript" id="DatePicker" src="../../../comun/js/DatePicker.js"></script>
+        <script type="text/javascript" id="ext.ux.datepickerplus" src="../../../comun/js/ext.ux.datepickerplus.js"></script>
+        <script type="text/javascript" id="Ext.ux.form.LovCombo" src="../../../comun/js/Ext.ux.form.LovCombo.js"></script>
+
+        <script type="text/javascript" id="vtype" src="../../../comun/js/vtype.js"></script>
+
+        <script type="text/javascript" id="MessageBox" src="../../../comun/js/MessageBox.js"></script>
+
+        <?php echo $this->usarGD; ?>
+
+        <script type="text/javascript" id="jquery.min" src="../../../comun/pareto/jquery.min.js"></script>
+        <script type="text/javascript" id="highcharts" src="../../../comun/pareto/highcharts.js"></script>
+        <script type="text/javascript" id="highcharts" src="../../../comun/pareto/modules/drilldown.js"></script>
+        <!--script type="text/javascript" id="highcharts" src="../../../comun/pareto/highcharts-3d.js"></script-->
+
+        <script type="text/javascript" id="cmpclasificadorinvol" src="../../views/js/cmpclasificadorinvol/cmpclasificadorinvol.js"></script>
+
+
+        <script type="text/javascript" id="cmpgestionarpareto" src="../../views/js/cmpgraficas/cmpgestionargraficas.js"></script>
+        <script type="text/javascript" id="initcmpgestionarpareto" src="../../views/js/cmpgraficas/initcmpgestionargraficas.js"></script>
+
+
+        <!--  JS de Ayuda-->
+
+        <?php echo $this->jsayuda; ?>
+        <?php echo $this->gestdoc; ?>
+        <?php echo $this->perfil; ?>
+        <script type="text/javascript" id="GridFilters" src="../../../comun/filtros/GridFilters.js"></script>
+    </body>
+
+</html>
+
+

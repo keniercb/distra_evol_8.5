@@ -1,0 +1,12 @@
+{
+lbDenominacion: 'Denominación',
+        lbCodigo: 'Código',
+        lbNAP: 'Nivel actividad producciones',
+        lbNAIP: 'Nivel actividad independiente de las producciones',
+        lbNAT: 'Nivel actividad total',
+        lbRA: 'Real acumulado',
+        lbP: 'Pendiente',
+        lbCantidad: 'Cantidad',
+        lbFecha: 'Fecha'
+
+}

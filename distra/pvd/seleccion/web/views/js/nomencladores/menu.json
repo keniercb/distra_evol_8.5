@@ -1,0 +1,41 @@
+[{
+    text:'Nomencladores',
+    expanded: true,
+    children:[{
+        text:'Fuentes de reclutamiento',
+        id:'viareclutamiento',
+        leaf:true,
+        checked: false,
+        iconCls: 'brick'
+    },{
+        text:'Motivos de seguimiento',
+        id:'motseguimiento',
+        leaf:true,
+        checked: false,
+        iconCls: 'brick'
+    },{
+        text:'T&eacute;cnicas de selecci&oacute;n',
+        id:'tecnicas',
+        leaf:true,
+        checked: false,
+        iconCls: 'brick'
+    }/*,{
+        text:'Comit&eacute;s de ingreso',
+        id:'comites',
+        leaf:true,
+        checked: false,
+        iconCls: 'brick'
+    }*/,{
+        text:'Motivos de exclusi&oacute;n',
+        id:'motivoexclusion',
+        leaf:true,
+        checked: false,
+        iconCls: 'brick'
+    },{
+        text:'Motivos de reincorporaci&oacute;n',
+        id:'reincorporacion',
+        leaf:true,
+        checked: false,
+        iconCls: 'brick'
+    }]
+}]

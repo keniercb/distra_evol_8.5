@@ -1,0 +1,30 @@
+
+.FilaAzul .x-grid3-cell-inner{
+        color:black;
+		background-color:#D3E1F1;
+    }
+.FilaVerde .x-grid3-cell-inner{
+        color:black;
+		background-color:#dffbda;
+    }
+.FilaAmarilla .x-grid3-cell-inner{
+        color:black;
+		background-color:#FFFFE0;
+    }
+.negrita .x-grid3-cell-inner{
+color:black;
+font-weight: bold;
+}
+#content .message {
+  border-radius: .5em; -moz-border-radius: .5em; padding: .5em 1em;
+}
+#content .message.info { background-color: #c0ffc0; }
+#content .message.info a.download { display: block; float: right; }
+#content .message.info .size-and-time { visibility: hidden; float: right; font-size: 70%; margin: .3em 0; color: #80c080; }
+#content .message.info:hover .size-and-time { visibility: visible; }
+#content .message.error { background-color: orange; }
+#content .message.progress {
+  padding-left: 40px;
+  background: #ffff80 14px center no-repeat;
+}
+#content .message.disabled { color: gray; background-color: #f0f0f0; }

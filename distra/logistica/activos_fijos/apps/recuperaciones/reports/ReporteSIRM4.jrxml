@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteSIRM1" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="778" leftMargin="7" rightMargin="7" topMargin="20" bottomMargin="20" >
+    <property name="ireport.zoom" value="2.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <parameter name="entidad" class="java.lang.String"/>
+    <parameter name="especialidad" class="java.lang.String"/>
+    <parameter name="fechafin" class="java.util.Date"/>
+    <parameter name="dia" class="java.lang.String"/>
+    <parameter name="mes" class="java.lang.String"/>
+    <parameter name="anno" class="java.lang.String"/>
+    <queryString>
+		<![CDATA[SELECT * FROM mod_logactivofijotangible.f_sirm4(100000532, '01-01-2013', '31-12-2041', NULL)]]>
+    </queryString>
+    <field name="codigo" class="java.lang.String">
+        <fieldDescription><![CDATA[Código del tipo de cuenta bancaria.]]></fieldDescription>
+    </field>
+    <field name="denominacion" class="java.lang.String"/>
+    <field name="annofabricacion" class="java.math.BigDecimal">
+        <fieldDescription><![CDATA[almacena el anno de fabricacion.]]></fieldDescription>
+    </field>
+    <field name="existenciainicio" class="java.math.BigDecimal"/>
+    <field name="existenciafin" class="java.math.BigDecimal"/>
+    <field name="cantidadentrada" class="java.math.BigDecimal"/>
+    <field name="cantidadsalida" class="java.math.BigDecimal"/>
+    <field name="reserva" class="java.math.BigDecimal"/>
+    <field name="conservacion" class="java.math.BigDecimal"/>
+    <field name="marca" class="java.lang.String"/>
+    <field name="modelo" class="java.lang.String"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="2" splitType="Stretch"/>
+    </title>
+    <pageHeader>
+        <band height="2" splitType="Stretch"/>
+    </pageHeader>
+    <columnHeader>
+        <band height="102" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="25" height="28" />
+                <box leftPadding="2">
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[UM:]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="24" y="0" width="186" height="28" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textFieldExpression><![CDATA[$P{entidad}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="210" y="0" width="391" height="28" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[SIRM 4
+INFORME SOBRE LOS MOVIMIENTOS DE LAS EXISTENCIAS]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="601" y="0" width="177" height="28" />
+                <box>
+                    <topPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA["CLASIFICACIÓN"]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="43" width="77" height="59" />
+                <box leftPadding="0">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Código]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="76" y="43" width="182" height="59" />
+                <box leftPadding="0">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Descripción]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="258" y="43" width="114" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <text><![CDATA[Datos de producción]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="258" y="63" width="58" height="39" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Partida]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="316" y="63" width="56" height="39" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Año]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="372" y="43" width="83" height="59" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Existencias al inicio del período]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="455" y="43" width="102" height="20" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <text><![CDATA[Movimientos]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="455" y="63" width="51" height="39" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Entradas]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="557" y="43" width="73" height="59" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Existencia al final del período]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="630" y="43" width="53" height="59" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Consumo]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="28" width="778" height="15" />
+                <box leftPadding="2">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <text><![CDATA[Período terminado en:]]></text>
+            </staticText>
+            <textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+                <reportElement x="104" y="28" width="100" height="15" />
+                <textFieldExpression><![CDATA[$P{fechafin}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="506" y="63" width="51" height="39" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Salidas]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="683" y="43" width="95" height="20" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <text><![CDATA[Pérdidas Naturales]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="683" y="63" width="47" height="39" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <text><![CDATA[De Exist. Cons.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="730" y="63" width="48" height="39" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <text><![CDATA[De Exist. Reserv.]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="30" splitType="Stretch">
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="0" width="76" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="76" y="0" width="182" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{denominacion} + " "+ $F{marca} +" "+$F{modelo}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="258" y="0" width="58" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="316" y="0" width="56" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{annofabricacion}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="372" y="0" width="83" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{existenciainicio}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="455" y="0" width="51" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{cantidadentrada}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="506" y="0" width="51" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{cantidadsalida}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="557" y="0" width="73" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{existenciafin}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="630" y="0" width="53" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="683" y="0" width="47" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="730" y="0" width="48" height="30" />
+                <box>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band splitType="Stretch"/>
+    </pageFooter>
+    <summary>
+        <band height="108" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="778" height="26" />
+                <box leftPadding="2">
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <text><![CDATA[Certificamos que los datos contenidos en este informe corresponden con las anotaciones realizadas en los registros y modelos habilitados para el control de los medios materiales.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="26" width="339" height="13" />
+                <box leftPadding="2">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <text><![CDATA[Confeccionado por:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="39" width="339" height="13" />
+                <box leftPadding="2">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <text><![CDATA[Nombres y apellidos:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="52" width="339" height="13" />
+                <box leftPadding="2">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <text><![CDATA[Cargo:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="65" width="339" height="13" />
+                <box leftPadding="2">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <text><![CDATA[Firma:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="339" y="52" width="339" height="13" />
+                <box leftPadding="2">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <text><![CDATA[Cargo:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="339" y="26" width="339" height="13" />
+                <box leftPadding="2">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <text><![CDATA[Aprobado por:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="339" y="39" width="339" height="13" />
+                <box leftPadding="2">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <text><![CDATA[Nombres y apellidos:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="339" y="65" width="339" height="13" />
+                <box leftPadding="2">
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <text><![CDATA[Firma:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="678" y="26" width="100" height="13" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <text><![CDATA[Fecha]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="678" y="39" width="33" height="13" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <text><![CDATA[D]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="711" y="39" width="33" height="13" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <text><![CDATA[M]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="744" y="39" width="34" height="13" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center"/>
+                <text><![CDATA[A]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="678" y="52" width="33" height="26" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$P{dia}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="711" y="52" width="33" height="26" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$P{mes}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="744" y="52" width="34" height="26" />
+                <box>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$P{anno}]]></textFieldExpression>
+            </textField>
+        </band>
+    </summary>
+</jasperReport>

@@ -1,0 +1,45 @@
+[submodule "utiles"]
+	path = utiles
+	url = http://gitlab-distra.xutil.net/distra/logistica/distra/utiles.git
+[submodule "talleres"]
+	path = talleres
+	url = http://gitlab-distra.xutil.net/distra/logistica/distra/talleres.git
+[submodule "puntoventa"]
+	path = puntoventa
+	url = http://gitlab-distra.xutil.net/distra/logistica/distra/puntoventa.git
+[submodule "nomgenerales"]
+	path = nomgenerales
+	url = http://gitlab-distra.xutil.net/distra/logistica/distra/nomgenerales.git
+[submodule "nomdinamicos"]
+	path = nomdinamicos
+	url = http://gitlab-distra.xutil.net/distra/logistica/distra/nomdinamicos.git
+[submodule "magentoadmin"]
+	path = magentoadmin
+	url = http://gitlab-distra.xutil.net/distra/logistica/distra/magentoadmin.git
+[submodule "inventario"]
+	path = inventario
+	url = http://gitlab-distra.xutil.net/distra/logistica/distra/inventario.git
+[submodule "facturacion"]
+	path = facturacion
+	url = http://gitlab-distra.xutil.net/distra/logistica/distra/facturacion.git
+[submodule "distribucion"]
+	path = distribucion
+	url = http://gitlab-distra.xutil.net/distra/logistica/distra/distribucion.git
+[submodule "comun"]
+	path = comun
+	url = http://gitlab-distra.xutil.net/distra/logistica/distra/comun.git
+[submodule "agrupaciones"]
+	path = agrupaciones
+	url = http://gitlab-distra.xutil.net/distra/logistica/distra/agrupaciones.git
+[submodule "activos_fijos"]
+	path = activos_fijos
+	url = http://gitlab-distra.xutil.net/distra/logistica/distra/activos_fijos.git
+[submodule "produccion"]
+	path = produccion
+	url = http://gitlab-distra.xutil.net/distra/logistica/distra/produccion.git
+[submodule "farmacia"]
+	path = farmacia
+	url = http://gitlab-distra.xutil.net/distra/logistica/distra/farmacia.git
+[submodule "combustible"]
+	path = combustible
+	url = https://gitlab-distra.xutil.net/distra/logistica/distra/combustible.git

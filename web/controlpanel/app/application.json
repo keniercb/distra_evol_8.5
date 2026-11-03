@@ -1,0 +1,43 @@
+{
+  "name": "configurar",
+  "concat": {
+    "js": {
+      "files": [
+        "idioma/es.js",
+        "comun/Msg.js",
+        "comun/treeFilter.js",
+        "model/ModelEstado.js",
+        "model/ModelPaquetes.js",
+        "store/StoreEstado.js",
+        "store/StorePaquetes.js",
+        "views/contropanel/PanelCenter.js",
+        "views/contropanel/PanelEast.js",
+        "views/contropanel/PanelWest.js",
+        "views/contropanel/TreePanelRepositorio.js",
+        "views/contropanel/WinAddRepo.js",
+        "views/contropanel/WinAuxiliar.js",
+        "views/Principal.js",
+        "controller/MainController.js",
+        "controller/KeyMapController.js",
+        "aplication.js"
+      ],
+      "outputFile": "build/controlpanel.js"
+    }
+
+  },
+  "minify": {
+    "js": {
+      "files": [
+        "build/controlpanel.js"
+      ],
+      "outputDir": "build/"
+    },
+    "css": {
+      "files": [
+        "comun/Msg.css"
+      ],
+      "outputDir": "build/"
+    }
+  }
+
+}

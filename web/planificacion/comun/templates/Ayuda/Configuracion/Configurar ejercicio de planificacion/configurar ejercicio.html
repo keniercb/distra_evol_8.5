@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Documento sin t&iacute;tulo</title></head>
+
+<body>
+<p align="center"><strong>--Configurar  ejercicio de planificación--</strong><br /></p>
+<p align="justify">Para llegar  a la funcionalidad se  puede acceder a trav&eacute;s de la opci&oacute;n <strong>Inicio/Planificaci&oacute;n  material/Configuraciones/Configurar ejercicio de planificaci&oacute;n. </strong>El sistema le mostrar&aacute; la interfaz que  aparece en la figura 1.</p>
+<p align="center"><img src="img/1.JPG" alt="1" width="972" height="616" />
+Figura 1. Interfaz y acciones de la  funcionalidad Configurar ejercicio de planificaci&oacute;n.</p>
+
+<p align="justify"><strong>Nota:</strong> El ejercicio de planificaci&oacute;n solo puede pasar por 5 estados: Creado, Elaboraci&oacute;n,  Listo para ejecuci&oacute;n, Ejecuci&oacute;n y Cerrado, en ese mismo orden.</p>
+
+<p>Las  diferentes opciones que conforman la figura anterior permiten:</p>
+<ol>
+  <li>Adicionar ejercicio de       planificaci&oacute;n, ver <strong>Adicionar ejercicio de planificaci&oacute;n</strong>,       esta acci&oacute;n permite adicionar un ejercicio de planificaci&oacute;n, cuando se       presione el bot&oacute;n <strong>Aceptar</strong> o <strong>Aplicar</strong> de la interfaz el sistema       mostrar&aacute; un mensaje de informaci&oacute;n notificando que se adicion&oacute;       satisfactoriamente el ejercicio. Se puede acceder a esta funcionalidad con       las teclas (<strong>Alt + I</strong>).</li>
+   <li>Modificar un ejercicio de planificaci&oacute;n  previamente seleccionado en el listado. Una vez seleccionada dicha opci&oacute;n el  sistema le mostrar&aacute; la interfaz Modificar ejercicio con los datos cargados,  posibilitando que se modifiquen los datos requeridos. Se puede acceder a esta  funcionalidad seleccionando un ejercicio y oprimiendo las teclas (<strong>Alt + M</strong>). La validaci&oacute;n de cada uno de  los campos de la interfaz ser&aacute; muy similar al descrito en el <strong>Adicionar ejercicio de planificaci&oacute;n</strong>. Adem&aacute;s de tener en cuenta las  validaciones de la funcionalidad Adicionar ejercicio, tambi&eacute;n es importante  tener en cuenta las siguientes validaciones para ejecutar dicha funcionalidad: </li> 
+     <ul>
+   		<li>Si el ejercicio seleccionado se encuentra en estado Creado se podrán modificar todos los elementos del ejercicio en caso necesario. De estar en cualquier otro estado solo podrán modificar los datos de: Denominación y Estado.</li>
+		<li>Si el ejercicio que desea modificar se encuentra en estado de creado, al seleccionar la opción <strong>Traspasar desde otro ejercicio</strong>, el sistema le eliminará toda la planificación efectuada para el ejercicio en cuestión, de forma tal que no se dupliquen elementos innecesarios y pueda volver a efectuar la planificación que realmente debería haber realizado. Al seleccionar dicha opción el sistema le activará dos paneles, el panel izquierdo <strong>Ejercicio</strong> y el panel derecho <strong>Opciones</strong>, en el panel ejercicio se le listarán cada uno de los ejercicios que han sido insertados con anterioridad en el sistema (excluyendo el ejercicio que se desea modificar), si selecciona uno el sistema le activará en el panel derecho <strong>Opciones</strong> con cada una de las funcionalidades donde se ha efectuado alguna planificación para el ejercicio seleccionado. Se procede a seleccionar la(s) opciones que se desea(n) traspasar para el ejercicio a insertar y se presiona la opción <strong>Aceptar</strong> o <strong>Aplicar</strong> de la interfaz. Una vez presionada una de estas opciones, el sistema le mostrará el mensaje de información: “El ejercicio de planificación ha sido modificado satisfactoriamente”, se acepta dicho mensaje y queda insertado el ejercicio definido.</li>
+   </ul>
+   
+   <li>Eliminar un ejercicio de planificación previamente seleccionado en el listado. Esta acción permite eliminar el ejercicio de planificación deseado. Una vez seleccionado se procede a seleccionar la opción <strong>Eliminar</strong> de la interfaz, automáticamente se mostrará un mensaje de confirmación, que se puede <strong>Aceptar</strong> o <strong>Cancelar</strong> según sea el caso, de presionar la opción <strong>Aceptar</strong> el sistema le mostrará un mensaje de información sobre el éxito de la operación realizada, quedando eliminado el ejercicio de planificación seleccionado, si cancela el mensaje de confirmación, el sistema permanece en la interfaz principal y no elimina el ejercicio de planificación. Se puede realizar esta operación seleccionando el ejercicio en el listado y oprimiendo la tecla (<strong>Delete</strong>). Es importante tener en cuenta que el botón <strong>Eliminar</strong> solo se habilitará una vez seleccionado al menos un ejercicio de planificación que se encuentre en estado “Creado”, en cualquier otro estado, ya sea Elaboración, Listo para ejecución, Ejecución y Cerrado, el sistema no activará dicho botón.</li>
+   <li>Establecer ejercicio de planificación como actual. Esta funcionalidad permite definir un ejercicio de planificación de los listados en la interfaz como Actual, para ejecutar la misma se procede a seleccionar un ejercicio de los listados en la interfaz y seleccionar la opción <strong>Actual</strong>,  una vez presionada la misma el sistema le mostrará un mensaje de confirmación, se acepta el mensaje de confirmación y se muestra un mensaje de información sobre el éxito de la operación realizada, se acepta el mensaje de información y automáticamente queda defino el ejercicio seleccionado como actual. De presionar la opción <strong>Cancelar</strong> del mensaje de confirmación, el sistema cancela la acción y cierra la ventana. Para ejecutar esta funcionalidad es importante tener en cuenta las siguientes validaciones:</li>
+
+ 
+  
+  <ul>
+    <li>La opción <strong>Actual</strong> de la interfaz principal solo se habilitará al seleccionar al menos un ejercicio de los listados en la interfaz.</li>
+    <li>Si desea definir otro ejercicio como actual, que no sea el seleccionado con anterioridad, se procede a efectuar los pasos descritos anteriormente, una vez ejecutado los mismos el sistema le mostrará el mensaje de confirmación: “<i> ¿Está seguro que quiere definir el ejercicio seleccionado como actual?</i> ”, se acepta el mensaje de confirmación y el sistema le mostrará el mensaje: “<i>Ya existe un ejercicio definido como actual, ¿Desea cambiarlo por el seleccionado?</i>”, presiona la opción <strong>Aceptar</strong> del mensaje y el sistema le muestra el mensaje de información: “<i> El ejercicio de planificación ha sido definido como actual satisfactoriamente</i> ”. Si presiona la opción <strong> Cancelar</strong>  del mensaje de confirmación, el sistema cancela las acciones y cierra el mensaje.</li>
+    </ul>
+<li>Mostrar ayuda de la funcionalidad. Se puede realizar esta operación seleccionando la combinación de teclas (<strong>Alt + H</strong>).</li>
+<li>Cambiar estado a un ejercicio de planificación previamente seleccionado en el listado. Esta acción permite cambiar el estado de un ejercicio de planificación seleccionado por un estado anterior o posterior al que presenta, para ello se debe seleccionar el ejercicio de planificación al que se le desea cambiar el estado y presionar clic derecho (secundario) sobre el mismo. Una vez ejecuta dicha acción el sistema le mostrará la opción <strong>Cambiar estado</strong>, se desglosa la misma y el sistema le mostrará cada uno de los estados por el que puede pasar el ejercicio seleccionado, se procede a seleccionar el estado para el cual desea pasar el ejercicio y el sistema le mostrará un mensaje de confirmación, que se puede <strong>Aceptar</strong> o <strong>Cancelar</strong> según sea el caso, de presionar la opción <strong>Aceptar</strong> el sistema le mostrará un mensaje de información sobre el éxito de la operación realizada, quedando cambiado el estado del ejercicio seleccionado, si cancela el mensaje de confirmación, el sistema cancela las acciones y no cambia el estado del ejercicio. Para ejecutar esta funcionalidad es importante tener en cuenta las siguientes validaciones:</li>
+  <ul>
+    <li>Al desglosar la opción <strong>Cambiar estado</strong>, solo se le listarán los estados para el cual puede pasar el ejercicio seleccionado, ya sea un estado anterior o siguiente al que presenta el mismo.</li>
+       <li>El ejercicio de planificación solo puede pasar por cinco estados: Creado, Elaboración, Listo para ejecutar, Ejecución y Cerrado en ese mismo orden.</li>
+  </ul>  
+  <li>Listado de ejercicios de planificación insertados en el sistema.</li>
+  <li>Ir a la primera página, mostrando los primeros ejercicios.</li>
+  <li>Ir a la página anterior.</li>
+  <li>Muestra el número de la página donde se encuentra, se puede introducir el número.</li>
+  <li>Muestra el número máximo de páginas.</li>
+  <li>Ir a la siguiente página.</li>
+  <li>Ir a la última página.</li>
+  <li>Actualizar el listado de ejercicios de planificación.</li>
+  <li>Cantidad de ejercicios a mostrar por páginas.</li>
+  <li>Limpiar filtro(s). Esta acción limpiará todos los criterios de búsqueda, deshabilitando los filtros realizados. Se puede realizar esta operación seleccionando la combinación de teclas (<strong>Alt + L</strong>).</li>
+  <li>Mostrar la cantidad de resultados encontrados.</li>
+</ol>
+<p><strong>Adicionar ejercicio de planificaci&oacute;n</strong></p>
+<p>Para adicionar un ejercicio de  planificaci&oacute;n se presiona el bot&oacute;n<strong> Adicionar</strong> de la interfaz, ver  figura 1. Una vez  seleccionada esta opci&oacute;n se muestra la interfaz correspondiente para realizar  la operaci&oacute;n como se muestra a continuaci&oacute;n, ver figura 2 <em>.</em>&nbsp; </p>
+<p align="center"><img src="img/2.JPG" width="578" height="460" /></p>
+<p align="center">Figura 2. Interfaz Adicionar ejercicio de  planificaci&oacute;n.</p>
+<p>Las  opciones de la figura anterior permiten:</p>
+<ol>
+	<li>Introducir la denominación del ejercicio que desea insertar.</li>
+	<li>Mostrar el estado que presentará el ejercicio a insertar. En este caso le mostrará la palabra Creado, pues este es el primer estado por el que debe pasar un ejercicio.</li>
+	<li>Seleccionar si desea insertarlo como ejercicio actual o no. Este campo no es obligatorio.</li>
+	<li>Introducir el margen comercial que presentará el ejercicio a insertar. Este campo no es obligatorio.</li>
+	<li>Seleccionar si desea traspasar la planificación efectuada desde otro ejercicio para el ejercicio a insertar en el sistema. Este campo no es obligatorio. De seleccionar dicha opción el sistema le mostrará los paneles <strong>Ejercicios</strong> y <strong>Opciones</strong> habilitados, ver figura 3, una vez habilitados los mismos el sistema le mostrará en el panel izquierdo <strong>Ejercicios</strong> un listado de los ejercicios insertados con anterioridad, se procede a seleccionar uno de los ejercicio listados y se mostrará en el panel derecho <strong>Opciones</strong> cada una de las funcionalidades donde se ha efectuado alguna planificación para el ejercicio seleccionado. Se procede a seleccionar la(s) opciones que se desean traspasar para el ejercicio a insertar y se presiona la opción (5), (6) o (7) según sea el caso.</li>
+	<li>Cancelar las acciones y salir de la interfaz sin guardar los datos.</li>
+	<li>Guardar los datos y limpiar los campos de la interfaz, permitiendo adicionar otro ejercicio de planificación.</li>
+	<li>Adicionar el ejercicio de planificación al listado y cerrar la interfaz.</li>
+</ol>
+
+<p align="center">&nbsp;</p>
+<p align="center">Figura 3. Interfaz Adicionar ejercicio de planificaci&oacute;n.<img src="img/3.JPG" width="573" height="456" /></p>
+<p><strong>Validaciones </strong></p>
+<ul>
+	<li>Los campos Denominación y Estado, son campos obligatorios, en caso de dejar alguno de estos campos vacíos, el sistema le mostrará el mensaje de información: “<i>Existen campos vacíos o con valores incorrectos</i>”. Se acepta el mensaje de información y el sistema le mostrará el mensaje de error: “<i>Este campo es obligatorio</i>”, al pasar el cursor por dicho campo.</li>
+	<li>El campo denominación acepta caracteres alfanuméricos hasta 70 caracteres, en caso de introducir algún carácter especial y presionar el botón <strong>Aceptar</strong> o <strong>Aplicar</strong>  se debe mostrar el mensaje “<i>Existen campos vacíos o con valor(es) incorrecto(s)</i>.” y en el mismo campo “<i>Solo admite caracteres alfanumérico</i>.”  Y si sobrepasa la cantidad establecida se debe mostrar en el mismo campo el mensaje “<i>El tamaño máximo requerido es de 70 caracteres</i>.”.</li>
+	<li>El campo Margen comercial, solo admite números hasta 3 dígitos y el carácter especial (“.”). De presionar la opción <strong>Aceptar</strong> o <strong>Aplicar</strong> el sistema le mostrará el mensaje de información: “<i>Existen campos vacíos o con valores incorrectos</i>”, se acepta el mensaje de información el sistema le mostrará el mensaje de error: “<i>Solo admite números y el carácter especial (.)</i>.”.Y si sobrepasa la cantidad establecida se debe mostrar en el mismo campo el mensaje “<i>El tamaño máximo requerido es de 3 caracteres</i>.”.</li>
+	<li>Si presiona la opción Ejercicio actual, el sistema pondrá el ejercicio a insertar como actual, de forma tal que indique que sobre ese ejercicio es que se va a efectuar toda la planificación, de ya existir en el sistema un ejercicio con esta condición, se cambiará el ejercicio que se encuentra determinado como actual en la interfaz principal, por el que fue insertado.</li>
+	<li>En el panel Opciones se listarán las opciones: Planes, Niveles de actividad, Desglose NA (Desglose de niveles de actividad) y Normas y reglas en dependencia del ejercicio seleccionado. La opción Desglose NA solo se le activará si selecciona la opción Nivel de actividad y a su vez para el ejercicio seleccionado existe algún desglose definido.</li>
+	<li>No se permite adicionar un ejercicio con igual denominación. Si esto ocurre el sistema debe mostrar el siguiente mensaje de error: “<i>Ya existe un ejercicio registrado en el sistema con esta denominación</i>.”. Se acepta el mensaje de información y se mantiene en la interfaz para introducir una denominación diferente.</li>
+	<li>Si el ejercicio que desea adicionar es el primero a registrar en el sistema, la opción <strong>Traspasar desde otro ejercicio</strong> no se podrá seleccionar. Esta solo se podrá seleccionar si ya existe al menos un ejercicio con alguna planificación definida en el sistema. </li>
+</ul>
+<p><strong>Buscar ejercicio de planificaci&oacute;n</strong></p>
+<p>Se  presiona clic en el bot&oacute;n que aparece en la parte derecha de cada  columna, ver Figura 4.&nbsp; </p>
+<p align="center"><img src="img/4.JPG" alt="" width="755" height="289" /></p>
+<p align="center">Figura 4. B&uacute;squeda por filtrado de columnas de la interfaz.</p>
+
+<p align="justify">Se despliega la columna y se ofrece la  posibilidad de realizar b&uacute;squeda mediante filtrado. Se introduce o selecciona  el criterio de filtrado seg&uacute;n la informaci&oacute;n que brinde la columna  seleccionada. Inmediatamente se presiona la tecla Enter y el sistema mostrar&aacute;  en la interfaz los ejercicios de planificaci&oacute;n seg&uacute;n el criterio de filtrado  seleccionado. En caso de que no exista ejercicios de planificaci&oacute;n a mostrar  para el criterio de filtrado seleccionado el sistema le notificar&aacute; mostrando el  siguiente mensaje de informaci&oacute;n: <em>&ldquo;No  existen datos que se correspondan con los criterios de b&uacute;squeda especificados.&rdquo;.</em></p>
+</body>
+</html>

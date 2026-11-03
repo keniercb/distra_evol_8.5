@@ -1,0 +1,21 @@
+{
+    "directory": [
+        {
+            "name": "apps"
+        },
+        {
+            "name": "web"
+        },
+        {
+            "name": "data",
+            "directory": [
+                {
+                    "name": "systems"
+                },
+                {
+                    "name": "ini"
+                }
+            ]
+        }
+    ]
+}

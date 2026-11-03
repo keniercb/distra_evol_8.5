@@ -1,0 +1,8 @@
+{
+    lbEspere: 'Cargando ...',
+    lbTituloAyuda:'Ayuda de Configurar Desglose',
+    lbBtnAyuda: 'Ayuda',
+    lbTtbtnAyu: 'Mostrar ayuda <b>(Alt+H)</b> ',
+    lbBtnAdicionar: 'Ad<u>i</u>cionar ',
+    lbTtbtnAdicionarDesglose: 'Adicionar desglose <b>(Alt+I)</b>',
+}

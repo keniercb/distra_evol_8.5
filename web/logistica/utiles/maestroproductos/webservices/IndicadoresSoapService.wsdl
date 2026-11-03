@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<definitions name="IndicadoresSoapService" targetNamespace="urn:IndicadoresSoapService"
+             xmlns:typens="urn:IndicadoresSoapService"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns="http://schemas.xmlsoap.org/wsdl/">
+    <message name="getServicios">
+        <part name="parametros" type="xsd:anyType"/>
+    </message>
+    <message name="getServiciosResponse">
+        <part name="getServiciosReturn" type="xsd:object"/>
+    </message>
+    <portType name="IndicadoresSoapServicePortType">
+        <operation name="getServicios">
+            <input message="typens:getServicios"/>
+            <output message="typens:getServiciosResponse"/>
+        </operation>
+    </portType>
+    <binding name="IndicadoresSoapServiceBinding" type="typens:IndicadoresSoapServicePortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="getServicios">
+            <soap:operation soapAction="urn:IndicadoresSoapServiceAction"/>
+            <input>
+                <soap:body namespace="urn:IndicadoresSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:IndicadoresSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="IndicadoresSoapServiceService">
+        <port name="IndicadoresSoapServicePort" binding="typens:IndicadoresSoapServiceBinding">
+            <soap:address location=""/>
+        </port>
+    </service>
+</definitions>

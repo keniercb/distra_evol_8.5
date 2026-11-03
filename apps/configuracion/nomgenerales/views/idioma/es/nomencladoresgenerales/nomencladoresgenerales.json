@@ -1,0 +1,12 @@
+{
+    lbMarcamodelo : 'Marcas y modelos',
+    lbNaturaleza : 'Naturalezas',
+    lbViaAdquisicion : 'V\xeda de adquisici\xf3n',
+    lbOrgano : '\xd3rgano',
+    lbComportamientoEntidad : 'Comportamiento por entidad',
+    lbCombustibles : 'Tipos de combustibles',
+    lbNomenlcadores : 'Listado de nomencladores',
+    lbLinea: 'L\xedneas',
+	lbTipoembalaje : 'Tipo de embalaje',
+    lbTipoenvase : 'Tipo de envase'
+}

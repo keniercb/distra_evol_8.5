@@ -1,0 +1,40 @@
+{
+	lbTitleWinEstructura:							'Entidades',
+	lbTitleWinConfNAE:						        'Configurar el nivel de actividad econ&oacute;mica',
+	lbTitlewinAddNAE:								'Adicionar niveles de actividades econ&oacute;micas',
+	lbTitlewinModNAE:								'Modificar niveles de actividades econ&oacute;micas',
+    lbTitlePanelNivelesActividadesEconomicas:       'Niveles de actividades econ&oacute;micas',
+
+	
+	lbBtnAdicionar:              	    			'Ad<u>i</u>cionar',
+	textToolTipAddNAE:    		       				'Adicionar datos del nivel de actividad económica (<b>Alt+I</b>)',
+	lbBtnModificar:                   				'<u>M</u>odificar',
+	textToolTipModNAE:								'Modificar datos del nivel de actividad económica (<b>Alt+M</b>)',
+	lbBtnEliminar:                	 				'Eliminar',
+	textToolTipElimNAE: 							'Eliminar datos del nivel de actividad económica (<b>DEL</b>)',
+	
+	lbMaskGridCargando:								'Cargando…',
+
+	lbBtnCancelar:									'Cancelar',
+	textToolTipCancelar:							'Cerrar ventana sin guardar los datos (<b>Alt+X</b>)',
+	lbBtnAplicar:									'Aplicar',
+	textToolTipAplicar:                        	 	'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+	lbBtnAceptar:									'Aceptar',
+	textToolTipAceptar:                         	'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+
+	lbMsgEsperaEnviarDatos:							'Por favor espere…',
+
+	lbMsgAdicionarNAE:								'Adicionando datos del nivel de actividad econ&oacute;mica...',
+	lbMsgModificarNAE:								'Modificando datos del nivel de actividad econ&oacute;mica...',
+	lbMsgEliminarNAE:								'Eliminando datos del nivel de actividad econ&oacute;mica...',
+
+	lbMsgCorrectoAdicionadoNAE:						'Los datos del nivel de actividad econ&oacute;mica han sido adicionados satisfactoriamente.',
+	lbMsgCorrectoModificadoNAE:						'Los datos del nivel de actividad econ&oacute;mica han sido modificados satisfactoriamente.',
+	lbMsgCorrectoEliminadoNAE:						'Los datos del nivel de actividad econ&oacute;mica han sido eliminados satisfactoriamente.',
+
+	lbErrorTipoNomina:								'Ya existe un nivel de actividad econ&oacute;mica con el mismo tipo de n&oacute;mina.',
+	lbTitleEliminarNAE: 							'¿Est&aacute; seguro que desea eliminar los datos del nivel de actividad econ&oacute;mica seleccionado?',
+
+	btnAceptarPeriodo:                              'Aceptar',
+    	
+}

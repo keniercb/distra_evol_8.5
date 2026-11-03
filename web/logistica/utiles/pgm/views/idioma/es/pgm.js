@@ -1,0 +1,20 @@
+Ext.ns('LOG.lb.PGM');
+LOG.lb.PGM = {
+    lbWinTitle: 'Resumen de existencias',
+    lbTpAlmacen: 'Productos alamcenados',
+    lbTpExplotacion: 'Medios en explotaci\xf3n',
+    lbColProducto: 'Producto',
+    lbColUM: 'UM',
+    lbColCat: 'Categor\xeda',
+    lbColCant: 'Cantidad',
+    lbColDisp: 'Disponible',
+    lbColAlm: 'Almac\xe9n',
+    lbColAR: '\xc1rea de responsabilidad',
+    lbColNoInv: 'N\xf9mero de inventario',
+    lbColNoSer: 'N\xf9mero de serie',
+    lbColEstado: 'Estado',
+    lbCodigo: 'C\xf3digo/Denominacion',
+    lbDenom: 'Producto',
+    lbEntidad: 'Entidad',
+    lbEspec: 'Especialidad',
+};

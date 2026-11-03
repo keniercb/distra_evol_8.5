@@ -1,0 +1,23 @@
+.iconLeyenda {
+    -moz-border-radius: 80px;
+    -webkit-border-radius: 100px;
+    border-radius: 80px;
+    cursor: pointer;
+    float: left;
+    width: 15px;
+    height: 10px;
+    margin: 7px 2px;
+}
+
+.textLeyenda {
+    float: left;
+    margin: 4px;
+    text-shadow: 2px 2px 3px #FFF;
+    /*font-weight: bold;*/
+    /*font-style: oblique;*/
+    font: 12px tahoma,arial,helvetica,sans-serif;
+}
+/*Css para la ventana compartir configuracion*/
+/*.winCompartirConf{
+    z-index:100000 !important;
+}*/

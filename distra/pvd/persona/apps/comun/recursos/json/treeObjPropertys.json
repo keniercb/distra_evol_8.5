@@ -1,0 +1,1951 @@
+{
+  "panel": {
+    "xtype": "panel",
+    "herencia": null,
+    "pProperty": [
+      {
+        "denom": "frame",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "border",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "denom": "title",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "margins",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "cmargins",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "html",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "layout",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "region",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "anchor",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "collapsible",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "collapsed",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "animCollapse",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "split",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "disabled",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "width",
+        "type": "string",
+        "default": "auto"
+      },
+      {
+        "denom": "height",
+        "type": "number",
+        "default": ""
+      },
+      {
+        "denom": "elementsByRow",
+        "type": "number",
+        "default": "2"
+      },
+      {
+        "denom": "hidden",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "autoHeight",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "collapseMode",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "anchocolumna",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "loadFn",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "saveFn",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "isDirty",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "gSecurity",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "helpHandler",
+        "type": "function",
+        "default": ""
+      }
+    ],
+    "events": [
+      {
+        "denom": "show",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "render",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "resize",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Formulario nativo": {
+    "xtype": "form",
+    "herencia": "panel",
+    "pProperty": [
+      {
+        "denom": "buttonAlign",
+        "type": "string",
+        "default": "right"
+      },
+      {
+        "denom": "labelAlign",
+        "type": "string",
+        "default": "top"
+      },
+      {
+        "denom": "trackResetOnLoad",
+        "type": "bool",
+        "default": "true"
+      }
+    ],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "render",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "resize",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "clientvalidation",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Formulario": {
+    "xtype": "form_panel",
+    "herencia": "Formulario nativo",
+    "componente": {
+      "module": "persona",
+      "component": "templates"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Gest Imagenes": {
+    "xtype": "gest_img",
+    "herencia": "panel",
+    "componente": {
+      "module": "persona",
+      "component": "gestionarimagenes"
+    },
+    "pProperty": []
+  },
+  "Gest Grados": {
+    "xtype": "gest_grado",
+    "herencia": "panel",
+    "componente": {
+      "module": "persona",
+      "component": "gestionargrados"
+    },
+    "pProperty": []
+  },
+  "Text Field": {
+    "xtype": "textfield",
+    "herencia": null,
+    "pProperty": [
+      {
+        "denom": "disabled",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "allowBlank",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "denom": "maxLengthText",
+        "type": "string",
+        "default": ""
+      },  {
+        "denom": "minLengthText",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "emptyText",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "maxLength",
+        "type": "number",
+        "default": "250"
+      },
+      {
+        "denom": "minLength",
+        "type": "number",
+        "default": "0"
+      },
+      {
+        "denom": "fieldLabel",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "anchor",
+        "type": "string",
+        "default": "100%"
+      },
+      {
+        "denom": "hidden",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "readOnly",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "anchocolumna",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "name",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "vtype",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "regex",
+        "type": "string",
+        "default": ""
+      }
+    ],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "render",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Text Area": {
+    "xtype": "textarea",
+    "herencia": "Text Field",
+    "pProperty": [
+      {
+        "denom": "preventScrollbars",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "grow",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "growMax",
+        "type": "number",
+        "default": ""
+      },
+      {
+        "denom": "readOnly",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "growMin",
+        "type": "number",
+        "default": ""
+      }
+    ],
+    "events": []
+  },
+  "Checkbox": {
+    "xtype": "check_box",
+    "herencia": null,
+    "pProperty": [
+      {
+        "denom": "disabled",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "hidden",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "allowBlank",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "denom": "checked",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "hideLabel",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "readOnly",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "boxLabel",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "fieldLabel",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "name",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "handler",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "anchocolumna",
+        "type": "string",
+        "default": ""
+      }
+    ],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Hidden": {
+    "xtype": "hidden",
+    "herencia": null,
+    "pProperty": [
+      {
+        "denom": "name",
+        "type": "string",
+        "default": ""
+      }
+    ],
+    "events": []
+  },
+  "ComboBox": {
+    "xtype": "combo_box",
+    "herencia": null,
+    "componente": {
+      "module": "persona",
+      "component": "templates"
+    },
+    "pProperty": [
+      {
+        "denom": "disabled",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "resizable",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "allowBlank",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "denom": "emptyText",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "mode",
+        "type": "string",
+        "default": "local"
+      },
+      {
+        "denom": "name",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "fieldLabel",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "loadingText",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "anchor",
+        "type": "string",
+        "default": "90%"
+      },
+      {
+        "denom": "anchocolumna",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "readOnly",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "displayField",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "valueField",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "hiddenName",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "typeAhead",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "forceSelection",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "triggerAction",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "selectOnFocus",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "editable",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "denom": "store",
+        "type": "object",
+        "default": ""
+      },
+      {
+        "denom": "hidden",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "handler",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "tpl",
+        "type": "object",
+        "default": ""
+      },
+      {
+        "denom": "toolTipTrigger1",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "toolTipTrigger2",
+        "type": "string",
+        "default": ""
+      }
+    ],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "render",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "select",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Combo Tipo doc identidad": {
+    "xtype": "combo_tipdocidentidad",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomtipodocidentidad"
+    },
+    "pProperty": [],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Combo Color de ojos": {
+    "xtype": "combo_colorojos",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomcolorojos"
+    },
+    "pProperty": [],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Combo Color del pelo": {
+    "xtype": "combo_colorpelo",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomcolorpelo"
+    },
+    "pProperty": [],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Combo Color de la piel": {
+    "xtype": "combo_colorpiel",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomcolorpiel"
+    },
+    "pProperty": [],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Combo Grupo sanguineo": {
+    "xtype": "combo_gruposanguineo",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomgruposanguineo"
+    },
+    "pProperty": [],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Combo Nacionalidad": {
+    "xtype": "combo_nacionalidad",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomnacionalidad"
+    },
+    "pProperty": [],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Combo Tipo de contacto": {
+    "xtype": "combo_tipocontacto",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomtipocontacto"
+    },
+    "pProperty": [],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Combo Tipo medios de contacto": {
+    "xtype": "combo_tipomediocontacto",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomtipomediocontacto"
+    },
+    "pProperty": [],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Combo Procedencia social": {
+    "xtype": "combo_procedenciasocial",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomprocedenciasocial"
+    },
+    "pProperty": [],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Combo Motivo de baja": {
+    "xtype": "combo_motivobaja",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nommotivobaja"
+    },
+    "pProperty": [],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Combo Idioma": {
+    "xtype": "combo_idioma",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomidioma"
+    },
+    "pProperty": [],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Combo Forma Adquirir Idioma": {
+    "xtype": "combo_formaadquiriridioma",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomformaadquiriridioma"
+    },
+    "pProperty": [],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Combo Ciudadania": {
+    "xtype": "combo_ciudadania",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomciudadania"
+    },
+    "pProperty": [],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Combo Categoria SMA": {
+    "xtype": "combo_categoriasma",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "personalizacion_persona",
+      "component": "nomcategoriasma"
+    },
+    "pProperty": [],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Combo Tipo Sanción": {
+    "xtype": "combo_tiposancion",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomtiposancion"
+    },
+    "pProperty": [],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Combo Sanción": {
+    "xtype": "combo_sancion",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomsancion"
+    },
+    "pProperty": [],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Combo Motivo de Sanción": {
+    "xtype": "combo_motivosancion",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nommotivosancion"
+    },
+    "pProperty": [],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Combo Motivo de Condecoración": {
+    "xtype": "combo_motivocondecoracion",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nommotivocondecoracion"
+    },
+    "pProperty": [],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Combo Tipo de Condecoración": {
+    "xtype": "combo_tipocondecoracion",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomtipocondecoracion"
+    },
+    "pProperty": [],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Combo de Condecoración": {
+    "xtype": "combo_condecoracion",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomcondecoracion"
+    },
+    "pProperty": [],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Combo Tipo de Organización": {
+    "xtype": "combo_tipoorganizacion",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomtipoorganizacion"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo de Organizaciones": {
+    "xtype": "combo_organizacion",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomorganizacion"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Nivel en la Organización": {
+    "xtype": "combo_nivelorganizacion",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomnivelorganizacion"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Cargo en la Organización": {
+    "xtype": "combo_cargoorganizacion",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomcargoorganizacion"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Tipo de Estancia Exterior": {
+    "xtype": "combo_tipoestanciaexterior",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomtipoestanciaexterior"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Tipo de Misión": {
+    "xtype": "combo_tipomision",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomtipomision"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Misiones": {
+    "xtype": "combo_mision",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nommision"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Padecimientos": {
+    "xtype": "combo_padecimiento",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nompadecimiento"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Aptitudes Físicas": {
+    "xtype": "combo_aptitudesfisicas",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomaptitudesfisicas"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Aseo": {
+    "xtype": "combo_aseo",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomaseo"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Asignacion Defensa": {
+    "xtype": "combo_asigdefensa",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomasignaciondefensa"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Medio": {
+    "xtype": "combo_medio",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nommedio"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Jefe Facultado": {
+    "xtype": "combo_jefefacultado",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomjefefacultado"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Situacion Excepcional": {
+    "xtype": "combo_situacexcep",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomsituacexcep"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Cargo Excepcional": {
+    "xtype": "combo_cargoexcep",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomcargoexcep"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Cargo Defensa": {
+    "xtype": "combo_cargodefensa",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomcargodefensa"
+    },
+    "pProperty": [],
+    "events": []
+  },
+
+  "Combo Estructura Alimentación": {
+    "xtype": "combo_estalimentacion",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomestalimentacion"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Estructura Transportación": {
+    "xtype": "combo_estructransportacion",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomestructransportacion"
+    },
+    "pProperty": [],
+    "events": []
+  },
+
+  "Combo Via Ingreso FAR": {
+    "xtype": "combo_víaingresofar",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "personalizacion_persona",
+      "component": "nomviaingresofar"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Nivel educacional": {
+    "xtype": "combo_niveleducacional",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomniveleducacional"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Tipo Formación": {
+    "xtype": "combo_tipoformacion",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomtipoformacion"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Tree ComboModo Formación": {
+    "xtype": "combo_modoformacion",
+    "herencia": "Tree ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nommodoformacion"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Tipo Centro Estudio": {
+    "xtype": "combo_tipocentroestudio",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomtipocentroestudio"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Tipo Cuenta bancaria": {
+    "xtype": "combo_tipocuentabancaria",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomtipocuentabancaria"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Centro Estudio": {
+    "xtype": "combo_centroestudio",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomcentroestudio"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Facultad Estudio": {
+    "xtype": "combo_facultadestudio",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomfacultadestudio"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Títulos": {
+    "xtype": "combo_titulo",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomtitulo"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Convivencia": {
+    "xtype": "combo_convivencia",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "personalizacion_persona",
+      "component": "nomconvivencia"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Estado vivienda": {
+    "xtype": "combo_estadovivienda",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "personalizacion_persona",
+      "component": "nomestadovivienda"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Programa Constructivo": {
+    "xtype": "combo_programaconstructivo",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "personalizacion_persona",
+      "component": "nomprogramaconstructivo"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Tipo de Categoría": {
+    "xtype": "combo_tipocategoria",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomtipocategoria"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Categoría": {
+    "xtype": "combo_categoria",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomcategoria"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Regimen de Trabajo": {
+    "xtype": "combo_tiporegimentrabajo",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomregimentrabajo"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Grupo Descanso": {
+    "xtype": "combo_grupodescanso",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomgrupodescanso"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Turno de Trabajo": {
+    "xtype": "combo_turnotrabajo",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomturnotrabajo"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Prendas": {
+    "xtype": "combo_prenda",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomprenda"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Normas": {
+    "xtype": "combo_norma",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomnorma"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Talla": {
+    "xtype": "combo_talla",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomtalla"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Curso": {
+    "xtype": "combo_curso",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomcurso"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Situacion": {
+    "xtype": "combo_situacion",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomsituacion"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Estado civil": {
+    "xtype": "combo_estadocivil",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomestadocivil"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Disposición": {
+    "xtype": "combo_disposicion",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomdisposicion"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Estratificación Social": {
+    "xtype": "combo_estratificacionsocial",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomestratificacionsocial"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Parentesco": {
+    "xtype": "combo_parentesco",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomparentesco"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Combo Tipo de Ingreso": {
+    "xtype": "combo_tipoingreso",
+    "herencia": "ComboBox",
+    "componente": {
+      "module": "persona",
+      "component": "nomtipoingreso"
+    },
+    "pProperty": [],
+    "events": []
+  },
+  "Date Field": {
+    "xtype": "datefield",
+    "herencia": null,
+    "pProperty": [
+      {
+        "denom": "disabled",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "allowBlank",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "denom": "emptyText",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "format",
+        "type": "string",
+        "default": "d/m/Y"
+      },
+      {
+        "denom": "name",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "vtype",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "value",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "fieldLabel",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "anchor",
+        "type": "string",
+        "default": "90%"
+      },
+      {
+        "denom": "readOnly",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "showToday",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "denom": "hiddenName",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "selectOnFocus",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "hidden",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "anchocolumna",
+        "type": "string",
+        "default": ""
+      }
+    ],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "change",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "render",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Grid Panel": {
+    "xtype": "grid_panel",
+    "herencia": "panel",
+    "componente": {
+      "module": "persona",
+      "component": "templates"
+    },
+    "pProperty": [
+      {
+        "denom": "columns",
+        "type": "array",
+        "default": ""
+      },
+      {
+        "denom": "store",
+        "type": "object",
+        "default": ""
+      },
+      {
+        "denom": "sm",
+        "type": "object",
+        "default": ""
+      },
+      {
+        "denom": "view",
+        "type": "object",
+        "default": ""
+      },
+      {
+        "denom": "viewConfig",
+        "type": "object",
+        "default": ""
+      },
+      {
+        "denom": "frame",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "bbar",
+        "type": "object",
+        "default": ""
+      },
+      {
+        "denom": "ptbar",
+        "type": "object",
+        "default": ""
+      }
+    ],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "selectionchange",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "beforeload",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "load",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Grid Gestionable": {
+    "xtype": "gest_panel",
+    "herencia": "Grid Panel",
+    "componente": {
+      "module": "persona",
+      "component": "templates"
+    },
+    "pProperty": [
+      {
+        "denom": "adicionarHandler",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "modificarHandler",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "eliminarHandler",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "guardarHandler",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "aplicarHandler",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "helpHandler",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "addBotones",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "validateForm",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "getLanguaje",
+        "type": "function",
+        "default": ""
+      }
+    ],
+    "events": []
+  },
+  "Number Field": {
+    "xtype": "numberfield",
+    "herencia": null,
+    "pProperty": [
+      {
+        "denom": "disabled",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "allowBlank",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "denom": "enableKeyEvents",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "denom": "emptyText",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "validationEvent",
+        "type": "string",
+        "default": "keyup"
+      },
+      {
+        "denom": "maxLength",
+        "type": "number",
+        "default": "250"
+      },
+      {
+        "denom": "minLength",
+        "type": "number",
+        "default": "0"
+      },
+      {
+        "denom": "maxValue",
+        "type": "number",
+        "default": ""
+      },
+      {
+        "denom": "minValue",
+        "type": "number",
+        "default": ""
+      },
+      {
+        "denom": "validationDelay",
+        "type": "number",
+        "default": "250"
+      },
+      {
+        "denom": "fieldLabel",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "anchor",
+        "type": "string",
+        "default": "100%"
+      },
+      {
+        "denom": "hidden",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "readOnly",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "anchocolumna",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "name",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "baseChars",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "decimalPrecision",
+        "type": "number",
+        "default": ""
+      },
+      {
+        "denom": "allowDecimals",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "denom": "validator",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "allowNegative",
+        "type": "bool",
+        "default": "true"
+      }
+    ],
+    "events": [
+      {
+        "denom": "focus",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "render",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "blur",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Tree ComboBox": {
+    "xtype": "tree_combobox",
+    "herencia": null,
+    "componente": {
+      "module": "persona",
+      "component": "treecombobox"
+    },
+    "pProperty": [
+      {
+        "denom": "disabled",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "resizable",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "allowBlank",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "denom": "editable",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "denom": "emptyText",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "fieldLabel",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "anchor",
+        "type": "string",
+        "default": "100%"
+      },
+      {
+        "denom": "hidden",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "readOnly",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "denom": "anchocolumna",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "name",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "denom": "treeConfig",
+        "type": "object",
+        "default": ""
+      },
+      {
+        "denom": "clickNode",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "reset",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "setValue",
+        "type": "function",
+        "default": ""
+      }
+    ],
+    "events": [
+      {
+        "denom": "expand",
+        "type": "function",
+        "default": ""
+      }
+    ]
+  },
+  "Twin Trigger Field": {
+    "xtype": "twntrigger",
+    "herencia": "Text Field",
+    "componente": {
+      "module": "comun",
+      "component": "utiles"
+    },
+    "pProperty": [
+      {
+        "denom": "trigger1Class",
+        "type": "string",
+        "default": "x-form-clear-trigger"
+      },
+      {
+        "denom": "trigger2Class",
+        "type": "string",
+        "default": "x-form-search-trigger"
+      },
+      {
+        "denom": "onTrigger1Click",
+        "type": "function",
+        "default": ""
+      },
+      {
+        "denom": "onTrigger2Click",
+        "type": "function",
+        "default": ""
+      }
+    ],
+    "events": []
+  }
+}

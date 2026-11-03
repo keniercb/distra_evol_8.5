@@ -1,0 +1,203 @@
+/*
+ * Ext JS Library 2.2
+ * Copyright(c) 2006-2008, Ext JS, LLC.
+ * licensing@extjs.com
+ *
+ * http://extjs.com/license
+ */
+
+#images-view .x-panel-body{
+	background: white;
+	font: 11px Arial, Helvetica, sans-serif;
+}
+#images-view .thumb{
+	background: #dddddd;
+	padding: 3px;
+}
+#images-view .thumb img{
+	height: 60px;
+	width: 80px;
+}
+#images-view .thumb-wrap{
+	float: left;
+	margin: 4px;
+	margin-right: 0;
+	padding: 5px;
+}
+#images-view .thumb-wrap span{
+	display: block;
+	overflow: hidden;
+	text-align: center;
+}
+
+#images-view .x-view-over{
+    border:1px solid #dddddd;
+    background: #efefef url(../../resources/images/default/grid/row-over.gif) repeat-x left top;
+	padding: 4px;
+}
+
+#images-view .x-view-selected{
+	background: #eff5fb url(images/selected.gif) no-repeat right bottom;
+	border:1px solid #99bbe8;
+	padding: 4px;
+}
+#images-view .x-view-selected .thumb{
+	background:transparent;
+}
+
+#images-view .loading-indicator {
+	font-size:11px;
+	background-image:url('../../resources/images/default/grid/loading.gif');
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left:20px;
+	margin:10px;
+}
+
+/*--------------------- Para logos ---------------------------------------------*/
+
+#logos-view .x-panel-body{
+	background: white;
+	font: 11px Arial, Helvetica, sans-serif;
+}
+#logos-view .thumb{
+	background: #dddddd;
+	padding: 3px;
+}
+#logos-view .thumb img{
+	height: 60px;
+	width: 60px;
+}
+#logos-view .thumb-wrap{
+	float: left;
+	margin: 4px;
+	margin-right: 0;
+	padding: 5px;
+}
+#logos-view .thumb-wrap span{
+	display: block;
+	overflow: hidden;
+	text-align: center;
+}
+
+#logos-view .x-view-over{
+    border:1px solid #dddddd;
+    background: #efefef url(../../resources/images/default/grid/row-over.gif) repeat-x left top;
+	padding: 4px;
+}
+
+#logos-view .x-view-selected{
+	background: #eff5fb url(images/selected.gif) no-repeat right bottom;
+	border:1px solid #99bbe8;
+	padding: 4px;
+}
+#logos-view .x-view-selected .thumb{
+	background:transparent;
+}
+
+#logos-view .loading-indicator {
+	font-size:11px;
+	background-image:url('../../resources/images/default/grid/loading.gif');
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left:20px;
+	margin:10px;
+}
+/*--------------------- Para Imagenes Marca ---------------------------------------*/
+
+#marcas-view .x-panel-body{
+	background: white;
+	font: 11px Arial, Helvetica, sans-serif;
+}
+#marcas-view .thumb{
+	background: #dddddd;
+	padding: 3px;
+}
+#marcas-view .thumb img{
+	height: 85px;
+	width: 85px;
+}
+#marcas-view .thumb-wrap{
+	float: left;
+	margin: 4px;
+	margin-right: 0;
+	padding: 5px;
+}
+#marcas-view .thumb-wrap span{
+	display: block;
+	overflow: hidden;
+	text-align: center;
+}
+
+#marcas-view .x-view-over{
+    border:1px solid #dddddd;
+    background: #efefef url(../../resources/images/default/grid/row-over.gif) repeat-x left top;
+	padding: 4px;
+}
+
+#marcas-view .x-view-selected{
+	background: #eff5fb url(images/selected.gif) no-repeat right bottom;
+	border:1px solid #99bbe8;
+	padding: 4px;
+}
+#marcas-view .x-view-selected .thumb{
+	background:transparent;
+}
+
+#marcas-view .loading-indicator {
+	font-size:11px;
+	background-image:url('../../resources/images/default/grid/loading.gif');
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left:20px;
+	margin:10px;
+}
+
+
+#allimages-view .x-panel-body{
+	background: white;
+	font: 11px Arial, Helvetica, sans-serif;
+}
+#allimages-view .thumb{
+	background: #dddddd;
+	padding: 3px;
+}
+#allimages-view .thumb img{
+	height: 50px;
+	width: 50px;
+}
+#allimages-view .thumb-wrap{
+	float: left;
+	margin: 4px;
+	margin-right: 0;
+	padding: 5px;
+}
+#allimages-view .thumb-wrap span{
+	display: block;
+	overflow: hidden;
+	text-align: center;
+}
+
+#allimages-view .x-view-over{
+    border:1px solid #dddddd;
+    background: #efefef url(../../resources/images/default/grid/row-over.gif) repeat-x left top;
+	padding: 4px;
+}
+
+#allimages-view .x-view-selected{
+	background: #eff5fb url(images/selected.gif) no-repeat right bottom;
+	border:1px solid #99bbe8;
+	padding: 4px;
+}
+#allimages-view .x-view-selected .thumb{
+	background:transparent;
+}
+
+#allimages-view .loading-indicator {
+	font-size:11px;
+	background-image:url('../../resources/images/default/grid/loading.gif');
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left:20px;
+	margin:10px;
+}

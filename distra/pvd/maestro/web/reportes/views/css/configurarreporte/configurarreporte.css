@@ -1,0 +1,19 @@
+.detailspanel .x-panel-body {
+    padding: 10px;
+    background: #eee;
+    color: #555;
+}
+.detailspanel h2 {
+    color: #369;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.detailspanel p {
+    margin-bottom: 5px;
+}
+.filter-textarea{
+	margin-top: -10px;
+}
+.filter-radio{
+	margin-top: -5px;
+}

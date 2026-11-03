@@ -1,0 +1,40 @@
+{
+    lbAdicionar: 'Adicionar',
+    tiplbAdicionar: 'Crear un nuevo tipo de calidad.',
+
+    lbModificar: 'Modificar',
+    tiplbModificar: 'Modificar tipo de calidad.',
+
+
+    lbEliminar: 'Eliminar',
+    tiplbEliminar: 'Eliminar tipo de calidad.',
+
+    lbNumero: 'No',
+    lbVersion: 'Version',
+    lbFechainicio: 'Fecha inicio',
+    lbFechafin: 'Fecha fin',
+    lbDescripcion: 'Descripci&oacute;n',
+
+    lbTituloGrid: 'Tipo de calidad',
+
+
+    lbTitituloAdd: 'Adicionar tipo de calidad',
+    lbTitituloMod: 'Modificar tipo de calidad',
+    lbBtnAceptar: 'Aceptar',
+    lbBtnCancelar: 'Cancelar',
+    lbBtnAplicar: 'Aplicar',
+    lbBtnModificar: 'Modificar',
+    lbBtnAdicionar: 'Insertar',
+
+    msgDatosVacios: 'Existen campos vac&iacute;os. Por favor verifique los datos.',
+    msgAdicionarOk: 'Se ha adicionado el tipo de calidad satisfactoriamente.',
+    msgModificarOk: 'Se ha modificado el tipo de calidad satisfactoriamente.',
+    msgErrorAdicionar: 'Ha ocurrido un error al adicionar el tipo de calidad.',
+    msgErrorModificar: 'Ha ocurrido un error al modificar el tipo de calidad.',
+    msgEliminarOrden: 'Est&aacute; seguro que desea eliminar el tipo de calidad. ?',
+    msgErrorExisteCodigo: 'Existe el c&oacute;digo para el tipo de calidad.',
+    msgEliminando: 'Eliminando el tipo de calidad ...',
+
+    msgEliminado: 'Se ha eliminado el tipo de calidad correctamente',
+    msgEliminarError: 'El tipo de calidad no puede ser eliminada porque tiene dependencia'
+}

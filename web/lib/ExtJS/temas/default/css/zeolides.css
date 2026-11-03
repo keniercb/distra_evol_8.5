@@ -1,0 +1,587 @@
+/*Ide*/
+.icon-aceptar {
+    background-image:url(../images/iconos/aceptar.png) !important;
+}
+.icon-regla {
+    background-image:url(../images/iconos/regla.png) !important;
+}
+.icon-abajo {
+    background-image:url(../images/iconos/abajo.png) !important;
+}
+.icon-abrirventana {
+    background-image:url(../images/iconos/abrirventana.png) !important;
+}
+.icon-abrir {
+    background-image:url(../images/iconos/abrir.png) !important;
+}
+.icon-acrobat{
+    background-image:url(../images/iconos/acrobat.png) !important;
+}
+.icon-activardepbanco {
+    background-image:url(../images/iconos/activardepbanco.png) !important;
+}
+.icon-actualizar {
+    background-image:url(../images/iconos/actualizar.png) !important;
+}
+.icon-adicionar {
+    background-image:url(../images/iconos/adicionar.png) !important;
+}
+.icon-intercambiar {
+    background-image:url(../images/iconos/intercambiar.png) !important;
+}
+.icon-collapseall {
+    background-image:url(../images/help/collapse-all.gif) !important;
+}
+.icon-expandall {
+    background-image:url(../images/help/expand-all.gif) !important;
+}
+/*.icon-intercambiar {
+ background-image:url(../images/iconos/intercambiar.png) !important; 
+}*/
+.icon-ajustar {
+    background-image:url(../images/iconos/ajustar.png) !important;
+}
+.icon-anterior {
+    background-image:url(../images/iconos/anterior.png) !important;
+}
+.icon-anular {
+    background-image:url(../images/iconos/anular.png) !important;
+}
+.icon-apf {
+    background-image:url(../images/iconos/apf.png) !important;
+}
+.icon-aplicar {
+    background-image:url(../images/iconos/aplicar.png) !important;
+}
+.icon-aprobar {
+    background-image:url(../images/iconos/aprobar.png) !important;
+}
+.icon-area {
+    background-image:url(../images/iconos/area.png) !important;
+}
+.icon-arriba {
+    background-image:url(../images/iconos/arriba.png) !important;
+}
+.icon-asentar {
+    background-image:url(../images/iconos/asentar.png) !important;
+}
+.icon-asociar {
+    background-image:url(../images/iconos/asociar.png) !important;
+}
+.icon-auditoria {
+    background-image:url(../images/iconos/auditoria.png) !important;
+}
+.icon-auditoriainactivo {
+    background-image:url(../images/iconos/auditoriainactivo.png) !important;
+}
+.icon-ayuda {
+    background-image:url(../images/iconos/ayuda.png) !important;
+}
+.icon-balance {
+    background-image:url(../images/iconos/balance.png) !important;
+}
+.icon-banderaazul {
+    background-image:url(../images/iconos/banderaazul.png) !important;
+}
+.icon-banderaroja {
+    background-image:url(../images/iconos/banderaroja.png) !important;
+}
+.icon-banderaverde {
+    background-image:url(../images/iconos/banderaverde.png) !important;
+}
+.icon-borrar {
+    background-image:url(../images/iconos/borrar.png) !important;
+}
+.icon-buscar {
+    background-image:url(../images/iconos/buscar.png) !important;
+}
+.icon-buscaravanzada {
+    background-image:url(../images/iconos/buscaravanzada.png) !important;
+}
+.icon-buscarcliententidad {
+    background-image:url(../images/iconos/buscarcliententidad.png) !important;
+}
+.icon-buscarclitepersona {
+    background-image:url(../images/iconos/buscarclitepersona.png) !important;
+}
+.icon-buscaryremplazar {
+    background-image:url(../images/iconos/buscaryremplazar.png) !important;
+}
+.icon-calcular {
+    background-image:url(../images/iconos/calcular.png) !important;
+}
+.icon-calendario {
+    background-image:url(../images/iconos/calendario.png) !important;
+}
+.icon-cambiar {
+    background-image:url(../images/iconos/cambiar.png) !important;
+}
+.icon-cambiardecuenta {
+    background-image:url(../images/iconos/cambiardecuenta.png) !important;
+}
+.icon-cambiarunidadcont {
+    background-image:url(../images/iconos/cambiarunidadcont.png) !important;
+}
+.icon-cambiodestado {
+    background-image:url(../images/iconos/cambiodestado.png) !important;
+}
+.icon-cambiosdecuenta {
+    background-image:url(../images/iconos/cambiosdecuenta.png) !important;
+}
+.icon-cambunidcont {
+    background-image:url(../images/iconos/cambunidcont.png) !important;
+}
+.icon-cancelar {
+    background-image:url(../images/iconos/cancelar.png) !important;
+}
+.icon-cancelarestado {
+    background-image:url(../images/iconos/cancelarestado.png) !important;
+}
+.icon-capitalhumano {
+    background-image:url(../images/iconos/capitalhumano.png) !important;
+}
+.icon-capitalhumanoinactivo {
+    background-image:url(../images/iconos/capitalhumanoinactivo.png) !important;
+}
+.icon-cargadoacuenta {
+    background-image:url(../images/iconos/cargadoacuenta.png) !important;
+}
+.icon-cargocivil {
+    background-image:url(../images/iconos/cargocivil.png) !important;
+}
+.icon-cargomilitar {
+    background-image:url(../images/iconos/cargomilitar.png) !important;
+}
+.icon-cedrux {
+    background-image:url(../images/iconos/cedrux.png) !important;
+}
+.icon-cerrar {
+    background-image:url(../images/iconos/cerrar.png) !important;
+}
+.icon-chumanoinactivo {
+    background-image:url(../images/iconos/chumanoinactivo.png) !important;
+}
+.icon-comprobante {
+    background-image:url(../images/iconos/comprobante.png) !important;
+}
+.icon-conciliar {
+    background-image:url(../images/iconos/conciliar.png) !important;
+}
+.icon-config {
+    background-image:url(../images/iconos/config.png) !important;
+}
+.icon-configactivo {
+    background-image:url(../images/iconos/configactivo.png) !important;
+}
+.icon-configinactivo {
+    background-image:url(../images/iconos/configinactivo.png) !important;
+}
+.icon-confirmar {
+    background-image:url(../images/iconos/confirmar.png) !important;
+}
+.icon-contabilidad {
+    background-image:url(../images/iconos/contabilidad.png) !important;
+}
+.icon-contabilidadinactivo {
+    background-image:url(../images/iconos/contabilidadinactivo.png) !important;
+}
+.icon-copiar {
+    background-image:url(../images/iconos/copiar.png) !important;
+}
+.icon-cortar {
+    background-image:url(../images/iconos/cortar.png) !important;
+}
+.icon-costosyprocesos {
+    background-image:url(../images/iconos/costosyprocesos.png) !important;
+}
+.icon-costosyprocinact {
+    background-image:url(../images/iconos/costosyprocinact.png) !important;
+}
+.icon-crear_reporte {
+    background-image:url(../images/iconos/crear_reporte.png) !important;
+}
+.icon-crearreporte {
+    background-image:url(../images/iconos/crearreporte.png) !important;
+}
+.icon-cumplimiento {
+    background-image:url(../images/iconos/cumplimiento.png) !important;
+}
+.icon-dashabilitar {
+    background-image:url(../images/iconos/dashabilitar.png) !important;
+}
+.icon-definir {
+    background-image:url(../images/iconos/definir.png) !important;
+}
+.icon-des {
+    background-image:url(../images/iconos/des.png) !important;
+}
+.icon-deshabilitar {
+    background-image:url(../images/iconos/deshabilitar.png) !important;
+}
+.icon-deshacer {
+    background-image:url(../images/iconos/deshacer.png) !important;
+}
+.icon-rehacer {
+    background-image:url(../images/iconos/rehacer.png) !important;
+}
+.icon-detalles {
+    background-image:url(../images/iconos/detalles.png) !important;
+}
+.icon-diferenciaconbanco {
+    background-image:url(../images/iconos/diferenciaconbanco.png) !important;
+}
+.icon-duplicar {
+    background-image:url(../images/iconos/duplicar.png) !important;
+}
+.icon-eliminar {
+    background-image:url(../images/iconos/eliminar.png) !important;
+}
+.icon-entidad {
+    background-image:url(../images/iconos/entidad.png) !important;
+}
+.icon-ept {
+    background-image:url(../images/iconos/ept.png) !important;
+}
+.icon-estado {
+    background-image:url(../images/iconos/estado.png) !important;
+}
+.icon-estructura {
+    background-image:url(../images/iconos/estructura.png) !important;
+}
+.icon-estructurainactivo {
+    background-image:url(../images/iconos/estructurainactivo.png) !important;
+}
+.icon-evu {
+    background-image:url(../images/iconos/evu.png) !important;
+}
+.icon-exportar {
+    background-image:url(../images/iconos/exportar.png) !important;
+}
+.icon-facturar {
+    background-image:url(../images/iconos/facturar.png) !important;
+}
+.icon-falta {
+    background-image:url(../images/iconos/falta.png) !important;
+}
+.icon-filtrar {
+    background-image:url(../images/iconos/filtrar.png) !important;
+}
+.icon-funcionalidad {
+    background-image:url(../images/iconos/funcionalidad.png) !important;
+}
+.icon-generadorreportes {
+    background-image:url(../images/iconos/generadorreportes.png) !important;
+}
+.icon-genreportesinactivo {
+    background-image:url(../images/iconos/genreportesinactivo.png) !important;
+}
+.icon-guardar {
+    background-image:url(../images/iconos/guardar.png) !important;
+}
+.icon-habilitar {
+    background-image:url(../images/iconos/habilitar.png) !important;
+}
+.icon-historial {
+    background-image:url(../images/iconos/historial.png) !important;
+}
+.icon-importar {
+    background-image:url(../images/iconos/importar.png) !important;
+}
+.icon-imprimir {
+    background-image:url(../images/iconos/imprimir.png) !important;
+}
+.icon-incluir {
+    background-image:url(../images/iconos/incluir.png) !important;
+}
+.icon-inf {
+    background-image:url(../images/iconos/inf.png) !important;
+}
+.icon-info {
+    background-image:url(../images/iconos/info.png) !important;
+}
+.icon-informe {
+    background-image:url(../images/iconos/informe.png) !important;
+}
+.icon-iniciodeanno {
+    background-image:url(../images/iconos/iniciodeanno.png) !important;
+}
+.icon-inventario {
+    background-image:url(../images/iconos/inventario.png) !important;
+}
+.icon-inventarioinactivo {
+    background-image:url(../images/iconos/inventarioinactivo.png) !important;
+}
+.icon-invertir {
+    background-image:url(../images/iconos/invertir.png) !important;
+}
+.icon-limpiar {
+    background-image:url(../images/iconos/limpiar.png) !important;
+}
+.icon-liquidar {
+    background-image:url(../images/iconos/liquidar.png) !important;
+}
+.icon-logistica {
+    background-image:url(../images/iconos/logistica.png) !important;
+}
+.icon-logisticainactivo {
+    background-image:url(../images/iconos/logisticainactivo.png) !important;
+}
+.icon-lote {
+    background-image:url(../images/iconos/lote.png) !important;
+}
+.icon-medios {
+    background-image:url(../images/iconos/medios.png) !important;
+}
+.icon-modificar {
+    background-image:url(../images/iconos/modificar.png) !important;
+}
+.icon-mostrar {
+    background-image:url(../images/iconos/mostrar.png) !important;
+}
+.icon-multimoneda {
+    background-image:url(../images/iconos/multimoneda.png) !important;
+}
+.icon-nuevacorrconbanco {
+    background-image:url(../images/iconos/nuevacorrconbanco.png) !important;
+}
+.icon-nuevo {
+    background-image:url(../images/iconos/nuevo.png) !important;
+}
+.icon-numeroserie {
+    background-image:url(../images/iconos/numeroserie.png) !important;
+}
+.icon-pagina-en-contruccion1 {
+    background-image:url(../images/iconos/pagina-en-contruccion1.png) !important;
+}
+.icon-pagina-en-contruccion {
+    background-image:url(../images/iconos/pagina-en-contruccion.png) !important;
+}
+.icon-pdi {
+    background-image:url(../images/iconos/pdi.png) !important;
+}
+.icon-pegar {
+    background-image:url(../images/iconos/pegar.png) !important;
+}
+.icon-periodoactual {
+    background-image:url(../images/iconos/periodoactual.png) !important;
+}
+.icon-planificacion {
+    background-image:url(../images/iconos/planificacion.png) !important;
+}
+.icon-planificacioninactivo {
+    background-image:url(../images/iconos/planificacioninactivo.png) !important;
+}
+.icon-primerapagina {
+    background-image:url(../images/iconos/primerapagina.png) !important;
+}
+.icon-primerapaginainactivo {
+    background-image:url(../images/iconos/primerapaginainactivo.png) !important;
+}
+.icon-procesardocumento {
+    background-image:url(../images/iconos/procesardocumento.png) !important;
+}
+.icon-psi {
+    background-image:url(../images/iconos/psi.png) !important;
+}
+.icon-ptr {
+    background-image:url(../images/iconos/ptr.png) !important;
+}
+.icon-rango {
+    background-image:url(../images/iconos/rango.png) !important;
+}
+.icon-recuperaciones {
+    background-image:url(../images/iconos/recuperaciones.png) !important;
+}
+.icon-reevaluacion {
+    background-image:url(../images/iconos/reevaluacion.png) !important;
+}
+.icon-renovardocumento {
+    background-image:url(../images/iconos/renovardocumento.png) !important;
+}
+.icon-restringir {
+    background-image:url(../images/iconos/restringir.png) !important;
+}
+.icon-revisar {
+    background-image:url(../images/iconos/revisar.png) !important;
+}
+.icon-salir {
+    background-image:url(../images/iconos/salir.png) !important;
+}
+.icon-seginactivo {
+    background-image:url(../images/iconos/seginactivo.png) !important;
+}
+.icon-seguridad {
+    background-image:url(../images/iconos/seguridad.png) !important;
+}
+.icon-seguridadinactivo {
+    background-image:url(../images/iconos/seguridadinactivo.png) !important;
+}
+.icon-seleccion {
+    background-image:url(../images/iconos/seleccion.png) !important;
+}
+.icon-siguiente {
+    background-image:url(../images/iconos/siguiente.png) !important;
+}
+.icon-siguienteinactivo {
+    background-image:url(../images/iconos/siguienteinactivo.png) !important;
+}
+.icon-sistemaintegral {
+    background-image:url(../images/iconos/sistemaintegral.png) !important;
+}
+.icon-terminar {
+    background-image:url(../images/iconos/terminar.png) !important;
+}
+.icon-tmpseguridad {
+    background-image:url(../images/iconos/tmpseguridad.png) !important;
+}
+.icon-traza {
+    background-image:url(../images/iconos/traza.png) !important;
+}
+.icon-trazainactivo {
+    background-image:url(../images/iconos/trazainactivo.png) !important;
+}
+.icon-ubicarproducto {
+    background-image:url(../images/iconos/ubicarproducto.png) !important;
+}
+.icon-ultimapagina {
+    background-image:url(../images/iconos/ultimapagina.png) !important;
+}
+.icon-ultimapaginainactivo {
+    background-image:url(../images/iconos/ultimapaginainactivo.png) !important;
+}
+.icon-unidad {
+    background-image:url(../images/iconos/unidad.png) !important;
+}
+.icon-usuario {
+    background-image:url(../images/iconos/usuario.png) !important;
+}
+.icon-usuarioactivo {
+    background-image:url(../images/iconos/usuarioactivo.png) !important;
+}
+
+.icon-usuarioinactivo {
+    background-image:url(../images/iconos/usuarioinactivo.png) !important;
+}
+
+
+.icon-validar {
+    background-image:url(../images/iconos/validar.png) !important;
+}
+
+
+.icon-validaryaceptar {
+    background-image:url(../images/iconos/validaryaceptar.png) !important;
+}
+
+.icon-ver {
+    background-image:url(../images/iconos/ver.png) !important;
+}
+
+
+/* ---iconos para ProjectManager--- */
+
+.icon-php {
+    background-image:url(../images/iconos/projectManager/php.png) !important;
+}
+
+.icon-txt {
+    background-image:url(../images/iconos/projectManager/txt.png) !important;
+}
+
+.icon-xml {
+    background-image:url(../images/iconos/projectManager/xml.png) !important;
+}
+
+.icon-Director {
+    background-image:url(../images/iconos/projectManager/folder.gif) !important;
+}
+
+/* ---------*/
+.comp-button {
+    background-image: url(../../../modules/GuiDesigner/resources/images/Button.png) !important;
+}
+.comp-panel{
+    background-image: url(../../../modules/GuiDesigner/resources/images/caxtor.panel.png) !important;
+}
+
+/** vim: ts=4:sw=4:nu:fdc=4:nospell
+ *
+ * Ext.ux.grid.RowActions.css
+ *
+ * Style sheets for Grid RowActions Plugin
+ *
+ * @author   Ing. Jozef SakÃ¡loÅ¡
+ * @date     27. March 2008
+ * @verson   $Id: Ext.ux.grid.RowActions.css 753 2009-10-28 02:17:34Z jozo $
+ *
+ * @license Ext.ux.grid.RowActions.css is licensed under the terms of
+ * the Open Source LGPL 3.0 license.  Commercial use is permitted to the extent
+ * that the code/component(s) do NOT become part of another Open Source or Commercially
+ * licensed development library or toolkit without explicit permission.
+ *
+ * License details: http://www.gnu.org/licenses/lgpl.html
+ */
+
+/* styles for rows */
+.ux-row-action-cell .x-grid3-cell-inner {
+    padding:1px 0 0 0;
+}
+.ux-row-action-item {
+    float:left;
+    min-width:16px;
+    height:16px;
+    background-repeat:no-repeat;
+    margin: 0 3px 0 2px;
+    /*	margin: 1px 5px 0 2px; */
+    cursor:pointer;
+    overflow:hidden;
+}
+.ext-ie .ux-row-action-item {
+    width:16px;
+}
+.ext-ie .ux-row-action-text {
+    width:auto;
+}
+.ux-row-action-item span {
+    vertical-align:middle;
+    padding:0 0 0 20px;
+    line-height:18px;
+}
+.ext-ie .ux-row-action-item span {
+    width:auto;
+}
+
+/* styles for groups */
+.x-grid-group-hd div {
+    position:relative;
+    height:16px;
+}
+.ux-grow-action-item {
+    min-width:16px;
+    height:16px;
+    background-repeat:no-repeat;
+    background-position: 0 50% ! important;
+    margin: 0 0 0 4px;
+    padding: 0 ! important;
+    cursor:pointer;
+    float:left;
+}
+.ext-ie .ux-grow-action-item {
+    width:16px;
+}
+.ux-action-right {
+    float:right;
+    margin: 0 3px 0 2px;
+    padding: 0 ! important;
+}
+.ux-grow-action-text {
+    padding: 0 ! important;
+    margin:0 ! important;
+    background:transparent none ! important;
+    float:left;
+}
+
+/* eof */
+
+
+

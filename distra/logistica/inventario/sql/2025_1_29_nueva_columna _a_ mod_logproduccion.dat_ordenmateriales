@@ -1,0 +1,27 @@
+CREATE TABLE mod_logproduccion.dat_ordenmateriales (
+  idordenmateriales NUMERIC(19,0) DEFAULT nextval('mod_logproduccion.sec_ordenmaterial_seq'::regclass) NOT NULL,
+  idordenproduccion NUMERIC(19,0),
+  idindicador NUMERIC(19,0),
+  cantidad NUMERIC(25,6) DEFAULT 0 NOT NULL,
+  precioplanif NUMERIC(25,6),
+  CONSTRAINT dat_ordenmateriales_idx UNIQUE(idordenproduccion, idindicador),
+  CONSTRAINT dat_ordenmateriales_pkey PRIMARY KEY(idordenmateriales),
+  CONSTRAINT dat_ordenmateriales_fk FOREIGN KEY (idordenproduccion)
+    REFERENCES mod_logproduccion.dat_ordenproduccion(idordenproduccion)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION
+    NOT DEFERRABLE,
+  CONSTRAINT dat_ordenmateriales_fk1 FOREIGN KEY (idindicador)
+    REFERENCES mod_datosmaestros.nom_indicador(idindicador)
+    MATCH FULL
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+    NOT DEFERRABLE
+) 
+WITH (oids = false);
+
+COMMENT ON COLUMN mod_logproduccion.dat_ordenmateriales.cantidad
+IS 'Cantidad de materiales necesrios';
+
+ALTER TABLE mod_logproduccion.dat_ordenmateriales
+  OWNER TO zeolides;

@@ -1,0 +1,11 @@
+{
+   lbEspecialidad: 'Especialidad',
+   lbCbVacio: 'Seleccione...',
+   lbReporte: 'Reportes',
+   lbFechaInicio: 'Fecha inicial del trimestre',
+   lbFechaFin: 'Fecha final del trimestre',
+   btnMostrar: 'Mostrar',
+   btnTtMostrar: 'Mostrar reporte por especialidad',
+   btnLimpiar: 'Limpiar',
+   btnTtLimpiar: 'Limpiar los campos'
+}  

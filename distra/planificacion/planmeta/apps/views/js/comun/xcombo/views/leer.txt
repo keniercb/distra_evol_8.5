@@ -1,0 +1,93 @@
+Para trabajar con el componente combobox treeGrid de la carpeta:
+
+\contabilidad\comun\componentes\xcombo\views
+
+es necesario incluir en el phtml los siguientes archivos:
+
+TreeGrid.css
+combos.css
+
+TreeGrid.js
+ClassXCombo.js
+UIXCombo.js
+
+Construcción de un objeto del mismo, ejemplo y explicación:
+
+cbxEntidad = new Ext.CONT.UIXCombo({
+            emptyText: 'Sleccione...',               ----> texto que se muestra cuando no se ha seleccinado nada
+            allowBlank: false,                       ----> si permite o no valores en blanco
+            fieldLabel: 'Entidad',                   ----> este es el título del componente
+            tabIndex: 1,                             ----> esta propiedad se puede ver en la API buscando combobox
+            hiddenTbar: false			             ----> esta propiedad es para si quiere que salga o no el tbar del componente
+        }, {
+            identificador: 'Entidad',                ----> identificador que se gestiona internamente, por tanto al poner este el id = cbxEntidad
+            displayText: 'Entidad',				     ----> este funciona como el título del componente
+            url: 'obtenerEntidadesParaBusqueda',     ----> url para la petición de los datos
+            autoLoad: false,	                     ----> propiedad perteneciente al Store del componente, aparece en la API buscando Store
+            tbar: [],                                ----> si tiene componentes a poner en el tbar, si no no se pone
+            singleSelect: false,					 ----> esta propiedad pertenece al selection model del grid del componente, se puede buscar en la API como rowselectionmodel
+            reader: scope.jrEntidad = new Ext.data.JsonReader({ ---> este es el lector de los datos, fijarse en la explicación de abajo que puede dar problemas
+                id: 'idestructurae',                              
+                root: 'datos'
+            }, [{
+                    name: '_parent',
+                    mapping: 'idestructuraepadre'
+                }, {
+                    name: '_is_leaf',
+                    mapping: 'leaf'
+                }, {
+                    name: 'text'
+                }, {
+                    name: 'idestructurae'
+                }, {
+                    name: 'idestructuraepadre'
+                }, {
+                    name: 'codigo',
+                    mapping: 'codigoestructura'
+                }, {
+                    name: 'ordenizq'
+                }, {
+                    name: 'ordender'
+                }])
+        });
+		
+		
+		En este JsonReader se maneja como se cargarán los datos.
+		id: 'idestructurae' ------> es el id de este componente, pero es necesario ponerle el name de alguno de los
+		                            mapeados debajo, para que cuando se desplegue un nodo raíz pueda mandar un anode:valor
+									al servidor y poder utilizarlo para pedir otro nodo que sea hijo del mandado por la petición.
+									Se pone de manifiesto con el ejemplo donde id: 'idestructurae' es igual a name: 'idestructurae'.
+		root: 'datos'-------------> Este es el arreglo de donde salen los datos, tiene que tener un formato como el que se muestra
+									en el ejemplo con su name y su mapping(en el caso necesario). El arreglo puede traer mas propiedades
+									pero estas que se muestran son la principales, que se explicarán a continuación.
+									
+			[{
+                    name: '_parent',                  --> esta propiedad permite trabajar con el padre(tiene que ir por defecto)
+                    mapping: 'idestructuraepadre'     --> esta es la propiedad con que se mapea el padre que viene de la server
+                }, {
+                    name: '_is_leaf',                 --> prpiedad con la cual el componente trabaja para ver si es hoja(tiene que ir por defecto)
+                    mapping: 'leaf'                   --> esta es la que se mapea para decir si el nodo es hoja o no
+                }, {
+                    name: 'text'                      --> esta es para costrar el texto del nodo(tiene que ir por defecto)
+                }, {
+                    name: 'idestructurae'             --> propiedad mapeada
+                }, {
+                    name: 'idestructuraepadre'        --> propiedad mapeada
+                }, {
+                    name: 'codigo',                   --> esta propiedad se maneja internamente en el componente para que se muestre el valor que queremos, en este caso codigoestructura que es el que se mapea
+                    mapping: 'codigoestructura'       --> propiedad que se mapea para mostrar el código en la vista
+                }, {
+                    name: 'ordenizq'                  --> propiedad mapeada
+                }, {
+                    name: 'ordender'                  --> propiedad mapeada
+             }]
+			 
+			 
+Este componente para poder renderizarlo es necesario que el valor del id que se pone como propiedad general no sea igual
+al valor que se mapea como padre del mismo.
+
+Por ejemplo:  En este se puso id: 'idestructurae' , {name:'idestructurae'} y {name: '_parent',mapping: 'idestructuraepadre'}
+
+En este caso el valor del idestructurae no puede ser igual al idestructuraepadre, porque el componente no se renderizaría.
+
+			 

@@ -1,0 +1,132 @@
+var grid = Ext.create('Ext.grid.Panel', {
+        renderTo: Ext.getBody(),
+        store: Restaurants,
+        width: 660,
+        height: 490,
+        title: 'Restaurants',
+        multiSelect: true,
+
+        viewConfig: {
+            stripeRows: true
+        },
+
+        features: [Ext.create('Ext.ux.grid.feature.Tileview', {
+            viewMode: 'tiles',
+            viewTpls:
+            {
+                medium: [
+                    '<tpl if="view.tileViewFeature.viewMode==\'medium\'">',
+                    '{%',
+                        'console.log(values.view.tileViewFeature.viewMode, "medium");',
+                        'var dataRowCls = values.recordIndex === -1 ? "" : " ' + Ext.baseCSSPrefix + 'grid-data-row";',
+                        'var columnValues = values.view.tileViewFeature.getColumnValues(values.columns, values.record);',
+                    '%}',
+                    '<tr role="row" {[values.rowId ? ("id=\\"" + values.rowId + "\\"") : ""]} ',
+                        'data-boundView="{view.id}" ',
+                        'data-recordId="{record.internalId}" ',
+                        'data-recordIndex="{recordIndex}" ',
+                        'class="tileview {[values.itemClasses.join(" ")]} {[values.rowClasses.join(" ")]}{[dataRowCls]}" ',
+                        '{rowAttr:attributes} tabIndex="-1">',
+                        '<td role="gridcell" class="{tdCls} x-grid-tdx ux-explorerview-medium-icon-row" {tdAttr} id="{[Ext.id()]}">',
+                            '<table class="x-grid-row-table">',
+                                '<tbody>',
+                                    '<tr>',
+                                        //'<td class="x-grid-col x-grid-cell ux-explorerview-icon" style="background: url(&quot;http://harrydeluxe.github.io/extjs-ux/example/grid/thumbnails/medium_4d8f3b2d98a60f8e0a00004b.jpg&quot;) no-repeat scroll 50% 100% transparent;">',
+                                        '<td class="x-grid-col x-grid-cell ux-explorerview-icon" style="background: url(&quot;thumbnails/medium_4d8f3b2d98a60f8e0a00004b.jpg&quot;) no-repeat scroll 50% 100% transparent;">',
+                                        '</td>',
+                                    '</tr>',
+                                    '<tr>',
+                                        '<td class="x-grid-col x-grid-cell">',
+                                            '<div {unselectableAttr} class="x-grid-cell-inner">{[columnValues.name]}</div>',
+                                        '</td>',
+                                    '</tr>',
+                                '</tbody>',
+                            '</table>',
+                        '</td>',
+                    '</tr>',
+                    '<tpl else>',
+                        '{% console.log(values.view.tileViewFeature.viewMode, "NOT medium"); %}',
+                        '{%this.nextTpl.applyOut(values, out, parent);%}',
+                    '</tpl>',
+                    {
+                        priority: 0
+                    }
+                ],
+
+                tiles: [
+                    '<tpl if="view.tileViewFeature.viewMode==\'tiles\'">',
+                    '{%',
+                        'console.log(values.view.tileViewFeature.viewMode, "tiles");',
+                        'var dataRowCls = values.recordIndex === -1 ? "" : " ' + Ext.baseCSSPrefix + 'grid-data-row";',
+                        'var columnValues = values.view.tileViewFeature.getColumnValues(values.columns, values.record);',
+                    '%}',
+                    '<tr role="row" {[values.rowId ? ("id=\\"" + values.rowId + "\\"") : ""]} ',
+                        'data-boundView="{view.id}" ',
+                        'data-recordId="{record.internalId}" ',
+                        'data-recordIndex="{recordIndex}" ',
+                        'class="tileview {[values.itemClasses.join(" ")]} {[values.rowClasses.join(" ")]}{[dataRowCls]}" ',
+                        '{rowAttr:attributes} tabIndex="-1">',
+                        '<td role="gridcell" class="{tdCls} x-grid-tdx ux-explorerview-detailed-icon-row" {tdAttr} id="{[Ext.id()]}">',
+                            '<table class="x-grid-row-table">',
+                                '<tbody>',
+                                    '<tr>',
+                                        //'<td class="x-grid-col x-grid-cell ux-explorerview-icon" style="background: url(&quot;http://harrydeluxe.github.io/extjs-ux/example/grid/thumbnails/tile_4d8f3b2d98a60f8e0a00004b.jpg&quot;) no-repeat scroll 50% 50% transparent;">',
+                                        '<td class="x-grid-col x-grid-cell ux-explorerview-icon" style="background: url(&quot;thumbnails/medium_4d8f3b2d98a60f8e0a00004b.jpg&quot;) no-repeat scroll 50% 50% transparent;">',
+                                        '</td>',
+                                        '<td class="x-grid-col x-grid-cell">',
+                                            '<div class="x-grid-cell-inner" unselectable="on">{[columnValues.name]}<br><span>{[columnValues.cuisine]}</span></div>',
+                                        '</td>',
+                                    '</tr>',
+                                '</tbody>',
+                            '</table>',
+                        '</td>',
+                    '</tr>',
+                    '<tpl else>',
+                        '{% console.log(values.view.tileViewFeature.viewMode, "NOT tiles"); %}',
+                        '{%this.nextTpl.applyOut(values, out, parent);%}',
+                    '</tpl>',
+                    {
+                        priority: 0
+                    }
+                ]
+            }
+        })],
+        columns: [{
+            text: 'Name',
+            id: 'name',
+            flex: 1,
+            dataIndex: 'name'
+        }, {
+            text: 'Cuisine',
+            id: 'cuisine',
+            flex: 1,
+            dataIndex: 'cuisine'
+        }],
+        tbar: ['->',
+		{
+            xtype: 'switchbuttonsegment',
+            activeItem: 1,
+            scope: this,
+            items: [{
+                tooltip: 'Details',
+                viewMode: 'default',
+                iconCls: 'icon-default'
+            }, {
+                tooltip: 'Tiles',
+                viewMode: 'tiles',
+                iconCls: 'icon-tile'
+            }, {
+                tooltip: 'Icons',
+                viewMode: 'medium',
+                iconCls: 'icon-medium'
+            }],
+            listeners: {
+                change: function(btn, item)
+                {
+					grid.features[0].setView(btn.viewMode);
+                },
+                scope: this
+            }
+        }
+		]
+    });

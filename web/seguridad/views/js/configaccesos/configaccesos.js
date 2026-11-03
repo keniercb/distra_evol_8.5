@@ -1,0 +1,8346 @@
+UCID.portal.cargarEtiquetas('configaccesos', cargarInterfaz);
+
+Ext.QuickTips.init();
+var cantrecords, idrolSelected, arrayGrupos = [], arraysistemas = [], arraytiene = new Array(),
+    winIns, winMod, winModGrupo, winRegular, winInsGrupo, arrayPaginado = [],
+    arbolSistema, arbolSistemaRol, cambiarEstadoHijos = true, sinAccesoASist = false;
+var regUsuario, estado, banderaMod = false, winInsUsuarios, winModUsuarios, winImportarUsuarios, winExportarUsuarios,
+    winPassUsuarios, winRol, arbolEntidades, bandera_rol_entidad, fpPass, asignarRolImportar,
+    arrayPadresEliminar = [], arrayTieneEstructura = [], arregloDeschequeados = [],
+    bandera = true, idrol = 0, asignarRolRol, asignarRolUser, asignarRolUserMod, rolFiltrar, nombreUsuarioFiltrar,
+    dominioFiltrar, estadoFiltrar, grupoFiltrar, usuariosImportar = new Object(), usuariosImportados = new Array();
+var usuariosExportar = new Object();
+var winInsCampos, winModCampos, fpRegistrarPerfil, winModPerfiles, cambioCampos = true, modCampos = false;
+var contieneGrid, gridCampos = null, contienePanelDerecho;
+var profile = Ext.decode(Base64.decode(document.getElementById('profile').value));
+var rootNodesRoles = {}, estructurasMarcadas = {}, padresTransitorios = {}, smgridGrupos = {};
+var listadoGruposChequeados =  new Array();
+var listadoGruposDeschequeados =  new Array();
+usersChecked = new Array();
+usersCont = 0;
+usersChecked1 = new Array();
+usersCont1 = 0;
+var idcomboldap;
+var ou;
+_this = this;
+Ext.tree.TreeNodeUICheckHideShow = Ext.extend(Ext.tree.TreeNodeUI, {
+    toggleVisibleCheckbox: function (state) {
+        this.checkbox.visible = state;
+        Ext.DomHelper.applyStyles(this.checkbox, {visibility: 'hidden', display: 'none'});
+    }
+});
+Ext.grid.CheckColumn = function (config) {
+    Ext.apply(this, config);
+    if (!this.id) {
+        this.id = Ext.id();
+    }
+    this.renderer = this.renderer.createDelegate(this);
+};
+Ext.grid.CheckColumn.prototype = {
+    init: function (grid) {
+        grid.checkeds = {};
+        this.grid = grid;
+        this.grid.on('render', function () {
+            var view = this.grid.getView();
+            view.mainBody.on('mousedown', this.onMouseDown, this);
+        }, this);
+    },
+
+    onMouseDown: function (e, t) {
+        var index = this.grid.getView().findRowIndex(t);
+        var record = this.grid.store.getAt(index);
+
+        e.stopEvent();
+        record.set(this.dataIndex, !record.data[this.dataIndex]);
+        smgridGrupos.change = true;
+        if(record.data.checket){
+            listadoGruposChequeados.push(record.data.idrol);
+            listadoGruposDeschequeados.remove(record.data.idrol);
+        }
+        else{
+            listadoGruposDeschequeados.push(record.data.idrol);
+            listadoGruposChequeados.remove(record.data.idrol);
+        }
+
+    },
+
+    renderer: function (v, p, record, index) {
+        p.css += ' x-grid3-check-col-td';
+        var isSelected = v;
+        this.grid.checkeds[index] = v;
+        if (isSelected)
+            this.grid.getSelectionModel().selectRow(index, true);
+
+        else
+            this.grid.getSelectionModel().deselectRow(index);
+        return '<div class="x-grid3-check-col' + (v ? '-on' : '') + ' x-grid3-cc-' + this.id + '">&#160;</div>';
+    }
+};
+Ext.util.Format.comboRenderer = function (combo) {
+    return function (value) {
+        var record = combo.findRecord(combo.valueField, value);
+        return record ? record.get(combo.displayField) : combo.valueNotFoundText;
+    }
+};
+
+Ext.override(Ext.tree.TreePanel, {
+    onRender : function(ct, position){
+        Ext.tree.TreePanel.superclass.onRender.call(this, ct, position);
+        this.el.addClass('x-tree');
+        this.innerCt = this.body.createChild({tag:"ul",
+            cls:"x-tree-root-ct " +
+            (this.useArrows ? 'x-tree-arrows' : this.lines ? "x-tree-lines" : "x-tree-no-lines")});
+
+        var myFocus = function(){
+            var first = Ext.getCmp('treeRG').getRootNode().childNodes[0];
+            if (Ext.getCmp('tabpanel').activeTab.id == 'treeRG') {
+                var first = Ext.getCmp('treeRG').getRootNode().childNodes[0];
+                first.fireEvent('click', first);
+                Ext.getCmp('btnAdicionarRol').focus(200);
+            }else{
+                Ext.getCmp('btnaddcampo').focus(200);
+            }
+        };
+        this.el.dom.onclick = function (e) {
+            var flag = false;
+            if(e.target.nodeName == 'DIV'){
+                Ext.each(e.target.classList, function (item, index, array) {
+                    if (item == 'x-tree-node-el') {
+                        flag = true;
+                        index = e.target.classList.length+1;
+                    }
+                });
+                if(!flag) myFocus();
+            }
+        };
+
+    }
+});
+
+function cargarInterfaz(perfil, etiquetas) {
+    Secodena.mostrarMascara('cargandoInterfaz', etiquetas.msgWait, etiquetas.cargando);
+    formularioAsignarRol = Ext.extend(Ext.Panel, {
+        constructor: function (config) {
+            config = config || {};
+            this.addEvents(
+                "cellclick"
+            );
+            this.authModoficar = true;
+            this.idusuario = -1;
+            this.iddominio = -1;
+            this.recargar = true;
+            var _this = this;
+            this.keys = [
+                {
+                    key: 'b',
+                    alt: true,
+                    fn: function (e,a) {
+                        _this.storeGridRol.load({
+                            params: {
+                                rolbuscado: _this.denrolbuscado.getValue(),
+                                start: 0,
+                                limit: 15
+                            }
+                        })
+                    }
+                },
+                {
+                    key: 'l',
+                    alt: true,
+                    fn: function (e,a) {
+                        _this.denrolbuscado.reset();
+                        _this.storeGridRol.load({
+                            params: {
+                                start: 0,
+                                limit: 15
+                            }
+                        });
+                    }
+                }
+            ];
+            this.layout = 'border';
+            this.border = false;
+            this.smrol = new Ext.grid.RowSelectionModel({
+                singleSelect: true
+            });
+            this.storeGridRol = new Ext.data.Store({
+                url: 'cargarroles',
+                listeners: {
+                    beforeload: function () {
+                        this.baseParams = {};
+                        this.baseParams.rolbuscado = _this.denrolbuscado.getValue() ? _this.denrolbuscado.getValue() : '';
+                        this.baseParams.idusuario = (_this == asignarRolUserMod || _this == asignarRolRol) ? sm.getSelected().data.idusuario : _this.idusuario;
+                        //this.baseParams.start = 0;
+                        //this.baseParams.limit = 15;
+                    },
+                    load: function () {
+                        if (this.getCount() == 0) {
+                            if (_this.denrolbuscado.getValue())
+                                mostrarMensaje(1, perfil.etiquetas.msgInfDatosMostrar);
+                        }
+                    }
+
+                },
+                reader: new Ext.data.JsonReader({
+                        totalProperty: "cantidad_filas",
+                        root: "datos",
+                        id: "idrol"
+                    },
+                    [
+                        {
+                            name: 'idrol',
+                            mapping: 'idrol'
+                        },
+                        {
+                            name: 'denominacion',
+                            mapping: 'denominacion'
+                        },
+                        {
+                            name: 'descripcion',
+                            mapping: 'descripcion'
+                        },
+                        {
+                            name: 'estado',
+                            mapping: 'estado'
+                        }
+                    ])
+            });
+            ///////------------------------------arbol de entidades que estan en mi dominio-------------------------------/////
+            this.arbolEntidades = new Ext.tree.TreePanel({
+                change: false,
+                hasChecked: false,
+                autoScroll: true,
+                region: 'center',
+                split: true,
+                disabled: true,
+                margins: '2 2 2 0',
+                width: 200,
+                loader: new Ext.tree.TreeLoader({
+                    dataUrl: 'cargarentidades',
+                    uiProviders: {
+                        'ui': Ext.tree.TreeNodeUICheckHideShow
+                    },
+                    listeners: {
+                        'beforeload': function (atreeloader, anode) {
+                            atreeloader.baseParams = {};
+                            atreeloader.baseParams.idusuario = (_this == asignarRolUserMod || _this == asignarRolRol) ? sm.getSelected().data.idusuario : _this.idusuario;
+                            atreeloader.baseParams.iddominio = (_this == asignarRolUserMod || _this == asignarRolRol) ? sm.getSelected().data.iddominio : _this.iddominio;
+                            atreeloader.baseParams.idrol = idrol;
+                            if (anode.attributes.idestructuraop)
+                                atreeloader.baseParams.idarea = anode.attributes.idestructuraop;
+                        },
+                        'load': function (atreeloader, anode) {
+                            for (var i = 0;i < anode.childNodes.length; i++){
+                                if(atreeloader.baseParams.idusuario == window.perfil.idusuario) {
+                                    if (anode.childNodes[i].id == window.perfil.idestructuracomun && anode.childNodes[i].attributes.checked) {
+                                        anode.childNodes[i].disable();
+                                    }
+                                }
+                            }
+                            hijosNodo = anode.childNodes;
+                            if (_this.authModoficar) {
+                                if (hijosNodo.length) {
+                                    for (i = 0; i < hijosNodo.length; i++) {
+                                        nodoHijo = hijosNodo[i];
+                                        if (nodoHijo.attributes.checked)
+                                            adicionarEnDeschequeados(arrayTieneEstructura, nodoHijo.attributes.id);
+                                    }
+                                }
+                                var id;
+                                if (anode.attributes.tipo == 'externa')
+                                    id = anode.attributes.id;
+                                else
+                                    id = anode.attributes.id;
+                                var esta1 = estaEnDeschequeados(arrayPadresEliminar, id);
+                                if (esta1 != -1) {
+                                    eliminarEnDeschequeados(arrayPadresEliminar, esta1);
+                                    if (_this.arbolEntidades.getChecked("id", anode).length == 0) {
+                                        hijosNodo = anode.childNodes;
+                                        for (i = 0; i < hijosNodo.length; i++) {
+                                            if (!hijosNodo[i].isLeaf()) {
+                                                if (hijosNodo[i].attributes.tipo == 'externa')
+                                                    id = anode.attributes.id;
+                                                else
+                                                    id = anode.attributes.id;
+                                                adicionarEnDeschequeados(arrayPadresEliminar, id);
+                                            }
+                                        }
+                                    }
+                                }
+                            } else {
+                                if (hijosNodo.length) {
+                                    var padreMarcado;
+                                    for (i = 0; i < hijosNodo.length; i++) {
+                                        nodoHijo = hijosNodo[i];
+                                        if (!i) {
+                                            padreMarcado = padreMarcadoPadre(nodoHijo);
+                                        }
+                                        if (estaEnDeschequeados(rootNodesRoles[idrol].arrayEntidades, nodoHijo.attributes.id) != -1 || padreMarcado == idrol)
+                                            nodoHijo.getUI().toggleCheck(true);//nodoHijo.checked = null;
+                                        else if (estructurasMarcadas[nodoHijo.attributes.id] !== idrol &&
+                                            (estructurasMarcadas[nodoHijo.attributes.id] || (padreMarcado != idrol && padreMarcado != -1) )) {
+                                            nodoHijo.getUI().toggleVisibleCheckbox(false);
+                                        }
+                                    }
+                                }
+                            }
+                            if (_this.arbolEntidades.getChecked().length)
+                                _this.arbolEntidades.hasChecked = true;
+                        }
+                    }
+                })
+            });
+            ////////------------ Creando el Grid de roles ------------////
+            this.gridRol = new Ext.grid.GridPanel({
+                region: 'west',
+                width: 200,
+                frame: true,
+                iconCls: 'icon-grid',
+                margins: '2 2 2 2',
+                store: this.storeGridRol,
+                autoExpandColumn: 'expandir',
+                sm: this.smrol,
+                viewConfig: {
+                    scrollOffSet: 3
+                },
+                columns: [
+                    {
+                        header: etiquetas.lbRoles,
+                        dataIndex: 'denominacion'
+                    },
+                    {
+                        id: 'expandir',
+                        header: etiquetas.lbDescripcion,
+                        dataIndex: 'descripcion'
+                    },
+                    {
+                        hidden: true,
+                        hideable: false,
+                        dataIndex: 'idrol'
+                    },
+                    {
+                        hidden: true,
+                        hideable: false,
+                        dataIndex: 'estado'
+                    }
+                ],
+                loadMask: {
+                    store: this.storeGridRol
+                },
+                listeners:{
+                    cellclick: function(){
+                        _this.fireEvent("cellclick");
+                    }
+                },
+                tbar: [
+                    new Ext.Toolbar.TextItem({
+                        text: etiquetas.lbTitDenRolBuscar
+                    }),
+                    this.denrolbuscado = new Ext.form.TextField({
+                        emptyText: etiquetas.emptytext
+                    }),
+                    new Ext.Button({
+                        iconCls: 'buscar',
+                        tooltip: etiquetas.textToolTipSearch,
+                        //text: etiquetas.lbBtnBuscar,
+                        handler: function () {
+                            _this.storeGridRol.load({
+                                params: {
+                                    rolbuscado: _this.denrolbuscado.getValue(),
+                                    start: 0,
+                                    limit: 15
+                                }
+                            })
+                        }
+                    }),
+                    new Ext.Button({
+                        iconCls: 'limpiar',
+                        id: 'cleaneap',
+                        //text: etiquetas.denomLimpiar,
+                        tooltip: etiquetas.cleanFilter,
+                        handler: function () {
+                            _this.denrolbuscado.reset();
+                            _this.storeGridRol.load({
+                                params: {
+                                    start: 0,
+                                    limit: 15
+                                }
+                            });
+                        }
+                    })
+                ],
+                bbar: new Ext.PagingToolbar({
+                    pageSize: 15,
+                    store: this.storeGridRol,
+                    displayInfo: true,
+                    displayMsg: etiquetas.lbTitMsgResultados,
+                    emptyMsg: etiquetas.lbTitMsgNingunresultadoparamostrar
+                })
+            });
+            ////------------ Crear nodo padre del arbol ------------////
+            var padreArbolEntidades = new Ext.tree.AsyncTreeNode({
+                text: 'Entidades',
+                expandable: false,
+                id: '0'
+            });
+            this.arbolEntidades.setRootNode(padreArbolEntidades);
+            this.arbolEntidades.on('checkchange', function (node) {
+                _this.arbolEntidades.change = true;
+
+                var esta = estaEnDeschequeados(arregloDeschequeados, node.attributes.id);
+                var id;
+                if (node.attributes.tipo == 'externa')
+                    id = node.attributes.id;
+                else
+                    id = node.attributes.id;
+                var esta1 = estaEnDeschequeados(arrayPadresEliminar, id);
+
+                if (node.attributes.checked) {
+                    estructurasMarcadas[node.attributes.id] = idrol;
+                    marcarHijos(node, true);
+                    if (esta != -1)
+                        eliminarEnDeschequeados(arregloDeschequeados, esta);
+                    if (!node.isLeaf() && esta1 != -1)
+                        eliminarEnDeschequeados(arrayPadresEliminar, esta1);
+                }
+                else {
+                    estructurasMarcadas[node.attributes.id] = undefined;
+                    eliminarPadreTransitorio(node);
+                    var estaT = estaEnDeschequeados(arrayTieneEstructura, id);
+                    if (estaT != -1)
+                        adicionarEnDeschequeados(arregloDeschequeados, node.attributes.id);
+                    if (!node.isLeaf() && node.childNodes.length == 0 && estaT != -1)
+                        adicionarEnDeschequeados(arrayPadresEliminar, id);
+                }
+                if(_this == asignarRolRol && (_this.arbolEntidades.getChecked().length ||
+                    (!_this.arbolEntidades.getChecked().length && _this.arbolEntidades.hasChecked))){
+                    Ext.getCmp("btnAceptarAsigRol").setDisabled(false);
+                }else if(_this == asignarRolRol){
+                    Ext.getCmp("btnAceptarAsigRol").setDisabled(true);
+                }
+            }, this);
+            this.smrol.on('rowselect', function (smodel, rowIndex, record) {
+                if(_this == asignarRolRol){
+                    Ext.getCmp("btnAceptarAsigRol").setDisabled(false);
+                }
+                idrol = record.data.idrol;
+                if (!_this.authModoficar) {
+                    if (!rootNodesRoles[idrol]) {
+                        anadirRootNode(idrol);
+                    }
+                }
+                if (_this.recargar) {
+                    _this.arbolEntidades.getRootNode().reload();
+                }
+                if ((_this == asignarRolRol || _this == asignarRolUserMod || _this == asignarRolImportar) && !_this.authModoficar) {
+                    _this.authModoficar = true;
+                }
+                _this.arbolEntidades.enable();
+                _this.recargar = false;
+            }, this);
+            this.smrol.on('rowdeselect', function (SelectionModel, rowIndex, record) {
+                if(_this == asignarRolRol){
+                    Ext.getCmp("btnAceptarAsigRol").setDisabled(true);
+                }
+                _this.arbolEntidades.disable();
+                var arrUsuarios  = new Array();
+                if(_this == asignarRolRol || (_this.authModoficar && _this == asignarRolUserMod)){
+                    arrUsuarios = recordToArrayUsuarios(sm.getSelections());
+                }else if(_this == asignarRolImportar){
+                    arrUsuarios = usuariosImportados;
+                }else{
+                    arrUsuarios = new Array( new Array(_this.idusuario, _this.iddominio));
+                }
+                _this.asignarRol(null, record, _this, function () {
+                },arrUsuarios);
+            }, this);
+            this.gridRol.getView().getRowClass = function (record) {
+                if (record.data.estado == 1) {
+                    bandera_rol_entidad = true;
+                    return 'FilaAzul';
+                }
+            };
+            Ext.apply(this, config);
+            formularioAsignarRol.superclass.constructor.apply(this,config);
+            this.add(this.arbolEntidades);
+            this.add(this.gridRol);
+        },
+        asignarRol: function (apl, record, _this, fn, arrUsuario) {
+            if (!idrol)
+                return;
+            var arrayNodos = this.arbolEntidades.getChecked();
+            var arrayEnt = new Array();
+            var arrayPadres = new Array();
+            buscarNodosTiene(this.arbolEntidades.getRootNode());
+            if (arrayNodos.length > 0) {
+                for (var i = 0; i < arrayNodos.length; i++) {
+                    arrayEnt.push(arrayNodos[i].attributes.id);
+                    if (!arrayNodos[i].isLeaf() && arrayNodos[i].childNodes.length == 0) {
+                        arrayPadres.push(arrayNodos[i].attributes.id);
+                        padresTransitorios[arrayNodos[i].attributes.id] = idrol;
+                    }
+                }
+            }
+            if (_this.authModoficar) {
+                Ext.getBody().mask(etiquetas.msgWait);
+                var asignaciones = [];
+                if (_this == asignarRolRol || _this == asignarRolUserMod || _this == asignarRolImportar) {
+                    asignaciones.push({
+                        'opcion': apl,
+                        'arrayEntidades': arrayEnt,
+                        'arrayEntidadesEliminar': arregloDeschequeados,
+                        'arrayPadres': arrayPadres,
+                        'arrayPadresEliminar': arrayPadresEliminar,
+                        'arrayTiene': arrayTieneEstructura,
+                        'arrayUsuario': arrUsuario,
+                        'idrol': idrol
+                    });
+                } else {
+                    if (idrol)
+                        guardarDatosTransitorios(idrol, arrayEnt, arrUsuario, arrayPadres);
+                    for (var rol in rootNodesRoles) {
+                        rootNodesRoles[rol].arrayUsuario = arrUsuario;
+                        if (rootNodesRoles[rol].arrayEntidades.length || rootNodesRoles[rol].arrayEntidadesEliminar.length ||
+                            rootNodesRoles[rol].arrayPadres.length || rootNodesRoles[rol].arrayPadresEliminar.length)
+                            asignaciones.push(rootNodesRoles[rol]);
+                    }
+                }
+                Ext.Ajax.request({
+                    url: 'asignarroles',
+                    timeout: '180000',
+                    method: 'POST',
+                    params: {
+                        asignaciones: Ext.encode(asignaciones)
+                    },
+                    callback: function (options, success, response) {
+                        Ext.getBody().unmask();
+                        if(success) {
+                            arrayPadresEliminar = [];
+                            arregloDeschequeados = [];
+                            arrayTieneEstructura = [];
+                            responseData = Ext.decode(response.responseText);
+                            if (responseData.bien == 1) {
+                                if (_this == asignarRolRol)
+                                    mostrarMensaje(1, etiquetas.operacionMsg);
+                                bandera_rol_entidad = false;
+                                fn();
+                            }
+                            else if (responseData.bien == 2) {
+                                if (_this == asignarRolRol)
+                                    mostrarMensaje(8, etiquetas.rolAsociadoMsg);
+                            }
+                            else if (responseData.bien == 3) {
+                                _this.storeGridRol.reload({
+                                    params: {
+                                        start: 0,
+                                        limit: 15
+                                    }
+                                });
+                                _this.recargar = true;
+                            }
+                        }else{
+                            mostrarMensaje(6,etiquetas.noConexion);
+                        }
+                    }
+                });
+            } else {
+                if (idrol)
+                    guardarDatosTransitorios(idrol, arrayEnt, arrUsuario, arrayPadres);
+                arrayPadresEliminar = [];
+                arregloDeschequeados = [];
+                arrayTieneEstructura = [];
+                _this.recargar = true;
+            }
+        }
+    });
+
+    function recordToArrayUsuarios(arrUsuarios){
+        var arrUsuario = [];
+        for (var i = 0; i < arrUsuarios.length; i++) {
+            var user = [];
+            user.push(arrUsuarios[i].data.idusuario);
+            user.push(arrUsuarios[i].data.iddominio);
+            arrUsuario.push(user);
+        }
+        return arrUsuario;
+    }
+    ////------------ Store del combobox de Dominio ------------////
+    var storeDominio = new Ext.data.Store({
+        data: Ext.decode(Base64.decode(document.getElementById('arrayDomIns').value)),
+        reader: new Ext.data.JsonReader({
+                id: 'iddominio',
+                root: 'datos'
+            },
+            [
+                {
+                    name: 'iddominio',
+                    mapping: 'iddominio'
+                },
+                {
+                    name: 'dominio',
+                    mapping: 'denominacion'
+                }
+            ]),
+        listeners: {
+            load: function (store, records) {
+                var record = store.find('iddominio', 0);
+                store.remove(store.getAt(record));
+            }
+        }
+    });
+
+    var storecomboRol = new Ext.data.Store({
+        //data: Ext.decode(Base64.decode(document.getElementById('arrayRoles').value)),
+        url: 'comboRoles',
+        autoLoad:true,
+        reader: new Ext.data.JsonReader({
+                id: 'idrol',
+                root: 'datos'
+            },
+            [
+                {
+                    name: 'idrol',
+                    mapping: 'idrol'
+                },
+                //{
+                //    name: 'iconCls',
+                //    mapping: 'iconCls'
+                //},
+                {
+                    name: 'denominacion',
+                    mapping: 'denominacion'
+                }
+            ]),
+        listeners: {
+            load: function (store, records) {
+                var record = store.find('idrol', 0);
+                store.remove(store.getAt(record));
+            }
+        }
+    });
+
+    var storecomboGrupo = new Ext.data.Store({
+        //data: Ext.decode(Base64.decode(document.getElementById('arrayRoles').value)),
+        url: 'comboGrupo',
+        autoLoad:true,
+        reader: new Ext.data.JsonReader({
+                id: 'idrol',
+                root: 'datos'
+            },
+            [
+                {
+                    name: 'idrol',
+                    mapping: 'idrol'
+                },
+                {
+                    name: 'denominacion',
+                    mapping: 'denominacion'
+                }
+            ]),
+        listeners: {
+            load: function (store, records) {
+                var record = store.find('idrol', 0);
+                store.remove(store.getAt(record));
+            }
+        }
+    });
+
+
+    var storeDataTmp = new Ext.data.SimpleStore({
+        data: [
+            //['activar', 'Activar'],
+            //['desactivar', 'Desactivar']
+            ['Activar', 'Activado', 'verde', '<span class="icondistra-bandera verde"/>'],
+
+            ['Desactivar', 'Desactivado', 'rojo', '<span class="icondistra-bandera rojo"/>' ]
+
+        ],
+        fields: ['value', 'text', 'color', 'imagen']
+    });
+
+////////////////////// Items del toolbar para el panel que contiene el grid ////////////////////
+    var btnguardar = new Ext.Button({
+        iconCls: 'guardar',
+        //text: 'Guardar',
+        tooltip: etiquetas.tolTipGuardar,
+        border: true,
+        handler: function () {
+            if (tabpanel.activeTab.id == 'treeRG')
+                guardarGridUsuarios();
+            else
+                guardarGridPerfiles();
+        },
+        disabled: true
+    });
+    var btnadicionar = new Ext.Button({
+        tooltip: etiquetas.textToolTipadicionar,
+        //text: etiquetas.lbBtnAdicionar,
+        iconCls: 'adicionar',
+        handler: function () {
+            winFormUsuarios('Ins');
+        }
+    });
+    var btnmodificar = new Ext.Button({
+        //text: etiquetas.lbBtnModificar,
+        tooltip: etiquetas.textToolTipMod,
+        iconCls: 'modificar',
+        handler: function () {
+            if (tabpanel.activeTab.id == 'treeRG') {
+                banderaMod = true;
+                winFormUsuarios('Mod');
+            } else {
+                winFormPerfiles('Mod');
+            }
+        },
+        disabled: true
+    });
+    var btneliminar = new Ext.Button({
+        //text: etiquetas.lbBtnEliminar,
+        tooltip: etiquetas.textToolTipDel,
+        iconCls: 'eliminar',
+        handler: function () {
+            eliminarusuario();
+        },
+        disabled: true
+    });
+    var btncmbcontrasena = new Ext.Button({
+        //text: etiquetas.lbBtnContrasena,
+        tooltip: etiquetas.textToolTipContras,
+        iconCls: 'cambiarcontrasena',
+        handler: function () {
+            winFormUsuarios('Pass');
+        },
+        disabled: true
+    });
+    var btnperfil = new Ext.Button({
+        //text: etiquetas.lbBtnfichausuario,
+        tooltip: etiquetas.textToolTipVerPerf,
+        iconCls: 'ver',
+        handler: function () {
+            winFormUsuarios('fichausuario');
+        },
+        disabled: true
+    });
+    var btnasignarperfil = new Ext.Button({
+        //text: "Asignar Perfil",
+        tooltip: etiquetas.tTipBtnAsignarPerfil,
+        iconCls: 'asignarperfil',
+        handler: function () {
+            winFormUsuarios('usuario');
+        },
+        disabled: true
+    });
+    var btnasignarroles = new Ext.Button({
+        //text: "Asignar Roles",
+        tooltip: etiquetas.lbBtnRol,
+        iconCls: 'asignaroles',
+        handler: function () {
+            winFormUsuarios('Rol');
+        },
+        disabled: true
+    });
+    var btnimportarusuario = new Ext.Button({
+        //text: "Asignar Roles",
+        tooltip: etiquetas.lbBtnImportar,
+        iconCls: 'importar',
+        handler: function () {
+            winFormUsuarios('Importar');
+        }
+    });
+    var btnexportarusuario = new Ext.Button({
+        //text: "Asignar Roles",
+        tooltip: etiquetas.lbBtnExportar,
+        iconCls: 'exportar',
+        handler: function () {
+            winFormUsuarios('Exportar');
+        }
+    });
+    var btnayuda = new Ext.Button({
+        text: etiquetas.lbBtnAyuda,
+        iconCls: 'ayuda',
+        id:'btnAyudaAcces'
+    });
+    var btnbuscar = new Ext.Button({
+        tooltip: etiquetas.textToolTipSearch,
+        iconCls: 'buscar',
+        style: 'margin: 4',
+        handler: function () {
+            filtrar();
+        }
+    });
+    var btnlimpiar = new Ext.Button({
+        //text: etiquetas.denomLimpiar,
+        tooltip: etiquetas.cleanFilter,
+        iconCls: 'limpiar',
+        handler: reiniciarFiltro
+    });
+    var btnactivar = new Ext.Button({
+        //text: etiquetas.denomLimpiar,
+        hidden: true,
+        id: 'btnActivarUsuario',
+        disabled: true,
+        tooltip: etiquetas.lbTipactivarusuario,
+        iconCls: 'icondistra-bandera verde',
+        handler: function () {
+            var users = sm.getSelections();
+            activarUsuarios(users);
+        }
+    });
+    var btndesactivar = new Ext.Button({
+        //text: etiquetas.denomLimpiar,
+        id: 'btnDesactivarUsuario',
+        disabled: true,
+        hidden: true,
+        tooltip: etiquetas.lbTipdesactivarusuario,
+        iconCls: 'icondistra-bandera rojo',
+        handler: function(){
+            var users = sm.getSelections();
+            desactivarUsuarios(users);
+        }
+    });
+
+    var btneliminarPerfil = new Ext.Button({
+        id: 'btneliminarPerfil',
+        hidden: true,
+        disabled: true,
+        iconCls: 'quitarfoto',
+        tooltip: 'Eliminar perfil del usuario',
+        handler: function () {
+            if (sm.getCount() == 1){
+                Ext.getBody().mask(etiquetas.msgWait);
+                Ext.Ajax.request({
+                    url: 'deleteProfileOrRoleToUser',
+                    params: {
+                        idusuario: sm.getSelected().data.idusuario,
+                        entity: 'profile'
+                    },
+                    callback: function (options, success, response) {
+                        Ext.getBody().unmask();
+                        if(success) {
+                            mostrarMensaje(1,'Se ha eliminado el perfil del usuario seleccionado.');
+                            reiniciarFiltro();
+                        }
+                    }
+                });
+            }
+                
+            
+        }
+    });
+
+    var btneliminarRolUser = new Ext.Button({
+        id: 'btneliminarRolUser',
+        hidden: true,
+        disabled: true,
+        iconCls: 'desmarcarxrol',
+        tooltip: 'Eliminar todos los roles asocionados al usuario',
+        handler: function () {
+            if (sm.getCount() == 1){
+                Ext.getBody().mask(etiquetas.msgWait);
+                Ext.Ajax.request({
+                    url: 'deleteProfileOrRoleToUser',
+                    params: {
+                        idusuario: sm.getSelected().data.idusuario,
+                        entity: 'role'
+                    },
+                    callback: function (options, success, response) {
+                        Ext.getBody().unmask();
+                        if(success) {
+                            mostrarMensaje(1,'Los roles han sido eliminados satisfactoriamente.');
+                            reiniciarFiltro();
+                        }
+                    }
+                });
+            }
+        }
+    });
+
+    var combousuario = new Ext.form.TextField({
+        typeAhead: true,
+        triggerAction: 'all',
+        emptyText: etiquetas.lbTitDenBuscar,
+        selectOnFocus: true,
+        vtype: 'vtusuarionoarroba',
+        maxLength:60,
+        listeners: {
+            render: function () {
+                this.setWidth(contienePanelDerecho.getSize().width * 0.10);
+            }
+        }
+    });
+    var combodominio = new Ext.form.ComboBox({
+        store: storeDominio,
+        emptyText: etiquetas.lbSeleccionardominio,
+        editable: false,
+        enableQtip: true,
+        valueField: 'iddominio',
+        displayField: 'dominio',
+        mode: 'local',
+        typeAhead: true,
+        triggerAction: 'all',
+        listeners: {
+            render: function () {
+                this.setWidth(contienePanelDerecho.getSize().width * 0.10);
+            }
+        }
+    });
+    var comboestado = new Ext.form.ComboBox({
+        store: storeDataTmp,
+        typeAhead: true,
+        editable: false,
+        enableQtip: true,
+        valueField: 'value',
+        displayField: 'text',
+        inputType:'img',
+        mode: 'local',
+        triggerAction: 'all',
+        emptyText: etiquetas.lbSeleccionarestado,
+        selectOnFocus: true,
+        tpl :
+         '<tpl for=".">'+
+        '<div class="x-combo-list-item "><span class="icondistra-bandera {color}"/>{text}</div>'+
+        '</tpl>',
+        listeners: {
+            render: function () {
+                this.setWidth(contienePanelDerecho.getSize().width * 0.08);
+            }
+        }
+    });
+
+    var comborol = new Ext.form.ComboBox({
+        store: storecomboRol,
+        typeAhead: true,
+        editable: false,
+        enableQtip: true,
+        valueField: 'idrol',
+        displayField: 'denominacion',
+        mode: 'local',
+        triggerAction: 'all',
+        emptyText: 'Seleccione el rol',
+        selectOnFocus: true,
+        listeners: {
+            render: function () {
+                this.setWidth(contienePanelDerecho.getSize().width * 0.10);
+            }
+        }
+    });
+
+    var combogrupos = new Ext.form.ComboBox({
+        store: storecomboGrupo,
+        typeAhead: true,
+        editable: false,
+        enableQtip: true,
+        valueField: 'idrol',
+        displayField: 'denominacion',
+        mode: 'local',
+        triggerAction: 'all',
+        emptyText: 'Seleccione el grupo',
+        selectOnFocus: true,
+        listeners: {
+            render: function () {
+                this.setWidth(contienePanelDerecho.getSize().width * 0.10);
+            }
+        }
+    });
+
+    var labelUsuario = new Ext.form.Label({
+        style: 'margin: 0px 2px 0px 4px;',
+        text: etiquetas.lbUsuarioCmb
+    });
+    var labelEstado = new Ext.form.Label({
+        style: 'margin: 0px 2px 0px 4px;',
+        text: etiquetas.lbEstadoCmb
+    });
+    var labelDominio = new Ext.form.Label({
+        style: 'margin: 0px 2px 0px 4px;',
+        text: etiquetas.lbDominioCmb
+    });
+
+    var labelRol = new Ext.form.Label({
+        style: 'margin: 0px 2px 0px 4px;',
+        text: 'Rol: '
+    });
+
+    var labelGrupo = new Ext.form.Label({
+        style: 'margin: 0px 2px 0px 4px;',
+        text: 'Grupo: '
+    });
+////////////////////// Items del toolbar para el tabpanel////////////////// ///////////////////////
+    var btnadicionarcampo = new Ext.Button({
+        iconCls: 'adicionar',
+        id:'btnaddcampo',
+        tooltip: etiquetas.lbTitAdicionarcampo,
+        handler: function () {
+            winFormCampos('Ins');
+        },
+        hidden: true
+    });
+    var btnmodificarcampo = new Ext.Button({
+        iconCls: 'modificar',
+        tooltip: etiquetas.lbTitModificarcampo,
+        handler: function () {
+            winFormCampos('Mod');
+        },
+        disabled: true,
+        hidden: true
+    });
+    var btneliminarcampo = new Ext.Button({
+        iconCls: 'eliminar',
+        tooltip: etiquetas.lbTitEliminarcampo,
+        handler: function () {
+            eliminarCampo();
+        },
+        disabled: true,
+        hidden: true
+    });
+    var btnadicionarRoles = new Ext.Button({
+        iconCls: 'adicionar',
+        id: 'btnAdicionarRol',
+        hidden: true,
+        disabled: true,
+        tooltip: etiquetas.tTipAddRol,
+        handler: function () {
+            if (treeRolGru.getSelectionModel().selNode.attributes.type == 'raiz') {
+                if (treeRolGru.getSelectionModel().selNode.text == 'Grupos') {
+                    winForm('InsGrupo');
+                } else {
+                    winForm('Ins');
+                }
+            }
+        },
+        disabled: true
+    });
+    var btnmodificarRoles = new Ext.Button({
+        iconCls: 'modificar',
+        id: 'btnModificarRol',
+        hidden: true,
+        disabled: true,
+        tooltip: etiquetas.tTipModRol,
+        handler: function () {
+            var tipo = treeRolGru.getSelectionModel().selNode.attributes.type;
+            if (tipo == 'rol') {
+                winForm('Mod');
+            } else {
+                winForm('ModGrupo');
+            }
+        },
+        disabled: true
+    });
+    var btneliminarRoles = new Ext.Button({
+        id: 'btnEliminarRol',
+        hidden: true,
+        disabled: true,
+        iconCls: 'eliminar',
+        tooltip: etiquetas.tTipElimRol,
+        handler: function () {
+            if (treeRolGru.getSelectionModel().selNode.attributes.type == 'rol' && treeRolGru.getSelectionModel().selNode.parentNode.attributes.type == 'grupo') {
+                btneliminarRelacion();
+            }
+            else if (treeRolGru.getSelectionModel().selNode.attributes.type == 'rol' || treeRolGru.getSelectionModel().selNode.attributes.type == 'grupo') {
+                eliminarRol();
+            }
+        },
+        disabled: true
+    });
+    var btnRegularAcciones = new Ext.Button({
+        id: 'btnRegularAcciones',
+        hidden: true,
+        disabled: true,
+        iconCls: 'regularacciones',
+        handler: function () {
+            winForm('Reg');
+        },
+        tooltip: etiquetas.tTipRegular,
+        disabled: true
+    });
+    var textFieldBuscar = new Ext.form.TextField({
+        enableKeyEvents: true,
+        emptyText: 'Buscar',
+        vtype: 'vtdenominacion',
+        maxLength: 60,
+        listeners: {
+            'keyup': function (textfield) {
+                if (tabpanel.activeTab.id == 'treeRG') {
+                    if (textfield.getValue() == ''||!textfield.isValid()) {
+                        treeRolGru.filter.clear();
+                        treeRolGru.collapseAll();
+                    } else if(textfield.isValid()){
+                        treeRolGru.filter.filterBy(function () {
+                            this.haschildText = false;
+                            this.expand();
+                            if (this.text.indexOf(textfield.getValue()) != -1 && (this.attributes.type == 'rol' || this.attributes.type == 'grupo')) {
+                                this.parentNode.haschildText = true;
+                                this.parentNode.expand();
+                                return true;
+                            }
+                            else if ( this.attributes.type == 'raiz') {
+                                return true;
+                            }
+                            else if (this.parentNode.attributes.type == 'grupo' && !this.parentNode.haschildText) {
+                                this.parentNode.collapse();
+                                return false;
+                            }
+                            else {
+                                return false;
+                            }
+                        });
+                    }
+                } else {
+                    if (textfield.getValue() == '') {
+                        treePerfiles.filter.clear();
+                    } else {
+                        treePerfiles.filter.filterBy(function () {
+                            this.expand();
+                            if (this.attributes.type == 'raiz' || this.text.indexOf(textfield.getValue()) != -1) {
+                                return true;
+                            }
+                            else {
+                                return false;
+                            }
+                        });
+                    }
+                }
+            },
+            render: function () {
+                if (window.innerWidth <= 1024)
+                    this.setWidth(tabpanel.getSize().width * .30);
+                else
+                    this.setWidth(tabpanel.getSize().width * .40);
+            }
+        }
+    });
+
+////////////////////// Store del grid para Usuarios/////////////////////////////////////////
+    var storeGrid = new Ext.data.Store({
+        url: 'cargarusuario',
+        listeners: {
+            beforeload: function(){
+                this.baseParams.nombreusuario = nombreUsuarioFiltrar;
+                this.baseParams.dominiobuscar = dominioFiltrar;
+                this.baseParams.activar = estadoFiltrar;
+                //this.baseParams.idrol = (rolFiltrar && rolFiltrar.attributes.type == 'rol') ? rolFiltrar.attributes.idrol : null;
+                //this.baseParams.idgrupo = (grupoFiltrar && grupoFiltrar.attributes.type == 'grupo') ? grupoFiltrar.attributes.idrol : null;
+                this.baseParams.idrol = rolFiltrar ? rolFiltrar : null;
+                this.baseParams.idgrupo = grupoFiltrar ? grupoFiltrar : null;
+            },
+            load: function (st, object) {
+                cantrecords = st.getCount();
+                if (cantrecords == 0) {
+                    if (nombreUsuarioFiltrar || rolFiltrar || dominioFiltrar || estadoFiltrar || grupoFiltrar)
+                        mostrarMensaje(1, etiquetas.msgInfDatosMostrar);
+                    else
+                        mostrarMensaje(1, etiquetas.msgInfDatos);
+                }
+                if(sm.hasSelection())
+                    sm.clearSelections();
+                habilitarDeshabilitarBotones();
+                gridFrente.toolTipCreado = false;
+            }
+        },
+        reader: new Ext.data.JsonReader({
+                totalProperty: "cantidad_filas",
+                root: "datos",
+                id: "idusuario"
+            },
+            [
+                {
+                    name: 'nombreusuario',
+                    mapping: 'nombreusuario'
+                },
+
+                {
+                    name: 'activo',
+                    mapping: 'activo'
+                },
+
+                {
+                    name: 'iddominio',
+                    mapping: 'iddominio'
+                },
+
+                {
+                    name: 'idtema',
+                    mapping: 'idtema'
+                },
+
+                {
+                    name: 'ididioma',
+                    mapping: 'ididioma'
+                },
+
+                {
+                    name: 'iddesktop',
+                    mapping: 'iddesktop'
+                },
+
+                {
+                    name: 'dominio',
+                    mapping: 'dominio'
+                },
+
+                {
+                    name: 'tema',
+                    mapping: 'tema'
+                },
+
+                {
+                    name: 'idioma',
+                    mapping: 'idioma'
+                },
+
+                {
+                    name: 'desktop',
+                    mapping: 'desktop'
+                },
+
+                {
+                    name: 'servidor',
+                    mapping: 'deominacion'
+                },
+
+                {
+                    name: 'idservidor',
+                    mapping: 'idservidor'
+                },
+
+                {
+                    name: 'idusuario',
+                    mapping: 'idusuario'
+                },
+
+                {
+                    name: 'ip',
+                    mapping: 'ip'
+                },
+
+                {
+                    name: 'idpersona',
+                    mapping: 'idpersona'
+                },
+
+                {
+                    name: 'simpleacceso',
+                    mapping: 'simpleacceso'
+                },
+
+                {
+                    name: 'reescribirsesion',
+                    mapping: 'reescribirsesion'
+                },
+
+                {
+                    name: 'perfil',
+                    mapping: 'perfil'
+                },
+
+                {
+                    name: 'email',
+                    mapping: 'email'
+                }
+            ]
+        ),
+        sortInfo: {
+            field: 'idusuario',
+            direction: 'ASC' // or 'DESC' (case sensitive for local sorting)
+        }
+    });
+    var storeDesktop = new Ext.data.Store({
+        data: Ext.decode(Base64.decode(document.getElementById('arrayCombDesk').value)),
+        reader: new Ext.data.JsonReader({
+                id: 'id'
+            },
+            [
+                {
+                    name: 'iddesktop',
+                    mapping: 'iddesktop'
+                },
+                {
+                    name: 'desktop',
+                    mapping: 'denominacion'
+                }
+            ])
+    });
+    ////------------ Store del combobox de Idioma ------------////
+    var storeIdioma = new Ext.data.Store({
+        data: Ext.decode(Base64.decode(document.getElementById('arrayCombIdio').value)),
+        reader: new Ext.data.JsonReader({
+                id: 'ididioma'
+            },
+            [
+                {
+                    name: 'ididioma',
+                    mapping: 'ididioma'
+                },
+                {
+                    name: 'idioma',
+                    mapping: 'denominacion'
+                }
+            ])
+    });
+    ////------------ Store del combobox de Tema ------------////
+    var storeTema = new Ext.data.Store({
+        data: Ext.decode(Base64.decode(document.getElementById('arrayTemas').value)),
+        reader: new Ext.data.JsonReader({
+                id: 'idtema'
+            },
+            [
+                {
+                    name: 'idtema',
+                    mapping: 'idtema'
+                },
+                {
+                    name: 'tema',
+                    mapping: 'denominacion'
+                }
+            ])
+    });
+    ////---------------------------Store del combobox de expresiones-----------------///
+    var storeExp = new Ext.data.Store({
+        url: '../gestexpresiones/cargarexpresiones',
+        reader: new Ext.data.JsonReader(
+            {
+                root: 'datos',
+                id: 'idgrupos'
+            },
+            [
+                {
+                    name: 'idexpresiones',
+                    mapping: 'idexpresiones'
+                },
+                {
+                    name: 'denominacion',
+                    mapping: 'denominacion'
+                },
+                {
+                    name: 'expresion',
+                    mapping: 'expresion'
+                }
+            ]),
+        listeners: {
+            load: function () {
+                cargarConfigGrid(createViewPort);
+            }
+        }
+    });
+    storeExp.load({
+        params: {
+            start: 0,
+            limit: 30
+        }
+    });
+    var storeservidor = new Ext.data.Store({
+        data: Ext.decode(Base64.decode(document.getElementById('arrayComServA').value)),
+        reader: new Ext.data.JsonReader({
+                id: 'id'
+            },
+            [
+                {
+                    name: 'idservidor',
+                    mapping: 'idservidor'
+                },
+                {
+                    name: 'servidor',
+                    mapping: 'denominacion'
+                }
+            ])
+    });
+
+//////////////////////////////////////combos grid editable////////////////////////////////////////
+    var comboIdiomaGrid = new Ext.form.ComboBox({
+        store: storeIdioma,
+        forceSelection: true,
+        enableQtip: true,
+        allowBlank: false,
+        valueField: 'ididioma',
+        hiddenName: 'idioma',
+        displayField: 'idioma',
+        mode: 'local',
+        typeAhead: true,
+        triggerAction: 'all',
+        selectOnFocus: true
+    });
+
+    var comboTemaGrid = new Ext.form.ComboBox({
+        store: storeTema,
+        forceSelection: true,
+        enableQtip: true,
+        allowBlank: false,
+        valueField: 'idtema',
+        displayField: 'tema',
+        mode: 'local',
+        typeAhead: true,
+        triggerAction: 'all',
+        selectOnFocus: true
+    });
+
+    var comboDesktopGrid = new Ext.form.ComboBox({
+        store: storeDesktop,
+        forceSelection: true,
+        enableQtip: true,
+        allowBlank: false,
+        valueField: 'iddesktop',
+        displayField: 'desktop',
+        mode: 'local',
+        typeAhead: true,
+        triggerAction: 'all',
+        selectOnFocus: true
+    });
+
+    var comboDominioGrid = new Ext.form.ComboBox({
+        store: storeDominio,
+        forceSelection: true,
+        enableQtip: true,
+        allowBlank: false,
+        valueField: 'iddominio',
+        displayField: 'dominio',
+        valueNotFoundText: 'Sin Dominio',
+        mode: 'local',
+        typeAhead: true,
+        triggerAction: 'all',
+        selectOnFocus: true,
+        listeners: {
+            change: function () {
+                mostrarMensaje(8, etiquetas.msgConfirmarModDominioGrid);
+            }
+        }
+    });
+
+    var comboServidorGrid = new Ext.form.ComboBox({
+        store: storeservidor,
+        forceSelection: true,
+        enableQtip: true,
+        allowBlank: false,
+        valueField: 'idservidor',
+        displayField: 'servidor',
+        valueNotFoundText: 'Sin servidor',
+        mode: 'local',
+        typeAhead: true,
+        triggerAction: 'all',
+        selectOnFocus: true
+    });
+
+
+    var pagerFrente = new Ext.PagingToolbar({
+        store: storeGrid, // <--grid and PagingToolbar using same store (required)
+        displayInfo: true,
+        beforePageText: etiquetas.textPagina,
+        afterPageText: etiquetas.textDe,
+        emptyMsg: 'No hay usuarios para mostrar',
+        pageSize: 15
+    });
+    var sm = new Ext.grid.RowSelectionModel({
+        singleSelect: false,
+        listeners: {
+            'rowselect': function () {
+                habilitarDeshabilitarBotones();
+            },
+            'rowdeselect': function () {
+                habilitarDeshabilitarBotones();
+            }
+        }
+    });
+
+    ////////////////////// Grid para Usuarios////////////////// ///////////////////////
+
+    var contextMenuGrid = new Ext.menu.Menu({
+        items: [
+            {id: 'adicionarContextMenuGrid', text: etiquetas.textMenuAdicionar, disabled: true, iconCls: 'adicionar'},
+            {id: 'modificarContextMenuGrid',text: etiquetas.textMenuModifficar, disabled: true, iconCls: 'modificar'},
+            {id: 'eliminarContextMenuGrid',text: etiquetas.textMenuEliminar, disabled: true, iconCls: 'eliminar'},
+            {id: 'asignarolesContextMenuGrid',text: etiquetas.textMenuRoles, disabled: true, iconCls: 'asignaroles'},
+            {id: 'asignarperfilContextMenuGrid',text: etiquetas.textMenuAsigPerfil, disabled: true, iconCls: 'asignarperfil'},
+            {id: 'verContextMenuGrid',text: etiquetas.textMenuPerfil, disabled: true, iconCls: 'ver'}
+        ],
+        listeners: {
+            itemclick: function (item) {
+                switch (item.id) {
+                    case "adicionarContextMenuGrid":
+                        winFormUsuarios("Ins");
+                        break;
+                    case "modificarContextMenuGrid":
+                        if (tabpanel.activeTab.id == 'treeRG') {
+                            banderaMod = true;
+                            winFormUsuarios('Mod');
+                        } else {
+                            winFormPerfiles('Mod');
+                        }
+                        break;
+                    case "eliminarContextMenuGrid":
+                        eliminarusuario();
+                        break;
+                    case "asignarolesContextMenuGrid":
+                        winFormUsuarios("Rol");
+                        break;
+                    case "asignarperfilContextMenuGrid":
+                        winFormUsuarios("usuario");
+                        break;
+                    case "verContextMenuGrid":
+                        winFormUsuarios("fichausuario");
+                        break;
+                }
+            },
+            beforeshow: function () {
+                this.items.items[0].setDisabled(btnadicionar.disabled);
+                this.items.items[1].setDisabled(btnmodificar.disabled);
+                this.items.items[2].setDisabled(btneliminar.disabled);
+                this.items.items[3].setDisabled(btnasignarroles.disabled);
+                this.items.items[4].setDisabled(btnasignarperfil.disabled);
+                this.items.items[5].setDisabled(btnperfil.disabled);
+                if (tabpanel.activeTab.id == 'treeRG') {
+                    this.items.items[3].show();
+                    this.items.items[5].show();
+                } else {
+                    this.items.items[3].hide();
+                    this.items.items[5].hide();
+                }
+            }
+        }
+    });
+    var gridFrente = new Ext.grid.EditorGridPanel({
+        id: 'gridFrente',
+        toolTipCreado: false,
+        autoExpandColumn: 'expandir',
+        style: 'border-bottom: 0px',
+        loadMask: {
+            msg: etiquetas.cargando
+        },
+        autoScroll: true,
+        store: storeGrid,
+        bbar: pagerFrente,
+        sm: sm,
+        clicksToEdit: 2,
+        viewConfig: {
+            scrollOffset: 3
+        },
+        columns: [
+            {
+                header: etiquetas.lbActivo,
+                width: 48,
+                dataIndex: 'activo',
+                //tooltip: etiquetas.tooltipColumnaActivarDesactivar,
+                renderer: cargarIcons
+            },
+            {
+                header: etiquetas.lbUsuario,
+                id: 'expandir',
+                width: 100,
+                dataIndex: 'nombreusuario',
+                /*editor: new Ext.form.TextField({
+                    maxLength: 60,
+                    vtype: 'vtusuarionoarroba'
+                    //maskRe: /^(([a-zA-ZáéíóúñÑ])+([a-zA-ZáéíóúñÑ\d\_\s\-\@\.]*))$/
+                }),*/
+                sortable: true
+            },
+            {
+                header: etiquetas.lbDominio,
+                width: 200,
+                renderer: Ext.util.Format.comboRenderer(comboDominioGrid),
+                editor: comboDominioGrid,
+                dataIndex: 'iddominio',
+                sortable: true
+            },
+            {
+                header: etiquetas.lbTema,
+                width: 100,
+                dataIndex: 'idtema',
+                renderer: Ext.util.Format.comboRenderer(comboTemaGrid),
+                editor: comboTemaGrid,
+                sortable: true
+            },
+            {
+                header: etiquetas.lbIdioma,
+                width: 100,
+                sortable: true,
+                renderer: Ext.util.Format.comboRenderer(comboIdiomaGrid),
+                editor: comboIdiomaGrid,
+                dataIndex: 'ididioma'
+            },
+
+            {
+                header: etiquetas.lbEscritorio,
+                width: 200,
+                dataIndex: 'iddesktop',
+                renderer: Ext.util.Format.comboRenderer(comboDesktopGrid),
+                editor: comboDesktopGrid,
+                sortable: true
+            },
+            {
+                header: 'Direcciones IP',
+                width: 100,
+                dataIndex: 'ip',
+                editor: new Ext.form.TextField({maxLength: 255}),
+                sortable: true
+            },
+            {
+                header: 'Nombre y apellidos',
+                width: 280,
+                dataIndex: 'perfil',
+                sortable: true
+            },
+            {
+                header: 'Email',
+                width: 170,
+                dataIndex: 'email',
+                editor: new Ext.form.TextField({maxLength: 255}),
+                sortable: true
+            },
+            {
+                hidden: true,
+                hideable: false,
+                dataIndex: 'idusuario'
+            },
+            {
+                hidden: true,
+                hideable: false,
+                dataIndex: 'dominio'
+            },
+            {
+                hidden: true,
+                hideable: false,
+                dataIndex: 'tema'
+            },
+            {
+                hidden: true,
+                hideable: false,
+                dataIndex: 'idioma'
+            },
+            {
+
+                hidden: true,
+                hideable: false,
+                dataIndex: 'servidor'
+            },
+            {
+                header: "Servidor",
+                width: 100,
+                renderer: Ext.util.Format.comboRenderer(comboServidorGrid),
+                editor: comboServidorGrid,
+                dataIndex: 'idservidor'
+            },
+            {
+                hidden: true,
+                hideable: false,
+                dataIndex: 'desktop'
+            },
+            {
+                hidden: true,
+                hideable: false,
+                dataIndex: 'idpersona'
+            }
+        ],
+        stripeRows: true,
+        frame: true,
+        listeners: {
+            // celldblclick: function (grid, row, column, event) {
+            //     if (tabpanel.activeTab.id == 'treeRG' && column == 0) {
+            //         var record = storeGrid.getAt(row);
+            //         if (record.data.activo) {
+            //             desactivarUsuarios(new Array(record));
+            //         } else {
+            //             activarUsuarios(new Array(record));
+            //         }
+            //     }
+            // },
+            // cellclick: function (grid, row, column, event) {
+            //     console.log('click');
+            // },
+            afteredit: function () {
+                btnguardar.setDisabled(false);
+            },
+            validateedit: function (datos) {
+                if (datos.column == 6) {
+                    if (!validaRango(datos.value)) {
+                        mostrarMensaje(8, etiquetas.lbMsgRangoIP);
+                        return false;
+                    }
+                }
+                return true;
+            },
+            cellcontextmenu: function (grid, row, cell, event) {
+                event.preventDefault();
+                sm.selectRow(row);
+                contextMenuGrid.showAt(event.getXY());
+            },
+            mouseup : function(){
+                focusPanelDerecho();
+            }
+        }
+    });
+    storeGrid.load({
+        params: {
+            start: 0,
+            limit: 15
+        }
+    });
+    var tbarConGrid = new Ext.Toolbar({
+        items: [
+            btnadicionar,
+            btnmodificar,
+            btneliminar,
+            btnguardar,
+            btnasignarroles,
+            btnasignarperfil,
+            btncmbcontrasena,
+            btnperfil,
+            btnimportarusuario,
+            btnexportarusuario,
+            btnactivar,
+            btndesactivar,
+            btneliminarPerfil ,
+            btneliminarRolUser,
+            '->',
+            btnayuda
+        ]
+    });
+    var bbarConGrid = new Ext.Toolbar({
+        items: [
+            labelEstado,
+            comboestado,
+            labelUsuario,
+            combousuario,
+            labelDominio,
+            combodominio,
+            labelRol,
+            comborol,
+            labelGrupo,
+            combogrupos,
+            btnbuscar,
+            btnlimpiar
+        ],
+        style: 'border-top:0px;border-bottom:0px'
+    });
+    var panelmenu = new Ext.Panel({
+        id: 'panelmenu',
+        region: 'north',
+        height: 0,
+        tbar: tbarConGrid,
+        bbar: bbarConGrid,
+        autoScroll: true,
+        bodyStyle: 'border-left:0px;border-right:0px;border-top:0px;background-color: transparent;'
+    });
+    var contextMenu = new Ext.menu.Menu({
+        contextNode: null,
+        nodeCopy: null,
+        items: [
+            {id: 'copiar', text: 'Copiar', disabled: false, iconCls: 'copiar'},
+            {id: 'pegar', text: 'Pegar', disabled: false, iconCls: 'pegar'},
+            {id: 'eliminar', text: 'Eliminar', disabled: false, iconCls: 'eliminar'},
+            {id: 'adicionar', text: 'Adicionar', disabled: false, iconCls: 'adicionar'},
+            {id: 'modificar', text: 'Modificar', disabled: false, iconCls: 'modificar'},
+            {id: 'regular', text: 'Regular acciones', disabled: false, iconCls: 'regularacciones'}
+        ],
+        listeners: {
+            itemclick: function (item) {
+                if (item.id == 'copiar') {
+                    this.nodeCopy = this.contextNode;
+                    this.items.get('pegar').setDisabled(false);
+                }
+                else if (item.id == 'pegar') {
+                    this.contextNode.expand();
+                    var hijo = false;
+                    var nodecopy = this.nodeCopy;
+                    Ext.each(this.contextNode.childNodes, function (item, index, array) {
+                        if (this.attributes.idrol == nodecopy.getAttribute('idrol')) {
+                            hijo = true;
+                            return false;
+                        }
+                    });
+                    if (!hijo) {
+                        eliminserRelacion(this.nodeCopy.attributes.idrol, new Array(this.contextNode.attributes.idrol), 'insertarrelacion', this.nodeCopy, this.contextNode);
+                    } else {
+                        mostrarMensaje(8, etiquetas.rolAignadoGrupo);
+                    }
+                }
+                else if(item.id == 'eliminar'){
+                    if (treeRolGru.getSelectionModel().selNode.attributes.type == 'rol' && treeRolGru.getSelectionModel().selNode.parentNode.attributes.type == 'grupo') {
+                        btneliminarRelacion();
+                    }
+                    else if (treeRolGru.getSelectionModel().selNode.attributes.type == 'rol' || treeRolGru.getSelectionModel().selNode.attributes.type == 'grupo') {
+                        eliminarRol();
+                    }
+                }
+                else if(item.id == 'modificar'){
+                    var tipo = this.contextNode.attributes.type;
+                    if (tipo == 'rol') {
+                        winForm('Mod');
+                    } else {
+                        winForm('ModGrupo');
+                    }
+                }
+                else if(item.id == 'adicionar'){
+                    if (this.contextNode.text == "Roles") {
+                        winForm('Ins');
+                    } else{
+                        winForm('InsGrupo');
+                    }
+                }else if(item.id == 'regular'){
+                    winForm('Reg');
+                }
+            }
+        }
+    });
+    var contextMenuPerfiles = new Ext.menu.Menu({
+        items: [
+            {id: 'adicionarcontextMenuPerfiles',text: etiquetas.textMenuAdicionarPerfiles, disabled: false, iconCls: 'adicionar'},
+            {id: 'modificarcontextMenuPerfiles', text: etiquetas.textMenuModCampos, disabled: false, iconCls: 'modificar'},
+            {id: 'eliminarcontextMenuPerfiles', text: etiquetas.textMenuEliminarPerfiles, disabled: false, iconCls: 'eliminar'}
+        ],
+        listeners: {
+            itemclick: function (item) {
+                switch (item.id) {
+                    case 'adicionarcontextMenuPerfiles':
+                        winFormCampos('Ins');
+                        break;
+                    case 'modificarcontextMenuPerfiles':
+                        winFormCampos('Mod');
+                        break;
+                    case 'eliminarcontextMenuPerfiles':
+                        eliminarCampo();
+                        break;
+                }
+            },
+            beforeshow: function () {
+                this.items.items[0].setDisabled(btnadicionarcampo.disabled);
+                this.items.items[1].setDisabled(btnmodificarcampo.disabled);
+                this.items.items[2].setDisabled(btneliminarcampo.disabled);
+            }
+        }
+    });
+    var treeRolGru = new Ext.tree.TreePanel({
+        id: 'treeRG',
+        title: etiquetas.titleRolGru,
+        autoScroll: true,
+        selectNode: null,
+        lines: false,
+        enableDD: true,
+        animate: true,
+        border: false,
+        rootVisible: false,
+        contextMenu: contextMenu,
+        root: {
+            nodeType: 'async',
+            text: '',
+            allowDrop: false,
+            expanded: true,
+            draggable: false
+        },
+        loader: new Ext.tree.TreeLoader({
+            dataUrl: 'cargarrol',
+            listeners: {
+                'beforeload': function (tree, node) {
+                    tree.baseParams = {};
+                }
+            }
+        }),
+
+        listeners: {
+            contextmenu: function (node, event) {
+                node.select();
+                if (node.getAttribute('type') == 'raiz') {
+                    var btnadd = this.contextMenu.items.get('adicionar');
+                    if(node.getAttribute('text') == "Grupos"){
+                        btnadd.setText(etiquetas.lbTitAdicionarGrupo);
+                    }else{
+                        btnadd.setText(etiquetas.lbTitAdicionarRol);
+                    }
+                    this.contextMenu.items.get('pegar').hide();
+                    this.contextMenu.items.get('copiar').hide();
+                    btnadd.show();
+                    this.contextMenu.items.get('modificar').hide();
+                    this.contextMenu.items.get('eliminar').hide();
+                    this.contextMenu.items.get('regular').hide();
+                }else if (node.getAttribute('type') == 'rol') {
+                    this.contextMenu.items.get('pegar').hide();
+                    this.contextMenu.items.get('copiar').show();
+                    this.contextMenu.items.get('adicionar').hide();
+                    this.contextMenu.items.get('eliminar').show();
+                    this.contextMenu.items.get('modificar').show();
+                    this.contextMenu.items.get('regular').show();
+                } else if (node.getAttribute('type') == 'grupo') {
+                    if (this.contextMenu.nodeCopy)
+                        this.contextMenu.items.get('pegar').show();
+                    else
+                        this.contextMenu.items.get('pegar').hide();
+                    this.contextMenu.items.get('adicionar').hide();
+                    this.contextMenu.items.get('modificar').show();
+                    this.contextMenu.items.get('regular').show();
+                    this.contextMenu.items.get('eliminar').show();
+                    this.contextMenu.items.get('copiar').hide();
+                }
+                this.contextMenu.contextNode = node;
+                this.contextMenu.showAt(event.getXY());
+
+            },
+            'beforenodedrop': function (DD) {
+                var hijo = false;
+                DD.target.expand();
+                Ext.each(DD.target.childNodes, function (item, index, array) {
+                    if (this.attributes.idrol == DD.dropNode.getAttribute('idrol')) {
+                        hijo = true;
+                        return false;
+                    }
+                });
+                if (hijo) {
+                    mostrarMensaje(8, etiquetas.rolAignadoGrupo);
+                    return false;
+                }
+                else {
+                    eliminserRelacion(DD.dropNode.attributes.idrol, new Array(DD.target.attributes.idrol),
+                        'insertarrelacion', DD.dropNode, DD.target);
+                }
+                return false;
+            },
+            'click': function (node, event) {
+                idrolSelected = node.attributes.idrol;
+                habilitarDeshabilitarBtnTreeRG(node);
+                this.selectNode = node;
+            },
+            dblclick: function (node, event) {
+               /* if (rolFiltrar)
+                    Ext.DomHelper.applyStyles(rolFiltrar.getUI().getTextEl(), {'font-weight': 'inherit'});
+                else if (grupoFiltrar)
+                    Ext.DomHelper.applyStyles(grupoFiltrar.getUI().getTextEl(), {'font-weight': 'inherit'});
+               */
+                var nodeSelected = node;
+                if(rolFiltrar) {
+                   nodeSelected = node.parentNode;
+                   if(nodeSelected)
+                       nodeSelected = nodeSelected.findChild( 'idrol', rolFiltrar );
+                   if(nodeSelected)
+                       Ext.DomHelper.applyStyles(nodeSelected.getUI().getTextEl(), {'font-weight': 'inherit'});
+               }
+
+                if(grupoFiltrar) {
+                    if(node.attributes.type != 'raiz')
+                        nodeSelected = node.parentNode;
+                    if(nodeSelected)
+                        nodeSelected = nodeSelected.findChild( 'idrol', grupoFiltrar );
+                    if(nodeSelected)
+                        Ext.DomHelper.applyStyles(nodeSelected.getUI().getTextEl(), {'font-weight': 'inherit'});
+                }
+
+               if (node.attributes.type == 'rol') {
+                    Ext.DomHelper.applyStyles(node.getUI().getTextEl(), {'font-weight': 'bold'});
+                    rolFiltrar = node.attributes.idrol;
+                    comborol.setValue(rolFiltrar);
+                    //grupoFiltrar = null;
+                    nombreUsuarioFiltrar = combousuario.getValue();
+                    dominioFiltrar = combodominio.getValue();
+                    estadoFiltrar = comboestado.getValue();
+                    btnadicionar.setDisabled(true);
+                    filtrarGridUsuarios();
+                } else if (node.attributes.type == 'raiz') {
+
+
+                    nombreUsuarioFiltrar = null;
+                    dominioFiltrar = null;
+                    estadoFiltrar = null;
+                   if (node.attributes.text == 'Roles'){
+                       comborol.clearValue() ;
+                       rolFiltrar = null;
+                   }
+
+                   if (node.attributes.text == 'Grupos'){
+
+                       combogrupos.clearValue() ;
+                       grupoFiltrar = null;
+                   }
+                    btnadicionar.setDisabled(false);
+                    filtrarGridUsuarios();
+                } else {
+                    Ext.DomHelper.applyStyles(node.getUI().getTextEl(), {'font-weight': 'bold'});
+                    //rolFiltrar = node.attributes.idrol;
+                    grupoFiltrar = node.attributes.idrol;
+                    combogrupos.setValue(grupoFiltrar);
+                    nombreUsuarioFiltrar = combousuario.getValue();
+                    dominioFiltrar = combodominio.getValue();
+                    estadoFiltrar = comboestado.getValue();
+                    btnadicionar.setDisabled(true);
+                    filtrarGridUsuarios();
+                }
+            },
+            expandnode: function (node) {
+                if (node.attributes.type != 'rol') {
+                    node.getUI().getIconEl().className = "x-tree-node-icon-font icondistra-folder-open";
+                }
+            },
+            collapsenode: function (node) {
+                if (node.attributes.type != 'rol') {
+                    node.getUI().getIconEl().className = "x-tree-node-icon-font icondistra-folder";
+                }
+            }
+        }
+    });
+    var treePerfiles = new Ext.tree.TreePanel({
+        id: 'treePerfil',
+        title: 'Perfiles',
+        border: false,
+        enableDD: true,
+        animate: true,
+        root: {
+            expanded: true,
+            text: 'Campos',
+            id: 'r41ztr33'
+        },
+        loader: new Ext.tree.TreeLoader({
+            dataUrl: 'cargarcampos'
+        }),
+        listeners: {
+            'click': function (node, event) {
+                habilitarDeshabilitarBtnTreePerfiles(node);
+            },
+            contextmenu: function (node, event) {
+                node.select();
+                habilitarDeshabilitarBtnTreePerfiles(node);
+                contextMenuPerfiles.showAt(event.getXY());
+            }
+        }
+
+    });
+    var tabpanel = new Ext.TabPanel({
+        id: 'tabpanel',
+        collapsible: true,
+        animCollapse: true,
+        collapseMode: 'mini',
+        hideCollapseTool: true,
+        width: '18%',
+        keys: [
+            {
+                key: 'i',
+                alt: true,
+                fn: function (e,a) {
+                    a.browserEvent.preventDefault();
+                    if (tabpanel.activeTab.id == 'treeRG') {
+                        if (!btnadicionarRoles.disabled) {
+                            if (treeRolGru.getSelectionModel().selNode.attributes.type == 'raiz') {
+                                if (treeRolGru.getSelectionModel().selNode.text == 'Grupos') {
+                                    winForm('InsGrupo');
+                                } else {
+                                    winForm('Ins');
+                                }
+                            }
+                        }
+                    }else if(!btnadicionarcampo.disabled){
+                        winFormCampos('Ins');
+                    }
+                }
+            },
+            {
+                key: 'm',
+                alt: true,
+                fn: function (e,a) {
+                    a.browserEvent.preventDefault();
+                    if (tabpanel.activeTab.id == 'treeRG') {
+                        if (!btnmodificarRoles.disabled) {
+                            var tipo = treeRolGru.getSelectionModel().selNode.attributes.type;
+                            if (tipo == 'rol') {
+                                winForm('Mod');
+                            } else if (tipo == 'grupo') {
+                                winForm('ModGrupo');
+                            }
+                        }
+                    }else if(!btnmodificarcampo.disabled){
+                        winFormCampos('Mod');
+                    }
+                }
+            },
+            {
+                key: Ext.EventObject.DELETE,
+                fn: function (e,a) {
+                    if(!a.shiftKey && !a.ctrlKey) {
+                        if (tabpanel.activeTab.id == 'treeRG') {
+                            if (!btneliminarRoles.disabled) {
+                                if (treeRolGru.getSelectionModel().selNode.attributes.type == 'rol' && treeRolGru.getSelectionModel().selNode.parentNode.attributes.type == 'grupo') {
+                                    btneliminarRelacion();
+                                }
+                                else if (treeRolGru.getSelectionModel().selNode.attributes.type == 'rol' || treeRolGru.getSelectionModel().selNode.attributes.type == 'grupo') {
+                                    eliminarRol();
+                                }
+                            }
+                        } else if (!btneliminarcampo.disabled) {
+                            eliminarCampo();
+                        }
+                    }
+                }
+            },
+            {
+                /* key: 'r',
+                 alt: true,
+                 fn: function (e,a) {
+                 a.browserEvent.preventDefault();
+                 if (!btnRegularAcciones.disabled) {
+                 var tipo = treeRolGru.getSelectionModel().selNode.attributes.type;
+                 if (tipo == 'rol' || tipo == 'grupo') {
+                 winForm('Reg');
+                 }
+                 }
+                 }*/
+            },
+            {
+                key: 'b',
+                alt: true,
+                fn: function (e,a) {
+                    a.browserEvent.preventDefault();
+                    if (!btnbuscar.disabled) {
+                        filtrar();
+                        focusTabPanel();
+                    }
+                }
+            },
+            {
+                key: 'l',
+                alt: true,
+                fn: function (e,a) {
+                    a.browserEvent.preventDefault();
+                    if (!btnlimpiar.disabled) {
+                        reiniciarFiltro();
+                        focusTabPanel();
+                    }
+                }
+            }
+        ],
+        split: true,
+        region: 'west',
+        margins: '5 0 5 5',
+        cmargins: '5 0 5 0',
+        tbar: new Ext.Toolbar({
+            items: [
+                btnadicionarRoles,
+                btnmodificarRoles,
+                btneliminarRoles,
+                btnRegularAcciones,
+                btnadicionarcampo,
+                btnmodificarcampo,
+                btneliminarcampo,
+                '->',
+                textFieldBuscar
+            ]
+        }),
+        activeItem: 0,
+        items: [
+            treeRolGru, treePerfiles
+        ]
+    });
+    treeRolGru.filter = new Ext.tree.TreeFilter(treeRolGru, {
+        autoClear: true
+    });
+    treePerfiles.filter = new Ext.tree.TreeFilter(treePerfiles, {
+        autoClear: true
+    });
+
+//////////////////////////////Componentes Gestionar Usuarios/////////////////////////////////////////////////////////////////////
+    ////------------------ Store del combobox de Desktop -----------------////
+
+    ////------------ Formulario de Datos de Sistema ------------////
+    fpPass = new Ext.FormPanel({
+        frame: true,
+        width: 100,
+        bodyStyle: 'padding:5px 5px 0',
+        items: [
+            {
+                layout: 'column',
+                items: [
+                    {
+                        columnWidth: 5,
+                        layout: 'form',
+                        items: [
+                            {
+                                xtype: 'textfield',
+                                fieldLabel: etiquetas.lbUsuario,
+                                id: 'usuariop',
+                                labelStyle: 'width:150px',
+                                width: 200,
+                                readOnly: 'true',
+                                prevTab: 'btnAceptarCambiarPass'
+                            },
+                            {
+                                xtype: 'textfield',
+                                fieldLabel: etiquetas.lbTitMsgContrasenanueva,
+                                inputType: 'password',
+                                minLength: 8,
+                                maxLength : 255,
+                                blankText: etiquetas.lbMsgEstecampoesrequerido,
+                                id: 'contrasenap',
+                                labelStyle: 'width:150px',
+                                allowBlank: false,
+                                width: 200
+                            }, {
+                                xtype: 'textfield',
+                                fieldLabel: etiquetas.lbTitMsgConfirmarcontrasena,
+                                inputType: 'password',
+                                minLength: 8,
+                                maxLength : 255,
+                                blankText: etiquetas.lbMsgEstecampoesrequerido,
+                                id: 'contrasennap',
+                                labelStyle: 'width:150px',
+                                allowBlank: false,
+                                width: 200
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    });
+// GRID IMPORTAR USUARIO  -----------------------------------------------------------------------------------------------
+    var criterioFiltrarImportar = "", criterio2FiltrarImportar = "";
+    var storeGridImportar = new Ext.data.Store({
+        url: 'cargarUsuariosLdap',
+        reader: new Ext.data.JsonReader({
+                totalProperty: "cantidad_filas",
+                root: "datos"
+            },
+            [
+                {
+                    name: 'nombreusuario',
+                    mapping: 'nombreusuario'
+                },
+                {
+                    name: 'nombre',
+                    mapping: 'nombre'
+                },
+                {
+                    name: 'grupo',
+                    mapping: 'grupo'
+                },
+                {
+                    name: 'existe',
+                    mapping: 'existe'
+                }
+            ]
+        ),
+        listeners: {
+            'beforeload': function () {
+                this.baseParams = {};
+                this.baseParams.servidor = comboServidorImportar.getValue();
+                this.baseParams.criterio = criterioFiltrarImportar;
+                this.baseParams.criterio2 = criterio2FiltrarImportar;
+            },
+            'load': function (store, records) {
+                var selectedRecords = Array();
+                for (var i = 0; i < records.length; i++) {
+                    if (usuariosImportar[records[i].data.nombreusuario]) {
+                        selectedRecords.push(records[i]);
+                    }
+                    smImportar.selectRecords(selectedRecords);
+                }
+            }
+        }
+    });
+    var comboServidorImportar = new Ext.form.ComboBox({
+        id: "comboServidorImportar",
+        store: storeservidor,
+        forceSelection: true,
+        enableQtip: true,
+        allowBlank: false,
+        valueField: 'idservidor',
+        displayField: 'servidor',
+        valueNotFoundText: 'Sin servidor',
+        mode: 'local',
+        typeAhead: true,
+        triggerAction: 'all',
+        selectOnFocus: true,
+        listeners: {
+            'select': function () {
+                usuariosImportar = [];
+                usersChecked = [];
+                usersCont = 0;
+                usuariosImportar = {};
+                if (this.getValue() != 0) {
+                    storeGridImportar.load({
+                        params: {
+                            'servidor': this.getValue(),
+                            'criterio': (nombreusuarioImportar.getValue() != "") ? nombreusuarioImportar.getValue() : null,
+                            'start': 0,
+                            'limit': 15
+                        }
+                    });
+                    habilitarDeshabilitarImportar(false);
+                } else {
+                    habilitarDeshabilitarImportar(true);
+                    storeGridImportar.removeAll();
+                }
+            }
+        }
+    });
+    var tbarImportar = new Ext.Toolbar({
+        items: [
+            new Ext.form.Label({
+                style: 'margin: 0px 2px 0px 4px;',
+                text: etiquetas.fieldLabelServidor
+            }),
+            comboServidorImportar
+        ]
+    });
+    var nombreusuarioImportar = new Ext.form.TextField({
+        emptyText: etiquetas.emptyImportarText,
+        disabled: true
+    });
+    var grupoImportar = new Ext.form.TextField({
+        disabled: true,
+        emptyText: etiquetas.emptyGrupoImportarText
+    });
+    var btnbuscarImportar = new Ext.Button({
+        disabled: true,
+        tooltip: etiquetas.textToolTipSearch,
+        iconCls: 'buscar',
+        handler: function () {
+            filtrarImportar();
+        }
+    });
+    var btnlimpiarImportar = new Ext.Button({
+        //text: etiquetas.denomLimpiar,
+        disabled: true,
+        nextTab:"btnanteriorImportar",
+        tooltip: etiquetas.cleanFilter,
+        iconCls: 'limpiar',
+        handler: function () {
+            limpiarFiltroImportar();
+        }
+    });
+    var bbarImportar = new Ext.Toolbar({
+        items: [
+            nombreusuarioImportar,
+            " ", " ", " ",
+            new Ext.form.Label({
+                text: etiquetas.emptyGrupoImportarLabel
+            }),
+            " ",
+            grupoImportar,
+            btnbuscarImportar,
+            btnlimpiarImportar
+        ],
+        style: 'border-top:0px;border-bottom:0px'
+    });
+    var panelmenuImportar = new Ext.Panel({
+        region: 'north',
+        height: 0,
+        tbar: tbarImportar,
+        bbar: bbarImportar,
+        autoScroll: true,
+        bodyStyle: 'border-left:0px;border-right:0px;border-top:0px;background-color: transparent;'
+    });
+    var pagerImportar = new Ext.PagingToolbar({
+        store: storeGridImportar, // <--grid and PagingToolbar using same store (required)
+        displayInfo: true,
+        beforePageText: etiquetas.textPagina,
+        afterPageText: etiquetas.textDe,
+        emptyMsg: 'No hay usuarios para mostrar',
+        pageSize: 15
+    });
+    var smImportar = new Ext.grid.CheckboxSelectionModel({
+        singleSelect: false,
+        listeners: {
+            'rowselect': function (s, rowIndex, r) {//aki
+                if(r.data.existe == false) {
+                    usuariosImportar[r.data.nombreusuario] = true;
+                    usersChecked[r.data.nombreusuario] = r.data;
+                    usersCont++;
+                    Ext.getCmp('btnsiguienteImportar').enable();
+                }else{
+                    this.deselectRow(rowIndex);
+                }
+            },
+            'rowdeselect': function (a, rowIndex, r) {
+                if(this.getSelections().length <= 0)
+                    Ext.getCmp('btnsiguienteImportar').disable();
+                delete usuariosImportar[r.data.nombreusuario];
+                delete usersChecked[r.data.nombreusuario];
+                usersCont--;
+            }
+        }
+    });
+    var gridImportar = new Ext.grid.GridPanel({
+        region: "center",
+        id:'gridUsers',
+        autoExpandColumn: 'expandir',
+        style: 'border-bottom: 0px',
+        loadMask: {
+            msg: etiquetas.cargando
+        },
+        autoScroll: true,
+        store: storeGridImportar,
+        bbar: pagerImportar,
+        sm: smImportar,
+        viewConfig: {
+            scrollOffset: 3
+        },
+        columns: [
+            smImportar,
+            {
+                header: etiquetas.lbUsuario,
+                width: 100,
+                dataIndex: 'nombreusuario',
+                sortable: true
+            },
+            {
+                header: "Nombre",
+                width: 100,
+                id: 'expandir',
+                dataIndex: 'nombre',
+                sortable: true
+            },
+            {
+                header: "Grupo",
+                width: 200,
+                dataIndex: 'grupo',
+                sortable: true
+            },
+            {
+                dataIndex: 'existe',
+                hidden: true,
+                hideable: false
+            }
+        ],
+        stripeRows: true,
+        frame: true
+    });
+    gridImportar.getView().getRowClass = function (record) {
+        if (record.data.existe != false) {
+            return 'FilaRoja';
+        }
+    };
+    var panelIzqImportar = new Ext.Panel({
+        index: 0,
+        layout: 'border',
+        keys:[
+            {
+                key: 'b',
+                alt: true,
+                fn: function (e,a) {
+                    a.browserEvent.preventDefault();
+                    if (!btnbuscarImportar.disabled) {
+                        filtrarImportar();
+                    }
+                }
+            },
+            {
+                key: 'l',
+                alt: true,
+                fn: function (e,a) {
+                    a.browserEvent.preventDefault();
+                    if (!btnlimpiarImportar.disabled) {
+                        limpiarFiltroImportar();
+                    }
+                }
+            }
+        ],
+        margins: '5 5 5 0',
+        bodyStyle: 'background-color: transparent;border-left:0px;border-right:0px; border-top:0px;border-bottom:0px',
+        items: [panelmenuImportar, gridImportar]
+    });
+    var panelConfigUsuarios = new Ext.FormPanel({
+        layout: 'border',
+        monitorValid: true,
+        border: false,
+        index: 1,
+        bodyStyle: 'background-color: transparent; padding: 10px',
+        style: 'padding:10px',
+        items: [
+            new Ext.form.FieldSet({
+                title: etiquetas.textFieldSetImportar,
+                height:150,
+                region:'north',
+                items:[
+                    {
+                        layout: 'column',
+                        anchor: "100%",
+                        bodyStyle: 'background-color: transparent;',
+                        border: false,
+                        items: [
+                            {
+                                columnWidth: .50,
+                                layout: 'form',
+                                border: false,
+                                bodyStyle: 'background-color: transparent;padding: 10px',
+                                items: [
+                                    new Ext.form.ComboBox({
+                                        emptyText: etiquetas.lbSeleccionaridioma,
+                                        editable: false,
+                                        enableQtip: true,
+                                        anchor: '100%',
+                                        fieldLabel: etiquetas.lbIdioma,
+                                        store: storeIdioma,
+                                        valueField: 'ididioma',
+                                        displayField: 'idioma',
+                                        hiddenName: 'ididioma',
+                                        forceSelection: true,
+                                        typeAhead: true,
+                                        mode: 'local',
+                                        allowBlank: false,
+                                        triggerAction: 'all',
+                                        selectOnFocus: true
+                                    }),
+                                    new Ext.form.ComboBox({
+                                        emptyText: etiquetas.lbSeleccionartema,
+                                        editable: false,
+                                        enableQtip: true,
+                                        fieldLabel: etiquetas.lbTema,
+                                        store: storeTema,
+                                        valueField: 'idtema',
+                                        displayField: 'tema',
+                                        hiddenName: 'idtema',
+                                        forceSelection: true,
+                                        typeAhead: true,
+                                        mode: 'local',
+                                        allowBlank: false,
+                                        triggerAction: 'all',
+                                        selectOnFocus: true,
+                                        anchor: '100%'
+                                    }),
+                                    {
+                                        xtype: 'textfield',
+                                        fieldLabel: etiquetas.lbIpfin,
+                                        blankText: etiquetas.lbMsgEstecampoesrequerido,
+                                        maxLength: 255,
+                                        regexText: etiquetas.lbMsgRangoIP,
+                                        name: 'ip',
+                                        allowBlank: false,
+                                        anchor: '100%'
+                                    }
+                                ]
+                            },
+                            {
+                                columnWidth: .50,
+                                layout: 'form',
+                                border: false,
+                                bodyStyle: 'background-color: transparent;padding: 10px',
+                                items: [
+                                    new Ext.form.ComboBox({
+                                        emptyText: etiquetas.lbSeleccionarescritorio,
+                                        editable: false,
+                                        anchor: '100%',
+                                        enableQtip: true,
+                                        fieldLabel: etiquetas.lbTitMsgTipodeescritorio,
+                                        store: storeDesktop,
+                                        valueField: 'iddesktop',
+                                        displayField: 'desktop',
+                                        hiddenName: 'iddesktop',
+                                        forceSelection: true,
+                                        typeAhead: true,
+                                        mode: 'local',
+                                        allowBlank: false,
+                                        triggerAction: 'all',
+                                        selectOnFocus: true
+                                    }),
+                                    new Ext.form.ComboBox({
+                                        emptyText: etiquetas.lbSeleccionardominio,
+                                        editable: false,
+                                        enableQtip: true,
+                                        anchor: '100%',
+                                        fieldLabel: etiquetas.lbDominio,
+                                        store: storeDominio,
+                                        valueField: 'iddominio',
+                                        displayField: 'dominio',
+                                        hiddenName: 'iddominio',
+                                        forceSelection: true,
+                                        typeAhead: true,
+                                        mode: 'local',
+                                        allowBlank: false,
+                                        triggerAction: 'all',
+                                        selectOnFocus: true
+                                    })
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        layout: 'column',
+                        anchor: "100%",
+                        border: false,
+                        defaults: {
+                            border: false,
+                            bodyStyle: 'background-color: transparent;padding-left: 10px'
+                        },
+                        bodyStyle: 'background-color: transparent;',
+                        items: [
+                            {
+                                columnWidth: .31,
+                                //layout: 'form',
+                                autoScroll : false,
+                                items: [
+                                    {
+                                        xtype: "checkbox",
+                                        boxLabel: etiquetas.lbActivo,
+                                        hideLabel: true,
+                                        name: 'activo',
+                                        inputValue: 'true',
+                                        checked: 'true',
+                                        anchor: '95%'
+                                    }]
+
+                            },
+                            {
+                                columnWidth: .31,
+                                //layout: 'form',
+                                items: [
+                                    {
+                                        xtype: "checkbox",
+                                        boxLabel: etiquetas.lbAcessoConcurrente,
+                                        hideLabel: true,
+                                        name: 'simpleacceso',
+                                        inputValue: 'true',
+                                        anchor: '95%',
+                                        checked: 'true',
+                                        hidden : true,
+                                        listeners: {
+                                            'check': function (component,checked) {
+                                                Ext.getCmp("rescribirsessionimportar").setDisabled(!checked);
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                columnWidth: .38,
+                                //layout: 'form',
+                                items: [
+                                    {
+                                        xtype: "checkbox",
+                                        id: "rescribirsessionimportar",
+                                        boxLabel: etiquetas.lbReescribirSesion,
+                                        hideLabel: true,
+                                        name: 'reescribirsesion',
+                                        anchor: '100%',
+                                        inputValue: 'true',
+                                        hidden : true,
+                                        disabled: true
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                ]
+            }),
+            {
+                xtype       : "fieldset",
+                title       : "Usuarios seleccionados",
+                id:'panelUsers',
+                region:'center',
+                autoScroll : true,
+                margins: '5 0 0 0'
+            }
+        ],
+        listeners: {
+            'clientvalidation': function () {
+                if (this.getForm().isValid()) {
+                    if (winImportarUsuarios.getLayout().activeItem.index == 1) {
+                        Ext.getCmp('btnsiguienteImportar').enable();
+                    }
+                    if(winImportarUsuarios.getLayout().activeItem.index == 1){
+                        Ext.getCmp('btnfinalizarImportar').enable();
+                    }
+                }else{
+                    if(winImportarUsuarios.getLayout().activeItem.index == 1){
+                        Ext.getCmp('btnfinalizarImportar').disable();
+                        Ext.getCmp('btnsiguienteImportar').disable();
+                    }
+                }
+            }
+        }
+    });
+
+
+//--------------------------    GRID EXPORTAR USUARIOS ------------------------------------------------------------------
+
+    var criterioFiltrarExportar = "";
+    var storeGridExportar = new Ext.data.Store({
+        url: 'cargarusuario',
+        reader: new Ext.data.JsonReader({
+                totalProperty: "cantidad_filas",
+                root: "datos"
+            },
+            [
+                {
+                    name: 'nombreusuario',
+                    mapping: 'nombreusuario'
+                },
+                {
+                    name: 'nombre',
+                    mapping: 'nombre'
+                },
+                {
+                    name: 'grupo',
+                    mapping: 'grupo'
+                },
+                {
+                    name: 'existe',
+                    mapping: 'existe'
+                }
+            ]
+        ),
+        listeners: {
+            'beforeload': function () {
+                this.baseParams = {};
+                //this.baseParams.servidor = comboServidorExportar.getValue();
+                this.baseParams.criterio = criterioFiltrarExportar;
+            },
+            'load': function (store, records) {
+                var selectedRecords1 = Array();
+                for (var i = 0; i < records.length; i++) {
+                    if (usuariosExportar[records[i].data.nombreusuario]) {
+                        selectedRecords1.push(records[i]);
+                    }
+                    smExportar.selectRecords(selectedRecords1);
+                }
+            }
+        }
+    });
+    var comboServidorExportar = new Ext.form.ComboBox({
+        id: "comboServidorExportar",
+        store: storeservidor,
+        forceSelection: true,
+        enableQtip: true,
+        allowBlank: false,
+        valueField: 'idservidor',
+        displayField: 'servidor',
+        valueNotFoundText: 'Sin servidor',
+        mode: 'local',
+        typeAhead: true,
+        triggerAction: 'all',
+        selectOnFocus: true,
+        listeners: {
+            'select': function () {
+                if (this.getValue() != 0 && this.getValue() != "" && usersCont1 != 0
+                    /*&& Ext.getCmp('unidadorganizativa').getValue() != "" && Ext.getCmp('unidadorganizativa').getValue() != null*/) {
+                    Ext.getCmp('btnfinalizarExportar').enable();
+                 } else {
+                     Ext.getCmp('btnfinalizarExportar').disable();
+                }
+            }
+        }
+    });
+    var tbarExportar = new Ext.Toolbar({
+        items: [
+            new Ext.form.Label({
+                id:"formlabelServidor",
+                style: 'margin: 0px 2px 0px 4px;',
+                text: etiquetas.fieldLabelServidor
+            }),
+        comboServidorExportar,
+        /*new Ext.form.Label({
+            id:"formlabelOU",
+            style: 'margin: 0px 2px 0px 4px;',
+            text: etiquetas.Unidadorganizativa
+        }),
+        {
+            xtype: 'textfield',
+            id:"unidadorganizativa",
+            //fieldLabel: "Unidad organizativa",
+            name: 'unidadorganizativa',
+            allowBlank: false,
+            // regex:"/^[a-zA-Z]*$/",
+            // regexText:"/^[a-zA-Z]*$/",
+            listeners: {
+                'valid': function (t) {
+                    if(t.getValue() != "" &&  t.getValue() != null && usersCont1 != 0 && Ext.getCmp('comboServidorExportar').getValue() != 0 && Ext.getCmp('comboServidorExportar').getValue() != ""){
+                        Ext.getCmp('btnfinalizarExportar').enable();
+                    }
+                    else{
+                        Ext.getCmp('btnfinalizarExportar').disable();
+                    }
+                },
+                'invalid': function (t) {
+                        Ext.getCmp('btnfinalizarExportar').disable();
+                }
+            }
+        }*/]
+    });
+    var nombreusuario = new Ext.form.TextField({
+        emptyText: etiquetas.emptyExportarText,
+        // disabled: true
+    });
+    var btnbuscarExportar = new Ext.Button({
+        // disabled: true,
+        tooltip: etiquetas.textToolTipSearch,
+        iconCls: 'buscar',
+        handler: function () {
+            filtrarExportar();
+        }
+    });
+    var btnlimpiarExportar = new Ext.Button({
+        //text: etiquetas.denomLimpiar,
+        // disabled: true,
+        nextTab:"btnanteriorImportar",
+        tooltip: etiquetas.cleanFilter,
+        iconCls: 'limpiar',
+        handler: function () {
+            limpiarFiltroExportar();
+        }
+    });
+    var bbarExportar = new Ext.Toolbar({
+        items: [
+            nombreusuario,
+            " ", " ", " ",
+            btnbuscarExportar,
+            btnlimpiarExportar
+        ],
+        style: 'border-top:0px;border-bottom:0px'
+    });
+    var panelmenuExportar = new Ext.Panel({
+        region: 'north',
+        height: 0,
+        tbar: tbarExportar,
+        //bbar: bbarExportar,
+        autoScroll: true,
+        bodyStyle: 'border-left:0px;border-right:0px;border-top:0px;background-color: transparent;'
+    });
+    var pagerExportar = new Ext.PagingToolbar({
+        store: storeGridExportar, // <--grid and PagingToolbar using same store (required)
+        displayInfo: true,
+        beforePageText: etiquetas.textPagina,
+        afterPageText: etiquetas.textDe,
+        emptyMsg: 'No hay usuarios para mostrar',
+        pageSize: 15
+    });
+    var smExportar = new Ext.grid.CheckboxSelectionModel({
+        singleSelect: false,
+        listeners: {
+            'rowselect': function (s, rowIndex, r) {//aki
+                usuariosExportar[r.data.nombreusuario] = true;
+                usersChecked1[r.data.nombreusuario] = r.data;
+                usersCont1++;
+                var cbServidorEmportar = Ext.getCmp('comboServidorExportar').getValue();
+                // var unidadorg = Ext.getCmp('unidadorganizativa').getValue();
+                if(cbServidorEmportar != 0 && cbServidorEmportar != "" && /*unidadorg != "" && unidadorg != null &&*/ usersCont1 != 0){
+                    Ext.getCmp('btnfinalizarExportar').enable();
+                }
+            },
+            'rowdeselect': function (a, rowIndex, r) {
+                var cbServidorEmportar = Ext.getCmp('comboServidorExportar').getValue();
+                // var unidadorg = Ext.getCmp('unidadorganizativa').getValue();
+                if(this.getSelections().length <= 0 || cbServidorEmportar == 0 || cbServidorEmportar == "" /*|| unidadorg == "" || unidadorg == null*/)
+                    Ext.getCmp('btnfinalizarExportar').disable();
+                delete usuariosExportar[r.data.nombreusuario];
+                delete usersChecked1[r.data.nombreusuario];
+                usersCont1--;
+            }
+        }
+    });
+    var gridExportar = new Ext.grid.GridPanel({
+        region: "center",
+        id:'gridExportUsers',
+        autoExpandColumn: 'expandir',
+        style: 'border-bottom: 0px',
+        loadMask: {
+            msg: etiquetas.cargando
+        },
+        autoScroll: true,
+        store: storeGridExportar,
+        bbar: pagerExportar,
+        sm: smExportar,
+        viewConfig: {
+            scrollOffset: 3
+        },
+        columns: [
+            smExportar,
+            {
+                header: etiquetas.lbUsuario,
+                width: 100,
+                dataIndex: 'nombreusuario',
+                sortable: true
+            },
+            {
+                header: "Nombre",
+                width: 100,
+                id: 'expandir',
+                dataIndex: 'nombre',
+                sortable: true
+            },
+            {
+                header: "Grupo",
+                width: 200,
+                dataIndex: 'grupo',
+                sortable: true
+            },
+            {
+                dataIndex: 'existe',
+                hidden: true,
+                hideable: false
+            }
+        ],
+        stripeRows: true,
+        frame: true
+    });
+    //------------------------------------------------------------------------- clase css que pinta la fila del grid----
+    // gridExportar.getView().getRowClass = function (record) {
+    //     if (record.data.existe != false) {
+    //         return 'FilaRoja';
+    //     }
+    // };
+    var panelIzqExportar = new Ext.Panel({
+        index: 0,
+        layout: 'border',
+        keys:[
+            {
+                key: 'b',
+                alt: true,
+                fn: function (e,a) {
+                    a.browserEvent.preventDefault();
+                    if (!btnbuscarExportar.disabled) {
+                        filtrarExportar();
+                    }
+                }
+            },
+            {
+                key: 'l',
+                alt: true,
+                fn: function (e,a) {
+                    a.browserEvent.preventDefault();
+                    if (!btnlimpiarExportar.disabled) {
+                        limpiarFiltroExportar();
+                    }
+                }
+            }
+        ],
+        margins: '5 5 5 0',
+        bodyStyle: 'background-color: transparent;border-left:0px;border-right:0px; border-top:0px;border-bottom:0px',
+        items: [panelmenuExportar, gridExportar]
+    });
+
+
+//////////////////////////////////Componentes Gestionar Rol////////////////////////////////////
+
+    btnSiguiente = new Ext.Button({
+        disabled: true,
+        id: 'btnsiguiente',
+        style: 'margin:auto;margin-top:110px',
+        //icon: perfil.dirImg + 'siguiente.png',
+        iconCls: 'siguiente',
+        tooltip: etiquetas.textAutorizar,
+        handler: function () {
+            eliminaraccion();
+        }
+    });
+
+    btnAnterior = new Ext.Button({
+        disabled: true,
+        id: 'btnAnterior',
+        style: 'margin:auto;margin-top:90px',
+        //icon: perfil.dirImg + 'anterior.png',
+        iconCls: 'anterior',
+        tooltip: etiquetas.textNoAutorizar,
+        handler: function () {
+            adicionaraccion();
+        }
+    });
+
+    ////------------ Arbol de sistemas ------------////
+    arbolSistema = new Ext.tree.TreePanel({
+        title: etiquetas.lbTitSistemasregistrados,
+        autoScroll: true,
+        region: 'center',
+        split: true,
+        width: '37%',
+        margins: '3 3 3 0',
+        loader: new Ext.tree.TreeLoader({
+            dataUrl: 'cargarsistemafuncionalidades',
+            listeners: {
+                'beforeload': function (atreeloader, anode) {
+                    atreeloader.baseParams = {};
+                    if (modificar) {
+                        atreeloader.baseParams.idsistema = anode.attributes.idsistema != undefined ? anode.attributes.idsistema : "";
+                        atreeloader.baseParams.idrol = treeRolGru.getSelectionModel().selNode.attributes.idrol;
+                    }
+                    else
+                        atreeloader.baseParams.idsistema = anode.attributes.idsistema != undefined ? anode.attributes.idsistema : "";
+                },
+                load: function (loader, anode) {
+                    if ((anode.attributes.idsistema) || anode.attributes.id == '0') {
+                        for (var i = 0; i < anode.childNodes.length; i++) {
+                            if (anode.childNodes[i].attributes.checked && anode.childNodes[i].attributes.idsistema) {
+                                arraytiene.push(anode.childNodes[i].attributes.idsistema)
+                            }
+                            if (!anode.attributes.checked && anode.attributes.id != '0') {
+                                anode.childNodes[i].getUI().toggleCheck(false);
+                            }
+                        }
+                    }
+                }
+            }
+        }),
+        listeners: {
+            'checkchange': function (node, value) {
+                if (cambiarEstadoHijos) {
+                    cambiarEstadoHijos = false;
+                    for (var i = 0; i < node.childNodes.length; i++) {
+                        toggleCheckRol(node.childNodes[i], value);
+                    }
+                    while (node.parentNode && value != node.parentNode.attributes.checked) {
+                        if (value && !node.parentNode.attributes.checked) {
+                            node.parentNode.getUI().toggleCheck(value);
+                        }
+                        node = node.parentNode;
+                    }
+                    cambiarEstadoHijos = true;
+                }
+                arbolSistema.change  = true;
+            }
+        }
+    });
+
+    ////------------ Arbol de sistemas para roles------------////
+    arbolSistemaRol = new Ext.tree.TreePanel({
+        title: etiquetas.lbTitSistemasregistrados,
+        autoScroll: true,
+        border: true,
+        bodyStyle: 'border-top: 0px;',
+        split: true,
+        width: '36%',
+        loader: new Ext.tree.TreeLoader({
+            dataUrl: 'cargarsistemafuncionalidades',
+            listeners: {
+                'beforeload': function (atreeloader, anode) {
+                    atreeloader.baseParams = {};
+                    if (modificar) {
+                        atreeloader.baseParams.idsistema = anode.attributes.idsistema != undefined ? anode.attributes.idsistema : "";
+                        atreeloader.baseParams.idrol = treeRolGru.getSelectionModel().selNode.attributes.idrol;
+                    }
+                    else
+                        atreeloader.baseParams.idsistema =anode.attributes.idsistema != undefined ? anode.attributes.idsistema : "";
+                },
+                load: function (loader, anode) {
+                    if ((anode.attributes.idsistema) || anode.attributes.id == '0') {
+                        for (var i = 0; i < anode.childNodes.length; i++) {
+                            if (anode.childNodes[i].attributes.checked && anode.childNodes[i].attributes.idsistema) {
+                                arraytiene.push(anode.childNodes[i].attributes.idsistema)
+                            }
+                            if (!anode.attributes.checked && anode.attributes.id != '0') {
+                                anode.childNodes[i].getUI().toggleCheck(false);
+                            }
+                        }
+                    }
+                }
+            }
+        }),
+        listeners: {
+            'checkchange': function (node, value) {
+                if (cambiarEstadoHijos) {
+                    cambiarEstadoHijos = false;
+                    for (var i = 0; i < node.childNodes.length; i++) {
+                        toggleCheckRol(node.childNodes[i], value);
+                    }
+                    while (node.parentNode && value != node.parentNode.attributes.checked) {
+                        if (value && !node.parentNode.attributes.checked) {
+                            node.parentNode.getUI().toggleCheck(value);
+                        }
+                        node = node.parentNode;
+                    }
+                    cambiarEstadoHijos = true;
+                }
+                arbolSistemaRol.change = true;
+            }
+        }
+    });
+    function toggleCheckRol(node, value) {
+        if (value != node.checked)
+            node.getUI().toggleCheck(value);
+        for (var i = 0; i < node.childNodes.length; i++) {
+            toggleCheckRol(node.childNodes[i], value);
+        }
+    }
+
+    var padreArbolSistema = new Ext.tree.AsyncTreeNode({
+        text: etiquetas.lbTitMsgSubsistemas,
+        expandable: false,
+        id: '0'
+    });
+
+    ////------------ Crear nodo padre del arbol ------------////
+    var padreArbolSistemaRol = new Ext.tree.AsyncTreeNode({
+        text: etiquetas.lbTitMsgSubsistemas,
+        expandable: false,
+        id: '0'
+    });
+
+    arbolSistema.setRootNode(padreArbolSistema);
+    arbolSistemaRol.setRootNode(padreArbolSistemaRol);
+    ////---------- Formulario adicionar Rol----------////
+    var regrol = new Ext.FormPanel({
+        mod: false,
+        defaultValues : null,
+        labelAlign: 'top',
+        collapsible: true,
+        //bodyStyle: 'padding:5px 5px 0',
+        width: 190,
+        region: 'west',
+        frame: true,
+        margins: '3 3 3 3',
+        listeners:{
+            clientvalidation: function(form,valid){
+                if(form.mod) {
+                    Ext.getCmp("denominacion").prevTab = "btnAceptarModRol";
+                    if (!form.defaultValues) {
+                        form.defaultValues = form.getForm().getValues(true);
+                    }
+                    if (
+                        (arbolSistemaRol.change || smgridGrupos.change || form.defaultValues != form.getForm().getValues(true))
+                        && valid && validarAdicionarRolGrupo(true,arbolSistemaRol)
+                    ) {
+                        Ext.getCmp("btnAceptarModRol").setDisabled(false);
+                    } else {
+                        Ext.getCmp("btnAceptarModRol").setDisabled(true);
+                    }
+                }else{
+                    if(valid && validarAdicionarRolGrupo(true,arbolSistemaRol)){
+                        Ext.getCmp("btnAceptarInsRol").setDisabled(false);
+                        Ext.getCmp("btnAplicarInsRol").setDisabled(false);
+                    }else{
+                        Ext.getCmp("btnAceptarInsRol").setDisabled(true);
+                        Ext.getCmp("btnAplicarInsRol").setDisabled(true);
+                    }
+                    Ext.getCmp("denominacion").prevTab = "btnAceptarInsRol";
+                }
+            }
+        },
+        items: [
+            {
+                layout: 'column',
+                items: [
+                    {
+                        columnWidth: 1,
+                        layout: 'form',
+                        items: [
+                            {
+                                xtype: 'textfield',
+                                fieldLabel: etiquetas.lbTitMsgDenominacion,
+                                name: 'denominacion',
+                                id: 'denominacion',
+                                maxLength: 60,
+                                anchor: '100%',
+                                prevTab: "btnAceptarInsRol",
+                                allowBlank: false,
+                                blankText: etiquetas.lbMsgEstecampoesrequerido,
+                                vtype: 'vtdenominacion'
+                            },
+                            {
+                                xtype: 'textfield',
+                                fieldLabel: etiquetas.lbTitMsgAbreviatura,
+                                name: 'abreviatura',
+                                id: 'abreviatura',
+                                maxLength: 10,
+                                anchor: '100%',
+                                allowBlank: false,
+                                blankText: etiquetas.lbMsgEstecampoesrequerido,
+                                vtype: 'vtdenominacion'
+
+                            },
+                            {
+                                xtype: 'textarea',
+                                fieldLabel: etiquetas.lbTitMsgDescripcion,
+                                name: 'descripcion',
+                                id: 'textAdescripcion',
+                                hiddenName: 'descripcion',
+                                maxLength: 255,
+                                height: 180,
+                                anchor: '100%',
+                                listeners:{
+                                    focus:function(field){
+                                        field.myfocus = true;
+
+                                    },
+                                    blur:function(field){
+                                        field.myfocus = false;
+
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    });
+
+    ////---------- Formulario adicionar Grupo----------////
+    var regGrupo = new Ext.FormPanel({
+        mod: false,
+        defaultValues : null,
+        labelAlign: 'top',
+        collapsible: true,
+        width: 200,
+        margins: '3 3 3 3',
+        region: 'west',
+        frame: true,
+        listeners:{
+            clientvalidation: function(form,valid){
+                if(form.mod) {
+                    Ext.getCmp("denominacionGrupo").prevTab = "btnAceptarModGrupo";
+                    if (!form.defaultValues) {
+                        form.defaultValues = form.getForm().getValues(true);
+                    }
+                    if ((arbolSistema.change || form.defaultValues != form.getForm().getValues(true)) && valid
+                        && validarAdicionarRolGrupo(false,arbolSistema)
+                    ) {
+                        Ext.getCmp("btnAceptarModGrupo").setDisabled(false);
+                    } else {
+                        Ext.getCmp("btnAceptarModGrupo").setDisabled(true);
+                    }
+                }else{
+                    if(valid && validarAdicionarRolGrupo(false,arbolSistema)){
+                        Ext.getCmp("btnAceptarInsGrupo").setDisabled(false);
+                        Ext.getCmp("btnAplicarInsGrupo").setDisabled(false);
+                    }else{
+                        Ext.getCmp("btnAceptarInsGrupo").setDisabled(true);
+                        Ext.getCmp("btnAplicarInsGrupo").setDisabled(true);
+                    }
+                    Ext.getCmp("denominacionGrupo").prevTab = "btnAceptarInsGrupo";
+                }
+            }
+        },
+        //bodyStyle: 'padding:5px 5px 0',
+        items: [
+            {
+                layout: 'column',
+                items: [
+                    {
+                        columnWidth: 1,
+                        layout: 'form',
+                        items: [
+                            {
+                                xtype: 'textfield',
+                                fieldLabel: etiquetas.lbTitMsgDenominacion,
+                                name: 'denominacion',
+                                id: 'denominacionGrupo',
+                                prevTab:"btnAceptarModGrupo",
+                                maxLength: 60,
+                                anchor: '100%',
+                                allowBlank: false,
+                                blankText: etiquetas.lbMsgEstecampoesrequerido,
+                                vtype: 'vtdenominacion'
+                            },
+                            {
+                                xtype: 'textfield',
+                                fieldLabel: etiquetas.lbTitMsgAbreviatura,
+                                name: 'abreviatura',
+                                id: 'abreviaturaGrupo',
+                                maxLength: 10,
+                                anchor: '100%',
+                                allowBlank: false,
+                                blankText: etiquetas.lbMsgEstecampoesrequerido,
+                                vtype: 'vtdenominacion'
+
+                            },
+                            {
+                                xtype: 'textarea',
+                                fieldLabel: etiquetas.lbTitMsgDescripcion,
+                                name: 'descripcion',
+                                id: 'descripcionGrupo',
+                                maxLength: 255,
+                                height: 180,
+                                anchor: '100%',
+                                listeners:{
+                                    focus:function(field){
+                                        field.myfocus = true;
+                                    },
+                                    blur:function(field){
+                                        field.myfocus = false;
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    });
+
+    var storegridGrupos = new Ext.data.Store({
+        url: 'cargarGridGrupos',
+        listeners: {
+            beforeload: function (store) {
+                store.baseParams.idrol = idrolSelected;
+            },
+            load: function (store, records, option) {
+                getGruposInsertados(records);
+
+                for (var i = 0; i < records.length; i++){
+
+                    if (records[i].data.checket){
+                        if(listadoGruposDeschequeados.length != 0){
+                            for(var j = 0; j<listadoGruposDeschequeados.length;j++){
+                                if(listadoGruposDeschequeados[j] == records[i].data.idrol)
+                                    records[i].data.checket = false;
+                                records[i].set(records[i].data.idrol, !records[i].data[records[i].data.idrol]);
+
+                            }
+                        }
+                    }
+                    else{
+                        if(listadoGruposChequeados.length != 0) {
+                            for (var k = 0; k < listadoGruposChequeados.length; k++) {
+                                if (listadoGruposChequeados[k] == records[i].data.idrol)
+                                    records[i].data.checket = true;
+                                records[i].set(records[i].data.idrol, !records[i].data[records[i].data.idrol]);
+
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        reader: new Ext.data.JsonReader({
+                totalProperty: "cantidad_filas",
+                root: "datos",
+                id: "idrol"
+            },
+            [
+                {
+                    name: 'idrol',
+                    mapping: 'idrol'
+                },
+                {
+                    name: 'denominacion',
+                    mapping: 'denominacion'
+                },
+                {
+                    name: 'checket',
+                    mapping: 'checket'
+                }
+            ]
+        )
+
+    });
+    ////------------ Modo de seleccion  del grid de acciones que no tiene un usuario ------------////
+    smgridGrupos = new Ext.grid.CheckColumn({
+        change : false,
+        header: "Asociado",
+        dataIndex: 'checket',
+        width: 55
+    });
+    var gridGrupos = new Ext.grid.GridPanel({
+        title: etiquetas.titleGridGrupo,
+        autoExpandColumn: 'expandir',
+        frame: true,
+        style: 'border-top: 0px',
+        bodyStyle: 'border-bottom: 0px;',
+        store: storegridGrupos,
+        region: "south",
+        plugins: [smgridGrupos],
+        columns: [
+            smgridGrupos, {
+                header: etiquetas.lbDenominacion,
+                width: 180,
+                dataIndex: 'denominacion',
+                id: 'expandir'
+            },
+            {
+                hidden: true,
+                hideable: false,
+                dataIndex: 'idrol'
+            }],
+        bbar: new Ext.PagingToolbar({
+            style: 'border-width: 1px;',
+            pageSize: 10,
+            id: 'ptbaux',
+            store: storegridGrupos,
+            displayInfo: true,
+            displayMsg: etiquetas.lbTitMsgResultados,
+            emptyMsg: etiquetas.lbTitMsgNingunresultadoparamostrar
+        })
+
+    });
+    var tabsPanelRG = new Ext.TabPanel({//ete
+        margins: '3 3 3 0',
+        bodyStyle: 'border: 0px',
+        activeTab: 1,
+        id: 'tabPanelRG',
+        region: "center",
+        items: [arbolSistemaRol, gridGrupos]
+    });
+
+    ////---------- panel adicionar Rol----------////
+    var panelAdicionarRol = new Ext.Panel({
+        layout: 'border',
+        border: false,
+        items: [regrol, tabsPanelRG]
+    });
+
+    ////---------- panel adicionar Grupo----------////
+    var panelAdicionar = new Ext.Panel({
+        layout: 'border',
+        border: false,
+        items: [regGrupo, arbolSistema]
+    });
+
+    ////------------ Store del Grid de acciones que tiene un usuario ------------////
+    var storeTieneAccion = new Ext.data.Store({
+        url: 'cargaraccionesquetiene',
+        listeners: {
+            'beforeload': function (thisstore, objeto) {
+                btnSiguiente.disable();
+                btnAnterior.disable();
+                objeto.params.idsistema = idi,
+                    objeto.params.idrol = idr,
+                    objeto.params.idfuncionalidad = idu
+            }
+        },
+        reader: new Ext.data.JsonReader({
+                totalProperty: "cantidad_filas",
+                root: "datos",
+                id: "idrecurso"
+            },
+            [
+                {
+                    name: 'idrecurso',
+                    mapping: 'idrecurso'
+                },
+                {
+                    name: 'denominacion',
+                    mapping: 'denominacion'
+                },
+                {
+                    name: 'idfuncionalidad',
+                    mapping: 'idfuncionalidad'
+                }
+            ])
+    });
+
+    ////------------- Modo de seleccion del Grid de acciones que tiene un usuario -------------////
+    var smtieneaccion = new Ext.grid.RowSelectionModel({
+        singleSelect: false
+    });
+
+    smtieneaccion.on('beforerowselect', function () {
+        btnAnterior.disable();
+        btnSiguiente.enable();
+    }, this);
+
+    ////------------- Creando el grid de acciones que tiene un usuario -------------////
+    var gridtieneaccion = new Ext.grid.GridPanel({
+        title: etiquetas.lbTitAccionesautorizadas,
+        frame: true,
+        disabled: true,
+        autoExpandColumn: 'expandir',
+        store: storeTieneAccion,
+        height: 312,
+        sm: smtieneaccion,
+        columns: [
+            {
+                header: etiquetas.lbDenominacion,
+                width: 200,
+                dataIndex: 'denominacion',
+                id: 'expandir'
+            },
+
+            {
+                hidden: true,
+                hideable: false,
+                dataIndex: 'idrecurso'
+            },
+
+            {
+                hidden: true,
+                hideable: false,
+                dataIndex: 'idfuncionalidad'
+            }
+        ],
+
+        loadMask: {
+            store: storeTieneAccion
+        },
+        bbar: new Ext.PagingToolbar({
+            pageSize: 15,
+            beforePageText: etiquetas.textPagina,
+            afterPageText: etiquetas.textDe,
+            store: storeTieneAccion
+        })
+
+    });
+
+    ////------------ Store del grid de acciones que no tiene un usuario ------------////
+    var storeNoTieneAccion = new Ext.data.Store({
+        url: 'cargaraccionesquenotiene',
+        listeners: {
+            'beforeload': function (thisstore, objeto) {
+                btnSiguiente.disable();
+                btnAnterior.disable();
+                objeto.params.idsistema = idi,
+                    objeto.params.idrol = idr,
+                    objeto.params.idfuncionalidad = idu
+            }
+        },
+        reader: new Ext.data.JsonReader({
+                totalProperty: "cantidad_filas",
+                root: "datos",
+                id: "ide"
+            },
+            [
+                {
+                    name: 'idrecurso',
+                    mapping: 'idrecurso'
+                },
+                {
+                    name: 'idfuncionalidad',
+                    mapping: 'idfuncionalidad'
+                },
+                {
+                    name: 'denominacion',
+                    mapping: 'denominacion'
+                }
+            ]
+        )
+    });
+
+    ////------------ Modo de seleccion  del grid de acciones que no tiene un usuario ------------////
+    var smnotieneaccion = new Ext.grid.RowSelectionModel({
+        singleSelect: false
+    });
+
+    smnotieneaccion.on('beforerowselect', function () {
+        btnAnterior.enable();
+        btnSiguiente.disable();
+    }, this);
+
+    ////------------ Creando el grid de acciones que no tiene un usuario ------------////
+    var gridnotieneaccion = new Ext.grid.GridPanel({
+        title: etiquetas.lbAccionesnoautorizadas,
+        height: 312,
+        frame: true,
+        disabled: true,
+        autoExpandColumn: 'expandir',
+        store: storeNoTieneAccion,
+        sm: smnotieneaccion,
+        columns: [
+            {
+                header: etiquetas.lbDenominacion,
+                width: 200,
+                dataIndex: 'denominacion',
+                id: 'expandir'
+            },
+
+            {
+                hidden: true,
+                hideable: false,
+                dataIndex: 'idrecurso'
+            },
+
+            {
+                hidden: true,
+                hideable: false,
+                dataIndex: 'idfuncionalidad'
+            }
+        ],
+
+        loadMask: {
+            store: storeNoTieneAccion
+        },
+        bbar: new Ext.PagingToolbar({
+            pageSize: 15,
+            beforePageText: etiquetas.textPagina,
+            afterPageText: etiquetas.textDe,
+            store: storeNoTieneAccion
+        })
+
+    });
+
+    ////------------ Arbol de sistema y roles para seleccionar acciones ------------////
+    var arbolRestAccion = new Ext.tree.TreePanel({
+        title: etiquetas.lbTitMsgSistemasyroles,
+        autoScroll: true,
+        region: 'west',
+        width: 200,
+        margins: '2 2 2 2',
+        loader: new Ext.tree.TreeLoader({
+            listeners: {
+                'beforeload': function (atreeloader, anode) {
+                    if (treeRolGru.getSelectionModel().selNode.attributes.idrol) {
+                        arbolRestAccion.getLoader().baseParams = {
+                            idrol: treeRolGru.getSelectionModel().selNode.attributes.idrol,
+                            idsistema: anode.attributes.idsistema
+                        }
+                    }
+                }
+            },
+            dataUrl: 'cargarsistemafunc'
+        })
+    });
+
+    ////------------ Crear nodo padre del arbol ------------////
+    var padreRestAccion = new Ext.tree.AsyncTreeNode({
+        text: etiquetas.lbTitMsgSubsistemas,
+        expandable: false,
+        expanded: true,
+        id: '0'
+    });
+
+    ////------------ Habilitar botones y cargar id de Nodos ------------////
+    arbolRestAccion.setRootNode(padreRestAccion);
+
+    ////------------ Evento para habilitar botones. ------------////
+    arbolRestAccion.on('click', function (node, e) {
+        if (node.isLeaf()) {
+            btnSiguiente.disable();
+            btnAnterior.disable();
+            idi = node.attributes.idsistema;
+            idr = treeRolGru.getSelectionModel().selNode.attributes.idrol;
+            idu = node.attributes.idfuncionalidad;
+            storeNoTieneAccion.load({
+                params: {
+                    start: 0,
+                    limit: 15
+                }
+            });
+            storeTieneAccion.load({
+                params: {
+                    start: 0,
+                    limit: 15
+                }
+            });
+            gridtieneaccion.enable();
+            gridnotieneaccion.enable();
+        }
+    }, this);
+
+    ////------------ Panel para las acciones ------------////
+    var regularAcciones = new Ext.FormPanel({
+        labelAlign: 'top',
+        bodyStyle: 'background: transparent;',
+        frame: true,
+        margins: '2 2 2 2',
+        region: 'center',
+        height: 370,
+        items: [
+            {
+                layout: 'column',
+                bodyStyle: 'background: transparent; border: 0px',
+                items: [
+                    {
+                        columnWidth: .46,
+                        bodyStyle: 'background: transparent; border: 0px',
+                        layout: 'form',
+                        items: [gridtieneaccion]
+                    },
+                    {
+                        columnWidth: .08,
+                        layout: 'form',
+                        anchor: '100%',
+                        bodyStyle: 'background: transparent; border: 0px',
+                        items: [btnSiguiente, btnAnterior]
+                    },
+                    {
+                        columnWidth: .46,
+                        layout: 'fit',
+                        bodyStyle: 'background: transparent; border: 0px',
+                        items: [gridnotieneaccion]
+                    }
+                ]
+            }
+        ]
+    });
+
+    var panelRestAccion = new Ext.Panel({
+        layout: 'border',
+        bodyStyle: 'border: 0px',
+        items: [regularAcciones, arbolRestAccion]
+    });
+
+//////////////////////////////////Componentes Gestionar Campos////////////////////////////////
+
+    var dataVis = [
+        ['true', 'True'],
+        ['false', 'False']
+    ];
+    var storeDataVis = new Ext.data.SimpleStore({
+        fields: ['idvis', 'vis'],
+        data: dataVis
+
+    });
+
+    var dataTipoData = [
+        ['boolean', 'boolean'],
+        ['date', 'date'],
+        ['int', 'int'],
+        ['time', 'time'],
+        ['varchar', 'varchar']
+    ];
+
+    var storeDataTipoData = new Ext.data.SimpleStore({
+        fields: ['data', 'iddata'],
+        data: dataTipoData
+    });
+
+    var dataTipoCamp = [
+        ['textfield', 'textfield'],
+        ['datefield', 'datefield']
+    ];
+
+    var storeDataTipoCamp = new Ext.data.SimpleStore({
+        fields: ['idcamp', 'camp'],
+        data: dataTipoCamp
+    });
+    var regPerfil = new Ext.FormPanel({
+        labelAlign: 'top',
+        frame: true,
+        bodyStyle: 'padding:5px 5px 0',
+        items: [{
+            layout: 'column',
+            items: [{
+                columnWidth: .33,
+                layout: 'form',
+                items: [{
+                    xtype: 'textfield',
+                    fieldLabel: etiquetas.lbDenominacion,
+                    id: 'nombre',
+                    prevTab: 'btnAceptarInsCampos',
+                    maxLength: 60,
+                    allowBlank: false,
+                    blankText: etiquetas.lbMsgEstecampoesrequerido,
+                    vtype: 'vtletrasguion',
+                    anchor: '95%'
+                },
+                    {
+                        xtype: 'combo',
+                        fieldLabel: etiquetas.lbTipodeDato,
+                        enableQtip: true,
+                        id: 'tipo',
+                        displayField: 'iddata',
+                        valueField: 'data',
+                        store: storeDataTipoData,
+                        triggerAction: 'all',
+                        typeAhead: true,
+                        allowBlank: false,
+                        mode: 'local',
+                        editable: false,
+                        emptyText: etiquetas.lbMsgSeleccione,
+                        anchor: '95%',
+                        listeners: {
+                            beforeselect: function(){
+                                Ext.getCmp("tipocampo").setDisabled(false);
+                                Ext.getCmp("tipocampo").reset();
+                                Ext.getCmp("idExpCamp").reset();
+                            }
+                        }
+                    }]
+            }, {
+                columnWidth: .33,
+                layout: 'form',
+                items: [{
+                    xtype: 'textfield',
+                    fieldLabel: etiquetas.lbNombreamostrar,
+                    id: 'alias',
+                    maxLength: 60,
+                    allowBlank: false,
+                    blankText: etiquetas.lbMsgEstecampoesrequerido,
+                    vtype: 'vtcampo',
+                    anchor: '95%'
+                }, {
+                    xtype: 'combo',
+                    fieldLabel: etiquetas.lbTipodeCampo,
+                    enableQtip: true,
+                    id: 'tipocampo',
+                    displayField: 'camp',
+                    valueField: 'idcamp',
+                    store: storeDataTipoCamp,
+                    triggerAction: 'all',
+                    typeAhead: true,
+                    allowBlank: false,
+                    mode: 'local',
+                    editable: false,
+                    emptyText: etiquetas.lbMsgSeleccione,
+                    anchor: '95%',
+                    disabled : true,
+                    listeners: {
+                        expand: function(){
+                            var value = Ext.getCmp("tipo").getValue();
+                            if (value == 'date' || value == 'time') {
+                                storeDataTipoCamp.clearFilter();
+                            }
+                            else if (value == 'int' || value == 'boolean') {
+                                storeDataTipoCamp.filterBy(function (rec, id) {
+                                    if (rec.data.camp == 'datefield') {
+                                        return false;
+                                    }
+                                    else
+                                        return true;
+                                });
+                            }
+                            else {
+                                storeDataTipoCamp.clearFilter();
+                            }
+                        }
+                    }
+                }]
+            }, {
+                columnWidth: .33,
+                layout: 'form',
+                items: [
+                    {
+                        xtype: 'combo',
+                        fieldLabel: etiquetas.lbVisible,
+                        id: 'visible',
+                        enableQtip: true,
+                        displayField: 'vis',
+                        valueField: 'idvis',
+                        triggerAction: 'all',
+                        typeAhead: true,
+                        store: storeDataVis,
+                        mode: 'local',
+                        allowBlank: false,
+                        editable: false,
+                        forceSelection: true,
+                        selectOnFocus: true,
+                        emptyText: etiquetas.lbMsgSeleccione,
+                        anchor: '95%'
+                    },
+                    {
+                        xtype: 'textfield',
+                        fieldLabel: etiquetas.lbLongitud,
+                        id: 'longitud',
+                        maxLength: 6,
+                        allowBlank: false,
+                        regexText: etiquetas.lbMsgSolopuedeentrarvaloresnumericos,
+                        regex: /^\d*$/,
+                        anchor: '95%'
+                    }]
+            }, {
+                columnWidth: .5,
+                layout: 'form',
+                items: [
+                    new Ext.form.ComboBox({
+                        emptyText: etiquetas.lbMsgSeleccione,
+                        editable: false,
+                        id: 'idExpCamp',
+                        enableQtip: true,
+                        fieldLabel: etiquetas.lbMsgExpresionesregular,
+                        store: storeExp,
+                        valueField: 'idexpresiones',
+                        displayField: 'denominacion',
+                        hiddenName: 'idexpresiones',
+                        forceSelection: true,
+                        typeAhead: true,
+                        mode: 'local',
+                        allowBlank: false,
+                        triggerAction: 'all',
+                        selectOnFocus: true,
+                        anchor: '95%',
+                        listeners: {
+                            expand: function(){
+                                var value = Ext.getCmp("tipo").getValue();
+                                if(value != ""){
+                                    if (value == 'date' || value == 'time') {
+                                        storeExp.filterBy(function (rec, id) {
+                                            if (rec.data.idexpresiones == 10000006 || rec.data.idexpresiones == 10000007) {
+                                                return true;
+                                            }
+                                            else
+                                                return false;
+                                        });
+                                    }
+                                    else if (value == 'int' || value == 'boolean') {
+                                        storeExp.filterBy(function (rec, id) {
+                                            if (rec.data.idexpresiones == 10000001) {
+                                                return true;
+                                            }
+                                            else
+                                                return false;
+                                        });
+                                    }
+                                    else  {
+                                        storeExp.clearFilter();
+                                    }
+                                }
+                            }
+                        }
+                    })]
+            }, {
+                columnWidth: .5,
+                layout: 'form',
+                items: [{
+                    xtype: 'textarea',
+                    maxLength: 255,
+                    fieldLabel: etiquetas.lbDescripcion,
+                    id: 'descripcion',
+                    maxLength: 255,
+                    anchor: '100%'
+                }]
+            }]
+        }],
+        monitorValid: true,
+        listeners: {
+            clientvalidation: function (form, valid) {
+                var comp = Ext.getCmp("nombre");
+                if (valid) {
+                    if (winInsCampos) {
+                        comp.prevTab = "btnAceptarInsCampos";
+                        if (Ext.getCmp('winInsCampos').isVisible()) {
+                            Ext.getCmp('btnAplicarInsCampos').enable();
+                            Ext.getCmp('btnAceptarInsCampos').enable();
+                        }
+                    }
+                    if (winModCampos) {
+                        comp.prevTab = "aceptarModcamposAlPerfil";
+                        if (Ext.getCmp('winModCampos').isVisible()) {
+                            Ext.getCmp('aceptarModcamposAlPerfil').enable();
+                        }
+                    }
+
+                }
+                else {
+                    if (winInsCampos) {
+                        comp.prevTab = "btnAceptarInsCampos";
+                        if (Ext.getCmp('winInsCampos').isVisible()) {
+                            Ext.getCmp('btnAplicarInsCampos').disable();
+                            Ext.getCmp('btnAceptarInsCampos').disable();
+                        }
+                    }
+                    if (winModCampos) {
+                        comp.prevTab = "aceptarModcamposAlPerfil";
+                        if (Ext.getCmp('winModCampos').isVisible()) {
+                            Ext.getCmp('aceptarModcamposAlPerfil').disable();
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    function winFormUsuarios(opcion) {
+        if (storeservidor.find('idservidor', 0) == -1) {
+            rdAuth = Ext.data.Record.create([
+                {
+                    name: 'idservidor'
+                },
+                {
+                    name: 'servidor'
+                }
+            ]);
+            storeservidor.add(new rdAuth({
+                idservidor: 0,
+                servidor: etiquetas.LBServidorAutenticacion
+            }));
+        }
+        switch (opcion) {
+            case 'Ins':
+            {
+                if (!winInsUsuarios) {
+                    asignarRolUser = new formularioAsignarRol;
+                    asignarRolUser.title = 'Asignar rol';
+                    var width = (window.innerWidth > 1024) ? window.innerWidth * .5 : window.innerWidth * .7;
+                    var height = (window.innerHeight > 1024) ? window.innerHeight * .6 : window.innerHeight * .5;
+                    winInsUsuarios = new Ext.Window({
+                        modal: true,
+                        closeAction: 'hide',
+                        layout: 'fit',
+                        constrain: true,
+                        title: etiquetas.lbBtnAdicionarusuario,
+                        width: width,
+                        height: height,
+                        listeners: {
+                            hide: function () {
+                                focusPanelDerecho();
+                                banderaMod = false;
+                                limpiarEstructurasAsignarRol();
+                                alCerrarVentana(asignarRolUser);
+
+                            }
+                        },
+                        buttons: [
+                            {
+                                id: 'btnCancelarInsUsuarios',
+                                iconCls: 'cancelar',
+                                nextTab: 'btnAplicarInsUsuarios',
+                                prevTab: 'regUsuarioactivo',
+                                text: etiquetas.lbBtnCancelar,
+                                tooltip: etiquetas.tooltipCancelarVen,
+                                handler: function () {
+                                    banderaMod = false;
+                                    winInsUsuarios.hide();
+                                }
+                            },
+                            {
+                                iconCls: 'aplicar',
+                                id: 'btnAplicarInsUsuarios',
+                                nextTab: 'btnAceptarInsUsuarios',
+                                prevTab: 'btnCancelarInsUsuarios',
+                                //tabIndex: 13,
+                                tooltip: etiquetas.tooltipAplicarVen,
+                                handler: function () {
+                                    adicionarusuario('apl');
+                                },
+                                text: etiquetas.lbBtnAplicar
+                            },
+                            {
+                                iconCls: 'aceptar',
+                                id: 'btnAceptarInsUsuarios',
+                                nextTab: 'regUsuarionombreusuario',
+                                prevTab: 'btnAplicarInsUsuarios',
+                                tooltip: etiquetas.tooltipAceptarVen,
+                                handler: function () {
+                                    adicionarusuario();
+                                },
+                                text: etiquetas.lbBtnAceptar
+                            }
+                        ],
+                        items: [
+                            new Ext.TabPanel({
+                                activeItem: 0,
+                                items: [
+                                    crearFormUsuarios('regUsuario'),
+                                    asignarRolUser
+                                ]
+                            })
+                        ],
+                        keys:[
+                            {
+                                key: 'x',
+                                alt: true,
+                                ctrl: false,
+                                fn: function (e,a) {
+                                    a.browserEvent.preventDefault();
+                                    banderaMod = false;
+                                    winInsUsuarios.hide();
+                                }
+                            },
+                            {
+                                key: 13,
+                                alt: false,
+                                ctrl: false,
+                                fn: function (e,a) {
+                                    a.browserEvent.preventDefault();
+                                    if(!Ext.getCmp("btnAceptarInsUsuarios").disabled)
+                                        adicionarusuario();
+                                }
+                            },
+                            {
+                                key: 'p',
+                                alt: true,
+                                ctrl: true,
+                                fn: function (e,a) {
+                                    a.browserEvent.preventDefault();
+                                    if(!Ext.getCmp("btnAplicarInsUsuarios").disabled)
+                                        adicionarusuario('apl');
+                                }
+                            }
+                        ]
+                    });
+                }
+                limpiarEstructurasAsignarRol();
+                reiniciarValoresWindowInsUsuario();
+            }
+                break;
+            case 'Importar':
+            {
+                if (!winImportarUsuarios) {
+                    var width = (window.innerWidth > 1024) ? window.innerWidth * .5 : window.innerWidth * .7;
+                    var height = (window.innerHeight > 1024) ? window.innerHeight * .6 : window.innerHeight * .7;
+                    asignarRolImportar = new formularioAsignarRol({
+                        listeners: {
+                            'cellclick': function(){
+                                Ext.getCmp('btnfinalizarImportar').enable();
+                            }
+                        }
+                    });
+                    asignarRolImportar.title = 'Asignar rol';
+                    asignarRolImportar.index = 2;
+                    winImportarUsuarios = new Ext.Window({
+                        modal: true,
+                        closeAction: 'hide',
+                        layout: 'card',
+                        constrain: true,
+                        activeItem: 0,
+                        title: etiquetas.lbBtnImportarusuario,
+                        width: width,
+                        height: height,
+                        listeners: {
+                            hide: function () {
+                                focusPanelDerecho();
+                                limpiarEstructurasAsignarRol();
+                                alCerrarVentana(asignarRolImportar);
+                                usersChecked = new Array();
+                                usersCont = 0;
+                            }
+                        },
+                        buttons: [
+                            {
+                                iconCls: 'anterior',
+                                id: 'btnanteriorImportar',
+                                nextTab:"btnsiguienteImportar",
+                                disabled: true,
+                                text: "Anterior",
+                                tooltip: etiquetas.toolTipAnterior,
+                                handler: function () {
+                                    navegacionImportar(winImportarUsuarios.getLayout().activeItem.index, false);
+                                }
+                            },
+                            {
+                                iconCls: 'siguiente',//aki
+                                disabled: true,
+                                id: 'btnsiguienteImportar',
+                                nextTab:"btnfinalizarImportar",
+                                tooltip: etiquetas.toolTipSiguiente,
+                                handler: function () {
+
+                                    var arrayLength = usersCont/2;
+                                    var mid = Math.floor(arrayLength);
+                                    mid = usersCont-mid;
+
+                                    var flag = false;
+                                    var cont = 0;
+
+                                    var div1 = "<div style='float:left; margin: 15px; width: 29%'>";
+                                    var div2 = "<div style='float:left; margin: 15px; width: 19%'>";
+
+                                    for(var i in usersChecked){
+                                        cont++;
+                                        if((usersChecked.hasOwnProperty(i))){
+                                            if(mid == cont){
+                                                flag = true;
+                                            }
+
+                                            if(usersCont > 12){
+                                                if(flag){
+                                                    div2 += "<h3>&#8730; "+usersChecked[i].nombre+"</h3><br>";
+
+                                                }else{
+                                                    div1 += "<h3>&#8730; "+usersChecked[i].nombre+"</h3><br>";
+                                                }
+                                            }else{
+                                                div1 += "<h3>&#8730; "+usersChecked[i].nombre+"</h3><br>";
+                                            }
+
+
+
+                                        }
+                                    }
+
+                                    div1 += "</div>";
+                                    div2 += "</div>";
+
+                                    var tpl = new Ext.Template(div1+div2);
+                                    var panelUsers = Ext.getCmp('panelUsers');
+                                    tpl.overwrite(panelUsers.body);
+
+                                    navegacionImportar(winImportarUsuarios.getLayout().activeItem.index, true);
+                                    //aki
+                                },
+                                text: "Siguiente"
+                            },
+                            {
+                                iconCls: 'aprobar',
+                                id: 'btnfinalizarImportar',
+                                nextTab:"comboServidorImportar",
+                                disabled: true,
+                                tooltip: etiquetas.toolTipFinalizar,
+                                handler: function () {
+                                    var ip = panelConfigUsuarios.find('name', 'ip')[0];
+                                    if (winImportarUsuarios.getLayout().activeItem.index == 1 && !validaRango(ip.getValue())) {
+                                        ip.setValue("0.0.0.0/0", false);
+                                        mostrarMensaje(8, etiquetas.lbMsgRangoIP);
+                                    }else {
+                                        importarUsuarios(true,function(){},winImportarUsuarios.getLayout().activeItem.index);
+                                    }
+                                },
+                                text: etiquetas.lbBtnFinalizar
+                            }
+                        ],
+                        items: [
+                            panelIzqImportar,
+                            panelConfigUsuarios,
+                            asignarRolImportar
+                        ],
+                        keys:[
+                            {
+                                key: 'a',
+                                alt: true,
+                                ctrl: true,
+                                fn: function (e,a) {
+                                    if(!Ext.getCmp('btnanteriorImportar').disabled)
+                                        navegacionImportar(winImportarUsuarios.getLayout().activeItem.index, false);
+                                }
+                            },
+                            {
+                                key: 'n',
+                                alt: true,
+                                ctrl: true,
+                                fn: function (e,a) {
+                                    if(!Ext.getCmp('btnsiguienteImportar').disabled)
+                                        navegacionImportar(winImportarUsuarios.getLayout().activeItem.index, true);
+                                }
+                            },
+                            {
+                                key: 'q',
+                                ctrl: true,
+                                shift: true,
+                                fn: function (e,a) {
+                                    if(!Ext.getCmp('btnfinalizarImportar').disabled) {
+                                        var ip = panelConfigUsuarios.find('name', 'ip')[0];
+                                        if (winImportarUsuarios.getLayout().activeItem.index == 1 && !validaRango(ip.getValue())) {
+                                            ip.setValue("0.0.0.0/0", false);
+                                            mostrarMensaje(8, etiquetas.lbMsgRangoIP);
+                                        } else {
+                                            importarUsuarios(true, function () {
+                                            }, winImportarUsuarios.getLayout().activeItem.index);
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    });
+                }
+                storeGridImportar.removeAll();
+                criterio2FiltrarImportar = "";
+                criterioFiltrarImportar = "";
+                habilitarDeshabilitarImportar(true);
+                Ext.getCmp('btnfinalizarImportar').disable();
+                Ext.getCmp('btnanteriorImportar').disable();
+                Ext.getCmp('btnsiguienteImportar').disable();
+                comboServidorImportar.reset();
+                comboServidorImportar.focus();
+                winImportarUsuarios.show();
+                winImportarUsuarios.center();
+                winImportarUsuarios.getLayout().setActiveItem(0);
+                panelConfigUsuarios.find('name', 'ip')[0].setRawValue('0.0.0.0/0');
+                panelConfigUsuarios.find('hiddenName', 'idtema')[0].setValue(profile.idtema, false);
+                panelConfigUsuarios.find('hiddenName', 'ididioma')[0].setValue(profile.ididioma, false);
+                panelConfigUsuarios.find('hiddenName', 'iddominio')[0].setValue(profile.iddominio, false);
+                panelConfigUsuarios.find('hiddenName', 'iddesktop')[0].setValue(profile.iddesktop, false);
+                panelConfigUsuarios.find('name', 'simpleacceso')[0].setValue('true');
+                asignarRolImportar.authModoficar = false;
+                asignarRolImportar.recargar = true;
+                asignarRolImportar.arbolEntidades.change = false;
+                asignarRolImportar.arbolEntidades.hasChecked = false;
+                asignarRolImportar.idusuario = -1;
+                asignarRolImportar.arbolEntidades.collapseAll();
+                asignarRolImportar.arbolEntidades.disable();
+                asignarRolImportar.storeGridRol.load();
+            }
+                break;
+            case 'Exportar':
+            {
+                //------------------------------------------------------------------------------------------------------
+
+                if (!winExportarUsuarios) {
+                    var width = (window.innerWidth > 1024) ? window.innerWidth * .5 : window.innerWidth * .7;
+                    var height = (window.innerHeight > 1024) ? window.innerHeight * .6 : window.innerHeight * .7;
+                    winExportarUsuarios = new Ext.Window({
+                        modal: true,
+                        id:'winexportarusuarios',
+                        closeAction: 'hide',
+                        layout: 'card',
+                        constrain: true,
+                        activeItem: 0,
+                        title: etiquetas.lbBtnExportarusuario,
+                        width: width,
+                        height: height,
+                        listeners: {
+                            hide: function () {
+                                //focusPanelDerecho();
+                                //limpiarEstructurasAsignarRol();
+                                //alCerrarVentana(asignarRolImportar);
+                                usersChecked1 = new Array();
+                                usersCont1 = 0;
+                                usuariosExportar = new Object();
+                                Ext.getCmp('comboServidorExportar').reset();
+                                // Ext.getCmp('unidadorganizativa').reset();
+                            },
+                            beforeshow: function () {
+                                storeGridExportar.load();
+                            }
+                        },
+                        buttons: [
+                            {
+                                iconCls: 'cancelar',
+                                id: 'btncancelarExportar',
+                                //nextTab:"comboServidorImportar",
+                                tooltip: etiquetas.toolTipFinalizar,
+                                handler: function () {
+                                    Ext.getCmp('winexportarusuarios').hide();
+                                },
+                                text: etiquetas.lbBtnCancelar
+                            },
+                            {
+                                iconCls: 'aceptar',
+                                id: 'btnfinalizarExportar',
+                                //nextTab:"comboServidorImportar",
+                                disabled: true,
+                                tooltip: etiquetas.toolTipFinalizar,
+                                handler: function () {
+                                    idcomboldap = Ext.getCmp('comboServidorExportar').getValue();
+                                    // ou = Ext.getCmp('unidadorganizativa').getValue();
+                                    if(idcomboldap != "" && idcomboldap != null/* && ou != "" && ou != null*/){
+                                        exportarUsuarios(usuariosExportar, idcomboldap/*, ou*/);
+                                    }
+                                    else{
+                                        mostrarMensaje(6,mensaje = "Existen campo(s) vac&iacute;o(s).");
+                                    }
+                                },
+                                text: etiquetas.lbBtnAceptar
+                            }
+                        ],
+                        items: [
+
+                            panelIzqExportar//,
+                            //panelConfigUsuarios,
+                            //asignarRolImportar
+                        ]//,
+                        // keys:[
+                        //     {
+                        //         key: 'a',
+                        //         alt: true,
+                        //         ctrl: true,
+                        //         fn: function (e,a) {
+                        //             if(!Ext.getCmp('btnanteriorImportar').disabled)
+                        //                 navegacionImportar(winExportarUsuarios.getLayout().activeItem.index, false);
+                        //         }
+                        //     },
+                        //     {
+                        //         key: 'n',
+                        //         alt: true,
+                        //         ctrl: true,
+                        //         fn: function (e,a) {
+                        //             if(!Ext.getCmp('btnsiguienteImportar').disabled)
+                        //                 navegacionImportar(winExportarUsuarios.getLayout().activeItem.index, true);
+                        //         }
+                        //     },
+                        //     {
+                        //         key: 'q',
+                        //         ctrl: true,
+                        //         shift: true,
+                        //         fn: function (e,a) {
+                        //             if(!Ext.getCmp('btnfinalizarImportar').disabled) {
+                        //                 var ip = panelConfigUsuarios.find('name', 'ip')[0];
+                        //                 if (winExportarUsuarios.getLayout().activeItem.index == 1 && !validaRango(ip.getValue())) {
+                        //                     ip.setValue("0.0.0.0/0", false);
+                        //                     mostrarMensaje(8, etiquetas.lbMsgRangoIP);
+                        //                 } else {
+                        //                     importarUsuarios(true, function () {
+                        //                     }, winExportarUsuarios.getLayout().activeItem.index);
+                        //                 }
+                        //             }
+                        //         }
+                        //     }
+                        // ]
+                    });
+                }
+                storeGridExportar.removeAll();
+                // habilitarDeshabilitarExportar(true);
+                Ext.getCmp('btnfinalizarExportar').disable();
+                // comboServidorE.reset();
+                // comboServidorImportar.focus();
+                winExportarUsuarios.show();
+                winExportarUsuarios.center();
+                winExportarUsuarios.getLayout().setActiveItem(0);
+
+
+                //------------------------------------------------------------------------------------------------------
+
+            }
+                break;
+            case 'Mod':
+            {
+                if (!winModUsuarios) {
+                    asignarRolUserMod = new formularioAsignarRol;
+                    asignarRolUserMod.title = 'Asignar rol';
+                    var width = (window.innerWidth > 1024) ? window.innerWidth * .5 : window.innerWidth * .7;
+                    var height = (window.innerHeight > 1024) ? window.innerHeight * .6 : window.innerHeight * .5;
+                    winModUsuarios = new Ext.Window({
+                        autoValidate: false,
+                        modal: true,
+                        closeAction: 'hide',
+                        layout: 'fit',
+                        constrain: true,
+                        title: etiquetas.lbBtnModificarusuario,
+                        width: width,
+                        height: height,
+                        listeners: {
+                            hide: function () {
+                                focusPanelDerecho();
+                                banderaMod = false;
+                                limpiarEstructurasAsignarRol();
+                                alCerrarVentana(asignarRolUserMod);
+
+                            }
+                        },
+                        buttons: [
+                            {
+                                //icon: perfil.dirImg + 'cancelar.png',
+                                id: 'btnCancelModUsuarios',
+                                iconCls: 'cancelar',
+                                //nextTab: 'btnAceptarModUsuarios',
+                                //prevTab: 'regUsuarioModactivo',
+                                text: etiquetas.lbBtnCancelar,
+                                tooltip: etiquetas.tooltipCancelarVen,
+                                handler: function () {
+                                    banderaMod = false;
+                                    winModUsuarios.hide();
+                                }
+                            },
+                            {
+                                id: 'btnAceptarModUsuarios',
+                                iconCls: 'aceptar',
+                                nextTab: 'regUsuarioModnombreusuario',
+                                prevTab: 'btnCancelModUsuarios',
+                                tooltip: etiquetas.tooltipAceptarVen,
+                                handler: function () {
+                                    modificarUsuario();
+                                },
+                                text: etiquetas.lbBtnAceptar
+                            }
+                        ],
+                        items: [
+                            new Ext.TabPanel({
+                                activeItem: 0,
+                                items: [
+                                    crearFormUsuarios('regUsuarioMod'),
+                                    asignarRolUserMod
+                                ]
+                            })
+                        ],
+                        keys:[
+                            {
+                                key: 'x',
+                                alt: true,
+                                ctrl: false,
+                                fn: function (e,a) {
+                                    a.browserEvent.preventDefault();
+                                    banderaMod = false;
+                                    winModUsuarios.hide();
+                                }
+                            },
+                            {
+                                key: 13,
+                                alt: false,
+                                ctrl: false,
+                                fn: function (e,a) {
+                                    a.browserEvent.preventDefault();
+                                    if(!Ext.getCmp("btnAceptarModUsuarios").disabled)
+                                        modificarUsuario();
+                                }
+                            }
+                        ]
+                    });
+                }
+                modificar = 1;
+                limpiarEstructurasAsignarRol();
+                reiniciarValoresWindowModUsuario();
+            }
+                break;
+            case 'Rol':
+            {
+                var arrUsuarios = sm.getSelections();
+                if (arrUsuarios.length > 1) {
+                    var arrUsuario = [];
+                    if (!validarDominiosUsuarios(arrUsuarios))
+                        mostrarMensaje(8, etiquetas.validacionDominioMsg);
+                    else {
+                        for (var i = 0; i < arrUsuarios.length; i++)
+                            arrUsuario.push(arrUsuarios[i].data.idusuario);
+                        Ext.getBody().mask(etiquetas.msgWait);
+                        Ext.Ajax.request({
+                            url: 'validarasignacionroles',
+                            params: {
+                                ArrayUsuarios: Ext.encode(arrUsuario)
+                            },
+                            callback: function (options, success, response) {
+                                Ext.getBody().unmask();
+                                if(success) {
+                                    responseData = Ext.decode(response.responseText);
+                                    if (responseData.cod == 1)
+                                        ventanaAsignarRol();
+                                }else{
+                                    mostrarMensaje(6,etiquetas.noConexion);
+                                }
+                            }
+                        });
+                    }
+                }
+                else
+                    ventanaAsignarRol();
+            }
+                break;
+            case 'Pass':
+            {
+                if (!winPassUsuarios) {
+                    winPassUsuarios = new Ext.Window({
+                        modal: true,
+                        closeAction: 'hide',
+                        layout: 'fit',
+                        title: etiquetas.lbBtnCambiarpass,
+                        width: 400,
+                        height: 170,
+                        constrain: true,
+                        resizable: false,
+                        listeners: {
+                            hide: function () {
+                                focusPanelDerecho();
+                            }
+                        },
+                        buttons: [
+                            {
+                                id: "btnCancelarCambiarPass",
+                                iconCls: 'cancelar',
+                                text: etiquetas.lbBtnCancelar,
+                                tooltip: etiquetas.tooltipCancelarVen,
+                                handler: function () {
+                                    winPassUsuarios.hide();
+                                }
+                            },
+                            {
+                                id: "btnAceptarCambiarPass",
+                                iconCls: 'aceptar',
+                                nextTab: 'usuariop',
+                                prevTab: 'btnCancelarCambiarPass',
+                                tooltip: etiquetas.tooltipAceptarVen,
+                                handler: function () {
+                                    cambiarpass();
+                                },
+                                text: etiquetas.lbBtnAceptar
+                            }
+                        ],
+                        keys:[
+                            {
+                                key: 'x',
+                                alt: true,
+                                ctrl: false,
+                                fn: function (e,a) {
+                                    a.browserEvent.preventDefault();
+                                    winPassUsuarios.hide();
+                                }
+                            },
+                            {
+                                key: 13,
+                                alt: false,
+                                ctrl: false,
+                                fn: function (e,a) {
+                                    a.browserEvent.preventDefault();
+                                    if(!Ext.getCmp("btnAceptarCambiarPass").disabled)
+                                        cambiarpass();
+                                }
+                            }
+                        ]
+                    });
+                }
+                fpPass
+                winPassUsuarios.add(fpPass);
+                winPassUsuarios.doLayout();
+                winPassUsuarios.show();
+                winPassUsuarios.center();
+                Ext.getCmp('usuariop').focus(false, 200);
+                var nombreusuario = (tabpanel.activeTab.id == 'treeRG') ? sm.getSelected().data.nombreusuario : smPerfiles.getSelected().data.nombreusuario;
+                Ext.getCmp('usuariop').setValue(nombreusuario);
+            }
+                break;
+            case 'usuario':
+            {
+                mostrarBusquedaPersona();
+            }
+                break;
+            case 'fichausuario':
+            {
+                if (sm.getSelected().data.idpersona != null) {
+                    var winPerfilPersonaSeg = new Ext.pvd.persona.perfilseguridad.WinperfilSeguridad({
+                        persona: sm.getSelected().data.idpersona
+                    });
+                    winPerfilPersonaSeg.show();
+                    winPerfilPersonaSeg.center();
+                } else
+                    mostrarMensaje(6, etiquetas.msgPersonaSeguridad);
+            }
+                break;
+        }
+    }
+
+    function navegacionImportar(index, nav) {
+        if (nav) {
+            function navSiguienteImportar() {
+                winImportarUsuarios.getLayout().setActiveItem(index + 1);
+                if (index >= 1) {
+                    Ext.getCmp('btnsiguienteImportar').disable();
+                    Ext.getCmp('btnanteriorImportar').disable();
+                    Ext.getCmp('btnfinalizarImportar').disable();
+                }else {
+                    Ext.getCmp('btnanteriorImportar').enable();
+                }
+            }
+            if(index == 0 && objectIsEmpty(usuariosImportar)){
+                mostrarMensaje(8,etiquetas.msgNoUsuariosSeleccionados);
+            }
+            else if (index == 1) {
+                var ip = panelConfigUsuarios.find('name', 'ip')[0];
+                if (!validaRango(ip.getValue())) {
+                    ip.setValue("0.0.0.0/0", false);
+                    mostrarMensaje(8, etiquetas.lbMsgRangoIP);
+                }else {
+                    importarUsuarios(false, navSiguienteImportar,index);
+                }
+            } else {
+                navSiguienteImportar();
+            }
+        } else {
+            winImportarUsuarios.getLayout().setActiveItem(index - 1);
+            if (index <= 1) {
+                Ext.getCmp('btnanteriorImportar').disable();
+                Ext.getCmp('btnfinalizarImportar').disable();
+            }
+            Ext.getCmp('btnsiguienteImportar').enable();
+        }
+    }
+
+    function importarUsuarios(finalizar,fn,index){
+        if(index == 1) {
+            var usuarioEnviar = new Array();
+            for (var usuario in usuariosImportar) {
+                usuarioEnviar.push(usuario);
+            }
+            mostrarMensaje(2, usuarioEnviar.length > 1 ? etiquetas.msgImportarUsuarioP : etiquetas.msgImportarUsuario, function (btn) {
+                if (btn == 'ok') {
+                    Secodena.mostrarMascara('maskImportar', etiquetas.msgWait, etiquetas.msgMaskImportar);
+                    var config = panelConfigUsuarios.getForm().getValues();
+                    config.idservidor = comboServidorImportar.getValue();
+
+                    Ext.Ajax.request({
+                        url: 'importarUsuariosLdap',
+                        params: {
+                            configuracion: Ext.util.JSON.encode(config),
+                            usuarios: Ext.util.JSON.encode(usuarioEnviar)
+                        },
+                        callback: function (options, success, response) {
+
+                            Secodena.ocultarMascara('maskImportar');
+                            if(success) {
+                                var responseData = Ext.decode(response.responseText);
+                                if (responseData.cod == 1) {
+                                    var dominio = panelConfigUsuarios.find('hiddenName', 'iddominio')[0].getValue();
+                                    if (finalizar) {
+                                        winImportarUsuarios.hide();
+                                        reiniciarFiltro();
+                                        mostrarMensaje(
+                                            1, usuarioEnviar.length > 1 ? etiquetas.msgUsuariosImportadosP : etiquetas.msgUsuariosImportados
+                                        );
+                                    } else {
+                                        usuariosImportados = new Array();
+                                        for (var i = 0; i < responseData.usuarios.length; i++) {
+                                            var user = new Array();
+                                            user.push(responseData.usuarios[i]);
+                                            user.push(dominio);
+                                            usuariosImportados.push(user);
+                                        }
+                                        asignarRolImportar.iddominio = dominio;
+                                        asignarRolImportar.idusuario = responseData.usuarios[0];
+                                        fn();
+                                    }
+                                }
+                            }else{
+                                mostrarMensaje(6,etiquetas.noConexion);
+                            }
+                        }
+                    });
+                }
+            });
+        }else{
+            asignarRolImportar.asignarRol('apl',null,asignarRolImportar,function(){
+                winImportarUsuarios.hide();
+                reiniciarFiltro();
+                mostrarMensaje(1,usuariosImportados.length > 1 ? etiquetas.msgUsuariosImportadosP : etiquetas.msgUsuariosImportados);
+            },usuariosImportados);
+        }
+    }
+
+    function exportarUsuarios(usuariosExportar, idcomboldap, ou) {
+        var usuarioEnviar = new Array();
+        for (var usuario in usuariosExportar) {
+            usuarioEnviar.push(usuario);
+        }
+        Ext.Ajax.request({
+            url: 'exportarUsuarios',
+            method: 'POST',
+            params: {
+                usuariosexportar: Ext.util.JSON.encode(usuarioEnviar),
+                idservidorldap: idcomboldap,
+                ou: Ext.util.JSON.encode(ou),
+                'start': 0,
+                'limit': 15
+            },
+            callback: function (options, success, response) {
+                //Ext.getBody().unmask();
+                if (success) {
+                    var a = Ext.decode(response.responseText);
+                    var usser = new Array();
+                    var nopersona = new Array();
+                    var us = false;
+                    var nope = false;
+                    if(a[2]){
+                        if(a[0].length > 0){ //ya existen
+                            for(var i=0;i < a[0].length; i++){
+                                usser.push(a[0][i]['user']);
+                            }
+                            us = true;
+                        }
+
+                        if(a[1].length > 0){ //no tienen persona
+                            for(var j=0;j < a[1].length; j++){
+                                nopersona.push(a[1][j]['nopersona']);
+                            }
+                            nope = true;
+                        }
+                        if(us && nope){
+                            Ext.Msg.show({
+                                title:'Confirmaci&oacute;n',
+                                msg:'Se insertaron los usuarios al openldap, excepto los siguientes usuarios que ya exist&iacute;an: <b>'
+                                    + usser + '</b> y los usuarios que no tienen persona asociada: <b>' + nopersona + '</b>.',
+                                icon:Ext.Msg.WARNING,
+                                buttons:Ext.Msg.OK,
+                                fn:function(btn){
+                                    if(btn =='ok'){
+                                        Ext.getCmp('winexportarusuarios').hide();
+                                    }
+                                }
+                            });
+                        }else if(us && nope == false){
+                            Ext.Msg.show({
+                                title:'Confirmaci&oacute;n',
+                                msg:'Se han insertado usuarios al openldap, excepto los siguientes usuarios que ya existian: <b>' + usser + '</b>.',
+                                icon:Ext.Msg.WARNING,
+                                buttons:Ext.Msg.OK,
+                                fn:function(btn){
+                                    if(btn =='ok'){
+                                        Ext.getCmp('winexportarusuarios').hide();
+                                    }
+                                }
+                            });
+                        }else if(us  == false && nope){
+                            Ext.Msg.show({
+                                title:'Confirmaci&oacute;n',
+                                msg:'Se han insertado usuarios al openldap, excepto los usuarios que no tienen persona asociada: <b>' + nopersona + '</b>.',
+                                icon:Ext.Msg.WARNING,
+                                buttons:Ext.Msg.OK,
+                                fn:function(btn){
+                                    if(btn =='ok'){
+                                        Ext.getCmp('winexportarusuarios').hide();
+                                    }
+                                }
+                            });
+                        }else{
+                            mostrarMensaje(1, "Se ha(n) insertado los usuarios al openldap");
+                            Ext.getCmp('winexportarusuarios').hide();
+                        }
+                    }else{
+                        mostrarMensaje(8, "El(los) usuario(s) que quiere exportar ya se encuentra(n) en el openldap o no tiene(n) un perfil asociado.");
+                    }                        
+                    
+                }
+               
+            }
+        });
+    }
+    function filtrarImportar( ){
+        nombreusuarioImportar.focus();
+        if (nombreusuarioImportar.getValue() != "" || grupoImportar.getValue() != '') {
+            criterioFiltrarImportar = nombreusuarioImportar.getValue();
+            criterio2FiltrarImportar = grupoImportar.getValue();
+            storeGridImportar.load({
+                params: {
+                    'start': 0,
+                    'limit': 15
+                }
+            });
+        }
+    }
+
+    function filtrarExportar( ){
+        nombreusuario.focus();
+        if (nombreusuario.getValue() != "" || grupoExportar.getValue() != '') {
+            criterioFiltrarExportar = nombreusuario.getValue();
+            criterio2FiltrarExportar = grupoExportar.getValue();
+            storeGridExportar.load({
+                params: {
+                    'start': 0,
+                    'limit': 15
+                }
+            });
+        }
+    }
+
+    function limpiarFiltroImportar(){
+        nombreusuarioImportar.focus();
+        nombreusuarioImportar.reset();
+        grupoImportar.reset();
+        if (criterioFiltrarImportar != "" || criterio2FiltrarImportar != "") {
+            criterioFiltrarImportar = "";
+            criterio2FiltrarImportar = "";
+            storeGridImportar.load({
+                params: {
+                    'start': 0,
+                    'limit': 15,
+                    'servidor': comboServidorImportar.getValue()
+                }
+            });
+        }
+    }
+
+    function limpiarFiltroExportar(){
+        nombreusuario.focus();
+        nombreusuario.reset();
+        if (criterioFiltrarExportar != "" ) {
+            criterioFiltrarExportar = "";
+            storeGridExportar.load({
+                params: {
+                    'start': 0,
+                    'limit': 15
+                }
+            });
+        }
+    }
+
+    function habilitarDeshabilitarImportar(val) {
+        if (val) {
+            nombreusuarioImportar.reset();
+            grupoImportar.reset();
+        }
+        btnbuscarImportar.setDisabled(val);
+        btnlimpiarImportar.setDisabled(val);
+        grupoImportar.setDisabled(val);
+        nombreusuarioImportar.setDisabled(val);
+    }
+
+    // function habilitarDeshabilitarExportar(val) {
+    //     if (val) {
+    //         nombreusuario.reset();
+    //     }
+    //     btnbuscarExportar.setDisabled(val);
+    //     btnlimpiarExportar.setDisabled(val);
+    //     nombreusuario.setDisabled(val);
+    // }
+    //
+    function limpiarEstructurasAsignarRol() {
+        idrol = 0;
+        rootNodesRoles = {};
+        padresTransitorios = {};
+        estructurasMarcadas = {};
+        arrayPadresEliminar = [];
+        arregloDeschequeados = [];
+        arrayTieneEstructura = [];
+    }
+
+    function reiniciarValoresWindowInsUsuario() {
+        estado = false;
+        winInsUsuarios.items.items[0].setActiveTab(0);
+        winInsUsuarios.items.items[0].items.items[1].disable();
+        asignarRolUser.authModoficar = false;
+        asignarRolUser.recargar = true;
+        asignarRolUser.arbolEntidades.change = false;
+        asignarRolUser.arbolEntidades.hasChecked = false;
+        asignarRolUser.iddominio = profile.iddominio;
+        asignarRolUser.idusuario = -1;
+        asignarRolUser.arbolEntidades.collapseAll();
+        asignarRolUser.arbolEntidades.disable();
+        asignarRolUser.storeGridRol.load();
+        cambiaDisplayTf(1, winInsUsuarios.items.items[0].items.items[0]);
+        winInsUsuarios.items.items[0].items.items[0].getForm().reset();
+        winInsUsuarios.show();
+        winInsUsuarios.center();
+        winInsUsuarios.items.items[0].items.items[0].find('name', 'ip')[0].setRawValue('0.0.0.0/0');
+        winInsUsuarios.items.items[0].items.items[0].find('name', 'email')[0].setRawValue('');
+        winInsUsuarios.items.items[0].items.items[0].find('hiddenName', 'idtema')[0].setValue(profile.idtema, false);
+        winInsUsuarios.items.items[0].items.items[0].find('hiddenName', 'ididioma')[0].setValue(profile.ididioma, false);
+        winInsUsuarios.items.items[0].items.items[0].find('hiddenName', 'iddominio')[0].setValue(profile.iddominio, false);
+        winInsUsuarios.items.items[0].items.items[0].find('hiddenName', 'iddesktop')[0].setValue(profile.iddesktop, false);
+        winInsUsuarios.items.items[0].items.items[0].find('hiddenName', 'idservidor')[0].setValue(0, false);
+        winInsUsuarios.items.items[0].items.items[0].find('name', 'simpleacceso')[0].setValue('true');
+        var nombre = winInsUsuarios.items.items[0].items.items[0].find('name', 'nombreusuario')[0];
+        nombre.focus(false, 200);
+    }
+
+    function reiniciarValoresWindowModUsuario() {
+        winModUsuarios.items.items[0].setActiveTab(0);
+        winModUsuarios.items.items[0].items.items[1].disable();
+        asignarRolUserMod.idusuario = sm.getSelected().data.idusuario;
+        asignarRolUserMod.iddominio = sm.getSelected().data.iddominio;
+        asignarRolUserMod.authModoficar = false;
+        asignarRolUserMod.recargar = true;
+        asignarRolUserMod.arbolEntidades.change = false;
+        asignarRolUserMod.arbolEntidades.hasChecked = false;
+        asignarRolUserMod.arbolEntidades.collapseAll();
+        asignarRolUserMod.arbolEntidades.disable();
+        asignarRolUserMod.storeGridRol.load();
+        winModUsuarios.show();
+        winModUsuarios.center();
+        cambiaDisplayTf(0, winModUsuarios.items.items[0].items.items[0]);
+        if(sm.getSelected().data.idservidor == null){
+
+            var record = Ext.data.Record.create([
+                {
+                    name: 'activo',
+                    mapping: 'activo'
+                }
+            ]);
+            var data = new record({
+                activo: sm.getSelected().data.activo,
+                desktop: sm.getSelected().data.desktop,
+                dominio: sm.getSelected().data.dominio,
+                iddesktop: sm.getSelected().data.iddesktop,
+                iddominio: sm.getSelected().data.iddominio,
+                ididioma: sm.getSelected().data.ididioma,
+                idioma: sm.getSelected().data.idioma,
+                idpersona: sm.getSelected().data.idpersona,
+                idservidor: 0,
+                idtema: sm.getSelected().data.idtema,
+                idusuario: sm.getSelected().data.idusuario,
+                ip: sm.getSelected().data.ip,
+                email: sm.getSelected().data.email,
+                nombreusuario: sm.getSelected().data.nombreusuario,
+                reescribirsesion: sm.getSelected().data.reescribirsesion,
+                servidor: sm.getSelected().data.servidor,
+                simpleacceso: sm.getSelected().data.simpleacceso,
+                tema: sm.getSelected().data.tema
+            });
+            winModUsuarios.items.items[0].items.items[0].getForm().loadRecord(data);
+        }
+        else{
+            winModUsuarios.items.items[0].items.items[0].getForm().loadRecord(sm.getSelected());
+        }
+
+        var ip = winModUsuarios.items.items[0].items.items[0].find('name', 'ip')[0];
+        ip.focus(false, 200);
+        if (!ip.getValue()) {
+            ip.setRawValue('0.0.0.0/0');
+        }
+        var form = Ext.getCmp("regUsuarioMod");
+        form.defaultValues = form.getForm().getValues(true);
+    }
+
+    function habilitarDeshabilitarBtnTreeRG(node) {
+        if (node) {
+            switch (node.attributes.type) {
+                case 'raiz':
+                    btnadicionarRoles.setDisabled(false);
+                    btnmodificarRoles.setDisabled(true);
+                    btneliminarRoles.setDisabled(true);
+                    btnRegularAcciones.setDisabled(true);
+                    break;
+                case 'rol':
+                    btnadicionarRoles.setDisabled(true);
+                    btneliminarRoles.setDisabled(false);
+                    if (node.parentNode.attributes.type == 'raiz') {
+                        btnRegularAcciones.setDisabled(false);
+                        btnmodificarRoles.setDisabled(false);
+                    }
+                    else {
+                        btnRegularAcciones.setDisabled(true);
+                        btnmodificarRoles.setDisabled(true);
+                    }
+                    break;
+                case 'grupo':
+                    btnadicionarRoles.setDisabled(true);
+                    btnmodificarRoles.setDisabled(false);
+                    btneliminarRoles.setDisabled(false);
+                    btnRegularAcciones.setDisabled(false);
+                    break;
+            }
+        } else {
+            btnadicionarRoles.setDisabled(true);
+            btnmodificarRoles.setDisabled(true);
+            btneliminarRoles.setDisabled(true);
+            btnRegularAcciones.setDisabled(true)
+        }
+    }
+
+    function habilitarDeshabilitarBtnTreePerfiles(node) {
+        if (node.id != 'r41ztr33') {
+            btnadicionarcampo.setDisabled(false);
+            btnmodificarcampo.setDisabled(false);
+            btneliminarcampo.setDisabled(false);
+        } else {
+            btnadicionarcampo.setDisabled(false);
+            btnmodificarcampo.setDisabled(true);
+            btneliminarcampo.setDisabled(true);
+        }
+    }
+
+    function alCerrarVentana(form) {
+        form.authModoficar = false;
+        if(form.smrol.getSelected())
+            form.smrol.clearSelections();
+        form.arbolEntidades.disable();
+    }
+
+    function filtrar() {
+        //if (rolFiltrar)
+        //    Ext.DomHelper.applyStyles(rolFiltrar.getUI().getTextEl(), {'font-weight': 'inherit'});
+        //else if (grupoFiltrar)
+        //    Ext.DomHelper.applyStyles(grupoFiltrar.getUI().getTextEl(), {'font-weight': 'inherit'});
+        nombreUsuarioFiltrar = combousuario.getValue();
+        dominioFiltrar = combodominio.getValue();
+        estadoFiltrar = comboestado.getValue();
+        //console.log(dominioFiltrar);
+        //console.log(comborol.getValue());
+        //console.log(combogrupos.getValue());
+        rolFiltrar = comborol.getValue();
+        grupoFiltrar = combogrupos.getValue();
+        //if (treeRolGru.getSelectionModel().selNode && treeRolGru.getSelectionModel().selNode.attributes.type != 'raiz') {
+        //    Ext.DomHelper.applyStyles(treeRolGru.getSelectionModel().selNode.getUI().getTextEl(), {'font-weight': 'bold'});
+        //    if (treeRolGru.getSelectionModel().selNode.attributes.type == 'rol') {
+        //        rolFiltrar = treeRolGru.getSelectionModel().selNode;
+        //        grupoFiltrar = null;
+        //    } else {
+        //        grupoFiltrar = treeRolGru.getSelectionModel().selNode;
+        //        rolFiltrar = null;
+        //    }
+        //} else {
+        //    rolFiltrar = null;
+        //    grupoFiltrar = null;
+        //}
+
+
+        if (tabpanel.activeTab.id == 'treeRG') {
+            filtrarGridUsuarios();
+        } else {
+            filtrarGridPerfiles();
+        }
+    }
+
+    function reiniciarFiltro() {
+
+        var nodeSelected = treeRolGru.getRootNode();
+        nodeSelected.cascade(function (node){
+            if(rolFiltrar) {
+
+                if(node.attributes.idrol == rolFiltrar)
+                    Ext.DomHelper.applyStyles(node.getUI().getTextEl(), {'font-weight': 'inherit'});
+            }
+
+            if(grupoFiltrar) {
+                if(node.attributes.idrol == grupoFiltrar)
+                    Ext.DomHelper.applyStyles(node.getUI().getTextEl(), {'font-weight': 'inherit'});
+            }
+        });
+
+
+        rolFiltrar = null;
+        grupoFiltrar = null;
+        nombreUsuarioFiltrar = null;
+        dominioFiltrar = null;
+        estadoFiltrar = null;
+        if (tabpanel.activeTab.id == 'treeRG') {
+            combousuario.reset();
+            combodominio.reset();
+            comboestado.reset();
+
+            comborol.reset();
+            combogrupos.reset();
+            storeGrid.load({
+                params: {
+                    start: 0,
+                    limit: 15
+                }
+            });
+
+        } else {
+            combousuario.reset();
+            combodominio.reset();
+            comboestado.reset();
+
+            comborol.reset();
+            combogrupos.reset();
+            contieneGrid.items.items[1].getStore().load({
+                params: {
+                    start: 0,
+                    limit: 15
+                }
+            });
+        }
+    }
+
+    ////------------ Formulario de adicionar usuario ------------////
+    function crearFormUsuarios(id) {
+        return new Ext.FormPanel({
+            id: id,
+            title: etiquetas.titleDatosUsuario,
+            bodyBorder: false,
+            labelAlign: 'top',
+            frame: true,
+            items: [
+                {
+                    layout: 'column',
+                    items: [
+                        {
+                            columnWidth: .33,
+                            layout: 'form',
+                            items: [
+                                {
+                                    id: id+"nombreusuario",
+                                    prevTab:'btnAceptarInsUsuarios',
+                                    nextTab: 'ididioma' + id,
+                                    xtype: 'textfield',
+                                    fieldLabel: etiquetas.lbUsuario,
+                                    allowBlank: false,
+                                    blankText: etiquetas.lbMsgEstecampoesrequerido,
+                                    vtype: 'vtusuarionoarroba',
+                                    name: 'nombreusuario',
+                                    maxLength: 60,
+                                    anchor: '95%'
+                                },
+                                new Ext.form.TextField({
+                                    fieldLabel: etiquetas.lbTitMsgContrasena,
+                                    inputType: 'password',
+                                    allowBlank: false,
+                                    maxLength: 60,
+                                    blankText: etiquetas.lbMsgEstecampoesrequerido,
+                                    name: 'contrasenna',
+                                    id: 'contrasenna' + id,
+                                    prevTab: 'iddesktop' + id,
+                                    nextTab: 'idtema' + id,
+                                    anchor: '95%'
+                                }),
+                                new Ext.form.TextField({
+                                    fieldLabel: etiquetas.lbTitMsgConfirmarcontrasena,
+                                    inputType: 'password',
+                                    maxLength: 60,
+                                    allowBlank: false,
+                                    blankText: etiquetas.lbMsgEstecampoesrequerido,
+                                    name: 'contrasena',
+                                    id: 'contrasena' + id,
+                                    prevTab: 'iddominio' + id,
+                                    nextTab: 'ip' + id,
+                                    anchor: '95%'
+                                }),
+                                new Ext.form.TextField({
+                                    fieldLabel: 'Email',
+                                    maxLength: 150,
+                                    //regex:/^[a-z0-9]+@[a-z]+\\.[a-z]{2,3}/,
+                                    allowBlank: false,
+                                    blankText: etiquetas.lbMsgEstecampoesrequerido,
+                                    name: 'email',
+                                    vtype:'email',
+                                    //regexText: etiquetas.lbMsgEmailValido,
+                                    id: 'email' + id,
+                                    prevTab: 'idservidor' + id,
+                                    nextTab: 'simpleacceso' + id,
+                                    anchor: '95%'
+                                })
+                            ]
+                        },
+                        {
+                            columnWidth: .33,
+                            layout: 'form',
+                            items: [
+                                new Ext.form.ComboBox({
+                                    emptyText: etiquetas.lbSeleccionaridioma,
+                                    editable: false,
+                                    enableQtip: true,
+                                    fieldLabel: etiquetas.lbIdioma,
+                                    store: storeIdioma,
+                                    valueField: 'ididioma',
+                                    displayField: 'idioma',
+                                    hiddenName: 'ididioma',
+                                    id: 'ididioma' + id,
+                                    prevTab: id + "nombreusuario",
+                                    nextTab: 'iddesktop' + id,
+                                    forceSelection: true,
+                                    typeAhead: true,
+                                    mode: 'local',
+                                    allowBlank: false,
+                                    triggerAction: 'all',
+                                    selectOnFocus: true,
+                                    anchor: '95%'
+                                }),
+                                new Ext.form.ComboBox({
+                                    emptyText: etiquetas.lbSeleccionartema,
+                                    editable: false,
+                                    enableQtip: true,
+                                    fieldLabel: etiquetas.lbTema,
+                                    store: storeTema,
+                                    valueField: 'idtema',
+                                    displayField: 'tema',
+                                    hiddenName: 'idtema',
+                                    id: 'idtema' + id,
+                                    prevTab: 'contrasenna' + id,
+                                    nextTab: 'iddominio' + id,
+                                    forceSelection: true,
+                                    typeAhead: true,
+                                    mode: 'local',
+                                    allowBlank: false,
+                                    triggerAction: 'all',
+                                    selectOnFocus: true,
+                                    anchor: '95%'
+                                }),
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: etiquetas.lbIpfin,
+                                    blankText: etiquetas.lbMsgEstecampoesrequerido,
+                                    maxLength: 255,
+                                    regexText: etiquetas.lbMsgRangoIP,
+                                    name: 'ip',
+                                    id: 'ip' + id,
+                                    prevTab: 'contrasena' + id,
+                                    nextTab: 'idservidor' + id,
+                                    allowBlank: false,
+                                    anchor: '95%'
+                                },
+                                new Ext.form.Checkbox({
+                                    boxLabel: etiquetas.lbAcessoConcurrente,
+                                    hideLabel: true,
+                                    hidden:true,
+                                    name: 'simpleacceso',
+                                    id: 'simpleacceso'+ id,
+                                    prevTab: 'email' + id,
+                                    nextTab: 'reescribirsesion' + id,
+                                    inputValue: 'true',
+                                    checked: 'true',
+                                    listeners: {
+                                        'check': function (component) {
+                                            habilitarReescribirSesion(component.ownerCt.ownerCt.ownerCt.id, component);
+                                        }
+                                    }
+                                })
+                            ]
+                        },
+                        {
+                            columnWidth: .33,
+                            layout: 'form',
+                            items: [
+                                new Ext.form.ComboBox({
+                                    emptyText: etiquetas.lbSeleccionarescritorio,
+                                    editable: false,
+                                    enableQtip: true,
+                                    fieldLabel: etiquetas.lbTitMsgTipodeescritorio,
+                                    store: storeDesktop,
+                                    valueField: 'iddesktop',
+                                    displayField: 'desktop',
+                                    hiddenName: 'iddesktop',
+                                    id: 'iddesktop' + id,
+                                    prevTab: 'ididioma' + id,
+                                    nextTab: 'contrasenna' + id,
+                                    forceSelection: true,
+                                    typeAhead: true,
+                                    mode: 'local',
+                                    allowBlank: false,
+                                    triggerAction: 'all',
+                                    selectOnFocus: true,
+                                    anchor: '100%'
+                                }),
+                                new Ext.form.ComboBox({
+                                    emptyText: etiquetas.lbSeleccionardominio,
+                                    editable: false,
+                                    enableQtip: true,
+                                    fieldLabel: etiquetas.lbDominio,
+                                    store: storeDominio,
+                                    valueField: 'iddominio',
+                                    displayField: 'dominio',
+                                    hiddenName: 'iddominio',
+                                    id: 'iddominio' + id,
+                                    prevTab: 'idtema' + id,
+                                    nextTab: 'contrasena' + id,
+                                    forceSelection: true,
+                                    typeAhead: true,
+                                    mode: 'local',
+                                    allowBlank: false,
+                                    triggerAction: 'all',
+                                    selectOnFocus: true,
+                                    anchor: '100%',
+                                    listeners: {
+                                        select: function (combo, nuevo, viejo) {
+                                            if (id == 'regUsuario') {
+                                                asignarRolUser.iddominio = nuevo.data.iddominio;
+                                            } else {
+                                                asignarRolUserMod.authModoficar = false;
+                                                asignarRolUserMod.iddominio = nuevo.data.iddominio;
+                                                asignarRolUserMod.arbolEntidades.disable();
+                                                asignarRolUserMod.storeGridRol.reload();
+                                            }
+                                        }
+                                    }
+                                }),
+                                new Ext.form.ComboBox({
+                                    emptyText: etiquetas.seleccionServidorMsg,
+                                    editable: false,
+                                    allowBlank: false,
+                                    enableQtip: true,
+                                    fieldLabel: etiquetas.fieldLabelServidor,
+                                    store: storeservidor,
+                                    valueField: 'idservidor',
+                                    displayField: 'servidor',
+                                    hiddenName: 'idservidor',
+                                    id: 'idservidor' + id,
+                                    prevTab: 'ip' + id,
+                                    nextTab: 'simpleacceso'+ id,
+                                    forceSelection: true,
+                                    typeAhead: true,
+                                    mode: 'local',
+                                    triggerAction: 'all',
+                                    selectOnFocus: true,
+                                    anchor: '100%',
+                                    listeners: {
+                                        select: function (cmb, recTipo) {
+                                            if (recTipo.data.idservidor == 0) {
+                                                if (banderaMod)
+                                                    deshabilitarCampos(this.ownerCt.ownerCt);
+                                                else
+                                                    habilitarCampos(this.ownerCt.ownerCt);
+                                            }
+                                            else
+                                                deshabilitarCampos(this.ownerCt.ownerCt);
+                                        }
+                                    }
+                                }),
+                                new Ext.form.Checkbox({
+                                    boxLabel: etiquetas.lbReescribirSesion,
+                                    hideLabel: true,
+                                    name: 'reescribirsesion',
+                                    hidden:true,
+                                    id: 'reescribirsesion' + id,
+                                    prevTab: 'simpleacceso'+ id,
+                                    nextTab: id+"activo",
+                                    inputValue: 'true',
+                                    disabled: true
+                                })
+                            ]
+                        }
+                    ]
+                }
+            ],
+            listeners: {
+                clientvalidation: function (form, valid) {
+                    if (valid) {
+                        // if (form.find('name', 'activo')[0].getValue())
+                        this.ownerCt.items.items[1].enable();
+                        // else
+                        //     this.ownerCt.items.items[1].disable();
+                    }
+                    else {
+                        this.ownerCt.items.items[1].disable();
+                    }
+                    if(form.id == 'regUsuarioMod'){
+                        Ext.getCmp("regUsuarioModnombreusuario").prevTab = "btnAceptarModUsuarios";
+                        if (form.getForm().getValues(true) != form.defaultValues || asignarRolUserMod.arbolEntidades.change) {
+                            Ext.getCmp('btnAceptarModUsuarios').enable();
+                        } else {
+                            Ext.getCmp('btnAceptarModUsuarios').disable();
+                        }
+                    }else{
+                        Ext.getCmp("regUsuarionombreusuario").prevTab = "btnAceptarInsUsuarios";
+                    }
+                }
+            }
+        });
+    }
+
+    function habilitarReescribirSesion(id, component) {
+        var rescribirsesion = Ext.getCmp(id).items.items[0].items.items[1].items.items[3];
+        if (component.checked == true) {
+            rescribirsesion.enable();
+        }
+        if (component.checked == false) {
+            rescribirsesion.setValue('false');
+            rescribirsesion.disable();
+        }
+    }
+
+    function ventanaAsignarRol() {
+        if (!winRol) {
+            var width = (window.innerWidth > 1024) ? window.innerWidth * .5 : window.innerWidth * .7;
+            var height = (window.innerHeight > 1024) ? window.innerHeight * .6 : window.innerHeight * .7;
+            winRol = new Ext.Window({
+                autoValidate: false,
+                modal: true,
+                closeAction: 'hide',
+                layout: 'fit',
+                constrain: true,
+                title: etiquetas.lbBtnTramitarroles,
+                width: width,
+                height: height,
+                listeners: {
+                    hide: function () {
+                        focusPanelDerecho();
+                        limpiarEstructurasAsignarRol();
+                        alCerrarVentana(asignarRolRol);
+                        Ext.getCmp("btnAceptarAsigRol").setDisabled(true);
+                    }
+                },
+                buttons: [
+                    {
+                        iconCls: 'cancelar',
+                        text: etiquetas.lbBtnCancelar,
+                        tooltip: etiquetas.tooltipCancelarVen,
+                        handler: function () {
+                            winRol.hide();
+                            if (asignarRolRol.denrolbuscado.getValue())
+                                asignarRolRol.denrolbuscado.reset();
+                        }
+                    },
+                    {
+                        iconCls: 'aceptar',
+                        id: 'btnAceptarAsigRol',
+                        tooltip: etiquetas.tooltipAceptarVen,
+                        disabled: true,
+                        handler: function () {
+                            if (asignarRolRol.denrolbuscado.getValue())
+                                asignarRolRol.denrolbuscado.reset();
+                            asignarRolRol.asignarRol('apl', null, asignarRolRol, function () {
+                                winRol.hide();
+                            }, recordToArrayUsuarios(sm.getSelections()));
+                        },
+                        text: etiquetas.lbBtnAceptar
+                    }
+                ],
+                keys:[
+                    {
+
+                        key: 'x',
+                        alt: true,
+                        ctrl: false,
+                        fn: function (e,a) {
+                            a.browserEvent.preventDefault();
+                            winRol.hide();
+                            if (asignarRolRol.denrolbuscado.getValue())
+                                asignarRolRol.denrolbuscado.reset();
+                        }
+                    },
+                    {
+                        key: 13,
+                        fn: function (e,a) {
+                            a.browserEvent.preventDefault();
+                            if (asignarRolRol.denrolbuscado.getValue())
+                                asignarRolRol.denrolbuscado.reset();
+                            asignarRolRol.asignarRol('apl', null, asignarRolRol, function () {
+                                winRol.hide();
+                            }, recordToArrayUsuarios(sm.getSelections()));
+                        }
+                    }
+                ]
+            });
+            asignarRolRol = new formularioAsignarRol;
+            winRol.add(asignarRolRol);
+            winRol.doLayout();
+        }
+        idrol = 0;
+        asignarRolRol.arbolEntidades.collapseAll();
+        asignarRolRol.arbolEntidades.change = false;
+        asignarRolRol.recargar = true;
+        asignarRolRol.arbolEntidades.hasChecked = false;
+        asignarRolRol.authModoficar = false;
+
+        winRol.show();
+        winRol.center();
+        winRol.focus(false,200);
+        asignarRolRol.storeGridRol.load({
+            params: {
+                start: 0,
+                limit: 15
+            }
+        });
+        arrayPadresEliminar = [];
+        arregloDeschequeados = [];
+        arrayTieneEstructura = [];
+        asignarRolRol.smrol.clearSelections();
+    }
+
+    function estaEnDeschequeados(arreglonodos, idnodo) {
+        var cantidad = arreglonodos.length;
+        for (p = 0; p < cantidad; p++) {
+            if (arreglonodos[p] == idnodo)
+                return p;
+        }
+        return -1;
+    }
+
+    function padreMarcadoPadre(nodo) {
+        if (nodo.parentNode) {
+            if (padresTransitorios[nodo.parentNode.attributes.id]) {
+                return padresTransitorios[nodo.parentNode.attributes.id];
+            }
+            return padreMarcadoPadre(nodo.parentNode);
+        }
+        return -1;
+    }
+
+    function eliminarPadreTransitorio(nodo) {
+        if (padresTransitorios[nodo.attributes.id])
+            padresTransitorios[nodo.attributes.id] = undefined;
+        while (nodo.parentNode) {
+            if (padresTransitorios[nodo.parentNode.attributes.id])
+                padresTransitorios[nodo.parentNode.attributes.id] = undefined;
+            nodo = nodo.parentNode;
+        }
+    }
+
+    function anadirRootNode(idRol) {
+        if (!rootNodesRoles[idRol]) {
+            rootNodesRoles[idRol] = {};
+            rootNodesRoles[idrol].opcion = '';
+            rootNodesRoles[idrol].arrayEntidades = [];
+            rootNodesRoles[idrol].arrayEntidadesEliminar = [];
+            rootNodesRoles[idrol].arrayPadres = [];
+            rootNodesRoles[idrol].arrayPadresEliminar = [];
+            rootNodesRoles[idrol].arrayTiene = [];
+            rootNodesRoles[idrol].arrayUsuario = [];
+            rootNodesRoles[idrol].idrol = idrol;
+        }
+        return rootNodesRoles[idRol].rootNode;
+    }
+
+    function guardarDatosTransitorios(idrol, arrayEnt, arrUsuario, arrayPadres, apl) {
+        rootNodesRoles[idrol].opcion = 'apl';
+        rootNodesRoles[idrol].arrayEntidades = arrayEnt;
+        rootNodesRoles[idrol].arrayEntidadesEliminar = arregloDeschequeados;
+        rootNodesRoles[idrol].arrayPadres = arrayPadres;
+        rootNodesRoles[idrol].arrayPadresEliminar = arrayPadresEliminar;
+        rootNodesRoles[idrol].arrayTiene = arrayTieneEstructura;
+        rootNodesRoles[idrol].arrayUsuario = arrUsuario;
+        rootNodesRoles[idrol].idrol = idrol;
+    }
+
+    function validarDominiosUsuarios(arrUsuarios) {
+        for (i = 0; i < arrUsuarios.length - 1; i++) {
+            if (arrUsuarios[i].data.iddominio != arrUsuarios[i + 1].data.iddominio)
+                return false;
+        }
+        return true;
+    }
+
+    function eliminarEnDeschequeados(arreglo, pos) {
+        arreglo.splice(pos, 1);
+    }
+
+    function adicionarEnDeschequeados(arreglo, id) {
+        if (estaEnDeschequeados(arreglo, id) == -1)
+            arreglo.push(id);
+    }
+
+    function marcarHijos(nodo, check) {
+        nodo.eachChild(function (anodehijo) {
+            if (anodehijo.attributes.checked != check)
+                cambiarEstadoCheck(anodehijo, check);
+            if (anodehijo.childNodes.length > 0)
+                marcarHijos(anodehijo, check);
+        }, this);
+    }
+
+    function buscarNodosTiene(nodo) {
+        nodo.eachChild(function (anodehijo) {
+            if (!anodehijo.attributes.checked && !anodehijo.isLeaf() && anodehijo.attributes.tiene && anodehijo.childNodes.length == 0)
+                arrayTieneEstructura.push(anodehijo.attributes.id);
+            if (anodehijo.childNodes.length > 0)
+                buscarNodosTiene(anodehijo);
+        }, this);
+    }
+
+    ////------------ Auxiliar para marcar y desmarcar nodos ------------////
+    function cambiarEstadoCheck(anodehijo, check) {
+        if (anodehijo.attributes.checked != check) {
+            anodehijo.getUI().toggleCheck(check);
+            if (check) {
+                estructurasMarcadas[anodehijo.attributes.id] = anodehijo.attributes.id;
+            }
+            else {
+                estructurasMarcadas.remove(anodehijo.attributes.id);
+            }
+        }
+    }
+
+    function mostrarBusquedaPersona() {
+        var panelBusPer;
+        var btnCancelarBusPer = new Ext.Button({
+            id: 'btnCancelarBusPer',
+            iconCls: 'cancelar',
+            text: 'Cancelar',
+            tooltip: etiquetas.tooltipCancelarVen,
+            handler: function () {
+                winBusPer.close();
+            }
+        });
+        var btnAceptarBusPer = new Ext.Button({
+            id: 'btnAceptarBusPer',
+            disabled: true,
+            iconCls: 'aceptar',
+            text: 'Aceptar',
+            tooltip: etiquetas.tooltipAceptarVen,
+            handler: function () {
+                adicionarPerfil(panelBusPer.getSeleccion().data.idpersona, winBusPer);
+            }
+        });
+
+        var winBusPer = new Ext.Window({
+            modal: true,
+            layout: 'fit',
+            id: 'winBusPer',
+            title: 'Buscar persona',
+            width: 700,
+            height: 490,
+            closeAction: 'destroy',
+            constrain: true,
+            closable: true,
+            plain: false,
+            listeners: {
+                destroy: function () {
+                    focusPanelDerecho();
+                }
+            },
+            items: [panelBusPer = new Ext.pvd.persona.buscarpersona.panelBuscarpersona({
+                seguridad: 0,
+                listeners: {
+                    'personaselecionada': function () {
+                        btnAceptarBusPer.enable();
+                    },
+                    'personadeselecionada': function () {
+                        btnAceptarBusPer.disable();
+                    }
+                },
+                limit: 15,
+                start: 0,
+                sincargo: true
+            })],
+            resizable: true,
+            buttons: [btnCancelarBusPer, btnAceptarBusPer],
+            keys:[
+                {
+                    key: 'x',
+                    alt: true,
+                    ctrl: false,
+                    fn: function (e,a) {
+                        a.browserEvent.preventDefault();
+                        winBusPer.close();
+                    }
+                },
+                {
+                    key: 13,
+                    alt: false,
+                    ctrl: false,
+                    fn: function (e,a) {
+                        a.browserEvent.preventDefault();
+                        if(!Ext.getCmp("btnAceptarBusPer").disabled)
+                            adicionarPerfil(panelBusPer.getSeleccion().data.idpersona, winBusPer);
+                    }
+                }
+            ]
+        });
+        winBusPer.show();
+        winBusPer.center();
+    }
+
+    ////------------ Formulario que se crea dinamico ------------////
+    function cargarConfigForm() {
+        Ext.Ajax.request({
+            url: 'cargarcamposform',
+            params: {},
+            callback: function (options, success, response) {
+                aJsonForm = Ext.decode(response.responseText);
+                fpRegistrarPerfil = dameFormUsuarios(aJsonForm);
+                cambioCampos = true;
+            }
+        });
+    }
+
+    // Para crear el formulario
+    function dameFormUsuarios(aJsonForm) {
+        return new Ext.FormPanel({
+            labelAlign: 'top',
+            autoHeight: true,
+            frame: true,
+            items: {
+                layout: 'column',
+                items: creaArrayItems(aJsonForm)
+            }
+        });
+    }
+
+    // Para formulario dinamico
+    function creaArrayItems(aJSonItems) {
+        var arrayItems = new Array();
+        for (var i = 0; i < aJSonItems.cantidad; i++) {
+            arrayItems.push(dameArrayColumn(aJSonItems.campos, aJSonItems.cantidad, i))
+        }
+        return arrayItems;
+    }
+
+    //Para crear el arreglo de columnas
+    function dameArrayColumn(aJSonItems, noCol, pos) {
+        if (noCol == 1) {
+            return {
+                columnWidth: 1,
+                layout: 'form',
+                items: dameItem(aJSonItems[pos].tipocampo, pos, aJSonItems)
+            };
+        }
+        if (noCol == 2) {
+            return {
+                columnWidth: .5,
+                layout: 'form',
+                items: dameItem(aJSonItems[pos].tipocampo, pos, aJSonItems)
+            };
+        }
+        if (noCol >= 3) {
+            return {
+                columnWidth: .33,
+                layout: 'form',
+                items: dameItem(aJSonItems[pos].tipocampo, pos, aJSonItems)
+            };
+        }
+
+    }
+
+    //Para devolver un item especifico (El chek y radio por ahora no funciona, hay que acomodarlos.)
+    function dameItem(xtype, pos, aJSonItems) {
+        if (xtype == 'textfield') {
+            return {
+                xtype: 'textfield',
+                fieldLabel: aJSonItems[pos].nombreamostrar,
+                id: aJSonItems[pos].idcampo,
+                minLength: 1,
+                minLengthText: 'lkh',
+                maxLength: aJSonItems[pos].longitud,
+                maxLengthText: (aJSonItems[pos].longitud == 1) ? 'El tama&ntilde;o m&aacute;ximo requerido es 1 caracter.' : 'El tama&ntilde;o m&aacute;ximo requerido es ' + aJSonItems[pos].longitud + '  caracteres.',
+                name: aJSonItems[pos].nombre,
+                anchor: '95%',
+                maskRe: eval(aJSonItems[pos].NomExpresiones.expresion)
+            };
+        }
+
+        if (xtype == 'datefield') {
+            return {
+                xtype: 'datefield',
+                fieldLabel: aJSonItems[pos].nombreamostrar,
+                id: aJSonItems[pos].idcampo,
+                maxLength: aJSonItems[pos].longitud,
+                format: 'd/m/Y',
+                name: aJSonItems[pos].nombre,
+                anchor: '95%',
+                maskRe: eval(aJSonItems[pos].NomExpresiones.expresion)
+            };
+        }
+    }
+
+    ////------------ Modififcar Perfil ------------////
+    function modificarperfil() {
+        if (fpRegistrarPerfil.getForm().isValid()) {
+            Secodena.mostrarMascara('maskPerfilMod', etiquetas.msgWait, etiquetas.msgPerfil);
+            fpRegistrarPerfil.getForm().submit({
+                url: 'modificarperfil',
+                params: {
+                    idfila: contieneGrid.items.items[1].getSelectionModel().getSelected().data.idfila,
+                    idusuario: contieneGrid.items.items[1].getSelectionModel().getSelected().data.idusuario
+                },
+                failure: function (form, action) {
+                    Secodena.ocultarMascara('maskPerfilMod');
+                    if (action.result.cod == 1) {
+                        mostrarMensaje(action.result.cod, etiquetas.msgPerfilModificado);
+                        contieneGrid.items.items[1].getStore().reload();
+                        fpRegistrarPerfil.getForm().reset();
+                        winModPerfiles.hide();
+                    }
+                }
+            });
+        }
+        else
+            mostrarMensaje(8, etiquetas.msgCamposIncorrectos);
+    }
+
+    function adicionarPerfil(idpersona, winBusPer) {
+        Secodena.mostrarMascara('maskPerfil', etiquetas.msgWait, etiquetas.msgPerfil);
+        Ext.Ajax.request({
+            url: 'guardarPerfil',
+            method: 'POST',
+            params: {
+                idusuario: (tabpanel.activeTab.id == 'treeRG') ? sm.getSelected().data.idusuario : smPerfiles.getSelected().data.idusuario,
+                idpersona: idpersona
+            },
+            callback: function (options, success, response) {
+                Secodena.ocultarMascara('maskPerfil');
+                if(success) {
+                    var responseData = Ext.decode(response.responseText);
+                    if (responseData.cod == 1) {
+                        mostrarMensaje(responseData.cod, etiquetas.msgAdicionarPerfil);
+                        winBusPer.close();
+                        if (tabpanel.activeTab.id == 'treeRG')
+                            storeGrid.reload();
+                        else
+                            contieneGrid.items.items[1].getStore().reload();
+                    } else {
+                        mostrarMensaje(responseData.cod, responseData.msg);
+                    }
+                }else{
+                    mostrarMensaje(6,etiquetas.noConexion);
+                }
+            }
+        });
+    }
+
+    //Función usada para adicionar un usuario.
+    function adicionarusuario(apl) {
+        var usuario = winInsUsuarios.items.items[0].items.items[0].getForm().getValues();
+        if (usuario.ip) {
+            if (!validaRango(usuario.ip)) {
+                mostrarMensaje(8, etiquetas.lbMsgRangoIP);
+                return;
+            }
+        }
+        if (usuario.iddominio == 0) {
+            mostrarMensaje(8, etiquetas.lbTitMsgDominioIncorrecto);
+            return;
+        }
+        if (winInsUsuarios.items.items[0].items.items[0].getForm().isValid()) {
+            Secodena.mostrarMascara('maskAddUsuario', etiquetas.msgWait, etiquetas.msgModUsuario);
+            if (estado)
+                enviarFormulario(apl, usuario);
+            else {
+                if (usuario.contrasenna != 0 && usuario.contrasena != 0) {
+                    if (usuario.contrasenna == usuario.contrasena) {
+                        usuario.contrasenna = encryptRSA(usuario.contrasenna);
+                        usuario.contrasena = encryptRSA(usuario.contrasena);
+                        enviarFormulario(apl, usuario);
+                    } else {
+                        Secodena.ocultarMascara('maskAddUsuario');
+                        mostrarMensaje(6, etiquetas.lbTitMsgContrasenaIncorrecta);
+                    }
+                }
+                else {
+                    Secodena.ocultarMascara('maskAddUsuario');
+                    mostrarMensaje(8, etiquetas.lbTitMsgEnblanco);
+                }
+            }
+        }
+        else
+            mostrarMensaje(8, etiquetas.lbMsgErrorEnCamops);
+    }
+
+    function modificarUsuario(apl) {
+        var usuarioMod = winModUsuarios.items.items[0].items.items[0].getForm().getValues();
+        usuarioMod.activo = sm.getSelected().data.activo;
+        usuarioMod.idusuario = sm.getSelected().data.idusuario;
+        usuarioMod.confirmar = false;
+        if (usuarioMod.ip) {
+            if (!validaRango(usuarioMod.ip)) {
+                mostrarMensaje(8, etiquetas.lbMsgRangoIP);
+                return;
+            }
+        }
+        if (usuarioMod.iddominio == 0) {
+            mostrarMensaje(8, etiquetas.lbTitMsgDominioIncorrecto);
+            return;
+        }
+        var records = [];
+        records.push(usuarioMod);
+        if (winModUsuarios.items.items[0].items.items[0].getForm().isValid()) {
+            Secodena.mostrarMascara('maskUsuarioMod', etiquetas.msgWait, etiquetas.msgModUsuario);
+            modificar('ok');
+        }
+        else
+            mostrarMensaje(8, etiquetas.lbMsgErrorEnCamops);
+        function modificar(msg) {
+            if (msg == 'ok') {
+                if(usuarioMod.confirmar){
+                    Secodena.mostrarMascara('maskUsuarioMod', etiquetas.msgWait, etiquetas.msgModUsuario);
+                }
+                Ext.Ajax.request({
+                    url: 'modificarusuario',
+                    method: 'POST',
+                    params: {
+                        records: Ext.encode(records)
+                    },
+                    callback: function (option, success, response) {
+                        Secodena.ocultarMascara('maskUsuarioMod');
+                        if(success) {
+                            var responseData = Ext.decode(response.responseText);
+
+                            function cerrarVentana() {
+                                limpiarEstructurasAsignarRol();
+                                mostrarMensaje(responseData.cod, etiquetas.msgUsuariosMod);
+                                storeGrid.reload();
+                                winModUsuarios.hide();
+                            }
+
+                            if (responseData.cod == 1) {
+                                if (asignarRolUserMod.denrolbuscado.getValue())
+                                    asignarRolUserMod.denrolbuscado.reset();
+                                if (asignarRolUserMod.authModoficar) {
+                                    asignarRolUserMod.asignarRol('apl', null, asignarRolUserMod, cerrarVentana, recordToArrayUsuarios(sm.getSelections()));
+                                } else {
+                                    limpiarEstructurasAsignarRol();
+                                    mostrarMensaje(responseData.cod, etiquetas.msgUsuariosMod);
+                                    storeGrid.reload();
+                                    winModUsuarios.hide();
+                                }
+                            } else if (responseData.codMsg == 2) {
+                                usuarioMod.confirmar = true;
+                                mostrarMensaje(responseData.codMsg, etiquetas.msgConfirmarModDominio, modificar);
+                            }
+                        }else{
+                            mostrarMensaje(6,etiquetas.noConexion);
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    function guardarGridUsuarios() {
+        var modificados = storeGrid.getModifiedRecords();
+        var records = [];
+        Ext.each(modificados, function () {
+            this.data.confirmar = true;
+            records.push(this.data);
+        });
+
+        if (records != null) {
+            Secodena.mostrarMascara('maskUsuarioMod', etiquetas.msgWait, etiquetas.msgModUsuarios);
+            Ext.Ajax.request({
+                url: 'modificarusuario',
+                method: 'POST',
+                params: {
+                    records: Ext.encode(records)
+                },
+                callback: function (option, success, response) {
+                    Secodena.ocultarMascara('maskUsuarioMod');
+                    if(success) {
+                        var responseData = Ext.decode(response.responseText);
+                        if (responseData.cod == 1) {
+                            mostrarMensaje(
+                                responseData.cod, records.length > 1 ? etiquetas.msgUsuariosModP : etiquetas.msgUsuariosMod
+                            );
+                            storeGrid.commitChanges();
+                        }
+                        btnguardar.setDisabled(true);
+                    }else{
+                        mostrarMensaje(6,etiquetas.noConexion);
+                    }
+
+                }
+            });
+        }
+    }
+
+    function guardarGridPerfiles() {
+        var store = contieneGrid.items.items[1].getStore();
+        var modificados = store.getModifiedRecords();
+        var records = [];
+        Ext.each(modificados, function () {
+            records.push(this.data);
+        });
+
+        if (records != null) {
+            Secodena.mostrarMascara('maskUsuarioMod', etiquetas.msgWait, etiquetas.msgModUsuarios);
+            Ext.Ajax.request({
+                url: 'modificarperfiles',
+                method: 'POST',
+                params: {
+                    records: Ext.encode(records)
+                },
+                callback: function (option, success, response) {
+                    Secodena.ocultarMascara('maskUsuarioMod');
+                    if(success) {
+                        var responseData = Ext.decode(response.responseText);
+                        if (responseData.cod == 1) {
+                            mostrarMensaje(
+                                responseData.cod,
+                                records.length > 1 ? etiquetas.msgPerfilesModificadosP : etiquetas.msgPerfilesModificados
+                            );
+                            store.commitChanges();
+                        }
+                        btnguardar.setDisabled(true);
+                    }else{
+                        mostrarMensaje(6,etiquetas.noConexion);
+                    }
+                }
+            });
+        }
+    }
+
+    function enviarFormulario(apl, usuario) {
+        Ext.Ajax.request({
+            url: 'insertarusuario',
+            method: 'POST',
+            params: {
+                estado: estado,
+                usuario: Ext.encode(usuario)
+            },
+            callback: function (option, succes, response) {
+                Secodena.ocultarMascara('maskAddUsuario');
+                if(succes) {
+                    var responseData = Ext.decode(response.responseText);
+                    if (responseData.cod == 1) {
+                        var usuario = Ext.decode(responseData.usuario);
+
+                        function cerrarVentana() {
+                            mostrarMensaje(responseData.cod, etiquetas.msgUsuariosAdd);
+                            reiniciarFiltro();
+                            winInsUsuarios.items.items[0].setActiveTab(0);
+                            winInsUsuarios.items.items[0].items.items[0].getForm().reset();
+                            if (!apl)
+                                winInsUsuarios.hide();
+                            else {
+                                banderaMod = false;
+                                limpiarEstructurasAsignarRol();
+                                reiniciarValoresWindowInsUsuario();
+                                alCerrarVentana(asignarRolUser);
+                            }
+                        }
+
+                        if (!objectIsEmpty(rootNodesRoles) /*&& usuario.activo*/) {
+                            asignarRolUser.idusuario = usuario.idusuario;
+                            asignarRolUser.iddominio = usuario.iddominio;
+                            if (asignarRolUser.denrolbuscado.getValue())
+                                asignarRolUser.denrolbuscado.reset();
+                            asignarRolUser.authModoficar = true;
+                            asignarRolUser.asignarRol('apl', null, asignarRolUser, cerrarVentana,
+                                new Array(new Array(asignarRolUser.idusuario, asignarRolUser.iddominio))
+                            );
+                        } else {
+                            cerrarVentana(apl);
+                        }
+                    }else if(responseData.cod == 3){
+                        var mensaje;
+                        switch (responseData.errorcode){
+                            case 1:
+                                mostrarMensaje(6,mensaje = String.format(etiquetas.messageStrengPassLen,responseData.min));
+                                break;
+                            case 2:
+                                mostrarMensaje(6,mensaje = etiquetas.messageStrengPassNum);
+                                break;
+                            case 3:
+                                mostrarMensaje(6, mensaje = etiquetas.messageStrengPassLetras);
+                                break;
+                            case 4:
+                                mostrarMensaje(6, mensaje = etiquetas.messageStrengPassSignos);
+                                break;
+                            case 5:
+                                mostrarMensaje(6,mensaje = etiquetas.messageStrengPassMayusculas);
+                                break;
+                                case 6:
+                                mostrarMensaje(6,mensaje = etiquetas.messageIpNoPermitida);
+                                break;
+                        }
+                        Ext.getCmp('contrasennaregUsuario').reset();
+                        Ext.getCmp('contrasennaregUsuario').markInvalid(mensaje);
+                        Ext.getCmp('contrasenaregUsuario').reset();
+                        Ext.getCmp('contrasenaregUsuario').markInvalid(mensaje);
+                    }
+                }else{
+                    mostrarMensaje(6,etiquetas.noConexion);
+                }
+            }
+        });
+    }
+
+    function objectIsEmpty(object) {
+        var cont = 0;
+        for (var i in object) {
+            cont++;
+            if (cont)return false;
+
+        }
+        return true;
+    }
+
+    //Funcion activar usuarios
+    function activarUsuarios(arrUsuariosActivar) {
+        var arrUsuarioAct = [];
+        for (var i = 0; i < arrUsuariosActivar.length; i++) {
+            if (arrUsuariosActivar[i].data.activo == true) {
+                mostrarMensaje(8, etiquetas.lbMsgYaActivados);
+                arrUsuarioAct = [];
+                return;
+            }
+            else
+                arrUsuarioAct.push(arrUsuariosActivar[i].data.idusuario);
+        }
+        Secodena.mostrarMascara('maskActivar', etiquetas.msgWait, etiquetas.msgActivar);
+        Ext.Ajax.request({
+            url: 'ActivarUsuario',
+            method: 'POST',
+            params: {
+                arrUsuarioAct: Ext.encode(arrUsuarioAct)
+            },
+            callback: function (options, success, response) {
+                Secodena.ocultarMascara('maskActivar');
+                if(success) {
+                    var responseData = Ext.decode(response.responseText);
+                    if (responseData.cod == 1) {
+                        //mostrarMensaje(responseData.cod, etiquetas.lbMsgActivado + arrUsuariosActivar[0].data.nombreusuario
+                        //+ etiquetas.lbMsgActivadoSeg);
+                        if(arrUsuariosActivar.length == 1)
+                            mostrarMensaje(responseData.cod, etiquetas.lbMsgActivado );
+                        else
+                            mostrarMensaje(responseData.cod, etiquetas.lbMsgActivadoPlural );
+                        storeGrid.reload();
+                    } else
+                        Secodena.ocultarMascara('maskActivar');
+                }else{
+                    mostrarMensaje(6,etiquetas.noConexion);
+                }
+            }
+        });
+    }
+
+    //Funcion desactivar usuarios
+    function desactivarUsuarios(arrUsuariosDesctivar) {
+        var arrUsuarioDesact = [];
+        for (var i = 0; i < arrUsuariosDesctivar.length; i++) {
+            if (arrUsuariosDesctivar[i].data.activo == false) {
+                mostrarMensaje(8, etiquetas.lbMsgNoActivados);
+                arrUsuarioDesact = [];
+                return;
+            }
+            else
+                arrUsuarioDesact.push(arrUsuariosDesctivar[i].data.idusuario);
+        }
+        Secodena.mostrarMascara('maskDesactivar', etiquetas.msgWait, etiquetas.msgDesactivar);
+        Ext.Ajax.request({
+            url: 'DesactivarUsuario',
+            method: 'POST',
+            params: {
+                arrUsuarioDesact: Ext.encode(arrUsuarioDesact)
+            },
+            callback: function (options, success, response) {
+                Secodena.ocultarMascara('maskDesactivar');
+                if(success) {
+                    responseData = Ext.decode(response.responseText);
+                    if (responseData.cod == 1) {
+                        //mostrarMensaje(responseData.cod, etiquetas.lbMsgActivado + arrUsuariosDesctivar[0].data.nombreusuario
+                        //+ etiquetas.lbMsgDesactivados);
+                        if(arrUsuariosDesctivar.length == 1)
+                            mostrarMensaje(responseData.cod, etiquetas.lbMsgDesactivado );
+                        else
+                            mostrarMensaje(responseData.cod, etiquetas.lbMsgDesactivadoPlural );
+                        storeGrid.reload();
+                    } else
+                        Secodena.ocultarMascara('maskDesactivar');
+                }else{
+                    mostrarMensaje(6,etiquetas.noConexion);
+                }
+            }
+        });
+    }
+
+    //Funcion eliminar
+    function eliminarusuario() {
+        var arrUsuariosElim = tabpanel.activeTab.id == 'treeRG' ? sm.getSelections() : smPerfiles.getSelections();
+        var arrUsuarioElim = [];
+        var msgEliminar = (arrUsuariosElim.length > 1) ? etiquetas.confirmacionMsgP : etiquetas.confirmacionMsg;
+        var msgRequestEliminar = (arrUsuariosElim.length > 1) ? etiquetas.msgUsuariosEliminadosP : etiquetas.msgUsuariosEliminados;
+        for (var i = 0; i < arrUsuariosElim.length; i++) {
+            arrUsuarioElim.push(arrUsuariosElim[i].data.idusuario);
+        }
+        mostrarMensaje(2, msgEliminar, elimina);
+        function elimina(btnPresionado) {
+
+            if (btnPresionado == 'ok') {
+                Secodena.mostrarMascara('maskUsuarioDel', etiquetas.msgWait, etiquetas.msgDELUser);
+                Ext.Ajax.request({
+                    url: 'eliminarusuario',
+                    method: 'POST',
+                    params: {
+                        ArrayUserDel: Ext.encode(arrUsuarioElim)
+                    },
+                    callback: function (options, success, response) {
+                        Secodena.ocultarMascara('maskUsuarioDel');
+                        if(success) {
+                            var responseData = Ext.decode(response.responseText);
+                            if (responseData.cod == 1) {
+                                mostrarMensaje(1, msgRequestEliminar);
+                                if (tabpanel.activeTab.id == 'treeRG') {
+                                    storeGrid.reload();
+                                    sm.clearSelections();
+                                } else {
+                                    contieneGrid.items.items[1].getStore().reload();
+                                    smPerfiles.clearSelections();
+                                }
+                            } else if (responseData.cod == 8) {
+                                mostrarMensaje(responseData.cod, etiquetas.msgUsuariosNoEliminados);
+                                if (tabpanel.activeTab.id == 'treeRG') {
+                                    storeGrid.reload();
+                                    sm.clearSelections();
+                                } else {
+                                    contieneGrid.items.items[1].getStore().reload();
+                                    smPerfiles.clearSelections();
+                                }
+                            }
+                            focusPanelDerecho();
+                        }else{
+                            mostrarMensaje(6,etiquetas.noConexion);
+                        }
+                    }
+                });
+            }
+
+            focusPanelDerecho();
+
+        }
+    }
+
+    function filtrarGridUsuarios() {
+        storeGrid.load({
+            params: {
+                start: 0,
+                limit: 15
+            }
+        });
+    }
+
+    function filtrarGridPerfiles() {
+        contieneGrid.items.items[1].getStore().load({
+            params: {
+                start: 0,
+                limit: 15
+            }
+        });
+    }
+
+    ////----------------------------------- Cambiar Password --------------------------------////
+    function cambiarpass() {
+        if (fpPass.getForm().isValid()) {
+            Secodena.mostrarMascara('maskCambiarPass', etiquetas.msgWait, etiquetas.msgPassword);
+            if (Ext.getCmp('contrasennap').getValue() != 0 && Ext.getCmp('contrasenap').getValue() != 0) {
+                if (Ext.getCmp('contrasennap').getValue() == Ext.getCmp('contrasenap').getValue()) {
+                    Ext.getCmp('contrasenap').setValue(encryptRSA(Ext.getCmp('contrasenap').getValue()));
+                    Ext.getCmp('contrasennap').setValue(encryptRSA(Ext.getCmp('contrasennap').getValue()));
+
+                    fpPass.getForm().submit({
+                        url: 'cambiarpassword',
+                        params: {
+                            idusuario: (tabpanel.activeTab.id == 'treeRG') ? sm.getSelected().data.idusuario : smPerfiles.getSelected().data.idusuario
+                        },
+                        failure: function (form, action) {
+                            Secodena.ocultarMascara('maskCambiarPass');
+                            if (action.result.cod == 1) {
+                                mostrarMensaje(action.result.cod, etiquetas.msgCambiarPass);
+                                winPassUsuarios.hide();
+                            }else if(action.result.cod == 3){
+                                var mensaje;
+                                switch (action.result.errorcode){
+                                    case 1:
+                                        mostrarMensaje(6,mensaje = String.format(etiquetas.messageStrengPassLen,action.result.min));
+                                        break;
+                                    case 2:
+                                        mostrarMensaje(6,mensaje = etiquetas.messageStrengPassNum);
+                                        break;
+                                    case 3:
+                                        mostrarMensaje(6,mensaje = etiquetas.messageStrengPassLetras);
+                                        break;
+                                    case 4:
+                                        mostrarMensaje(6,mensaje = etiquetas.messageStrengPassSignos);
+                                        break;
+                                    case 5:
+                                        mostrarMensaje(6,mensaje = etiquetas.messageStrengPassMayusculas);
+                                        break;
+                                }
+                            }
+                            Ext.getCmp('contrasennap').reset();
+                            Ext.getCmp('contrasennap').markInvalid(mensaje);
+                            Ext.getCmp('contrasenap').reset();
+                            Ext.getCmp('contrasenap').markInvalid(mensaje);
+                        }
+                    });
+                }
+                else {
+                    Ext.getCmp('contrasennap').reset();
+                    Ext.getCmp('contrasenap').reset();
+                    Secodena.ocultarMascara('maskCambiarPass');
+                    mostrarMensaje(8, etiquetas.lbTitMsgContrasenaIncorrecta);
+                }
+            }
+        }
+        else
+            mostrarMensaje(8, etiquetas.lbTitMsgEnblanco);
+    }
+
+    function habilitarCampos(form) {
+        form.find('name', 'contrasenna')[0].enable();
+        form.find('name', 'contrasena')[0].enable();
+        form.find('name', 'contrasenna')[0].allowBlank = false;
+        form.find('name', 'contrasena')[0].allowBlank = false;
+        estado = false;
+    }
+
+    function deshabilitarCampos(form) {
+        form.find('name', 'contrasenna')[0].disable();
+        form.find('name', 'contrasena')[0].disable();
+        form.find('name', 'contrasenna')[0].allowBlank = true;
+        form.find('name', 'contrasena')[0].allowBlank = true;
+        estado = true;
+    }
+
+    function habilitarDeshabilitarBotones() {
+        if(tabpanel.activeTab) {
+            var count;
+            if (tabpanel.activeTab.id == 'treeRG')
+                count = sm.getCount();
+            else
+                count = smPerfiles.getCount();
+            if (count > 0) {
+                if (count == 1) {
+                    btnmodificar.setDisabled(false);
+                    btncmbcontrasena.setDisabled(false);
+                    btnasignarperfil.setDisabled(false);
+                    btnperfil.setDisabled(!(tabpanel.activeTab.id == 'treeRG'));
+                    btneliminarPerfil.setDisabled(false);
+                btneliminarRolUser.setDisabled(false);
+                } else {
+                    btnmodificar.setDisabled(true);
+                    btncmbcontrasena.setDisabled(true);
+                    btnasignarperfil.setDisabled(true);
+                    btnperfil.setDisabled(true);
+                }
+                btneliminar.setDisabled(false);
+                btnasignarroles.setDisabled(!(tabpanel.activeTab.id == 'treeRG'));
+                btnactivar.setDisabled(!(tabpanel.activeTab.id == 'treeRG'));
+                btndesactivar.setDisabled(!(tabpanel.activeTab.id == 'treeRG'));
+            } else {
+                btnmodificar.setDisabled(true);
+                btncmbcontrasena.setDisabled(true);
+                btnasignarperfil.setDisabled(true);
+                btnperfil.setDisabled(true);
+                btneliminar.setDisabled(true);
+                btnasignarroles.setDisabled(true);
+                btnactivar.setDisabled(true);
+                btndesactivar.setDisabled(true);
+                btneliminarPerfil.setDisabled(true);
+                btneliminarRolUser.setDisabled(true);
+            }
+        }
+    }
+
+    //Funcion para cambiar el tipo de display de un textfield
+    function cambiaDisplayTf(aTipo, form) {
+        if (aTipo) {
+            form.find('name', 'nombreusuario')[0].enable();
+            form.find('name', 'contrasenna')[0].enable();
+            form.find('name', 'contrasena')[0].enable();
+        } else {
+            form.find('name', 'nombreusuario')[0].disable();
+            form.find('name', 'contrasenna')[0].disable();
+            form.find('name', 'contrasena')[0].disable();
+        }
+    }
+
+    ////------------ Funcion para validar rango de ip ------------////
+    function validaRango(rango) {
+        var i;
+        //var rango = Ext.getCmp('ip').getValue();
+        var ips = rango.split(',');
+        var bandera = true;
+        for (i = 0; i < ips.length; i++) {
+            if (!compruebaRango(ips[i])) {
+                bandera = false;
+                break;
+            }
+        }
+        if (bandera)
+            return true;
+        else
+            return false;
+    }
+
+    function compruebaRango(valor) {
+        var ipmascara = valor.split('/');
+        var ipreal = ipmascara[0];
+        var ippos = ipreal.split('.');
+        if ((ipmascara[1])) {
+            if (ipmascara[1] == 0) {
+                if (ippos[0] == 0) {
+                    if (ippos[0] == 0 && ippos[1] == 0 && ippos[2] == 0 && ippos[3] == 0)
+                        return true;
+                    else
+                        return false;
+                } else {
+                    if ((ippos[0] >= 1 && ippos[0] <= 255) && (ippos[1] >= 0 && ippos[0] <= 255) && (ippos[2] >= 0 && ippos[2] <= 255) && (ippos[3] >= 0 && ippos[3] <= 255))
+                        return true;
+                    else
+                        return false;
+                }
+            } else {
+                if (ipmascara[1] >= 1 && ipmascara[1] <= 32) {
+                    if ((ippos[0] >= 1 && ippos[0] <= 255) && (ippos[1] >= 0 && ippos[0] <= 255) && (ippos[2] >= 0 && ippos[2] <= 255) && (ippos[3] >= 0 && ippos[3] <= 255))
+                        return true;
+                    else
+                        return false;
+                } else
+                    return false;
+            }
+        } else {
+            if (ippos[0] == 0) {
+                if (ippos[0] == 0 && ippos[1] == 0 && ippos[2] == 0 && ippos[3] == 0)
+                    return true;
+                else
+                    return false;
+            } else {
+                if ((ippos[0] >= 1 && ippos[0] <= 255) && (ippos[1] >= 0 && ippos[1] <= 255) && (ippos[2] >= 0 && ippos[2] <= 255) && (ippos[3] >= 0 && ippos[3] <= 255))
+                    return true;
+                else
+                    return false;
+            }
+        }
+        return false;
+    }
+
+    function encryptRSA(text) {
+        var key = RSA.getPublicKey(document.getElementById('publicKey').value);
+        return RSA.encrypt(text, key);
+    }
+
+    function winForm(opcion) {
+        switch (opcion) {
+            case 'Ins':
+            {
+                if (!winIns) {
+                    winIns = new Ext.Window({
+                        modal: true,
+                        autoValidate: false,
+                        constrain: true,
+                        closeAction: 'hide',
+                        layout: 'fit',
+                        title: etiquetas.lbTitAdicionarRol,
+                        width: 677,
+                        height: 400,
+                        bodyStyle: 'border-width: 0px',
+                        listeners: {
+                            hide: function (w) {
+                                focusTabPanel();
+                                arrayGrupos = [];
+                                arrayPaginado = [];
+                                regrol.getForm().reset();
+                                Ext.getCmp('tabPanelRG').activate(0);
+                                gridGrupos.getSelectionModel().clearSelections();
+
+                            }
+                        },
+                        buttons: [
+                            {
+                                //icon: perfil.dirImg + 'cancelar.png',
+                                iconCls: 'cancelar',
+                                text: etiquetas.lbBtnCancelar,
+                                tooltip: etiquetas.tooltipCancelarVen,
+                                handler: function () {
+                                    winIns.hide();
+                                    arrayGrupos = [];
+                                    arrayPaginado = [];
+                                    listadoGruposChequeados = [];
+                                    listadoGruposDeschequeados = [];
+                                    Ext.getCmp('tabPanelRG').activate(0);
+                                    gridGrupos.getSelectionModel().clearSelections();
+                                }
+                            },
+                            {
+                                id: "btnAplicarInsRol",
+                                //icon: perfil.dirImg + 'aplicar.png',
+                                iconCls: 'aplicar',
+                                text: etiquetas.lbBtnAplicar,
+                                tooltip: etiquetas.tooltipAplicarVen,
+                                handler: function () {
+                                    adicionarRol('apl');
+                                }
+                            },
+                            {
+                                id:"btnAceptarInsRol",
+                                //icon: perfil.dirImg + 'aceptar.png',
+                                iconCls: 'aceptar',
+                                nextTab: 'denominacion',
+                                prevTab: 'btnAplicarInsRol',
+                                text: etiquetas.lbBtnAceptar,
+                                tooltip: etiquetas.tooltipAceptarVen,
+                                handler: function () {
+                                    adicionarRol();
+                                }
+                            }
+                        ],
+                        keys:[
+                            {
+                                key: 'x',
+                                alt: true,
+                                ctrl: false,
+                                fn: function (e,a) {
+                                    a.browserEvent.preventDefault();
+                                    winIns.hide();
+                                    arrayGrupos = [];
+                                    arrayPaginado = [];
+                                    Ext.getCmp('tabPanelRG').activate(0);
+                                    gridGrupos.getSelectionModel().clearSelections();
+                                }
+                            },
+                            {
+                                key: 13,
+                                alt: false,
+                                ctrl: false,
+                                fn: function (e,a) {
+
+                                    if(!winIns.findById('descripcion').myfocus){
+
+                                        a.browserEvent.preventDefault();
+                                        if(!Ext.getCmp("btnAceptarInsRol").disabled)
+                                            adicionarRol();
+                                    }
+
+
+                                }
+                            },
+                            {
+                                key: 'p',
+                                alt: true,
+                                ctrl: true,
+                                fn: function (e,a) {
+                                    a.browserEvent.preventDefault();
+                                    if(!Ext.getCmp("btnAplicarInsRol").disabled)
+                                        adicionarRol('apl');
+                                }
+                            }
+                        ]
+                    });
+                }
+                idrolSelected = null;
+                arraytiene = [];
+                arraysistemas = [];
+                regrol.mod = false;
+                modificar = false;
+                arbolSistemaRol.getRootNode().reload();
+                regrol.getForm().reset();
+                winIns.add(panelAdicionarRol);
+                winIns.doLayout();
+                winIns.show();
+                winIns.center();
+                activarGridGrupos(null);
+                Ext.getCmp('denominacion').focus(false, 200);
+            }
+                break;
+            case 'Mod':
+            {
+                if (!winMod) {
+                    winMod = new Ext.Window({
+                        autoValidate: false,
+                        modal: true,
+                        constrain: true,
+                        closeAction: 'hide',
+                        layout: 'fit',
+                        title: etiquetas.lbTitModificarRol,
+                        width: 740,
+                        height: 400,
+                        listeners: {
+                            hide: function (w) {
+                                focusTabPanel();
+                                arrayGrupos = [];
+                                arrayPaginado = [];
+                                regrol.getForm().reset();
+                                Ext.getCmp('tabPanelRG').activate(0);
+                                gridGrupos.getSelectionModel().clearSelections();
+
+                            }
+                        },
+                        buttons: [
+                            {
+                                //icon: perfil.dirImg + 'cancelar.png',
+                                iconCls: 'cancelar',
+                                id: "btnCancelarModRol",
+                                text: etiquetas.lbBtnCancelar,
+                                tooltip: etiquetas.tooltipCancelarVen,
+                                handler: function () {
+                                    winMod.hide();
+                                    arrayGrupos = [];
+                                    arrayPaginado = [];
+                                    listadoGruposChequeados = [];
+                                    listadoGruposDeschequeados = [];
+                                    Ext.getCmp('tabPanelRG').activate(0);
+                                    gridGrupos.getSelectionModel().clearSelections();
+                                }
+                            },
+                            {
+                                id: "btnAceptarModRol",
+                                //icon: perfil.dirImg + 'aceptar.png',
+                                disabled:true,
+                                iconCls: 'aceptar',
+                                text: etiquetas.lbBtnAceptar,
+                                nextTab: 'denominacion',
+                                prevTab: 'btnCancelarModRol',
+                                tooltip: etiquetas.tooltipAceptarVen,
+                                handler: function () {
+                                    modificarRol();
+                                }
+                            }
+                        ],
+                        keys:[
+                            {
+                                key: 'x',
+                                alt: true,
+                                ctrl: false,
+                                fn: function (e,a) {
+                                    a.browserEvent.preventDefault();
+                                    winMod.hide();
+                                    arrayGrupos = [];
+                                    arrayPaginado = [];
+                                    Ext.getCmp('tabPanelRG').activate(0);
+                                    gridGrupos.getSelectionModel().clearSelections();
+                                }
+                            },
+                            {
+                                key: 13,
+                                alt: false,
+                                ctrl: false,
+                                fn: function (e,a) {
+
+                                    if(!winMod.findById('textAdescripcion').myfocus){
+
+                                        a.browserEvent.preventDefault();
+                                        if(!Ext.getCmp("btnAceptarModRol").disabled)
+                                            modificarRol();
+                                    }
+
+                                }
+                            }
+                        ]
+                    });
+                }
+                arraytiene = [];
+                arraysistemas = [];
+                sinAccesoASist = false;
+                modificar = true;
+                arbolSistemaRol.getRootNode().reload();
+                regrol.getForm().reset();
+                winMod.add(panelAdicionarRol);
+                winMod.doLayout();
+                arbolSistemaRol.change = false;
+                smgridGrupos.change = false;
+                regrol.defaultValues = null;
+                regrol.mod = true;
+                winMod.show();
+                winMod.center();
+                Ext.getCmp("btnAceptarModRol").setDisabled(true);
+                regrol.findById('denominacion').setValue(treeRolGru.getSelectionModel().selNode.attributes.text);
+                regrol.findById('abreviatura').setValue(treeRolGru.getSelectionModel().selNode.attributes.abreviatura);
+                regrol.find('hiddenName', 'descripcion')[0].setValue(treeRolGru.getSelectionModel().selNode.attributes.descripcion);
+                activarGridGrupos(treeRolGru.getSelectionModel().selNode.attributes.idrol);
+                Ext.getCmp('denominacion').focus(false, 200);
+            }
+                break;
+            case 'Reg':
+            {
+                if (!winRegular) {
+                    winRegular = new Ext.Window({
+                        modal: true,
+                        closeAction: 'hide',
+                        constrain: true,
+                        layout: 'fit',
+                        title: etiquetas.lbBtnRegularAcciones,
+                        width: 750,
+                        height: 400,
+                        listeners: {
+                            hide: function (w) {
+                                focusTabPanel();
+                            }
+                        },
+                        buttons: [
+                            {
+                                //icon: perfil.dirImg + 'cancelar.png',
+                                iconCls: 'cancelar',
+                                text: etiquetas.lbBtnCerrar,
+                                tooltip: etiquetas.tooltipCerrarVen,
+                                handler: function () {
+                                    winRegular.hide();
+                                }
+                            }
+                        ],
+                        keys:[
+                            {
+                                key: 'x',
+                                alt: true,
+                                ctrl: true,
+                                fn: function (e,a) {
+                                    a.browserEvent.preventDefault();
+                                    winRegular.hide();
+                                }
+                            }
+                        ]
+                    });
+                }
+                btnSiguiente.disable();
+                btnAnterior.disable();
+                winRegular.add(panelRestAccion);
+                winRegular.doLayout();
+                winRegular.show();
+                winRegular.center();
+                storeTieneAccion.removeAll();
+                storeNoTieneAccion.removeAll();
+                arbolRestAccion.getRootNode().reload();
+                arbolRestAccion.expandPath(arbolRestAccion.getRootNode().getPath());
+            }
+                break;
+            case 'InsGrupo':
+            {
+                if (!winInsGrupo) {
+                    winInsGrupo = new Ext.Window({
+                        modal: true,
+                        closeAction: 'hide',
+                        autoValidate: false,
+                        layout: 'fit',
+                        constrain: true,
+                        title: etiquetas.lbTitAdicionarGrupo,
+                        width: 600,
+                        height: 400,
+                        listeners: {
+                            hide: function (w) {
+                                focusTabPanel();
+                                regGrupo.getForm().reset();
+                            }
+                        },
+                        buttons: [
+                            {
+                                id: "btnCancelarInsGrupo",
+                                //icon: perfil.dirImg + 'cancelar.png',
+                                iconCls: 'cancelar',
+                                text: etiquetas.lbBtnCancelar,
+                                tooltip: etiquetas.tooltipCancelarVen,
+                                handler: function () {
+                                    winInsGrupo.hide();
+                                }
+                            },
+                            {
+                                id: "btnAplicarInsGrupo",
+                                //icon: perfil.dirImg + 'aplicar.png',
+                                iconCls: 'aplicar',
+                                text: etiquetas.lbBtnAplicar,
+                                tooltip: etiquetas.tooltipAplicarVen,
+                                handler: function () {
+                                    adicionarGrupo('apl');
+                                }
+                            },
+                            {
+                                id: "btnAceptarInsGrupo",
+                                //icon: perfil.dirImg + 'aceptar.png',
+                                iconCls: 'aceptar',
+                                nextTab: 'denominacionGrupo',
+                                prevTab: 'btnAplicarInsGrupo',
+                                text: etiquetas.lbBtnAceptar,
+                                tooltip: etiquetas.tooltipAceptarVen,
+                                handler: function () {
+                                    adicionarGrupo();
+                                }
+                            }
+                        ],
+                        keys:[
+                            {
+                                key: 'x',
+                                alt: true,
+                                ctrl: false,
+                                fn: function (e,a) {
+                                    a.browserEvent.preventDefault();
+                                    winInsGrupo.hide();
+                                }
+                            },
+                            {
+                                key: 13,
+                                alt: false,
+                                ctrl: false,
+                                fn: function (e,a) {
+                                    if(!Ext.getCmp('descripcionGrupo').myfocus){
+                                        a.browserEvent.preventDefault();
+                                        if(!Ext.getCmp("btnAceptarInsGrupo").disabled)
+                                            adicionarGrupo();
+                                    }
+                                }
+                            },
+                            {
+                                key: 'p',
+                                alt: true,
+                                ctrl: true,
+                                fn: function (e,a) {
+                                    a.browserEvent.preventDefault();
+                                    if(!Ext.getCmp("btnAplicarInsGrupo").disabled)
+                                        adicionarGrupo('apl');
+                                }
+                            }
+                        ]
+                    });
+
+                }
+                arraytiene = [];
+                arraysistemas = [];
+                modificar = false;
+                arbolSistema.getRootNode().reload();
+                regGrupo.getForm().reset();
+                regGrupo.mod = false;
+                winInsGrupo.add(panelAdicionar);
+                winInsGrupo.doLayout();
+                winInsGrupo.show();
+                winInsGrupo.center();
+                Ext.getCmp('denominacionGrupo').focus(false, 200);
+            }
+                break;
+            case 'ModGrupo':
+            {
+                if (!winModGrupo) {
+                    winModGrupo = new Ext.Window({
+                        autoValidate: false,
+                        modal: true,
+                        closeAction: 'hide',
+                        layout: 'fit',
+                        constrain: true,
+                        title: etiquetas.lbTitModificarGrupo,
+                        width: 600,
+                        height: 400,
+                        listeners: {
+                            hide: function (w) {
+                                focusTabPanel();
+                                regGrupo.getForm().reset();
+                            }
+                        },
+                        buttons: [
+                            {
+                                id: "btnCancelarModGrupo",
+                                //icon: perfil.dirImg + 'cancelar.png',
+                                iconCls: 'cancelar',
+                                text: etiquetas.lbBtnCancelar,
+                                tooltip: etiquetas.tooltipCancelarVen,
+                                handler: function () {
+                                    winModGrupo.hide();
+                                }
+                            },
+                            {
+                                id: "btnAceptarModGrupo",
+                                //icon: perfil.dirImg + 'aceptar.png',
+                                iconCls: 'aceptar',
+                                text: etiquetas.lbBtnAceptar,
+                                nextTab: 'denominacionGrupo',
+                                prevTab: "btnCancelarModGrupo",
+                                tooltip: etiquetas.tooltipAceptarVen,
+                                handler: function () {
+                                    modificarGrupo();
+                                }
+                            }
+                        ],
+                        keys:[
+                            {
+                                key: 'x',
+                                alt: true,
+                                ctrl: false,
+                                fn: function (e,a) {
+                                    a.browserEvent.preventDefault();
+                                    winModGrupo.hide();
+                                }
+                            },
+                            {
+                                key: 13,
+                                alt: false,
+                                ctrl: false,
+                                fn: function (e,a) {
+
+                                    if(!Ext.getCmp('descripcionGrupo').myfocus){
+                                        a.browserEvent.preventDefault();
+                                        if(!Ext.getCmp("btnAceptarModGrupo").disabled)
+                                            modificarGrupo();
+                                    }
+                                }
+                            }
+                        ]
+                    });
+                }
+                arraytiene = [];
+                arraysistemas = [];
+                sinAccesoASist = false;
+                modificar = true;
+                arbolSistema.getRootNode().reload();
+                regGrupo.getForm().reset();
+                arbolSistema.change = false;
+                regGrupo.defaultValues = null;
+                regGrupo.mod = true;
+                winModGrupo.add(panelAdicionar);
+                winModGrupo.doLayout();
+                winModGrupo.show();
+                winModGrupo.center();
+                Ext.getCmp("btnAceptarModGrupo").setDisabled(true);
+                //regGrupo.getForm().loadRecord(smGrupo.getSelected());
+                regGrupo.findById('denominacionGrupo').setValue(treeRolGru.getSelectionModel().selNode.text);
+                regGrupo.findById('abreviaturaGrupo').setValue(treeRolGru.getSelectionModel().selNode.attributes.abreviatura);
+                regGrupo.findById('descripcionGrupo').setValue(treeRolGru.getSelectionModel().selNode.attributes.descripcion);
+                Ext.getCmp('denominacionGrupo').focus(false, 200);
+            }
+                break;
+        }
+    }
+
+    function validarAdicionarRolGrupo(rol,arbol){
+        var sistemasfuncionalidades = new Array();
+        var arrayAdd = rol ? gruposAdd() : new Array();
+        var sistfun = new Object();
+        var arrPadres = new Array();
+        var arrayNodos = arbol.getChecked();
+        for (var i = 0; i < arrayNodos.length; i++) {
+            if (arrayNodos[i].attributes.idsistema) {
+                if (!arrayNodos[i].isLeaf() && arrayNodos[i].childNodes.length == 0) {
+                    arrPadres.push(arrayNodos[i].attributes.idsistema);
+                }
+            } else {
+                if (!sistfun[arrayNodos[i].parentNode.attributes.idsistema]) {
+                    sistfun[arrayNodos[i].parentNode.attributes.idsistema] = new Array();
+                }
+                sistfun[arrayNodos[i].parentNode.attributes.idsistema].push(arrayNodos[i].attributes.idfuncionalidad);
+            }
+        }
+        for (var i in sistfun) {
+            sistemasfuncionalidades.push(new Array(i, sistfun[i]));
+        }
+        if (((rol && arrayAdd.length == 0) || !rol) && (arrayNodos.length == 0 || (sistemasfuncionalidades.length == 0 && arrPadres.length == 0))) {
+            return false;
+        }
+        return true;
+    }
+    ////---------- Adicionar Rol ----------////
+    function adicionarRol(apl) {
+        if (regrol.getForm().isValid()) {
+            Secodena.mostrarMascara('maskConexion', etiquetas.msgWait, etiquetas.msgAdd);
+            var sistemasfuncionalidades = new Array();
+            var sistemasTable = new Object();
+            var arrayAdd = gruposAdd();
+            var sistfun = new Object();
+            var arrPadres = new Array();
+            var sistemas = new Array();
+            var arrayNodos = arbolSistemaRol.getChecked();
+            if (arrayNodos.length > 0) {
+                for (var i = 0; i < arrayNodos.length; i++) {
+                    if (arrayNodos[i].attributes.idsistema) {
+                        if (!arrayNodos[i].isLeaf() && arrayNodos[i].childNodes.length == 0) {
+                            arrPadres.push(arrayNodos[i].attributes.idsistema);
+                            sistemasTable = marcarPadres(arrayNodos[i],sistemasTable);
+                        }
+                        //else
+                        //    sistemas.push(arrayNodos[i].attributes.idsistema);
+                    } else {
+                        if (!sistfun[arrayNodos[i].parentNode.attributes.idsistema]) {
+                            sistfun[arrayNodos[i].parentNode.attributes.idsistema] = new Array();
+                            sistemasTable = marcarPadres(arrayNodos[i],sistemasTable);
+                        }
+                        sistfun[arrayNodos[i].parentNode.attributes.idsistema].push(arrayNodos[i].attributes.idfuncionalidad);
+                    }
+                }
+                for (var i in sistfun) {
+                    sistemasfuncionalidades.push(new Array(i, sistfun[i]));
+                }
+                for (var i in sistemasTable) {
+                    sistemas.push(i);
+                }
+            }
+            if (arrayAdd.length == 0 && (arrayNodos.length == 0 || (sistemasfuncionalidades.length == 0 && arrPadres.length == 0))) {
+                mostrarMensaje(8, etiquetas.informationMsg);
+                Secodena.ocultarMascara('maskConexion');
+                return;
+            }
+
+            regrol.getForm().submit({
+                url: 'insertarrol',
+                timeout: 1800000,
+                params: {
+                    arraysistfun: Ext.encode(sistemasfuncionalidades),
+                    arraysist: Ext.encode(sistemas),
+                    arrayGrupo: Ext.encode(arrayAdd),
+                    arraypadres: Ext.encode(arrPadres),
+                    clase: 'SegRol',
+                    type: 'rol'
+                },
+                failure: function (form, action) {
+                    Secodena.ocultarMascara('maskConexion');
+                    if (action.result.cod == 1) {
+                        mostrarMensaje(action.result.cod, etiquetas.msgRolADD);
+                        if (!apl)
+                            winIns.hide();
+                        treeRolGru.getRootNode().reload();
+                        arraytiene = [];
+                        arraysistemas = [];
+                        arrayPaginado = [];
+                        listadoGruposChequeados = [];
+                        listadoGruposDeschequeados = [];
+                        idrolSelected = null;
+                        regrol.getForm().reset();
+                        arbolSistemaRol.getRootNode().reload();
+                        Ext.getCmp('tabPanelRG').activate(0);
+                        gridGrupos.getSelectionModel().clearSelections();
+                        habilitarDeshabilitarBtnTreeRG();
+                        storegridGrupos.reload();
+                    }
+                }
+            });
+        }
+        else
+            mostrarMensaje(8, etiquetas.lbMsgErrorEnCamops);
+    }
+
+    ////---------- Adicionar Grupo ----------////
+    function adicionarGrupo(apl) {
+        if (regGrupo.getForm().isValid()) {
+            Secodena.mostrarMascara('maskConexion', etiquetas.msgWait, etiquetas.msgAddGrupo);
+            var sistemasfuncionalidades = new Array();
+            var sistemasTable = new Object();
+            var sistfun = new Object();
+            var arrPadres = new Array();
+            var sistemas = new Array();
+            var arrayNodos = arbolSistema.getChecked();
+            if (arrayNodos.length > 0) {
+                for (var i = 0; i < arrayNodos.length; i++) {
+                    if (arrayNodos[i].attributes.idsistema) {
+                        if (!arrayNodos[i].isLeaf() && arrayNodos[i].childNodes.length == 0) {
+                            arrPadres.push(arrayNodos[i].attributes.idsistema);
+                            sistemasTable = marcarPadres(arrayNodos[i],sistemasTable);
+                        }
+                        //else
+                        //    sistemas.push(arrayNodos[i].attributes.idsistema);
+                    } else {
+                        if (!sistfun[arrayNodos[i].parentNode.attributes.idsistema]) {
+                            sistfun[arrayNodos[i].parentNode.attributes.idsistema] = new Array();
+                            sistemasTable = marcarPadres(arrayNodos[i],sistemasTable);
+                        }
+                        sistfun[arrayNodos[i].parentNode.attributes.idsistema].push(arrayNodos[i].attributes.idfuncionalidad);
+                    }
+                }
+                for (var i in sistfun) {
+                    sistemasfuncionalidades.push(new Array(i, sistfun[i]));
+                }
+                for (var i in sistemasTable) {
+                    sistemas.push(i);
+                }
+
+                if (arrayNodos.length == 0 || (sistemasfuncionalidades.length == 0 && arrPadres.length == 0)) {
+                    mostrarMensaje(8, etiquetas.informationGrupoMsg);
+                    Secodena.ocultarMascara('maskConexion');
+                    return;
+                }
+
+                regGrupo.getForm().submit({
+                    url: 'insertarrol',
+                    timeout: 1800000,
+                    params: {
+                        arraysistfun: Ext.encode(sistemasfuncionalidades),
+                        arraysist: Ext.encode(sistemas),
+                        arraypadres: Ext.encode(arrPadres),
+                        clase: 'SegGrupo',
+                        type: 'grupo'
+                    },
+                    failure: function (form, action) {
+                        Secodena.ocultarMascara('maskConexion');
+                        if (action.result.cod == 1) {
+                            mostrarMensaje(action.result.cod, etiquetas.msgGrupoADD);
+                            if (!apl)
+                                winInsGrupo.hide();
+                            treeRolGru.getRootNode().reload();
+                            arraytiene = [];
+                            arraysistemas = [];
+                            habilitarDeshabilitarBtnTreeRG();
+                            regGrupo.getForm().reset();
+                            arbolSistema.getRootNode().reload();
+                        }
+                    }
+                });
+            }
+            else {
+                mostrarMensaje(8, etiquetas.informationGrupoMsg);
+                Secodena.ocultarMascara('maskConexion');
+            }
+        }
+        else
+            mostrarMensaje(8, etiquetas.lbMsgErrorEnCamops);
+    }
+
+    ////---------- Eliminar Rol ----------////
+    function eliminarRol() {
+        var arrayRolesElim = [];
+        arrayRolesElim.push(treeRolGru.getSelectionModel().selNode.attributes.idrol);
+        var tipo = treeRolGru.getSelectionModel().selNode.attributes.type;
+        if (tipo == 'grupo')
+            mostrarMensaje(2, etiquetas.confirmationMsgGrupo, elimina);
+        else
+            mostrarMensaje(2, etiquetas.confirmationMsg, elimina);
+        function elimina(btnPresionado) {
+            if (btnPresionado == 'ok') {
+                Secodena.mostrarMascara('maskRolDel', etiquetas.msgWait, (tipo !== 'grupo') ? etiquetas.msgDEL : etiquetas.msgDELGrupo);
+                Ext.Ajax.request({
+                    url: 'eliminarrol',
+                    method: 'POST',
+                    params: {
+                        arrayRolesElim: Ext.encode(arrayRolesElim),
+                        clase: getClass(tipo)
+                    },
+                    callback: function (options, success, response) {
+                        Secodena.ocultarMascara('maskRolDel');
+                        if(success) {
+                            responseData = Ext.decode(response.responseText);
+                            if (responseData.cod == 1) {
+                                mostrarMensaje(responseData.cod, (tipo !== 'grupo') ? etiquetas.msgRolesEliminados : etiquetas.msgGruposEliminados);
+                                if (contextMenu.nodeCopy && treeRolGru.getSelectionModel().selNode.attributes.id == contextMenu.nodeCopy.attributes.id) {
+                                    contextMenu.nodeCopy = null;
+                                }
+                                treeRolGru.getRootNode().reload();
+                            }
+                            else if (responseData.cod == 8) {
+                                mostrarMensaje(responseData.cod, (tipo !== 'grupo') ? etiquetas.msgWarningRoles : etiquetas.msgWarningGrupos);
+                            }
+                            habilitarDeshabilitarBtnTreeRG(null);
+                            treeRolGru.getSelectionModel().clearSelections();
+                            focusTabPanel();
+                        }else{
+                            mostrarMensaje(6,etiquetas.noConexion);
+                        }
+                    }
+                });
+            }
+            else
+                Secodena.ocultarMascara('maskRolDel');
+        }
+    }
+
+    ////---------- Modificar Rol ----------////
+    function modificarRol() {
+        arrayAdd = gruposAdd();
+        arrayDel = gruposDel();
+        if (regrol.getForm().isValid()) {
+            Secodena.mostrarMascara('maskRolMod', etiquetas.msgWait, etiquetas.msgMod);
+            var sistfun = new Object();
+            var arrPadres = new Array();
+            var sistemas = new Array();
+            var arrayNodos = arbolSistemaRol.getChecked();
+            if (arrayNodos.length > 0) {
+                for (var i = 0; i < arrayNodos.length; i++) {
+                    if (arrayNodos[i].attributes.idsistema) {
+                        if (!arrayNodos[i].isLeaf() && arrayNodos[i].childNodes.length == 0
+                            && !existesistema(arraytiene, arrayNodos[i].attributes.idsistema)) {
+                            arrPadres.push(arrayNodos[i].attributes.idsistema);
+                            damesistemas(arrayNodos[i], sistemas);
+                        }
+                        else {
+                            if (arrayNodos[i].childNodes.length != 0) {
+                                if (!sistfun[arrayNodos[i].attributes.idsistema])
+                                    sistfun[arrayNodos[i].attributes.idsistema] = new Array();
+                            } else {
+                                sistemas.push(arrayNodos[i].attributes.idsistema);
+                                damesistemas(arrayNodos[i], sistemas);
+                            }
+                        }
+                    } else {
+                        damesistemas(arrayNodos[i], sistemas);
+                        sistfun[arrayNodos[i].parentNode.attributes.idsistema].push(arrayNodos[i].attributes.idfuncionalidad);
+                    }
+                }
+                arrayeliminar = sistemaEliminar(sistemas);
+                var sistemasfuncionalidades = new Array();
+                for (var i in sistfun) {
+                    sistemasfuncionalidades.push(new Array(i, sistfun[i]));
+                }
+
+            } else {
+                arrayeliminar = arraytiene;
+                sinAccesoASist = true;
+            }
+
+            regrol.getForm().submit({
+                url: 'modificarrol',
+                timeout: 100000,
+                params: {
+                    arraysistfun: Ext.encode(sistemasfuncionalidades),
+                    arraysist: Ext.encode(sistemas),
+                    arraypadres: Ext.encode(arrPadres),
+                    arrayeliminar: Ext.encode(arrayeliminar),
+                    arrayGruposAdd: Ext.encode(arrayAdd),
+                    arrayGruposDel: Ext.encode(arrayDel),
+                    idrol: treeRolGru.getSelectionModel().selNode.attributes.idrol,
+                    type: treeRolGru.getSelectionModel().selNode.attributes.type,
+                    clase: getClass('rol'),
+                    sinAccesoASist: sinAccesoASist
+                },
+                failure: function (form, action) {
+                    Secodena.ocultarMascara('maskRolMod');
+                    sinAccesoASist = false;
+                    if (action.result.cod == 1) {
+                        mostrarMensaje(action.result.cod, etiquetas.msgRolMod);
+                        arrayGrupos = [];
+                        arrayPaginado = [];
+                        listadoGruposChequeados = [];
+                        listadoGruposDeschequeados = [];
+                        winMod.hide();
+                        if (contextMenu.nodeCopy && treeRolGru.getSelectionModel().selNode.attributes.id == contextMenu.nodeCopy.attributes.id) {
+                            contextMenu.nodeCopy = null;
+                        }
+                        treeRolGru.getRootNode().reload();
+                        Ext.getCmp('tabPanelRG').activate(0);
+                    }
+                }
+            });
+        }
+        else
+            mostrarMensaje(8, etiquetas.lbMsgErrorEnCamops);
+    }
+
+    ////---------- Modificar Grupo ----------////
+    function modificarGrupo() {
+        if (regGrupo.getForm().isValid()) {
+            Secodena.mostrarMascara('maskRolMod', etiquetas.msgWait, etiquetas.msgAddGrupo);
+            var sistfun = new Object();
+            var arrPadres = new Array();
+            var sistemas = new Array();
+            var arrayNodos = arbolSistema.getChecked();
+            if (arrayNodos.length > 0) {
+                for (var i = 0; i < arrayNodos.length; i++) {
+                    if (arrayNodos[i].attributes.idsistema) {
+                        if (!arrayNodos[i].isLeaf() && arrayNodos[i].childNodes.length == 0
+                            && !existesistema(arraytiene, arrayNodos[i].attributes.idsistema)) {
+                            arrPadres.push(arrayNodos[i].attributes.idsistema);
+                            damesistemas(arrayNodos[i], sistemas);
+                        }
+                        else {
+                            if (arrayNodos[i].childNodes.length != 0) {
+                                if (!sistfun[arrayNodos[i].attributes.idsistema])
+                                    sistfun[arrayNodos[i].attributes.idsistema] = new Array();
+                            } else {
+                                sistemas.push(arrayNodos[i].attributes.idsistema);
+                                damesistemas(arrayNodos[i], sistemas);
+                            }
+                        }
+                    } else {
+                        damesistemas(arrayNodos[i], sistemas);
+                        sistfun[arrayNodos[i].parentNode.attributes.idsistema].push(arrayNodos[i].attributes.idfuncionalidad);
+                    }
+                }
+                arrayeliminar = sistemaEliminar(sistemas);
+                var sistemasfuncionalidades = new Array();
+                for (var i in sistfun) {
+                    sistemasfuncionalidades.push(new Array(i, sistfun[i]));
+                }
+
+            } else {
+                arrayeliminar = arraytiene;
+                sinAccesoASist = true;
+            }
+            regGrupo.getForm().submit({
+                url: 'modificarrol',
+                timeout: 100000,
+                params: {
+                    arraysistfun: Ext.encode(sistemasfuncionalidades),
+                    arraysist: Ext.encode(sistemas),
+                    arraypadres: Ext.encode(arrPadres),
+                    arrayeliminar: Ext.encode(arrayeliminar),
+                    idrol: treeRolGru.getSelectionModel().selNode.attributes.idrol,
+                    type: treeRolGru.getSelectionModel().selNode.attributes.type,
+                    clase: getClass('grupo'),
+                    sinAccesoASist: sinAccesoASist
+                },
+                failure: function (form, action) {
+                    Secodena.ocultarMascara('maskRolMod');
+                    if (action.result.cod == 1) {
+                        mostrarMensaje(action.result.cod, etiquetas.msgGrupoMod);
+                        treeRolGru.getRootNode().reload();
+                        winModGrupo.hide();
+                    }
+                }
+            });
+        }
+        else
+            mostrarMensaje(8, etiquetas.lbMsgErrorEnCamops);
+    }
+
+    ////------------ Eliminar Acciones ------------////
+    function eliminaraccion() {
+        var arrAccs = smtieneaccion.getSelections();
+        var arrAcc = [];
+        for (var i = 0; i < arrAccs.length; i++)
+            arrAcc.push(arrAccs[i].data.idrecurso);
+        if (regularAcciones.getForm().isValid()) {
+            Secodena.mostrarMascara('maskDelAcciones', etiquetas.msgWait, etiquetas.msgDelAccion);
+            regularAcciones.getForm().submit({
+                url: 'eliminaraccion',
+                timeout: 160,
+                params: {
+                    idsistema: idi,
+                    idfuncionalidad: idu,
+                    idrol: idr,
+                    idrecurso: Ext.encode(arrAcc)
+                },
+                success: function (form, action) {
+                    console.log('success del');
+                    Secodena.ocultarMascara('maskDelAcciones');
+                    //if (action.result.tiene == 1) {
+                    storeTieneAccion.reload();
+                    storeNoTieneAccion.reload();
+                    //}
+                },
+                failure: function (form, action) {
+                    console.log('failure del');
+                    var x = new Ext.util.DelayedTask();
+                    x.delay(20000, function () {
+                        Secodena.ocultarMascara('maskDelAcciones');
+                        storeTieneAccion.reload();
+                        storeNoTieneAccion.reload();
+                    });
+                },
+                requestexception: function(){
+                    console.log('requestexception del');
+                    Secodena.ocultarMascara('maskDelAcciones');
+                    mostrarMensaje(8, etiquetas.timeoutExceed);
+                }
+            });
+        }
+    }
+
+    ////------------ Adicionar Acciones ------------////
+    function adicionaraccion() {
+        var arrAccs = smnotieneaccion.getSelections();
+        var arrAcc = [];
+        for (var i = 0; i < arrAccs.length; i++)
+            arrAcc.push(arrAccs[i].data.idrecurso);
+        if (regularAcciones.getForm().isValid()) {
+            Secodena.mostrarMascara('maskAddAciones', etiquetas.msgWait, etiquetas.msgAddAcciones);
+            regularAcciones.getForm().submit({
+                url: 'adicionaraccion',
+                timeout: 160,
+                params: {
+                    idsistema: idi,
+                    idfuncionalidad: idu,
+                    idrol: idr,
+                    idrecurso: Ext.encode(arrAcc)
+                },
+                success: function (form, action) {
+                    console.log('success add');
+                    Secodena.ocultarMascara('maskAddAciones');
+                    //if (action.result.tiene == 1) {
+                    storeTieneAccion.reload();
+                    storeNoTieneAccion.reload();
+                    //}
+                },
+                failure: function (form, action) {
+                    console.log('failure add');
+                    var x = new Ext.util.DelayedTask();
+                    x.delay(20000, function () {
+                        Secodena.ocultarMascara('maskAddAciones');
+                        storeTieneAccion.reload();
+                        storeNoTieneAccion.reload();
+                    });
+                },
+                requestexception: function(){
+                    console.log('requestexception add');
+                    Secodena.ocultarMascara('maskAddAciones');
+                    mostrarMensaje(8, etiquetas.timeoutExceed);
+                }
+            });
+        }
+        else
+            mostrarMensaje(8, etiquetas.lbMsgErrorEnCamops);
+    }
+
+    function dameFuncionalidades(idPadre, array) {
+        var resultado = new Array();
+        for (var i = 0; i < array.length; i++) {
+            if (array[i].parentNode.attributes.idsistema == idPadre)
+                resultado.push(array[i].attributes.idfuncionalidad);
+        }
+        return resultado;
+    }
+
+    function existesistema(arraysistemas, sistema) {
+        for (var f = 0; f < arraysistemas.length; f++) {
+            if (arraysistemas[f] == sistema)
+                return true;
+        }
+        return false;
+    }
+
+    function damesistemas(nodo, sistemas) {
+        if (nodo.parentNode && nodo.parentNode.attributes.idsistema && !existesistema(sistemas, nodo.parentNode.attributes.idsistema))
+            sistemas.push(nodo.parentNode.attributes.idsistema);
+        if (nodo.parentNode)
+            damesistemas(nodo.parentNode, sistemas);
+        return 0;
+    }
+
+    ////------------ Retorna un Array con los grupos nuevos a insertar ------------////
+    function gruposAdd() {
+        var arraySelected = new Array();
+        var arrayCheckeds = gridGrupos.getSelectionModel().getSelections();
+        for (var j = 0; j < arrayCheckeds.length; j++) {
+            arraySelected.push(arrayCheckeds[j].data.idrol);
+        }
+        for (var k = 0; k < arrayPaginado.length; k++) {
+            for (var i = 0; i < arrayPaginado[k][1].length; i++) {
+                if (arrayPaginado[k][1][i] != 0)
+                    arraySelected.push(arrayPaginado[k][1][i]);
+            }
+        }
+        //return array_diff(arraySelected, arrayGrupos);
+        return array_diff(listadoGruposChequeados, arrayGrupos);
+    }
+
+    ////------------ Retorna un Array con los grupos a eliminar ------------////
+    function gruposDel() {
+        var arraySelected = new Array();
+        var arrayTemp = new Array();
+        var arrayCheckeds = gridGrupos.getSelectionModel().getSelections();
+        for (var j = 0; j < arrayCheckeds.length; j++) {
+            arrayTemp.push(arrayCheckeds[j].data.idrol);
+        }
+        for (var k = 0; k < arrayPaginado.length; k++) {
+            for (var i = 0; i < arrayPaginado[k][1].length; i++) {
+                if (arrayPaginado[k][1][i] != 0)
+                    arraySelected.push(arrayPaginado[k][1][i]);
+            }
+        }
+        //return array_diff(arrayGrupos, array_merge(arraySelected, arrayTemp));
+        return array_diff(arrayGrupos, listadoGruposChequeados);
+    }
+
+    function marcarPadres(node,tablaPadres){
+        while(node.parentNode && node.parentNode.attributes.idsistema && !tablaPadres[node.parentNode.attributes.idsistema]){
+            tablaPadres[node.parentNode.attributes.idsistema] = true;
+            node = node.parentNode;
+        }
+        return tablaPadres;
+    }
+
+    ////------------ obtener sistemas a eliminar ------------////
+    function sistemaEliminar(nuevos) {
+        arrayeliminar = [];
+        for (i = 0; i < arraytiene.length; i++) {
+            bandera = false;
+            for (j = 0; j < nuevos.length; j++) {
+                if (arraytiene[i] == nuevos[j]) {
+                    bandera = true;
+                    break;
+                }
+            }
+            if (!bandera) {
+                arrayeliminar.push(arraytiene[i]);
+                sinAccesoASist = true;
+            }
+            else
+                sinAccesoASist = false;
+        }
+        return arrayeliminar;
+    }
+
+////------------ Usada para guardar los grupos que estan asignados inicialmente al rol seleccionado ------------////
+    function getGruposInsertados(records) {
+        for (var i = 0; i < records.length; i++){
+            var existe = false;
+            var existeinarraygrupos = false;
+            if (records[i].data.checket){
+                for(var j = 0; j < arrayGrupos.length; j++){
+                    if(arrayGrupos[j] == records[i].data.idrol)
+                        existeinarraygrupos = true;
+                }
+                if(!existeinarraygrupos){
+                    arrayGrupos.push(records[i].data.idrol);
+                }
+
+                for(var j = 0; j < listadoGruposChequeados.length; j++){
+                    if(listadoGruposChequeados[j] == records[i].data.idrol)
+                        existe = true;
+                }
+                if(!existe){
+                    var existeDesch = false;
+                    for(var k = 0; k < listadoGruposDeschequeados.length; k++){
+                        if(listadoGruposDeschequeados[k] == records[i].data.idrol)
+                            existeDesch = true;
+                    }
+                    if(!existeDesch){
+                        listadoGruposChequeados.push(records[i].data.idrol);
+                    }
+                }
+            }
+            else{
+                for(var j = 0; j < listadoGruposDeschequeados.length; j++){
+                    if(listadoGruposDeschequeados[j] == records[i].data.idrol)
+                        existe = true;
+                }
+                if(!existe){
+                    var existeChek  = false;
+                    for(var k = 0; k < listadoGruposChequeados.length; k++){
+                        if(listadoGruposChequeados[k] == records[i].data.idrol)
+                            existeChek = true;
+                    }
+                    if(!existeChek) {
+                        listadoGruposDeschequeados.push(records[i].data.idrol);
+                    }
+                }
+            }
+        }
+    }
+
+////------------ Usada para cargar el grid de grupos ------------////
+    function activarGridGrupos(idrol) {
+        tabsPanelRG.activate(arbolSistemaRol);
+        storegridGrupos.load({
+            params: {
+                start: 0,
+                limit: 10,
+                idrol: idrol
+            }
+        });
+    }
+/////////////////////// Funciones //////////////////////////////////////////////////////////////////////////
+    function cargarIcons(val) {
+        if (val == true)
+            return "<div class='banderaActivarDesactivar' ><span class='icondistra-bandera verde'/>";
+        else
+            return "<div class='banderaActivarDesactivar' ><span class='icondistra-bandera rojo'/>";
+    }
+
+    function getClass(tipo) {
+        var clase = '';
+        if (tipo == 'grupo')
+            clase = 'SegGrupo';
+        else
+            clase = 'SegRol';
+        return clase;
+    }
+
+    function btneliminarRelacion() {
+        if (treeRolGru.getSelectionModel().selNode.attributes.type == 'rol' &&
+            treeRolGru.getSelectionModel().selNode.parentNode.attributes.type == 'grupo') {
+            eliminserRelacion(treeRolGru.getSelectionModel().selNode.attributes.idrol,
+                new Array(treeRolGru.getSelectionModel().selNode.parentNode.attributes.idrol), 'eliminarrelacion',
+                treeRolGru.getSelectionModel().selNode);
+        }
+    }
+
+    ////------------ Determina la diferencia que existe entre dos arreglos ------------////
+    function array_diff(arrayI, arrayF) {
+        var arrayResult = new Array();
+        for (var i = 0; i < arrayI.length; i++) {
+            var fly = true;
+            for (var j = 0; j < arrayF.length; j++) {
+                if (arrayI[i] == arrayF[j]) {
+                    fly = false;
+                    break;
+                }
+            }
+            if (fly)
+                arrayResult.push(arrayI[i]);
+        }
+        return arrayResult;
+    }
+
+    ////------------ Mescla dos arreglos sin repetir valores ------------////
+    function array_merge(arrayI, arrayF) {
+        var arrayResult = new Array();
+        if (arrayI.length == 0 && arrayF.length > 0)
+            return arrayF;
+        if (arrayF.length == 0 && arrayI.length > 0)
+            return arrayI;
+        for (var i = 0; i < arrayI.length; i++) {
+            arrayResult.push(arrayI[i]);
+        }
+        for (var j = 0; j < arrayF.length; j++) {
+            var bandera = true;
+            for (var k = 0; k < arrayResult.length; k++) {
+                if (arrayF[j] == arrayResult[k]) {
+                    bandera = false;
+                    break;
+                }
+            }
+            if (bandera)
+                arrayResult.push(arrayI[j]);
+        }
+        return arrayResult;
+    }
+
+///////////Funcion para eliminar e insertar relaciones entre los grupos y roles////////////
+    function eliminserRelacion(idrol, arrayGruposAdd, dir, node, target) {
+        Ext.getBody().mask(etiquetas.msgWait);
+        Ext.Ajax.request({
+            url: dir,
+            method: 'POST',
+            params: {
+                arrayGruposAdd: Ext.encode(arrayGruposAdd),
+                idrol: idrol
+            },
+            callback: function (options, success, response) {
+                Ext.getBody().unmask();
+                if(success) {
+                    var responseData = Ext.decode(response.responseText);
+                    if (dir === 'insertarrelacion') {
+                        if (responseData.cod == 1) {
+                            var nuevonodo = new Ext.tree.TreeNode({
+                                'text': node.text,
+                                'type': node.getAttribute('type'),
+                                'abreviatura': node.getAttribute('abreviatura'),
+                                'descripcion': node.getAttribute('descripcion'),
+                                'regular': node.getAttribute('regular'),
+                                'idrol': node.getAttribute('idrol'),
+                                iconCls: 'asignaroles',
+                                isTarget: false,
+                                leaf: true
+                            });
+                            target.appendChild(nuevonodo);
+                            mostrarMensaje(responseData.cod, etiquetas.msgCrearRelacion);
+                        }
+                    }
+                    else {
+                        if (responseData.cod == 1) {
+                            node.remove(true)
+                            mostrarMensaje(responseData.cod, etiquetas.msgEliminarRelacion);
+                        }
+                    }
+                    habilitarDeshabilitarBtnTreeRG(null);
+                    treeRolGru.getSelectionModel().clearSelections();
+                    focusTabPanel();
+                }else{
+                    mostrarMensaje(6,etiquetas.noConexion);
+                }
+            }
+        });
+    }
+
+
+    ////------------ Cargar la ventana ------------////
+    function winFormCampos(opcion) {
+        switch (opcion) {
+            case 'Ins':
+            {
+                if (!winInsCampos) {
+                    winInsCampos = new Ext.Window({
+                        id:'winInsCampos',
+                        modal: true,
+                        closeAction: 'hide',
+                        layout: 'fit',
+                        constrain: true,
+                        title: etiquetas.lbTitAdicionarcamposalperfil,
+                        width: 530,
+                        height: 265,
+                        listeners: {
+                            hide: function (w) {
+                                focusTabPanel();
+                            }
+                        },
+                        buttons: [
+                            {
+                                //icon: perfil.dirImg + 'cancelar.png',
+                                iconCls: 'cancelar',
+                                text: etiquetas.lbBtnCancelar,
+                                tooltip: etiquetas.tooltipCancelarVen,
+                                handler: function () {
+                                    winInsCampos.hide();
+                                }
+                            }, {
+                                id: "btnAplicarInsCampos",
+                                //icon: perfil.dirImg + 'aplicar.png',
+                                iconCls: 'aplicar',
+                                text: etiquetas.lbBtnAplicar,
+                                tooltip: etiquetas.tooltipAplicarVen,
+                                disabled: true,
+                                handler: function () {
+                                    adicionarCampos('apl');
+                                }
+                            }, {
+                                id: "btnAceptarInsCampos",
+                                //icon: perfil.dirImg + 'aceptar.png',
+                                iconCls: 'aceptar',
+                                nextTab: 'nombre',
+                                prevTab: 'btnAplicarInsCampos',
+                                text: etiquetas.lbBtnAceptar,
+                                tooltip: etiquetas.tooltipAceptarVen,
+                                disabled: true,
+                                handler: function () {
+                                    adicionarCampos();
+                                }
+                            }],
+                        keys:[
+                            {
+                                key: 'x',
+                                ctrl: false,
+                                alt: true,
+                                fn: function (e,a) {
+                                    a.browserEvent.preventDefault();
+                                    winInsCampos.hide();
+                                }
+                            },
+                            {
+                                key: 'p',
+                                ctrl: true,
+                                alt: true,
+                                fn: function (e,a) {
+                                    a.browserEvent.preventDefault();
+                                    if(!Ext.getCmp("btnAplicarInsCampos").disabled)
+                                        adicionarCampos('apl');
+                                }
+                            },
+                            {
+                                key: 13,
+                                ctrl: false,
+                                alt: false,
+                                fn: function (e,a) {
+                                    a.browserEvent.preventDefault();
+                                    if(!Ext.getCmp("btnAceptarInsCampos").disabled)
+                                        adicionarCampos();
+                                }
+                            }
+                        ]
+                    });
+                }
+                regPerfil.getForm().reset();
+                Ext.getCmp('tipocampo').setDisabled(true);
+                modCampos = false;
+                winInsCampos.add(regPerfil);
+                winInsCampos.doLayout();
+                winInsCampos.show();
+                winInsCampos.center();
+                storeExp.clearFilter();
+                storeDataTipoCamp.clearFilter();
+                Ext.getCmp('nombre').focus(false, 200);
+            }
+                break;
+            case 'Mod':
+            {
+                if (!winModCampos) {
+                    winModCampos = new Ext.Window({
+                        id:'winModCampos',
+                        validateDefault: true,
+                        modal: true,
+                        closeAction: 'hide',
+                        layout: 'fit',
+                        constrain: true,
+                        title: etiquetas.lbTitModificarcamposdelperfil,
+                        width: 530,
+                        height: 260,
+                        listeners: {
+                            hide: function (w) {
+                                focusTabPanel();
+                            }
+                        },
+                        buttons: [{
+                            //icon: perfil.dirImg + 'c.png',
+                            id: "cancelarModcamposAlPerfil",
+                            iconCls: 'cancelar',
+                            text: etiquetas.lbBtnCancelar,
+                            tooltip: etiquetas.tooltipCancelarVen,
+                            handler: function () {
+                                winModCampos.hide();
+                            }
+
+                        }, {
+                            //icon: perfil.dirImg + 'aceptar.png',
+                            id: 'aceptarModcamposAlPerfil',
+                            disabled: true,
+                            iconCls: 'aceptar',
+                            nextTab: 'nombre',
+                            prevTab: "cancelarModcamposAlPerfil",
+                            text: etiquetas.lbBtnAceptar,
+                            tooltip: etiquetas.tooltipAceptarVen,
+                            handler: function () {
+                                modificarCampo();
+                            }
+                        }],
+                        keys:[
+                            {
+                                key: 'x',
+                                alt: true,
+                                ctrl: false,
+                                fn: function (e,a) {
+                                    a.browserEvent.preventDefault();
+                                    winModCampos.hide();
+                                }
+                            },
+                            {
+                                key: 13,
+                                alt: false,
+                                ctrl: false,
+                                fn: function (e,a) {
+                                    a.browserEvent.preventDefault();
+                                    if(!Ext.getCmp("aceptarModcamposAlPerfil").disabled)
+                                        modificarCampo();
+                                }
+                            }
+                        ]
+                    });
+                }
+                modCampos = true;
+                regPerfil.getForm().reset();
+                winModCampos.add(regPerfil);
+                winModCampos.doLayout();
+                winModCampos.show();
+                winModCampos.center();
+                var select = treePerfiles.getSelectionModel().getSelectedNode();
+                var record = Ext.data.Record.create([
+                    {
+                        name: 'nombre'
+                    },
+                    {
+                        name: 'tipo'
+                    },
+                    {
+                        name: 'alias'
+                    },
+                    {
+                        name: 'tipocampo'
+                    },
+                    {
+                        name: 'longitud'
+                    },
+                    {
+                        name: 'visible'
+                    },
+                    {
+                        name: 'descripcion'
+                    }, {
+                        name: 'idexpresiones'
+                    }
+                ]);
+                var prueba = new record({
+                    nombre: select.text,
+                    tipo: select.attributes.tipo,
+                    alias: select.attributes.nombreamostrar,
+                    tipocampo: select.attributes.tipocampo,
+                    longitud: select.attributes.longitud,
+                    visible: select.attributes.visible,
+                    descripcion: select.attributes.descripcion,
+                    idexpresiones: select.attributes.idexpresiones
+                });
+                regPerfil.getForm().loadRecord(prueba);
+                Ext.getCmp('nombre').focus(false, 200);
+            }
+                break;
+        }
+    }
+
+    ////------------ Cargar la ventana ------------////
+    function winFormPerfiles(opcion) {
+
+        switch (opcion) {
+            case 'Mod':
+            {
+                if (!winModPerfiles) {
+                    winModPerfiles = new Ext.Window({
+                        validateDefault: true,
+                        modal: true,
+                        closeAction: 'hide',
+                        layout: 'fit',
+                        constrain: true,
+                        title: etiquetas.lbTitModificardatosdelperfil,
+                        width: 500,
+                        autoHeight: true,
+                        listeners: {
+                            hide: function () {
+                                focusPanelDerecho();
+                            }
+                        },
+                        buttons: [
+                            {
+                                //icon: perfil.dirImg + 'cancelar.png',
+                                iconCls: 'cancelar',
+                                text: etiquetas.lbBtnCancelar,
+                                tooltip: etiquetas.tooltipCancelarVen,
+                                handler: function () {
+                                    winModPerfiles.hide();
+                                }
+                            },
+                            {
+                                id: "btnAceptarModPerfil",
+                                //icon: perfil.dirImg + 'aceptar.png',
+                                iconCls: 'aceptar',
+                                text: etiquetas.lbBtnAceptar,
+                                tooltip: etiquetas.tooltipAceptarVen,
+                                handler: function () {
+                                    modificarperfil();
+                                }
+                            }
+                        ],
+                        keys:[
+                            {
+                                key: 'x',
+                                alt: true,
+                                ctrl: false,
+                                fn: function (e,a) {
+                                    a.browserEvent.preventDefault();
+                                    winModPerfiles.hide();
+                                }
+                            },
+                            {
+                                key: 13,
+                                alt: false,
+                                ctrl: false,
+                                fn: function (e,a) {
+                                    a.browserEvent.preventDefault();
+                                    if(!Ext.getCmp("btnAceptarModPerfil").disabled)
+                                        modificarperfil();
+                                }
+                            }
+                        ]
+                    });
+                }
+                if (cambioCampos) {
+                    if (winModPerfiles.items)
+                        winModPerfiles.remove(0);
+                    winModPerfiles.add(fpRegistrarPerfil);
+                    winModPerfiles.doLayout();
+                    cambioCampos = false;
+                }
+                winModPerfiles.show();
+                winModPerfiles.center();
+                fpRegistrarPerfil.getForm().loadRecord(contieneGrid.items.items[1].getSelectionModel().getSelected());
+            }
+                break;
+        }
+    }
+    function validarLongitudCamposDate(data){
+        if(data.tipo == 'date' && data.tipocampo == 'datefield' && data.longitud < 10){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    function adicionarCampos(apl) {
+
+        if (regPerfil.getForm().isValid()) {
+            if(validarLongitudCamposDate(regPerfil.getForm().getValues())) {
+                Secodena.mostrarMascara('maskConexion', etiquetas.msgWait, etiquetas.msgModCampo);
+                regPerfil.getForm().submit({
+                    url: 'insertarcampo',
+                    failure: function (form, action) {
+                        Secodena.ocultarMascara('maskConexion');
+                        if (action.result.cod == 1) {
+                            regPerfil.getForm().reset();
+                            if (!apl)
+                                winInsCampos.hide();
+                            treePerfiles.getRootNode().reload();
+                            cargarConfigGrid(reconfigurarGrid);
+                            btnadicionarcampo.setDisabled(false);
+                            btnmodificarcampo.setDisabled(true);
+                            btneliminarcampo.setDisabled(true);
+                            mostrarMensaje(action.result.cod, etiquetas.msgInsertarCampo);
+                        }else if (action.result.cod == 6) {
+                            mostrarMensaje(action.result.cod, action.result.mensaje);
+                        }
+                    }
+                });
+            }else{
+                mostrarMensaje(8, etiquetas.warningLongitudDate);
+            }
+        }
+        else
+            mostrarMensaje(8, etiquetas.lbMsgErrorEnCamops);
+    }
+
+    function modificarCampo() {
+        if (regPerfil.getForm().isValid()) {
+            if(validarLongitudCamposDate(regPerfil.getForm().getValues())) {
+                Secodena.mostrarMascara('maskCamposMod', etiquetas.msgWait, etiquetas.msgModCampo);
+                regPerfil.getForm().submit({
+                    url: 'modificarcampo',
+                    params: {
+                        idcampo: treePerfiles.getSelectionModel().getSelectedNode().attributes.idcampo
+                    },
+                    failure: function (form, action) {
+                        Secodena.ocultarMascara('maskCamposMod');
+                        if (action.result.cod == 1) {
+                            treePerfiles.getRootNode().reload();
+                            treePerfiles.getSelectionModel().clearSelections();
+                            btnadicionarcampo.setDisabled(false);
+                            btnmodificarcampo.setDisabled(true);
+                            btneliminarcampo.setDisabled(true);
+                            cargarConfigGrid(reconfigurarGrid);
+                            winModCampos.hide();
+                            mostrarMensaje(action.result.cod, etiquetas.msgModificarCampo);
+                        }
+                    }
+                });
+            }else{
+                mostrarMensaje(8, etiquetas.warningLongitudDate);
+            }
+        }
+        else
+            mostrarMensaje(8, etiquetas.lbMsgErrorEnCamops);
+    }
+
+    function eliminarCampo() {
+        mostrarMensaje(2, etiquetas.msgEliminarCampos, elimina);
+        function elimina(btnPresionado) {
+            if (btnPresionado == 'ok') {
+                Secodena.mostrarMascara('maskCamposDel', etiquetas.msgWait, etiquetas.msgDELCampo);
+                Ext.Ajax.request({
+                    url: 'eliminarcampo',
+                    method: 'POST',
+                    params: {
+                        idcampo: treePerfiles.getSelectionModel().getSelectedNode().attributes.idcampo
+                    },
+                    callback: function (options, success, response) {
+                        Secodena.ocultarMascara('maskCamposDel');
+                        if(success) {
+                            var responseData = Ext.decode(response.responseText);
+                            if (responseData.cod == 1) {
+                                treePerfiles.getRootNode().reload();
+                                cargarConfigGrid(reconfigurarGrid);
+                                btnadicionarcampo.setDisabled(false);
+                                btnmodificarcampo.setDisabled(true);
+                                btneliminarcampo.setDisabled(true);
+                                mostrarMensaje(responseData.cod, etiquetas.msgCampoEliminado);
+                            }
+                        }else{
+                            mostrarMensaje(6,etiquetas.noConexion);
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    ////------------ Modo de seleccion del grid  de Perfiles(single)------------////
+    var smPerfiles = new Ext.grid.RowSelectionModel({
+        singleSelect: false,
+        listeners: {
+            'rowselect': function () {
+                habilitarDeshabilitarBotones();
+            },
+            'rowdeselect': function () {
+                habilitarDeshabilitarBotones();
+            }
+        }
+    });
+    //Funcion para crear el store
+    function dameStoreGp(JsonGrid) {
+        return new Ext.data.Store({
+            url: 'cargargrid',
+            listeners: {
+                beforeload: function(){
+                    this.baseParams.nombreusuario = nombreUsuarioFiltrar;
+                    this.baseParams.dominiobuscar = dominioFiltrar;
+                    this.baseParams.activar = estadoFiltrar;
+                    //this.baseParams.idrol = (rolFiltrar && rolFiltrar.attributes.type == 'rol') ? rolFiltrar.attributes.idrol : null;
+                    //this.baseParams.idgrupo = (grupoFiltrar && grupoFiltrar.attributes.type == 'grupo') ? grupoFiltrar.attributes.idrol : null;
+                    this.baseParams.idrol = rolFiltrar  ? rolFiltrar : null;
+                    this.baseParams.idgrupo = grupoFiltrar  ? grupoFiltrar : null;
+                },
+                load: function (store, r, o) {
+                    if (store.getCount() == 0) {
+                        if (nombreUsuarioFiltrar || rolFiltrar || dominioFiltrar || estadoFiltrar || grupoFiltrar)
+                            mostrarMensaje(1, etiquetas.msgInfDatosMostrar);
+                        else
+                            mostrarMensaje(1, etiquetas.msgInfDatos);
+                    }
+                    contieneGrid.items.items[1].getSelectionModel().clearSelections();
+                    habilitarDeshabilitarBotones()
+                }
+            },
+            reader: new Ext.data.JsonReader({
+                    totalProperty: 'cant_fila',
+                    root: 'datos',
+                    id: 'idusuario'
+                },
+                JsonGrid[1].store
+            )
+        });
+    }
+
+    // Para las columnas del grid
+    function dameColumnModelGpUsuario(JsonGrid) {
+        storeExp.clearFilter();
+        storeDataTipoCamp.clearFilter();
+        Ext.each(JsonGrid[0].columns, function () {
+
+            if (this.type) {
+                var index = storeExp.find('idexpresiones', this.idexpresion);
+                var record = storeExp.getAt(index);
+                if (this.type == 'datefield') {
+                    this.editor = new Ext.form.DateField({
+                        maskRe: eval(record.data.expresion),
+                        format: "d/m/Y",
+                        regex: eval(record.data.expresion),
+                        maxLength: this.longitud
+                    });
+                    this.renderer = Ext.util.Format.dateRenderer('d/m/Y');
+                } else {
+                    this.editor = new Ext.form.TextField({
+                        maskRe: eval(record.data.expresion),
+                        regex: eval(record.data.expresion),
+                        maxLength: this.longitud
+                    });
+                }
+                this.hidden = !this.visible;
+            }
+        });
+        return new Ext.grid.ColumnModel(JsonGrid[0].columns);
+    }
+
+    ////------------ Defino el grid de perfiles ------------////
+    function dameGpUsuarios(JsonGrid) {
+        var objStore = dameStoreGp(JsonGrid);
+        return new Ext.grid.EditorGridPanel({
+            frame: true,
+            id: 'gridCampos',
+            autoExpandColumn: 'expandir',
+            clicksToEdit: 2,
+            stripeRows: true,
+            autoScroll: true,
+            loadMask: {
+                msg: etiquetas.cargando
+            },
+            viewConfig: {
+                scrollOffset: 3
+            },
+            store: objStore,
+            sm: smPerfiles,
+            cm: dameColumnModelGpUsuario(JsonGrid),
+            bbar: new Ext.PagingToolbar({
+                pageSize: 15,
+                beforePageText: etiquetas.textPagina,
+                afterPageText: etiquetas.textDe,
+                store: objStore,
+                displayInfo: true
+            }),
+            listeners: {
+                afteredit: function () {
+                    btnguardar.setDisabled(false);
+                },
+                cellcontextmenu: function (grid, row, cell, event) {
+                    event.preventDefault();
+                    smPerfiles.selectRow(row);
+                    contextMenuGrid.showAt(event.getXY());
+                }
+            }
+        });
+    }
+
+    // EndOF Cargar
+    function cargarConfigGrid(funcion) {
+        Ext.Ajax.request({
+            url: 'configurargrid',
+            params: {},
+            callback: function (options, success, response) {
+                var JsonGrid = Ext.decode(response.responseText);
+                funcion(JsonGrid);
+                cargarConfigForm();
+            }
+        });
+    }
+
+    function reconfigurarGrid(JsonGrid) {
+        contieneGrid.items.items[1].reconfigure(dameStoreGp(JsonGrid), dameColumnModelGpUsuario(JsonGrid));
+        contieneGrid.items.items[1].getStore().load({
+            params: {
+                start: 0,
+                limit: 15
+            }
+        });
+    }
+
+    function focusPanelDerecho() {
+        btnadicionar.focus(200);
+    }
+
+    function focusTabPanel() {
+        if (tabpanel.activeTab.id == 'treeRG') {
+            btnadicionarRoles.focus(200);
+        }else{
+            btnadicionarcampo.focus(200);
+        }
+    }
+
+    function createViewPort(JsonGrid) {
+        contieneGrid = new Ext.Panel({
+            id: 'contieneGrid',
+            activeItem: 0,
+            border: false,
+            region: 'center',
+            layout: 'card',
+            bodyStyle: 'background-color: transparent',
+            items: [gridFrente, dameGpUsuarios(JsonGrid)]
+        });
+        contienePanelDerecho = new Ext.Panel({
+            region: 'center',
+            title: 'Gestión de usuarios',
+            keys: [
+                {
+                    key: 'i',
+                    alt: true,
+                    ctrl: false,
+                    fn: function (e,a) {
+                        if(!a.shiftKey && !a.ctrlKey) {
+                            a.browserEvent.preventDefault();
+                            winFormUsuarios('Ins');
+                        }
+                    }
+                },
+                {
+                    key: 'm',
+                    alt: true,
+                    fn: function (e,a) {
+                        a.browserEvent.preventDefault();
+                        if (!btnmodificar.disabled) {
+                            if (tabpanel.activeTab.id == 'treeRG') {
+                                banderaMod = true;
+                                winFormUsuarios('Mod');
+                            } else {
+                                winFormPerfiles('Mod');
+                            }
+                        }
+                    }
+                },
+                {
+                    key: Ext.EventObject.DELETE,
+                    ctrl: false,
+                    shift: false,
+                    fn: function (e,a) {
+                        if(!a.shiftKey && !a.ctrlKey) {
+                            a.browserEvent.preventDefault();
+                            if (sm.getCount() >= 1)
+                                eliminarusuario();
+                        }
+                    }
+                },
+                {
+                    key: 'g',
+                    alt: true,
+                    fn: function (e,a) {
+                        a.browserEvent.preventDefault();
+                        if (!btnguardar.disabled) {
+                            if (tabpanel.activeTab.id == 'treeRG')
+                                guardarGridUsuarios();
+                            else
+                                guardarGridPerfiles();
+                        }
+                    }
+                },
+                {
+                    /*key: 's',
+                     alt: true,
+                     fn: function (e,a) {
+                     a.browserEvent.preventDefault();
+                     if (!btnasignarroles.disabled) {
+                     winFormUsuarios('Rol');
+                     }
+                     }*/
+                },
+                {
+                    /*key: 'p',
+                     alt: true,
+                     fn: function (e,a) {
+                     a.browserEvent.preventDefault();
+                     if (!btnasignarperfil.disabled) {
+                     winFormUsuarios('usuario');
+                     }
+                     }*/
+                },
+                {
+                    /*key: 'v',
+                     alt: true,
+                     fn: function (e,a) {
+                     a.browserEvent.preventDefault();
+                     if (!btnperfil.disabled) {
+                     winFormUsuarios('fichausuario');
+                     }
+                     }*/
+                },
+                {
+                    key: 'c',
+                    ctrl: true,
+                    shift: true,
+                    fn: function (e,a) {
+                        a.browserEvent.preventDefault();
+                        if (!btncmbcontrasena.disabled) {
+                            winFormUsuarios('Pass');
+                        }
+                    }
+                },
+                {
+                    key: 'b',
+                    alt: true,
+                    fn: function (e,a) {
+                        a.browserEvent.preventDefault();
+                        if (!btnbuscar.disabled) {
+                            filtrar();
+                            focusPanelDerecho();
+                        }
+                    }
+                },
+                {
+                    key: 'l',
+                    alt: true,
+                    fn: function (e,a) {
+                        a.browserEvent.preventDefault();
+                        if (!btnlimpiar.disabled) {
+                            reiniciarFiltro();
+                            focusPanelDerecho();
+                        }
+                    }
+                },
+                {
+                    key: 'i',
+                    ctrl: true,
+                    alt: true,
+                    fn: function (e,a) {
+                        a.browserEvent.preventDefault();
+                        winFormUsuarios("Importar");
+                    }
+                }
+            ],
+            layout: 'border',
+            margins: '5 5 5 0',
+            bodyStyle: 'background-color: transparent;border-left:0px;border-right:0px; border-top:0px;border-bottom:0px',
+            items: [panelmenu, contieneGrid]
+        });
+        var vista = new Ext.Viewport({
+            layout: 'border',
+            style: 'background-color: #DFE8F6; padding: 0px',
+            renderTo: Ext.getBody(),
+            items: [
+                tabpanel,
+                contienePanelDerecho
+            ]
+        });
+        tabpanel.addListener('tabchange', function () {
+            var l = contieneGrid.getLayout();
+            //focusPanelDerecho();
+            textFieldBuscar.reset();
+            if (tabpanel.activeTab.id == 'treeRG') {
+                l.setActiveItem(0);
+                sm.clearSelections();
+                filtrarGridUsuarios();
+                btnactivar.setVisible(UCID.acciones[window.frameElement.id]['btnActivarUsuario']);
+                btndesactivar.setVisible(UCID.acciones[window.frameElement.id]['btnDesactivarUsuario']);
+                btnRegularAcciones.show();
+                btnadicionarRoles.show();
+                btnmodificarRoles.show();
+                btneliminarRoles.show();
+                btnadicionarRoles.setDisabled(true);
+                btnmodificarRoles.setDisabled(true);
+                btneliminarRoles.setDisabled(true);
+                btnadicionarcampo.hide();
+                btnmodificarcampo.hide();
+                btneliminarcampo.hide();
+                btnRegularAcciones.setDisabled(true);
+                treeRolGru.getSelectionModel().clearSelections();
+                btnmodificar.setDisabled(true);
+                btncmbcontrasena.setDisabled(true);
+                btnasignarperfil.setDisabled(true);
+                btnperfil.setDisabled(true);
+                btnperfil.show();
+                btneliminar.setDisabled(true);
+                btnasignarroles.setDisabled(true);
+                btnasignarroles.show();
+                btneliminar.setDisabled(true);
+                btnasignarroles.setDisabled(true);
+                comboestado.show();
+                labelEstado.show();
+                labelDominio.show();
+                combodominio.show();
+                treeRolGru.filter.clear();
+            }
+            else {
+                l.setActiveItem(1);
+                smPerfiles.clearSelections();
+                filtrarGridPerfiles();
+                btnactivar.hide();
+                btndesactivar.hide();
+                btnRegularAcciones.hide();
+                btnadicionarRoles.hide();
+                btnmodificarRoles.hide();
+                btneliminarRoles.hide();
+                btnadicionarcampo.show();
+                btnmodificarcampo.show();
+                btneliminarcampo.show();
+                btnmodificarcampo.setDisabled(true);
+                btneliminarcampo.setDisabled(true);
+                treePerfiles.getSelectionModel().clearSelections();
+                btnguardar.setDisabled(true);
+                btnmodificar.setDisabled(true);
+                btncmbcontrasena.setDisabled(true);
+                btnasignarperfil.setDisabled(true);
+                btnperfil.setDisabled(true);
+                btnperfil.hide();
+                btneliminar.setDisabled(true);
+                btnasignarroles.setDisabled(true);
+                btneliminar.setDisabled(true);
+                btnasignarroles.setDisabled(true);
+                btnasignarroles.hide();
+                comboestado.hide();
+                combodominio.hide();
+                labelEstado.hide();
+                labelDominio.hide();
+                treePerfiles.filter.clear();
+            }
+            focusTabPanel();
+        });
+        Secodena.ocultarMascara("cargandoInterfaz");
+        focusPanelDerecho();
+        UCID.portal.cargarAcciones(window.frameElement.id, function(){})
+    }
+
+}

@@ -1,0 +1,313 @@
+{
+    "log": {
+        "lb": {
+            "nomproductos": {
+                "name": "Nomenclador de productos y servicios",
+                "version": "1.0",
+                "descripcion": "Componente que brinda las IU del nomenclador de productos y servicios",
+                "src": "logistica/utiles/maestroproductos",
+                "css": [
+                    ""
+                ],
+                "idiomas": [
+                    "maestroproductos.js"
+                ],
+                "js": [
+                    "maestroproductos/maestroproductos.plugins.js,maestroproductos/arbolproductos.view.js,maestroproductos/maestroproductos.services.js"
+                ],
+                "main-view": "",
+                "require": [
+                    ""
+                ],
+                "include": [
+                    ""
+                ]
+            },
+            "pgm" : {
+                "name": "PGM Existencias",
+                "version": "1.0",
+                "descripcion": "Componente base para la representacion de existencias",
+                "src": "logistica/utiles/pgm",
+                "css": [
+                    ""
+                ],
+                "idiomas": [
+                    "pgm.js"
+                ],
+                "js": [
+                    "pgm/pgm.views.js"
+                ],
+                "main-view": "",
+                "require": [
+                    ""
+                ],
+                "include": [
+                    ""
+                ]
+            },
+            "producto": {
+                "name": "Producto",
+                "version": "1.0",
+                "descripcion": "Componente encargado de la gestion basica de productos.",
+                "src": "logistica/utiles/producto",
+                "css": [
+                    ""
+                ],
+                "idiomas": [
+                    "producto.js"
+                ],
+                "js": [
+                    "producto.component.js,tarjetaProducto.component.js,tarjeta.model.js"
+                ],
+                "main-view": "",
+                "require": [],
+                "include": []
+            },
+            "plugins": {
+                "visorimagenes": {
+                    "name": "Visor de imagenes Plugin",
+                    "version": "1.0",
+                    "descripcion": "Plugin para visualizar imagenes",
+                    "src": "logistica/utiles/comun",
+                    "css": [
+                        "visorImagenes.css,data-view.css"
+                    ],
+                    "idiomas": [
+                        ""
+                    ],
+                    "js": [
+                        "plugins/dataView.plugins.js,plugins/visorImagenes.componet.js"
+                    ],
+                    "main-view": "",
+                    "require": [
+                        ""
+                    ],
+                    "include": [
+                        ""
+                    ]
+                }
+
+            },
+            "extjs":{
+                "name": "Ext-All",
+                "version": "1.0",
+                "descripcion": "",
+                "src": "logistica/utiles/comun",
+                "css": [
+                    ""
+                ],
+                "idiomas": [],
+                "js": [
+                    "extjs/ext-all.js"
+                ],
+                "main-view": "",
+                "require": [
+                    ""
+                ],
+                "include": [
+                    ""
+                ]
+            },
+            "nomdinamicos": {
+                "name": "Nomencladores dinamicos",
+                "version": "1.0",
+                "descripcion": "Componente nomencladores dinamicos",
+                "src": "logistica/utiles/nomdinamicos",
+                "css": [
+                    ""
+                ],
+                "idiomas": [
+                    "nomdinamicos/nomdinamicos.js"
+                ],
+                "js": [
+                    "nomdinamicos/nomdinamicos.view.js,nomdinamicos/nomdinamicos.main.js,nomdinamicos/nomdinamicos.model.js,nomdinamicos/nomdinamicos.component.js"
+                ],
+                "main-view": "nomdinamicos/nomdinamicos.js",
+                "require": [
+                    "log.lb.treeagrupaciones,log.lb.vistaagrupaciones"
+                ],
+                "include": [
+                    "log.lb.agrupaciones"
+                ]
+            },
+            "atributosdinamicos": {
+                "name": "Configuracion de atributos dinamicos",
+                "version": "1.0",
+                "descripcion": "Componente configurar los atributos dinamicos",
+                "src": "logistica/utiles/atribdinamicos",
+                "css": [
+                    ""
+                ],
+                "idiomas": [
+                    "atributosdinamicos/atributosdinamicos.js"
+                ],
+                "js": [
+                    "atributosdinamicos/atributosdinamicos.view.js,atributosdinamicos/atributosdinamicos.main.js,atributosdinamicos/atributosdinamicos.model.js,atributosdinamicos/atributosdinamicos.component.js"
+                ],
+                "main-view": "atributosdinamicos/atributosdinamicos.js",
+                "require": [
+                    "log.lb.treeagrupaciones,log.lb.vistaagrupaciones"
+                ],
+                "include": [
+                    "log.lb.nomdinamicos"
+                ]
+            },
+            "agrupaciones": {
+                "name": "Configuracion de agrupaciones",
+                "version": "1.0",
+                "descripcion": "Componente configurar agrupaciones de los atributos dinamicos",
+                "src": "logistica/utiles/atribdinamicos",
+                "css": [
+                    ""
+                ],
+                "idiomas": [
+                    "atributosdinamicos/agrupaciones.js,atributosdinamicos/atributosdinamicos.js"
+                ],
+                "js": [
+                    "atributosdinamicos/agrupaciones.view.js,atributosdinamicos/agrupaciones.main.js,atributosdinamicos/agrupaciones.model.js,atributosdinamicos/agrupaciones.component.js,atributosdinamicos/atributosdinamicos.view.js,atributosdinamicos/atributosdinamicos.model.js,atributosdinamicos/atributosdinamicos.component.js,atributosdinamicos/treeagrupaciones.js"
+                ],
+                "main-view": "atributosdinamicos/agrupaciones.js",
+                "require": [
+                    "log.lb.treeagrupaciones,log.lb.vistaagrupaciones"
+                ],
+                "include": [
+                    "log.lb.nomdinamicos"
+                ]
+            },
+            "treeagrupaciones": {
+                "name": "Plugin para el tree de agrupaciones",
+                "version": "1.0",
+                "descripcion": "Componente generico para el tree de agrupaciones",
+                "src": "logistica/utiles/plugin",
+                "css": [
+                    ""
+                ],
+                "idiomas": [
+                    "treeagrupaciones/treeagrupaciones.js"
+                ],
+                "js": [
+                    "treeagrupaciones/treeagrupaciones.plugin.js"
+                ],
+                "main-view": "",
+                "require": [
+                    ""
+                ],
+                "include": [
+                    "log.lb.agrupaciones"
+                ]
+            },
+            "vistaagrupaciones": {
+                "name": "Plugin para mostarar los atributos por agrupaciones",
+                "version": "1.0",
+                "descripcion": "Componente generico para mostarar los atributos por agrupaciones",
+                "src": "logistica/utiles/plugin",
+                "css": [
+                    ""
+                ],
+                "idiomas": [
+                    "treeagrupaciones/vistaagrupaciones.js"
+                ],
+                "js": [
+                    "treeagrupaciones/vistaagrupaciones.plugin.js"
+                ],
+                "main-view": "",
+                "require": [
+                    ""
+                ],
+                "include": [
+                    "log.lb.agrupaciones"
+                ]
+            }
+        },
+        "aft": {
+            "regoperativoold": {
+                "name": " Registro numerico de activo fijo",
+                "version": "1.0",
+                "descripcion": "Componente para la gestion de registros numericos",
+                "src": "logistica/activos_fijos/regoperativo",
+                "css": [
+                    "data-view.css,organigrama.css,regoperativo.css,visorImagenes.css"
+                ],
+                "idiomas": [
+                    "gestregoperativo/gestregoperativo.js"
+                ],
+                "js": [
+                    "gestregoperativo/lib/gridfilter.component.js,gestregoperativo/lib/mxClient.js,gestregoperativo/lib/visorImagenes.componet.js,gestregoperativo/ListadoMedios.cmp.js,gestregoperativo/PanelBotones.cmp.js,gestregoperativo/PropertyGrid.js,gestregoperativo/RegistroPlantilla.cmp.js,gestregoperativo/TabPanel.js,gestregoperativo/TreeGridRegistroNO.cmp.js,gestregoperativo/organigrama.component.js,gestregoperativo/panelCargarImagenes.js,gestregoperativo/panelDatosGenerales.cmp.js,gestregoperativo/panelModulo.cmp.js,gestregoperativo/winAdicionarRegistroNO.cmp.js,gestregoperativo/RegistroNumOperativoMain.js,gestregoperativo/registroActivoService.js"
+                ],
+                "main-view": "gestregoperativo/regoperativo.js",
+                "require": [
+                    "log.aft.comun,log.lb.nomproductos,log.lb.plugins.visorimagenes"
+                ],
+                "include": [
+                    "log.aft.comun,log.lb.nomproductos"
+                ]
+            },
+            "regoperativo": {
+                "name": " Registro numerico de activo fijo",
+                "version": "1.0",
+                "descripcion": "Componente para la gestion de registros numericos",
+                "src": "logistica/activos_fijos/regoperativo",
+                "css": [
+                    ""
+                ],
+                "idiomas": [
+                    ""
+                ],
+                "js": [
+                    "gestregoperativo/registroActivoService.js"
+                ],
+                "main-view": "",
+                "require": [
+                    "log.lb.nomproductos"
+                ],
+                "include": [
+                    "log.lb.nomproductos"
+                ]
+            },
+            "comun": {
+                "name": "Comun de activo fijo",
+                "version": "1.0",
+                "descripcion": "Componente comun para la gestion de registros numericos",
+                "src": "logistica/activos_fijos/utiles",
+                "css": [
+                    ""
+                ],
+                "idiomas": [
+                    ""
+                ],
+                "js": [
+                    "comun/regnumerico.campos.js,comun/Aft.util.treeGrid.js,comun/Distra.util.JasperClient.js,comun/Plugins.Jasper.js,comun/SubscriptorPlugins.js,comun/logistica.dataview.component.js,comun/ui.Template.Aft.js,comun/validator.js"
+                ],
+                "main-view": "",
+                "require": [
+                    ""
+                ],
+                "include": [
+                    ""
+                ]
+            },
+			"submayor": {
+                "name": "Submayor de medios en uso",
+                "version": "2.0",
+                "descripcion": "Componente para la realizar recuperaciones",
+                "src": "logistica/activos_fijos/recuperaciones",
+                "css": [
+                    ""
+                ],
+                "idiomas": [
+                    "submayor/aft.submayor.idioma.js"
+                ],
+                "js": [
+                    "submayor/aft.submayor.model.js,submayor/aft.submayor.component.Service.js"
+                ],
+                "main-view": "submayor/aftsubmayor.js",
+                "require": [
+                    "log.aft.pluginsSubscriptor,log.aft.comun,log.aft.arearesposabilidadpaft,log.aft.partespiezasagregadosaft,log.aft.regoperativo"
+                ],
+                "include": [
+                    "log.tall.ordentrabajo,log.aft.regoperativo"
+                ]
+            }
+        }
+    }
+}

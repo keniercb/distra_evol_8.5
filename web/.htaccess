@@ -1,0 +1,5 @@
+#Header always append X-FRAME-OPTIONS SAMEORIGIN
+#Header always append X-Content-Type-Options nosniff
+#Header always append X-XSS-Protection 1;mode=block
+Options -Indexes
+ErrorDocument 403 "<h2>Acceso denegado</h2><p>Usted no tiene acceso al recurso solicitado.</p>"

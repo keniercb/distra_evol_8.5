@@ -1,0 +1,40 @@
+{
+    lbAdicionar: 'Adicionar',
+    tiplbAdicionar: 'Adicionar un nuevo tipo de transferencia entre &aacuterea.',
+
+    lbModificar: 'Modificar',
+    tiplbModificar: 'Modificar tipo de transferencia entre &aacuterea.',
+
+
+    lbEliminar: 'Eliminar',
+    tiplbEliminar: 'Eliminar tipo de transferencia entre &aacuterea.',
+
+
+    lbCodigo: 'C&oacute;digo',
+    lbDescripcion: 'Descripci&oacute;n',
+    lbExtFv: 'Extensi&oacute;n de vencimiento',
+    lbTituloGrid: 'Tipo de &aacute;rea',
+    lbAutomatica: 'Autom&aacute;tica',
+
+
+    lbTitituloAdd: 'Adicionar tipo de transferencia entre &aacuterea',
+    lbBtnAceptar: 'Aceptar',
+    lbBtnCancelar: 'Cancelar',
+    lbBtnAplicar: 'Aplicar',
+
+    msgDatosVacios: 'Existen campos vac&iacute;os. Por favor verifique los datos.',
+    msgAdicionarOk: 'Se ha adicionado el tipo de transferencia entre &aacuterea satisfactoriamente.',
+    msgModificarOk: 'Se ha modificado el tipo de transferencia entre &aacuterea satisfactoriamente.',
+    msgErrorAdicionar: 'Ha ocurrido un error al adicionar el tipo de &aacuterea entidad.',
+    msgEliminarOrden: 'Est&aacute; seguro que desea eliminar el tipo detransferencia entre &aacuterea?',
+    msgEliminado: 'El tipo de transferencia entre &aacuterea ha sido eliminado correctamente',
+    msgEliminando: 'Eliminando el tipo de &aacuterea entidad...',
+    msgAdicionando: 'Enviando datos...',
+    msgMensajeError: 'Existe el c&oacute;digo para el tipo de transferencia entre &aacuterea',
+    msgElimanarTarea: 'Lo(s) tipo(s) de &aacuterea se ha(n) eliminado correctamente',
+    lbTitituloAddTipoArea: 'Adicionar tipo de &aacuterea',
+    msgAdicionarTarea: 'Los tipo(s) de &aacuterea se ha(n) adicionado correctamente',
+    msgCargando: 'Cargando...'
+
+
+}

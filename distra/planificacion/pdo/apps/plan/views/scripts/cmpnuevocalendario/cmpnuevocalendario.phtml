@@ -1,0 +1,160 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Calendario</title>
+
+    <link rel="stylesheet" type="text/css" id="ext-allcss"
+          href="../../views/css/cmpnuevocalendario/css/ext-all.css">
+    <link rel="stylesheet" type="text/css" id="calendar"
+          href="../../views/css/cmpnuevocalendario/css/calendar.css">
+
+    <link rel="stylesheet" type="text/css" id="examplescss"
+          href="../../views/css/cmpnuevocalendario/css/examples.css">
+
+</head>
+
+<body>
+<!-- archivos que estaban en el head -->
+<script type="text/javascript" id="ext-base"
+        src="../../views/js/cmpnuevocalendario/ext-base.js"></script>
+<script type="text/javascript" id="ext-all"
+        src="../../views/js/cmpnuevocalendario/ext-all.js"></script>
+<script type="text/javascript" id="ext-base-debug"
+        src="../../views/js/cmpnuevocalendario/ext-base-debug.js"></script>
+<script type="text/javascript" id="ext-all-debug"
+        src="../../views/js/cmpnuevocalendario/ext-all-debug.js"></script>
+<script type="text/javascript" id="ucid-all"
+        src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+<script type="text/javascript" id="ucid-extensiones"
+        src="<?php echo $this->dir_ucid; ?>js/utiles/extensiones.js"></script>
+
+<script type="text/javascript" id="Ext.calendar"
+        src="../../views/js/cmpnuevocalendario/src/Ext.calendar.js"></script>
+<script type="text/javascript" id="DayHeaderTemplate"
+        src="../../views/js/cmpnuevocalendario/src/templates/DayHeaderTemplate.js"></script>
+<script type="text/javascript" id="DayBodyTemplate"
+        src="../../views/js/cmpnuevocalendario/src/templates/DayBodyTemplate.js"></script>
+<script type="text/javascript" id="DayViewTemplate"
+        src="../../views/js/cmpnuevocalendario/src/templates/DayViewTemplate.js"></script>
+<script type="text/javascript" id="BoxLayoutTemplate"
+        src="../../views/js/cmpnuevocalendario/src/templates/BoxLayoutTemplate.js"></script>
+<script type="text/javascript" id="MonthViewTemplate"
+        src="../../views/js/cmpnuevocalendario/src/templates/MonthViewTemplate.js"></script>
+<script type="text/javascript" id="CalendarScrollManager"
+        src="../../views/js/cmpnuevocalendario/src/dd/CalendarScrollManager.js"></script>
+<script type="text/javascript" id="StatusProxy"
+        src="../../views/js/cmpnuevocalendario/src/dd/StatusProxy.js"></script>
+<script type="text/javascript" id="CalendarDD"
+        src="../../views/js/cmpnuevocalendario/src/dd/CalendarDD.js"></script>
+<script type="text/javascript" id="DayViewDD"
+        src="../../views/js/cmpnuevocalendario/src/dd/DayViewDD.js"></script>
+<script type="text/javascript" id="EventRecord"
+        src="../../views/js/cmpnuevocalendario/src/EventRecord.js"></script>
+<script type="text/javascript" id="MonthDayDetailView"
+        src="../../views/js/cmpnuevocalendario/src/views/MonthDayDetailView.js"></script>
+<script type="text/javascript" id="CalendarPicker"
+        src="../../views/js/cmpnuevocalendario/src/widgets/CalendarPicker.js"></script>
+<script type="text/javascript" id="WeekEventRenderer"
+        src="../../views/js/cmpnuevocalendario/src/WeekEventRenderer.js"></script>
+<script type="text/javascript" id="CalendarView"
+        src="../../views/js/cmpnuevocalendario/src/views/CalendarView.js"></script>
+<script type="text/javascript" id="MonthView"
+        src="../../views/js/cmpnuevocalendario/src/views/MonthView.js"></script>
+<script type="text/javascript" id="DayHeaderView"
+        src="../../views/js/cmpnuevocalendario/src/views/DayHeaderView.js"></script>
+<script type="text/javascript" id="DayBodyView"
+        src="../../views/js/cmpnuevocalendario/src/views/DayBodyView.js"></script>
+<script type="text/javascript" id="DayView"
+        src="../../views/js/cmpnuevocalendario/src/views/DayView.js"></script>
+<script type="text/javascript" id="WeekView"
+        src="../../views/js/cmpnuevocalendario/src/views/WeekView.js"></script>
+<script type="text/javascript" id="DateRangeField"
+        src="../../views/js/cmpnuevocalendario/src/widgets/DateRangeField.js"></script>
+<script type="text/javascript" id="ReminderField"
+        src="../../views/js/cmpnuevocalendario/src/widgets/ReminderField.js"></script>
+<script type="text/javascript" id="EventEditForm"
+        src="../../views/js/cmpnuevocalendario/src/EventEditForm.js"></script>
+<script type="text/javascript" id="EventEditWindow"
+        src="../../views/js/cmpnuevocalendario/src/EventEditWindow.js"></script>
+<script type="text/javascript" id="CalendarPanel"
+        src="../../views/js/cmpnuevocalendario/src/CalendarPanel.js"></script>
+
+<script type="text/javascript" id="calendar-list"
+        src="../../views/js/cmpnuevocalendario/app/calendar-list.js"></script>
+<script type="text/javascript" id="event-list"
+        src="../../views/js/cmpnuevocalendario/app/event-list.js"></script>
+<script type="text/javascript" id="test-app"
+        src="../../views/js/cmpnuevocalendario/app/test-app.js"></script>
+
+<!-- FIn archivos que estaban en el head -->
+
+<!--clases para los filtros por columna -->
+<script type="text/javascript" id="cmpfondodetiempo"
+        src="../../views/js/cmpfondodetiempo/cmpfondodetiempo.js"></script>
+<script type="text/javascript" id="cmpgestordocumental"
+        src="../../views/js/cmpgestordocumental/cmpgestordocumental.js"></script>
+<script type="text/javascript" id="EditableItem"
+        src="../../../comun/filtros/EditableItem.js"></script>
+<script type="text/javascript" id="ComboItem"
+        src="../../../comun/filtros/ComboItem.js"></script>
+<script type="text/javascript" id="TextFieldItem"
+        src="../../../comun/filtros/TextFieldItem.js"></script>
+<script type="text/javascript" id="RangeMenu"
+        src="../../../comun/filtros/RangeMenu.js"></script>
+<script type="text/javascript" id="GridFilters"
+        src="../../../comun/filtros/GridFilters.js"></script>
+<script type="text/javascript" id="Filter" src="../../../comun/filtros/Filter.js"></script>
+<script type="text/javascript" id="StringFilter"
+        src="../../../comun/filtros/StringFilter.js"></script>
+<script type="text/javascript" id="DateFilter"
+        src="../../../comun/filtros/DateFilter.js"></script>
+<script type="text/javascript" id="ListFilter"
+        src="../../../comun/filtros/ListFilter.js"></script>
+<script type="text/javascript" id="NumericFilter"
+        src="../../../comun/filtros/NumericFilter.js"></script>
+<script type="text/javascript" id="ListadoFilter"
+        src="../../../comun/filtros/ListadoFilter.js"></script>
+<script type="text/javascript" id="String_adaptadoFilter"
+        src="../../../comun/filtros/String_adaptadoFilter.js"></script>
+<!---------------------------------------->
+
+<script type="text/javascript" id="vtype" src="../../../comun/js/vtype.js"></script>
+<script type="text/javascript" id="CmpBase" src="../../../comun/js/CmpBase.js"></script>
+<script type="text/javascript" id="notificaciones" src="/planificacion/pdo/comun/js/notificaciones.js"></script>
+<script type="text/javascript" id="CmpBarraProgreso"
+        src="../../../comun/js/CmpBarraProgreso.js"></script>
+<script type="text/javascript" id="RowExpander" src="../../../comun/js/RowExpander.js"></script>
+<script type="text/javascript" id="TreeGridjs" src="../../../comun/js/TreeGrid.js"></script>
+<script type="text/javascript" id="examplesjs" src="../../../comun/js/examples.js"></script>
+<!--<script type="text/javascript" src="../../../comun/js/FechaBase.js"></script>
+<script type="text/javascript" src="../../../comun/js/CmpPaginadoTreegrid.js"></script>
+<script type="text/javascript" src="../../../comun/js/CmpMenuRelacionesDinamicas.js"></script>
+
+<script type="text/javascript" src="../../views/js/cmpgestionarobservaciones/cmpgestionarobservaciones.js"></script>
+<script type="text/javascript" src="../../views/js/cmpclasificadorinvol/cmpclasificadorinvol.js"></script>
+<script type="text/javascript" src="../../views/js/cmpexportarimportar/cmpexportarimportar.js"></script>
+<script type="text/javascript" src="../../views/js/cmpnotificaciones/cmpnotificaciones.js"></script>
+
+<script type="text/javascript" src="../../views/js/cmpcrudplan/cmpcrudplan.js"></script>
+<script type="text/javascript" src="../../views/js/cmpgestionarplan/cmpgestionarplan.js"></script>
+
+<script type="text/javascript" src="../../views/js/cmpcrudarc/cmpcrudarc.js"></script>
+<script type="text/javascript" src="../../views/js/cmpgestionararc/cmpgestionararc.js"></script>
+
+<script type="text/javascript" src="../../views/js/cmpcrudobjetivos/cmpcrudobjetivos.js"></script>
+<script type="text/javascript" src="../../views/js/cmpgestionarobjetivos/cmpgestionarobjetivos.js"></script>
+
+<script type="text/javascript" src="../../views/js/cmpcrudfip/cmpfechacontrol.js"></script>
+<script type="text/javascript" src="../../views/js/cmpcrudfip/cmpcrudfip.js"></script>
+<script type="text/javascript" src="../../views/js/cmpgestionarfip/cmpgestionarfip.js"></script>
+
+<script type="text/javascript" src="../../views/js/cmprelaciones/cmprelaciones.js"></script>
+<script type="text/javascript" src="../../views/js/cmpctrlreasignaciones/cmpctrlreasignaciones.js"></script><script type="text/javascript" src="../../views/js/cmpcrudactividades/cmpcrudactividades.js"></script>
+<script type="text/javascript" src="../../views/js/cmpgestionaractividades/cmpgestionaractividades.js"></script>
+-->
+
+<!--  JS de Ayuda-->
+<?php echo $this->jsayuda; ?>
+</body>
+
+</html>

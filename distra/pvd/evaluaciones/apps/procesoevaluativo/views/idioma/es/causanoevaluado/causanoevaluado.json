@@ -1,0 +1,39 @@
+{
+lbBtnAdicionarCausaNE:				 'Adicionar causa no evaluado <b>(Alt+I)</b>',
+lbBtnModificarCausaNE:				 'Modificar causa no evaluado <b>(Alt+M)</b>',
+lbBtnEliminar:				 		'Eliminar causa no evaluado <b>(DEL)</b>',
+
+lbBtnCancelar:				        'Cerrar ventana sin guardar los datos <b>(Alt+X)</b>',
+lbBtnAplicar:				        'Guardar datos y limpiar los campos <b>(Ctrl+Alt+P)</b>',
+lbBtnAceptar:				        'Guardar datos y cerrar ventana <b>(ENTER)</b>',
+
+lbMsgWait:                          'Por favor espere',
+lbMsgBarraCausaNE:				    'Guardando datos de la causa no evaluado',
+lbEnAccionCausaNE:                   'Eliminando datos de la causa no evaluado',
+
+lbAddSatisfactoriamenteCausaNE:       'La causa no evaluado ha sido adicionada satisfactoriamente.',
+lbModSatisfactoriamenteCausaNE:       'La causa no evaluado ha sido modificada satisfactoriamente.',
+lbAddsExisteCausaNE:                  'La causa no evaluado que quiere adicionar ya existe.',
+lbModExisteCausaNE:                   'La causa no evaluado ya existe.',
+lbDelCausaNE:						 '¿Está seguro que quiere eliminar la causa no evaluado seleccionada?',
+lbDelSatisfactoriamenteCausaNE:	     'La causa no evaluado ha sido eliminada satisfactoriamente.',
+lbDelEnUsoCausaNE:					 'La causa no evaluado seleccionado no se puede eliminar debido a que est&aacute; en uso.',
+
+btnAdicionar:					    'Ad<u>i</u>cionar',
+btnModificar:				        '<u>M</u>odificar',
+btnEliminar:		 		        'Eliminar',
+BtnAyuda:					        'Ayuda',
+BtnCancelar:				        'Cancelar',
+BtnAplicar:					        'Aplicar',
+BtnAceptar:					        'Aceptar',
+
+lbPagdinVacio:   				    'No hay elementos para mostrar',
+
+lbFechaMaxima:				       'La fecha de inicio tiene que ser anterior o igual a la fecha fin.',
+lbFechaMinima :				       'La fecha fin tiene que ser posterior o igual a la fecha de inicio.',
+lbDenominacion : 					'Denominaci&oacute;n',
+lbFechaInicio: 						'Fecha inicio',
+lbFechaFin : 						'Fecha fin',
+lbDescripcion :						'Descripci&oacute;n',
+TextBuscar:							'Criterio a buscar',
+}

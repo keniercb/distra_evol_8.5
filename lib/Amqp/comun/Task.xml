@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<tasks>
+    <notification_queue>
+        <worker class="QueueNotificationWorker" reference="herramientas/notificaciones" />
+    </notification_queue>
+    <notification>
+        <worker class="NotificationWorker" reference="herramientas/notificaciones" />
+    </notification>
+    <replicanotificaciones>
+        <worker class="ReplicaWorker" reference="herramientas/notificaciones" />
+    </replicanotificaciones>
+     <gestorncnotification>
+        <worker class="GestorncWorker" reference="herramientas/notificaciones" />
+    </gestorncnotification>
+    <estructura>
+        <worker class="EstructuraWorker" reference="metadatos" />
+    </estructura>
+    <supervision>
+        <worker class="SupervisorWorker" reference="herramientas/notificaciones" />
+    </supervision>
+    <trace>
+        <worker class="TraceWorker" reference="lib/ZendExt/Trace" />
+    </trace>    
+    <updateAcl>
+        <worker class="ZendExt_Session_Worker_UpdateAcl" reference="lib/ZendExt/Session/Worker" />
+    </updateAcl>
+    <facturacion>
+        <worker class="FacturacionWorker" reference="logistica/facturacion/facturacion" />
+    </facturacion>
+</tasks>

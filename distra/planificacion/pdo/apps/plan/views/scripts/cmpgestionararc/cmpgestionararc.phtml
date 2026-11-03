@@ -1,0 +1,87 @@
+﻿<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>Gestionar �reas de resultados claves</title>
+
+        <link id="TreeGridcss" rel="stylesheet" type="text/css" href="../../../comun/css/TreeGrid.css"/>
+        <link id="icons" rel="stylesheet" type="text/css" href="../../../comun/css/icons.css"/>
+        <link id="file-upload" rel="stylesheet" type="text/css" href="../../../comun/css/file-upload.css">
+        <link id="examplescss" rel="stylesheet" type="text/css" href="../../../comun/css/examples.css">
+    </head>
+
+    <body>
+    <!-- archivos que estaban en el head -->
+    <script id="imporcss" type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+    <script language="javascript" type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+
+    <script id="ext-base" type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+    <script id="ext-all" type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+    <script id="ucid-all" type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+    <script id="extensiones" type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/utiles/extensiones.js"></script>
+
+    <!-- FIn archivos que estaban en el head -->
+
+        <!--clases para los filtros por columna -->
+        <?php echo $this->usarGD; ?>
+
+        <script id="EditableItem" type="text/javascript" src="../../../comun/filtros/EditableItem.js"></script>
+
+        <script id="ComboItem" type="text/javascript" src="../../../comun/filtros/ComboItem.js"></script>
+        <script id="TextFieldItem" type="text/javascript" src="../../../comun/filtros/TextFieldItem.js"></script>
+        <script id="RangeMenu" type="text/javascript" src="../../../comun/filtros/RangeMenu.js"></script>
+        <script id="GridFilters" type="text/javascript" src="../../../comun/filtros/GridFilters.js"></script>
+        <script id="Filter" type="text/javascript" src="../../../comun/filtros/Filter.js"></script>
+        <script id="StringFilter" type="text/javascript" src="../../../comun/filtros/StringFilter.js"></script>
+        <script id="DateFilter" type="text/javascript" src="../../../comun/filtros/DateFilter.js"></script>
+        <script id="ListFilter" type="text/javascript" src="../../../comun/filtros/ListFilter.js"></script>
+        <script id="NumericFilter" type="text/javascript" src="../../../comun/filtros/NumericFilter.js"></script>
+        <script id="ListadoFilter" type="text/javascript" src="../../../comun/filtros/ListadoFilter.js"></script>
+        <script id="String_adaptadoFilter" type="text/javascript" src="../../../comun/filtros/String_adaptadoFilter.js"></script>
+
+        <script type="text/javascript" id="vtype" src="../../../comun/js/vtype.js"></script>
+        <script id="CmpBase" type="text/javascript" src="../../../comun/js/CmpBase.js"></script>
+        <script id="notificaciones" type="text/javascript" src="/planificacion/pdo/comun/js/notificaciones.js"></script>
+        <script id="CmpBarraProgreso" type="text/javascript" src="../../../comun/js/CmpBarraProgreso.js"></script>
+        <script id="RowExpander" type="text/javascript" src="../../../comun/js/RowExpander.js"></script>
+        <script id="TreeGridjs" type="text/javascript" src="../../../comun/js/TreeGrid.js"></script>
+        <!--<script type="text/javascript" src="../../../comun/js/FechaBase.js"></script>-->
+        <script id="CmpPaginadoTreegrid" type="text/javascript" src="../../../comun/js/CmpPaginadoTreegrid.js"></script>
+        <script id="CmpMenuRelacionesDinamicas" type="text/javascript" src="../../../comun/js/CmpMenuRelacionesDinamicas.js"></script>
+        <script id="FileUploadField" type="text/javascript" src="../../../comun/js/FileUploadField.js"></script>
+        <script id="examplesjs" type="text/javascript" src="../../../comun/js/examples.js"></script>
+
+        <script id="cmpclasificadorinvol" type="text/javascript" src="../../views/js/cmpclasificadorinvol/cmpclasificadorinvol.js"></script>
+        <script id="cmpgestordocumental" type="text/javascript" src="../../views/js/cmpgestordocumental/cmpgestordocumental.js"></script>
+        <script id="cmpgestionarobservaciones" type="text/javascript" src="../../views/js/cmpgestionarobservaciones/cmpgestionarobservaciones.js"></script>
+        <script id="cmphistorial" type="text/javascript" src="../../views/js/cmphistorial/cmphistorial.js"></script>
+
+    <script type="text/javascript" id="nodejs" src="/planificacion/pdo/comun/nodejs/assets/js/socket-io-client/socket.io.js"></script>
+
+        <script id="cmpconfigurarperfil" type="text/javascript" src="../../views/js/cmpconfigurarperfil/cmpconfigurarperfil.js"></script>
+        <script id="cmpcrudcargapordefect" type="text/javascript" src="../../views/js/cmpconfigurarperfil/cmpcrudcargapordefecto.js"></script>
+        <script id="cmpfondodetiempo" type="text/javascript" src="../../views/js/cmpfondodetiempo/cmpfondodetiempo.js"></script>
+        <script type="text/javascript" id="cmpgestionarplan" src="../../views/js/cmpgestionarplan/cmptraspasarplan.js"></script>
+        <script id="cmpcrudplan" type="text/javascript" src="../../views/js/cmpcrudplan/cmpcrudplan.js"></script>
+        <script id="cmpgestionarplan" type="text/javascript" src="../../views/js/cmpgestionarplan/cmpgestionarplan.js"></script>
+        <script id="cmpcrudactividades" type="text/javascript" src="../../views/js/cmpcrudactividades/cmpcrudactividades.js"></script>
+        <script type="text/javascript" id="cmpgestionaractividades" src="../../views/js/cmpgestionaractividades/cmpgestionaractividades.js"></script>
+        <script id="cmpcrudactividadrecurso" type="text/javascript" src="../../views/js/cmpcrudactividadrecurso/cmpcrudactividadrecurso.js"></script>
+
+        <script type="text/javascript" id="cmpgestionarobjetivos" src="../../views/js/cmpgestionarobjetivos/cmpgestionarindicadores.js"></script>
+        <script id="cmpcrudobjetivos" type="text/javascript" src="../../views/js/cmpcrudobjetivos/cmpcrudobjetivos.js"></script>
+        <script id="cmpnotificaciones" type="text/javascript" src="../../views/js/cmpnotificaciones/cmpnotificaciones.js"></script>
+        <script id="cmpexportarimportar" type="text/javascript" src="../../views/js/cmpexportarimportar/cmpexportarimportar.js"></script>
+        <script type="text/javascript" id="cmpreportes" src="../../views/js/cmpreportes/cmpreportes.js"></script>
+        <script type="text/javascript" id="go-debug" src="/planificacion/pdo/comun/pert/go-debug.js"></script>
+        <script type="text/javascript" id="cmpgestionarpert" src="../../views/js/cmppert/cmpgestionarpert.js"></script>
+        <script id="cmprelaciones" type="text/javascript" src="../../views/js/cmprelaciones/cmprelaciones.js"></script>
+        <script id="cmpctrlreasignaciones" type="text/javascript" src="../../views/js/cmpctrlreasignaciones/cmpctrlreasignaciones.js"></script>
+        <script id="cmpcrudarc" type="text/javascript" src="../../views/js/cmpcrudarc/cmpcrudarc.js"></script>
+        <script id="cmpgestionararc" type="text/javascript" src="../../views/js/cmpgestionararc/cmpgestionararc.js"></script>
+        <script id="initcmpgestionararc" type="text/javascript" src="../../views/js/cmpgestionararc/initcmpgestionararc.js"></script>
+
+        <?php echo $this->gestdoc; ?>
+        <script type="text/javascript" id="GridFilters" src="../../../comun/filtros/GridFilters.js"></script>
+    </body>
+
+</html>

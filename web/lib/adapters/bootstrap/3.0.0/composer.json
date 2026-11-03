@@ -1,0 +1,11 @@
+{
+    "base":[
+        "js/jquery.js",
+        "js/bootstrap.min.js",
+        "js/assets/application.js"
+    ],
+    "css":[
+        "css/bootstrap.min.css" ,
+        "css/docs.css"
+    ]
+}

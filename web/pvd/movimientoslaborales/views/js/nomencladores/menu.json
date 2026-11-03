@@ -1,0 +1,23 @@
+[{
+    "text": "Movimientos laborales",
+    "expanded": true,
+    "children": [
+        {"text": "Situaci&oacute;n laboral", "id": "situacion", "leaf": true, "checked": false, "iconCls": "brick"},
+        {"text": "Motivo de baja", "id": "motbaja", "leaf": true, "checked": false, "iconCls": "brick"},
+        {"text": "Motivo de movimiento", "id": "motmov", "leaf": true, "checked": false, "iconCls": "brick"},
+        {"text": "Tipo de contrato", "id": "tipocontrato", "leaf": true, "checked": false, "iconCls": "brick"},
+        {"text": "Suplementos", "id": "suplementos", "leaf": true, "checked": false, "iconCls": "brick"},
+        {"text": "Procedencia social", "id": "procedencia", "leaf": true, "checked": false, "iconCls": "brick"},
+        {"text": "Programa laboral", "id": "plaboral", "leaf": true, "checked": false, "iconCls": "brick"},
+        {"text": "Modalidad de empleo", "id":"mempleo", "leaf": true, "checked": false, "iconCls": "brick"}
+    ]
+}, {
+    "text": "Otras configuraciones",
+    "expanded": true,
+    "children":[{
+        "text": "Unidades empresariales de base (UEB)", "id": "configentidad", "leaf": true, "checked": false, "iconCls": "brick"},
+        {"text": "Complementos salariales", "id": "configcomplementos", "leaf": true, "checked": false, "iconCls": "brick"},
+        {"text": "Niveles de preparación", "id": "confignivelprep", "leaf": true, "checked": false, "iconCls": "brick"},
+        {"text": "Configurar motivos de baja", "id": "configmotbaja", "leaf": true, "checked": false, "iconCls": "brick"}
+    ]
+}]

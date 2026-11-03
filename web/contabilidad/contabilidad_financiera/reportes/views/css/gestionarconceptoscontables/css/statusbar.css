@@ -1,0 +1,11 @@
+
+#word-status .x-status-text {
+    color: #777;
+    text-align: right;
+}
+#word-status .x-status-text-panel .spacer {
+    width: 10px;
+    font-size:0;
+    /*line-height:0;*/
+    text-align: right;
+}

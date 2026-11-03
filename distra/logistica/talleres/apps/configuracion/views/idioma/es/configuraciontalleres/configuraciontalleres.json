@@ -1,0 +1,23 @@
+{
+    tlGestionPlanes: 'Gestionar planes de conteoo',
+    tlAdicionarPlan: 'Adicionar plan de conteo en Elaboraci\xf3n',
+    tlSubsistemas: 'Seleccionar subsistemas',
+    tlGridIzquierdo: 'Actividades',
+    tlGridDerecho: 'Actividades asociadas al \xe1rea',
+    lbMsgObjetoSalvado: 'Los datos han sido salvados satisfactoriamente.',
+    lbMsgNoExistenServicio: 'No existen servicios asociados al taller.',
+    lbMsgNoExisteRelacion: 'Debe relacionar algún servicio al área.',
+    lbComboArea: '\xC1rea del taller',
+    ttPasarTodos: 'Pasar todos ',
+    ttPasarSeleccion: 'Pasar de la selecci\xf3n ',
+    ttQuitarSeleccion: 'Quitar de la selecci\xf3n ',
+    ttBtnGuardar: 'Guardar datos de la configuraci\xf3n',
+    ttQuitarTodos: 'Quitar todos',
+    ttlBtnGuardar: 'Guardar datos de la configuraci\xf3n <b>(Alt+G)</b>',
+    cgDenominacion: 'Denominaci\xf3n',
+    msgCargandoDatosIniciales: 'Cargando datos iniciales',
+    msjLoadMask: 'Por favor espere...',
+    lbBoxContratoObligatorio: 'Contrato obligatorio',
+    lbOrdenproducto:'Forma de visualizaci\xf3n de los productos'
+}
+

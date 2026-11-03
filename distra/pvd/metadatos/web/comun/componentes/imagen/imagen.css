@@ -1,0 +1,39 @@
+.x-screenshotfield-bwrap {
+    position: relative;
+}
+
+.x-screenshotfield-wrap .x-screenshotfield {
+    border: none;
+}
+
+x-screenshotfield-bwrap .x-screenshotfield-wrap .x-screenshotfield-invalid {
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    background-image: image();
+    border-left-color: #dd7870;
+    border-right-color: #dd7870;
+    border-top-color: #dd7870;
+    border-bottom-color: #dd7870;
+
+    border-left-style: dashed;
+    border-right-style: dashed;
+    border-top-style: dashed;
+    border-bottom-style: dashed;
+}
+
+ux-icon-combo-input {
+    padding-left: 2px;
+}
+
+.x-form-field-wrap .ux-icon-combo-icon {
+    top: 3px;
+    left: 5px;
+}
+
+.ux-icon-combo-item {
+    background-repeat: no-repeat ! important;
+    background-position: 3px 50% ! important;
+    padding-left: 1px ! important;
+}

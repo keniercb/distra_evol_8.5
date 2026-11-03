@@ -1,0 +1,2450 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class SeguridadSoapService</title>
+
+	<script type="text/javascript" src="resources/combined.js?2576055052"></script>
+	<script type="text/javascript" src="elementlist.js?2855560422"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1683043718">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<i><span>Vistas</span></i>
+
+
+		<div id="groups">
+			<h3>Paquetes</h3>
+			<ul>
+				<li><a href="package-PHP.html">PHP</a>
+						</li>
+				<li class="active"><a href="package-Quarseg.html">Quarseg</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Clases</h3>
+			<ul>
+				<li><a href="class-SeguridadProxyService.html">SeguridadProxyService</a></li>
+				<li><a href="class-SeguridadServiceXml.html">SeguridadServiceXml</a></li>
+				<li class="active"><a href="class-SeguridadSoapService.html">SeguridadSoapService</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Buscar">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Vistas"><span>Vistas</span></a>
+			</li>
+			<li>
+				<a href="package-Quarseg.html" title="Resumen de Quarseg"><span>Paquete</span></a>
+			</li>
+			<li class="active">
+<span>Clases</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="&Aacute;rbol de clases, interfaces, abstracciones y exceptiones"><span>&Aacute;rbol</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class SeguridadSoapService</h1>
+
+
+	<div class="description">
+	
+<p>Interfaz o Proxy utilizado por Quarseg para brindar los servicios de
+autenticación, autorización, auditoria y administración de perfiles
+(SOAP).</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		
+		<b>Paquete:</b> <a href="package-Quarseg.html">Quarseg</a><br>
+
+				<b>Copyright:</b>
+				XETID.<br>
+				<b>Author:</b>
+				Equipo de desarrollo Zeolides.<br>
+				<b>Version:</b>
+				3.0-0<br>
+		<b>Direcci&oacute;n</b> <a href="source-class-SeguridadSoapService.html#3-2430" title="Ir al codigo">SeguridadSoapService.php</a><br>
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Resumen de m&eacute;todos</caption>
+	<tr data-order="init" id="_init">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_init">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#15-18" title="Ir al c&oacute;digo">init</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="authenticateUser" id="_authenticateUser">
+
+		<td class="attributes"><code>
+			 public 
+			STRING
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_authenticateUser">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#110-182" title="Ir al c&oacute;digo">authenticateUser</a>( <span>STRING <var>$user</var></span>, <span>STRING <var>$password</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Brinda el servicio de autenticación por usuario y contraseña</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Brinda el servicio de autenticación por usuario y contraseña</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$user</var></dt>
+					<dd><code>STRING</code><br>- Usuario que se esta autenticando</dd>
+					<dt><var>$password</var></dt>
+					<dd><code>STRING</code><br>- Clave de acceso del usuario</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="authenticateUserApi" id="_authenticateUserApi">
+
+		<td class="attributes"><code>
+			 public 
+			STRING
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_authenticateUserApi">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#184-259" title="Ir al c&oacute;digo">authenticateUserApi</a>( <span>STRING <var>$user</var></span>, <span>STRING <var>$password</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Brinda el servicio de autenticación por usuario y contraseña</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Brinda el servicio de autenticación por usuario y contraseña</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$user</var></dt>
+					<dd><code>STRING</code><br>- Usuario que se esta autenticando</dd>
+					<dt><var>$password</var></dt>
+					<dd><code>STRING</code><br>- Clave de acceso del usuario</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="obtenerArregloDeRecursos" id="_obtenerArregloDeRecursos">
+
+		<td class="attributes"><code>
+			 public 
+			INTEGER
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_obtenerArregloDeRecursos">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#473-502" title="Ir al c&oacute;digo">obtenerArregloDeRecursos</a>( <span>STRING <var>$certificado</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna un listado de recursos para el usuario autenticado.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna un listado de recursos para el usuario autenticado.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificado</var></dt>
+					<dd><code>STRING</code><br>- Certificado del usuario Autenticado.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>INTEGER</code><br>- Listado de recursos del usuario autenticado.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getUserAcl" id="_getUserAcl">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getUserAcl">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#503-533" title="Ir al c&oacute;digo">getUserAcl</a>( <span>INTEGER <var>$certificado</var></span>, <span>STRING <var>$identidad</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna la ACL del usuario autenticado.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna la ACL del usuario autenticado.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificado</var></dt>
+					<dd><code>INTEGER</code><br>- Certificado del usuario Autenticado.</dd>
+					<dt><var>$identidad</var></dt>
+					<dd><code>STRING</code><br>- Identificador de la estructura accedida.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- ACL del usuario autenticado.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="verifyAccessToResourse" id="_verifyAccessToResourse">
+
+		<td class="attributes"><code>
+			 public 
+			INTEGER
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_verifyAccessToResourse">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#535-566" title="Ir al c&oacute;digo">verifyAccessToResourse</a>( <span>INTEGER <var>$certificate</var></span>, <span>STRING <var>$resourse</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Verifica que un usuario tenga acceso al recurso solicitado.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Verifica que un usuario tenga acceso al recurso solicitado.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>INTEGER</code><br>- Certificado del usuario Autenticado.</dd>
+					<dt><var>$resourse</var></dt>
+					<dd><code>STRING</code><br>- Recurso.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>INTEGER</code><br>- Retorna 1 si tiene acceso 0 de lo contrario.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getProfile" id="_getProfile">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getProfile">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#629-701" title="Ir al c&oacute;digo">getProfile</a>( <span>STRING <var>$certificate</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Brinda el servicio de configuración del perfil del usuario autenticado</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Brinda el servicio de configuración del perfil del usuario autenticado</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Datos del perfil del usuario autenticado.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="loadDomain" id="_loadDomain">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_loadDomain">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#719-748" title="Ir al c&oacute;digo">loadDomain</a>( <span>STRING <var>$certificate</var></span>, <span>INTEGER <var>$idEstructura</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Obtener el dominio de entidades a la que el usuario tiene acceso</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Obtener el dominio de entidades a la que el usuario tiene acceso</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$idEstructura</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador de la estructura.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Entidades a las que el usuario tiene acceso.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getEntityByIdOrgano" id="_getEntityByIdOrgano">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getEntityByIdOrgano">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#750-776" title="Ir al c&oacute;digo">getEntityByIdOrgano</a>( <span>STRING <var>$certificate</var></span>, <span>INTEGER <var>$param</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Obtener las entidades formales a las que el usuario tiene acceso</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Obtener las entidades formales a las que el usuario tiene acceso</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$param</var></dt>
+					<dd><code>INTEGER</code><br>- Id del órgano.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Entidades formales a las que el usuario tiene acceso.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="ObtenerEstructurasNoFormales" id="_ObtenerEstructurasNoFormales">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_ObtenerEstructurasNoFormales">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#778-812" title="Ir al c&oacute;digo">ObtenerEstructurasNoFormales</a>( <span>STRING <var>$certificate</var></span>, <span>INTEGER <var>$idnomeav</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Obtener las estructuras a las que tiene acceso un usuario</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Obtener las estructuras a las que tiene acceso un usuario</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$idnomeav</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador de la estructura.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Estructuras a las que tiene acceso.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="ObtenerEstructurasFormales" id="_ObtenerEstructurasFormales">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_ObtenerEstructurasFormales">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#814-847" title="Ir al c&oacute;digo">ObtenerEstructurasFormales</a>( <span>STRING <var>$certificate</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Obtener las estructuras a las que tiene acceso un usuario</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Obtener las estructuras a las que tiene acceso un usuario</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Estructuras a las que tiene acceso<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="existSomeRol" id="_existSomeRol">
+
+		<td class="attributes"><code>
+			 public 
+			BOOLEAN
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_existSomeRol">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#866-879" title="Ir al c&oacute;digo">existSomeRol</a>( )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Función para saber si hay algún rol aparte del de instalación
+	creado.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Función para saber si hay algún rol aparte del de instalación
+	creado.</li>
+</ul>
+
+
+
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>BOOLEAN</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="existUserRol" id="_existUserRol">
+
+		<td class="attributes"><code>
+			 public 
+			BOOLEAN
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_existUserRol">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#881-893" title="Ir al c&oacute;digo">existUserRol</a>( )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Función para saber si existe algún usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Función para saber si existe algún usuario.</li>
+</ul>
+
+
+
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>BOOLEAN</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSystems" id="_getSystems">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSystems">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#895-932" title="Ir al c&oacute;digo">getSystems</a>( <span>STRING <var>$certificate</var></span>, <span>INTEGER <var>$identidad</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Brinda el servicio de listar todos los sistemas a los que tiene</li>
+</ul>
+
+<p>acceso un usuario en una entidad.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Brinda el servicio de listar todos los sistemas a los que tiene</li>
+</ul>
+
+<p>acceso un usuario en una entidad.</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$identidad</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador de la estructura.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="loadActions" id="_loadActions">
+
+		<td class="attributes"><code>
+			 public 
+			JSON
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_loadActions">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#934-970" title="Ir al c&oacute;digo">loadActions</a>( <span>STRING <var>$identidad</var></span>, <span>INTEGER <var>$idsistema</var></span>, <span>INTEGER <var>$idfuncionalidad</var></span>, <span>INTEGER <var>$certificado</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Servicio que le permite obtener las acciones de un usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Servicio que le permite obtener las acciones de un usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$identidad</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$idsistema</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador de la entidad.</dd>
+					<dt><var>$idfuncionalidad</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador del sistema.</dd>
+					<dt><var>$certificado</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador de la funcionalidad.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>JSON</code><br>| NULL - Las acciones del usuario autenticado.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSystemsFunctions" id="_getSystemsFunctions">
+
+		<td class="attributes"><code>
+			 public 
+			JSON
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSystemsFunctions">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#972-1046" title="Ir al c&oacute;digo">getSystemsFunctions</a>( <span>STRING <var>$certificate</var></span>, <span>INTEGER <var>$idsistema</var></span>, <span>INTEGER <var>$identidad</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Carga sistemas, subsistemas y funcionalidades.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Carga sistemas, subsistemas y funcionalidades.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$idsistema</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador del sistema.</dd>
+					<dt><var>$identidad</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador de la estructura.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>JSON</code><br>| NULL - Los subsistemas de un sistema o las funcionalidades de un subsistema.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSystemsDesktopModules" id="_getSystemsDesktopModules">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSystemsDesktopModules">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#1048-1084" title="Ir al c&oacute;digo">getSystemsDesktopModules</a>( <span>STRING <var>$certificate</var></span>, <span>INTEGER <var>$identidad</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Obtener los módulos para el portal tipo escritorio.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Obtener los módulos para el portal tipo escritorio.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$identidad</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador de la entidad a la que accedió el usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado de modulos.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSystemsFunctionsDesktopModules" id="_getSystemsFunctionsDesktopModules">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSystemsFunctionsDesktopModules">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#1086-1125" title="Ir al c&oacute;digo">getSystemsFunctionsDesktopModules</a>( <span>STRING <var>$certificate</var></span>, <span>INTEGER <var>$identidad</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Obtener los módulos para el portal tipo escritorio.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Obtener los módulos para el portal tipo escritorio.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$identidad</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador de la entidad a la que accedió el usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado de módulos.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="verifyAccessEntity" id="_verifyAccessEntity">
+
+		<td class="attributes"><code>
+			 public 
+			INTEGER
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_verifyAccessEntity">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#1262-1285" title="Ir al c&oacute;digo">verifyAccessEntity</a>( <span>STRING <var>$certificate</var></span>, <span>INTEGER <var>$identity</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Verifica si un usuario tiene acceso a una entidad.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Verifica si un usuario tiene acceso a una entidad.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$identity</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador de la entidad a la que accedió el usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>INTEGER</code><br>- entero.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="LoadXML" id="_LoadXML">
+
+		<td class="attributes"><code>
+			 public 
+			XML
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_LoadXML">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#1287-1325" title="Ir al c&oacute;digo">LoadXML</a>( <span>STRING <var>$certificate</var></span>, <span>INTEGER <var>$identity</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Obtiene un XML con la configuración para un usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Obtiene un XML con la configuración para un usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$identity</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador de la entidad a la que accedió el usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>XML</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="LoadXMLModule" id="_LoadXMLModule">
+
+		<td class="attributes"><code>
+			 public 
+			XML
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_LoadXMLModule">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#1327-1366" title="Ir al c&oacute;digo">LoadXMLModule</a>( <span>STRING <var>$certificate</var></span>, <span>STRING <var>$identity</var></span>, <span>INTEGER <var>$module</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Obtiene un XML con la configuración de un módulo dado para un
+	usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Obtiene un XML con la configuración de un módulo dado para un
+	usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$identity</var></dt>
+					<dd><code>STRING</code><br>- Módulo especificado.</dd>
+					<dt><var>$module</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador de la entidad a la que accedió el usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>XML</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getUsersProfile" id="_getUsersProfile">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getUsersProfile">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#1405-1438" title="Ir al c&oacute;digo">getUsersProfile</a>( <span>ARRAY <var>$arrayusers</var></span>, <span>STRING <var>$certificate</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Devuelve los datos del perfil de usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Devuelve los datos del perfil de usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$arrayusers</var></dt>
+					<dd><code>ARRAY</code><br>- Identificadores de los usuario.</dd>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado del usuario logeado.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getUsersEntity" id="_getUsersEntity">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getUsersEntity">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#1440-1474" title="Ir al c&oacute;digo">getUsersEntity</a>( <span>ARRAY <var>$array</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Devuelve la entidad, el área y el cargo de cada usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Devuelve la entidad, el área y el cargo de cada usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$array</var></dt>
+					<dd><code>ARRAY</code><br>- Identificadores de usuarios.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="loadUserActions" id="_loadUserActions">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_loadUserActions">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#1476-1508" title="Ir al c&oacute;digo">loadUserActions</a>( <span>STRING <var>$certificate</var></span>, <span>INTEGER <var>$idfuncionalidad</var></span>, <span>STRING <var>$entity</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Devuelve las acciones de un usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Devuelve las acciones de un usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado del usuario.</dd>
+					<dt><var>$idfuncionalidad</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador de la funcionalidad.</dd>
+					<dt><var>$entity</var></dt>
+					<dd><code>STRING</code><br>- Identificador de la entidad.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="LoadUserRoles" id="_LoadUserRoles">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_LoadUserRoles">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#1510-1533" title="Ir al c&oacute;digo">LoadUserRoles</a>( <span>STRING <var>$certificate</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Devuelve un listado con todos los roles de un usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Devuelve un listado con todos los roles de un usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado del usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="LoadUserRolByEntidad" id="_LoadUserRolByEntidad">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_LoadUserRolByEntidad">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#1535-1556" title="Ir al c&oacute;digo">LoadUserRolByEntidad</a>( <span>STRING <var>$certificate</var></span>, <span>INTEGER <var>$identidad</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Devuelve el rol de un usuario en una entidad.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Devuelve el rol de un usuario en una entidad.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado del usuario.</dd>
+					<dt><var>$identidad</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador de la entidad.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="ExistUserRoles" id="_ExistUserRoles">
+
+		<td class="attributes"><code>
+			 public 
+			INTEGER
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_ExistUserRoles">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#1558-1573" title="Ir al c&oacute;digo">ExistUserRoles</a>( <span>STRING <var>$entity</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Devuelve verdadero o falso si la entidad tiene roles o usuarios.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Devuelve verdadero o falso si la entidad tiene roles o usuarios.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$entity</var></dt>
+					<dd><code>STRING</code><br>- Entidad.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>INTEGER</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="ChangeState" id="_ChangeState">
+
+		<td class="attributes"><code>
+			 public 
+			INTEGER
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_ChangeState">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#1575-1600" title="Ir al c&oacute;digo">ChangeState</a>( <span>STRING <var>$idusuario</var></span>, <span>STRING <var>$opcion</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Devuelve verdadero si se ha cambiado el estado de un usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Devuelve verdadero si se ha cambiado el estado de un usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$idusuario</var></dt>
+					<dd><code>STRING</code><br>- Id de usuario.</dd>
+					<dt><var>$opcion</var></dt>
+					<dd><code>STRING</code><br>- Opción.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>INTEGER</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="ChangePassword" id="_ChangePassword">
+
+		<td class="attributes"><code>
+			 public 
+			INTEGER
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_ChangePassword">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#1602-1629" title="Ir al c&oacute;digo">ChangePassword</a>( <span>STRING <var>$usuario</var></span>, <span>STRING <var>$oldpass</var></span>, <span>STRING <var>$newpass</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Función para cambiar el contraseña a un usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Función para cambiar el contraseña a un usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$usuario</var></dt>
+					<dd><code>STRING</code><br>- Nombre de usuario.</dd>
+					<dt><var>$oldpass</var></dt>
+					<dd><code>STRING</code><br>- Contraseña vieja.</dd>
+					<dt><var>$newpass</var></dt>
+					<dd><code>STRING</code><br>- Nueva contraseña.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>INTEGER</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="rolAsUsersGain" id="_rolAsUsersGain">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_rolAsUsersGain">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#1734-1763" title="Ir al c&oacute;digo">rolAsUsersGain</a>( <span>INTEGER <var>$identidad</var></span>, <span>INTEGER <var>$idrol</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Servicio para obtener todos los usuarios de un rol en una entidad.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Servicio para obtener todos los usuarios de un rol en una entidad.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$identidad</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador de la entidad.</dd>
+					<dt><var>$idrol</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador del rol.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="verificateCertificate" id="_verificateCertificate">
+
+		<td class="attributes"><code>
+			 public 
+			INTEGER
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_verificateCertificate">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#1765-1780" title="Ir al c&oacute;digo">verificateCertificate</a>( <span>INTEGER <var>$certificate</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Servicio para saber si un certificado es válido.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Servicio para saber si un certificado es válido.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>INTEGER</code><br>- Certificado.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>INTEGER</code><br>- Uno si existe cero de lo contrario.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="actualizarGruposDPO" id="_actualizarGruposDPO">
+
+		<td class="attributes"><code>
+			 public 
+			BOOLEAN
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_actualizarGruposDPO">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#1823-1844" title="Ir al c&oacute;digo">actualizarGruposDPO</a>( <span>ARRAY <var>$usuarios</var></span>, <span>INTEGER <var>$idcargo</var></span>, <span>STRING <var>$accion</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Actualiza los grupos de planificación.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Actualiza los grupos de planificación.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$usuarios</var></dt>
+					<dd><code>ARRAY</code><br>- Listado de usuarios.</dd>
+					<dt><var>$idcargo</var></dt>
+					<dd><code>INTEGER</code><br>- Id del cargo del usuario.</dd>
+					<dt><var>$accion</var></dt>
+					<dd><code>STRING</code><br>- Acción.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>BOOLEAN</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="loadDomainPDO" id="_loadDomainPDO">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_loadDomainPDO">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#1846-1996" title="Ir al c&oacute;digo">loadDomainPDO</a>( <span>INTEGER <var>$certificado</var></span>, <span>INTEGER <var>$idEstructura</var></span>, <span>STRING <var>$tipo</var></span>, <span>INTEGER <var>$estaendominio</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Servicio para saber si un certificado es válido.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Servicio para saber si un certificado es válido.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificado</var></dt>
+					<dd><code>INTEGER</code><br>- Certificado.</dd>
+					<dt><var>$idEstructura</var></dt>
+					<dd><code>INTEGER</code><br>- Id de la estructura.</dd>
+					<dt><var>$tipo</var></dt>
+					<dd><code>STRING</code><br>- Tipo.</dd>
+					<dt><var>$estaendominio</var></dt>
+					<dd><code>INTEGER</code><br>- Estado.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getUsersDates" id="_getUsersDates">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getUsersDates">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#1998-2017" title="Ir al c&oacute;digo">getUsersDates</a>( <span>INTEGER <var>$idusuario</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Servicio que debuelve la entidad, el área y el cargo de un grupo</li>
+</ul>
+
+<p>de usuarios.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Servicio que debuelve la entidad, el área y el cargo de un grupo</li>
+</ul>
+
+<p>de usuarios.</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$idusuario</var></dt>
+					<dd><code>INTEGER</code><br>- Id del usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="nameUsersProfile" id="_nameUsersProfile">
+
+		<td class="attributes"><code>
+			 public 
+			STRING
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_nameUsersProfile">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#2019-2032" title="Ir al c&oacute;digo">nameUsersProfile</a>( <span>STRING <var>$user</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Devuelve el nombre del usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Devuelve el nombre del usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$user</var></dt>
+					<dd><code>STRING</code><br>- Identificador del usuarios.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>STRING</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="insertarUsuarioUCID" id="_insertarUsuarioUCID">
+
+		<td class="attributes"><code>
+			 public 
+			INTEGER
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_insertarUsuarioUCID">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#2034-2072" title="Ir al c&oacute;digo">insertarUsuarioUCID</a>( <span>STRING <var>$user</var></span>, <span>INTEGER <var>$numid</var></span>, <span>STRING <var>$nombre</var></span>, <span>STRING <var>$papell</var></span>, <span>STRING <var>$sapell</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Servicio que permite la inserción de un usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Servicio que permite la inserción de un usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$user</var></dt>
+					<dd><code>STRING</code><br>- Usuario.</dd>
+					<dt><var>$numid</var></dt>
+					<dd><code>INTEGER</code><br>- CI.</dd>
+					<dt><var>$nombre</var></dt>
+					<dd><code>STRING</code><br>- Nombre del usuario.</dd>
+					<dt><var>$papell</var></dt>
+					<dd><code>STRING</code><br>- Primer apellido.</dd>
+					<dt><var>$sapell</var></dt>
+					<dd><code>STRING</code><br>- Segundo apellido.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>INTEGER</code><br>- Identificador del usuario.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="obtenerIdUsuarioDadoNombre" id="_obtenerIdUsuarioDadoNombre">
+
+		<td class="attributes"><code>
+			 public 
+			INTEGER
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_obtenerIdUsuarioDadoNombre">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#2091-2103" title="Ir al c&oacute;digo">obtenerIdUsuarioDadoNombre</a>( <span>STRING <var>$nombreusuario</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Devuelve le identificador del usuario dado el nombre.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Devuelve le identificador del usuario dado el nombre.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$nombreusuario</var></dt>
+					<dd><code>STRING</code><br>- Usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>INTEGER</code><br>- Identificador del usuario.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getUserNames" id="_getUserNames">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getUserNames">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#2105-2122" title="Ir al c&oacute;digo">getUserNames</a>( <span>ARRAY <var>$arrayid</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Función para devolver los nombres de usuarios.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Función para devolver los nombres de usuarios.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$arrayid</var></dt>
+					<dd><code>ARRAY</code><br>- Nombre de usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="accessToFunctionality" id="_accessToFunctionality">
+
+		<td class="attributes"><code>
+			 public 
+			BOOLEAN
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_accessToFunctionality">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#2124-2145" title="Ir al c&oacute;digo">accessToFunctionality</a>( <span>STRING <var>$certificate</var></span>, <span>STRING <var>$url</var></span>, <span>INTEGER <var>$identity</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Devuelve si un usuario tiene acceso una funcionalidad.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Devuelve si un usuario tiene acceso una funcionalidad.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Token de seguridad.</dd>
+					<dt><var>$url</var></dt>
+					<dd><code>STRING</code><br>- Url.</dd>
+					<dt><var>$identity</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador de la entidad.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>BOOLEAN</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="accessToAction" id="_accessToAction">
+
+		<td class="attributes"><code>
+			 public 
+			BOOLEAN
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_accessToAction">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#2147-2174" title="Ir al c&oacute;digo">accessToAction</a>( <span>STRING <var>$certificate</var></span>, <span>STRING <var>$denominacion</var></span>, <span>INTEGER <var>$identity</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Devuelve si un usuario tiene acceso a una acción.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Devuelve si un usuario tiene acceso a una acción.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Token de seguridad.</dd>
+					<dt><var>$denominacion</var></dt>
+					<dd><code>STRING</code><br>- Denominación de la acción.</dd>
+					<dt><var>$identity</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador de la entidad.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>BOOLEAN</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="listadoUsuariosCompartimentados" id="_listadoUsuariosCompartimentados">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_listadoUsuariosCompartimentados">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#2176-2214" title="Ir al c&oacute;digo">listadoUsuariosCompartimentados</a>( <span>INTEGER <var>$iddominio</var></span>, <span>INTEGER <var>$idusuario</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna todos los usuarios que pueden ser manipulados por</li>
+</ul>
+
+<p>el usuario logeado.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna todos los usuarios que pueden ser manipulados por</li>
+</ul>
+
+<p>el usuario logeado.</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$iddominio</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador del dominio.</dd>
+					<dt><var>$idusuario</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador del usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="UsuariosCompartimentados" id="_UsuariosCompartimentados">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_UsuariosCompartimentados">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#2216-2257" title="Ir al c&oacute;digo">UsuariosCompartimentados</a>( <span>INTEGER <var>$iddominio</var></span>, <span>INTEGER <var>$idusuario</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna todos los metadatos de los usuarios que pueden ser manipulados
+		<p>por el usuario logeado.</p>
+	</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna todos los metadatos de los usuarios que pueden ser manipulados por
+	el usuario logeado.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$iddominio</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador del dominio del usuario logueado.</dd>
+					<dt><var>$idusuario</var></dt>
+					<dd><code>INTEGER</code><br>- Usuario logueado.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getUsersNameById" id="_getUsersNameById">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getUsersNameById">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#2295-2308" title="Ir al c&oacute;digo">getUsersNameById</a>( <span>ARRAY <var>$arrayId</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna un objeto con los datos del usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna un objeto con los datos del usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$arrayId</var></dt>
+					<dd><code>ARRAY</code><br>- Listado de identificadores de usuarios.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getIdPersonaByIdUsuario" id="_getIdPersonaByIdUsuario">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getIdPersonaByIdUsuario">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#2310-2323" title="Ir al c&oacute;digo">getIdPersonaByIdUsuario</a>( <span>INTEGER <var>$idusuario</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna un objeto con los datos del usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna un objeto con los datos del usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$idusuario</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador del usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getFunctionalitiesUser" id="_getFunctionalitiesUser">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getFunctionalitiesUser">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#2325-2350" title="Ir al c&oacute;digo">getFunctionalitiesUser</a>( <span>STRING <var>$certificate</var></span>, <span>INTEGER <var>$idusuario</var></span>, <span>INTEGER <var>$identidad</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Función que retorna un listado con las funcionalidades a las que tiene</li>
+</ul>
+
+<p>acceso el usuario logueado.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Función que retorna un listado con las funcionalidades a las que tiene</li>
+</ul>
+
+<p>acceso el usuario logueado.</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado del usuario usuario.</dd>
+					<dt><var>$idusuario</var></dt>
+					<dd><code>INTEGER</code><br>- Id del usuario logeado.</dd>
+					<dt><var>$identidad</var></dt>
+					<dd><code>INTEGER</code><br>- Id de estructura del usuario logeado.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSystemsFunctionsActions" id="_getSystemsFunctionsActions">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSystemsFunctionsActions">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#2352-2383" title="Ir al c&oacute;digo">getSystemsFunctionsActions</a>( <span>STRING <var>$certificate</var></span>, <span>INTEGER <var>$idsistema</var></span>, <span>INTEGER <var>$identidad</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Función que retorna un listado con los sistemas, funcionalidades y</li>
+</ul>
+
+<p>acciones a las que el usuario tiene acceso.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Función que retorna un listado con los sistemas, funcionalidades y</li>
+</ul>
+
+<p>acciones a las que el usuario tiene acceso.</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado del usuario usuario.</dd>
+					<dt><var>$idsistema</var></dt>
+					<dd><code>INTEGER</code><br>- Id del subsistema.</dd>
+					<dt><var>$identidad</var></dt>
+					<dd><code>INTEGER</code><br>- Id de estructura del usuario logeado.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getAllPersons" id="_getAllPersons">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getAllPersons">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#2395-2414" title="Ir al c&oacute;digo">getAllPersons</a>( <span>INTEGER <var>$limit</var></span>, <span>INTEGER <var>$start</var></span>, <span>STRING <var>$nombre</var></span>, <span>STRING <var>$papell</var></span>, <span>STRING <var>$sapell</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Función que retorna un listado con los datos de las personas.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Función que retorna un listado con los datos de las personas.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$limit</var></dt>
+					<dd><code>INTEGER</code><br>- Límite superior.</dd>
+					<dt><var>$start</var></dt>
+					<dd><code>INTEGER</code><br>- Límite inferior.</dd>
+					<dt><var>$nombre</var></dt>
+					<dd><code>STRING</code><br>- Nombre.</dd>
+					<dt><var>$papell</var></dt>
+					<dd><code>STRING</code><br>- Primer apellido.</dd>
+					<dt><var>$sapell</var></dt>
+					<dd><code>STRING</code><br>- Segundo apellido.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getAlfrescoUrlAPI" id="_getAlfrescoUrlAPI">
+
+		<td class="attributes"><code>
+			 public 
+			STRING
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getAlfrescoUrlAPI">#</a>
+		<code><a href="source-class-SeguridadSoapService.html#2415-2428" title="Ir al c&oacute;digo">getAlfrescoUrlAPI</a>( )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna una url de configuración.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna una url de configuración.</li>
+</ul>
+
+
+
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>STRING</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		<div class="information"> API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a></div>
+	</div>
+</div>
+</div>
+</body>
+</html>

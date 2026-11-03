@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exceptions>
+    <configuracion>
+        <nomencladores>
+                <GestindicadoresController>
+                    <modificarIndicadorAction>
+                        <exception type="Doctrine_Connection_Pgsql_Exception" code="CONFIND001" filter="Foreign key violation"/>
+                    </modificarIndicadorAction>
+                </GestindicadoresController>
+        </nomencladores>
+   </configuracion>
+</exceptions>

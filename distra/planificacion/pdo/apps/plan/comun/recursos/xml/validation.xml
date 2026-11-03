@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validador>
+      <aplicacion nombre="usuario">
+			<controlador nombre="gestionarmodulo">
+	            <accion nombre="insertarmodulo">
+	                <precondicion nombre="datosobligatorios">
+						<validador nombre="validarmodulo">
+						  	<clase nombre="ModuloValidator"></clase>
+						  	<metodo nombre="validarModulo"></metodo>
+						</validador>
+	          		</precondicion>
+		            <tipos>
+		            	<parametro nombre="idmodpadre">enterospos</parametro>
+						<parametro nombre="nombre">letras</parametro>
+						<parametro nombre="descripcion">letras</parametro>
+		            </tipos>
+	            </accion>
+	            <accion nombre="eliminarmodulo">
+		            <tipos>
+		            	<parametro nombre="idmodulo">enterospos</parametro>											
+		            </tipos>
+	            </accion>
+            </controlador>
+            <controlador nombre="gestusuario">
+            	<accion nombre="modificarusuario">
+            		<precondicion nombre="restricionusuario">
+	          			<validador nombre="verifcarexistenciausuario">
+	          				<clase nombre="UsuarioValidator"></clase>
+						  	<metodo nombre="validarExistenciaUsuario"></metodo>
+	          			</validador>
+	          		</precondicion>
+            		<precondicion nombre="restriccionclave">
+						<validador nombre="validarrepeticionclave">
+						  	<clase nombre="UsuarioValidator"></clase>
+						  	<metodo nombre="validarRepeticionClave"></metodo>
+						</validador>
+	          		</precondicion>
+	          	</accion>
+            </controlador>
+	  </aplicacion>
+</validador>

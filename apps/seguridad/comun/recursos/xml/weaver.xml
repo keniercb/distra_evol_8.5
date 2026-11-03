@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weaver>
+  <seguridad aspecttemplate="aspectemplate2">
+    <GestnomdominioController aspecttemplate="aspectemplate2">
+      <insertarnomdominioAction aspecttemplate="aspectemplate2"/>
+      <modificarnomdominioAction aspecttemplate="aspectemplate2"/>
+    </GestnomdominioController>
+    <ConfiguracionController aspecttemplate="aspectemplate2">
+      <modificarclaveAction aspecttemplate="aspectemplate2"/>
+    </ConfiguracionController>
+    <GestnomidiomaController aspecttemplate="aspectemplate2">
+      <insertarnomidiomaAction aspecttemplate="aspectemplate2"/>
+      <modificarnomidiomaAction aspecttemplate="aspectemplate2"/>
+    </GestnomidiomaController>
+    <GestnomtemaController aspecttemplate="aspectemplate2">
+      <insertartemaAction aspecttemplate="aspectemplate2"/>
+      <modificartemaAction aspecttemplate="aspectemplate2"/>
+    </GestnomtemaController>
+    <GestnomdesktopController aspecttemplate="aspectemplate2">
+      <insertarnomdesktopAction aspecttemplate="aspectemplate2"/>
+      <modificarnomdesktopAction aspecttemplate="aspectemplate2"/>
+    </GestnomdesktopController>
+    <GestexpresionesController aspecttemplate="aspectemplate2">
+      <insertarexpresionAction aspecttemplate="aspectemplate2"/>
+      <modificarexpresionAction aspecttemplate="aspectemplate2"/>
+    </GestexpresionesController>
+    <GestusuarioController aspecttemplate="aspectemplate2">
+      <modificarusuarioAction aspecttemplate="aspectemplate2"/>
+      <insertarusuarioAction aspecttemplate="aspectemplate2"/>
+      <guardarPerfilAction aspecttemplate="aspectemplate2"/>
+      <eliminarusuarioAction aspecttemplate="aspectemplate2"/>
+      <asignarrolesAction aspecttemplate="aspectemplate2"/>
+    </GestusuarioController>
+    <GestrolesbdController aspecttemplate="aspectemplate2">
+      <conectarseBDAction aspecttemplate="aspectemplate2"/>
+    </GestrolesbdController>
+    <GestrecursosController aspecttemplate="aspectemplate2">
+      <insertarRecursosAction aspecttemplate="aspectemplate2"/>
+      <modificarRecursosAction aspecttemplate="aspectemplate2"/>
+    </GestrecursosController>
+    <GestsistemaController aspecttemplate="aspectemplate2">
+      <insertarsistemaAction aspecttemplate="aspectemplate2"/>
+      <modificarsistemaAction aspecttemplate="aspectemplate2"/>
+      <eliminarsistemaAction aspecttemplate="aspectemplate2"/>
+    </GestsistemaController>
+    <GestfuncionalidadController aspecttemplate="aspectemplate2" >
+      <insertarfuncionalidadAction aspecttemplate="aspectemplate2"/>
+      <modificarfuncionalidadAction aspecttemplate="aspectemplate2"/>
+      <eliminarfuncionalidadAction aspecttemplate="aspectemplate2"/>
+    </GestfuncionalidadController>
+    <ConfigcontController aspecttemplate="aspectemplate2">
+      <modificarclaveAction aspecttemplate="aspectemplate2"/>
+    </ConfigcontController>
+    <GestaccionController aspecttemplate="aspectemplate2">
+      <adicionarAccioneExternaAction aspecttemplate="aspectemplate2"/>
+      <modificarAccioneExternaAction aspecttemplate="aspectemplate2"/>
+    </GestaccionController>
+    <GestrolController aspecttemplate="aspectemplate2">
+      <insertarAction aspecttemplate="aspectemplate2"/>
+      <modificarAction aspecttemplate="aspectemplate2"/>
+      <adicionaraccionAction aspecttemplate="aspectemplate2"/>
+      <eliminaraccionAction aspecttemplate="aspectemplate2"/>
+    </GestrolController>
+    <GestsistController aspecttemplate="aspectemplate2">
+      <insertarsistemaAction aspecttemplate="aspectemplate2"/>
+      <modificarsistemaAction aspecttemplate="aspectemplate2"/>
+      <eliminarsistemaAction aspecttemplate="aspectemplate2"/>
+      <insertarfuncionalidadAction aspecttemplate="aspectemplate2"/>
+      <modificarfuncionalidadAction aspecttemplate="aspectemplate2"/>
+      <eliminarfuncionalidadAction aspecttemplate="aspectemplate2"/>
+      <adicionarAccioneExternaAction aspecttemplate="aspectemplate2"/>
+      <modificarAccioneExternaAction aspecttemplate="aspectemplate2"/>
+      <insertarRecursosAction aspecttemplate="aspectemplate2"/>
+      <validarRecursoAction aspecttemplate="aspectemplate2"/>
+    </GestsistController>
+    <ConfigaccesosController aspecttemplate="aspectemplate2">
+      <configaccesosAction aspecttemplate="aspectemplate2"/>
+    </ConfigaccesosController>
+  </seguridad>
+</weaver>

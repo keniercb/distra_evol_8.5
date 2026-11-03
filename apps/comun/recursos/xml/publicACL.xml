@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ACL>
+    <recursos>
+	<Portal referencia = "/portal/"/>
+	<Portal referencia = "/portal/index.php/portal/getacercade"/>
+        <Portal referencia = "/portal/index.php/portal/getayuda"/>
+        <Portal referencia = "/portal/index.php/index/cargardominio"/>
+        <Portal referencia = "/portal/index.php/index/entraralsistema"/>
+        <Portal referencia = "/portal/index.php/index/obtenerModoInicio"/>
+        <Portal referencia = "/portal/index.php/portal/portal"/>
+	<Portal referencia = "/portal/index.php/portal/login"/>
+        <Portal referencia = "/portal/index.php/portal/cargarperfil"/>
+        <Portal referencia = "/portal/index.php/portal/cargarperfilAndBackground"/>
+        <Portal referencia = "/portal/index.php/portal/cargardatostabpanel"/>
+        <Portal referencia = "/portal/index.php/portal/cargardesktop"/>
+	<Portal referencia = "/portal/index.php/portal/cargarsistemas"/>
+	<Portal referencia = "/portal/index.php/portal/cargarmodfunc"/>
+	<Portal referencia = "/portal/index.php/portal/cargarfuncionalidades"/>
+        <Portal referencia = "/portal/index.php/portal/nuevopassword"/>
+	<Portal referencia = "/portal/index.php/index/nuevopassword"/>
+        <Portal referencia = "/portal/index.php/portal/cargardominio"/>
+        <Portal referencia = "/portal/index.php/portal/entraralsistema"/>
+        <Portal referencia = "/portal/index.php/portal/asociarcertificado"/>
+        <Portal referencia = "/portal/index.php/portal/closeportal"/>
+        <Portal referencia = "/portal/views/js/portal/jabber/resources/servers.xml"/>
+        <Portal referencia = "/portal/views/js/portal/jabber/resources/servers.xml"/>
+	<Portal referencia = "/portal/index.php/portal/cargarperfilJabber"/>
+	<Portal referencia = "/portal/index.php/portal/cargarfotoperfil"/>
+	<Portal referencia = "/portal/index.php/xmpp/attach"/>
+	
+	<Portal referencia = "/portal/index.php/apariencia/obtenerFuncionalidades"/>
+	<Portal referencia = "/portal/index.php/apariencia/guardarAccesoDirecto"/>
+	<Portal referencia = "/portal/index.php/apariencia/obtenerIconoFuncionalidad"/>
+	<Portal referencia = "/portal/index.php/apariencia/obtenerConfiguracion"/>
+	<Portal referencia = "/portal/index.php/apariencia/listadeImagenes"/>
+	<Portal referencia = "/portal/index.php/apariencia/listadeIconos"/>
+        <Portal referencia = "/portal/index.php/apariencia/listadeIconosMenu"/>
+        <Portal referencia = "/portal/index.php/apariencia/guardarIconoMenu"/>
+        <Portal referencia = "/portal/index.php/apariencia/subirImagen"/>
+    <Portal referencia = "/portal/index.php/apariencia/cambiarTema"/>
+    <Portal referencia = "/portal/index.php/apariencia/guardarFondo"/>
+	<Portal referencia = "/portal/index.php/apariencia/eliminarImagen"/>
+
+    <Portal referencia = "/portal/index.php/bandeja/bandeja"/>
+    <Portal referencia = "/portal/index.php/bandeja/getCantidadNotificacionesNoLeidas"/>
+    <Portal referencia = "/portal/index.php/bandeja/listarNotificaciones"/>
+    <Portal referencia = "/portal/index.php/bandeja/marcarLeido"/>
+    <Portal referencia = "/portal/index.php/bandeja/marcarNoLeido"/>
+    <Portal referencia = "/portal/index.php/bandeja/eliminarNotificaciones"/>
+    <Portal referencia = "/seguridad/index.php/configuracion/tieneModuloCein"/>
+    <SAML referencia = "/seguridad/index.php/identityprovider/sso"/>
+    <SAML referencia = "/seguridad/index.php/identityprovider/slo"/>
+    <SAML referencia = "/seguridad/index.php/identityprovider/login"/>
+    <SAML referencia = "/seguridad/index.php/identityprovider/authenticateAction"/>
+    <SAML referencia = "/seguridad/index.php/serviceprovider/index"/>
+    <SAML referencia = "/seguridad/index.php/serviceprovider/acs"/>
+    <SAML referencia = "/seguridad/index.php/serviceprovider/slo"/>
+    <SAML referencia = "/seguridad/index.php/serviceprovider/logout"/>
+    </recursos>
+    <string>
+        <cadena name = "\/ayuda\/" />
+        <cadena name = "\/helps\/" />
+        <cadena name = "\/cargarAccionesXUri"/>
+        <cadena name = "\/cargaraccionesbyid"/>
+	<cadena name = "\/printer.phtml"/>
+        <cadena name = "\/registropersonavn\/mostrarperfilseguridad" />
+    </string>
+</ACL>

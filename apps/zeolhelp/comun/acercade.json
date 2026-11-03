@@ -1,0 +1,9 @@
+{
+    "nombre": "Ayuda",
+    "version": "3.0",
+    "fecha": "13\/3\/15",
+    "autor": "Centro de Herramientas y Tecnologías de Desarrollo",
+    "dependencia": [""],
+    "descripcion": "Facilita el desarrollo y publicación de contenidos de ayuda. Permite la gestión de categorías, la edición de texto formateado y la inserción de imágenes.",
+    "logo": ""
+}

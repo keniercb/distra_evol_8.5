@@ -1,0 +1,2 @@
+ALTER TABLE mod_logpuntoventa.dat_areaventa ADD idnomoperaciondev numeric(19) NULL;
+COMMENT ON COLUMN mod_logpuntoventa.dat_areaventa.idnomoperaciones IS 'Operacion por la cual se van a contabilizar las devoluciones';

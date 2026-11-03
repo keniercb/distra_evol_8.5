@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ioc>
+    <!--Servicios del componente Seguridad -->
+    <seguridad src="seguridad">
+        <ValidarMeArgs reference="">
+            <inyector clase="SeguridadProxyService" metodo="validateME"/>
+            <prototipo>
+                <parametro nombre="arg1"/>
+                <resultado tipo="bool"/>
+            </prototipo>
+        </ValidarMeArgs>
+        <AutenticarUsuario reference="">
+            <inyector clase="SeguridadProxyService" metodo="authenticateUser"/>
+            <prototipo>
+                <parametro nombre="usuario"/>
+                <parametro nombre="password"/>
+                <resultado/>
+            </prototipo>
+        </AutenticarUsuario>
+        <AutenticarUsuarioApi reference="">
+            <inyector clase="SeguridadProxyService" metodo="authenticateUserApi"/>
+            <prototipo>
+                <parametro nombre="usuario"/>
+                <parametro nombre="password"/>
+                <resultado/>
+            </prototipo>
+        </AutenticarUsuarioApi>
+        <verifyCertificate reference="">
+            <inyector clase="SeguridadProxyService" metodo="verifyCertificate"/>
+            <prototipo>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <parametro nombre="usuario"/>
+                <resultado tipo="enterospos"/>
+            </prototipo>
+        </verifyCertificate>
+        <obtenerDatosServidor reference="">
+            <inyector clase="SeguridadProxyService" metodo="obtenerDatosServidor"/>
+            <prototipo>
+                <parametro nombre="denominacion" tipo="numerosletras"/>
+                <resultado/>
+            </prototipo>
+        </obtenerDatosServidor>
+        <getUserList reference="">
+            <inyector clase="SeguridadProxyService" metodo="getUserList"/>
+            <prototipo>
+                <parametro nombre="limit" tipo="enterospos"/>
+                <parametro nombre="start" tipo="enterospos"/>
+                <parametro nombre="nombreusuario"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getUserList>
+        <getRoleList reference="">
+            <inyector clase="SeguridadProxyService" metodo="getRoleList"/>
+            <prototipo>
+                <parametro nombre="limit" tipo="enterospos"/>
+                <parametro nombre="start" tipo="enterospos"/>
+                <parametro nombre="nombreRol"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getRoleList>
+        <getUserListWithRole reference="">
+            <inyector clase="SeguridadProxyService" metodo="getUserListWithRole"/>
+            <prototipo>
+                <parametro nombre="idrol" tipo="enterospos"/>
+                <parametro nombre="limit" tipo="enterospos"/>
+                <parametro nombre="start" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getUserListWithRole>
+        <getUserAcl reference="">
+            <inyector clase="SeguridadProxyService" metodo="getUserAcl"/>
+            <prototipo>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <parametro nombre="identidad" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getUserAcl>
+        <getUserAclByRol reference="">
+            <inyector clase="SeguridadProxyService" metodo="getUserAclByRol"/>
+            <prototipo>
+                <parametro nombre="idrol" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getUserAclByRol>
+        <getIdPersona reference="">
+            <inyector clase="SeguridadProxyService" metodo="getIdPersona"/>
+            <prototipo>
+                <parametro nombre="userName" tipo="numerosletras"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getIdPersona>
+        <getArrayIdPersonaByArrayUsers reference="">
+            <inyector clase="SeguridadProxyService" metodo="getArrayIdPersonaByArrayUsers"/>
+            <prototipo>
+                <parametro nombre="arrayUsers" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getArrayIdPersonaByArrayUsers>
+        <getArrayIdPersonaByUsersName reference="">
+            <inyector clase="SeguridadProxyService" metodo="getArrayIdPersonaByUsersName"/>
+            <prototipo>
+                <parametro nombre="arrayUsers" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getArrayIdPersonaByUsersName>
+        <ObtenerUsuariosPersona reference="">
+            <inyector clase="SeguridadProxyService" metodo="ObtenerUsuariosPersona"/>
+            <prototipo>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <parametro nombre="idusuario" tipo="enterospos"/>
+                <parametro nombre="iddominio" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerUsuariosPersona>
+        <existeUsuarioRol reference="">
+            <inyector clase="SeguridadProxyService" metodo="existUserRol"/>
+            <prototipo>
+                <resultado tipo="bool"/>
+            </prototipo>
+        </existeUsuarioRol>
+        <getFunctionalitiesUser reference="">
+            <inyector clase="SeguridadProxyService" metodo="getFunctionalitiesUser"/>
+            <prototipo>
+                <parametro nombre="certificate" tipo="numerosletras"/>
+                <parametro nombre="idusuario" tipo="numerosletras"/>
+                <parametro nombre="identidad" tipo="numerosletras"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getFunctionalitiesUser>
+        <getIdPersonaByIdUsuario reference="">
+            <inyector clase="SeguridadProxyService" metodo="getIdPersonaByIdUsuario"/>
+            <prototipo>
+                <parametro nombre="idusuario" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getIdPersonaByIdUsuario>
+        <listadoUsuariosCompartimentados
+                reference="">
+            <inyector clase="SeguridadProxyService" metodo="listadoUsuariosCompartimentados"/>
+            <prototipo>
+                <parametro nombre="iddominio" tipo="enterospos"/>
+                <parametro nombre="idusuario" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </listadoUsuariosCompartimentados>
+        <LoadUserRolByEntidad reference="">
+            <inyector clase="SeguridadProxyService" metodo="LoadUserRolByEntidad"/>
+            <prototipo>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <parametro nombre="idestructuracomun" tipo="numerosletras"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </LoadUserRolByEntidad>
+        <dominoHastaUsuario reference="">
+            <inyector clase="SeguridadProxyService" metodo="loadDomainPDO"/>
+            <prototipo>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <parametro nombre="idestructuracomun" tipo="numerosletras"/>
+                <parametro nombre="tipo"/>
+                <parametro nombre="estaendominio" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </dominoHastaUsuario>
+        <nombreUsuario reference="">
+            <inyector clase="SeguridadProxyService" metodo="nameUsersProfile"/>
+            <prototipo>
+                <parametro nombre="idusuario" tipo="enteropos"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </nombreUsuario>
+        <datosEntAreaCargoUsuario reference="">
+            <inyector clase="SeguridadProxyService" metodo="getUsersDates"/>
+            <prototipo>
+                <parametro nombre="idusuario" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </datosEntAreaCargoUsuario>
+        <DominioModificado reference="">
+            <inyector clase="SeguridadProxyService" metodo="modificateDomain"/>
+            <prototipo>
+                <resultado tipo="bool"/>
+            </prototipo>
+        </DominioModificado>
+        <existeMasUnRol reference="">
+            <inyector clase="SeguridadProxyService" metodo="existSomeRol"/>
+            <prototipo>
+                <resultado tipo="bool"/>
+            </prototipo>
+        </existeMasUnRol>
+        <ObtenerEstructurasNoFormales>
+            <inyector clase="SeguridadProxyService" metodo="ObtenerEstructurasNoFormales"/>
+            <prototipo>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <parametro nombre="idnomeav" tipo="numerosletras" default='0'/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerEstructurasNoFormales>
+        <ObtenerEstructurasFormales>
+            <inyector clase="SeguridadProxyService" metodo="ObtenerEstructurasFormales"/>
+            <prototipo>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerEstructurasFormales>
+        <CargarPerfil reference="">
+            <inyector clase="SeguridadProxyService" metodo="getProfile"/>
+            <prototipo>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </CargarPerfil>
+        <ObtenerSistemas reference="">
+            <inyector clase="SeguridadProxyService" metodo="getSystems"/>
+            <prototipo>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <parametro nombre="idestructuracomun" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerSistemas>
+        <ObtenerSistemasDesktopModulos reference="">
+            <inyector clase="SeguridadProxyService" metodo="getSystemsDesktopModules"/>
+            <prototipo>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <parametro nombre="idestructuracomun" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerSistemasDesktopModulos>
+        <ObtenerModulosFuncionalidades reference="">
+            <inyector clase="SeguridadProxyService" metodo="getSystemsFunctions"/>
+            <prototipo>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <parametro nombre="id" tipo="numerosguionbajo"/>
+                <parametro nombre="idestructuracomun" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerModulosFuncionalidades>
+        <ObtenerSistemaFuncionalidades reference="">
+            <inyector clase="SeguridadProxyService" metodo="getAllSystemFunctionalities"/>
+            <prototipo>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <parametro nombre="id" tipo="numerosguionbajo"/>
+                <parametro nombre="idestructuracomun" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerSistemaFuncionalidades>
+        <ObtenerIdSistema reference="">
+            <inyector clase="SeguridadProxyService" metodo="getIdSystemBydenominacion"/>
+            <prototipo>
+                <parametro nombre="denominacion" tipo="numerosletras"/>
+                <resultado tipo="enteropos"/>
+            </prototipo>
+        </ObtenerIdSistema>
+        <ObtenerSistemasFuncionalidadesDesktopModulos reference="">
+            <inyector clase="SeguridadProxyService" metodo="getSystemsFunctionsDesktopModules"/>
+            <prototipo>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <parametro nombre="idestructuracomun" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerSistemasFuncionalidadesDesktopModulos>
+        <CargarDominio reference="">
+            <inyector clase="SeguridadProxyService" metodo="loadDomain"/>
+            <prototipo>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </CargarDominio>
+        <obtenerNombresUsuarios reference="">
+            <inyector clase="SeguridadProxyService" metodo="getUserNames"/>
+            <prototipo>
+                <parametro nombre="idusuarios" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerNombresUsuarios>
+        <ObtenerEstructurasPorIdOrgano reference="">
+            <inyector clase="SeguridadProxyService" metodo="getEntityByIdOrgano"/>
+            <prototipo>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <parametro nombre="valor" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerEstructurasPorIdOrgano>
+        <ObtenerUsuariosRolEntidad reference="">
+            <inyector clase="SeguridadProxyService" metodo="rolAsUsersGain"/>
+            <prototipo>
+                <parametro nombre="identidad" tipo="enteropos"/>
+                <parametro nombre="idrol" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerUsuariosRolEntidad>
+        <VerificarAccesoEntidad reference="">
+            <inyector clase="SeguridadProxyService" metodo="verifyAccessEntity"/>
+            <prototipo>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <parametro nombre="idestructuracomun" tipo="enteropos"/>
+                <resultado tipo="enteropos"/>
+            </prototipo>
+        </VerificarAccesoEntidad>
+        <VerificarAccesoEntidadRol reference="">
+            <inyector clase="SeguridadProxyService" metodo="verificarAccesoEntidadRol"/>
+            <prototipo>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <parametro nombre="idestructuracomun" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </VerificarAccesoEntidadRol>
+        <ObtenerAcciones reference="">
+            <inyector clase="SeguridadProxyService" metodo="loadUserActions"/>
+            <prototipo>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <parametro nombre="idfuncionalidad" tipo="enteropos"/>
+                <parametro nombre="idestructuracomun" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerAcciones>
+        <obtenerDatosFuncionalidades reference="">
+            <inyector clase="SeguridadProxyService" metodo="obtenerDatosFuncionalidades"/>
+            <prototipo>
+                <parametro nombre="arrayidfuncionalidades" tipo="array"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </obtenerDatosFuncionalidades>
+        <ObtenerAccionesbyID reference="">
+            <inyector clase="SeguridadProxyService" metodo="loadUserActionsByID"/>
+            <prototipo>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <parametro nombre="idfuncionalidad" tipo="enteropos"/>
+                <parametro nombre="idestructuracomun" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </ObtenerAccionesbyID>
+        <cargarAccionesXUri reference="">
+            <inyector clase="SeguridadProxyService" metodo="cargarAccionesXUri"/>
+            <prototipo>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <parametro nombre="uri"/>
+                <parametro nombre="idestructuracomun" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </cargarAccionesXUri>
+        <getUsersProfile reference="">
+            <inyector clase="SeguridadProxyService" metodo="getUsersProfile"/>
+            <prototipo>
+                <parametro nombre="idusuario" tipo="array"/>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getUsersProfile>
+        <CambiarContrasenna reference="">
+            <inyector clase="SeguridadProxyService" metodo="ChangePassword"/>
+            <prototipo>
+                <parametro nombre="usuario" tipo="numerosletras"/>
+                <parametro nombre="oldpass"/>
+                <parametro nombre="newpass"/>
+                <resultado tipo="enteropos"/>
+            </prototipo>
+        </CambiarContrasenna>
+        <VerificarAccesoFuncionalidad reference="">
+            <inyector clase="SeguridadProxyService" metodo="accessToFunctionality"/>
+            <prototipo>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <parametro nombre="url" tipo="funcionalidad"/>
+                <parametro nombre="idestructuracomun" tipo="enteropos"/>
+                <resultado tipo="enteropos"/>
+            </prototipo>
+        </VerificarAccesoFuncionalidad>
+        <insertarUsuarioUCID>
+            <inyector clase="SeguridadProxyService" metodo="insertarUsuarioUCID"/>
+            <prototipo>
+                <parametro nombre="usuario"/>
+                <parametro nombre="numid" tipo="enteropos"/>
+                <parametro nombre="nombre" tipo="numerosletras"/>
+                <parametro nombre="papell" tipo="numerosletras"/>
+                <parametro nombre="sapell" tipo="numerosletras"/>
+                <resultado tipo="enteropos"/>
+            </prototipo>
+        </insertarUsuarioUCID>
+        <obtenerIdUsuarioDadoNombre>
+            <inyector clase="SeguridadProxyService" metodo="obtenerIdUsuarioDadoNombre"/>
+            <prototipo>
+                <parametro nombre="usuario"/>
+                <resultado tipo="enteropos"/>
+            </prototipo>
+        </obtenerIdUsuarioDadoNombre>
+        <getUsersNameById reference="">
+            <inyector clase="SeguridadProxyService" metodo="getUsersNameById"/>
+            <prototipo>
+                <parametro nombre="arrayId" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getUsersNameById>
+        <getRoleNameById reference="">
+            <inyector clase="SeguridadProxyService" metodo="getRoleNameById"/>
+            <prototipo>
+                <parametro nombre="arrayId" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getRoleNameById>
+        <cantidadRoles reference="">
+            <inyector clase="SeguridadProxyService" metodo="cantidadRoles"/>
+            <prototipo>
+                <resultado tipo="enteropos"/>
+            </prototipo>
+        </cantidadRoles>
+        <obtenerTodosUsuarios>
+            <inyector clase="SeguridadProxyService" metodo="allUser"/>
+            <prototipo>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerTodosUsuarios>
+        <cantidadUsuarios reference="">
+            <inyector clase="SeguridadProxyService" metodo="cantidadUsuarios"/>
+            <prototipo>
+                <resultado tipo="enteropos"/>
+            </prototipo>
+        </cantidadUsuarios>
+        <ChangeState reference="">
+            <inyector clase="SeguridadProxyService" metodo="ChangeState"/>
+            <prototipo>
+                <parametro nombre="idusuario" tipo="enteropos"/>
+                <parametro nombre="opcion" tipo="numerosletras"/>
+                <resultado tipo="enteropos"/>
+            </prototipo>
+        </ChangeState>
+        <cantobtenertodoslosusuarios reference="">
+            <inyector clase="SeguridadProxyService" metodo="getcanttodosLosUsuarios"/>
+            <prototipo>
+                <resultado tipo="enteropos"/>
+            </prototipo>
+        </cantobtenertodoslosusuarios>
+        <obtenertodoslosusuarios reference="">
+            <inyector clase="SeguridadProxyService" metodo="gettodosLosUsuarios"/>
+            <prototipo>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenertodoslosusuarios>
+        <getAllUsers reference="">
+            <inyector clase="SeguridadProxyService" metodo="getallUsers"/>
+            <prototipo>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getAllUsers>
+        <getUsersInformationByArrayIdPersona
+                reference="">
+            <inyector clase="SeguridadProxyService" metodo="getUsersInformationByArrayIdPersona"/>
+            <prototipo>
+                <parametro nombre="arrayIdPersonas" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getUsersInformationByArrayIdPersona>
+        <getUsersPersonInformation reference="">
+            <inyector clase="SeguridadProxyService" metodo="getUsersPersonInformation"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getUsersPersonInformation>
+        <LoadUserRoles reference="">
+            <inyector clase="SeguridadProxyService" metodo="LoadUserRoles"/>
+            <prototipo>
+                <parametro nombre="certificado" tipo="numerosletras"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </LoadUserRoles>
+        <getIdsEntityByRole reference="">
+            <inyector clase="SeguridadProxyService" metodo="getIdsEntityByRole"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getIdsEntityByRole>
+        <obtenerListadoRolesCompartimentados reference="">
+            <inyector clase="SeguridadProxyService" metodo="obtenerListadoRolesCompartimentados"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerListadoRolesCompartimentados>
+        <obtenerListadoIdEstructura>
+            <inyector clase="SeguridadProxyService" metodo="obtenerListadoIdEstructura"/>
+            <prototipo>
+                <parametro nombre="identidad" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerListadoIdEstructura>
+        <exportarXML reference="">
+            <inyector clase="SeguridadProxyService" metodo="exportarXML"/>
+            <prototipo>
+                <parametro nombre="arrayValores" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </exportarXML>
+        <importarXMLSistema>
+            <inyector clase="SeguridadProxyService" metodo="importarXMLSistema"/>
+            <prototipo>
+                <parametro nombre="xmlSistema" tipo="SimpleXMLElement"/>
+                <resultado tipo="enteropos"/>
+            </prototipo>
+        </importarXMLSistema>
+        <eliminarSistema>
+            <inyector clase="SeguridadProxyService" metodo="eliminarSistema"/>
+            <prototipo>
+                <parametro nombre="idSistema" tipo="numeros"/>
+            </prototipo>
+        </eliminarSistema>
+        <getTodosRoles reference="">
+            <inyector clase="SeguridadProxyService" metodo="gettodosLosRoles"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getTodosRoles>
+        <getRolesbyUser reference="">
+            <inyector clase="SeguridadProxyService" metodo="getRolesporUsuario"/>
+            <prototipo>
+                <parametro nombre="idusuario" tipo="numeros"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getRolesbyUser>
+        <getIdsEntityByUser reference="">
+            <inyector clase="SeguridadProxyService" metodo="getIdsEntityByUser"/>
+            <prototipo>
+                <parametro nombre="idusuario" tipo="numeros"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getIdsEntityByUser>
+        <!-- Servicio Para el xml subsistemas. -->
+        <obtenerDatosSubsistemas>
+            <inyector clase="SeguridadServiceXml" metodo="getDateSubsystem"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerDatosSubsistemas>
+
+        <obtenerSubsistemaUri>
+            <inyector clase="SeguridadServiceXml" metodo="getSubsystemByUri"/>
+            <prototipo>
+                <parametro nombre="uri" tipo="string"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </obtenerSubsistemaUri>
+        <publicarSubsistemasXml>
+            <inyector clase="SeguridadServiceXml" metodo="writeSusbsystemSubsistemasXml"/>
+            <prototipo>
+                <parametro nombre="identificador" tipo="enteropos"/>
+                <parametro nombre="nombre" tipo="string"/>
+                <parametro nombre="uri" tipo="string"/>
+                <parametro nombre="denominacion" tipo="string"/>
+                <resultado tipo="bool"/>
+            </prototipo>
+        </publicarSubsistemasXml>
+        <eliminarSubsistemasXml>
+            <inyector clase="SeguridadServiceXml" metodo="removingSusbsystemSubsistemasXml"/>
+            <prototipo>
+                <parametro nombre="identificador" tipo="enteropos"/>
+                <resultado tipo="bool"/>
+            </prototipo>
+        </eliminarSubsistemasXml>
+        <getUriSubsystemById>
+            <inyector clase="SeguridadServiceXml" metodo="getUriSubsystemById"/>
+            <prototipo>
+                <parametro nombre="identificador" tipo="enteropos"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getUriSubsystemById>
+        <modificarSubsistema>
+            <inyector clase="SeguridadServiceXml" metodo="modificarSubsistema"/>
+            <prototipo>
+                <parametro nombre="identificador" tipo="enteropos"/>
+                <parametro nombre="nombre" tipo="string"/>
+                <parametro nombre="uri" tipo="string"/>
+                <parametro nombre="denominacion" tipo="string"/>
+                <resultado tipo="bool"/>
+            </prototipo>
+        </modificarSubsistema>
+        <existsubsistama>
+            <inyector clase="SeguridadServiceXml" metodo="existsubsistama"/>
+            <prototipo>
+                <parametro nombre="nombre" tipo="string"/>
+                <resultado tipo="bool"/>
+            </prototipo>
+        </existsubsistama>
+        <!-- FIN Servicio Para el xml subsistemas.  FIN -->
+        <getMenuFuncionalidad reference="">
+            <inyector clase="SeguridadProxyService" metodo="getMenuFuncionalidad"/>
+            <prototipo>
+                <parametro nombre="referencia" tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getMenuFuncionalidad>
+        <safeIconMenu reference="">
+            <inyector clase="SeguridadProxyService" metodo="safeIconMenu"/>
+            <prototipo>
+                <parametro nombre="objeto"/>
+                <parametro nombre="icono"/>
+                <parametro nombre="identificador"/>
+                <resultado/>
+            </prototipo>
+        </safeIconMenu>
+        <usersByFuncionality>
+            <inyector clase="SeguridadProxyService" metodo="usersByFuncionality"/>
+            <prototipo>
+                <parametro nombre="arrayiddominio" tipo="array"/>
+                <parametro nombre="referencia"/>
+                <parametro nombre="recurso"/>
+                <parametro nombre="excluir" tipo="array"/>
+                <parametro nombre="limit" tipo="enteropos"/>
+                <parametro nombre="start" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </usersByFuncionality>
+        <totalUsersByFuncionality>
+            <inyector clase="SeguridadProxyService" metodo="totalUsersByFuncionality"/>
+            <prototipo>
+                <parametro nombre="arrayiddominio" tipo="array"/>
+                <parametro nombre="referencia"/>
+                <parametro nombre="recurso"/>
+                <parametro nombre="excluir" tipo="array"/>
+                <resultado tipo="enteropos"/>
+            </prototipo>
+        </totalUsersByFuncionality>
+        <obtenerFuncionalidadesNoVisibles>
+            <inyector clase="SeguridadProxyService" metodo="obtenerFuncionalidadesNoVisibles"/>
+            <prototipo>
+                <parametro nombre="referencia"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerFuncionalidadesNoVisibles>
+
+        <obtenerAccionesConPermisosByIdsistema reference="">
+            <inyector clase="SeguridadProxyService" metodo="obtenerAccionesConPermisosByIdsistema"/>
+            <prototipo>
+                <parametro nombre="$idsistema" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerAccionesConPermisosByIdsistema>
+
+        <obtenerRecursosConPermisosByIdfuncionalidad reference="">
+            <inyector clase="SeguridadProxyService" metodo="obtenerRecursosConPermisosByIdfuncionalidad"/>
+            <prototipo>
+                <parametro nombre="$idfuncionalidad" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerRecursosConPermisosByIdfuncionalidad>
+        <obtenerRecursosConPermisos reference="">
+            <inyector clase="SeguridadProxyService" metodo="obtenerRecursosConPermisos"/>
+            <prototipo>
+                <parametro nombre="$idfuncionalidad" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerRecursosConPermisos>
+        <getFuncIcon reference="">
+            <inyector clase="SeguridadProxyService" metodo="getFuncIcon"/>
+            <prototipo>
+                <parametro nombre="$idfuncionalidad" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getFuncIcon>
+
+        <AutenticarUsuarioCertificado reference="">
+            <inyector clase="SeguridadProxyService" metodo="AutenticarUsuarioCertificado"/>
+            <prototipo>
+                <parametro nombre="usuario"/>
+                <parametro nombre="password"/>
+                <resultado/>
+            </prototipo>
+        </AutenticarUsuarioCertificado>
+        <AsociarUsuarioCertificado reference="">
+            <inyector clase="SeguridadProxyService" metodo="AsociarUsuarioCertificado"/>
+            <prototipo>
+                <parametro nombre="ski"/>
+                <parametro nombre="idusuario"/>
+                <resultado/>
+            </prototipo>
+        </AsociarUsuarioCertificado>
+        <obtenerUsuariosXIdEstructura>
+            <inyector clase="SeguridadProxyService" metodo="obtenerUsuariosXIdEstructura"/>
+            <prototipo>
+                <parametro nombre="idestructura" tipo="enteropos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerUsuariosXIdEstructura>
+        <ejecutarAccionesAnteViolacionIntegridadFichero>
+            <inyector clase="SeguridadProxyService" metodo="ejecutarAccionesAnteViolacionIntegridadFichero" />
+            <prototipo>
+                <parametro />
+                <resultado />
+            </prototipo>
+        </ejecutarAccionesAnteViolacionIntegridadFichero>
+
+        <ejecutarComprobacionAutomaticaIntegridadFichero>
+            <inyector clase="SeguridadProxyService" metodo="ejecutarComprobacionAutomaticaIntegridadFichero" />
+            <prototipo>
+                <parametro />
+                <resultado />
+            </prototipo>
+        </ejecutarComprobacionAutomaticaIntegridadFichero>
+        <listarnomunidadorganizativa>
+            <inyector clase="SeguridadProxyService" metodo="listarnomunidadorganizativa"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </listarnomunidadorganizativa>
+        <getUserState>
+            <inyector clase="SeguridadProxyService" metodo="getUserState"/>
+            <prototipo>
+                <parametro />
+                <resultado />
+            </prototipo>
+        </getUserState>
+        <extractSecurityToken>
+            <inyector clase="SeguridadProxyService" metodo="extractSecurityToken"/>
+            <prototipo>
+                <parametro nombre="certificado"/>
+                <resultado />
+            </prototipo>
+        </extractSecurityToken>
+        <getUserState>
+            <inyector clase="SeguridadProxyService" metodo="getUserState"/>
+            <prototipo>
+                <parametro />
+                <resultado />
+            </prototipo>
+        </getUserState>
+    </seguridad>
+</ioc>

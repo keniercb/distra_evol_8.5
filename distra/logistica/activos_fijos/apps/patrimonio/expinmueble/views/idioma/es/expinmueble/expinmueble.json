@@ -1,0 +1,27 @@
+{
+lbTitleExpediente:'Expediente del inmueble',
+
+btnDel:'Eliminar los documentos seleccionados del expediente',
+btnAdd:'Adicionar los documentos seleccionados al expediente',
+btnDelTodos:'Eliminar todos los documentos del expediente',	
+lbBtnAddTodos:'Adicionar todos los documentos al expediente',
+
+lbTextCancelar:'Cancelar',
+lbTextAceptar:'Aceptar',
+lbBtnCancelar:'Cancelar',
+lbBtnAceptar:'Aceptar',
+
+lbDatosDoc:'Datos',
+
+lbHederDescp:'Descripci&oacute;n',
+lbFechaInc:'fecha',
+lbTitleDocExpediente:'Documentos del expediente',
+lbTitleDocExpInmueble:'Documentos del expediente del inmueble',
+lbTitleDatos:'Datos del inmueble',
+lbPagin1:'Resultados del {0} - {1} de {2}',
+lbResulPagin:"0 Resultado a mostrar.",
+lbHtml1:'C&oacute;digo:',
+lbHtml2:'Descripci&oacute;n:',
+lbHtml3:'No inventario:',
+lbAyuda: 'Mostrar ayuda de la funcionalidad',
+}

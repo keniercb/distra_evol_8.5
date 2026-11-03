@@ -1,0 +1,19 @@
+#container {
+border:3px solid #C3DAF9;
+height:400px;
+width:600px;
+}
+
+.btn-panel td {
+padding-left:5px;
+}
+h2 {
+background:#EEEEEE none repeat scroll 0%;
+color:#083772 !important;
+margin:20px 0pt 0pt !important;
+padding:5px;
+width:400px;
+}
+h3 {
+font-weight:normal !important;
+}

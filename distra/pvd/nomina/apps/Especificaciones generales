@@ -1,0 +1,18 @@
+
+/*Identificador de los indicadores para las FORMULAS y las columnas de las NOMINAS*/
+
+Explicacion: A la hora de evaluar la formula se le debe pasar en dependencia del tipo, los identificadores
+			concatenados con las nombres de cada uno para poderlos identificar
+			
+1- Conceptos RM -> CRM_+idindicador
+2- Variables auxiliares concepto pd -> VA_+idindicador
+3- Variables globales -> VG_+idindicador
+4- Conceptos de PD -> CPD_+idindicador
+5- Conceptos de PD con tarifa -> CPDT_+idindicador
+6- Variables auxiliares conf sistemas y periodos pago -> VASP_+idindicador
+7- Retenciones -> RET_+idindicador
+8- Vacaciones -> VAC_+idindicador
+9- Sueldo por cargo -> SPC
+10- Variables auxiliares acumulacion/liquidacion vacaciones -> VAV_+idindicador
+11- Variables auxiliares retenciones -> VAR_+idindicador
+/*******************************************************************************************************************/

@@ -1,0 +1,2 @@
+ALTER TABLE mod_logtaller.conf_talleres
+  ADD COLUMN cierrecondiferencia NUMERIC(1,0);

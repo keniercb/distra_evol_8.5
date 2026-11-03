@@ -1,0 +1,10 @@
+{
+    "nombre": "Quarseg",
+    "version": "2.1",
+    "fecha": "13\/3\/15",
+    "autor": "Centro de Herramientas y Tecnologías de Desarrollo",
+    "dependencia": ["Zeolides 2.2.0","Estructura y composición 1.2.0","Ayuda 3.0"],
+    "descripcion": "Permite la gestión de dominios estructurales, la gestión y configuración de las claves de usuarios, la gestión de la estructura de los sistemas, así como la gestión de roles de sistemas, usuarios y servidores de autenticación, con el objetivo de brindar servicios de autenticación, autorización y auditorías.",
+    "logo":"",
+    "equipo": ["Centro de Herramientas y Tecnologías de Desarrollo"]
+}

@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<definitions name="DatosMaestrosSoapService" targetNamespace="urn:DatosMaestrosSoapService"
+             xmlns:typens="urn:DatosMaestrosSoapService" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+	<message name="obtenerEspecialidadParametros">
+		<part name="parametros" type="xsd:anyType"/>
+	</message>
+	<message name="obtenerEspecialidadParametrosResponse">
+		<part name="obtenerEspecialidadParametrosReturn" type="xsd:anyType"/>
+	</message>
+    <message name="obtenerArbolEspecialidad">
+        <part name="parametros" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerArbolEspecialidadResponse">
+        <part name="obtenerArbolEspecialidadReturn" type="xsd:anyType"/>
+    </message>
+    <message name="adicionarClienteProveedor">
+        <part name="parametros" type="xsd:anyType"/>
+    </message>
+    <message name="adicionarClienteProveedorResponse">
+        <part name="adicionarClienteProveedorReturn" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerClienteProveedor">
+        <part name="parametros" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerClienteProveedorResponse">
+        <part name="obtenerClienteProveedorReturn" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerOrganismos">
+        <part name="parametros" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerOrganismosResponse">
+        <part name="obtenerOrganismosReturn" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerBancos">
+        <part name="parametros" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerBancosResponse">
+        <part name="obtenerBancosReturn" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerSucursales">
+        <part name="parametros" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerSucursalesResponse">
+        <part name="obtenerSucursalesReturn" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerPais">
+        <part name="parametros" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerPaisResponse">
+        <part name="obtenerPaisReturn" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerProvincia">
+        <part name="parametros" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerProvinciaResponse">
+        <part name="obtenerProvinciaReturn" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerMunicipio">
+        <part name="parametros" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerMunicipioResponse">
+        <part name="obtenerMunicipioReturn" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerMonedas">
+        <part name="parametros" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerMonedasResponse">
+        <part name="obtenerMonedasReturn" type="xsd:anyType"/>
+    </message>
+	<portType name="DatosMaestrosSoapServicePortType">
+		<operation name="obtenerEspecialidadParametros">
+			<input message="typens:obtenerEspecialidadParametros"/>
+			<output message="typens:obtenerEspecialidadParametrosResponse"/>
+		</operation>
+        <operation name="obtenerArbolEspecialidad">
+            <input message="typens:obtenerArbolEspecialidad"/>
+            <output message="typens:obtenerArbolEspecialidadResponse"/>
+        </operation>
+        <operation name="adicionarClienteProveedor">
+            <input message="typens:adicionarClienteProveedor"/>
+            <output message="typens:adicionarClienteProveedorResponse"/>
+        </operation>
+        <operation name="obtenerClienteProveedor">
+            <input message="typens:obtenerClienteProveedor"/>
+            <output message="typens:obtenerClienteProveedorResponse"/>
+        </operation>
+        <operation name="obtenerOrganismos">
+            <input message="typens:obtenerOrganismos"/>
+            <output message="typens:obtenerOrganismosResponse"/>
+        </operation>
+        <operation name="obtenerBancos">
+            <input message="typens:obtenerBancos"/>
+            <output message="typens:obtenerBancosResponse"/>
+        </operation>
+        <operation name="obtenerSucursales">
+            <input message="typens:obtenerSucursales"/>
+            <output message="typens:obtenerSucursalesResponse"/>
+        </operation>
+        <operation name="obtenerPais">
+            <input message="typens:obtenerPais"/>
+            <output message="typens:obtenerPaisResponse"/>
+        </operation>
+        <operation name="obtenerProvincia">
+            <input message="typens:obtenerProvincia"/>
+            <output message="typens:obtenerProvinciaResponse"/>
+        </operation>
+        <operation name="obtenerMunicipio">
+            <input message="typens:obtenerMunicipio"/>
+            <output message="typens:obtenerMunicipioResponse"/>
+        </operation>
+        <operation name="obtenerMonedas">
+            <input message="typens:obtenerMonedas"/>
+            <output message="typens:obtenerMonedasResponse"/>
+        </operation>
+	</portType>
+	<binding name="DatosMaestrosSoapServiceBinding" port="DatosMaestrosSoapServicePort" type="typens:DatosMaestrosSoapServicePortType">
+		<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="obtenerEspecialidadParametros">
+			<soap:operation soapAction="urn:DatosMaestrosSoapServicePortTypeAction"/>
+			<input>
+				<soap:body namespace="urn:DatosMaestrosSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</input>
+			<output>
+				<soap:body namespace="urn:DatosMaestrosSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+        <operation name="obtenerArbolEspecialidad">
+            <soap:operation soapAction="urn:DatosMaestrosSoapServicePortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:DatosMaestrosSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:DatosMaestrosSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="adicionarClienteProveedor">
+            <soap:operation soapAction="urn:DatosMaestrosSoapServicePortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:DatosMaestrosSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:DatosMaestrosSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="obtenerClienteProveedor">
+            <soap:operation soapAction="urn:DatosMaestrosSoapServicePortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:DatosMaestrosSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:DatosMaestrosSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="obtenerOrganismos">
+            <soap:operation soapAction="urn:DatosMaestrosSoapServicePortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:DatosMaestrosSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:DatosMaestrosSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="obtenerBancos">
+            <soap:operation soapAction="urn:DatosMaestrosSoapServicePortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:DatosMaestrosSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:DatosMaestrosSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="obtenerSucursales">
+            <soap:operation soapAction="urn:DatosMaestrosSoapServicePortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:DatosMaestrosSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:DatosMaestrosSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="obtenerPais">
+            <soap:operation soapAction="urn:DatosMaestrosSoapServicePortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:DatosMaestrosSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:DatosMaestrosSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="obtenerProvincia">
+            <soap:operation soapAction="urn:DatosMaestrosSoapServicePortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:DatosMaestrosSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:DatosMaestrosSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="obtenerMunicipio">
+            <soap:operation soapAction="urn:DatosMaestrosSoapServicePortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:DatosMaestrosSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:DatosMaestrosSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="obtenerMonedas">
+            <soap:operation soapAction="urn:DatosMaestrosSoapServicePortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:DatosMaestrosSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:DatosMaestrosSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+	</binding>
+	<service name="DatosMaestrosSoapServiceService">
+		<port name="DatosMaestrosSoapServicePort" binding="typens:DatosMaestrosSoapServiceBinding">
+			<soap:address location=""/>
+		</port>
+	</service>
+</definitions>

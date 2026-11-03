@@ -1,0 +1,138 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Diagrama de Pert</title>
+
+    <script type="text/javascript" id="imporcss" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+    <script language="javascript" type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+
+
+    <script type="text/javascript" id="ext-base" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+    <script type="text/javascript" id="ext-all" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+    <script type="text/javascript" id="ucid-all" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+    <script type="text/javascript" id="extensiones"
+            src="<?php echo $this->dir_ucid; ?>js/utiles/extensiones.js"></script>
+
+    <!--<link rel="stylesheet" type="text/css" id="ext-all" href="/planificacion/pdo/comun/recursos/bibliotecas/extjs3/resources/css/ext-all.css"/>-->
+    <link rel="stylesheet" type="text/css" id="examplescss" href="/planificacion/pdo/comun/css/examples.css"/>
+    <link rel="stylesheet" type="text/css" href="/planificacion/pdo/comun/css/Ext.ux.form.LovCombo.css"/>
+    <link rel="stylesheet" type="text/css" href="/planificacion/pdo/comun/css/icons.css"/>
+
+    <!--<link rel="stylesheet" type="text/css" id="bootstrap.min" href="/planificacion/pdo/comun/pert/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" id="bootstrap-theme.min" href="/planificacion/pdo/comun/pert/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" type="text/css" id="goSamples" href="/planificacion/pdo/comun/pert/css/goSamples.css"/>
+    <link rel="stylesheet" type="text/css" id="highlight" href="/planificacion/pdo/comun/pert/css/highlight.css"/>
+    <link rel="stylesheet" type="text/css" id="learn" href="/planificacion/pdo/comun/pert/css/learn.css"/>
+    <link rel="stylesheet" type="text/css" id="main" href="/planificacion/pdo/comun/pert/css/main.css"/> -->
+</head>
+
+<body>
+<!--<script type="text/javascript" id="bootstrap.minjs" src="../../../comun/pert/js/bootstrap.min.js"></script>
+<script type="text/javascript" id="jquery.ba-hashchange.min" src="../../../comun/pert/js/jquery.ba-hashchange.min.js"></script>
+<script type="text/javascript" id="highlightjs" src="../../../comun/pert/js/highlight.js"></script>
+<script type="text/javascript" id="go" src="/planificacion/pdo/comun/pert/go.js"></script>-->
+
+<script type="text/javascript" id="go-debug" src="/planificacion/pdo/comun/pert/go-debug.js"></script>
+
+<script type="text/javascript" id="EditableItem" src="../../../comun/filtros/EditableItem.js"></script>
+<script type="text/javascript" id="ComboItem" src="../../../comun/filtros/ComboItem.js"></script>
+<script type="text/javascript" id="TextFieldItem" src="../../../comun/filtros/TextFieldItem.js"></script>
+<script type="text/javascript" id="RangeMenu" src="../../../comun/filtros/RangeMenu.js"></script>
+<script type="text/javascript" id="GridFilters" src="../../../comun/filtros/GridFilters.js"></script>
+<script type="text/javascript" id="Filter" src="../../../comun/filtros/Filter.js"></script>
+<script type="text/javascript" id="StringFilter" src="../../../comun/filtros/StringFilter.js"></script>
+<script type="text/javascript" id="DateFilter" src="../../../comun/filtros/DateFilter.js"></script>
+<script type="text/javascript" id="ListFilter" src="../../../comun/filtros/ListFilter.js"></script>
+<script type="text/javascript" id="NumericFilter" src="../../../comun/filtros/NumericFilter.js"></script>
+<script type="text/javascript" id="ListadoFilter" src="../../../comun/filtros/ListadoFilter.js"></script>
+<script type="text/javascript" id="String_adaptadoFilter"
+        src="../../../comun/filtros/String_adaptadoFilter.js"></script>
+<script type="text/javascript" id="MessageBox" src="../../../comun/js/MessageBox.js"></script>
+
+<script type="text/javascript" src="/planificacion/herramientasintegracion/comun/recursos/js/JqueryExport/jspdf/libs/base64.js"></script>
+<script type="text/javascript" src="/planificacion/herramientasintegracion/comun/recursos/js/JqueryExport/jspdf/libs/sprintf.js"></script>
+<script type="text/javascript" src="/planificacion/herramientasintegracion/comun/recursos/js/JqueryExport/jspdf/jspdf.js"></script>
+<script type="text/javascript" src="/planificacion/herramientasintegracion/comun/recursos/js/JqueryExport/html2canvas.js"></script>
+
+<script type="text/javascript" src="/planificacion/reportes/comun/recursos/js/jsPDF/jspdf.min.js"></script>
+<script type="text/javascript" src="/planificacion/reportes/comun/recursos/js/jsPDF/libs/html2canvas.js"></script>
+<script type="text/javascript" src="/planificacion/reportes/comun/recursos/js/jsPDF/plugins/jspdf.plugin.addimage.js"></script>
+<script type="text/javascript" src="/planificacion/reportes/comun/recursos/js/jsPDF/plugins/from_html.js"></script>
+<script type="text/javascript" src="/planificacion/reportes/comun/recursos/js/jsPDF/plugins/addhtml.js"></script>
+<!--<script type="text/javascript" src="/planificacion/herramientasintegracion/views/js/views/matrizrelaciones/ExportarWindow.js"></script>-->
+
+<script type="text/javascript" id="nodejs"
+        src="/planificacion/pdo/comun/nodejs/assets/js/socket-io-client/socket.io.js"></script>
+
+<script type="text/javascript" id="vtype" src="../../../comun/js/vtype.js"></script>
+<script type="text/javascript" id="CmpBase" src="../../../comun/js/CmpBase.js"></script>
+<script type="text/javascript" id="notificaciones" src="/planificacion/pdo/comun/js/notificaciones.js"></script>
+<script type="text/javascript" id="CmpBarraProgreso" src="../../../comun/js/CmpBarraProgreso.js"></script>
+<script type="text/javascript" id="RowExpander" src="../../../comun/js/RowExpander.js"></script>
+<script type="text/javascript" id="TreeGridjs" src="../../../comun/js/TreeGrid.js"></script>
+<script type="text/javascript" id="CmpPaginadoTreegrid" src="../../../comun/js/CmpPaginadoTreegrid.js"></script>
+<script type="text/javascript" id="CmpMenuRelacionesDinamicas"
+        src="../../../comun/js/CmpMenuRelacionesDinamicas.js"></script>
+<script type="text/javascript" id="FileUploadField" src="../../../comun/js/FileUploadField.js"></script>
+<script type="text/javascript" id="examplesjs" src="../../../comun/js/examples.js"></script>
+<script type="text/javascript" id="Ext.ux.form.LovCombo" src="../../../comun/js/Ext.ux.form.LovCombo.js"></script>
+
+<script type="text/javascript" id="DateField" src="/planificacion/pdo/comun/js/DateField.js"></script>
+<script type="text/javascript" id="Combo" src="/planificacion/pdo/comun/js/Combo.js"></script>
+<script type="text/javascript" id="TimeField" src="/planificacion/pdo/comun/js/TimeField.js"></script>
+
+<script type="text/javascript" id="cmphistorial" src="../../views/js/cmphistorial/cmphistorial.js"></script>
+<script type="text/javascript" id="cmpgestionarobservaciones"
+        src="../../views/js/cmpgestionarobservaciones/cmpgestionarobservaciones.js"></script>
+<script type="text/javascript" id="cmpclasificadorinvol"
+        src="../../views/js/cmpclasificadorinvol/cmpclasificadorinvol.js"></script>
+<script type="text/javascript" id="cmpfondodetiempo" src="../../views/js/cmpfondodetiempo/cmpfondodetiempo.js"></script>
+<script type="text/javascript" id="cmpgestordocumental"
+        src="../../views/js/cmpgestordocumental/cmpgestordocumental.js"></script>
+<script type="text/javascript" id="cmprelaciones" src="../../views/js/cmprelaciones/cmprelaciones.js"></script>
+<script type="text/javascript" id="cmpctrlreasignaciones"
+        src="../../views/js/cmpctrlreasignaciones/cmpctrlreasignaciones.js"></script>
+<script type="text/javascript" id="cmpconfigurarperfil"
+        src="../../views/js/cmpconfigurarperfil/cmpconfigurarperfil.js"></script>
+<script type="text/javascript" id="cmpcrudcargapordefecto"
+        src="../../views/js/cmpconfigurarperfil/cmpcrudcargapordefecto.js"></script>
+<script type="text/javascript" id="cmpcrudconfigurarperfil"
+        src="../../views/js/cmpconfigurarperfil/cmpcrudconfigurarperfil.js"></script>
+<script type="text/javascript" id="cmpexportarimportar"
+        src="../../views/js/cmpexportarimportar/cmpexportarimportar.js"></script>
+
+<?php echo $this->getJSCompresion; ?>
+<?php echo $this->extensionesPLAN; ?>
+<?php echo $this->pyeComun; ?>
+<?php echo $this->matrizrelacionesComponent; ?>
+
+<script type="text/javascript" id="cmppuntualizacion"
+        src="../../views/js/cmppuntualizacion/cmppuntualizacion.js"></script>
+<script type="text/javascript" id="cmpgestionargraficas"
+        src="../../views/js/cmpgraficas/cmpgestionargraficas.js"></script>
+<script type="text/javascript" id="cmpcrudmonitoreo" src="../../views/js/cmpcrudmonitoreo/cmpcrudmonitoreo.js"></script>
+
+<script type="text/javascript" id="cmpcrudplan" src="../../views/js/cmpcrudplan/cmpcrudplan.js"></script>
+<script type="text/javascript" id="cmpgestionarplan" src="../../views/js/cmpgestionarplan/cmpgestionarplan.js"></script>
+
+<script type="text/javascript" id="cmpcrudarc" src="/planificacion/pdo/plan/views/js/cmpcrudarc/cmpcrudarc.js"></script>
+<script type="text/javascript" id="cmpgestionararc"
+        src="/planificacion/pdo/plan/views/js/cmpgestionararc/cmpgestionararc.js"></script>
+
+<script type="text/javascript" id="cmpgestionarindicadores"
+        src="../../views/js/cmpgestionarobjetivos/cmpgestionarindicadores.js"></script>
+<script type="text/javascript" id="cmpcrudobjetivos" src="../../views/js/cmpcrudobjetivos/cmpcrudobjetivos.js"></script>
+<script type="text/javascript" id="cmpgestionarobjetivos"
+        src="../../views/js/cmpgestionarobjetivos/cmpgestionarobjetivos.js"></script>
+
+<script type="text/javascript" id="cmpgestionaractividades"
+        src="../../views/js/cmpgestionaractividades/cmpgestionaractividades.js"></script>
+
+<script type="text/javascript" id="cmpreportes" src="../../views/js/cmpreportes/cmpreportes.js"></script>
+
+<script type="text/javascript" id="cmpgestionarpert" src="../../views/js/cmppert/cmpgestionarpert.js"></script>
+<script type="text/javascript" id="initcmpgestionarpert" src="../../views/js/cmppert/initcmpgestionarpert.js"></script>
+
+</body>
+
+</html>

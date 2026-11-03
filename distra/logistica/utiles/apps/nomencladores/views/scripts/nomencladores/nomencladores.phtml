@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>Nomencladores generales</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+        <script language="javascript"
+        type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+    </head>
+    <body>
+        <script type="text/javascript"
+        src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+        <script type="text/javascript"
+        src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+        <script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+        <script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/ucid-combo-iframe.js"></script>
+        <script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/ucid-win-iframe.js"></script>
+        <script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/ucid-integra-interfaz.js"></script>     
+        <?php
+        if (is_array($this->uiVariables)) {
+            echo '<script type="text/javascript">';
+            foreach ($this->uiVariables as $var => $value) {
+                echo "var {$var} = {$value};";
+            }
+            echo '</script>';
+        }        
+        foreach ($this->arrayJs as $js) {
+            echo $js;
+        }
+        ?>
+         </script> <script type="text/javascript"
+        src="/logistica/utiles/comun/views/js/plugins/extjs-addons.js"></script>
+        <script type="text/javascript"
+        src="/logistica/utiles/nomencladores/views/js/nomencladores/nomencladores.view.js"></script>
+
+        <script type="text/javascript"
+        src="/logistica/utiles/nomencladores/views/js/nomencladores/lineaproducto.component.js"></script>
+
+        <script type="text/javascript"
+        src="/logistica/utiles/nomencladores/views/js/nomencladores/motivodevolucion.component.js"></script>
+        <script type="text/javascript"
+        src="/logistica/utiles/nomencladores/views/js/nomencladores/concepto.component.js"></script>
+        <script type="text/javascript"
+        src="/logistica/utiles/nomencladores/views/js/nomencladores/calidad.component.js"></script>
+        <script type="text/javascript"
+        src="/logistica/utiles/nomencladores/views/js/nomencladores/tipoarea.component.js"></script>
+        <script type="text/javascript"
+        src="/logistica/utiles/nomencladores/views/js/nomencladores/transferencia.component.js"></script>
+        <script type="text/javascript"
+                src="/logistica/utiles/nomencladores/views/js/nomencladores/tiporotacion.component.js"></script>
+        <script type="text/javascript"
+                src="/logistica/utiles/nomencladores/views/js/nomencladores/tipotransfinterna.component.js"></script>
+
+        <script type="text/javascript"
+        src="/logistica/utiles/nomencladores/views/js/nomencladores/categoria.component.js"></script>
+        <script type="text/javascript"
+        src="/logistica/utiles/nomencladores/views/js/nomencladores/tipocontrolcalidad.component.js"></script>
+        <script type="text/javascript"
+        src="/logistica/utiles/nomencladores/views/js/nomencladores/relacionador.component.js"></script>
+
+       
+         </script> <script type="text/javascript"
+        src="/logistica/utiles/nomencladores/views/js/nomencladores/nomedades.component.js"></script>
+       
+    </body>
+</html>

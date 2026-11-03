@@ -1,0 +1,24 @@
+{
+    lbSeleccione: 'Seleccione',
+    lbNivel: 'Nivel Código',
+    lbOrganoDemandante: 'Órgano demandante',
+    lbPlan: 'Plan',
+    lbCB: 'Centro de Balance',
+    lbVia: 'Vía Adquisición',
+    lbOACE: 'Órgano satisface',
+    lbGasto: 'Tipo de Gasto',
+    lbSector: 'Sector rama',
+    lbReporte: 'Reporte:',
+    lbFormato: 'Formato:',
+    lbBtnEjecutar: 'Ejecutar',
+    lbBtnAyuda: 'Ayuda',
+    lbBtnAceptar: 'Aceptar',
+    lbCargando: 'Cargando...',
+    lbBtnCancelar: 'Cancelar',
+    lbBtnConfigurar: 'Configurar',
+    lbEjercicio: 'Ejercicio',
+    titReporte1: 'Primer Reporte',
+    msgFpInvalid: 'Por favor veriique el formulario, hay valores incorrectos',
+    msgNoHayReporte: 'No hay reportes para este usuario'
+
+}

@@ -1,0 +1,48 @@
+{
+  "nombre": "Zeolides",
+  "logo": "",
+    "version": "2.1",
+  "descripcion": "Marco de trabajo Zeolides(MT) desarrollado para las soluciones vinculadas con el ERP. Contiene configuraciones propias del ERP para la integraciÃ³n estre los demÃ¡s sistemas que conforman el mismo. Observaciones: ZendExt-GlobalConcept-Nomencladores",
+  "developers": "Centro de Herramientas y TecnologÃ­as de Desarrollo",
+    "dependencia": ["Zeolides 2.2.0","Quarseg 2.1","Ayuda 3.0"],
+  "copyright": "2011-2018 Â© Copyright XETID",
+  "equipo": ["Centro de Herramientas y TecnologÃ­as de Desarrollo"],
+  "changelog": [
+    {
+      "version": "2.1.1",
+      "date": "21/03/2015",
+      "contenido": [
+        {
+          "subsistema": "Trazas",
+          "contenido": [
+            "Se hicieron cambios en la forma en la que se guardaban las trazas",
+            "Se agregaron nuevas trazas al sistema de incidencia",
+            "Se eliminaron trazas antiguas del sistema."
+          ]
+        },
+        {
+          "subsistema": "Seguridad",
+          "contenido": [
+            "La funciÃ³n del resumen para guardar la contraseÃ±a fue actualizada a sha-256",
+            "Nueva gestiÃ³n de roles basada en URLS",
+            "Ahora Mod Security es requerido para el manejo de la seguridad."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.0.1",
+      "date": "11/05/2011",
+      "contenido": [
+        {
+          "subsistema": "Ayuda",
+          "contenido": [
+            "Se agrego un subsistema para gestionar las ayudas de los sistemas",
+            "Fixed Bug: El subsistema no guardaba las imÃ¡genes de las ayudas.",
+            "Las etiquetas img permiten base64, para imÃ¡genes embebidas."
+          ]
+        }
+      ]
+    }
+  ]
+}

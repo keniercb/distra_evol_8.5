@@ -1,0 +1,12 @@
+{
+    lbPropiedad: "Atributos din&aacute;micos",
+    lbValor: "Valores asignados",
+    lbDateFormat: "d/m/Y",
+    lbSi: "Si",
+    lbNo: "No",
+    lbBtnGuardar: "Guardar cambios",
+    lbTtBtnGuardar: "Guardar valores asignados a los atributos din&aacute;micos",
+    lbMsgModificarOK: "El(Los) valores ha(n) sido guardados satisfactoriamente.",
+    lbMsgAdicionarError: "Lo sentimos, en este momento la fuente de datos no se encuentra disponible.",
+    lbLoadMaskCargando: 'Cargando atributos din&aacute;micos asociados'
+}

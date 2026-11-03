@@ -1,0 +1,27 @@
+.leyend-block {
+    padding-top:5px;
+    margin-bottom:15px;
+    margin-left:15px;
+}
+.leyend-block h3 {
+    font: bold 12px tahoma,arial,sans-serif;
+    color:#555;
+    margin-bottom:8px;
+}
+.leyend-block ul {
+    list-style-type: disc;
+    margin-left:13px;
+    font: normal 12px tahoma,arial,sans-serif;
+    color:#555;
+}
+.leyend-block ul li {
+    margin:0 0 5px 3px;
+    line-height:16px;
+}
+
+.fila-azul { background: #00CCFF; }
+.fila-verde { background: #00CC33 }
+.fila-roja { background: red; }
+.fila-violeta { background: violet; }
+.fila-naranja { background: #FF9933; }
+.fila-amarillo { background: #cccc00; }

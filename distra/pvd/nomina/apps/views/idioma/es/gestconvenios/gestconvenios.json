@@ -1,0 +1,69 @@
+{
+	lbTitleGestConvenioss:               				'Listado de Convenioss',
+	lbbtnAsociarGestConvenioss:               			'Ad<u>i</u>cionar',
+	lbbtnModGestConvenioss:               			'<u>M</u>odificar',
+	lbbtnbtnDesasociarGestConvenioss:               	'Eliminar',
+	lbGestModeloAplicacionConvenio:               	'Gestionar modelo',
+	textToolTipbtnAsociarGestConvenioss:               	'Adicionar convenios',
+	textToolTipbtnModGestConvenioss:               	'Modificar convenios',
+	textToolTipbtnbtnDesasociarGestConvenioss:          'Eliminar convenio',
+	textToolTipGestModeloAplicacionConvenio:          'Gestionar modelo de aplicacion de convenios',
+	
+
+	lbColDenominacion:                          'Denominación',
+	lbColDesde:                                 'Fecha inicio',
+	lbColHasta:                                 'Fecha fin',
+	lbColDescripcion:                           'Descripci&oacute;n',
+	
+	lbMaskGridCargando:							'Cargando…',
+	lbMsgEsperaEnviarDatos:						'Por favor espere…',
+
+	lbTitleEliminarGestConvenio:					'¿Est&aacute; seguro que quiere eliminar el convenio seleccionada?',
+
+	lbMsgAdicionarGestConvenio:					'Adicionando datos de plantilla nominal...',
+	lbMsgModificarGestConvenio:					'Modificando datos de plantilla nominal...',
+	lbMsgEliminarGestConvenio:					'Eliminando datos de el convenio...',
+
+	lbMsgAddEstructuraP:						'Adicionando datos de estructura de plantilla nominal...',
+	lbMsgEliminarEstructuraP:					'Eliminando datos de estructura de plantilla nominal...',
+
+	lbMsgCorrectoAdicionadoGestConvenio:			'el convenio ha sido adicionada satisfactoriamente.',
+	lbMsgCorrectoModificadoGestConvenio:			'el convenio ha sido modificada satisfactoriamente.',
+	lbMsgCorrectoEliminadoGestConvenio:			'el convenio ha sido eliminada satisfactoriamente.',
+
+	lbMsgCorrectoAddEstructuraP:				'La estructura de plantilla nominal ha sido adicionada satisfactoriamente.',
+	lbMsgCorrectoEliminadoEstructuraP:			'La estructura de plantilla nominal ha sido eliminada satisfactoriamente.',
+
+	lbBtnAdicionar:              	    		'Ad<u>i</u>cionar',
+	textToolTipAddGestConvenio:    		       	'Adicionar plantilla nominal (<b>Alt+I</b>)',
+	lbBtnModificar:                   			'<u>M</u>odificar',
+	textToolTipModGestConvenio:					'Modificar plantilla nominal (<b>Alt+M</b>)',
+	lbBtnEliminar:                	 			'Eliminar',
+	textToolTipElimGestConvenio: 					'Eliminar plantilla nominal (<b>DEL</b>)',
+	lbBtnEstructurar:                	 		'Estructurar',
+	textToolTipEstructurarGestConvenio: 			'Estructurar plantilla nominal',
+	lbBtnBuscar:                	 		    'Buscar',
+	textToolTiplbBtnBuscarGestConvenio: 			'Buscar plantilla nominal',
+	lbBtnAyuda:                         		'Ayuda',
+	textToolTipAyudaGestConvenio:             	'Mostrar ayuda de la funcionalidad (<b>Alt+H</b>)',
+
+	textToolTipAddEstructP:    		       		'Adicionar plantilla nominal',
+	textToolTipElimEstructP:  		       		'Eliminar plantilla nominal',
+
+	lbBtnCancelar:								'Cancelar',
+	textToolTipCancelar:						'Cerrar ventana sin guardar los datos (<b>Alt+X</b>)',
+	lbBtnAplicar:								'Aplicar',
+	textToolTipAplicar:                        	'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+	lbBtnAceptar:								'Aceptar',
+	textToolTipAceptar:                         'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+	lbBtnCerrar:								'Cerrar',
+	textToolTipCerrar:							'Cerrar ventana',
+
+	lbErrorCampoVacio:                          'Este campo es obligatorio.', 
+	lbMaxText_100:                              'El tama&ntilde;o m&aacute;ximo requerido es 100 caracteres.',
+	lbDenomIncorr:                              'Solo admite caracteres alfanum&eacute;ricos y el caracter especial ( ).',
+	lbFechaMaxima:                   			'La fecha de inicio tiene que ser anterior o igual a la fecha fin.',
+	lbFechaMinima:                             	'La fecha fin tiene que ser posterior o igual a la fecha de inicio.',
+	invalidTextFecha:                           'Formato: dd/mm/aaaa.',
+	lbErrorFormulario:							'Por favor verifique nuevamente que hay campo(s) con valor(es) incorrecto(s).',
+}

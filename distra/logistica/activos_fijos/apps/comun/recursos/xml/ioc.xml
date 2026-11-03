@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ioc>
+    <activos_fijos src="logistica/activos_fijos">
+        <existePersonaConMedios reference="utiles">
+            <inyector clase="RegNumericoService" metodo="existePersonaConMedios"/>
+            <prototipo>
+                <parametro nombre="idpersona" tipo="enterospos"/>
+                <resultado tipo="boolean"/>
+            </prototipo>
+        </existePersonaConMedios>
+    </activos_fijos>
+</ioc>

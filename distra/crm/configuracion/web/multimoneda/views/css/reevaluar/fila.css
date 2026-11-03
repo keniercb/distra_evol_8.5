@@ -1,0 +1,16 @@
+.FilaAzul .x-grid3-cell-inner{
+        color:black;
+		background-color:#D3E1F1;
+    }
+.FilaVerde .x-grid3-cell-inner{
+        color:black;
+		background-color:#dffbda;
+    }
+.FilaAmarilla .x-grid3-cell-inner{
+        color:black;
+		background-color:#FFFFE0;
+    }
+.negrita .x-grid3-cell-inner{
+color:black;
+font-weight: bold;
+}

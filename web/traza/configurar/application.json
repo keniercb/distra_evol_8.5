@@ -1,0 +1,36 @@
+{
+    "name": "configurar",
+    "concat":{
+    	"js":{
+	    	"files":[
+                "model/TrazasModel.js",
+	    		"store/TrazasStore.js",	    		
+	    		"view/gridTrazas.js",
+	    		"controller/Configurar.js",
+	    		"aplication.js"
+	    	],
+	    	"outputFile": "build/configurar.js"
+    	},
+    	"css":{
+    		"files":[
+
+    		],
+    		"outputFile":"build/configurar.css"
+    	}
+    },
+    "minify":{
+    	"js":{
+	    	"files":[
+	    		"build/configurar.js"
+	    	],
+	    	"outputDir": "build/"
+    	},
+    	"css":{
+    		"files":[
+
+    		],
+    		"outputDir":"build/"
+    	}
+    }
+
+}

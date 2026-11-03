@@ -1,0 +1,19 @@
+{
+lbEntidades: 'Entidades',
+lbComportamiento: 'Enmarcamiento por órgano demandante',
+lbDenominacion: 'Denominación',
+lbEspere: 'Por favor espere ...',
+lbTtbtnLimpiarFiltros: 'Limpiar filtro(s) <b>(Alt+L)</b>',
+lbBtnExportar: 'Exportar',
+lbGuardar: 'Guardar',
+lbEnmarcamiento: 'Enmarcamiento',
+lbEnmarcamientoDisponible: 'Enmarcamiento disponible',
+lbDenominacionPlan: 'Plan',
+lbViaAdq: 'Enmarcamiento vía de adquisición',
+lbPlanes: 'Enmarcamiento por planes',
+lbTgCB: 'Enmarcamiento por centros de balance',
+lbTtBtnAyuda: 'Mostrar ayuda <b>(Alt+H)</b>',
+lbBtnAyuda: 'Ayuda',
+lbTituloAyuda:'Ayuda de Enmarcamiento'
+
+}

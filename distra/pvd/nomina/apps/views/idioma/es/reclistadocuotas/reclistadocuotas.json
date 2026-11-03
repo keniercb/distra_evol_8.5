@@ -1,0 +1,17 @@
+{
+	lbColNo:								        'No.',
+	lbColCI:								        'CI',
+	lbColNombreMilitante:						    'Nombre y apellidos',
+
+	lbMaskGridCargando:								'Cargando…', 
+	lbMsgEsperaEnviarDatos:							'Por favor espere…',
+
+	lbMsgActualizarConfM:							'Actualizando datos de modelos de n&oacute;mina...',
+	lbMsgCorrectoActualizarConfM:					'La configuraci&oacute;n ha sido actualizada satisfactoriamente.',
+
+	lbFechaCierre:              	    			'Fechas cierre',
+	lbBtnExportar:              	    		    'Exportar',
+	textToolTipCancelar:							'Exportar listado de personas (<b>Alt+E</b>)',
+
+	
+}

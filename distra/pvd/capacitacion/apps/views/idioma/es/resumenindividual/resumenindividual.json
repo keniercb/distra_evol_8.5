@@ -1,0 +1,7 @@
+{
+    BtnAyuda: 'Ayuda',
+    BtnBuscar: '<u>B</u>uscar',
+    BtnLimpiar: '<u>L</u>impiar',
+    lbBtnLimpiar: 'Limpiar filtro <b>(Alt+L)</b>',
+    lbBtnBuscar: '<u>B</u>uscar acción <b>(Alt+B)</b>',
+}

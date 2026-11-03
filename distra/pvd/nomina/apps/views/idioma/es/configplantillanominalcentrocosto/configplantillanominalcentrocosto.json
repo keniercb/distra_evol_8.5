@@ -1,0 +1,97 @@
+{
+    lbTitleConfiguracion:               'Configuraci&oacute;n de elementos salariales',
+    lbTitleEntidades:                   'Entidades',
+    lbTitlegpPlantillaCentroCosto:      'Listado de plantillas nominales',
+   
+    
+    lbTitleVentAdicionarElemento:       'Adicionar elemento salarial a la situaci&oacute;n del servicio',
+    lbTitleVentModificarElemento:       'Modificar elemento salarial a la situaci&oacute;n del servicio',
+    
+    lbTitleVentAdicionarConcepto:       'Adicionar concepto a la situaci&oacute;n del servicio',
+    lbTitleVentModificarConcepto:       'Modificar concepto a la situaci&oacute;n del servicio',
+    
+    lbTitleVentAdicionarEscala:         'Adicionar escala a la situaci&oacute;n del servicio',
+    lbTitleVentModificarEscala:         'Modificar escala a la situaci&oacute;n del servicio',
+
+    lbMaskGridCargando:                 'Cargando…', 
+    lbMsgEsperaEnviarDatos:             'Por favor espere…',
+    lbMsgAdicionarTipoN:                'Adicionando datos del elemento salarial...',
+    lbMsgModificarTipoN:                'Modificando datos del elemento salarial...',
+    lbMsgEliminarTipoN:                 'Eliminando datos de tipo del elemento salarial...',
+    lbMsgAdicionarSalario:              'Adicionando datos del salario espec&iacute;fico...',
+    lbMsgModificarSalario:              'Modificando datos del salario espec&iacute;fico...',
+
+    lbTitleEliminarTipoN:               '¿Está seguro que quiere eliminar el elemento salarial seleccionado?',
+    lbMsgCorrectoAdicionadoTipoN:       'El elemento salarial ha sido adicionado satisfactoriamente.',
+    lbMsgCorrectoModificadoTipoN:       'El elemento salarial ha sido modificado satisfactoriamente.',
+    lbMsgCorrectoEliminadoTipoN:        'El elemento salarial ha sido eliminado satisfactoriamente.',
+    
+    lbMsgCorrectoAdicionadoSalario:     'El salario espec&iacute;fico ha sido adicionado satisfactoriamente.',
+    lbMsgCorrectoModificadoSalario:     'El salario espec&iacute;fico ha sido modificado satisfactoriamente.',
+    
+    lbColNombrePlantilla:               'Plantilla Nominal',
+    lbColNombreCentro:                  'Centro de costo',
+   
+    
+    lbColNombreCargo:                 'Cargo',
+    lbColNombreSituacion:             'Situaci&oacute;n del servicio',
+    
+    btnActualizar:                     'Actualizar',
+   
+    
+    BtnAceptar:                       'Aceptar',
+    lbBtnCancelar:                    'Cancelar',
+    BtnAceptarPc:                     'Aceptar',
+    
+    lbBtnAceptarPc:                   'Aceptar',
+    lbbtnActualizar:                  'Actualizar',
+    lbbtnCancelar:              'Cancelar',
+
+    
+    
+    lbColcbSistemapago:                 'Sistema de pago',
+    lbColcbPeriodopago:                 'Periodo de pago',
+    lbColcbGrupoEscala:                 'Grupo escala',
+    lbColcbSectorSalarial:              'Sector salarial',
+    lbColcbEscalaSueldoCargo:           'Escala sueldo por cargo',
+    lbColImporte:                       'Sueldo por cargo',
+    lbColDesdeElemento:                 'Fecha inicio',
+    lbColHastaElemento:                 'Fecha fin',
+    
+    lbColcbConcepto:                    'Concepto percepción descuento',
+    lbColcbTarifa:                      'Tarifa',
+    lbColDesdeConcepto:                 'Fecha inicio',
+    lbColHastaConcepto:                 'Fecha fin',
+    
+    lbColcbEscalaSituacion:             'Escala',
+    lbColcbImporteEscalaSituacion:            'Importe',
+    lbColDesdeEscalaSituacion:          'Fecha inicio',
+    lbColHastaEscalaSituacion:          'Fecha fin',
+
+    lbErrorCampoVacio:                  'Este campo es obligatorio.',
+    lbFechaMaxima:                      'La fecha de inicio tiene que ser anterior o igual a la fecha fin.',
+    lbFechaMinima:                      'La fecha fin tiene que ser posterior o igual a la fecha de inicio.',
+    invalidTextFecha:                   'Formato: dd/mm/aaaa.',
+    lbMaxText_225:                      'El tama&ntilde;o m&aacute;ximo requerido es 255 d&iacute;gitos.',
+    lbErrorFormulario:                  'Por favor verifique nuevamente que hay campo(s) con valor(es) incorrecto(s).',
+    lbBtnCancelar:                      'Cancelar',
+    textToolTipCancelar:                'Cerrar ventana sin guardar los datos (<b>Alt+X</b>)',
+    lbBtnAplicar:                       'Aplicar',
+    textToolTipAplicar:                 'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+    
+    lbBtnCancelarConceptoSituacion:     'Cancelar',
+    textToolTipCancelarConceptoSituacion:  'Cerrar ventana sin guardar los datos',
+    lbBtnAplicarConceptoSituacion:      'Aplicar',
+    textToolTipAplicarConceptoSituacion:'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+    lbBtnAceptarConceptoSituacion:      'Aceptar',
+    textToolTipAceptarConceptoSituacion:'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+    
+    lbBtnCancelarEscalaSituacion:     'Cancelar',
+    textToolTipCancelarEscalaSituacion:  'Cerrar ventana sin guardar los datos',
+    lbBtnAplicarEscalaSituacion:      'Aplicar',
+    textToolTipAplicarEscalaSituacion:'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+    lbBtnAceptarEscalaSituacion:      'Aceptar',
+    textToolTipAceptarEscalaSituacion:'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+    
+    lbMsgErrorElementoSalarial:        'Por favor adicione un elemento salarial a la situaci&oacute;n del servicio',
+}

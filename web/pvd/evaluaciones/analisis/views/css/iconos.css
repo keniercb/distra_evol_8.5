@@ -1,0 +1,24 @@
+.chart-bar{	
+    background-image: url(../images/chart_bar.png) !important;
+}
+.organigrama{
+    background-image: url(../images/organigrama.png) !important;
+}
+.fit{
+    background-image: url(../images/fit_to_size.png) !important;
+}
+.zoom_in{
+    background-image: url(../images/zoomin.gif) !important;
+}
+.zoom_out{
+    background-image: url(../images/zoomout.gif) !important;
+}
+.zoom_actual{
+    background-image: url(../images/zoomactual.gif) !important;
+}
+.camera{
+    background-image: url(../images/camera.png) !important;
+}
+.print{
+    background-image: url(../images/printer.png) !important;
+}

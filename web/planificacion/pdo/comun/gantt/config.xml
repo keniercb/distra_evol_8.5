@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stock xmlns="http://anychart.com/products/stock/schemas/1.9.0/schema.xsd">
+	<event_markers>
+		<groups>
+			<group chart="idCumulativeTotalsChart" series="idSeriesIssuesCreated">
+				<settings>
+					<shape type="Rect">
+						<corners all="3"/>
+					</shape>
+					<font color="#000000"/>
+					<tooltip enabled="true">
+						<background>
+							<fill type="Gradient">
+								<gradient angle="90">
+									<keys>
+										<key color="#FEFEFE"/>
+										<key color="#F1F1F1"/>
+									</keys>
+								</gradient>
+							</fill>
+							<border color="#BDBDBD"/>
+						</background>
+						<font color="#333333" bold="true" size="10"/>
+					</tooltip>
+				</settings>
+				<locale>
+					<date_time>
+						<format><![CDATA[%d-%MMMM-%yyyy]]></format>
+					</date_time>
+				</locale>
+				<events>
+					<event locale_based_date="20-July-2009" format="O">
+						<settings>
+							<tooltip>
+								<format><![CDATA[Reorganization of dev. team]]></format>
+							</tooltip>
+						</settings>
+					</event>
+					<event locale_based_date="19-December-2009" format="T">
+						<settings>
+							<tooltip>
+								<format><![CDATA[The beginning of the testing phase.]]></format>
+							</tooltip>
+						</settings>
+					</event>
+					<event locale_based_date="4-February-2010" format="F">
+						<settings>
+							<tooltip>
+								<format><![CDATA[Code freeze.]]></format>
+							</tooltip>
+						</settings>
+					</event>
+					<event locale_based_date="14-March-2010" format="R">
+						<settings>
+							<tooltip>
+								<format><![CDATA[The beginning of the release phase.]]></format>
+							</tooltip>
+						</settings>
+					</event>
+				</events>
+			</group>
+		</groups>
+	</event_markers>
+	<settings>
+		<outside_margin all="5"/>
+		<inside_margin left="15" top="30" right="40" bottom="10"/>
+		<background enabled="true">
+			<fill enabled="true" type="Gradient">
+				<gradient angle="90">
+					<keys>
+						<key color="#FFFFFF"/>
+						<key color="#F1F1F1"/>
+						<key color="#FFFFFF"/>
+					</keys>
+				</gradient>
+			</fill>
+			<border enabled="true" color="#2466B1" thickness="2"/>
+			<corners type="Rounded" all="8"/>
+		</background>
+		<data_grouping enabled="false" max_visible_points="0">
+			<intervals>
+				<interval unit="Month" count="1" max_visible_points="100000"/>
+			</intervals>
+		</data_grouping>
+		<display_locale>
+			<date_time first_day_of_week="Monday">
+			</date_time>
+			<default_number_format>
+				<format><![CDATA[numDecimals:0]]></format>
+			</default_number_format>
+		</display_locale>
+		<labels>
+			<label anchor="LeftTop" x_padding="15" y_padding="7">
+				<font color="#333333" family="Verdana" bold="true" size="12"/>
+				<format><![CDATA[Created vs Resolved Issues Report (last 300 days)]]></format>
+			</label>
+			<label anchor="RightTop" x_padding="40" y_padding="9">
+				<font family="Verdana" size="10" render_as_html="true"/>
+				<format><![CDATA[Issues: <font color="#DE1721"><b>509</b></font> created and <font color="#45B63F"><b>470</b></font> resolved]]></format>
+			</label>
+		</labels>
+		<charts>
+			<chart height="100" id="idCumulativeTotalsChart">
+				<legend>
+					<title>
+						<focus_settings>
+							<mouse_over>
+								<format><![CDATA[{%Date.Current}{"%dd %MMM, %yyyy"}: ]]></format>
+							</mouse_over>
+							<mouse_out>
+								<format><![CDATA[{%Date.LastVisible}{"%dd %MMM, %yyyy"}: ]]></format>
+							</mouse_out>
+						</focus_settings>
+					</title>
+				</legend>
+				<series_list>
+					<series type="RangeSplineArea" data_provider="dp3" color="#C15F4F">
+						<name><![CDATA[Resolved]]></name>
+						<range_area_series>
+							<fill opacity="1"/>
+							<high>
+								<line enabled="false"/>
+							</high>
+							<low>
+								<line enabled="false"/>
+							</low>
+						</range_area_series>
+						<legend_item enabled="false"/>
+					</series>
+					<series type="Spline" data_provider="dp1" color="#DE1721" id="idSeriesIssuesCreated">
+						<name><![CDATA[Created]]></name>
+						<line_series thickness="2"/>
+					</series>
+					<series type="Spline" data_provider="dp2" color="#45B63F">
+						<name><![CDATA[Resolved]]></name>
+						<line_series thickness="2"/>
+					</series>
+				</series_list>
+				<value_axes>
+					<primary position="Right">
+						<labels position="Outside" padding="3" valign="Center" show_first="true" show_last="true">
+							<font family="Verdana" color="#444444" bold="true" size="9"/>
+							<format><![CDATA[{%Value}{numDecimals:2,trailingZeros:false}]]></format>
+						</labels>
+						<scale minimum_offset="0"/>
+						<tickmarks enabled="true" show_first="true" show_last="true" thickness="1" size="3" pixel_hinting="true" color="#333333"/>
+					</primary>
+				</value_axes>
+			</chart>
+			<chart height="50">
+				<legend>
+					<title enabled="false"/>
+				</legend>
+				<series_list>
+					<series type="Bar" data_provider="dp4" color="#DE1721">
+						<name><![CDATA[Created]]></name>
+					</series>
+					<series type="Bar" data_provider="dp5" color="#45B63F">
+						<name><![CDATA[Resolved]]></name>
+					</series>
+				</series_list>
+				<series_settings_defaults>
+					<bar_series>
+						<fill color="%Color" opacity="1"/>
+					</bar_series>
+				</series_settings_defaults>
+				<value_axes>
+					<primary position="Right">
+						<labels position="Outside" padding="3" valign="Center" show_first="true" show_last="true">
+							<font family="Verdana" color="#444444" bold="true" size="9"/>
+							<format><![CDATA[{%Value}{numDecimals:2,trailingZeros:false}]]></format>
+						</labels>
+						<scale minimum="0" minimum_mode="CustomValue"/>
+						<tickmarks enabled="true" show_first="true" show_last="true" thickness="1" size="3" pixel_hinting="true" color="#333333"/>
+					</primary>
+				</value_axes>
+				<x_axis>
+					<labels enabled="false"/>
+				</x_axis>
+			</chart>
+		</charts>
+		<defaults>
+			<chart>
+				<legend>
+					<date_time enabled="false"/>
+				</legend>
+			</chart>
+		</defaults>
+		<scroller height="30">
+			<time_scale>
+				<interval_formats>
+					<months><![CDATA[%MMM %yyyy]]></months>
+				</interval_formats>
+			</time_scale>
+		</scroller>
+        <time_scale>
+            <selected_range type="Max"/>
+        </time_scale>
+		<range_selector enabled="true">
+			<presets>
+				<ranges>
+					<range type="YTD">
+						<format><![CDATA[YTD]]></format>
+					</range>
+					<range type="Unit" unit="Month" count="6">
+						<format><![CDATA[6 Months]]></format>
+					</range>
+					<range type="Max">
+						<format><![CDATA[Max]]></format>
+					</range>
+				</ranges>
+			</presets>
+		</range_selector>
+	</settings>
+	<data>
+		<data_sets>
+			<data_set id="dataSet1" source_mode="InternalData">
+				<csv_settings ignore_first_row="true" rows_separator="\n" columns_separator=","/>
+				<locale>
+					<date_time>
+						<format><![CDATA[%d-%MMMM-%yyyy]]></format>
+						<months>
+							<names><![CDATA[January,February,March,April,May,June,July,August,September,October,November,December]]></names>
+						</months>
+					</date_time>
+				</locale>
+				<csv_data><![CDATA[Date,Created,Resolved,Created Cumulative,Resolved Cummulative
+1-June-2009,0,0,0,0
+2-June-2009,0,0,0,0
+3-June-2009,0,0,0,0
+4-June-2009,0,0,0,0
+5-June-2009,0,0,0,0
+6-June-2009,0,0,0,0
+7-June-2009,0,0,0,0
+8-June-2009,1,0,1,0
+9-June-2009,0,0,1,0
+10-June-2009,0,0,1,0
+11-June-2009,10,0,11,0
+12-June-2009,0,2,11,2
+13-June-2009,0,0,11,2
+14-June-2009,1,1,12,3
+15-June-2009,0,0,12,3
+16-June-2009,3,0,15,3
+17-June-2009,10,0,25,3
+18-June-2009,1,0,26,3
+19-June-2009,3,1,29,4
+20-June-2009,23,14,52,18
+21-June-2009,0,0,52,18
+22-June-2009,17,21,69,39
+23-June-2009,2,4,71,43
+24-June-2009,9,2,80,45
+25-June-2009,0,0,80,45
+26-June-2009,11,8,91,53
+27-June-2009,0,1,91,54
+28-June-2009,0,0,91,54
+29-June-2009,5,10,96,64
+30-June-2009,1,1,97,65
+1-July-2009,3,5,100,70
+2-July-2009,0,0,100,70
+3-July-2009,0,12,100,82
+4-July-2009,0,0,100,82
+5-July-2009,0,0,100,82
+6-July-2009,2,0,102,82
+7-July-2009,0,0,102,82
+8-July-2009,1,4,103,86
+9-July-2009,2,1,105,87
+10-July-2009,1,16,106,103
+11-July-2009,0,0,106,103
+12-July-2009,0,0,106,103
+13-July-2009,1,3,107,106
+14-July-2009,1,13,108,119
+15-July-2009,4,0,112,119
+16-July-2009,2,4,114,123
+17-July-2009,0,1,114,124
+18-July-2009,0,0,114,124
+19-July-2009,0,0,114,124
+20-July-2009,5,4,119,128
+21-July-2009,4,2,123,130
+22-July-2009,0,0,123,130
+23-July-2009,0,0,123,130
+24-July-2009,0,0,123,130
+25-July-2009,0,0,123,130
+26-July-2009,0,0,123,130
+27-July-2009,0,0,123,130
+28-July-2009,0,0,123,130
+29-July-2009,2,1,125,131
+30-July-2009,0,0,125,131
+31-July-2009,1,1,126,132
+1-August-2009,0,0,126,132
+2-August-2009,0,0,126,132
+3-August-2009,1,2,127,134
+4-August-2009,3,0,130,134
+5-August-2009,0,0,130,134
+6-August-2009,1,0,131,134
+7-August-2009,0,0,131,134
+8-August-2009,0,0,131,134
+9-August-2009,0,0,131,134
+10-August-2009,1,0,132,134
+11-August-2009,1,0,133,134
+12-August-2009,0,0,133,134
+13-August-2009,0,0,133,134
+14-August-2009,0,0,133,134
+15-August-2009,0,0,133,134
+16-August-2009,0,0,133,134
+17-August-2009,0,0,133,134
+18-August-2009,0,0,133,134
+19-August-2009,0,0,133,134
+20-August-2009,0,0,133,134
+21-August-2009,0,0,133,134
+22-August-2009,0,0,133,134
+23-August-2009,0,0,133,134
+24-August-2009,6,1,139,135
+25-August-2009,1,1,140,136
+26-August-2009,0,0,140,136
+27-August-2009,2,1,142,137
+28-August-2009,3,1,145,138
+29-August-2009,0,0,145,138
+30-August-2009,0,0,145,138
+31-August-2009,0,15,145,153
+1-September-2009,0,0,145,153
+2-September-2009,0,0,145,153
+3-September-2009,0,0,145,153
+4-September-2009,0,0,145,153
+5-September-2009,0,0,145,153
+6-September-2009,0,0,145,153
+7-September-2009,0,0,145,153
+8-September-2009,2,2,147,155
+9-September-2009,1,0,148,155
+10-September-2009,1,0,149,155
+11-September-2009,0,0,149,155
+12-September-2009,0,0,149,155
+13-September-2009,0,0,149,155
+14-September-2009,2,0,151,155
+15-September-2009,0,0,151,155
+16-September-2009,0,1,151,156
+17-September-2009,0,2,151,158
+18-September-2009,8,0,159,158
+19-September-2009,0,0,159,158
+20-September-2009,0,0,159,158
+21-September-2009,1,0,160,158
+22-September-2009,3,3,163,161
+23-September-2009,5,3,168,164
+24-September-2009,2,3,170,167
+25-September-2009,0,0,170,167
+26-September-2009,0,0,170,167
+27-September-2009,6,2,176,169
+28-September-2009,1,1,177,170
+29-September-2009,0,0,177,170
+30-September-2009,0,0,177,170
+1-October-2009,0,0,177,170
+2-October-2009,0,0,177,170
+3-October-2009,0,0,177,170
+4-October-2009,3,1,180,171
+5-October-2009,2,1,182,172
+6-October-2009,0,0,182,172
+7-October-2009,1,0,183,172
+8-October-2009,4,1,187,173
+9-October-2009,2,0,189,173
+10-October-2009,2,1,191,174
+11-October-2009,0,0,191,174
+12-October-2009,1,0,192,174
+13-October-2009,11,0,203,174
+14-October-2009,1,0,204,174
+15-October-2009,0,0,204,174
+16-October-2009,0,0,204,174
+17-October-2009,0,2,204,176
+18-October-2009,3,0,207,176
+19-October-2009,0,0,207,176
+20-October-2009,10,0,217,176
+21-October-2009,0,0,217,176
+22-October-2009,3,1,220,177
+23-October-2009,1,15,221,192
+24-October-2009,0,0,221,192
+25-October-2009,0,0,221,192
+26-October-2009,2,13,223,205
+27-October-2009,0,0,223,205
+28-October-2009,1,0,224,205
+29-October-2009,1,1,225,206
+30-October-2009,3,0,228,206
+31-October-2009,3,0,231,206
+1-November-2009,12,0,243,206
+2-November-2009,0,0,243,206
+3-November-2009,0,0,243,206
+4-November-2009,0,0,243,206
+5-November-2009,0,0,243,206
+6-November-2009,0,0,243,206
+7-November-2009,8,0,251,206
+8-November-2009,0,0,251,206
+9-November-2009,1,0,252,206
+10-November-2009,1,2,253,208
+11-November-2009,3,8,256,216
+12-November-2009,2,0,258,216
+13-November-2009,6,0,264,216
+14-November-2009,0,0,264,216
+15-November-2009,0,0,264,216
+16-November-2009,0,0,264,216
+17-November-2009,0,0,264,216
+18-November-2009,8,58,272,274
+19-November-2009,0,1,272,275
+20-November-2009,5,1,277,276
+21-November-2009,0,0,277,276
+22-November-2009,0,0,277,276
+23-November-2009,4,0,281,276
+24-November-2009,5,3,286,279
+25-November-2009,0,0,286,279
+26-November-2009,5,5,291,284
+27-November-2009,3,5,294,289
+28-November-2009,0,0,294,289
+29-November-2009,0,0,294,289
+30-November-2009,0,0,294,289
+1-December-2009,1,0,295,289
+2-December-2009,2,0,297,289
+3-December-2009,2,0,299,289
+4-December-2009,11,7,310,296
+5-December-2009,0,0,310,296
+6-December-2009,1,0,311,296
+7-December-2009,5,1,316,297
+8-December-2009,0,0,316,297
+9-December-2009,5,5,321,302
+10-December-2009,7,10,328,312
+11-December-2009,6,11,334,323
+12-December-2009,3,1,337,324
+13-December-2009,0,0,337,324
+14-December-2009,4,16,341,340
+15-December-2009,0,0,341,340
+16-December-2009,3,2,344,342
+17-December-2009,18,1,362,343
+18-December-2009,15,2,377,345
+19-December-2009,0,0,377,345
+20-December-2009,0,0,377,345
+21-December-2009,7,14,384,359
+22-December-2009,0,1,384,360
+23-December-2009,0,0,384,360
+24-December-2009,2,4,386,364
+25-December-2009,0,1,386,365
+26-December-2009,0,0,386,365
+27-December-2009,0,0,386,365
+28-December-2009,0,0,386,365
+29-December-2009,0,0,386,365
+30-December-2009,0,0,386,365
+31-December-2009,0,0,386,365
+1-January-2010,0,0,386,365
+2-January-2010,0,0,386,365
+3-January-2010,0,0,386,365
+4-January-2010,0,0,386,365
+5-January-2010,0,0,386,365
+6-January-2010,0,0,386,365
+7-January-2010,0,0,386,365
+8-January-2010,0,0,386,365
+9-January-2010,0,0,386,365
+10-January-2010,0,0,386,365
+11-January-2010,0,1,386,366
+12-January-2010,0,0,386,366
+13-January-2010,0,0,386,366
+14-January-2010,3,0,389,366
+15-January-2010,1,0,390,366
+16-January-2010,0,0,390,366
+17-January-2010,0,0,390,366
+18-January-2010,0,0,390,366
+19-January-2010,0,0,390,366
+20-January-2010,2,0,392,366
+21-January-2010,0,0,392,366
+22-January-2010,2,0,394,366
+23-January-2010,0,0,394,366
+24-January-2010,0,0,394,366
+25-January-2010,1,0,395,366
+26-January-2010,0,0,395,366
+27-January-2010,2,2,397,368
+28-January-2010,0,0,397,368
+29-January-2010,0,0,397,368
+30-January-2010,0,0,397,368
+31-January-2010,0,0,397,368
+1-February-2010,0,0,397,368
+2-February-2010,7,20,404,388
+3-February-2010,4,6,408,394
+4-February-2010,3,12,411,406
+5-February-2010,0,0,411,406
+6-February-2010,0,0,411,406
+7-February-2010,0,0,411,406
+8-February-2010,0,0,411,406
+9-February-2010,0,0,411,406
+10-February-2010,0,0,411,406
+11-February-2010,1,0,412,406
+12-February-2010,0,0,412,406
+13-February-2010,0,0,412,406
+14-February-2010,0,0,412,406
+15-February-2010,0,1,412,407
+16-February-2010,0,0,412,407
+17-February-2010,0,0,412,407
+18-February-2010,1,1,413,408
+19-February-2010,0,0,413,408
+20-February-2010,0,0,413,408
+21-February-2010,0,0,413,408
+22-February-2010,0,0,413,408
+23-February-2010,0,0,413,408
+24-February-2010,0,0,413,408
+25-February-2010,0,0,413,408
+26-February-2010,0,0,413,408
+27-February-2010,0,0,413,408
+28-February-2010,0,0,413,408
+1-March-2010,0,1,413,409
+2-March-2010,0,0,413,409
+3-March-2010,0,0,413,409
+4-March-2010,0,0,413,409
+5-March-2010,0,0,413,409
+6-March-2010,0,0,413,409
+7-March-2010,0,0,413,409
+8-March-2010,0,0,413,409
+9-March-2010,0,0,413,409
+10-March-2010,0,0,413,409
+11-March-2010,0,0,413,409
+12-March-2010,0,0,413,409
+13-March-2010,0,0,413,409
+14-March-2010,0,0,413,409
+15-March-2010,20,4,433,413
+16-March-2010,13,11,446,424
+17-March-2010,4,3,450,427
+18-March-2010,1,0,451,427
+19-March-2010,11,2,462,429
+20-March-2010,5,2,467,431
+21-March-2010,4,0,471,431
+22-March-2010,5,9,476,440
+23-March-2010,2,2,478,442
+24-March-2010,6,0,484,442
+25-March-2010,3,7,487,449
+26-March-2010,22,21,509,470
+27-March-2010,6,7,515,477
+28-March-2010,0,0,515,477
+29-March-2010,5,4,520,481
+30-March-2010,1,4,521,485
+31-March-2010,3,0,524,485
+1-April-2010,7,3,531,488
+2-April-2010,0,3,531,491
+3-April-2010,12,6,543,497
+4-April-2010,4,11,547,508
+5-April-2010,0,2,547,510
+6-April-2010,5,4,552,514
+7-April-2010,0,1,552,515
+8-April-2010,1,1,553,516
+9-April-2010,5,9,558,525
+10-April-2010,0,0,558,525
+11-April-2010,3,0,561,525
+12-April-2010,4,17,565,542
+13-April-2010,0,0,565,542
+14-April-2010,23,4,588,546
+15-April-2010,0,6,588,554]]></csv_data>
+			</data_set>
+		</data_sets>
+		<data_providers>
+			<general_data_providers>
+				<data_provider data_set="dataSet1" id="dp1">
+					<fields>
+						<field type="Close" column="3" approximation_type="Close"/>
+					</fields>
+				</data_provider>
+				<data_provider data_set="dataSet1" id="dp2">
+					<fields>
+						<field type="Close" column="4" approximation_type="Close"/>
+					</fields>
+				</data_provider>
+				<data_provider data_set="dataSet1" id="dp3">
+					<fields>
+						<field type="Low" column="3" approximation_type="Low"/>
+						<field type="High" column="4" approximation_type="High"/>
+					</fields>
+				</data_provider>
+				<data_provider data_set="dataSet1" id="dp4">
+					<fields>
+						<field type="Close" column="1" approximation_type="Close"/>
+					</fields>
+				</data_provider>
+				<data_provider data_set="dataSet1" id="dp5">
+					<fields>
+						<field type="Close" column="2" approximation_type="Close"/>
+					</fields>
+				</data_provider>
+			</general_data_providers>
+			<scroller_data_providers>
+				<data_provider data_set="dataSet1" column="3"/>
+			</scroller_data_providers>
+		</data_providers>
+	</data>
+</stock>

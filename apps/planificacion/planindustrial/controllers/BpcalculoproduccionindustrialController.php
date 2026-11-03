@@ -1,0 +1,62 @@
+<?php
+
+require_once __DIR__ . '/../../planmeta/controllers/BpcalculoController.php';
+
+class BpcalculoproduccionindustrialController extends BpcalculoController {
+
+    public function init() {
+        parent::init();
+    }
+
+    public function operacionesBasesDeCalculoAction() {
+        try {
+            $identidad = $this->_request->getPost('identidad');
+            $operacion = $this->_request->getPost('operacion');
+            $isLeaf = $this->_request->getPost('is_leaf');
+            $idejercicio = $this->_request->getPost('idejercicio');
+            $idtipocalc = $this->_request->getPost('idtipocalc'); //1 normas 2 salidas
+            $defaultReturn = true;
+            if (($identidad != null) && ($identidad != 0)) {
+                $modelBasesCalculo = new DatBasescalculoModel();
+                $modelBasesCalculoproducciones = new DatBasescalculoproduccionindustrialModel();
+                if ($operacion == 'actualizar') {
+                    ini_set("max_execution_time", 600); //10min
+                    $dominioEntidades = array();
+                    if ($isLeaf == 'true') {
+                        $dominioEntidades[] = $identidad;
+                    } else {
+                        $security = ZendExt_Aspect_Security_Sgis::getInstance();
+                        $dominioEntidades = DatActividadentidad::auxObtenerEntidadesHijasComun($identidad);
+                        $var = implode(',', $dominioEntidades);
+                        $dominioEntidades = DatEntidaddatosnomenclador::getEntidadesOrganosDemandantesDadoArr($var);
+                    }
+
+                    $arrayParaleloEntEsp = DatBasescalculoModel::getArrayEspecialidades($dominioEntidades, '3');
+                    if ($modelBasesCalculoproducciones->generarBaseDeCalculoDeUnaEntidad($arrayParaleloEntEsp, $idtipocalc, $idejercicio)) {
+                        echo json_encode(array('codMsg' => 22));
+                    } else {
+                        echo json_encode(array('codMsg' => 20));
+                    }
+                    $defaultReturn = false;
+                } elseif ($operacion == 'eliminar') {
+                    $modelBasesCalculo->eliminarBaseDeCalculoDeUnaEntidad($identidad, $idtipocalc, $idejercicio);
+                    echo json_encode(array('codMsg' => 22));
+                    $defaultReturn = false;
+                } else {
+                    if ($this->_request->getPost('identidad') == 0) {
+                        echo json_encode(array('codMsg' => 21));
+                    } else {
+                        echo json_encode(array('codMsg' => 3));
+                    }
+                    $defaultReturn = false;
+                }
+                if ($defaultReturn) {
+                    echo json_encode(array('codMsg' => 20));
+                }
+            }
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+}

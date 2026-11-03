@@ -1,0 +1,9 @@
+{
+    "nombre": "Sistema de Planificación de Objetivos y Actividades (SIPAC)", //nombre del subsitema
+    "version": "5.0", //version
+    "fecha": "<dd/mm/aaaa>", // fecha de liberacion del producto
+    "autor": "Centro de Planificación, Gestión de entidades, Xetid", //autor
+    "dependencia": ["Zeolides 2.2.0","Quarseg 2.1","Ayuda 3.0"], // base tecnologica
+    "descripcion": "<p style='text-align: justify'>El sistema permite a los usuarios optimizar el registro, seguimiento y control de los elementos de la planificación de forma centralizada, atendiendo a los diferentes escalones de mando de la organización, permitiendo mitigar el riesgo de la duplicidad de información y ganando en productividad y compatibilidad, además de permitir la visualización de toda la información planificada. Este cuenta con un conjunto de subsistemas que serán de vital importancia para el correcto funcionamiento de cada uno de los componentes propios del mismo, ya que constituyen un pilar fundamental durante el proceso de planificación.</p>",
+    "logo":"planificacion/pdo/comun/recursos/images/logo.png" //descripcion
+}

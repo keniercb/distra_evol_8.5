@@ -1,0 +1,701 @@
+<?php
+
+class GenerarPdfEquiposAutomotores {
+
+    protected $pdf;
+    protected $table;
+    protected $entidad;
+    protected $identidad;
+    protected $fechainicio;
+    protected $fechafin;
+    protected $confeccionadopor;
+    protected $aprobadopor;
+    protected $observaciones;
+    protected $withArray;
+    protected $alignsArray;
+    protected $ejercicio;
+    protected $idejercicio;
+    protected $tipos;
+    protected $arrayUM;
+    protected $integrator;
+
+    function __construct($parametros, $whereInversion, $whereOtrosIndicadores, $whereEq, $whereFin, $whereConstr) {
+
+        $this->idorganismo = $parametros['idorganismo'];
+        $this->integrator = $parametros['integrator'];
+        $this->idejercicioden = $parametros['idejercicioden'];
+        $this->idejercicio = $parametros['idejercicio'];
+        $this->aprobadopor = $parametros['aprobadopor'];
+        $this->elaboradopor = $parametros['elaboradopor'];
+        $this->organismoden = $parametros['organismoden'];
+        $this->forma = $parametros['forma'];
+        $this->formaden = $parametros['formaden'];
+        $this->comprarden = $parametros['comprarden'];
+        $this->observacion = $parametros['observacion'];
+        $this->identiDen = $parametros['identiDen'];
+        $this->reporte = $parametros['reporte'];
+        $this->iddominio = $parametros['iddominio'];
+        $this->entidadeshijas = $parametros['entidadeshijas'];
+        $this->params = $parametros;
+        $this->entidadesDen = $parametros['entidadesDen'];
+        $this->pdf = new TCPDF('P', PDF_UNIT, 'Carta', true, 'UTF-8', false);
+
+        $this->objinversion = new DatInversion();
+        $this->objinversionModel = new InversionesModel();
+        $this->objequipos = new DatEtapaEquipo();
+        $this->whereInversion = $whereInversion;
+        $this->whereOtrosIndicadores = $whereOtrosIndicadores;
+        $this->whereConstr = $whereConstr;
+        $this->whereEq = $whereEq;
+        $this->whereFin = $whereFin;
+        $this->importeRep = 0;
+        $this->importeInc = 0;
+        $this->importeTot = 0;
+        $this->importeDon = 0;
+        $this->importeFin = 0;
+
+
+        $this->pdf = new TCPDF('P', PDF_UNIT, 'Carta', true, 'UTF-8', false);
+        $this->table = new Table($this->pdf);
+
+// Set document information
+        $this->pdf->SetCreator(PDF_CREATOR);
+        $this->pdf->SetAuthor('MEP');
+        $this->pdf->SetTitle('EMISIÓN EQUIPOS AUTOMOTORES');
+        $this->pdf->setPrintHeader(false);
+        $this->pdf->setPrintFooter(false);
+
+// set default monospaced font
+        $this->pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+
+// set margins
+        $this->pdf->SetMargins(15, 25, 15);
+
+// set auto page breaks
+        $this->pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+// set image scale factor
+        $this->pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+    }
+
+    public function export() {
+        $this->pdf->AddPage();
+        $this->createHeader();
+        $this->pdf->Ln(5);
+        if ($this->pdf->GetY() > 230) { //248
+            $this->pdf->setY(215);  //250
+            $this->piedePagina();
+            //$this->pdf->AddPage();
+        } else {
+            $this->pdf->setY(215);
+            $this->piedePagina();
+        }
+        $this->pdf->SetAutoPageBreak(TRUE, 20);
+        ob_clean();
+        $this->pdf->Output("Emisi�n de equipos automotores.pdf", 'I');
+        return true;
+    }
+
+    private function createHeader() {
+        $this->totalesorg = array();
+        $idEntidesHijas = array();
+        $this->pdf->setJPEGQuality(75);
+        $this->pdf->SetFont('Helvetica', 'B', 10);
+        $this->pdf->Cell(70, 5, 'Plan ' . $this->idejercicioden, 0, 1, 'L', false, '', 1);
+        // $this->pdf->Ln(2);
+        $this->pdf->Cell(150, 5, 'Ministerio de Economía y Planificación', 0, 1, 'L', false, '', 1);
+        
+        $this->pdf->Ln(2);
+        $this->pdf->Cell(150, 5, 'EQUIPOS AUTOMOTORES', 0, 1, 'L', false, '', 1);
+        if ($this->formaden != '') {
+            $this->pdf->Cell(185, 5, 'INVERSIONES ' . $this->formaden, 0, 1, 'L', false, '');
+            // $this->pdf->Ln(2);
+        }
+        if ($this->comprarden != '') {
+            $this->pdf->Cell(50, 5, $this->comprarden, 0, 1, 'L', false, '', 1);
+            // $this->pdf->Ln(2);
+        }
+        $this->pdf->Cell(70, 5, 'Directivo Máximo Anual', 0, 1, 'L', false, '', 1);
+        
+        $this->pdf->Ln(2);
+        $this->pdf->MultiCell(185, 5, /*'Entidad: '.*/$this->organismoden, 0, 'L', 0, 3, '', '', true, 0, true);
+        $this->pdf->Ln(2);
+        $this->pdf->Ln(2);
+        $this->pdf->SetFont('Helvetica', 'B', 10);
+        $this->pdf->Cell(145, 5, 'UM: Uno', 0, 1, 'R', false, '', 1);
+        $this->pdf->Ln(2);
+
+        $this->pdf->SetFillColor(255, 255, 255);
+        $this->pdf->SetFont('Helvetica', 'B', 8);
+        $this->pdf->MultiCell(117, 10, '', 'TB', 'L', 1, 0, '', '', true, 0, false, true, 5, 'T', true);
+        $this->pdf->MultiCell(17, 10, 'Cantidad Reposición', 'TB', 'C', 1, 0, '', '', true, 0, false, true, 5, 'T', true);
+        $this->pdf->MultiCell(24, 10, 'Cantidad Incremento', 'TB', 'C', 1, 0, '', '', true, 0, false, true, 5, 'T', true);
+        $this->pdf->MultiCell(30, 10, 'Cantidad Total', 'TB', 'C', 1, 0, '', '', true, 0, false, true, 5, 'T', true);
+        $this->pdf->MultiCell(1, 10, '', 'TB', 'C', 1, 1, '', '', true, 0, false, true, 5, 'T', true);
+        //$this->pdf->MultiCell(17, 10, 'Valoeeer Total (MP)', 'TB', 'C', 1, 1, '', '', true, 0, false, true, 5, 'T', true);
+        $this->pdf->SetTextColor(0, 0, 0);
+        $aux = explode(',', $this->organismoden);
+        $aux1 = explode(',', $this->idorganismo);
+        foreach ($aux1 as $key => $valor) {
+            $idestructurasaux[$key]['identidad'] = $valor;
+            $idestructurasaux[$key]['entidad'] = $aux[$key];
+        }
+        $idEntidesHijas=array();
+        foreach ($idestructurasaux as $key => $valOrg) {
+            if ($this->entidadeshijas != '') {
+                $IDEntidades = explode(",", $this->entidadeshijas);
+                $idSeleccionadas = $this->objinversionModel->dadoArrayEntidades($valOrg['identidad'], $valOrg['entidad'], $IDEntidades); //ENTIDADES HIJAS seleccionadas
+                if (count($idSeleccionadas) > 0) {
+                    $idestructuras = $idSeleccionadas;
+                    foreach ($idestructuras as $ke => $valu) {
+                        $idEntidesHijas[] = $valu['identidad'];
+                    }
+                } else {
+                    $idEntidesHijas=array_merge($idEntidesHijas, self::buscarEntidadesTodas($valOrg['identidad']));
+                    
+                }
+            } else {
+                if ($valOrg['identidad']) {
+                    $idEntidesHijas=array_merge($idEntidesHijas, self::buscarEntidadesTodas($valOrg['identidad']));
+                } else {
+                    $org = self::cargarTodosOrganismosYArrayHijas($this->iddominio, 0);
+                    $entidades = $org[0]['dato'];
+                    $idEntidesHijas = explode(',', $entidades);
+                }                
+            }
+           /* $idEntidesHijas=array();
+            $idEntidesHijas[] =100000649;*/
+            //100000649
+
+
+            $this->totalgeneral['planrep']+=$this->totalesorg['planrep'];
+            $this->totalgeneral['planinc']+=$this->totalesorg['planinc'];
+            $this->totalgeneral['total']+=$this->totalesorg['total'];
+            $this->totalgeneral['donacion']+=$this->totalesorg['donacion'];
+            $this->totalgeneral['valor']+=$this->totalesorg['valor'];
+        }
+
+        self::pintarDatos(implode(',', $idEntidesHijas));
+
+        if ($this->pdf->GetY() > 220) {
+            self::encabezado();
+        }
+        if ($this->pdf->GetY() > 215) {
+            $this->pdf->setY(215);
+            $this->piedePagina();
+            $this->pdf->AddPage();
+        }
+        $this->pdf->SetFont('Helvetica', 'B', 8);
+        $this->pdf->SetFillColor(255, 255, 255);
+        if ($this->pdf->GetY() > 215) {
+            $this->pdf->setY(215);
+            $this->piedePagina();
+            $this->pdf->AddPage();
+        }
+        if ($this->pdf->GetY() > 220) {
+            self::encabezado();
+        }
+
+        $this->pdf->SetFont('Helvetica', 'B', 8);
+        $this->pdf->SetFillColor(255, 255, 255);
+    }
+
+    private function pintarDatos($valOrg) {
+
+        $idplanes = $this->objequipos->listarPlanesReporte($valOrg);
+        if ($idplanes[0]['idmodelo'] != null) {
+            $datospintar = $this->objequipos->listarDatosEquiposFiltros($this->params, $valOrg, $idplanes, $this->whereInversion, $this->whereOtrosIndicadores, $this->whereEq, $this->whereFin, $this->whereConstr);
+            // print_r('<pre>');print_r($datospintar);die;
+            if ($datospintar[0]['idorganosatisface'] != null) {
+                $this->totalesentidad = array();
+                $totalorganismos = array();
+                foreach ($datospintar as $datos) {
+                    $this->totalesentidad['planrep']+=$datos['planrep'];
+                    $this->totalesentidad['planinc']+=$datos['planinc'];
+                    $this->totalesentidad['total']+=$datos['total'];
+                    $this->totalesentidad['donacion']+=$datos['donacion'];
+                    $this->totalesentidad['valor']+=$datos['importe'];
+
+                    $totalorganismos[$datos['idorganosatisface']]['planrep']+=$datos['planrep'];
+                    $totalorganismos[$datos['idorganosatisface']]['planinc']+=$datos['planinc'];
+                    $totalorganismos[$datos['idorganosatisface']]['total']+=$datos['total'];
+                    $totalorganismos[$datos['idorganosatisface']]['donacion']+=$datos['donacion'];
+                    $totalorganismos[$datos['idorganosatisface']]['valor']+=$datos['importe'];
+                    //$totalorganismos[$datos['idorganosatisface']]['valor']+=$datos['total'] * $datos['precio'];
+                }
+                if ($this->totalesentidad['planinc'] > 0 || $this->totalesentidad['planrep'] > 0 ||
+                        $this->totalesentidad['total'] > 0 || $this->totalesentidad['donacion'] > 0 ||
+                        $this->totalesentidad['valor'] > 0) {
+                    $altura = self::CalcularAltura('Organismo: ' . $this->organismoden, 100);
+                    if ($this->pdf->GetY() + $altura > 215) {
+                        $this->piedePagina();
+                        self::encabezado();
+                    }
+                    $this->pdf->SetFont('Helvetica', 'B', 8);
+                    //$this->pdf->SetFillColor(204, 255, 204);
+                    $this->pdf->Cell(117, 5, 'TOTAL EQUIPOS AUTOMOTORES', 0, 0, 'L', true, '', 1);
+//                    $this->pdf->Cell(100, 5, 'Organismo: ' . $this->organismoden, 0, 0, 'L', true, '', 1);
+                    if ($this->totalesentidad['planrep'] == 0)
+                        $this->pdf->Cell(17, 5, ' ', 0, 0, 'R', true, '', 1);
+                    else
+                        $this->pdf->Cell(17, 5, number_format($this->totalesentidad['planrep'], '0', '.', ' '), 0, 0, 'R', true, '', 1);
+                    
+                    if ($this->totalesentidad['planinc'] == 0)
+                        //$this->pdf->Cell(17, 5, ' ', 0, 0, 'R', true, '', 1);
+                        $this->pdf->Cell(24, 5, ' ', 0, 0, 'R', true, '', 1);
+                    else
+                        $this->pdf->Cell(24, 5, number_format($this->totalesentidad['planinc'], '0', '.', ' '), 0, 0, 'R', true, '', 1);
+                    
+                    $this->pdf->Cell(27, 5, number_format($this->totalesentidad['total'], '0', '.', ' '), 0, 0, 'R', true, '', 1);
+
+
+                    //if ($this->totalesentidad['donacion'] == 0)
+                        //$this->pdf->Cell(17, $altura, ' ', 0, 1, 'R', false, '', 1);
+                        $this->pdf->Cell(1, $altura, ' ', 0, 1, 'R', false, '', 1);
+                    //else
+                        //$this->pdf->Cell(17, 5, number_format($this->totalesentidad['donacion'], '0', '.', ' '), 0, 1, 'R', true, '', 1);
+                        //$this->pdf->Cell(1, $altura, ' ', 0, 1, 'R', false, '', 1);
+                    //$this->pdf->Cell(20, 5, number_format($this->totalesentidad['valor'], '3', '.', ','), 1, 1, 'R', true, '', 1);
+                    $valorE = explode('.', $this->totalesentidad['valor']);
+                    if ($valorE[1] > 0 || $valorE[1])
+                        $valor = (int) $this->totalesentidad['valor'] + 1;
+                    else
+                        $valor = (int) $this->totalesentidad['valor'];
+                    //$this->pdf->Cell(17, 5, number_format($valor, '0', '.', ' '), 0, 1, 'R', true, '', 1);
+//                    $this->pdf->Cell(20, 5, number_format($this->totalesentidad['valor'], '3', '.', ''), 0, 1, 'R', true, '', 1);
+                    //$this->pdf->SetFillColor(255, 255, 255);
+                }
+
+                $this->totalesorg['planrep']+=$this->totalesentidad['planrep'];
+                $this->totalesorg['planinc']+=$this->totalesentidad['planinc'];
+                $this->totalesorg['total']+=$this->totalesentidad['total'];
+                $this->totalesorg['donacion']+=$this->totalesentidad['donacion'];
+                $this->totalesorg['valor']+=$this->totalesentidad['valor'];
+
+                $orgsat = 0;
+                $idpadre = 0;
+                $totalesesp = array();
+                $totalesesp['planinc'] = 0;
+                $totalesesp['planrep'] = 0;
+                $totalesesp['total'] = 0;
+                $totalesesp['donacion'] = 0;
+                $totalesesp['valor'] = 0;
+                $longitud = count($datospintar);
+                $orgsat = $datospintar[0]['idorganosatisface'];
+                for ($ke = 0; $ke < $longitud; $ke++) {
+                    if ($orgsat != $datospintar[$ke]['idorganosatisface'] || $ke == 0) {
+                        if ($totalorganismos[$datospintar[$ke]['idorganosatisface']]['total'] > 0) {
+                            $altura = self::CalcularAltura($datospintar[$ke]['organosat'], 80);
+                            if ($this->pdf->GetY() + $altura > 215) {
+                                $this->piedePagina();
+                                self::encabezado();
+                            }
+                            $this->pdf->SetFont('Helvetica', 'B', 8);
+                            $this->pdf->Cell(117, 5, '    EQUIPOS BALANCEADOS POR ' . $datospintar[$ke]['organosat'], 0, 0, 'L', false, '', 1);
+                            if ($totalorganismos[$datospintar[$ke]['idorganosatisface']]['planrep'] == 0)
+                                $this->pdf->Cell(17, 5, ' ', 0, 'R', false, '', 1);
+                            else
+                                $this->pdf->Cell(17, 5, number_format($totalorganismos[$datospintar[$ke]['idorganosatisface']]['planrep'], '0', '.', ' '), 0, 0, 'R', false, '', 1);
+                            if ($totalorganismos[$datospintar[$ke]['idorganosatisface']]['planinc'] == 0)
+                                //$this->pdf->Cell(17, 5, ' ', 0, 'R', false, '', 1);
+                                $this->pdf->Cell(24, 5, ' ', 0, 'R', false, '', 1);
+                            else
+                                //$this->pdf->Cell(17, 5, number_format($totalorganismos[$datospintar[$ke]['idorganosatisface']]['planinc'], '0', '.', ' '), 0, 0, 'R', false, '', 1);
+                                $this->pdf->Cell(24, 5, number_format($totalorganismos[$datospintar[$ke]['idorganosatisface']]['planinc'], '0', '.', ' '), 0, 0, 'R', false, '', 1);
+                            
+                            $this->pdf->Cell(27, 5, number_format($totalorganismos[$datospintar[$ke]['idorganosatisface']]['total'], '0', '.', ' '), 0, 0, 'R', false, '', 1);
+                            
+                            //if ($totalorganismos[$datospintar[$ke]['idorganosatisface']]['donacion'] == 0)
+                                //$this->pdf->Cell(17, $altura, ' ', 0, 0, 'R', false, '', 1);
+                                $this->pdf->Cell(1, $altura, ' ', 0, 0, 'R', false, '', 1);
+                            //else
+                                //$this->pdf->Cell(17, 5, number_format($totalorganismos[$datospintar[$ke]['idorganosatisface']]['donacion'], '0', '.', ' '), 0, 0, 'R', false, '', 1);
+                                //$this->pdf->Cell(1, 5, number_format($totalorganismos[$datospintar[$ke]['idorganosatisface']]['donacion'], '0', '.', ' '), 0, 0, 'R', false, '', 1);
+                            //$this->pdf->Cell(20, 5, /*number_format($totalorganismos[$datospintar[$ke]['idorganosatisface']]['valor'], '3', '.', '')*/'000', 1, 1, 'R', false, '', 1);
+                            $this->pdf->Cell(17, 5, ' ', 0, 1, 'R', false, '', 1);
+                        }
+                        $orgsat = $datospintar[$ke]['idorganosatisface'];
+                        $idpadre = $datospintar[$ke]['idpadre'];
+                        /*if ($datospintar[$ke]['total'] > 0) {
+                            if ($datospintar[$ke]['total'] > 0) {
+                                $denomindespec = $this->objequipos->listarDemonIndEsp($datospintar[$ke]['idpadre']);
+                                $altura = self::CalcularAltura($denomindespec[0]['denominacion'], 100);
+                                if ($this->pdf->GetY() + $altura > 215) {
+                                    $this->piedePagina();
+                                    self::encabezado();
+                                }
+                                $this->pdf->SetFont('Helvetica', '', 8);
+                                $this->pdf->MultiCell(117, $altura, '        ' . $denomindespec[0]['denominacion'], 0, 'T', 0, 0, '', '', true, 0, false, true, $altura, 'T', true);
+                                if ($datospintar[$ke]['planrep'] == 0)
+                                    $this->pdf->Cell(17, 5, ' ', 0, 'R', false, '', 1);
+                                else
+                                    $this->pdf->Cell(17, $altura, number_format($datospintar[$ke]['planrep'], '0', '.', ' '), 0, 0, 'R', false, '', 1);
+                                if ($datospintar[$ke]['planinc'] == 0)
+                                    $this->pdf->Cell(17, 5, ' ', 0, 'R', false, '', 1);
+                                else
+                                    $this->pdf->Cell(17, $altura, number_format($datospintar[$ke]['planinc'], '0', '.', ' '), 0, 0, 'R', false, '', 1);
+                                $this->pdf->Cell(17, $altura, number_format($datospintar[$ke]['total'], '0', '.', ' '), 0, 0, 'R', false, '', 1);
+
+                                if ($datospintar[$ke]['donacion'] == 0)
+                                    $this->pdf->Cell(17, $altura, ' ', 0, 0, 'R', false, '', 1);
+                                else
+                                    $this->pdf->Cell(17, $altura, number_format($datospintar[$ke]['donacion'], '0', '.', ' '), 0, 0, 'R', false, '', 1);
+
+                                $valorT = $datospintar[$ke]['total'] * $datospintar[$ke]['precio'];
+//                                $this->pdf->Cell(20, $altura,number_format($datospintar[$ke]['importe'], '3', '.', ''), 1, 1, 'R', false, '', 1);
+                                $this->pdf->Cell(20, $altura, ' ', 0, 1, 'R', false, '', 1);
+                            }
+                        }*/
+                    } /*else {
+                        if ($idpadre == $datospintar[$ke]['idpadre']) {
+                            if ($datospintar[$ke]['total'] + $datospintar[$ke - 1]['total'] > 0) {
+                                $denomindespec = $this->objequipos->listarDemonIndEsp($datospintar[$ke]['idpadre']);
+                                $altura = self::CalcularAltura($denomindespec[0]['denominacion'], 100);
+                                if ($this->pdf->GetY() + $altura > 215) {
+                                    $this->piedePagina();
+                                    self::encabezado();
+                                }
+                                $this->pdf->SetFont('Helvetica', '', 8);
+                                $this->pdf->MultiCell(117, $altura, '        ' . $denomindespec[0]['denominacion'], 0, 'T', 0, 0, '', '', true, 0, false, true, $altura, 'T', true);
+                                $this->pdf->Cell(17, $altura, number_format($datospintar[$ke]['planrep'] + $datospintar[$ke - 1]['planrep'], '0', '.', ' '), 0, 0, 'R', false, '', 1);
+                                $this->pdf->Cell(17, $altura, number_format($datospintar[$ke]['planinc'] + $datospintar[$ke - 1]['planinc'], '0', '.', ' '), 0, 0, 'R', false, '', 1);
+                                $this->pdf->Cell(17, $altura, number_format($datospintar[$ke]['total'] + $datospintar[$ke - 1]['total'], '0', '.', ' '), 0, 0, 'R', false, '', 1);
+
+                                if ($datospintar[$ke]['donacion'] == 0)
+                                    $this->pdf->Cell(17, $altura, ' ', 0, 0, 'R', false, '', 1);
+                                else
+                                    $this->pdf->Cell(17, $altura, number_format($datospintar[$ke]['donacion'] + $datospintar[$ke - 1]['donacion'], '0', '.', ' '), 0, 0, 'R', false, '', 1);
+                                $valorT = $datospintar[$ke]['total'] * $datospintar[$ke]['precio'];
+//                                $this->pdf->Cell(20, $altura, number_format($datospintar[$ke]['importe'], '3', '.', ''), 1, 1, 'R', false, '', 1);
+                                $this->pdf->Cell(17, $altura, ' ', 0, 1, 'R', false, '', 1);
+                            }
+                        } else {
+                            if ($datospintar[$ke]['total'] > 0) {
+                                $denomindespec = $this->objequipos->listarDemonIndEsp($datospintar[$ke]['idpadre']);
+                                $altura = self::CalcularAltura($denomindespec[0]['denominacion'], 100);
+                                if ($this->pdf->GetY() + $altura > 215) {
+                                    $this->piedePagina();
+                                    self::encabezado();
+                                }
+                                $this->pdf->SetFont('Helvetica', '', 8);
+                                $this->pdf->MultiCell(117, $altura, '        ' . $denomindespec[0]['denominacion'], 0, 'T', 0, 0, '', '', true, 0, false, true, $altura, 'T', true);
+                                if ($datospintar[$ke]['planrep'] == 0)
+                                    $this->pdf->Cell(17, 5, ' ', 0, 'R', false, '', 1);
+                                else
+                                    $this->pdf->Cell(17, $altura, number_format($datospintar[$ke]['planrep'], '0', '.', ' '), 0, 0, 'R', false, '', 1);
+                                if ($datospintar[$ke]['planinc'] == 0)
+                                    $this->pdf->Cell(17, 5, ' ', 0, 'R', false, '', 1);
+                                else
+                                    $this->pdf->Cell(17, $altura, number_format($datospintar[$ke]['planinc'], '0', '.', ' '), 0, 0, 'R', false, '', 1);
+                                $this->pdf->Cell(17, $altura, number_format($datospintar[$ke]['total'], '0', '.', ' '), 0, 0, 'R', false, '', 1);
+
+                                if ($datospintar[$ke]['donacion'] == 0)
+                                    $this->pdf->Cell(17, $altura, ' ', 0, 0, 'R', false, '', 1);
+                                else
+                                    $this->pdf->Cell(17, $altura, number_format($datospintar[$ke]['donacion'], '0', '.', ' '), 0, 0, 'R', false, '', 1);
+                                $valorT = $datospintar[$ke]['total'] * $datospintar[$ke]['precio'];
+                                /* new *///$this->pdf->Cell(20, $altura, number_format($valorT, '0', '.', ','), 1, 0, 'R', false, '', 1);
+                                //$this->pdf->Cell(20, $altura,number_format($datospintar[$ke]['importe']), 3, 1, 'R', false, '', 1);
+                                //     $this->pdf->Cell(20, $altura,number_format($datospintar[$ke]['importe'], '3', '.', ''), 1, 1, 'R', false, '', 1);
+                                /*$this->pdf->Cell(17, $altura, ' ', 0, 1, 'R', false, '', 1);
+                            }
+                        }
+                    }*/
+                }
+            }
+        }
+    }
+
+    public function cargarEntidades($idorg) {
+        $entidades = array();
+        $dominios = $this->integrator->metadatos->DameHijosEstructura($idorg);
+        if ($dominios[0] != "") {
+            foreach ($dominios as $key => $k) {
+                $entidades_hijas = array();
+                $entidades_hijas = self::entidadesHijas($k->id, $k->text);
+                $entidades = array_merge($entidades_hijas, $entidades);
+            }
+        }
+        return $entidades;
+    }
+
+    public function entidadesHijas($identidad, $text) {
+        $dominios = $this->integrator->metadatos->DameHijosEstructura($identidad);
+        $entidades_hijas = array();
+        $entidades_hijas[0]['identidad'] = $identidad;
+        $entidades_hijas[0]['entidad'] = $text;
+        foreach ($dominios as $key => $entidad_hija) {
+            if ($entidad_hija->leaf == 1) {
+                $entidades_hijas[$key + 1]['identidad'] = $entidad_hija->id;
+                $entidades_hijas[$key + 1]['entidad'] = $entidad_hija->text;
+                $entidades_hijas[$key + 1]['codigo'] = $entidad_hija->codigo;
+            } else {
+                $entidades_hijas = array_merge($entidades_hijas, self::entidadesHijas($entidad_hija->id, $entidad_hija->text));
+            }
+        }
+        return $entidades_hijas;
+    }
+
+    public function piedePagina() {
+        $this->pdf->Ln(3);
+        $this->pdf->SetFont('Helvetica', 'B', 10);
+        if($this->observacion != '')
+            $this->pdf->MultiCell(185, 15, $this->observacion, 0, 'L', 0, 3, '', '', true, 0, true);
+        else
+            $this->pdf->MultiCell(185, 15, 'La Cantidad total de Equipos por Reposición e incremento
+            y el Valor Total constituyen indicadores Directivos Máximos. Los organismos rectores MITRANS,
+            MICONS, MINDUS y MINAG están facultados para modificar las clasificaciones por tipo de equipos.', 0, 'L', 0, 3, '', '', true, 0, true);
+
+
+        $this->pdf->Ln(2);
+
+        $this->pdf->Cell(90, 5, 'Aprobado por: ', 0, 1, 'L', false, '', 1);
+        $this->pdf->Ln(15);
+
+        if($this->aprobadopor != '')
+            $this->pdf->Cell(90, 5, $this->aprobadopor, 0, 0, 'L', false, '', 1);
+        else
+            $this->pdf->Cell(90, 5, 'Ricardo Cabrisas Ruiz', 0, 0, 'L', false, '', 1);
+
+        $this->pdf->Cell(50, 5, 'Fecha: ', 0, 1, 'R', false, '', 1);
+        // $this->pdf->Cell(50, 5, 'Fecha: ' . date('d-m-Y'), 0, 1, 'R', false, '', 1);
+        $this->pdf->Cell(90, 5, '      Ministro ', 0, 1, 'L', false, '', 1);
+        $this->pdf->SetFont('Helvetica', 'B', 8);
+    }
+
+    public function encabezado() {
+        $this->pdf->AddPage();
+        $this->pdf->SetFont('Helvetica', 'B', 10);
+        $this->pdf->Cell(70, 5, 'Plan ' . $this->idejercicioden, 0, 1, 'L', false, '', 1);
+        $this->pdf->Ln(2);
+        $this->pdf->Cell(150, 5, 'Ministerio de Economía y Planificación', 0, 1, 'L', false, '', 1);
+        $this->pdf->Cell(70, 5, 'Directivo Máximo', 0, 1, 'L', false, '', 1);
+        $this->pdf->Cell(145, 5, 'UM: Uno', 0, 1, 'R', false, '', 1);
+        $this->pdf->Ln(2);
+        $this->pdf->Cell(150, 5, 'EQUIPOS AUTOMOTORES', 0, 1, 'L', false, '', 1);
+        if ($this->formaden != '') {
+            $this->pdf->Cell(200, 5, 'INVERSIONES ' . $this->formaden, 0, 1, 'L', false, '');
+            // $this->pdf->Ln(2);
+        }
+        if ($this->comprarden != '') {
+            $this->pdf->Cell(50, 5, $this->comprarden, 0, 1, 'L', false, '', 1);
+            // $this->pdf->Ln(2);
+        }
+        $this->pdf->Ln(2);
+        $this->pdf->MultiCell(185, 5, /* 'Organismo: ' . */ $this->organismoden, 0, 'L', 0, 3, '', '', true, 0, true);
+        $this->pdf->SetFont('Helvetica', 'B', 8);
+        // $this->pdf->Ln(2);
+
+        $this->pdf->SetFillColor(255, 255, 255);
+        $this->pdf->SetFont('Helvetica', 'B', 8);
+        $this->pdf->SetFont('Helvetica', 'B', 8);
+
+        // $this->pdf->Cell(100, 10, 'CLASIFICACION/TIPO DE EQUIPO', 0, 0, 'L', true, '', 1);
+        $this->pdf->MultiCell(117, 10, 'CLASIFICACION / TIPO DE EQUIPO', 'TB', 'L', 1, 0, '', '', true, 0, false, true, 5, 'T', true);
+        $this->pdf->MultiCell(17, 10, 'Cantidad Reposición', 'TB', 'C', 1, 0, '', '', true, 0, false, true, 5, 'T', true);
+        $this->pdf->MultiCell(17, 10, 'Cantidad Incremento', 'TB', 'C', 1, 0, '', '', true, 0, false, true, 5, 'T', true);
+        $this->pdf->MultiCell(17, 10, 'Cantidad Total', 'TB', 'C', 1, 0, '', '', true, 0, false, true, 5, 'T', true);
+        $this->pdf->MultiCell(17, 10, 'De ello Donación', 'TB', 'C', 1, 1, '', '', true, 0, false, true, 5, 'T', true);
+        //$this->pdf->MultiCell(17, 10, 'Valor Total (MP)', 'TB', 'C', 1, 1, '', '', true, 0, false, true, 5, 'T', true);
+    }
+
+    public function CalcularAltura($texto, $ancho) {
+        $altura = 0;
+        $ancho = $ancho;
+        $cantidad_lineas = strlen($texto);
+        if ($cantidad_lineas > $ancho) {
+            $aux = $cantidad_lineas / $ancho;
+            if (is_float($aux)) {
+                $aux1 = explode(".", $aux);
+            }
+            $aux2 = $aux1[0] + 1;
+            $altura = 5 * $aux2;
+        } else {
+            $altura = 5;
+        }
+        return $altura;
+    }
+
+    private function cargarTodosOrganismosYArrayHijas($iddominio, $selectDenomOrganismo = null) {
+
+        /*
+          $selectDenom = " ";
+          if ($selectDenomOrganismo == null || $selectDenomOrganismo == 0) {
+          $selectDenom = " ";
+          } else if ($selectDenomOrganismo == 1) {
+          $selectDenom = " ,CASE
+          when nomcargo.denominacion <> '' then nomcargo.denominacion
+          when estructura.denominacion <> '' then estructura.denominacion
+          when estructuraop.denominacion <> '' then estructuraop.denominacion
+          when nommedio.denominacion <> '' then nommedio.denominacion
+          END as text";
+          }
+         */
+
+        $query = "SELECT idfila as id,
+
+               CASE
+                      when nomcargo.denominacion <> '' then nomcargo.denominacion
+                      when estructura.denominacion <> '' then estructura.denominacion
+                      when estructuraop.denominacion <> '' then estructuraop.denominacion
+                      when nommedio.denominacion <> '' then nommedio.denominacion
+                                                                    END as text,
+                 COALESCE( (        SELECT
+   array_to_string(array_prepend(idpadre,
+    
+                    (SELECT
+
+                    array_agg(f.idfila)
+                    FROM mod_estructuracomp.nom_filaestruc  f
+                 WHERE (f.lft > (
+                                                  SELECT f1.lft
+                                                  FROM mod_estructuracomp.nom_filaestruc  f1
+                                                  WHERE f1.idfila = fila.idfila
+                                                  )
+                                            AND f.lft < (
+                                                  SELECT f1.rgt
+                                                  FROM mod_estructuracomp.nom_filaestruc  f1
+                                                  WHERE f1.idfila = fila.idfila
+                                                  )
+                                        )
+
+                and f.idfila in (
+                SELECT idfila
+                               FROM mod_estructuracomp.nom_filaestruc fila
+
+                                    INNER JOIN mod_estructuracomp.nom_concepto nomeav
+                                        ON (fila.idconcepto = nomeav.idconcepto)
+                                    INNER JOIN mod_estructuracomp.nom_icono icono
+                                        ON (icono.idicono = nomeav.idicono)
+                                    LEFT JOIN mod_estructuracomp.dat_estructura estructura
+                                        ON (fila.idfila = estructura.idestructura AND estructura.idproyecto =0 )
+                                    LEFT JOIN mod_estructuracomp.nom_organo orgest
+                                        ON ( orgest.idorgano = estructura.idorgano AND orgest.idconcepto = fila.idconcepto )
+                                    LEFT JOIN mod_estructuracomp.dat_estructuraop estructuraop
+                                        ON (fila.idfila = estructuraop.idestructuraop AND estructuraop.idproyecto =0)
+                                    LEFT JOIN mod_estructuracomp.nom_organo orgestop
+                                        ON ( orgestop.idorgano = estructuraop.idorgano AND orgestop.idconcepto = fila.idconcepto   )
+                                    LEFT JOIN mod_estructuracomp.dat_medio  medio
+                                        ON ( medio.idmedio = fila.idfila AND medio.idproyecto =0 )
+                                      LEFT JOIN mod_datosmaestros.nom_indicador  nommedio
+                                          ON ( nommedio.idindicador = medio.idnommedio )
+                                      LEFT JOIN mod_estructuracomp.dat_cargo  cargo
+                                          ON ( cargo.idcargo = fila.idfila AND cargo.idproyecto =0 )
+                                      LEFT JOIN mod_estructuracomp.dat_cargocivil cargociv
+                                          ON (cargo.idcargo = cargociv.idcargo AND cargociv.idproyecto =0)
+                                      LEFT JOIN mod_estructuracomp.dat_cargomilitar cargom
+                                          ON (cargo.idcargo = cargom.idcargo AND cargom.idproyecto =0)
+                                      LEFT JOIN mod_estructuracomp.nom_cargo nomcargo
+                                          ON (  cargo.idnomcargo = nomcargo.idnomcargo )
+
+                               WHERE (fila.fechafin is null)
+                                    AND
+                                     (estructura.denominacion <> '' OR estructuraop.denominacion <> '' OR nomcargo.denominacion <>
+                                    '' OR nommedio.denominacion <>
+                                    '')
+                                    AND (fila.dominiofila[$iddominio] = 1 :: bit
+                                    OR (
+                                        SELECT COUNT(DISTINCT f.idfila)
+                                        FROM mod_estructuracomp.nom_filaestruc f
+                                        WHERE (f.lft > (
+                                                  SELECT f1.lft
+                                                  FROM mod_estructuracomp.nom_filaestruc  f1
+                                                  WHERE f1.idfila = fila.idfila
+                                                  )
+                                            AND f.lft < (
+                                                  SELECT f1.rgt
+                                                  FROM mod_estructuracomp.nom_filaestruc  f1
+                                                  WHERE f1.idfila = fila.idfila
+                                                  )
+                                              )
+                                    AND (f.fechafin is null)
+                                    AND f.dominiofila[$iddominio] = 1 :: bit ) > 0)
+                               ORDER BY fila.lft
+                ))
+
+                    ), ',')
+                FROM mod_estructuracomp.nom_filaestruc
+                where idpadre = fila.idfila
+                GROUP BY idpadre
+                ORDER BY idpadre) ,fila.idfila::text) as dato
+                                    
+               FROM mod_estructuracomp.nom_filaestruc fila
+              
+                    INNER JOIN mod_estructuracomp.nom_concepto nomeav
+                        ON (fila.idconcepto = nomeav.idconcepto)
+                    INNER JOIN mod_estructuracomp.nom_icono icono
+                        ON (icono.idicono = nomeav.idicono)
+                    LEFT JOIN mod_estructuracomp.dat_estructura estructura
+                        ON (fila.idfila = estructura.idestructura AND estructura.idproyecto =0 )
+                    LEFT JOIN mod_estructuracomp.nom_organo orgest
+                        ON ( orgest.idorgano = estructura.idorgano AND orgest.idconcepto = fila.idconcepto )
+                    LEFT JOIN mod_estructuracomp.dat_estructuraop estructuraop
+                        ON (fila.idfila = estructuraop.idestructuraop AND estructuraop.idproyecto =0)
+                    LEFT JOIN mod_estructuracomp.nom_organo orgestop
+                        ON ( orgestop.idorgano = estructuraop.idorgano AND orgestop.idconcepto = fila.idconcepto   )
+                    LEFT JOIN mod_estructuracomp.dat_medio  medio
+                        ON ( medio.idmedio = fila.idfila AND medio.idproyecto =0 )
+                                                              LEFT JOIN mod_datosmaestros.nom_indicador  nommedio
+                                                                  ON ( nommedio.idindicador = medio.idnommedio )
+                                                              LEFT JOIN mod_estructuracomp.dat_cargo  cargo
+                                                                  ON ( cargo.idcargo = fila.idfila AND cargo.idproyecto =0 )
+                                                              LEFT JOIN mod_estructuracomp.dat_cargocivil cargociv
+                                                                  ON (cargo.idcargo = cargociv.idcargo AND cargociv.idproyecto =0)
+                                                              LEFT JOIN mod_estructuracomp.dat_cargomilitar cargom
+                                                                  ON (cargo.idcargo = cargom.idcargo AND cargom.idproyecto =0)
+                                                              LEFT JOIN mod_estructuracomp.nom_cargo nomcargo
+                                                                  ON (  cargo.idnomcargo = nomcargo.idnomcargo )
+                    
+               WHERE (fila.fechafin is null)
+                    AND
+                     (estructura.denominacion <> '' OR estructuraop.denominacion <> '' OR nomcargo.denominacion <>
+                    '' OR nommedio.denominacion <>
+                    '')
+                    AND (fila.dominiofila[$iddominio] = 1 :: bit
+                    OR (
+                        SELECT COUNT(DISTINCT f.idfila)
+                        FROM mod_estructuracomp.nom_filaestruc f
+                        WHERE (f.lft > (
+                                  SELECT f1.lft
+                                  FROM mod_estructuracomp.nom_filaestruc  f1
+                                  WHERE f1.idfila = fila.idfila
+                                  )
+                            AND f.lft < (
+                                  SELECT f1.rgt
+                                  FROM mod_estructuracomp.nom_filaestruc  f1
+                                  WHERE f1.idfila = fila.idfila
+                                  )
+                              )
+                    AND (f.fechafin is null)
+                    AND f.dominiofila[$iddominio] = 1 :: bit ) > 0)
+                    and fila.rgt - fila.lft <> 1
+               ORDER BY fila.lft";
+        $conn = Doctrine_Manager::connection();
+        //print_r($query);die;
+        $res = $conn->execute($query);
+
+        /* if ($selectDenomOrganismo == null || $selectDenomOrganismo == 0) {
+          $result = $res->fetchAll(PDO::FETCH_COLUMN);
+          } else if ($selectDenomOrganismo == 1) {
+          $result = $res->fetchAll(PDO::FETCH_ASSOC);
+          } */
+
+        $result = $res->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function buscarEntidadesTodas($identidad) {
+        $query = " SELECT f5.idfila as idestructura
+FROM mod_estructuracomp.nom_filaestruc f5
+WHERE f5.lft >= (SELECT f3.lft FROM mod_estructuracomp.nom_filaestruc
+f3 WHERE f3.idfila = $identidad)AND f5.rgt <= (SELECT f4.rgt FROM "
+                . "mod_estructuracomp.nom_filaestruc f4 WHERE f4.idfila = $identidad)
+/*AND f5.rgt -f5.lft =1*/";
+        $conn = Doctrine_Manager::connection();
+        $res = $conn->execute($query);
+        $result = $res->fetchAll(PDO::FETCH_COLUMN);
+
+        return $result;
+    }
+
+}

@@ -1,0 +1,21 @@
+{    
+    btnAyuda:'Ayuda',
+    lbBtnAyuda: 'Mostrar ayuda de la funcionalidad <b>(Alt+H)</b>',
+    lbMsgmaskGuardar: 'Guardando datos...',
+    lbMsgGuardarExito:'Los datos han sido guardados satisfactoriamente.',
+    btnAdicionar:'Ad<u>i</u>cionar',
+    ttbtnAdicionar:'Adicionar causa de ausencia <b>(Alt+I)</b>',
+    btnModificar:'<u>M</u>odificar',
+    ttbtnModificar:'Modificar causa de ausencia <b>(Alt+M)</b>',
+    btnEliminar:'Eliminar',
+    ttbtnEliminar:'Eliminar causa de ausencia <b>(DEL)</b>',
+    lbBtnCancelar:'Cancelar',
+    lbBtnCanc:'Cerrar ventana sin guardar los datos <b>(Alt+X)</b>',
+    lbBtnAplicar:'Aplicar',
+    lbBtnAplic:'Guardar datos y limpiar los campos <b>(Ctrl+Alt+P)</b>',
+    lbBtnAceptar:'Aceptar',
+    lbBtnAcep:'Guardar datos y cerrar ventana <b>(ENTER)</b>',
+    lbNoDatosBusc: 'No existen datos que se correspondan con los criterios de búsqueda especificados.',
+    lbNoDatos: 'No existen datos que mostrar.',
+    
+}

@@ -1,0 +1,91 @@
+﻿<html>
+<head>
+<title>Gestionar proceso de selección</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="<?php echo $this->dir_ucid;?>js/imporcss.js"></script>
+<script language="javascript" type="text/javascript">importarCSS(window.parent.parent.UCID.portal.perfil.dirCss);</script>
+<script language="javascript" type="text/javascript">importarCSS("/pvd/evaluaciones/procesoevaluativo/views/css/iconos.css");</script>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript">importarCSS("/pvd/comun/views/css/TreeGrid.css");</script>
+<script language="javascript" type="text/javascript">importarCSS("/pvd/comun/views/css/iconos.css");</script>
+<link rel="stylesheet" type="text/css" href="/pvd/seleccion/views/css/fichaProcesoSel.css" />
+<link rel="stylesheet" type="text/css" href="/pvd/seleccion/views/css/iconos.css" />
+<link rel="stylesheet" type="text/css" href="/pvd/seleccion/views/css/clsdemos.css" />
+<script type="text/javascript" src="<?php echo $this->dir_extjs;?>js/ext-base.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_extjs;?>js/ext-all.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid;?>js/ucid-all.js"></script>
+
+<!-- Libreria para graficar -->
+<script type="text/javascript" src="/pvd/comun/bibliotecas/highchart/jquery-1.8.2/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="/pvd/comun/bibliotecas/highchart/js/highcharts.js"></script>
+<script type="text/javascript" src="/pvd/comun/bibliotecas/highchart/js/modules/exporting.js"></script>
+<!-- Integracion de Ext con la libreria-->
+<script type="text/javascript" src="/pvd/evaluaciones/procesoevaluativo/views/js/resumenprocesoevaluativo/HighchartPanel.js"></script>
+
+
+<script type="text/javascript" src="/pvd/comun/views/js/utiles/extensiones.js"></script>
+<script type="text/javascript" src="/pvd/comun/views/js/utiles/Utiles.js"></script>
+
+<script type="text/javascript" src="/pvd/comun/views/js/utiles/validadores.js"></script>
+<script type="text/javascript" src="/pvd/comun/views/js/utiles/RowExpander.js"></script>
+<script type="text/javascript" src="/pvd/comun/views/js/utiles/searchComboBox.js"></script>
+<script type="text/javascript" src="/pvd/comun/views/js/utiles/treeComboBox.js"></script>
+<script type="text/javascript" src="/pvd/comun/views/js/utiles/MenuExportar.js"></script>
+<script type="text/javascript" src="/pvd/comun/views/js/treegrid/TreeGrid.js"></script>
+<!--Componente de expresiones matematicas-->
+<script type="text/javascript" src="/pvd/comun/views/idioma/es/editorexpresionesevalselcomp/editorexpresionesevalselcomp.js"></script>
+<script type="text/javascript" src="/pvd/comun/views/js/editorexpresionesevalselcomp/editorexpresionesevalselcomp.js"></script>
+
+
+<script type="text/javascript"  src="/pvd/evaluaciones/procesoevaluativo/views/js/realizarevaluacion/CmpPlanillaEvaluativa.js"></script>
+<script type="text/javascript"	src="/pvd/evaluaciones/procesoevaluativo/views/js/realizarevaluacion/CmpEvaluarPlanilla.js"></script>
+
+<script type="text/javascript"	src="../../views/js/gestionarprocesoseleccion/CmpSeguimiento.js"></script>
+<script type="text/javascript"	src="../../views/js/gestionarprocesoseleccion/CmpGestionarCandidatos.js"></script>
+<script type="text/javascript"	src="../../views/js/gestionarprocesoseleccion/CmpGestionarTecnica.js"></script>
+<script type="text/javascript"	src="../../views/js/gestionarprocesoseleccion/CmpGestionarSeleccion.js"></script>
+<script type="text/javascript"	src="../../views/js/gestionarprocesoseleccion/CmpAnalisis.js"></script>
+<script type="text/javascript"	src="../../views/js/gestionarprocesoseleccion/CmpReporte.js"></script>
+<script type="text/javascript"	src="../../views/js/gestionarprocesoseleccion/CmpWinEvaluarSeleccion.js"></script>
+<script type="text/javascript"	src="../../views/js/gestionarprocesoseleccion/gestionarprocesoseleccion.model.js"></script>
+<script type="text/javascript"	src="../../views/js/gestionarprocesoseleccion/gestionarprocesoseleccion.controller.js"></script>
+<script type="text/javascript"	src="../../views/js/gestionarprocesoseleccion/gestionarprocesoseleccion.view.js"></script>
+<style>
+.estiloinfo {
+	font-size: 11px;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	color: #225599;
+}
+.estiloinfotitle {
+	font-size: 14px;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	color: #225599;
+	font-weight: bold;
+}
+#titulo1 {
+	font-size: 14px;
+	color: #225599;
+	font-weight: bold;
+}
+#titulo2 {
+	font-size: 13px;
+	color: #225599;
+	font-weight: bold;
+}
+#texto {
+	font-size: 12px;
+	color: #225599;
+}
+#separator {
+	width: 300px;
+	color: #dddeee;
+}
+#separator2 {
+	color: #dddeee;
+}
+</style>
+</body>
+</html>
+

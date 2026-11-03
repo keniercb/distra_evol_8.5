@@ -1,0 +1,49 @@
+.text-south{
+ display:block;
+}
+
+.icondistra-adicionar-text-south::before {
+ content: "\e927";
+ display:block;
+}
+
+.icondistra-modificar-text-south:before {
+ content: "\ea83";
+ display:block;
+}
+
+.icondistra-eliminar-text-south:before {
+ content: "\e9f2";
+ display:block;
+}
+
+.icondistra-graficar-text-south:before {
+  content: "\ea49";
+ display:block;
+}
+
+.icondistra-subsistemas-text-south:before {
+  content: "\eaf7";
+ display:block;
+}
+
+.icondistra-gestionarsubsistema-text-south:before {
+ content: "\ea3f";
+ display:block;
+}
+
+.x-btn-mc em.x-btn-split-bottom {
+
+ padding-bottom: 0px;
+}
+.x-btn-mc em.x-btn-arrow-bottom {
+
+ padding-bottom: 0px;
+}
+
+.x-toolbar .xtb-sep {
+ background-position: center center;
+ background-repeat: repeat;
+ height: 100px;
+}
+

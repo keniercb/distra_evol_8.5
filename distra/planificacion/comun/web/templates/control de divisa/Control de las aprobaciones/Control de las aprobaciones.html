@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Documento sin t&iacute;tulo</title>
+<style type="text/css">
+<!--
+.Estilo37 {font-weight: bold}
+-->
+</style>
+</head>
+
+<body>
+<p align="center"><strong>--Control de las aprobaciones--</strong></p>
+<p> Para  acceder a esta funcionalidad se debe seguir la siguiente ruta: <strong>Inicio\Planificaci&oacute;n material\Control de  divisa\Control de las aprobaciones</strong>. Luego de acceder a la funcionalidad Control de las aprobaciones el sistema mostrará la siguiente interfaz, ver figura 1.</p>
+<p align="center"><img src="imagenes/1.jpg" width="900" height="600" /></p>
+<div align="center">
+  <p>Figura 1. Control de las aprobaciones </p>
+</div>
+<p>  Las diferentes opciones que conforman la Figura anterior permiten: 
+<ol>
+<li> 	Expandir todas las entidades.</li>
+<li> 	Colapsar todas las entidades.</li>
+<li>    Refrescar todas las entidades.</li>
+<li> 	Filtrar entidades.</li>
+<li> 	Mostrar la lista de entidades existentes en el sistema.</li>
+<li> 	Adicionar documento manual, ver Adicionar documento manual. Para llegar a esta acción debe desplegar el botón <strong>Adicionar</strong> y seleccionar la misma.</li>
+<li> 	Adicionar documento automático, ver Adicionar documento autom&aacute;tico. Para llegar a esta acción debe desplegar el botón <strong>Adicionar</strong> y seleccionar la misma.</li> 
+<li> 	Actualizar documento. Se mostrará un mensaje de confirmación que se puede aceptar o cancelar según sea el caso. Se puede acceder a esta acción de manera rápida seleccionando el documento que quiere actualizar y presionando la combinación de las teclas ( <strong>Ctrl + Alt + Z</strong>). </li>
+<li> 	Modificar documento de aprobación. Se puede acceder a esta interfaz de manera rápida seleccionando el documento que desea modificar y presionando la combinación de teclas 
+<strong>(Alt + M) </strong>. Esta acción es muy similar a la acción de Adicionar documento manual.</li> <li> 	Duplicar documento de aprobación. Se puede acceder a esta interfaz de manera rápida seleccionando el documento que desea duplicar y presionando la combinación de teclas <strong>(Ctrl + Alt + D) </strong>. Esta acción es muy similar a la acción de Adicionar documento manual.</li> 
+<li> 	Ver documento, esta acción permite ver los datos generales que tiene un documento de aprobación. Se puede acceder a esta interfaz de manera rápida seleccionando un documento y presionando la combinación de las teclas <strong>(Alt + D)</strong> . </li> 
+
+<li> Aprobar y Desaprobar. La acción de <strong>Aprobación</strong>, se debe desplegar el botón y seleccionar las siguientes acciones:</li> 
+<ul>
+<li>	La acción  <strong>Aprobar documento </strong>permite aprobar el documento. El sistema inmediatamente le mostrará un mensaje de confirmación que puede o no aceptarlo según desee, si acepta el mensaje el sistema mostrará un mensaje de información notificando que se aprobaron los documentos satisfactoriamente quedando así el estado el documento cambiado en la columna Aprobado. Se puede acceder a esta acción de manera rápida seleccionando el documento que desea aprobar y presionar la combinación de las teclas <strong>(Alt + Q)</strong>.</li>
+<li> 	La acción <strong>Desaprobar documento</strong> permite desaprobar el documento. El sistema inmediatamente le mostrará un mensaje de confirmación que puede o no aceptarlo según desee, si acepta el mensaje el sistema mostrará un mensaje de información notificando que se desaprobaron los documentos satisfactoriamente quedando así el estado del documento cambiado en la columna Aprobado. Se puede acceder a esta acción de manera rápida seleccionando el documento que desea desaprobar y presionar la combinación de las teclas<strong> (Alt + W)</strong> . </li>
+</ul>
+<li> Eliminar documento de aprobación. Se mostrará un mensaje de confirmación que se puede aceptar o cancelar según sea el caso. Se puede eliminar un documento de manera rápida seleccionando el mismo y presionando la tecla <strong>(Del) </strong>.</li> 
+<li> 	Imprimir documento, ver Imprimir documento. Se puede imprimir un documento de manera rápida seleccionando el mismo y presionado la combinación de las teclas <strong>(Alt + P) </strong>. </li>
+<li> 	Mostrar la ayuda de la funcionalidad. Se puede acceder a esta interfaz con la combinación de las teclas<strong> (Alt + H)</strong> . </li>
+<li> 	Mostrar el listado de los documentos existentes en el sistema.</li> 
+</ol> 
+    <p><strong>Pre-condiciones y  validaciones que se debe tener en cuenta a la hora de realizar  alguna acci&oacute;n en el sistema:</strong></p>
+<ul>   <li>Para actualizar un  documento:</li>
+		 <ul>
+    <li>El  usuario debe tener permiso para acceder a la funcionalidad. Este usuario debe  ser un usuario con categor&iacute;a rector.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </li>
+    <li>Debe  existir al menos un documento de aprobaci&oacute;n listado en el sistema.</li>
+    <li>Si  el documento de aprobaci&oacute;n seleccionado se encuentra en estado de aprobaci&oacute;n <strong>Desaprobado</strong>, se actualiza el mismo  documento sin necesidad de crear una nueva versi&oacute;n del mismo. En caso que se  encuentre en estado <strong>Aprobado</strong> y sea  un documento autom&aacute;tico, se generar&aacute; una nueva versi&oacute;n autom&aacute;tica del mismo.</li>
+    <li>Una  vez actualizado el documento, el sistema actualiza los valores de los  indicadores que hayan sufrido alg&uacute;n cambio en el plan donde se encuentren.</li></ul>
+    <li>Para Ver un documento:</li>
+	<ul>
+    <li>Debe  existir al menos un documento de aprobaci&oacute;n insertado en el sistema.</li>
+    <li>Si  el documento seleccionado es un documento autom&aacute;tico se le mostrar&aacute; una aprobaci&oacute;n  que contendr&aacute; cada uno de los c&oacute;digos de control de divisa consolidados por los  indicadores de la planificaci&oacute;n que han demandado indicadores a la entidad  seleccionada y que a su vez se encuentren asociados alg&uacute;n indicador de control de  divisa y/o concepto del plan. </li></ul>
+    <li>Para aprobar un documento:</li>
+	<ul>
+    <li>El  usuario debe tener permiso para acceder a la funcionalidad. Este usuario debe  ser un usuario con categor&iacute;a rector.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </li>
+    <li>Debe  existir al menos un documento de aprobaci&oacute;n registrado en el sistema.</li>
+    <li>La  opci&oacute;n <strong>Aprobar</strong> solo se habilitar&aacute; si  el documento de aprobaci&oacute;n seleccionado se encuentra en estado desaprobado. Una  vez aprobado el documento no se podr&aacute; eliminar el mismo.</li></ul>
+    <li>Para desaprobar un  documento:</li>
+	<ul>
+    <li>El  usuario debe tener permiso para acceder a la funcionalidad. Este usuario debe  ser un usuario con categor&iacute;a rector.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </li>
+    <li>Debe  existir al menos un documento con estado aprobado.</li>
+    <li>La  opci&oacute;n <strong>Desaprobar</strong> solo se habilitar&aacute;  si el documento de aprobaci&oacute;n seleccionado se encuentra en estado aprobado.</li></ul>
+    <li>Para eliminar un documento:</li>
+  <ul>
+    <li>El  usuario debe tener permiso para acceder a la funcionalidad. Este usuario debe  ser un usuario con categor&iacute;a rector.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </li>
+    <li>Debe  existir al menos un documento de aprobaci&oacute;n registrado en el sistema.</li>
+  <li>La  opci&oacute;n <strong>Eliminar</strong> solo se habilitar&aacute;  si el documento de aprobaci&oacute;n seleccionado no se encuentra aprobado.</li>
+  </ul>  
+</ul>
+  <p><strong>Adicionar documento  manual&nbsp;  </strong></p>
+    Se despliega el bot&oacute;n<strong> Adicionar</strong> de la interfaz, se selecciona la acci&oacute;n <strong>Adicionar documento manual</strong>, opci&oacute;n (6),  ver figura133. Inmediatamente  aparecer&aacute; una ventana mostrando los campos que debe llenar para adicionar un  documento manual. Ver figura 2.</p>
+    <p align="center"><img src="imagenes/2.jpg" width="900" height="600" /></p>
+<div align="center">
+  <p>Figura 2. Adicionar documento manual </p>
+</div>
+<p>  Las diferentes opciones que conforman la Figura anterior permiten :</p> 
+<ol>
+<li> 	Seleccionar el tipo de aprobación.</li>
+<li> 	Seleccionar el tipo de operación a efectuar sobre el documento.</li>
+<li> 	Seleccionar un indicador de control de divisa de los listados al desglosar el campo.</li>
+<li> 	Seleccionar un concepto del plan de los listados al desglosar el campo.</li>
+<li> 	Seleccionar una vía de adquisición de las listadas al desglosar el campo.</li>
+<li> 	Introducir el valor del importe del documento a insertar.</li>
+<li> 	Guardar los datos del documento. El sistema adiciona automáticamente una fila  con cada uno de los datos insertados con anterioridad en el panel inferior <strong>Códigos de control de divisa</strong> y limpia cada uno de los datos insertados en el panel superior <strong>Datos generales para generar documento</strong>. </li>
+<li> Eliminar código. Una vez seleccionada dicha acción el sistema le mostrará el mensaje de confirmación que puede aceptar o cancelar según desee. Se puede realizar esta acción de manera rápida seleccionando el código que desea eliminar y presionando la tecla <strong>(Del) </strong>.</li>
+<li> 	Mostrar el listado de códigos de control de divisa.</li>
+<li> 	Cerrar la ventana sin guardar los datos.</li>
+<li> 	Cerrar ventana y guardar los datos.</li></ol>
+<p> <strong>Nota </strong>: Para adicionar un documento manual hay que tener en cuenta las siguientes validaciones para los campos Tipo de aprobación, Operación, Indicador de control de divisa, Concepto del plan, Vía de adquisición e Importe:
+<ul> 
+<li> Todos los campos de la interfaz son obligatorios excepto los campos Concepto del plan e importe, en caso de dejar alguno de los campos obligatorios vacíos el sistema mostrará un mensaje de error en el mismo campo.</li>
+<li> El campo importe es un campo numérico que solo acepta números hasta 3 dígitos y el carácter especial (.), de introducir cualquier otro carácter el sistema le mostrará un mensaje de error en el mismo campo. Si introduce más de 3 caracteres el sistema le mostrará un mensaje de error en el mismo campo.</li>
+<li> 	Por cada tipo de aprobación se debe generar un documento de aprobación, en caso de ya existir todos los documentos de aprobación insertados en el sistema para la entidad seleccionada, al seleccionar la opción <strong>Adicionar documento manual</strong>, el sistema le mostrará el mensaje de información notificando que ya se han generado documentos con cada tipo de aprobación.</li></ul> 
+
+<strong>Adicionar  documento autom&aacute;tico&nbsp; </strong>
+<p>Se despliega el bot&oacute;n<strong> Adicionar</strong> de la interfaz, se selecciona la acci&oacute;n <strong>Adicionar documento autom&aacute;tico</strong>, opci&oacute;n  (7), ver figura1. Inmediatamente  aparecer&aacute; una ventana mostrando los campos que debe llenar para adicionar un  documento manual. Ver figura 3.</p>
+<p align="center"><strong><img src="imagenes/3.jpg" width="300" height="100" /></strong></p>
+
+  <p align="center">Figura 3. Adicionar documento automático </p>
+
+
+<p> Las diferentes opciones que conforman la figura anterior permiten :</p>
+<ol>
+<li> 	Mostrar el tipo de aprobación.</li>
+<li> 	Seleccionar el tipo de operación a efectuar sobre el documento.</li>
+<li> 	Seleccionar el tipo de operación a efectuar sobre el documento.</li>
+<li> 	Cerrar ventana y guardar los datos.</li>
+</ol>
+<p> <strong>Nota</strong> : Para adicionar un documento automático hay que tener en cuenta las siguientes validaciones:
+<ul>
+<li>	El campo Operación es obligatorio, en caso de dejarlo vacíos el sistema mostrará un mensaje de error en el mismo campo.</li>
+<li> 	Por cada tipo de aprobación se debe generar un documento de aprobación, en caso de ya existir todos los documentos de aprobación insertados en el sistema para la entidad seleccionada, al seleccionar la opción <strong>Adicionar documento automático</strong>, el sistema le mostrará el mensaje de información notificando que ya se han generado documentos con cada tipo de aprobación.</li>
+<li> 	Si la entidad seleccionada no presenta indicadores planificados o estos indicadores no se encuentran asociados a ningún indicador de control de divisa y/o concepto del plan, al seleccionar la opción <strong>Adicionar documento automático</strong> el sistema le mostrará un mensaje de información notificando que no se puede crear la aprobación porque la entidad seleccionada no presenta indicadores planificados o asociados.
+</li>  </ul>
+</body>
+</html>

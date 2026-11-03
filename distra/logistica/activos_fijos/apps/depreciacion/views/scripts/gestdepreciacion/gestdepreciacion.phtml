@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>Depreciar medios de la entidad</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+        <script language="javascript"
+        type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+        <link href="<?php echo $this->dir_ext_ccs; ?>css/ext-all.css"
+              rel="stylesheet" type="text/css" media="screen"/>
+    </head>
+    <body>
+        <script type="text/javascript"
+        src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+        <script type="text/javascript"
+        src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+        <script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+        <script type="text/javascript" src="/logistica/activos_fijos/utiles/views/js/comun/validator.js"></script>
+
+        <script type="text/javascript"
+        src="/configuracion/comun/views/js/comun.js"></script>
+        <script type="text/javascript"
+        src="/logistica/activos_fijos/utiles/views/js/cache.js"></script>
+        <script type="text/javascript"
+        src="/configuracion/comun/views/js/PagingRowNumberer.js"></script>
+        <script type="text/javascript"
+        src="/configuracion/comun/views/js/ColumnHeaderGroup.js"></script>
+        <script type="text/javascript"
+        src="/configuracion/comun/views/js/dataView.plugins.js"></script>
+        <script type="text/javascript"
+        src="/logistica/utilesAFT/reporte/views/js/report.component.js"></script>
+
+
+        <link rel="stylesheet" type="text/css"
+              href="/configuracion/comun/views/css/file-upload.css"/>
+        <script type="text/javascript"
+        src="/configuracion/comun/views/js/fileUploadField.plugins.js"></script>
+        <script type="text/javascript"
+        src="/logistica/activos_fijos/plugins/transporteplugin/IdiomaPlugin.js"></script>
+        <script type="text/javascript"
+        src="/logistica/activos_fijos/plugins/transporteplugin/transportacionCampos.js"></script>
+        <script type="text/javascript"
+        src="/logistica/activos_fijos/plugins/transporteplugin/VistaTransportacionPlugin.js"></script>
+
+
+        <script type="text/javascript"
+        src="../../views/js/gestdepreciacion/WinBusqAvanzDepreciacion.js"></script>
+        <script type="text/javascript"
+        src="../../views/js/gestdepreciacion/depreciacion.component.js"></script>
+        <script type="text/javascript"
+        src="../../views/js/gestdepreciacion/tabLineal.component.js"></script>
+        <script type="text/javascript"
+        src="../../views/js/gestdepreciacion/tabHorasMaquinas.component.js"></script>
+        <script type="text/javascript"
+        src="../../views/js/gestdepreciacion/tabUnidadesProducidas.component.js"></script>
+        <script type="text/javascript"
+        src="../../views/js/gestdepreciacion/tabKilometroRecorrido.component.js"></script>
+        <script type="text/javascript"
+        src="../../views/js/gestdepreciacion/tabDigitosDecrecientes.component.js"></script>
+        <script type="text/javascript"
+        src="../../views/js/gestdepreciacion/gestdepreciacion.main.js"></script>
+
+        <?php
+        foreach ($this->arrayJs as $js) {
+            echo $js;
+        }
+        ?>
+    </body>
+</html>

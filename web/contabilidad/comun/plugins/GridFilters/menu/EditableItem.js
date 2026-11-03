@@ -1,0 +1,55 @@
+  /** 
+   * @description Plugin para filtrar cadenas de textos en una columna dada del grid.
+   * 
+   * @author Ing. Miguel Diaz Riveaux.
+   * @package ERP Cuba.
+   * @subpackage Contabilidad y Finanzas. 
+   * @namespace Ext.menu.EditableItem
+   * @copyright XETID.
+   * @version 1.0-1
+   * @since 1.0
+   * 
+   */
+  Ext.menu.EditableItem = Ext.extend(Ext.menu.BaseItem, {
+      itemCls: "x-menu-item",
+      hideOnClick: false,
+      initComponent: function() {
+          Ext.menu.EditableItem.superclass.initComponent.call(this);
+          this.addEvents('keyup');
+
+          this.label = this.label || '';
+          this.editor = this.editor || new Ext.form.TextField({
+              emptyText: this.label
+          });
+          if(this.text) {
+              this.editor.setValue(this.text);
+          }
+      },
+      onRender: function(container) {
+          var s = container.createChild({
+              cls: this.itemCls,
+              html: '<img src="' + this.icon + '" class="x-menu-item-icon" style="margin: 3px 3px 2px 2px;" />'
+          });
+
+          Ext.apply(this.config, {width: 125});
+          this.editor.render(s);
+
+          this.el = s;
+          this.relayEvents(this.editor.el, ["keyup"]);
+
+          if(Ext.isGecko) {
+              s.setStyle('overflow', 'auto');
+          }
+
+          Ext.menu.EditableItem.superclass.onRender.call(this, container);
+      },
+      getValue: function() {
+          return this.editor.getValue();
+      },
+      setValue: function(value) {
+          this.editor.setValue(value);
+      },
+      isValid: function(preventMark) {
+          return this.editor.isValid(preventMark);
+      }
+  });

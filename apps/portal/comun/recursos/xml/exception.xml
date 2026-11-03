@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Excepciones>
+    <!-- Excepciónes del portal -->
+    <EPDDL01>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Excepción del servicio de desbloqueo de logistica. Desactivar la validacion de
+                portal->PortalController->closeportalAction->PortalValidator->desbloquearDocLog o arreglar el problema
+                con el equipo de logistica.
+            </mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </EPDDL01>
+    <EP009>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El usuario no tiene configurado un rol para acceder a la entidad.</mensaje>
+            <descripcion>Acceso denegado al sistema. Usted no tiene los privilegios suficientes para acceder a los
+                sistemas instalados en la entidad selecionada.
+            </descripcion>
+        </es>
+    </EP009>
+    <EP010>
+        <tipo>LPV</tipo>
+        <es>
+            <mensaje>El usuario no tiene configurado un rol para acceder al sistema.</mensaje>
+            <descripcion>Acceso denegado al sistema. Usted no tiene los privilegios suficientes para acceder al sistema.%s
+            </descripcion>
+        </es>
+    </EP010>
+    <EP011>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Contraseña anterior incorrecta. Por favor repita nuevamente la contraseña anterior.</mensaje>
+            <descripcion>Contraseña anterior incorrecta. Por favor repita nuevamente la contraseña anterior.
+            </descripcion>
+        </es>
+    </EP011>
+    <EP012>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>La contraseña anterior y la nueva son la misma.</mensaje>
+            <descripcion>La contraseña anterior y la nueva son la misma.</descripcion>
+        </es>
+    </EP012>
+    <EP013>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No se ha podido conectar al ldap con su usuario.</mensaje>
+            <descripcion>Error en la conexión al ldap con su usuario y contraseña.</descripcion>
+        </es>
+    </EP013>
+</Excepciones>

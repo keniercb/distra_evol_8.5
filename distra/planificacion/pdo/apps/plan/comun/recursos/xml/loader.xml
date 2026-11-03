@@ -1,0 +1,10 @@
+<cargador>
+	<gestusuario>
+		<cargarcomboidiomas>
+			<nomenclador consulta = 'select ididioma,denomidioma from nom_idioma'>NomIdioma</nomenclador>
+		</cargarcomboidiomas>
+		<cargarcombotemas>
+			<nomenclador consulta = 'select idtema,denomtema from nom_tema'>NomTema</nomenclador>
+		</cargarcombotemas>
+	</gestusuario>
+</cargador>

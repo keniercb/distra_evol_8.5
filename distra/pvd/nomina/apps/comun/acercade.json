@@ -1,0 +1,9 @@
+{
+    "nombre": "Quarseg",
+    "version": "2.1",
+    "fecha": "01\/09\/2016",
+    "autor": "Centro de Recursos Humanos",
+    "dependencia": ["Zeolides 2.2.0","Control del personal 1.2","Movimiento de la fuerza de trabajo 1.0","Retribución salarial 1.0", "Estructura y composición 3.0","Ayuda 3.0"],
+    "descripcion": "Este Sistema permitirá al usuario gestionar los datos de las personas y los movimientos de cargos que ocupan estos en las entidades. Como base se podrán definir un grupo de configuraciones que contribuirán a la usabilidad y flexibilidad del mismo, propiciando que el este sea ajustable para cualquier Entidad, independientemente de la política de pago que se utilice. Haciendo uso de esto usted podrá configurar los conceptos por los cuales se percibe y descuenta el salario de los trabajadores; las formas y sistemas de pagos; los elementos salariales de la persona. Esto influirá directamente en el salario que se le va a otorgar al trabajador, teniendo en cuenta la situación del servicio de este, el cargo que ocupa y la escala salarial. Además podrá conformar la estructura de las plantillas nominales y visualizar una información detallada, centralizada y fácil de entender por parte del usuario. Tendrá la oportunidad además de elaborar los pagos y gestionar los cargos ocupados, calcular pagos por resultados y configurar conceptos contables, Permitiendo la generación de pre nóminas y nóminas, la gestión del submayor de vacaciones y de retenciones de cada trabajador así como el depósito de los salarios. El subsistema se encuentra sobre una Plataforma que implementa la gestión de dominios estructurales, la gestión y configuración de las claves de usuarios, la gestión de la estructura de los sistemas, así como la gestión de roles de sistemas, usuarios y servidores de autenticación, con el objetivo de brindar servicios de autenticación, autorización y auditorías.",
+    "logo":""
+}

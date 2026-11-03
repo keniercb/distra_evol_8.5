@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Excepciones>
+
+	<EC01>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error entrando datos.</mensaje>
+			<descripcion>Compruebe hay campos vacíos.</descripcion>
+		</es>
+	</EC01>
+	<EC02>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error entrando datos.</mensaje>
+			<descripcion>El campo debe ser numérico.</descripcion>
+		</es>
+	</EC02>
+	<EC03>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Ya existe un grupo de escala con esta denominación.</mensaje>
+			<descripcion>Ya existe un grupo de escala con esta denominación.</descripcion>
+		</es>
+	</EC03>
+	<EC04>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar con llaves foráneas.</mensaje>
+			<descripcion>El grupo de escala no se puede eliminar o desactivar debido a que está en uso.
+			</descripcion>
+		</es>
+	</EC04>
+	<EC06>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Ya existe un ícono con esta denominación.</mensaje>
+			<descripcion>Ya existe un ícono con esta denominación.</descripcion>
+		</es>
+	</EC06>
+	<EC07>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar con llaves foráneas.</mensaje>
+			<descripcion>El ícono no se puede eliminar debido a que está en uso.
+			</descripcion>
+		</es>
+	</EC07>
+	<EC08>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>No es posible eliminar todos los medios.</mensaje>
+			<descripcion>El medio no se puede eliminar debido a que contiene elementos que están en uso.
+			</descripcion>
+		</es>
+	</EC08>
+	<EC09>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Ya existe una especialidad con esta denominación.</mensaje>
+			<descripcion>Ya existe una especialidad con esta denominación.</descripcion>
+		</es>
+	</EC09>
+	<EC10>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar con llaves foráneas.</mensaje>
+			<descripcion>La especialidad no se puede eliminar debido a que está en uso.
+			</descripcion>
+		</es>
+	</EC10>
+	<EC11>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>No es posible eliminar todas las especialidades.</mensaje>
+			<descripcion>La especialidad no se puede eliminar debido a que contiene elementos que están en uso.
+			</descripcion>
+		</es>
+	</EC11>
+	<EC12>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Ya existe un salario con este valor y grupo de escala.</mensaje>
+			<descripcion>Ya existe un salario con este valor y grupo de escala.</descripcion>
+		</es>
+	</EC12>
+	<EC13>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar con llaves foráneas.</mensaje>
+			<descripcion>El salario no se puede eliminar o desactivar debido a que está en uso.
+			</descripcion>
+		</es>
+	</EC13>
+	<EC14>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>El salario no se puede desactivar debido a que está en uso.</mensaje>
+			<descripcion>El salario no se puede desactivar debido a que está en uso.</descripcion>
+		</es>
+	</EC14>
+	<EC15>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Ya existe un tipo de medio con esta denominación.</mensaje>
+			<descripcion>Ya existe un tipo de medio con esta denominación.</descripcion>
+		</es>
+	</EC15>
+	<EC16>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar con llaves foráneas.</mensaje>
+			<descripcion>El tipo de medio no se puede eliminar o desactivar debido a que está en uso.
+			</descripcion>
+		</es>
+	</EC16>
+	<EC17>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>El tipo de medio no se puede desactivar debido a que está en uso.</mensaje>
+			<descripcion>El tipo de medio no se puede desactivar debido a que está en uso.</descripcion>
+		</es>
+	</EC17>
+	<EC18>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Ya existe una preparación con esta denominación.</mensaje>
+			<descripcion>Ya existe una preparación con esta denominación.</descripcion>
+		</es>
+	</EC18>
+	<EC19>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar con llaves foráneas.</mensaje>
+			<descripcion>La preparación no se puede eliminar o desactivar debido a que está en uso.
+			</descripcion>
+		</es>
+	</EC19>
+	<EC20>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>La preparación no se puede desactivar debido a que está en uso.</mensaje>
+			<descripcion>La preparación no se puede desactivar debido a que está en uso.</descripcion>
+		</es>
+	</EC20>
+	<EC21>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Ya existe una categoría ocupacional con esta denominación.</mensaje>
+			<descripcion>Ya existe una categoría ocupacional con esta denominación.</descripcion>
+		</es>
+	</EC21>
+	<EC22>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar con llaves foráneas.</mensaje>
+			<descripcion>La categoría ocupacional no se puede eliminar o desactivar debido a que está en uso.
+			</descripcion>
+		</es>
+	</EC22>
+	<EC23>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>La categoría ocupacional no se puede desactivar debido a que está en uso.</mensaje>
+			<descripcion>La categoría ocupacional no se puede desactivar debido a que está en uso.</descripcion>
+		</es>
+	</EC23>
+	<EC24>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Ya existe un grado con esta denominación.</mensaje>
+			<descripcion>Ya existe un grado con esta denominación.</descripcion>
+		</es>
+	</EC24>
+	<EC25>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar con llaves foráneas.</mensaje>
+			<descripcion>El grado no se puede eliminar o desactivar debido a que está en uso.
+			</descripcion>
+		</es>
+	</EC25>
+	<EC26>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>El grado no se puede desactivar debido a que está en uso.</mensaje>
+			<descripcion>El grado no se puede desactivar debido a que está en uso.</descripcion>
+		</es>
+	</EC26>
+	<EC27>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Ya existe un tipo de subordinación con esta denominación.</mensaje>
+			<descripcion>Ya existe un tipo de subordinación con esta denominación.</descripcion>
+		</es>
+	</EC27>
+	<EC28>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar con llaves foráneas.</mensaje>
+			<descripcion>El tipo de subordinación no se puede eliminar o desactivar debido a que está en uso.
+			</descripcion>
+		</es>
+	</EC28>
+	<EC29>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>El tipo de subordinación no se puede desactivar debido a que está en uso.</mensaje>
+			<descripcion>El tipo de subordinación no se puede desactivar debido a que está en uso.</descripcion>
+		</es>
+	</EC29>
+	<EC30>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Ya existe un cargo con esos datos generales.</mensaje>
+			<descripcion>Ya existe un cargo con esos datos generales.</descripcion>
+		</es>
+	</EC30>
+	<EC3A>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Ya existe un cargo con esta denominación en el grupo de escala seleccionado.</mensaje>
+			<descripcion>Ya existe un cargo con esta denominación en el grupo de escala seleccionado.
+			</descripcion>
+		</es>
+	</EC3A>
+	<EC31>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar con llaves foráneas.</mensaje>
+			<descripcion>El cargo no se puede eliminar o desactivar debido a que está en uso.
+			</descripcion>
+		</es>
+	</EC31>
+	<EC32>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>El cargo no se puede desactivar debido a que está en uso.</mensaje>
+			<descripcion>El cargo no se puede desactivar debido a que está en uso.</descripcion>
+		</es>
+	</EC32>
+	<EC33>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Ya existe una agrupación con esta denominación.</mensaje>
+			<descripcion>Ya existe una agrupación con esta denominación.</descripcion>
+		</es>
+	</EC33>
+	<EC34>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar con llaves foráneas.</mensaje>
+			<descripcion>La agrupación no se puede eliminar debido a que está en uso.
+			</descripcion>
+		</es>
+	</EC34>
+	<EC35>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>La agrupación no se puede desactivar debido a que está en uso.</mensaje>
+			<descripcion>La agrupación no se puede desactivar debido a que está en uso.</descripcion>
+		</es>
+	</EC35>
+	<EC36>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Ya existe una agrupación interna con esta denominación.</mensaje>
+			<descripcion>Ya existe una agrupación interna con esta denominación.</descripcion>
+		</es>
+	</EC36>
+	<EC37>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar con llaves foráneas.</mensaje>
+			<descripcion>La agrupación interna no se puede eliminar debido a que está en uso.
+			</descripcion>
+		</es>
+	</EC37>
+	<EC38>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>La agrupación interna no se puede desactivar debido a que está en uso.</mensaje>
+			<descripcion>La agrupación interna no se puede desactivar debido a que está en uso.</descripcion>
+		</es>
+	</EC38>
+	<EC39>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Ya existe un(a) órgano/agrupación (interno(a)) con esta denominación.</mensaje>
+			<descripcion>Ya existe un(a) órgano/agrupación (interno(a)) con esta denominación.</descripcion>
+		</es>
+	</EC39>
+	<EC40>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar con llaves foráneas.</mensaje>
+			<descripcion>El(La) órgano/agrupación (interno(a)) no se puede eliminar o desactivar debido a que está
+				en
+				uso.
+			</descripcion>
+		</es>
+	</EC40>
+	<ECE40>
+	<tipo>LP</tipo>
+	<es>
+		<mensaje>Error al eliminar con llaves foráneas.</mensaje>
+		<descripcion>El órgano no se puede eliminar o desactivar debido a que está en uso.
+		</descripcion>
+	</es>
+</ECE40>
+	<ECE41>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar con llaves foráneas.</mensaje>
+			<descripcion>El órgano interno no se puede eliminar o desactivar debido a que está en uso.
+			</descripcion>
+		</es>
+	</ECE41>
+	<ECE42>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar con llaves foráneas.</mensaje>
+			<descripcion>La agrupación no se puede eliminar o desactivar debido a que está en uso.
+			</descripcion>
+		</es>
+	</ECE42>
+	<ECE43>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar con llaves foráneas.</mensaje>
+			<descripcion>La agrupación interna no se puede eliminar o desactivar debido a que está en uso.
+			</descripcion>
+		</es>
+	</ECE43>
+	<EC41>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>El órgano no se puede desactivar debido a que está en uso.</mensaje>
+			<descripcion>El órgano no se puede desactivar debido a que está en uso.</descripcion>
+		</es>
+	</EC41>
+	<EC42>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Ya existe un órgano interno con esta denominación.</mensaje>
+			<descripcion>Ya existe un órgano interno con esta denominación.</descripcion>
+		</es>
+	</EC42>
+	<EC43>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar con llaves foráneas.</mensaje>
+			<descripcion>El órgano interno no se puede eliminar debido a que está en uso.
+			</descripcion>
+		</es>
+	</EC43>
+	<EC44>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>El órgano interno no se puede desactivar debido a que está en uso.</mensaje>
+			<descripcion>El órgano interno no se puede desactivar debido a que está en uso.</descripcion>
+		</es>
+	</EC44>
+	<EC45>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Ya existe una configuración con esta denominación.</mensaje>
+			<descripcion>Ya existe una configuración con esta denominación.</descripcion>
+		</es>
+	</EC45>
+	<EC46>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Ya existe un tipo de escala con esta denominación.</mensaje>
+			<descripcion>Ya existe un tipo de escala con esta denominación.</descripcion>
+		</es>
+	</EC46>
+	<EC047>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar con llaves foráneas.</mensaje>
+			<descripcion>El tipo de escala no se puede eliminar o desactivar debido a que está en uso.
+			</descripcion>
+		</es>
+	</EC047>
+	<EC048>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar con llaves foráneas.</mensaje>
+			<descripcion>La escala salarial no se puede eliminar o desactivar debido a que está en uso.
+			</descripcion>
+		</es>
+	</EC048>
+	<EC50>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Ya existe un proyecto con esta denominación.</mensaje>
+			<descripcion>Ya existe un proyecto con esta denominación.</descripcion>
+
+		</es>
+	</EC50>
+	<EC049>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Ya existe un tipo de escala asociado a ese salario.</mensaje>
+			<descripcion>Ya existe un tipo de escala asociado a ese salario.</descripcion>
+
+		</es>
+	</EC049>
+	<EC60>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>No hay datos que mostrar.</mensaje>
+			<descripcion>No existen elementos a mostrar.</descripcion>
+		</es>
+	</EC60>
+	<EC61>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Ya existe una estructura con esta denominación.</mensaje>
+			<descripcion>Ya existe una estructura con esta denominación.</descripcion>
+		</es>
+	</EC61>
+	<EC62>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Ya existe una estructura interna con esta denominación.</mensaje>
+			<descripcion>Ya existe una estructura interna con esta denominación.</descripcion>
+		</es>
+	</EC62>
+	<EC63>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Ya existe una entidad con este código.</mensaje>
+			<descripcion>Ya existe una entidad con este código.</descripcion>
+		</es>
+	</EC63>
+	<EC64>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Ya existe una organización con este código.</mensaje>
+			<descripcion>Ya existe una organización con este código.</descripcion>
+		</es>
+	</EC64>
+	<EC65>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Ya existe una subcategoría ocupacional con esta denominación.</mensaje>
+			<descripcion>Ya existe una subcategoría ocupacional con esta denominación.</descripcion>
+		</es>
+	</EC65>
+	<EC66>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar con llaves foráneas.</mensaje>
+			<descripcion>La subcategoría ocupacional no se puede eliminar o desactivar debido a que está en uso.
+			</descripcion>
+		</es>
+	</EC66>
+	<EC99>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>La estructura no puede ser eliminada.</mensaje>
+			<descripcion>La estructura seleccionada no se puede eliminar debido a que está en uso.</descripcion>
+		</es>
+	</EC99>
+	<EC100>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Ya existe un tipo de no formal con esta denominación.</mensaje>
+			<descripcion>Ya existe un tipo de no formal con esta denominación.</descripcion>
+		</es>
+	</EC100>
+	<EC101>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>El tipo de no formal no se puede eliminar o desactivar debido a que está en uso.</mensaje>
+			<descripcion>El tipo de no formal no se puede eliminar o desactivar debido a que está en uso.</descripcion>
+		</es>
+	</EC101>
+
+	<EC102>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Ya existe una firma asociada a ese cargo.</mensaje>
+			<descripcion>Ya existe una firma asociada a ese cargo.</descripcion>
+		</es>
+	</EC102>
+	<ECF102>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Ya existe una firma asociada a esa persona.</mensaje>
+			<descripcion>Ya existe una firma asociada a esa persona.</descripcion>
+		</es>
+	</ECF102>
+
+	<EC103>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>El tipo de no formal no se puede eliminar o desactivar debido a que está en uso.</mensaje>
+			<descripcion>El tipo de no formal no se puede eliminar o desactivar debido a que está en uso.</descripcion>
+		</es>
+	</EC103>
+	<!--Fin de las Excepciónes de Estructura y Composicion-->
+	<!--Excepcion de nomina-->
+	<N1>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Cargo en uso en el módulo de nóminas</mensaje>
+			<descripcion>El cargo no puede ser eliminado porque está siendo usado en el módulo de nóminas. Diríjase a la
+				funcionalidad Asociar personas a Centros de costo y dele baja a las personas que lo ocupan.</descripcion>
+		</es>
+	</N1>
+
+</Excepciones>

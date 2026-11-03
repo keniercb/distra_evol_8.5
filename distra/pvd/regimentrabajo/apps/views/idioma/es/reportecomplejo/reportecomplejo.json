@@ -1,0 +1,23 @@
+{
+    lbBtnBuscar:'<u>B</u>uscar',
+    textToolTipBusPersona:'Buscar persona <b>(Alt+B)</b>',
+    lbBtnLimpiar:'<u>L</u>impiar',
+    textToolTipLimpiar: 'Limpiar filtro(s) <b>(Alt+L)</b>',
+    lbBtnGuardar:'<u>G</u>uardar',
+    textToolTipGuardar: 'Guardar r&eacute;gimen de trabajo <b>(Alt+G)</b>',
+    lbTitPanelPersonas:'Listado de personas',
+    lbTitPanelEst:'Estructura',
+    btnAyuda:'Ayuda',
+    cbregimen:'R&eacute;gimen de trabajo',
+    cbgrupo:'Grupo de trabajo',
+    cbturno:'Turno de trabajo',
+    lbBtnAyuda: 'Mostrar ayuda de la funcionalidad (<b>Alt+H</b>)',
+    lbMsgGuardarExito:'Los datos han sido guardados satisfactoriamente.',
+    lbMsgmasklistado: 'Cargando...',
+    lbMsgcriterioBuscar:'Criterio a buscar...',
+    lbMsgmaskGuardar: 'Guardando datos...',
+    lbMsgSelecPersonEst:'Debe seleccionar una estructura o un grupo de personas para realizar esta acci&oacute;n.',
+    lbTitMsgCamposInc:'Por favor verifique nuevamente que hay campos con valores incorrectos.',
+
+
+}

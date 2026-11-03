@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../lib/ext/css/ext-all.css" rel="stylesheet" type="text/css"
+          media="screen"/>
+</head>
+<body>
+<div class="grafica" id="grafica">
+
+</div>
+<script type="text/javascript" src="../lib/ext/js/ext-base.js"></script>
+<script type="text/javascript" src="../lib/ext/js/ext-all-debug.js"></script>
+<script src="../core.js"></script>
+<script>
+    Ax.onReady(function () {
+        var dataExamples = {
+            data1: [{
+                name: 'test1',
+                data: [
+                    {a: '10/12/2015', b: 2},
+                    {a: '15/12/2015', b: 5},
+                    {a: '28/12/2015', b: 1},
+                    {a: '25/12/2015', b: 12},
+                    {a: '30/12/2015', b: 1}
+                ],
+                color: 'red',
+                sql: ''
+            }, {
+                name: 'test1',
+                data: [['10/12/2015', 20], ['15/12/2015', 15], ['20/12/2015', 10], ['28/12/2015', 2], ['31/12/2015', 7]],
+                color: 'blue'
+            }, {
+                name: 'test1',
+                data: [['28/12/2015', 10], ['15/12/2015', 5], ['20/12/2015', 2], ['31/12/2015', 17], ['25/12/2015', 2],],
+                color: 'yellow'
+            }],
+            data2: [{
+                name: 'test4',
+                data: [
+                    {a: 1, b: 2},
+                    {a: 4, b: 5},
+                    {a: 6, b: 1},
+                    {a: 10, b: 12},
+                    {a: 25, b: 1}
+                ],
+                color: 'red'
+            }, {
+                name: 'test5',
+                data: [[6, 20], [8, 15], [9, 10], [10, 2], [18, 7]],
+                color: 'blue'
+            }, {
+                name: 'test6',
+                data: [[2, 10], [5, 5], [8, 2], [10, 17], [20, 2]],
+                color: 'yellow'
+            }],
+            data3: [{
+                name: 'test7',
+                data: [
+                    {a: 'Xetid', b: 2},
+                    {a: 'Uim', b: 5},
+                    {a: 'MF', b: 1},
+                    {a: 'GAE', b: 12}
+                ],
+                color: 'red'
+            }, {
+                name: 'test5',
+                data: [['Xetid', 1], ['Uim', 10], ['MF', 5], ['GAE', 2], ['Cimex', 7]],
+                color: 'blue'
+            }, {
+                name: 'test6',
+                data: [['Xetid', 10], ['Uim', 5], ['MF', 2], ['GAE', 17], ['AzCuba', 2]],
+                color: 'yellow'
+            }]
+        };
+        var chartWindow = new Ax.Charts.Views.Window({
+            region: 'center',
+            chartOptions: {
+                config: {
+                    chartType: 'line',
+                    x: {
+                        label: 'Tururu',
+                        source: 'denominacion'
+                    },
+                    y: {
+                        label: 'Tarara',
+                        source: 'version'
+                    },
+                    title: 'Chivirico',
+                    clickFn: function () {
+                        alert(1)
+                    }
+                }
+            }
+        });
+        var panel = new Ext.Panel({
+            title: 'Testing graph',
+            region: 'center',
+            layout: 'fit'
+        });
+        new Ext.Viewport({
+            layout: 'border',
+            items: [panel],
+            renderTo: 'grafica'
+        });
+        chartWindow.show();
+        chartWindow.addSqlQuery('test', 'Select * from mod_logistica.nom_categoria', {x: 'denominacion', y: 'version'});
+        chartWindow.addSourceStore('Chart 1', dataExamples.data1, {x: 'a', y: 'b'});
+        chartWindow.addSourceStore('Chart 2', dataExamples.data2, {x: 'a', y: 'b'});
+        chartWindow.addSourceStore('Chart 3', dataExamples.data3, {x: 'a', y: 'b'});
+
+        chartWindow.addSerieStore('Chart 4', dataExamples.data1[0].data, {x: 'a', y: 'b'});
+        chartWindow.addSerieStore('Chart 5', dataExamples.data2[0].data, {x: 'a', y: 'b'});
+        chartWindow.addSerieStore('Chart 6', dataExamples.data3[0].data, {x: 'a', y: 'b'});
+
+    }, true);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,3824 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class SeguridadProxyService</title>
+
+	<script type="text/javascript" src="resources/combined.js?2576055052"></script>
+	<script type="text/javascript" src="elementlist.js?2855560422"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1683043718">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<i><span>Vistas</span></i>
+
+
+		<div id="groups">
+			<h3>Paquetes</h3>
+			<ul>
+				<li><a href="package-PHP.html">PHP</a>
+						</li>
+				<li class="active"><a href="package-Quarseg.html">Quarseg</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Clases</h3>
+			<ul>
+				<li class="active"><a href="class-SeguridadProxyService.html">SeguridadProxyService</a></li>
+				<li><a href="class-SeguridadServiceXml.html">SeguridadServiceXml</a></li>
+				<li><a href="class-SeguridadSoapService.html">SeguridadSoapService</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Buscar">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Vistas"><span>Vistas</span></a>
+			</li>
+			<li>
+				<a href="package-Quarseg.html" title="Resumen de Quarseg"><span>Paquete</span></a>
+			</li>
+			<li class="active">
+<span>Clases</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="&Aacute;rbol de clases, interfaces, abstracciones y exceptiones"><span>&Aacute;rbol</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class SeguridadProxyService</h1>
+
+
+	<div class="description">
+	
+<p>Interfaz o Proxy utilizado por Quarseg para brindar los servicios de
+autenticación, autorización, auditoria y administración de perfiles.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		
+		<b>Paquete:</b> <a href="package-Quarseg.html">Quarseg</a><br>
+
+				<b>Copyright:</b>
+				XETID.<br>
+				<b>Author:</b>
+				Equipo de desarrollo Zeolides.<br>
+				<b>Version:</b>
+				3.0<br>
+		<b>Direcci&oacute;n</b> <a href="source-class-SeguridadProxyService.html#3-3425" title="Ir al codigo">SeguridadProxyService.php</a><br>
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Resumen de m&eacute;todos</caption>
+	<tr data-order="init" id="_init">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_init">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#14-17" title="Ir al c&oacute;digo">init</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="authenticateUser" id="_authenticateUser">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_authenticateUser">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#19-116" title="Ir al c&oacute;digo">authenticateUser</a>( <span>STRING <var>$user</var></span>, <span>STRING <var>$password</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Brinda el servicio de autenticación por usuario y password.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Brinda el servicio de autenticación por usuario y password.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$user</var></dt>
+					<dd><code>STRING</code><br>- Usuario que se esta autenticando</dd>
+					<dt><var>$password</var></dt>
+					<dd><code>STRING</code><br>- Clave de acceso del usuario</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado asociativo que contiene código y descripción en caso de ocurrir
+errores o satistactorio y token de seguridad en caso de autenticarse
+satisfactoriamente.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="authenticateUserApi" id="_authenticateUserApi">
+
+		<td class="attributes"><code>
+			 public 
+			STRING
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_authenticateUserApi">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#297-366" title="Ir al c&oacute;digo">authenticateUserApi</a>( <span>STRING <var>$user</var></span>, <span>STRING <var>$password</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Brinda el servicio de autenticación por usuario y contraseña.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Brinda el servicio de autenticación por usuario y contraseña.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$user</var></dt>
+					<dd><code>STRING</code><br>- Usuario que se esta autenticando</dd>
+					<dt><var>$password</var></dt>
+					<dd><code>STRING</code><br>- Clave de acceso del usuario</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="verifyCertificate" id="_verifyCertificate">
+
+		<td class="attributes"><code>
+			 public 
+			INTEGER
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_verifyCertificate">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#368-393" title="Ir al c&oacute;digo">verifyCertificate</a>( <span>STRING <var>$certificado</var></span>, <span>STRING <var>$usuario</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Verifica la validés del certificado.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Verifica la validés del certificado.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificado</var></dt>
+					<dd><code>STRING</code><br>- Certificado del usuario.</dd>
+					<dt><var>$usuario</var></dt>
+					<dd><code>STRING</code><br>- Usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>INTEGER</code><br>- Retorna 1 si el Certificado es valido 0 de lo contrario.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getUserList" id="_getUserList">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getUserList">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#395-432" title="Ir al c&oacute;digo">getUserList</a>( <span>INTEGER <var>$limit</var></span>, <span>INTEGER <var>$start</var></span>, <span>STRING <var>$nombreusuario</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna el listado de usuarios paginados.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna el listado de usuarios paginados.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$limit</var></dt>
+					<dd><code>INTEGER</code><br>- Límite superior</dd>
+					<dt><var>$start</var></dt>
+					<dd><code>INTEGER</code><br>- Límite inferior</dd>
+					<dt><var>$nombreusuario</var></dt>
+					<dd><code>STRING</code><br>- Nombre de usuario o porcion del nombre para filtrar.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Arreglo asociativo que contiene la cantidad total de elementos a mostrar y los
+metadatos de cada uno de ellos.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="allUser" id="_allUser">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_allUser">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#434-447" title="Ir al c&oacute;digo">allUser</a>( <span>INTEGER <var>$limit</var></span>, <span>INTEGER <var>$start</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna el id de todos los ususarios contenidos en los límites.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna el id de todos los ususarios contenidos en los límites.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$limit</var></dt>
+					<dd><code>INTEGER</code><br>- Límite superior</dd>
+					<dt><var>$start</var></dt>
+					<dd><code>INTEGER</code><br>- Límite inferior</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Arreglo asociativo que contiene los id de todos los usuarios contenidos en los
+límites.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="cantidadUsuarios" id="_cantidadUsuarios">
+
+		<td class="attributes"><code>
+			 public 
+			INTEGER
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_cantidadUsuarios">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#449-458" title="Ir al c&oacute;digo">cantidadUsuarios</a>( )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna la cantidad de usuarios registrados en el sistema.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna la cantidad de usuarios registrados en el sistema.</li>
+</ul>
+
+
+
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>INTEGER</code><br>- Cantidad de ususarios del sistema.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRoleList" id="_getRoleList">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRoleList">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#460-472" title="Ir al c&oacute;digo">getRoleList</a>( <span>INTEGER <var>$limit</var></span>, <span>INTEGER <var>$start</var></span>, <span>STRING <var>$nombreRol</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna el listado de roles paginados.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna el listado de roles paginados.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$limit</var></dt>
+					<dd><code>INTEGER</code><br>- Límite superior</dd>
+					<dt><var>$start</var></dt>
+					<dd><code>INTEGER</code><br>- Límite inferior</dd>
+					<dt><var>$nombreRol</var></dt>
+					<dd><code>STRING</code><br>- Nombre del rol o porción del nombre para filtrar.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado asociativo que contiene la cantidad total de elementos a mostrar y los
+metadatos de cada uno de ellos.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getUserAcl" id="_getUserAcl">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getUserAcl">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#474-503" title="Ir al c&oacute;digo">getUserAcl</a>( <span>STRING <var>$certificado</var></span>, <span>NUMERIC <var>$identidad</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna la ACL del usuario autenticado.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna la ACL del usuario autenticado.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificado</var></dt>
+					<dd><code>STRING</code><br>- Certificado del usuario Autenticado.</dd>
+					<dt><var>$identidad</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la estructura accedida.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- ACL del usuario autenticado.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getUserAclByRol" id="_getUserAclByRol">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getUserAclByRol">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#505-523" title="Ir al c&oacute;digo">getUserAclByRol</a>( <span>NUMERIC <var>$idrol</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna la ACL del usuario autenticado.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna la ACL del usuario autenticado.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$idrol</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador del rol.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- ACL del usuario.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="verifyAccessToResourse" id="_verifyAccessToResourse">
+
+		<td class="attributes"><code>
+			 public 
+			INTEGER
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_verifyAccessToResourse">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#525-558" title="Ir al c&oacute;digo">verifyAccessToResourse</a>( <span>STRING <var>$certificate</var></span>, <span>STRING <var>$resourse</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Verifica que un usuario tenga acceso al recurso solicitado.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Verifica que un usuario tenga acceso al recurso solicitado.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado del usuario Autenticado.</dd>
+					<dt><var>$resourse</var></dt>
+					<dd><code>STRING</code><br>- Recurso.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>INTEGER</code><br>- Retorna 1 si tiene acceso 0 de lo contrario.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getProfile" id="_getProfile">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getProfile">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#560-678" title="Ir al c&oacute;digo">getProfile</a>( <span>STRING <var>$_certificate</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna el perfil del usuario autenticado.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna el perfil del usuario autenticado.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$_certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Datos del perfil del usuario autenticado.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="loadDomain" id="_loadDomain">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_loadDomain">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#680-710" title="Ir al c&oacute;digo">loadDomain</a>( <span>STRING <var>$certificate</var></span>, <span>NUMERIC <var>$idEstructura</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Obtener el dominio de entidades a la que el usuario tiene acceso.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Obtener el dominio de entidades a la que el usuario tiene acceso.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$idEstructura</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la estructura.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Entidades a las que el usuario tiene acceso.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="ObtenerEstructurasNoFormales" id="_ObtenerEstructurasNoFormales">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_ObtenerEstructurasNoFormales">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#712-749" title="Ir al c&oacute;digo">ObtenerEstructurasNoFormales</a>( <span>STRING <var>$certificate</var></span>, <span>NUMERIC <var>$idnomeav</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Obtener las estructuras a las que tiene acceso un usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Obtener las estructuras a las que tiene acceso un usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$idnomeav</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la estructura.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Estructuras a las que tiene acceso<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="ObtenerEstructurasFormales" id="_ObtenerEstructurasFormales">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_ObtenerEstructurasFormales">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#751-784" title="Ir al c&oacute;digo">ObtenerEstructurasFormales</a>( <span>STRING <var>$certificate</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Obtener las estructuras a las que tiene acceso un usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Obtener las estructuras a las que tiene acceso un usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Estructuras a las que tiene acceso<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="existUserRol" id="_existUserRol">
+
+		<td class="attributes"><code>
+			 public 
+			BOOLEAN
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_existUserRol">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#786-798" title="Ir al c&oacute;digo">existUserRol</a>( )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Función para saber si existe algún usuario, puede causar confusión el
+	nombre del método con lo que en realidad hace.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Función para saber si existe algún usuario, puede causar confusión el
+	nombre del método con lo que en realidad hace.</li>
+</ul>
+
+
+
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>BOOLEAN</code><br>- Si existe o no el usuario.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSystems" id="_getSystems">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSystems">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#800-837" title="Ir al c&oacute;digo">getSystems</a>( <span>STRING <var>$certificate</var></span>, <span>NUMERIC <var>$identidad</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Brinda el servicio de listar todos los sistemas a los que tiene acceso un
+	usuario en una entidad.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Brinda el servicio de listar todos los sistemas a los que tiene acceso un
+	usuario en una entidad.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$identidad</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la entidad.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Sistemas a los que tiene acceso un usuario en una entidad.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="loadActions" id="_loadActions">
+
+		<td class="attributes"><code>
+			 public 
+			JSON
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_loadActions">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#839-875" title="Ir al c&oacute;digo">loadActions</a>( <span>STRING <var>$identidad</var></span>, <span>NUMERIC <var>$idsistema</var></span>, <span>NUMERIC <var>$idfuncionalidad</var></span>, <span>NUMERIC <var>$certificado</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Servicio que le permite obtener las acciones de un usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Servicio que le permite obtener las acciones de un usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$identidad</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$idsistema</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la entidad.</dd>
+					<dt><var>$idfuncionalidad</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador del sistema.</dd>
+					<dt><var>$certificado</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la funcionalidad.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>JSON</code><br>- Acciones del usuario autenticado.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSystemsFunctions" id="_getSystemsFunctions">
+
+		<td class="attributes"><code>
+			 public 
+			JSON
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSystemsFunctions">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#877-954" title="Ir al c&oacute;digo">getSystemsFunctions</a>( <span>STRING <var>$certificate</var></span>, <span>NUMERIC <var>$idsistema</var></span>, <span>NUMERIC <var>$identidad</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Carga sistemas, subsistemas y funcionalidades.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Carga sistemas, subsistemas y funcionalidades.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$idsistema</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador del sistema.</dd>
+					<dt><var>$identidad</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la estructura.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>JSON</code><br>- Los subsistemas de un sistema o las funcionalidades de un subsistema.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getAllSystemFunctionalities" id="_getAllSystemFunctionalities">
+
+		<td class="attributes"><code>
+			 public 
+			JSON
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getAllSystemFunctionalities">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#956-1024" title="Ir al c&oacute;digo">getAllSystemFunctionalities</a>( <span>STRING <var>$certificate</var></span>, <span>NUMERIC <var>$idsistema</var></span>, <span>NUMERIC <var>$identidad</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Carga sistemas, subsistemas y funcionalidades.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Carga sistemas, subsistemas y funcionalidades.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$idsistema</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador del sistema.</dd>
+					<dt><var>$identidad</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la estructura.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>JSON</code><br>- Las funcionalidades de un subsistema.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSystemsDesktopModules" id="_getSystemsDesktopModules">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSystemsDesktopModules">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1026-1063" title="Ir al c&oacute;digo">getSystemsDesktopModules</a>( <span>STRING <var>$certificate</var></span>, <span>NUMERIC <var>$identidad</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Obtener los módulos para el portal tipo escritorio.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Obtener los módulos para el portal tipo escritorio.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$identidad</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la entidad a la que accedió el usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado de módulos.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getFunctionalitiesUser" id="_getFunctionalitiesUser">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getFunctionalitiesUser">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1065-1106" title="Ir al c&oacute;digo">getFunctionalitiesUser</a>( <span>STRING <var>$certificate</var></span>, <span>NUMERIC <var>$idusuarioo</var></span>, <span>NUMERIC <var>$identidad</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Función que retorna un listado con las funcionalidades a las que tiene
+	acceso el usuario logueado.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Función que retorna un listado con las funcionalidades a las que tiene
+	acceso el usuario logueado.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado del usuario usuario.</dd>
+					<dt><var>$idusuarioo</var></dt>
+					<dd><code>NUMERIC</code><br>- Id del usuario logeado.</dd>
+					<dt><var>$identidad</var></dt>
+					<dd><code>NUMERIC</code><br>- Id de estructura del usuario logeado.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado con las funcionalidades a las que tiene acceso el usuario logueado.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="safeIconMenu" id="_safeIconMenu">
+
+		<td class="attributes"><code>
+			 public 
+			JSON
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_safeIconMenu">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1108-1137" title="Ir al c&oacute;digo">safeIconMenu</a>( <span>STRING <var>$objeto</var></span>, <span>STRING <var>$icono</var></span>, <span>STRING <var>$identidad</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Función que retorna un mensaje notificando la salva del ícono del sistema
+	o funcionalidad.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Función que retorna un mensaje notificando la salva del ícono del sistema
+	o funcionalidad.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$objeto</var></dt>
+					<dd><code>STRING</code><br>- Objeto.</dd>
+					<dt><var>$icono</var></dt>
+					<dd><code>STRING</code><br>- Nombre del archivo de imagen .</dd>
+					<dt><var>$identidad</var></dt>
+					<dd><code>STRING</code><br>- Id de estructura del usuario logeado.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>JSON</code><br>- JSON que contiene el mensaje de notificación de la salva del icono del
+sistema o funcionalidad<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSystemsFunctionsDesktopModules" id="_getSystemsFunctionsDesktopModules">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSystemsFunctionsDesktopModules">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1139-1184" title="Ir al c&oacute;digo">getSystemsFunctionsDesktopModules</a>( <span>STRING <var>$certificate</var></span>, <span>NUMERIC <var>$identidad</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Obtener los módulos para el portal tipo escritorio.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Obtener los módulos para el portal tipo escritorio.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$identidad</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la entidad a la que accedió el usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado de modulos.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="verifyAccessEntity" id="_verifyAccessEntity">
+
+		<td class="attributes"><code>
+			 public 
+			INTEGER
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_verifyAccessEntity">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1186-1212" title="Ir al c&oacute;digo">verifyAccessEntity</a>( <span>STRING <var>$certificate</var></span>, <span>NUMERIC <var>$identity</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Verifica si un usuario tiene acceso a una entidad.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Verifica si un usuario tiene acceso a una entidad.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$identity</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la entidad a la que accedió el usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>INTEGER</code><br>- Devuelve 0 si no posee acceso y entero mayor que 0 en caso de que si posea
+acceso.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="verificarAccesoEntidadRol" id="_verificarAccesoEntidadRol">
+
+		<td class="attributes"><code>
+			 public 
+			MIXED
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_verificarAccesoEntidadRol">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1214-1239" title="Ir al c&oacute;digo">verificarAccesoEntidadRol</a>( <span>STRING <var>$certificate</var></span>, <span>NUMERIC <var>$identity</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Verifica si un usuario tiene acceso a una entidad.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Verifica si un usuario tiene acceso a una entidad.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$identity</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la entidad a la que accedió el usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>MIXED</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="LoadXML" id="_LoadXML">
+
+		<td class="attributes"><code>
+			 public 
+			XML
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_LoadXML">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1241-1279" title="Ir al c&oacute;digo">LoadXML</a>( <span>STRING <var>$certificate</var></span>, <span>NUMERIC <var>$identity</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Obtiene un XML con la configuración para un usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Obtiene un XML con la configuración para un usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$identity</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la entidad a la que accedió el usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>XML</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="LoadXMLModule" id="_LoadXMLModule">
+
+		<td class="attributes"><code>
+			 public 
+			XML
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_LoadXMLModule">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1281-1316" title="Ir al c&oacute;digo">LoadXMLModule</a>( <span>STRING <var>$certificate</var></span>, <span>STRING <var>$identity</var></span>, <span>NUMERIC <var>$module</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Obtiene un XML con la configuración de un módulo dado para un
+	usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Obtiene un XML con la configuración de un módulo dado para un
+	usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado o token de seguridad asignado al usuario.</dd>
+					<dt><var>$identity</var></dt>
+					<dd><code>STRING</code><br>- Módulo especificado.</dd>
+					<dt><var>$module</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la entidad a la que accedió el usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>XML</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getUsersProfile" id="_getUsersProfile">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getUsersProfile">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1318-1354" title="Ir al c&oacute;digo">getUsersProfile</a>( <span>ARRAY <var>$arrayusers</var></span>, <span>STRING <var>$certificate</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Devuelve los datos del perfil de usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Devuelve los datos del perfil de usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$arrayusers</var></dt>
+					<dd><code>ARRAY</code><br>- Identificadores de los usuario.</dd>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado del usuario logeado.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado con los datos del perfil del usuario.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="loadUserActions" id="_loadUserActions">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_loadUserActions">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1356-1406" title="Ir al c&oacute;digo">loadUserActions</a>( <span>STRING <var>$certificate</var></span>, <span>NUMERIC <var>$idfuncionalidad</var></span>, <span>NUMERIC <var>$entity</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Devuelve las acciones de un usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Devuelve las acciones de un usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado del usuario.</dd>
+					<dt><var>$idfuncionalidad</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la funcionalidad.</dd>
+					<dt><var>$entity</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la entidad.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado con las acciones a las que el usuario tiene permiso.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="loadUserActionsByID" id="_loadUserActionsByID">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_loadUserActionsByID">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1408-1455" title="Ir al c&oacute;digo">loadUserActionsByID</a>( <span>STRING <var>$certificate</var></span>, <span>NUMERIC <var>$idfuncionalidad</var></span>, <span>NUMERIC <var>$entity</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Devuelve las acciones de un usuario en una entidad determinada.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Devuelve las acciones de un usuario en una entidad determinada.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado del usuario.</dd>
+					<dt><var>$idfuncionalidad</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la funcionalidad.</dd>
+					<dt><var>$entity</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la entidad.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado con las acciones a las que el usuario tiene permiso en una entidad
+determinada.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="cargarAccionesXUri" id="_cargarAccionesXUri">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_cargarAccionesXUri">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1457-1488" title="Ir al c&oacute;digo">cargarAccionesXUri</a>( <span>STRING <var>$certificate</var></span>, <span>STRING <var>$uri</var></span>, <span>NUMERIC <var>$entity</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Devuelve las acciones de un usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Devuelve las acciones de un usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado del usuario.</dd>
+					<dt><var>$uri</var></dt>
+					<dd><code>STRING</code><br>- Referencia de la funcionalidad.</dd>
+					<dt><var>$entity</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la entidad.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Acciones de un usuario.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="LoadUserRoles" id="_LoadUserRoles">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_LoadUserRoles">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1490-1514" title="Ir al c&oacute;digo">LoadUserRoles</a>( <span>STRING <var>$certificate</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Devuelve un listado con todos los roles de un usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Devuelve un listado con todos los roles de un usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado del usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado con todos los roles a los que pertenece un usuario.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="LoadUserRolByEntidad" id="_LoadUserRolByEntidad">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_LoadUserRolByEntidad">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1516-1538" title="Ir al c&oacute;digo">LoadUserRolByEntidad</a>( <span>STRING <var>$certificate</var></span>, <span>NUMERIC <var>$identidad</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Devuelve el rol de un usuario en una entidad.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Devuelve el rol de un usuario en una entidad.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado del usuario.</dd>
+					<dt><var>$identidad</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la entidad.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado con los datos del rol al que pertenece un usuario en determinada
+estructura.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="ExistUserRoles" id="_ExistUserRoles">
+
+		<td class="attributes"><code>
+			 public 
+			INTEGER
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_ExistUserRoles">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1540-1555" title="Ir al c&oacute;digo">ExistUserRoles</a>( <span>STRING <var>$entity</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Verifica si la entidad tiene roles o usuarios.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Verifica si la entidad tiene roles o usuarios.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$entity</var></dt>
+					<dd><code>STRING</code><br>- Entidad.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>INTEGER</code><br>- Retorna 1 en caso positivo 0 en caso contrario.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="ChangeState" id="_ChangeState">
+
+		<td class="attributes"><code>
+			 public 
+			INTEGER
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_ChangeState">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1557-1583" title="Ir al c&oacute;digo">ChangeState</a>( <span>NUMERIC <var>$idusuario</var></span>, <span>STRING <var>$opcion</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Cambia el estado de un usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Cambia el estado de un usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$idusuario</var></dt>
+					<dd><code>NUMERIC</code><br>- Id de usuario.</dd>
+					<dt><var>$opcion</var></dt>
+					<dd><code>STRING</code><br>- Estado del usuario (Uso o NO).</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>INTEGER</code><br>- Retorna 1 si cambia satisfactoriamente el estado 0 en caso contrario.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="ChangePassword" id="_ChangePassword">
+
+		<td class="attributes"><code>
+			 public 
+			INTEGER
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_ChangePassword">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1585-1646" title="Ir al c&oacute;digo">ChangePassword</a>( <span>STRING <var>$usuario</var></span>, <span>STRING <var>$oldpass</var></span>, <span>STRING <var>$newpass</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Función para cambiar el contraseña a un usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Función para cambiar el contraseña a un usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$usuario</var></dt>
+					<dd><code>STRING</code><br>- Nombre de usuario.</dd>
+					<dt><var>$oldpass</var></dt>
+					<dd><code>STRING</code><br>- Contraseña vieja.</dd>
+					<dt><var>$newpass</var></dt>
+					<dd><code>STRING</code><br>- Nueva contraseña.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>INTEGER</code><br>- Retorna 1 en caso de operación satisfactoria.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="rolAsUsersGain" id="_rolAsUsersGain">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_rolAsUsersGain">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1648-1680" title="Ir al c&oacute;digo">rolAsUsersGain</a>( <span>NUMERIC <var>$identidad</var></span>, <span>NUMERIC <var>$idrol</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Servicio para obtener todos los usuarios que desempeñen</li>
+</ul>
+
+<p>el rol especificado en la entidad solicitada.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Servicio para obtener todos los usuarios que desempeñen</li>
+</ul>
+
+<p>el rol especificado en la entidad solicitada.</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$identidad</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la entidad.</dd>
+					<dt><var>$idrol</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador del rol.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado que contiene los usuarios que desempeñen el rol especificado en la
+entidad solicitada.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getUserListWithRole" id="_getUserListWithRole">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getUserListWithRole">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1682-1697" title="Ir al c&oacute;digo">getUserListWithRole</a>( <span>NUMERIC <var>$idrol</var></span>, <span>INTEGER <var>$limit</var> = <span class="php-keyword1">null</span></span>, <span>INTEGER <var>$start</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Servicio para obtener todos los usuarios que desempeñen un rol</li>
+</ul>
+
+<p>determinado.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Servicio para obtener todos los usuarios que desempeñen un rol</li>
+</ul>
+
+<p>determinado.</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$idrol</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador del rol.</dd>
+					<dt><var>$limit</var></dt>
+					<dd><code>INTEGER</code><br>- Limite (Por defecto null).</dd>
+					<dt><var>$start</var></dt>
+					<dd><code>INTEGER</code><br>- Comienzo (Por defecto null).</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado que contiene todos los usuarios que desempeñen un rol determinado.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="loadDomainPDO" id="_loadDomainPDO">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_loadDomainPDO">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1699-1722" title="Ir al c&oacute;digo">loadDomainPDO</a>( <span>NUMERIC <var>$idEstructura</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna un listado de las entidades que pertenecen al dominio</li>
+</ul>
+
+<p>del usuario logueado en las que este tiene un rol, especificando las
+entidades que tienen rol y las que son cargos.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna un listado de las entidades que pertenecen al dominio</li>
+</ul>
+
+<p>del usuario logueado en las que este tiene un rol, especificando las
+entidades que tienen rol y las que son cargos.</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$idEstructura</var></dt>
+					<dd><code>NUMERIC</code><br>- Id de la estructura.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado de las entidades que pertenecen al dominio del usuario logueado.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="nameUsersProfile" id="_nameUsersProfile">
+
+		<td class="attributes"><code>
+			 public 
+			STRING
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_nameUsersProfile">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1724-1737" title="Ir al c&oacute;digo">nameUsersProfile</a>( <span>NUMERIC <var>$user</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Devuelve el nombre del usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Devuelve el nombre del usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$user</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador del usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>STRING</code><br>- Nombre del usuario.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="insertarUsuarioUCID" id="_insertarUsuarioUCID">
+
+		<td class="attributes"><code>
+			 public 
+			INTEGER
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_insertarUsuarioUCID">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1739-1779" title="Ir al c&oacute;digo">insertarUsuarioUCID</a>( <span>STRING <var>$user</var></span>, <span>INTEGER <var>$numid</var></span>, <span>STRING <var>$nombre</var></span>, <span>STRING <var>$papell</var></span>, <span>STRING <var>$sapell</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Servicio que permite la inserción de un usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Servicio que permite la inserción de un usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$user</var></dt>
+					<dd><code>STRING</code><br>- Usuario.</dd>
+					<dt><var>$numid</var></dt>
+					<dd><code>INTEGER</code><br>- CI.</dd>
+					<dt><var>$nombre</var></dt>
+					<dd><code>STRING</code><br>- Nombre del usuario.</dd>
+					<dt><var>$papell</var></dt>
+					<dd><code>STRING</code><br>- Primer apellido.</dd>
+					<dt><var>$sapell</var></dt>
+					<dd><code>STRING</code><br>- Segundo apellido.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>INTEGER</code><br>- Identificador del usuario.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="obtenerIdUsuarioDadoNombre" id="_obtenerIdUsuarioDadoNombre">
+
+		<td class="attributes"><code>
+			 public 
+			INTEGER
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_obtenerIdUsuarioDadoNombre">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1781-1793" title="Ir al c&oacute;digo">obtenerIdUsuarioDadoNombre</a>( <span>STRING <var>$nombreusuario</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Devuelve le identificador del usuario dado el nombre.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Devuelve le identificador del usuario dado el nombre.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$nombreusuario</var></dt>
+					<dd><code>STRING</code><br>- Usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>INTEGER</code><br>- Identificador del usuario.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getUserNames" id="_getUserNames">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getUserNames">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1795-1812" title="Ir al c&oacute;digo">getUserNames</a>( <span>ARRAY <var>$arrayid</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Función para devolver los nombres de usuarios.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Función para devolver los nombres de usuarios.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$arrayid</var></dt>
+					<dd><code>ARRAY</code><br>- Listado de los id de usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado con los nombres de usuarios.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="accessToFunctionality" id="_accessToFunctionality">
+
+		<td class="attributes"><code>
+			 public 
+			BOOLEAN
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_accessToFunctionality">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1814-1838" title="Ir al c&oacute;digo">accessToFunctionality</a>( <span>STRING <var>$certificate</var></span>, <span>STRING <var>$url</var></span>, <span>NUMERIC <var>$identity</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Devuelve verdadero si un usuario tiene acceso a una funcionalidad.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Devuelve verdadero si un usuario tiene acceso a una funcionalidad.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Token de seguridad.</dd>
+					<dt><var>$url</var></dt>
+					<dd><code>STRING</code><br>- Url.</dd>
+					<dt><var>$identity</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la entidad.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>BOOLEAN</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="accessToAction" id="_accessToAction">
+
+		<td class="attributes"><code>
+			 public 
+			BOOLEAN
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_accessToAction">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1840-1867" title="Ir al c&oacute;digo">accessToAction</a>( <span>STRING <var>$certificate</var></span>, <span>STRING <var>$denominacion</var></span>, <span>NUMERIC <var>$identity</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Devuelve verdadero si un usuario tiene acceso s una acción.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Devuelve verdadero si un usuario tiene acceso s una acción.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Token de seguridad.</dd>
+					<dt><var>$denominacion</var></dt>
+					<dd><code>STRING</code><br>- Denominación de la acción.</dd>
+					<dt><var>$identity</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la entidad.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>BOOLEAN</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="listadoUsuariosCompartimentados" id="_listadoUsuariosCompartimentados">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_listadoUsuariosCompartimentados">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1869-1887" title="Ir al c&oacute;digo">listadoUsuariosCompartimentados</a>( <span>INTEGER <var>$iddominio</var></span>, <span>INTEGER <var>$idusuario</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna todos los usuarios que pueden ser manipulados</li>
+</ul>
+
+<p>por el usuario logeado.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna todos los usuarios que pueden ser manipulados</li>
+</ul>
+
+<p>por el usuario logeado.</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$iddominio</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador del dominio.</dd>
+					<dt><var>$idusuario</var></dt>
+					<dd><code>INTEGER</code><br>- Identificador del usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado con todos los usuarios que pueden ser manipulados por el usuario
+logeado.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="UsuariosCompartimentados" id="_UsuariosCompartimentados">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_UsuariosCompartimentados">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1889-1917" title="Ir al c&oacute;digo">UsuariosCompartimentados</a>( <span>STRING <var>$certificate</var></span>, <span>NUMERIC <var>$iddominio</var></span>, <span>NUMERIC <var>$idusuario</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna todos los metadatos de los usuarios que pueden ser manipulados
+		<p>por el usuario logeado.</p>
+	</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna todos los metadatos de los usuarios que pueden ser manipulados por
+	el usuario logeado.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Token de seguridad.</dd>
+					<dt><var>$iddominio</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador del dominio del usuario logueado.</dd>
+					<dt><var>$idusuario</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador del usuario logueado.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado con todos los metadatos de los usuarios que pueden ser manipulados por
+el usuario logeado.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="ObtenerUsuariosPersona" id="_ObtenerUsuariosPersona">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_ObtenerUsuariosPersona">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1919-1953" title="Ir al c&oacute;digo">ObtenerUsuariosPersona</a>( <span>STRING <var>$certificate</var></span>, <span>NUMERIC <var>$idusuario</var></span>, <span>NUMERIC <var>$iddominio</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna todos los metadatos de los usuarios</li>
+</ul>
+
+<p>que pueden ser manipulados por el usuario logeado y tengan asociado datos de
+la persona.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna todos los metadatos de los usuarios</li>
+</ul>
+
+<p>que pueden ser manipulados por el usuario logeado y tengan asociado datos de
+la persona.</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Token de seguridad.</dd>
+					<dt><var>$idusuario</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador del dominio del usuario logueado.</dd>
+					<dt><var>$iddominio</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador del usuario logueado.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado que contiene todos los metadatos de los usuarios que pueden ser
+manipulados por el usuario logeado y tengan asociado datos de la persona.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getUsersNameById" id="_getUsersNameById">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getUsersNameById">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1955-1965" title="Ir al c&oacute;digo">getUsersNameById</a>( <span>ARRAY <var>$arrayId</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna un objeto con los datos del usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna un objeto con los datos del usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$arrayId</var></dt>
+					<dd><code>ARRAY</code><br>- Listado de identificadores de usuarios.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRoleNameById" id="_getRoleNameById">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRoleNameById">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1967-1976" title="Ir al c&oacute;digo">getRoleNameById</a>( <span>ARRAY <var>$arrayIdRol</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna un objeto con los datos del rol.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna un objeto con los datos del rol.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$arrayIdRol</var></dt>
+					<dd><code>ARRAY</code><br>- Listado de identificadores de roles.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getIdPersonaByIdUsuario" id="_getIdPersonaByIdUsuario">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getIdPersonaByIdUsuario">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1978-1990" title="Ir al c&oacute;digo">getIdPersonaByIdUsuario</a>( <span>NUMERIC <var>$idusuario</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna un objeto con los datos del usuario.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna un objeto con los datos del usuario.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$idusuario</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador del usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSystemsFunctionsActions" id="_getSystemsFunctionsActions">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSystemsFunctionsActions">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#1992-2029" title="Ir al c&oacute;digo">getSystemsFunctionsActions</a>( <span>STRING <var>$certificate</var></span>, <span>NUMERIC <var>$idsistema</var></span>, <span>NUMERIC <var>$identidad</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Función que retorna un listado con los sistemas, funcionalidades y</li>
+</ul>
+
+<p>acciones a las que el usuario tiene acceso.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Función que retorna un listado con los sistemas, funcionalidades y</li>
+</ul>
+
+<p>acciones a las que el usuario tiene acceso.</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$certificate</var></dt>
+					<dd><code>STRING</code><br>- Certificado del usuario usuario.</dd>
+					<dt><var>$idsistema</var></dt>
+					<dd><code>NUMERIC</code><br>- Id del subsistema.</dd>
+					<dt><var>$identidad</var></dt>
+					<dd><code>NUMERIC</code><br>- Id de estructura del usuario logeado.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado con los sistemas, funcionalidades y acciones a las que el usuario
+tiene acceso.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="obtenerAccionesConPermisosByIdsistema" id="_obtenerAccionesConPermisosByIdsistema">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_obtenerAccionesConPermisosByIdsistema">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#2031-2047" title="Ir al c&oacute;digo">obtenerAccionesConPermisosByIdsistema</a>( <span>NUMERIC <var>$idsistema</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Función que retorna un listado con las acciones con</li>
+</ul>
+
+<p>permisos dado un identificador de sistema.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Función que retorna un listado con las acciones con</li>
+</ul>
+
+<p>permisos dado un identificador de sistema.</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$idsistema</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador del sistema.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado con las acciones con permisos dado un identificador de sistema.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getUsersInformationByArrayIdPersona" id="_getUsersInformationByArrayIdPersona">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getUsersInformationByArrayIdPersona">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#2049-2062" title="Ir al c&oacute;digo">getUsersInformationByArrayIdPersona</a>( <span>NUMERIC <var>$arrayIdPersonas</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Función que retorna un listado con los metadatos de los usuarios que
+	estan</li>
+</ul>
+
+<p>relacionados con los idpersona solicitados por parámetro.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Función que retorna un listado con los metadatos de los usuarios que
+	estan</li>
+</ul>
+
+<p>relacionados con los idpersona solicitados por parámetro.</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$arrayIdPersonas</var></dt>
+					<dd><code>NUMERIC</code><br>- Id de estructura del usuario logeado.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado con los metadatos de los usuarios que estan relacionados con los
+idpersona solicitados por parámetro.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getUsersPersonInformation" id="_getUsersPersonInformation">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getUsersPersonInformation">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#2064-2074" title="Ir al c&oacute;digo">getUsersPersonInformation</a>( )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Función que retorna un listado los metadatos.</li>
+</ul>
+
+<p>de los usuarios que estan relacionados personas.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Función que retorna un listado los metadatos.</li>
+</ul>
+
+<p>de los usuarios que estan relacionados personas.</p>
+
+
+
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado con los metadatos.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getIdPersona" id="_getIdPersona">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getIdPersona">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#2076-2087" title="Ir al c&oacute;digo">getIdPersona</a>( <span>STRING <var>$userName</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna un listado con la</li>
+</ul>
+
+<p>información del usuario (idusuario, idpersona).</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna un listado con la</li>
+</ul>
+
+<p>información del usuario (idusuario, idpersona).</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$userName</var></dt>
+					<dd><code>STRING</code><br>- Nombre de usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado con la información del usuario.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getArrayIdPersonaByArrayUsers" id="_getArrayIdPersonaByArrayUsers">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getArrayIdPersonaByArrayUsers">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#2089-2102" title="Ir al c&oacute;digo">getArrayIdPersonaByArrayUsers</a>( <span>ARRAY <var>$arrayUsers</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna un listado con la información de los</li>
+</ul>
+
+<p>usuarios (idusuario, idpersona).</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna un listado con la información de los</li>
+</ul>
+
+<p>usuarios (idusuario, idpersona).</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$arrayUsers</var></dt>
+					<dd><code>ARRAY</code><br>- Listado de identificadores de usuarios.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado con la información de los usuarios.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getArrayIdPersonaByUsersName" id="_getArrayIdPersonaByUsersName">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getArrayIdPersonaByUsersName">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#2104-2118" title="Ir al c&oacute;digo">getArrayIdPersonaByUsersName</a>( <span>ARRAY <var>$arrayUsers</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna un listado con los identificadores de personas</li>
+</ul>
+
+<p>que se encuentran asociado a los usuarios.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna un listado con los identificadores de personas</li>
+</ul>
+
+<p>que se encuentran asociado a los usuarios.</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$arrayUsers</var></dt>
+					<dd><code>ARRAY</code><br>- Listado de nombres de usuario</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- listado con los identificadores de personas que se encuentran asociado a los
+usuarios.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="gettodosLosUsuarios" id="_gettodosLosUsuarios">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_gettodosLosUsuarios">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#2120-2133" title="Ir al c&oacute;digo">gettodosLosUsuarios</a>( <span>INTEGER <var>$limit</var></span>, <span>INTEGER <var>$start</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Lista los usuarios por lotes.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Lista los usuarios por lotes.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$limit</var></dt>
+					<dd><code>INTEGER</code><br>- Cantidad de usuarios que serán listados.</dd>
+					<dt><var>$start</var></dt>
+					<dd><code>INTEGER</code><br>- Valor inicial para comenzar el paginado.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado de usuarios.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getcanttodosLosUsuarios" id="_getcanttodosLosUsuarios">
+
+		<td class="attributes"><code>
+			 public 
+			INTEGER
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getcanttodosLosUsuarios">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#2135-2146" title="Ir al c&oacute;digo">getcanttodosLosUsuarios</a>( )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna la cantidad total de usuarios en el sistema.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna la cantidad total de usuarios en el sistema.</li>
+</ul>
+
+
+
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>INTEGER</code><br>- Cantidad de usuarios.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getIdsEntityByRole" id="_getIdsEntityByRole">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getIdsEntityByRole">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#2148-2172" title="Ir al c&oacute;digo">getIdsEntityByRole</a>( )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna un listado de identificadores</li>
+</ul>
+
+<p>de estructura que pertenecen al dominio del usuario y que ademas el mismo
+tenga roles en ellas.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna un listado de identificadores</li>
+</ul>
+
+<p>de estructura que pertenecen al dominio del usuario y que ademas el mismo
+tenga roles en ellas.</p>
+
+
+
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado de identificadores de estructura | 0 de no existir roles configurados.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getIdsEntityByUser" id="_getIdsEntityByUser">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getIdsEntityByUser">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#2174-2199" title="Ir al c&oacute;digo">getIdsEntityByUser</a>( <span>NUMERIC <var>$idusuario</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna un listado de</li>
+</ul>
+
+<p>identificadores de estructura que pertenecen al dominio del usuario y que
+además el mismo tenga roles<br />
+en ellas.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna un listado de</li>
+</ul>
+
+<p>identificadores de estructura que pertenecen al dominio del usuario y que
+además el mismo tenga roles en ellas.</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$idusuario</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador del ususario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado de identificadores de estructura | 0 de no existir roles configurados.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="ObtenerListadoIdUsuarioRolEntidad" id="_ObtenerListadoIdUsuarioRolEntidad">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_ObtenerListadoIdUsuarioRolEntidad">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#2201-2222" title="Ir al c&oacute;digo">ObtenerListadoIdUsuarioRolEntidad</a>( )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna un listado de</li>
+</ul>
+
+<p>identificadores de estructura que pertenecen al dominio del usuario
+autenticado y que además el mismo tenga roles en ellas.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna un listado de</li>
+</ul>
+
+<p>identificadores de estructura que pertenecen al dominio del usuario
+autenticado y que además el mismo tenga roles en ellas.</p>
+
+
+
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado de identificadores de usuario, rol y entidades.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="obtenerListadoIdEstructura" id="_obtenerListadoIdEstructura">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_obtenerListadoIdEstructura">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#2224-2249" title="Ir al c&oacute;digo">obtenerListadoIdEstructura</a>( <span>NUMERIC <var>$identidad</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna un listado de</li>
+</ul>
+
+<p>identificadores de estructura hijos de la estructura dada por parametros a
+las cuales tiene acceso el usuario logueado en el sistema dentro de su
+dominio.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna un listado de</li>
+</ul>
+
+<p>identificadores de estructura hijos de la estructura dada por parametros a
+las cuales tiene acceso el usuario logueado en el sistema dentro de su
+dominio.</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$identidad</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador de la estructura.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado de identificadores de estructura.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="obtenerListadoRolesCompartimentados" id="_obtenerListadoRolesCompartimentados">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_obtenerListadoRolesCompartimentados">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#2251-2278" title="Ir al c&oacute;digo">obtenerListadoRolesCompartimentados</a>( )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna un listado</li>
+</ul>
+
+<p>de roles compartimentados del dominio del perfil.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna un listado</li>
+</ul>
+
+<p>de roles compartimentados del dominio del perfil.</p>
+
+
+
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado de roles compartimentados.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="eliminarSistema" id="_eliminarSistema">
+
+		<td class="attributes"><code>
+			 public 
+			BOOLEAN
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_eliminarSistema">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#3164-3178" title="Ir al c&oacute;digo">eliminarSistema</a>( <span>NUMERIC <var>$idSistema</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Elimina el sistema que conicide</li>
+</ul>
+
+<p>con el id pasado por parámetro.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Elimina el sistema que conicide</li>
+</ul>
+
+<p>con el id pasado por parámetro.</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$idSistema</var></dt>
+					<dd><code>NUMERIC</code><br>- Id del sistema a eliminar.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>BOOLEAN</code><br>- Retorna verdadero en caso de haber eliminado el sistema, falso en caso
+contrario.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="importarXMLSistema" id="_importarXMLSistema">
+
+		<td class="attributes"><code>
+			 public 
+			NUMERIC
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_importarXMLSistema">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#3180-3193" title="Ir al c&oacute;digo">importarXMLSistema</a>( <span><code><a href="class-SimpleXMLElement.html">SimpleXMLElement</a></code> <var>$xmlSistema</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Función encargada de importar un sistema.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Función encargada de importar un sistema.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$xmlSistema</var></dt>
+					<dd><code><code><a href="class-SimpleXMLElement.html">SimpleXMLElement</a></code></code><br>- XML del sistema a importar.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>NUMERIC</code><br>- Identificador del sistema importado.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="gettodosLosRoles" id="_gettodosLosRoles">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_gettodosLosRoles">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#3288-3300" title="Ir al c&oacute;digo">gettodosLosRoles</a>( )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna un listado de roles que estan</li>
+</ul>
+
+<p>asociados a usuarios activos.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna un listado de roles que estan</li>
+</ul>
+
+<p>asociados a usuarios activos.</p>
+
+
+
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado de roles.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRolesporUsuario" id="_getRolesporUsuario">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRolesporUsuario">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#3302-3314" title="Ir al c&oacute;digo">getRolesporUsuario</a>( <span>NUMERIC <var>$idusuario</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna un listado de roles</li>
+</ul>
+
+<p>que estan asociados a un usuario.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna un listado de roles</li>
+</ul>
+
+<p>que estan asociados a un usuario.</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$idusuario</var></dt>
+					<dd><code>NUMERIC</code><br>- Identificador del usuario.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado de roles.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getMenuFuncionalidad" id="_getMenuFuncionalidad">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMenuFuncionalidad">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#3316-3329" title="Ir al c&oacute;digo">getMenuFuncionalidad</a>( <span>STRING <var>$referencia</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna un arreglo asociativo</li>
+</ul>
+
+<p>con el identificador de la funcionalidad y la denominación.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna un arreglo asociativo</li>
+</ul>
+
+<p>con el identificador de la funcionalidad y la denominación.</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$referencia</var></dt>
+					<dd><code>STRING</code><br>- Referencia de la funcionalidad.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- ('menu'=&gt;"denominacion",'idfuncionalidad'=&gt;"id")).<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="obtenerDatosFuncionalidades" id="_obtenerDatosFuncionalidades">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_obtenerDatosFuncionalidades">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#3330-3342" title="Ir al c&oacute;digo">obtenerDatosFuncionalidades</a>( <span>ARRAY <var>$arrayidfuncionalidades</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna un arreglo con los datos de las funcionalidades.</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna un arreglo con los datos de las funcionalidades.</li>
+</ul>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$arrayidfuncionalidades</var></dt>
+					<dd><code>ARRAY</code><br>- Identificadores de las funcionalidades.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- listado con los datos de las funcionalidades.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="usersByFuncionality" id="_usersByFuncionality">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_usersByFuncionality">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#3344-3369" title="Ir al c&oacute;digo">usersByFuncionality</a>( <span>ARRAY <var>$iddominios</var></span>, <span>STRING <var>$referencia</var></span>, <span>STRING <var>$recurso</var></span>, <span>ARRAY <var>$excluir</var> = <span class="php-keyword1">array</span>()</span>, <span>INTEGER <var>$limit</var> = <span class="php-num">0</span></span>, <span>INTEGER <var>$offset</var> = <span class="php-num">0</span> </span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna los usuarios que poseen dentro de un dominio especificado</li>
+</ul>
+
+<p>permisos dentro de una funcionalidad a una recurso especificado.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna los usuarios que poseen dentro de un dominio especificado</li>
+</ul>
+
+<p>permisos dentro de una funcionalidad a una recurso especificado.</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$iddominios</var></dt>
+					<dd><code>ARRAY</code><br>- listado de dominios específicos</dd>
+					<dt><var>$referencia</var></dt>
+					<dd><code>STRING</code><br>- Dirección referencial de la función especifica</dd>
+					<dt><var>$recurso</var></dt>
+					<dd><code>STRING</code><br>- Abreviatura del recurso especificado</dd>
+					<dt><var>$excluir</var></dt>
+					<dd><code>ARRAY</code><br>- Excluir los usuarios especificados</dd>
+					<dt><var>$limit</var></dt>
+					<dd><code>INTEGER</code><br>- Límite de la lista</dd>
+					<dt><var>$offset</var></dt>
+					<dd><code>INTEGER</code><br>- Inicio de la lista</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado de usuarios.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="totalUsersByFuncionality" id="_totalUsersByFuncionality">
+
+		<td class="attributes"><code>
+			 public 
+			INTEGER
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_totalUsersByFuncionality">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#3371-3395" title="Ir al c&oacute;digo">totalUsersByFuncionality</a>( <span>ARRAY <var>$iddominios</var></span>, <span>STRING <var>$referencia</var></span>, <span>STRING <var>$recurso</var></span>, <span>ARRAY <var>$excluir</var> = <span class="php-keyword1">array</span>() </span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Retorna la cantidad de usuarios que poseen dentro de un dominio</li>
+</ul>
+
+<p>especificado permisos dentro de una funcionalidad a una recurso
+especificado.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Retorna la cantidad de usuarios que poseen dentro de un dominio</li>
+</ul>
+
+<p>especificado permisos dentro de una funcionalidad a una recurso
+especificado.</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$iddominios</var></dt>
+					<dd><code>ARRAY</code><br>- listado de dominios específicos</dd>
+					<dt><var>$referencia</var></dt>
+					<dd><code>STRING</code><br>- Dirección referencial de la función especifica</dd>
+					<dt><var>$recurso</var></dt>
+					<dd><code>STRING</code><br>- Abreviatura del recurso especificado</dd>
+					<dt><var>$excluir</var></dt>
+					<dd><code>ARRAY</code><br>- Excluir los usuarios especificados</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>INTEGER</code><br>- Cantidad de usuarios.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="obtenerFuncionalidadesNoVisibles" id="_obtenerFuncionalidadesNoVisibles">
+
+		<td class="attributes"><code>
+			 public 
+			ARRAY
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_obtenerFuncionalidadesNoVisibles">#</a>
+		<code><a href="source-class-SeguridadProxyService.html#3397-3410" title="Ir al c&oacute;digo">obtenerFuncionalidadesNoVisibles</a>( <span>STRING <var>$uri</var></span> )</code>
+
+		<div class="description short">
+			
+<ul>
+	<li>Función usada para retornar las funcionalidades no visibles a partir
+	de</li>
+</ul>
+
+<p>una uri.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<ul>
+	<li>Función usada para retornar las funcionalidades no visibles a partir
+	de</li>
+</ul>
+
+<p>una uri.</p>
+
+
+
+				<h4>Par&aacute;metros</h4>
+				<div class="list"><dl>
+					<dt><var>$uri</var></dt>
+					<dd><code>STRING</code><br>- Cadena de búsqueda usada en la referencia.</dd>
+				</dl></div>
+
+				<h4>Devoluciones</h4>
+				<div class="list">
+					<code>ARRAY</code><br>- Listado de funcionalidades no visibles.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		<div class="information"> API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a></div>
+	</div>
+</div>
+</div>
+</body>
+</html>

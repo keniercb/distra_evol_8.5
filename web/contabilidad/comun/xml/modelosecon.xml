@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <cant>2</cant>
+ <row>
+     <idmodeloe>0</idmodeloe>
+     <modeloe>PRESUPUESTADA</modeloe>
+     <descripcion>Modelo de gestión o actividad económica que realizan las entidades presupuestadas civiles.</descripcion>
+ </row>
+ <row>
+     <idmodeloe>1</idmodeloe>
+     <modeloe>EMPRESARIAL</modeloe>
+     <descripcion>Modelo de gestión o actividad económica que realizan las empresas civiles.</descripcion>
+ </row>
+</dataset>

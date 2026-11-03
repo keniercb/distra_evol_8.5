@@ -1,0 +1,15 @@
+<cargador>
+	<nomencladores>
+			<gestionarnomencladores>
+			</gestionarnomencladores>
+			<cargar>
+						<nomenclador consulta = 'select idmoneda,codigoiso,nombremoneda from mod_datosmaestros.nom_moneda' cond='codigoiso|nombremoneda|limit|offset'>NomMoneda</nomenclador>
+						<nomenclador consulta = 'select idcliente,codigocliente,nombrecliente from mod_datosmaestros.nom_cliente' cond='codigocliente|nombrecliente|limit|offset'>NomCliente</nomenclador>
+						<nomenclador consulta = 'select idtipotasa,nombretipotasa from mod_datosmaestros.nom_tipotasa' cond='idtipotasa|nombretipotasa|limit|offset'>Nomtipotasa</nomenclador>
+						<nomenclador consulta = 'select idpais,codigopais,nombrepais from mod_datosmaestros.nom_pais' cond='codigopais|nombrepais|limit|offset'>NomPais</nomenclador>
+			</cargar>
+			<cargarselect>
+						<nomenclador consulta = 'select * from mod_datosmaestros.nom_pais'>NomPais</nomenclador>
+			</cargarselect>
+	</nomencladores>
+</cargador>

@@ -1,0 +1,10 @@
+.row-title{font: 12px Arial, Helvetica, sans-serif; border: 1px solid #6593cf; background: #eeeeee; padding: 1px;} 
+.row-detail{font: 12px Aral, Helvetica, sans-serif;padding: 1px;}
+.search-item {
+    font:normal 11px tahoma, arial, helvetica, sans-serif;
+    padding:3px 10px 3px 10px;
+    border:1px solid #fff;
+    border-bottom:1px solid #eeeeee;
+    white-space:normal;
+    color:#555;
+}

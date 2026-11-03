@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subreport_productos_lotes" language="groovy" pageWidth="752" pageHeight="572" orientation="Landscape" columnWidth="752" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="93aa9590-fc74-46c1-9d29-d2642e529bae">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.jasperserver.reportUnit" value="/reports/distra/logistica/farmacia/recuperaciones/SubmayorInventario"/>
+	<property name="ireport.jasperserver.url" value="http://10.12.170.14:8081/jasperserver/services/repository"/>
+	<parameter name="p_idproducto" class="java.math.BigDecimal">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_idindicador" class="java.math.BigDecimal">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select --lt.numero, lt.fechavencimiento, lt.existencia
+	    dp.numerolote as numero, dp.fechavencelote as fechavencimiento,
+	    dp.precio, round(dp.precio * dp.cantidad,2) as importecalculado,
+	    dp.cantidad as existencia
+        from mod_logistica.dat_producto dp
+        --inner join mod_logistica.dat_lote lt on lt.idproducto = dp.idproducto
+where dp.idindicador = $P{p_idindicador}
+    and dp.cantidad > 0
+	and dp.numerolote is not null
+	and dp.fechavencelote is not null
+	--and lt.existencia > 0
+order by dp.numerolote]]>
+	</queryString>
+	<field name="numero" class="java.lang.String"/>
+	<field name="fechavencimiento" class="java.sql.Date"/>
+	<field name="precio" class="java.math.BigDecimal"/>
+	<field name="importecalculado" class="java.math.BigDecimal"/>
+	<field name="existencia" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="17" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="17" uuid="1e5875d9-cc8f-4023-93af-fe7709afd58e"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Num. lote]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="133" height="17" uuid="0c023f6d-51e8-4ff8-8933-4f545b0fe3c9"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de vencimiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="434" y="0" width="100" height="17" uuid="c47e8f54-c517-49dc-b0c3-1ccf2c54ff19"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Existencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="234" y="0" width="100" height="17" uuid="23108775-18f7-4b9d-a72a-080be18f6f3a"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Precio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="334" y="0" width="100" height="17" uuid="5b8f9961-99dd-4451-9a94-608dc425f266"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Importe]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<textField>
+				<reportElement x="434" y="0" width="100" height="17" uuid="c7b7e9ed-ec5a-4290-97cf-b55bfba832c0"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{existencia}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="100" y="0" width="133" height="17" uuid="dbf4cb0e-e6e0-44bd-bd03-3f384d9476c1"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechavencimiento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="100" height="17" uuid="eacbb31e-38de-49d4-9d28-84c137ebfa0b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="234" y="0" width="100" height="17" uuid="6f8f8092-ec81-4d44-a364-f07d6892d612"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="334" y="0" width="100" height="17" uuid="170ffbe4-30b7-4801-b367-a974f5dde657"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{importecalculado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

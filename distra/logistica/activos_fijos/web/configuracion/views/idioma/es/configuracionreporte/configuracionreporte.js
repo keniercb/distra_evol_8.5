@@ -1,0 +1,31 @@
+Ext.ns('LOG.confreporte');
+LOG.confreporte.Idioma = {
+    lbBtnAyuda: 'Ayuda',
+    lbCmNombreCampo: 'Nombre del campo',
+    lbCmValorCampo: 'Valor del campo',
+    lbBtnReporte: 'Reportes',
+    btnTtReporte: 'Cargar datos del reporte',
+    btnMenuBajaTecniProva: "Baja técnica provari",
+    btnMenuBajaTecniPorDesGav: "Baja técnica por desarme gaviota",
+    btnMenuBajaAnexodos: "Bajas t\xe9cnicas Anexo 2",
+    btnMenuBajaProvAnexodos: "Bajas t\xe9cnicas Provari Anexo 2",
+    btnMenuBajaAnexotres: "Anexo 3",
+    btnMenuBajaTur: "Presentación baja tur",
+    btnMenuAltaRegVehiculo: "Alta en el Reg de Veh\xedculos",
+    btnMenuCartaDejaTecnoimport: "Carta de dejacion de TECNOIMPORT",
+    btnMenuCartaDejaTecnotex: "Carta de dejacion de Tecnotex",
+    btnMenuFacturaOficioTecnoImport: "Copia de Factura de Oficio TECNOIMPORT",
+    btnMenuFacturaOficioTecnoTex: "Factura de Oficio TECNOTEX",
+    btnMenuModeloMov: "Modelo de movimiento (AFT)",
+    btnMenuAnexoHoja4: "Anexo Hoja 4",
+    btnMenuAnexoHoja5: "Anexo Hoja 5",
+    btnMenuMovInventario: "Movimiento de inventario",
+    msgEspere:"Por favor espere...",
+    msgGuardando:"Guardando datos",
+    lbMsgGuardando: "El(Los) dato(s) ha(n) sigo guardado(s) satisfactoriamente.",
+    ttBtnAdicionar : 'Adicionar un nuevo campo',
+    ttBtnGuardar:'Guadar campos',
+    btnSolisitudBTurAutos: 'Solicitud de bajas tur para autos',
+    btnSolisitudBOmnibus: 'Solicitud de bajas para los omnibus'
+
+};

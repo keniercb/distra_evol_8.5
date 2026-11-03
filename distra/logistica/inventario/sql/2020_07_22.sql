@@ -1,0 +1,5 @@
+ALTER TYPE mod_loginventario.td_recsub
+  ADD ATTRIBUTE marca VARCHAR,
+  ADD ATTRIBUTE modelo VARCHAR,
+  ADD ATTRIBUTE ubicacion VARCHAR,
+  ADD ATTRIBUTE total NUMERIC;

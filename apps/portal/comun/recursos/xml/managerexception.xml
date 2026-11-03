@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<exceptions>
+    <portal>
+        <PortalController>
+            <cargarmodfuncAction>
+                <exception type="Doctrine_Excepcion" code="EP006"/>
+            </cargarmodfuncAction>
+            <cargarsistemasAction>
+                <exception type="Doctrine_Excepcion" code="EP004"/>
+            </cargarsistemasAction>
+            <cargardesktopAction>
+                <exception type="Doctrine_Excepcion" code="EP007"/>
+            </cargardesktopAction>
+            <cargardesktopmoduloAction>
+                <exception type="Doctrine_Excepcion" code="EP007"/>
+            </cargardesktopmoduloAction>
+        </PortalController>
+    </portal>
+</exceptions>
+

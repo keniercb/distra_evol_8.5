@@ -1,0 +1,9 @@
+{
+    "nombre": "Datos maestros",
+    "version": "5.0",
+    "fecha": "<dd/mm/aaaa>",
+    "autor": "Centro de Contabilidad e Integraci\xF3n",
+    "dependencia": ["Zeolides 2.2.0","Quarseg 2.1","Ayuda 3.0"],
+    "descripcion": "<p style='text-align: justify'>Datos maestros constituye un componente de gran importancia para el Sistema de Gesti\xF3n Empresarial DISTRA, tiene como objetivo principal configurar los elementos que ser\xE1n empleados en los diferentes subsistemas. El mismo cuenta con varias funcionalidades agrupadas en componentes que facilitan el uso del resto de los dem\xE1s subsistemas, por lo que son ejecutadas antes de comenzar a interactuar con ellos.</p>",
+    "logo":"../configuracion/comun/views/images/logoDatosMaestros.png"
+}

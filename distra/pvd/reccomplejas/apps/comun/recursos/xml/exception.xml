@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<excepciones>
+	<!-- Excepciones del componente Recuperaciones Complejas -->
+    <CONFSORC01>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>La búsqueda no se ha adicionado porque ya existe una con la misma denominación.</mensaje>
+            <descripcion>La búsqueda no se ha adicionado porque ya existe una con la misma denominación.</descripcion>
+        </es>
+    </CONFSORC01>
+    <ADMINREC01>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No se pudo conectar con el servidor.</mensaje>
+            <descripcion>No se pudo conectar con el servidor. Verifique los parámetros de conexión.</descripcion>
+        </es>
+    </ADMINREC01>
+    <ADMINREC02>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Fallo al crear carpetas.</mensaje>
+            <descripcion>Fallo al crear carpetas. Verifique los permisos.</descripcion>
+        </es>
+    </ADMINREC02>
+    <ADMINREC03>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Fallo al guardar datos del campo.</mensaje>
+            <descripcion>Fallo al guardar datos del campo. El alias que desea utilizar se encuentra en uso.</descripcion>
+        </es>
+    </ADMINREC03>
+</excepciones>

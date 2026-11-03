@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<config>
+    <conn host="distra.rabbit" port="5672" username="distra" password = "distra" channel_max="10" frame_max="20" heartbeat="0"/>
+    <task>
+        <queues>
+            <queue name='zeol_task'/>
+        </queues>
+
+        <exchanges>
+            <exchange name='exchange_zeol' type='direct'>
+                <binds>
+                    <bind queue='zeol_task'/>
+                </binds>
+            </exchange>
+        </exchanges>
+
+        <routes>
+        </routes>
+    </task>
+    <queue>
+        <queues>
+            <queue name='notification_queue_task'/>
+        </queues>
+
+        <exchanges>
+            <exchange name='exchange_notification_queue' type='direct'>
+                <binds>
+                    <bind queue='notification_queue_task'/>
+                </binds>
+            </exchange>
+        </exchanges>
+
+        <routes>
+        </routes>
+    </queue>
+    <telematic_task>
+        <queues>
+            <queue name='aviso'>
+                <flags passive="1"/>
+            </queue>
+        </queues>
+
+        <exchanges>
+            <exchange name='amq.direct' type='direct'>
+                <binds>
+                    <bind queue='aviso'/>
+                </binds>
+            </exchange>
+        </exchanges>
+
+        <routes>
+        </routes>
+    </telematic_task>
+</config>

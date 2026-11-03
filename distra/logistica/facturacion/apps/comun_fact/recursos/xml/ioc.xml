@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ioc>
+   <facturacion src="logistica/facturacion/facturacion/">
+       <addSelectPrecioMatrizIndicador reference="configuracion">
+           <inyector clase="ConfFacturacionService" metodo="addSelectPrecioMatrizIndicador"/>
+           <prototipo>
+               <parametro nombre="parametros" tipo="array"/>
+               <resultado tipo="array"/>
+           </prototipo>
+       </addSelectPrecioMatrizIndicador>
+       <getTipoPrecio reference="configuracion">
+           <inyector clase="ConfFacturacionService" metodo="getTipoPrecio"/>
+           <prototipo>
+               <parametro nombre="parametros" tipo="array"/>
+               <resultado tipo="array"/>
+           </prototipo>
+       </getTipoPrecio>
+       <addClienteTipoprecioPorDefecto reference="configuracion">
+           <inyector clase="ConfFacturacionService" metodo="addClienteTipoprecioPorDefecto"/>
+           <prototipo>
+               <parametro nombre="parametros" tipo="array"/>
+               <resultado tipo="array"/>
+           </prototipo>
+       </addClienteTipoprecioPorDefecto>
+       <addIndicadorContrato reference="factura">
+           <inyector clase="FacturacionService" metodo="addIndicadorContrato"/>
+           <prototipo>
+               <parametro nombre="parametros" tipo="array"/>
+               <resultado tipo="array"/>
+           </prototipo>
+       </addIndicadorContrato>
+       <delIndicadorContrato reference="factura">
+           <inyector clase="FacturacionService" metodo="delIndicadorContrato"/>
+           <prototipo>
+               <parametro nombre="idcontrato" tipo="array"/>
+               <parametro nombre="idindicador" tipo="array"/>
+               <resultado tipo="array"/>
+           </prototipo>
+       </delIndicadorContrato>
+       <getColumnasSegunMatriz reference="configuracion">
+           <inyector clase="ConfFacturacionService" metodo="getColumnasSegunMatriz"/>
+           <prototipo>
+               <parametro nombre="parametros" tipo="array"/>
+               <resultado tipo="array"/>
+           </prototipo>
+       </getColumnasSegunMatriz>
+       <cargarDatosMatriz reference="configuracion">
+           <inyector clase="ConfFacturacionService" metodo="cargarDatosGridPorSeleccion"/>
+           <prototipo>
+               <parametro nombre="parametros" tipo="array"/>
+               <resultado tipo="array"/>
+           </prototipo>
+       </cargarDatosMatriz>
+       <addPrecioMatrizNaturaleza reference="configuracion">
+           <inyector clase="ConfFacturacionService" metodo="addPrecioMatrizNaturaleza"/>
+           <prototipo>
+               <parametro nombre="parametros" tipo="array"/>
+               <resultado tipo="array"/>
+           </prototipo>
+       </addPrecioMatrizNaturaleza>
+    </facturacion>
+</ioc>

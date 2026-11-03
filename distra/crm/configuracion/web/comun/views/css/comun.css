@@ -1,0 +1,18 @@
+.red-row {
+    background: #FFA6A6 !important;
+}
+
+.color-Letra {}
+
+.color-Letra .x-grid3-cell-inner {
+    color: #188834 !important;
+    font-weight: bold;
+}
+
+color-Letra-vencido {}
+
+.color-Letra-vencido .x-grid3-cell-inner {
+    color: #ef5328 !important;
+    font-weight: bold;
+}
+

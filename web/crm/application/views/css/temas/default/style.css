@@ -1,0 +1,72 @@
+@import "../../fonts/icon-crm.css";
+
+[class*="iconcrm-"]:before {
+    font-size: 1.45em !important;
+    color: #124872 !important;
+}
+
+.x-tool-img {
+    background-image: url('../../../../lib/4.2/resources/ext-theme-classic/images/tools/tool-sprites.png') !important;
+    height: 13px !important;
+}
+
+.x-tool-barchart {
+    background-image: url('../../../images/sprite.png') !important;
+    background-position: 0 0px;
+}
+
+.x-tool-over .x-tool-barchart {
+    background-image: url('../../../images/sprite.png') !important;
+    background-position: -15px 0;
+}
+
+.x-tool-linechart {
+    background-image: url('../../../images/sprite.png') !important;
+    background-position: 0 -15px;
+}
+
+.x-tool-over .x-tool-linechart {
+    background-image: url('../../../images/sprite.png') !important;
+    background-position: -15px -15px;
+}
+
+.x-tool-pointchart {
+    background-image: url('../../../images/sprite.png') !important;
+    background-position: 0 -30px;
+}
+
+.x-tool-over .x-tool-pointchart {
+    background-image: url('../../../images/sprite.png') !important;
+    background-position: -15px -30px;
+}
+
+.x-tool-piechart {
+    background-image: url('../../../images/sprite.png') !important;
+    background-position: 0 -45px;
+}
+
+.x-tool-over .x-tool-piechart {
+    background-image: url('../../../images/sprite.png') !important;
+    background-position: -15px -45px;
+}
+
+.icon-small:before {
+    font-size: 1.15em !important;
+}
+
+.icon-medium:before {
+    font-size: 1.3em !important;
+}
+
+.icon-fileupload:before {
+    font-size: 1em !important;
+    vertical-align: -1% !important;
+}
+
+.gris:before {
+    color: #59565d !important;
+}
+
+.crm-icon-tree .x-tree-icon {
+    background-size:16px !important;
+}

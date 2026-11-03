@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<excepciones>
+	<!-- Excepciónes del Framework -->
+		<!--Excepción de GlobalConcepts--> 
+    <EST001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Debe configurar la entidad a la que pertenece</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </EST001>
+    <MAXLENGTH>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>La longitud del valor es mayor que la aceptada.</mensaje>
+            <descripcion>La longitud del valor es mayor que la aceptada.</descripcion>
+        </es>
+    </MAXLENGTH>
+    <MINVALUE>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El valor insertado en el campo está por debajo del definido.</mensaje>
+            <descripcion>El valor insertado en el campo está por debajo del definido.</descripcion>
+        </es>
+    </MINVALUE>
+    <MAXVALUE>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El valor insertado en el campo está por encima del definido.</mensaje>
+            <descripcion>El valor insertado en el campo está por encima del definido.</descripcion>
+        </es>
+    </MAXVALUE>
+    <SEGAUTHORIZATION>
+        <tipo>L</tipo>
+        <es>
+            <mensaje>Acceso denegado al recurso solicitado.</mensaje>
+            <descripcion>Acceso denegado al recurso solicitado.</descripcion>
+        </es>
+    </SEGAUTHORIZATION>
+    <SEGINVALIDCERTIFICATE>
+        <tipo>L</tipo>
+        <es>
+            <mensaje>Certificado inválido.</mensaje>
+            <descripcion>Certificado inválido.</descripcion>
+        </es>
+    </SEGINVALIDCERTIFICATE>
+		<!-- Excepciónes Generales -->
+    <NODEFINED>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Excepción disparada por el sistema y no definida en la configuración de Excepciónes del sistema. Por favor pónganse en contacto con el equipo de desarrollo.</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </NODEFINED>
+    <NOCONTROLLED>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Excepción no controlada por el sistema. Por favor pónganse en contacto con el equipo de desarrollo.</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </NOCONTROLLED>
+    <SESS001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Excepción de configuración de la sesión. Por favor debe desactivar el session.auto_start en el fichero php.ini</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </SESS001>
+		<!-- Excepciónes del portal -->
+    <EPDDL01>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Excepción del servicio de desbloqueo de logistica. Desactivar la validacion de portal->PortalController->closeportalAction->PortalValidator->desbloquearDocLog o arreglar el problema con el equipo de logistica.</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </EPDDL01>
+		<!-- Excepciónes de nomencladores-->
+    <NOM001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El nomenclador con que está tratado de interactuar no existe</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </NOM001>
+
+    <NOM010>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en una transacción del nomenclador. En el Query</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </NOM010>
+
+    <NOM011>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en una transacción del nomenclador. En el HoleQuery</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </NOM011>
+
+    <NOM003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El nomenclador que está tratando de crear ya existe</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </NOM003>
+
+		<!-- Excepciónes de validación -->
+    <EV001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de validación. La aplicacion no se está validando.</mensaje>
+            <descripcion>Los datos enviados no se están validando. Por problemas de integridad de los datos no se puede ejecutar la acción solicitada. Por favor contacte al administrador.</descripcion>
+        </es>
+    </EV001>
+    <EV002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de validación. El controlador solicitado no se está validando.</mensaje>
+            <descripcion>Los datos enviados no se están validando. Por problemas de integridad de los datos no se puede ejecutar la acción solicitada. Por favor contacte al administrador.</descripcion>
+        </es>
+    </EV002>
+    <EV003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de validación. La acción solicitada no se está validando.</mensaje>
+            <descripcion>Los datos enviados no se están validando. Por problemas de integridad de los datos no se puede ejecutar la acción solicitada. Por favor contacte al administrador.</descripcion>
+        </es>
+    </EV003>
+    <EV004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de seguridad. Se están enviando los datos por GET y estos deben ser enviados por POST</mensaje>
+            <descripcion>Se están enviando los datos de forma insegura. Por problemas de seguridad no se puede ejecutar la acción solicitada. Por favor contacte al administrador.</descripcion>
+        </es>
+    </EV004>
+    <EV005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de validación. Uno de los campos es null y está definido como obligatorio en el xml de validación.</mensaje>
+            <descripcion>Al menos uno de los datos enviados es obligatorio. Por favor revise los datos e intente ejecutar la acción nuevamente.</descripcion>
+        </es>
+    </EV005>
+    <EV006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de validación. Uno de los campos no es del tipo especificado en el xml de validación.</mensaje>
+            <descripcion>Al menos uno de los datos enviados no es válido. Por favor revise los datos e intente ejecutar la acción nuevamente.</descripcion>
+        </es>
+    </EV006>
+    <EV007>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de validación. No se encontró una expresión regular para validar uno de los tipos especificados.</mensaje>
+            <descripcion>Al menos uno de los datos enviados no se pudo validar. Por problemas de seguridad no se puede ejecutar la acción solicitada. Por favor contacte al administrador.</descripcion>
+        </es>
+    </EV007>
+    <EV008>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de validación. No se declaró una de las clases que valida una de las precondiciones.</mensaje>
+            <descripcion>Al menos una de las precondiciones de la acción no se pudo validar. Por problemas de seguridad no se puede ejecutar la acción solicitada. Por favor contacte al administrador.</descripcion>
+        </es>
+    </EV008>
+    <EV009>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de validación. No se encontró una de las clases que valida una de las precondiciones.</mensaje>
+            <descripcion>Al menos una de las precondiciones de la acción no se pudo validar. Por problemas de seguridad no se puede ejecutar la acción solicitada. Por favor contacte al administrador.</descripcion>
+        </es>
+    </EV009>
+    <EV010>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de validación. No se declaró el método o inyector de la clase que valida una de las precondiciones.</mensaje>
+            <descripcion>Al menos una de las precondiciones de la acción no se pudo validar. Por problemas de seguridad no se puede ejecutar la acción solicitada. Por favor contacte al administrador.</descripcion>
+        </es>
+    </EV010>
+    <EV011>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de validación. El método o inyector de las clase que valida una de las precondiciones no existe.</mensaje>
+            <descripcion>Al menos una de las precondiciones de la acción no se pudo validar. Por problemas de seguridad no se puede ejecutar la acción solicitada. Por favor contacte al administrador.</descripcion>
+        </es>
+    </EV011>
+    <EV012>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de validación. La acción solicitada no cumple con las precondiciones</mensaje>
+            <descripcion>Una de las precondiciones de la acción no es válida. Por favor revise los datos o verifique que las precondiciones para ejecutar la acción están dadas.</descripcion>
+        </es>
+    </EV012>
+    <EV013>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de validación. La acción solicitada no tiene espicificada una validación para los parámetros enviados.</mensaje>
+            <descripcion>Error de validación. La acción solicitada no tiene espicificada una validación para los parámetros enviados.</descripcion>
+        </es>
+    </EV013>
+    <EV014>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de validación. La cantidad de parámetros enviados no coincide con la cantidad permitida por esta acción.</mensaje>
+            <descripcion>Error de validación. La cantidad de parámetros enviados no coincide con la cantidad permitida por esta acción.</descripcion>
+        </es>
+    </EV014>
+    <EV015>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de validación. Al menos uno de los parámetros enviados no esta validado.</mensaje>
+            <descripcion>Error de validación. Al menos uno de los parámetros enviados no esta validado.</descripcion>
+        </es>
+    </EV015>
+
+		<!-- Excepciónes de Integracion (IoC) -->
+    <IOC001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de integración. El contrato del servicio solicitado no está definido.</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </IOC001>
+    <IOC002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de integración. Uno de los parámetros definidos en el contrato del servicio no es válido.</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </IOC002>
+    <IOC003>
+        <tipo>LP</tipo>
+        <es>ZendExt_Exception
+            <mensaje>Error de integración. La clase que implementa el servicio no existe.</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </IOC003>
+    <IOC004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de integración. El método de la clase que implementa el servicio no existe.</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </IOC004>
+    <IOC005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de integración. El servicio solicitado está devolviendo un resultado que no es válido.</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </IOC005>
+		<!-- Excepciónes del Tejedor (Weaver (AOP)) -->
+    <WEAVER02>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error del Tejedor de Aspectos. La acción solicitada no tiene definida una plantilla de aspecto.</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </WEAVER02>
+    <WEAVER01>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error del Tejedor de Aspectos. La plantilla de aspecto especificada para la acción solicitada no está definida.</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </WEAVER01>
+    <WEAVER03>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error del Tejedor de Aspectos. Uno de los aspectos de la plantilla asignada a la acción no está definido.</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </WEAVER03>
+    <WEAVER04>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error del Tejedor de Aspectos. La clase es un singlenton y debe implementar un método 'getInstance' que devuelve la instancia de la clase</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </WEAVER04>
+    <WEAVER05>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error del Tejedor de Aspectos. El método inyector de uno de los aspectos no existe.</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </WEAVER05>
+    <WEAVER06>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error del Tejedor de Aspectos. La clase que implementa el aspecto no existe.</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </WEAVER06>
+    <WEAVER07>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error del Tejedor de Aspectos. Está llamando a un método que no existe.</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </WEAVER07>
+		<!-- Excepciónes de configuración Interna de los módulos -->
+    <E010>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al cargar el idioma. El fichero de idioma de la vista no existe.</mensaje>
+            <descripcion>No se pudo obtener la configuración del idioma. Intente acceder nuevamente al sistema o a la funcionalidad solicitada. Si el problema persiste contacte al administrador.</descripcion>
+        </es>
+	<en>
+            <mensaje>Error loading language. The language file view does not exist.</mensaje>
+            <descripcion>Could not get the language settings. Try again to access the system or requested functionality. If the problem persists, contact the administrator.</descripcion>
+        </en>
+    </E010>    
+    <E011>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al cargar el idioma. No se puede acceder al fichero de idioma de la vista. Acceso denegado</mensaje>
+            <descripcion>No se pudo obtener la configuración del idioma. Intente acceder nuevamente al sistema o a la funcionalidad solicitada. Si el problema persiste contacte al administrador.</descripcion>
+        </es>
+    </E011>
+    <E012>
+        <tipo>P</tipo>
+        <es>
+            <mensaje>Error al cargar el idioma. El fichero de idioma de la vista no existe.</mensaje>
+            <descripcion>Se ha cargado el idioma por defecto del sistema. Si el problema persiste contacte al administrador.</descripcion>
+        </es>
+	<en>
+            <mensaje>Error loading language. The language file view does not exist.</mensaje>
+            <descripcion>System default language has been loaded. If the problem persists, contact the administrator.</descripcion>
+        </en>
+    </E012>
+    <E014>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en la conexión a la Base de Datos. Configure correctamente la conexión en el fichero de configuración del sistema.</mensaje>
+            <descripcion>En estos momentos el servidor de base de datos no está disponible. Intente utlizar el sistema más tarde. Si el problema persiste contacte al administrador.</descripcion>
+        </es>
+    </E014>
+    <E069>
+        <tipo>P</tipo>
+        <es>
+            <mensaje>La integridad de la base de datos a sido comprometida.</mensaje>
+            <descripcion>La integridad de la base de datos a sido comprometida. Contacte al administrador del sistema.</descripcion>
+        </es>
+    </E069>
+	<!-- Fin de las Excepciónes del Framework -->
+	<!-- Excepciónes del componente de reglas -->
+    <IE001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ocurrió un error evaluando una de las reglas.</mensaje>
+            <descripcion>Una de las reglas no devolvió el valor esperado.</descripcion>
+        </es>
+    </IE001>
+    <IR001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ocurrió un error evaluando una de las reglas.</mensaje>
+            <descripcion>Una regla no existe. Por favor revise el fichero de configuración de reglas.</descripcion>
+        </es>
+    </IR001>
+    <IR002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ocurrió un error evaluando una de las reglas.</mensaje>
+            <descripcion>Una regla no devuelve el valor esperado.</descripcion>
+        </es>
+    </IR002>
+    <IR003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ocurrió un error evaluando una de las reglas.</mensaje>
+            <descripcion>Un hecho no existe.</descripcion>
+        </es>
+    </IR003>
+    <IR004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ocurrió un error evaluando una de las reglas.</mensaje>
+            <descripcion>Un hecho no tiene el valor esperado.</descripcion>
+        </es>
+    </IR004>
+    <IR005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ocurrió un error evaluando una de las reglas.</mensaje>
+            <descripcion>Una regla no está bien definida.</descripcion>
+        </es>
+    </IR005>
+	<!-- Fin de las Excepciónes del componente de reglas -->
+	<!-- Inicio de las Excepciónes del modulo de inicio-->
+    <EGI001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>Ocurrió un error en el servidor mientras se trataba de insertar una traza. Pónganse en contacto con el administrador del sistema.</descripcion>
+        </es>
+    </EGI001>
+	<!-- Fin de las Excepciónes del modulo de inicio-->
+	<!--Inicio de las Excepciones de trazas-->
+    <TRACE001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar una traza. La categoría de la traza no existe, revise si el id del subsistema existe o si está como id en el nomenclador de categoría de trazas.</mensaje>
+            <descripcion>Ocurrió un error interno del sistema. Por favor contacte al administrador.</descripcion>
+        </es>
+    </TRACE001>
+    <TRACE002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El módulo de Trazas está configurado para usar un servidor RabbitMQ que no existe. Por favor contacte con el administrador.</mensaje>
+            <descripcion>El módulo de Trazas está configurado para usar un servidor RabbitMQ que no existe. Por favor contacte con el administrador.</descripcion>
+        </es>
+    </TRACE002>
+	<!--Fin de las Excepciones de trazas-->
+        <!-- Excepciónes deAlfresco -->
+    <GESDOCFT01>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El repositorio no esta accesible en estos momentos o no tiene los permisos para realizar dicha operación, actualize el sistema y vuelva a intentarlo, si el problema persiste contacte con el administrador del sistema.</mensaje>
+            <descripcion>El repositorio no esta accesible en estos momentos o no tiene los permisos para realizar dicha operación, actualize el sistema y vuelva a intentarlo, si el problema persiste contacte con el administrador del sistema.</descripcion>
+        </es>
+    </GESDOCFT01>
+
+    <GESDOCFT02>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Seleccione un elemento de contenido.Si el problema persiste contacte con el administrador del sistema.</mensaje>
+            <descripcion>Seleccione un elemento de contenido. Si el problema persiste contacte con el administrador del sistema.</descripcion>
+        </es>
+    </GESDOCFT02>
+
+    <GESDOCFT03>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Existe un espacio de trabajo con el mismo nombre. Si el problema persiste contacte con el administrador del sistema.</mensaje>
+            <descripcion>Existe un espacio de trabajo con el mismo nombre. Si el problema persiste contacte con el administrador del sistema.</descripcion>
+        </es>
+    </GESDOCFT03>
+
+    <GESDOCFT04>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Seleccione un documento. Si el problema persiste contacte con el administrador del sistema.</mensaje>
+            <descripcion>Seleccione un documento. Si el problema persiste contacte con el administrador del sistema.</descripcion>
+        </es>
+    </GESDOCFT04>
+
+    <GESDOCFT05>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Existe un documento con el mismo nombre. Si el problema persiste contacte con el administrador del sistema.</mensaje>
+            <descripcion>Existe un documento con el mismo nombre. Si el problema persiste contacte con el administrador del sistema.</descripcion>
+        </es>
+    </GESDOCFT05>
+
+    <GESDOCFT06>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Introduzca el parámetro de búsqueda. Si el problema persiste contacte con el administrador del sistema.</mensaje>
+            <descripcion>Introduzca el parámetro de búsqueda. Si el problema persiste contacte con el administrador del sistema.</descripcion>
+        </es>
+    </GESDOCFT06>
+    <!-- Fin Excepciónes de la personalizacion de Alfresco-->
+    <!--Excepciones del gestor de interfaces de usuario-->
+    <IUMGR00>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No existe la clase asociada a ese componente.</mensaje>
+            <descripcion>No existe la clase asociada a ese componente.Revice los parámetros de configuración o el directorio de clases. Si el problema persiste contacte con el administrador del sistema.</descripcion>
+        </es>
+    </IUMGR00>
+    <IUMGR01>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No existe el método que desea llamar.</mensaje>
+            <descripcion>No existe el método que desea llamar.Revice los parámetros de configuración o la clase asociada a ese componente. Si el problema persiste contacte con el administrador del sistema.</descripcion>
+        </es>
+    </IUMGR01>
+    <IUMGR02>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Faltan parámetros para realizar la llamada a ese método.</mensaje>
+            <descripcion>Faltan parámetros para realizar la llamada a ese método.Revice los parámetros de configuración o la petición realizada. Si el problema persiste contacte con el administrador del sistema.</descripcion>
+        </es>
+    </IUMGR02>
+    <IUMGR03>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Falta la clase main en el fichero de configuración.</mensaje>
+            <descripcion>Falta la clase main en el fichero de configuración.Revice los parámetros de configuración. Si el problema persiste contacte con el administrador del sistema.</descripcion>
+        </es>
+    </IUMGR03>
+    <!-- Fin Excepciónes del gestor de interfaz de usuario-->
+    <!--Excepciones de los componentes base de la linea STD-->
+    <STD00>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No existe la clase asociada a ese componente.</mensaje>
+            <descripcion>No existe la clase asociada a ese componente.Revice los parámetros de configuración o el directorio de clases. Si el problema persiste contacte con el administrador del sistema.</descripcion>
+        </es>
+    </STD00>
+    <STD01>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No existe el método que desea llamar.</mensaje>
+            <descripcion>No existe el método que desea llamar.Revice los parámetros de configuración o la clase asociada a ese componente. Si el problema persiste contacte con el administrador del sistema.</descripcion>
+        </es>
+    </STD01>
+    <STD02>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Faltan parámetros para realizar la llamada a ese método.</mensaje>
+            <descripcion>Faltan parámetros para realizar la llamada a ese método.Revice los parámetros de configuración o la petición realizada. Si el problema persiste contacte con el administrador del sistema.</descripcion>
+        </es>
+    </STD02>
+    <STD03>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Falta la clase main en el fichero de configuración.</mensaje>
+            <descripcion>Falta la clase main en el fichero de configuración.Revice los parámetros de configuración. Si el problema persiste contacte con el administrador del sistema.</descripcion>
+        </es>
+    </STD03>
+    <STD04>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error creando el directorio.</mensaje>
+            <descripcion>Problema al crear el directorio. Si el problema persiste contacte con el administrador del sistema.</descripcion>
+        </es>
+    </STD04>
+    <STD05>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error versionando el fichero.</mensaje>
+            <descripcion>Problema al crear el directorio que contiene las versiones del fichero. Si el problema persiste contacte con el administrador del sistema.</descripcion>
+        </es>
+    </STD05>
+    <STD06>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No existe el fichero.</mensaje>
+            <descripcion>El fichero a versionar no existe. Si el problema persiste contacte con el administrador del sistema.</descripcion>
+        </es>
+    </STD06>
+    <STD07>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error creando el fichero.</mensaje>
+            <descripcion>Problema al crear el fichero. Si el problema persiste contacte con el administrador del sistema.</descripcion>
+        </es>
+    </STD07>
+    <STD08>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error modificando la carpeta.</mensaje>
+            <descripcion>La carpeta no puede ser modificada debido a que contiene elementos. Si el problema persiste contacte con el administrador del sistema.</descripcion>
+        </es>
+    </STD08>
+    <STD09>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error procesando la petición. El método utilizado para enviar la petición no es admitido por el servidor.</mensaje>
+            <descripcion>El método empleado no está autorizado a enviar datos al servidor. Si el problema persiste contacte con el administrador del sistema.</descripcion>
+        </es>
+    </STD09>
+    <!-- Fin Excepciónes de los componentes base de la linea STD-->
+    <!-- Excepciones ZendExt_Mailer -->
+    <MAILER001>
+        <tipo>LPV</tipo>
+        <es>
+            <mensaje>Error procesando la petición de envio de correo. Revice los parámetros de configuración del Mailer.</mensaje>
+            <descripcion>%s</descripcion>
+        </es>
+    </MAILER001>
+    <!-- Fin excepciones ZendExt_Mailer -->
+    <JAXL001>
+        <tipo>LPV</tipo>
+        <es>
+            <mensaje>Error procesando la petición de envio de jabber.</mensaje>
+            <descripcion>%s</descripcion>
+        </es>
+    </JAXL001>
+	<LOG_LB_GEN_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar la estructura</mensaje>
+            <descripcion>La estructura no puede ser eliminada,está siendo usada en el módulo de Logística.</descripcion>
+        </es>
+    </LOG_LB_GEN_001>
+    <NOMINA_PVD_ELIM_ESTRUC_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar la estructura</mensaje>
+            <descripcion>La estructura no puede ser eliminada,está siendo usada en el módulo de Nómina.</descripcion>
+        </es>
+    </NOMINA_PVD_ELIM_ESTRUC_001>
+</excepciones>

@@ -1,0 +1,24 @@
+<events>
+       <postInsert enabled = '1'>
+            <observers>
+                <observer class = 'ZendExt_Event_DataEventHandler' method = 'handleInsert'/>
+            </observers>
+       </postInsert>
+
+       <postUpdate enabled = '1'>
+            <observers>
+                <observer class = 'ZendExt_Event_DataEventHandler' method = 'handleUpdate'/>
+            </observers>
+       </postUpdate>
+
+       <postDelete enabled = '1'>
+            <observers>
+                <observer class = 'ZendExt_Event_DataEventHandler' method = 'handleDelete'/>
+            </observers>
+       </postDelete>
+       <dataHandler enabled = '1'>
+            <observers>
+                <observer class = 'ZendExt_Event_DataEventHandler' method = 'dataHandler'/>
+            </observers>
+       </dataHandler>
+</events>

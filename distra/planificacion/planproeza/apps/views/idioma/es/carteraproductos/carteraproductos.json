@@ -1,0 +1,23 @@
+{
+        lbSi:'Sí',
+        lbNo:'No',
+        lbBtnAyuda: 'Ayuda',
+        lbCargando: 'Cargando...',
+        lbCodigo: 'Código',
+        lbDenominacion: 'Denominación',
+        lbUM: 'UM',
+        lbUnidadMedida: 'Unidad de medida',
+        lbPrecio: 'Precio',
+        lbPrecioCUC: 'Precio divisa',
+        lbAprobado: 'Aprobado',
+        lbActivado: 'Activado',
+        lbNivelPlanif: 'Nivel de planificación',
+        lbDesaprobado: 'Desaprobado',
+        lbAprobadoEspecialista: 'Aprobado especialista',
+        lbAprobadoRector: 'Aprobado rector',
+        lbCarteraP: 'Cartera de productos',
+        lbLimpiar: 'Limpiar',
+        lbExportar: 'Exportar',
+        lbFiltradoPor: 'Filtrado por: '
+
+}

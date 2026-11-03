@@ -1,0 +1,84 @@
+<?php
+$dirCerts = substr(__FILE__, 0, strrpos(__FILE__, 'apps')) . 'config' . DIRECTORY_SEPARATOR . 'certs' . DIRECTORY_SEPARATOR . 'auth' . DIRECTORY_SEPARATOR;
+$configCert = parse_ini_file($dirCerts . 'rsa.ini');
+$publicKey = addcslashes(file_get_contents($dirCerts . $configCert['publicKey']), '\\');
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="<?php echo $this->dir_ext_ccs;?>/css/ext-all.css" type="text/css" />
+    <link rel="stylesheet" href="../../IdentityProvider/login/style.css" type="text/css"/>
+    <link rel="stylesheet" href="/lib/ExtJS/temas/default/css/login.css" type="text/css"/>
+	
+    <link rel="stylesheet" href="../../IdentityProvider/login/help.css" type="text/css"/>
+    <link rel="stylesheet" href="../../IdentityProvider/login/virtualkeyboard.css" type="text/css"/>
+    <title>SISTEMA DE GESTIÓN INTEGRAL DE SEGURIDAD</title>
+    <script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+    <script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+    <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+    <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/security/forge/forge.min.js"></script>
+    <link rel="icon" href="../../favicon.png" type="image/png"/>
+    
+</head>
+<body class="bg_body">
+<input id="publicKey" name="publicKey" type="text" style="display:none" hidden="true"
+       value="<?php echo $publicKey; ?>"/>
+<table width="100%" height="100%">
+    <tr>
+        <td align="center" valign="middle">
+            <div id="log_midle">
+                <div id="loading-mask"></div>
+                <table width="100%" height="100%">
+                    <tr>
+                        <td align="center" valign="middle">
+                            <div id="dFormIndex">
+                            </div>
+                            <form id="form1" name="form1"
+                                  action="<?php echo $this->url_login; ?>" method="POST">
+                                <table>
+                                    <input type="hidden" value="<?php echo $this->stateId; ?>" name="stateId" />
+                                    <tr>
+                                        <td><input type="hidden" name="username" id="input_log_north"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="hidden" name="password" id="input_log_south"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="hidden" name="cert" id="input_log_cert"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">
+                                            <input type="hidden" value="<?php echo $this->captcha; ?>"
+                                                   name="id_captcha" id="id_captcha"/>
+                                            <input type="hidden" value="" name="captchabox" id="captchabox"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div align="center" id="error" style="margin-bottom:4em; left:200px; top:200px;">
+                                    <label class="error"><?php
+                                        if (isset($this->error)) {
+                                            echo $this->error;
+                                        }
+                                        ?>
+                                    </label>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+                <div id="loading">
+                </div>
+        </td>
+    </tr>
+</table>
+</body>
+<script type="text/javascript" src="../../IdentityProvider/login/secure/HelpIcon.js"></script>
+<script type="text/javascript" src="../../IdentityProvider/login/secure/Ext.ux.VirtualKeyboard.js"></script>
+<script type="text/javascript" src="../../IdentityProvider/login/secure/Ext.ux.plugins.VirtualKeyboard.js"></script>
+<script type="text/javascript" src="../../IdentityProvider/login/secure/md5.js"></script>
+<script language="JavaScript" type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/security/rsa/jsbn.js"></script>
+<script language="JavaScript" type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/security/rsa/rsa.js"></script>
+<script type="text/javascript" src="../../IdentityProvider/login/secure/login.js"></script>
+</html>
+

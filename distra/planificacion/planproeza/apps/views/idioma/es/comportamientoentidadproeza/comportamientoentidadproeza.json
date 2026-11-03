@@ -1,0 +1,26 @@
+{
+        lbEntidad:'Entidad',
+        lbUsuario:'Usuario',
+        lbFecha: 'Fecha',
+        lbFechaU: 'Fecha de última modificación',
+        lbCB: 'Centro de balance',
+        lbOD: 'Órgano demandante',
+        lbOE: 'Órgano ejecutor',
+        lbOEM: 'Órgano empresarial',
+        lbRector: 'Rector',
+        lbCargando: 'Cargando...',
+        lbTituloAyuda: 'Ayuda de Comportamiento',
+        lbBtnAyuda: 'Ayuda',
+        lbLimpiar: 'Limpiar',        
+        lbSi:'Sí',
+        lbNo:'No',
+        lbComportamiento: 'Comportamientos por entidad',
+        lbComportamientos: 'Comportamientos',
+        lbGuardar:'Guardar',
+        lbFiltradoPor: 'Filtrado por: ',
+        lbGuardarOK:'La(Las) modificación(es) de el(los) comportamiento(s) ha(n) sido guardada(s) satisfactoriamente.',
+        lbGuardarNo:'La(Las) modificación(es) de alguno(s) de el(los) comportamiento(s) no se ha(n) podido guardar.',
+        lbRectorOK:'La modificación de entidad rectora se ha realizado satisfactoriamente.',
+        lbRectorNo:'La modificación de entidad rectora no se ha realizar .'
+
+}

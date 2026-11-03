@@ -1,0 +1,1064 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuraciones>
+
+    <!-- Tipos de operaciones -->
+    <operaciones>
+        <descripcion>Sin interfaz</descripcion>
+        <codigo></codigo>
+        <tipo></tipo>
+        <idinterfaz>0</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <debe_depreciar>0</debe_depreciar>
+    </operaciones>
+
+    <!-- Apertura -->
+    <operaciones>
+        <descripcion>Proceso de Apertura</descripcion>
+        <codigo>OPER_APERTURA</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>5</idinterfaz>
+        <iddatosespecificos>22</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>1</campos_editables>
+        <autogenerada>0</autogenerada>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+    </operaciones>
+
+    <!-- Altas -->
+    <operaciones>
+        <descripcion>Proceso de Alta</descripcion>
+        <codigo>OPER_ALTA</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>1</idinterfaz>
+        <iddatosespecificos>16</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>1</campos_editables>
+        <autogenerada>0</autogenerada>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+    </operaciones>
+
+    <!-- Compras -->
+    <operaciones>
+        <descripcion>Proceso de Compra</descripcion>
+        <codigo>OPER_COMPRA</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>1</idinterfaz>
+        <iddatosespecificos>11</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>1</campos_editables>
+        <autogenerada>0</autogenerada>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+    </operaciones>
+
+    <!-- Salidas, Bajas -->
+    <operaciones>
+        <descripcion>Proceso de No Entrada</descripcion>
+        <codigo>OPER_BAJA</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>2</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <debe_depreciar>1</debe_depreciar>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>1</campos_editables>
+        <autogenerada>0</autogenerada>
+        <operacion_sobre_medios>resta</operacion_sobre_medios>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>7</idestadoperacion>
+    </operaciones>
+
+    <!-- Modificación de valor -->
+    <operaciones>
+        <descripcion>Proceso de Modificación de Valor</descripcion>
+        <codigo>OPER_MOD_VALOR</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>modificación</icono>
+        <idinterfaz>2</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>valorcontable</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <operacion_sobre_medios>ninguna</operacion_sobre_medios>
+        <signo>=</signo>
+        <debe_depreciar>1</debe_depreciar>
+        <idestadoperacion>1</idestadoperacion>
+    </operaciones>
+
+    <!-- Modificación de propiedad -->
+    <operaciones>
+        <descripcion>Proceso de Modificación de Propiedad</descripcion>
+        <codigo>OPER_MOD_PROPIEDAD</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>modificación</icono>
+        <idinterfaz>2</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>nromatricula</campos_editables>
+        <campos_editables>nrocirculacion</campos_editables>
+        <campos_editables>colorprim</campos_editables>
+        <campos_editables>colorsec</campos_editables>
+        <campos_editables>nromotor1</campos_editables>
+        <campos_editables>nromotor2</campos_editables>
+        <campos_editables>nroinventario</campos_editables>
+        <campos_editables>estatustecnico</campos_editables>
+        <campos_editables>kilometraje</campos_editables>
+        <campos_editables>tipomotor</campos_editables>
+        <campos_editables>actividad</campos_editables>
+        <campos_editables>categoria</campos_editables>
+        <campos_editables>indicativo</campos_editables>
+        <campos_editables>ubicacion</campos_editables>
+        <campos_editables>responsable</campos_editables>
+        <campos_editables>responsable</campos_editables>
+        <campos_editables>fechaexpini</campos_editables>
+        <campos_editables>fechaexpfin</campos_editables>
+        <campos_editables>fechaadq</campos_editables>
+        <campos_editables>fechaadq</campos_editables>
+        <campos_editables>annofabricacion</campos_editables>
+        <campos_editables>fechainicialgarantia</campos_editables>
+        <campos_editables>fechafingarantia</campos_editables>
+        <campos_editables>recursoconsumidomax</campos_editables>
+        <campos_editables>vencimientolot</campos_editables>
+        <campos_editables>vencimientoficav</campos_editables>
+        <campos_editables>vencimientocirculacion</campos_editables>
+        <campos_editables>expedicioncirculacion</campos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <autogenerada>0</autogenerada>
+        <operacion_sobre_medios>ninguna</operacion_sobre_medios>
+        <signo>=</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+    </operaciones>
+
+    <!-- Modificación de propiedad general-->
+    <operaciones>
+        <descripcion>Proceso de Modificación de Propiedad General</descripcion>
+        <codigo>DOC_MOD_PROP_GRAL</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>modificación</icono>
+        <idinterfaz>2</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>nromatricula</campos_editables>
+        <campos_editables>nrocirculacion</campos_editables>
+        <campos_editables>colorprim</campos_editables>
+        <campos_editables>colorsec</campos_editables>
+        <campos_editables>nromotor1</campos_editables>
+        <campos_editables>nromotor2</campos_editables>
+        <campos_editables>fechaadq</campos_editables>
+        <campos_editables>fechaexpini</campos_editables>
+        <campos_editables>fechaexpfin</campos_editables>
+        <campos_editables>annofabricacion</campos_editables>
+        <campos_editables>ubicacion</campos_editables>
+        <campos_editables>responsable</campos_editables>
+        <campos_editables>estatustecnico</campos_editables>
+        <campos_editables>kilometraje</campos_editables>
+        <campos_editables>tipomotor</campos_editables>
+        <campos_editables>actividad</campos_editables>
+        <campos_editables>indicativo</campos_editables>
+        <campos_editables>indiceconsumo</campos_editables>
+        <campos_editables>ficav</campos_editables>
+        <campos_editables>depreciacionacumulada</campos_editables>
+        <campos_editables>capacidad</campos_editables>
+        <campos_editables>odometro</campos_editables>
+        <campos_editables>nroinventario</campos_editables>
+        <campos_editables>tipocombustible</campos_editables>
+        <campos_editables>nroserie</campos_editables>
+        <campos_editables>lot</campos_editables>
+        <campos_editables>categoria</campos_editables>
+        <campos_editables>fechainicialgarantia</campos_editables>
+        <campos_editables>fechafingarantia</campos_editables>
+        <campos_editables>recursoconsumidomax</campos_editables>
+        <campos_editables>vencimientolot</campos_editables>
+        <campos_editables>vencimientoficav</campos_editables>
+        <campos_editables>vencimientocirculacion</campos_editables>
+        <campos_editables>expedicioncirculacion</campos_editables>
+        <operacion_sobre_medios>ninguna</operacion_sobre_medios>
+        <signo>=</signo>
+        <debe_depreciar>0</debe_depreciar>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+    </operaciones>
+
+    <!-- Depreciación -->
+    <operaciones>
+        <descripcion>Proceso de Depreciación</descripcion>
+        <codigo>OPER_DEPRECIACION</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>modificación</icono>
+        <idinterfaz>11</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <campos_editables>0</campos_editables>
+        <autogenerada>1</autogenerada>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>ninguna</operacion_sobre_medios>
+        <signo>=</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+    </operaciones>
+
+    <!-- Traslados entre entidades desde entidad origen a entidad destino -->
+    <operaciones>
+        <descripcion>Proceso de Traslados Externos (Salida)</descripcion>
+        <codigo>OPER_TRASLADO_EXTER</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>movimiento-externo</icono>
+        <idinterfaz>12</idinterfaz>
+        <iddatosespecificos>4</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <debe_depreciar>1</debe_depreciar>
+        <operacion_sobre_medios>resta</operacion_sobre_medios>
+        <signo>-</signo>
+        <idestadoperacion>6</idestadoperacion>
+    </operaciones>
+
+    <!-- Recepción de un traslados entre entidades desde entidad destino a entidad origen -->
+    <operaciones>
+        <descripcion>Proceso de Traslados Externos (Entrada)</descripcion>
+        <codigo>OPER_REC_TRAS_EXTER</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>17</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <autogenerada>1</autogenerada>
+        <campos_editables>nromatricula</campos_editables>
+        <campos_editables>indicativo</campos_editables>
+        <campos_editables>nrocirculacion</campos_editables>
+        <campos_editables>nroinventario</campos_editables>
+        <campos_editables>estatustecnico</campos_editables>
+        <campos_editables>actividad</campos_editables>
+        <campos_editables>ubicacion</campos_editables>
+        <campos_editables>responsable</campos_editables>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <idestadoperacion>1</idestadoperacion>
+    </operaciones>
+
+    <!-- Recibido de reparar después de haber sido enviado a reparar -->
+    <operaciones>
+        <descripcion>Proceso de recibido de Reparar</descripcion>
+        <codigo>OPER_REC_ENV_REPARAR</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>15</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>1</campos_editables>
+        <autogenerada>1</autogenerada>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <idestadoperacion>1</idestadoperacion>
+    </operaciones>
+
+    <!--Baja por desarme -->
+    <operaciones>
+        <descripcion>Baja por desarme</descripcion>
+        <codigo>OPER_BAJA_DESARME</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>18</idinterfaz>
+        <iddatosespecificos>10</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <operacion_sobre_medios>resta</operacion_sobre_medios>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <debe_depreciar>1</debe_depreciar>
+        <idestadoperacion>7</idestadoperacion>
+    </operaciones>
+    
+    <!-- Perdida-->
+    <operaciones>
+        <descripcion>Perdida</descripcion>
+        <codigo>OPER_PERDIDA</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>24</idinterfaz>
+        <iddatosespecificos>19</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <operacion_sobre_medios>resta</operacion_sobre_medios>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <debe_depreciar>1</debe_depreciar>
+        <idestadoperacion>7</idestadoperacion>
+    </operaciones>
+    
+
+    <!--Baja definitiva -->
+    <operaciones>
+        <descripcion>Baja definitiva</descripcion>
+        <codigo>OPER_BAJA_DEFINITIVA</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>3</idinterfaz>
+        <iddatosespecificos>5</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>1</campos_editables>
+        <autogenerada>0</autogenerada>
+        <operacion_sobre_medios>resta</operacion_sobre_medios>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <debe_depreciar>1</debe_depreciar>
+        <idestadoperacion>7</idestadoperacion>
+    </operaciones>
+
+    <!--Baja por venta  -->
+    <operaciones>
+        <descripcion>Baja por venta</descripcion>
+        <codigo>OPER_BAJA_VENTA</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>3</idinterfaz>
+        <iddatosespecificos>5</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>1</campos_editables>
+        <autogenerada>0</autogenerada>
+        <operacion_sobre_medios>resta</operacion_sobre_medios>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <debe_depreciar>1</debe_depreciar>
+        <idestadoperacion>7</idestadoperacion>
+    </operaciones>
+
+    <!--  Alquiler (Cuando yo soy el proveedor) -->
+    <operaciones>
+        <descripcion>Proceso de Alquiler (Salida)</descripcion>
+        <codigo>OPER_ALQUILER</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>19</idinterfaz>
+        <iddatosespecificos>1</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>importe</campos_editables>
+        <autogenerada>0</autogenerada>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <debe_depreciar>1</debe_depreciar>
+        <idestadoperacion>2</idestadoperacion>       
+    </operaciones>
+    
+    <!--  Alquiler (Cuando yo soy el cliente) -->
+    <operaciones>
+        <descripcion>Proceso de Alquiler (Entrada)</descripcion>
+        <codigo>OPER_ALQUI_ENTRADA</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>19</idinterfaz>
+        <iddatosespecificos>1</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>importe</campos_editables>
+        <autogenerada>0</autogenerada>
+        <signo>=</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <debe_depreciar>1</debe_depreciar>
+        <idestadoperacion>3</idestadoperacion>
+    </operaciones>
+    
+    <!--  Prestamo -->
+    <operaciones>
+        <descripcion>Proceso de Prestamo</descripcion>
+        <codigo>OPER_PRESTAMO</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>26</idinterfaz>
+        <iddatosespecificos>20</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>estatustecnico</campos_editables>
+        <autogenerada>0</autogenerada>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>4</idestadoperacion>
+    </operaciones>
+    
+    
+    <operaciones>
+        <descripcion>Proceso de Prestamo (Entrada)</descripcion>
+        <codigo>OPER_PRESTA_ENTRADA</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>26</idinterfaz>
+        <iddatosespecificos>20</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>estatustecnico</campos_editables>
+        <autogenerada>0</autogenerada>
+        <signo>=</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <debe_depreciar>1</debe_depreciar>
+        <idestadoperacion>8</idestadoperacion>
+    </operaciones>
+
+    <!--  Inventario Parcial-->
+    <operaciones>
+        <descripcion>Proceso de Inventario Parcial</descripcion>
+        <codigo>OPER_INV_PARCIAL</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>20</idinterfaz>
+        <iddatosespecificos>7</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>=</signo>
+        <idestadoperacion>1</idestadoperacion>
+    </operaciones>
+
+    <!--  Inventario Parcial Mensual-->
+    <operaciones>
+        <descripcion>Proceso de Inventario Parcial Mensual</descripcion>
+        <codigo>OPER_INV_PAR_MENSUAL</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>20</idinterfaz>
+        <iddatosespecificos>6</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>=</signo>
+        <idestadoperacion>1</idestadoperacion>
+    </operaciones>
+
+    <operaciones>
+        <descripcion>Proceso de Inventario Total</descripcion>
+        <codigo>OPER_INV_TOTAL</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>21</idinterfaz>
+        <iddatosespecificos>8</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>=</signo>
+        <idestadoperacion>1</idestadoperacion>
+    </operaciones>
+
+    <!--  Ajuste por sobrante -->
+    <operaciones>
+        <descripcion>Proceso de Ajuste por Sobrante</descripcion>
+        <codigo>OPER_AJUSTE_SOBRANTE</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>22</idinterfaz>
+        <iddatosespecificos>18</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>+</signo>
+        <idestadoperacion>1</idestadoperacion>
+    </operaciones>
+
+    <!--  Ajuste por faltante -->
+    <operaciones>
+        <descripcion>Proceso de Ajuste por Faltante</descripcion>
+        <codigo>OPER_AJUSTE_FALTANTE</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>23</idinterfaz>
+        <iddatosespecificos>13</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>-</signo>
+        <idestadoperacion>7</idestadoperacion>
+    </operaciones>
+
+    <!-- Proceso de traslado internos salida -->
+    <operaciones>
+        <descripcion>Proceso de Traslados Internos (Salida)</descripcion>
+        <codigo>OPER_TRASLADO_INTER</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>movimiento-interno</icono>
+        <idinterfaz>14</idinterfaz>
+        <iddatosespecificos>3</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <operacion_sobre_medios>resta</operacion_sobre_medios>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>1</idestadoperacion>
+    </operaciones>
+
+    <!-- Proceso de traslados internos entrada (Recepción)-->
+    <operaciones>
+        <descripcion>Proceso de Traslados Internos (Entrada)</descripcion>
+        <codigo>OPER_REC_TRAS_INTER</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>16</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>ubicacion</campos_editables>
+        <campos_editables>responsable</campos_editables>
+        <autogenerada>1</autogenerada>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>1</idestadoperacion>
+    </operaciones>
+
+    <!-- Entrega temporal de medios  -->
+    <operaciones>
+        <descripcion>Proceso de Entrega Temporal</descripcion>
+        <codigo>OPER_ENTREG_TEMPORAL</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>24</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>responsable</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>=</signo>
+        <idestadoperacion>4</idestadoperacion>
+    </operaciones>
+
+    <!-- Devolución de la entrega temporal de medios  -->
+    <operaciones>
+        <descripcion>Proceso de Recepcion de Entrega Temporal</descripcion>
+        <codigo>OPER_REC_ENTREG_TEMP</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>25</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>responsable</campos_editables>
+        <autogenerada>1</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>=</signo>
+        <idestadoperacion>1</idestadoperacion>
+    </operaciones>
+
+    <!--Reparación menor/ligera-->
+    <operaciones>
+        <descripcion>Reparación menor/ligera</descripcion>
+        <codigo>OPER_REPMENOR</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>13</idinterfaz>
+        <iddatosespecificos>2</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes></reportes>
+        <campos_editables>importe</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>-</signo>
+        <idestadoperacion>5</idestadoperacion>
+    </operaciones>
+
+    <!--Reparación media-->
+    <operaciones>
+        <descripcion>Reparación media</descripcion>
+        <codigo>OPER_REPMEDIA</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>13</idinterfaz>
+        <iddatosespecificos>2</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes></reportes>
+        <campos_editables>importe</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>-</signo>
+        <idestadoperacion>5</idestadoperacion>
+    </operaciones>
+
+    <!--Reparación general-->
+    <operaciones>
+        <descripcion>Reparación general</descripcion>
+        <codigo>OPER_REPGENERAL</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>13</idinterfaz>
+        <iddatosespecificos>2</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes></reportes>
+        <campos_editables>importe</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>-</signo>
+        <idestadoperacion>5</idestadoperacion>
+    </operaciones>
+
+    <!--Reparación imprevista-->
+    <operaciones>
+        <descripcion>Reparación imprevista</descripcion>
+        <codigo>OPER_REPIMPREV</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>13</idinterfaz>
+        <iddatosespecificos>2</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes></reportes>
+        <campos_editables>importe</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>-</signo>
+        <idestadoperacion>5</idestadoperacion>
+    </operaciones>
+
+    <!--Mantenimiento-->
+    <operaciones>
+        <descripcion>Mantenimiento</descripcion>
+        <codigo>OPER_MANTENIMIENTO</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>13</idinterfaz>
+        <iddatosespecificos>2</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes></reportes>
+        <campos_editables>importe</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>-</signo>
+        <idestadoperacion>5</idestadoperacion>
+    </operaciones>
+
+    <!--Remodelación-->
+    <operaciones>
+        <descripcion>Remodelación</descripcion>
+        <codigo>OPER_REMODELACION</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>13</idinterfaz>
+        <iddatosespecificos>2</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes></reportes>
+        <campos_editables>importe</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>-</signo>
+        <idestadoperacion>5</idestadoperacion>
+    </operaciones>
+    <!-- FIN de Tipos de operaciones -->
+
+    <!-- Períodos de depreciación -->
+    <periodos_depreciacion>
+        <idnomdepreciacion>0</idnomdepreciacion>
+        <descripcion>Seleccione</descripcion>
+        <dividendo>365</dividendo>
+        <diasperiodo>1</diasperiodo>
+    </periodos_depreciacion>
+
+    <periodos_depreciacion>
+        <idnomdepreciacion>1</idnomdepreciacion>
+        <descripcion>Depreciación diaria</descripcion>
+        <dividendo>365</dividendo>
+        <diasperiodo>1</diasperiodo>
+    </periodos_depreciacion>
+
+    <periodos_depreciacion>
+        <idnomdepreciacion>1</idnomdepreciacion>
+        <descripcion>Depreciación semanal</descripcion>
+        <dividendo>52</dividendo>
+        <diasperiodo>7</diasperiodo>
+    </periodos_depreciacion>
+
+    <periodos_depreciacion>
+        <idnomdepreciacion>1</idnomdepreciacion>
+        <descripcion>Depreciación quincenal</descripcion>
+        <dividendo>24</dividendo>
+        <diasperiodo>15</diasperiodo>
+    </periodos_depreciacion>
+
+    <periodos_depreciacion>
+        <idnomdepreciacion>1</idnomdepreciacion>
+        <descripcion>Depreciación mensual</descripcion>
+        <dividendo>12</dividendo>
+        <diasperiodo>30</diasperiodo>
+    </periodos_depreciacion>
+
+    <periodos_depreciacion>
+        <idnomdepreciacion>1</idnomdepreciacion>
+        <descripcion>Depreciación trimestral</descripcion>
+        <dividendo>4</dividendo>
+        <diasperiodo>90</diasperiodo>
+    </periodos_depreciacion>
+
+    <periodos_depreciacion>
+        <idnomdepreciacion>1</idnomdepreciacion>
+        <descripcion>Depreciación anual</descripcion>
+        <dividendo>1</dividendo>
+        <diasperiodo>365</diasperiodo>
+    </periodos_depreciacion>
+    <!-- FIN de Períodos de depreciación -->
+
+    <!-- Métodos de depreciacion -->
+    <metodos_depreciacion>
+        <idmetodo>1</idmetodo>
+        <descripcion>Línea recta (% Fiscal)</descripcion>
+        <unidadmedida>Años</unidadmedida>
+    </metodos_depreciacion>
+
+    <metodos_depreciacion>
+        <idmetodo>2</idmetodo>
+        <descripcion>Línea recta</descripcion>
+        <unidadmedida>Años</unidadmedida>
+    </metodos_depreciacion>
+
+    <metodos_depreciacion>
+        <idmetodo>3</idmetodo>
+        <descripcion>Horas máquinas</descripcion>
+        <unidadmedida>Hrs</unidadmedida>
+    </metodos_depreciacion>
+
+    <metodos_depreciacion>
+        <idmetodo>4</idmetodo>
+        <descripcion>Unidades de producción</descripcion>
+        <unidadmedida>U</unidadmedida>
+    </metodos_depreciacion>
+
+    <metodos_depreciacion>
+        <idmetodo>5</idmetodo>
+        <descripcion>Kilómetros recorridos</descripcion>
+        <unidadmedida>Km</unidadmedida>
+    </metodos_depreciacion>
+
+    <metodos_depreciacion>
+        <idmetodo>6</idmetodo>
+        <descripcion>Dígitos decrecientes</descripcion>
+        <unidadmedida>Años</unidadmedida>
+    </metodos_depreciacion>
+    <!-- FIN de Métodos de depreciación -->
+
+    <!-- Trimestres -->
+    <trimestres>
+        <idtrimestre>1</idtrimestre>
+        <descripcion>Enero-Marzo</descripcion>
+    </trimestres>
+
+    <trimestres>
+        <idtrimestre>2</idtrimestre>
+        <descripcion>Abril-Junio</descripcion>
+    </trimestres>
+
+    <trimestres>
+        <idtrimestre>3</idtrimestre>
+        <descripcion>Julio-Septiembre</descripcion>
+    </trimestres>
+
+    <trimestres>
+        <idtrimestre>4</idtrimestre>
+        <descripcion>Octubre-Diciembre</descripcion>
+    </trimestres>
+    <!-- FIN de Trimestres -->
+
+    <!-- Tipos de datos auxiliares por documento -->
+    <tipo_datos_aux_doc>
+        <idoperacion>0</idoperacion>
+        <descripcion>Sin campos</descripcion>
+    </tipo_datos_aux_doc>
+
+    <tipo_datos_aux_doc>
+        <idoperacion>1</idoperacion>
+        <descripcion>Campos de alquiler</descripcion>
+    </tipo_datos_aux_doc>
+
+    <tipo_datos_aux_doc>
+        <idoperacion>2</idoperacion>
+        <descripcion>Campos de enviados a reparar</descripcion>
+    </tipo_datos_aux_doc>
+
+    <tipo_datos_aux_doc>
+        <idoperacion>3</idoperacion>
+        <descripcion>Campos de traslado interno/activos a ociosos/ociosos a activos</descripcion>
+    </tipo_datos_aux_doc>
+
+    <tipo_datos_aux_doc>
+        <idoperacion>4</idoperacion>
+        <descripcion>Campos de traslado externo</descripcion>
+    </tipo_datos_aux_doc>
+
+    <tipo_datos_aux_doc>
+        <idoperacion>11</idoperacion>
+        <descripcion>Campos de baja por venta</descripcion>
+    </tipo_datos_aux_doc>
+
+    <!-- FIN Tipos de datos auxiliares por documento -->
+</configuraciones>

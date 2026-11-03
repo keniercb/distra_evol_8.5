@@ -1,0 +1,22 @@
+Ext.ns('LOG.lb.Enzona');
+LOG.lb.Enzona.Idioma = {
+    tituloQRWin : 'Pago por EnZona',
+    tituloQRWinP : 'QR de pago',
+    tituloQRWinPago: 'Ventana de pago',
+    tituloWinPagos : 'Pagos recibidos',
+    lbMonto : 'Monto total',
+    lbMontoPPago : 'Pendiente',
+    lbMontoPagado : 'Pagado',
+    lbMontoPago : 'Pagar',
+    lbHistoriaP : 'Historial de pagos',
+    lbFinish : 'Pago concluido',
+    lbPagoAcc : 'Aceptado',
+    lbValidate : 'Validar',
+    lbActQr : 'Actualizar',
+    msgEspere : 'Generando c\xf3digo QR. Espere por favor.',
+    msgPagoAceptado : 'Pago aceptado satisfactoriamente. No. de operaci\xf3n',
+    msgErrorPago : 'El monto a pagar excede el importe total.',
+    msgErrorQR : 'No se pudo generar el c\xf3digo QR.',
+    msgValidandoPagoQR : 'Validando el pago de la factura.',
+    msgErrorValidandoPagoQR : 'El pago de la factura no ha podido ser validado.',
+}

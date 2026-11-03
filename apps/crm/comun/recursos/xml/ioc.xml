@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ioc>
+    <crm src="crm">
+        <!-- Gestion de contratos-->
+        <obtenerContratos reference="contratacion">
+            <inyector clase="GestionContratosService" metodo="obtenerContratos" />
+            <prototipo>
+                <parametro nombre="parametros" tipo="array" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerContratos>
+
+        <obtenerDatosAdicionales reference="contratacion">
+            <inyector clase="GestionContratosService" metodo="obtenerDatosAdicionales" />
+            <prototipo>
+                <parametro nombre="parametros" tipo="array" />
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerDatosAdicionales>
+
+        <cambiarEstadoHito reference="contratacion">
+            <inyector clase="GestionContratosService" metodo="cambiarEstadoHito" />
+            <prototipo>
+                <parametro nombre="parametros" tipo="array" />
+                <resultado tipo="array" />
+            </prototipo>
+        </cambiarEstadoHito>
+
+        <loadConfClientesproveedores reference="contratacion">
+            <inyector clase="GestionContratosService" metodo="loadConfClientesproveedores" />
+            <prototipo>
+                <parametro nombre="parametros" tipo="array" />
+                <resultado tipo="array" />
+            </prototipo>
+        </loadConfClientesproveedores>
+
+        <obtenerLineas reference="contratacion">
+            <inyector clase="GestionContratosService" metodo="obtenerLineas" />
+            <prototipo>
+                <resultado tipo="array" />
+            </prototipo>
+        </obtenerLineas>
+
+        <guardarDemanda reference="importacion">
+            <inyector clase="ImportacionService" metodo="guardarDemanda" />
+            <prototipo>
+                <parametro nombre="parametros" tipo="array" />
+                <resultado tipo="array" />
+            </prototipo>
+        </guardarDemanda>
+
+        <actualizarDatosProgramaServicio reference="serviciomedico">
+            <inyector clase="ProgramaServicioService" metodo="actualizarDatosProgramaServicio" />
+            <prototipo>
+                <parametro nombre="parametros" tipo="array" />
+                <resultado tipo="array" />
+            </prototipo>
+        </actualizarDatosProgramaServicio>
+		
+		<facturarProgramaMedico reference="serviciomedico">
+            <inyector clase="ProgramaServicioService" metodo="facturarProgramaMedico" />
+            <prototipo>
+                <parametro nombre="idprogramamedico" tipo="int" />
+                <resultado tipo="array" />
+            </prototipo>
+        </facturarProgramaMedico>
+
+        <eliminarProgramaMedicoServicio reference="serviciomedico">
+            <inyector clase="ProgramaServicioService" metodo="eliminarProgramaMedicoServicio" />
+            <prototipo>
+                <parametro nombre="idprogramamedico" tipo="array" />
+                <resultado tipo="boolean" />
+            </prototipo>
+        </eliminarProgramaMedicoServicio>
+
+    </crm>
+</ioc>

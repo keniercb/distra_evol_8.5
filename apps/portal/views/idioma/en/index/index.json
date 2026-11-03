@@ -1,0 +1,20 @@
+{
+    "lbNombre": "Name",
+    "lbApellidos": "Last name",
+    "lbNoIdentidad": "Id",
+    "lbEdad": "Age",
+    "lbGrupo": "Group",
+    "lbBuscar": "Find",
+    "lbDisplayMsg": "Results {0} - {1} of {2}",
+    "lbEmptyMsg": "0 Results to show",
+    "lbBtnAdicionar": "Add",
+    "lbBtnModificar": "Update",
+    "lbBtnEliminar": "Delete",
+    "lbBtnAyuda": "Help",
+    "lbBtnCancelar": "Cancel",
+    "lbBtnAplicar": "Apply",
+    "lbBtnAceptar": "Acept",
+    "lbMsgSelFila": "Must select the row you want to delete",
+    "lbTitMsgConfirm": "Confirmation",
+    "lbTitMsgError": "Error"
+}

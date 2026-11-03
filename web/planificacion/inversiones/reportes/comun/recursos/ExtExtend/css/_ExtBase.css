@@ -1,0 +1,741 @@
+.extExtend_abrir {
+    background-image: url(../gfx/icons/abrir.png) !important;
+}
+
+.extExtend_activo {
+    background-image: url(../gfx/icons/active.gif) !important;
+    margin-left: 17;
+}
+
+.extExtend_inactivo {
+    background-image: url(../gfx/icons/inactive.gif) !important;
+}
+
+.extExtend_abajo {
+    background-image: url(../gfx/icons/abajo.png) !important;
+}
+
+.extExtend_aceptar {
+    background-image: url(../gfx/icons/aceptar.png) !important;
+}
+
+.extExtend_actualizar {
+    background-image: url(../gfx/icons/actualizar.png) !important;
+}
+
+.extExtend_adicionar {
+    background-image: url(../gfx/icons/adicionar.png) !important;
+}
+
+.extExtend_duplicar {
+    background-image: url(../gfx/icons/duplicar.png) !important;
+}
+
+.extExtend_anterior {
+    background-image: url(../gfx/icons/anterior.png) !important;
+}
+
+.extExtend_aplicar {
+    background-image: url(../gfx/icons/aplicar.png) !important;
+}
+
+.extExtend_aprobar {
+    background-image: url(../gfx/icons/aprobar.png) !important;
+}
+
+.extExtend_arriba {
+    background-image: url(../gfx/icons/arriba.png) !important;
+}
+
+.extExtend_ayuda {
+    background-image: url(../gfx/icons/ayuda.png) !important;
+}
+
+.extExtend_bloquear {
+    background-image: url(../gfx/icons/deshabilitar.png) !important;
+}
+
+.extExtend_generar {
+    background-image: url(../gfx/icons/generadorreportes.png) !important;
+}
+
+.extExtend_buscar {
+    background-image: url(../gfx/icons/buscar.png) !important;
+}
+
+.extExtend_cambiar {
+    background-image: url(../gfx/icons/cambiar.png) !important;
+}
+
+.extExtend_graficar {
+    background-image: url(../gfx/icons/graficar.png) !important;
+}
+
+.extExtend_filtro {
+    background-image: url(../gfx/icons/filtrar1.png) !important;
+}
+
+.extExtend_cancelar {
+    background-image: url(../gfx/icons/cancelar.png) !important;
+}
+
+.extExtend_cancelarestado {
+    background-image: url(../gfx/icons/cancelarestado.png) !important;
+}
+
+.extExtend_capturar_punto {
+    background-image: url(../gfx/icons/capturaPunto.png) !important;
+}
+
+.extExtend_conectar {
+    background-image: url(../gfx/icons/conectar.png) !important;
+}
+
+.extExtend_configuracion {
+    background-image: url(../gfx/icons/configuracion.png) !important;
+}
+
+.extExtend_definir {
+    background-image: url(../gfx/icons/definir.png) !important;
+}
+
+.extExtend_deshacer {
+    background-image: url(../gfx/icons/deshacer.png) !important;
+}
+
+.extExtend_desbloquear {
+    background-image: url(../gfx/icons/habilitar.png) !important;
+}
+
+.extExtend_deshacer {
+    background-image: url(../gfx/icons/deshacer.png) !important;
+}
+
+.extExtend_eliminar {
+    background-image: url(../gfx/icons/eliminar.png) !important;
+}
+
+.extExtend_exportar {
+    background-image: url(../gfx/icons/exportar.png) !important;
+}
+
+.extExtend_ver {
+    background-image: url(../gfx/icons/ver.png) !important;
+}
+
+.extExtend_falta {
+    background-image: url(../gfx/icons/falta.png) !important;
+}
+
+.extExtend_filtrar {
+    background-image: url(../gfx/icons/filtrar.png) !important;
+}
+
+.extExtend_guardar {
+    background-image: url(../gfx/icons/guardar.png) !important;
+}
+
+.extExtend_guardar_como {
+    background-image: url(../gfx/icons/guardar_como.png) !important;
+}
+
+.extExtend_herramienta {
+    background-image: url(../gfx/icons/herramienta.png) !important;
+}
+
+.extExtend_importar {
+    background-image: url(../gfx/icons/importar.png) !important;
+}
+
+.extExtend_informacion {
+    background-image: url(../gfx/icons/info.png) !important;
+}
+
+.extExtend_limpiar {
+    background-image: url(../gfx/icons/limpiar.png) !important;
+}
+
+.extExtend_localizar {
+    background-image: url(../gfx/icons/localizar.png) !important;
+}
+
+.extExtend_mapificar {
+    background-image: url(../gfx/icons/tem1.png) !important;
+}
+
+.extExtend_modificar {
+    background-image: url(../gfx/icons/modificar.png) !important;
+}
+
+.extExtend_mostrar {
+    background-image: url(../gfx/icons/mostrar.png) !important;
+}
+
+.extExtend_primerapagina {
+    background-image: url(../gfx/icons/primerapagina.png) !important;
+}
+
+.extExtend_rehacer {
+    background-image: url(../gfx/icons/rehacer.png) !important;
+}
+
+.extExtend_renombrar {
+    background-image: url(../gfx/icons/cambiar.png) !important;
+}
+
+.extExtend_restringir {
+    background-image: url(../gfx/icons/restringir.png) !important;
+}
+
+.extExtend_salir {
+    background-image: url(../gfx/icons/ico_salir.png) !important;
+}
+
+.extExtend_seleccion {
+    background-image: url(../gfx/icons/seleccion.png) !important;
+}
+
+.extExtend_siguiente {
+    background-image: url(../gfx/icons/siguiente.png) !important;
+}
+
+.gis-share {
+    background-image: url(../gfx/icons/ico_share.png) !important;
+}
+
+.extExtend_sql {
+    background-image: url(../gfx/icons/sql.png) !important;
+}
+
+.extExtend_validar {
+    background-image: url(../gfx/icons/validar.png) !important;
+}
+
+.extExtend_reemplazar {
+    background-image: url(../gfx/icons/pegar.png) !important;
+}
+
+.extExtend_ultimapagina {
+    background-image: url(../gfx/icons/ultimapagina.png) !important;
+}
+
+.extExtend_ubicar {
+    background-image: url(../gfx/icons/ubicarproducto.png) !important;
+}
+
+.extExtend_ajustar {
+    background-image: url(../gfx/icons/ajustar.png) !important;
+}
+
+.extExtend_inicio {
+    background-image: url(../gfx/icons/logistica.png) !important;
+}
+
+.extExtend_seguimiento {
+    background-image: url(../gfx/icons/buscaryremplazar.png) !important;
+}
+
+
+.invalid-grid-cell {
+    color: red !important;
+    background-color: rgba(198, 150, 167, 0.60) !important;
+}
+
+.ico-rename-replace {
+    background: url("../gfx/icon-warning.gif") no-repeat scroll 50% 50% transparent;
+    float: left;
+    height: 40px;
+    width: 50px;
+}
+
+.ico-error {
+    background: url("../gfx/icon-error.gif") no-repeat scroll 50% 50% transparent;
+    float: left;
+    height: 40px;
+    width: 50px;
+}
+
+.cleaner {
+    clear: both;
+}
+
+.c-text-msg {
+    margin-left: 47px;
+    font-size: 12px;
+}
+
+
+/**** Estilos para el Ext.ux.form.SearchField ******/
+.searchField-center-text{
+    margin: 4px 4px 0 3px !important;
+}
+
+.searchField-mb {
+    margin: 1px 0 !important;
+}
+
+.x-form-field-wrap .extExtend_clear{
+    background-image: url(../gfx/icons/clear-trigger.gif) !important;
+}
+
+.x-form-field-wrap .extExtend_search{
+    background-image: url(../gfx/icons/search-trigger.gif) !important;
+}
+
+.x-form-field-wrap .extExtend_choose{
+    background-image: url(../gfx/icons/choose-trigger.gif) !important;
+}
+
+.x-form-field-wrap .x-form-color-trigger {
+    background-image: url(../gfx/icons/color-trigger.gif) !important;
+}
+
+/**** Estilos para el Ext.ux.form.SearchField /// OJO REVISAR DEVIDO A QUE ESTE ESTILO SE REPITE EN VARIOS LUGARES******/
+.x-form-file-wrap {
+    position: relative;
+    height: 22px;
+}
+.x-form-file-wrap .x-form-file {
+    position: absolute;
+    right: 0;
+    -moz-opacity: 0;
+    filter:alpha(opacity: 0);
+    opacity: 0;
+    z-index: 2;
+    height: 22px;
+}
+.x-form-file-wrap .x-form-file-btn {
+    position: absolute;
+    right: 0;
+    z-index: 1;
+}
+.x-form-file-wrap .x-form-file-text {
+    position: absolute;
+    left: 0;
+    z-index: 3;
+    color: #777;
+}
+
+/********************Estilos para el manejador de ventanas**********************/
+.x-menu-item-select {
+    /*background-color: #A9CBF5;
+    background-image: -moz-linear-gradient(center top, #E7F0FC, #A9CBF5);*/
+    border: 1px solid #A9CBF5;
+    border-radius: 3px 3px 3px 3px;
+    cursor: pointer;
+    margin: 0;
+}
+
+.g-menu-btn {
+    background-image: url("../../../images/vista/icon-vista/tool-sprites.gif") !important;
+    height: 15px !important;
+    width: 15px !important;
+}
+
+.x-tool-extra {
+    background-image: url("../../../images/vista/icon-vista/tool-sprites-extras.gif");
+    cursor: pointer;
+    float: right;
+    height: 15px;
+    margin-left: 2px;
+    overflow: hidden;
+    width: 15px;
+}
+
+.x-tool-extra-slider {
+    background-position: 0 -210px !important;
+}
+
+.x-tool-extra-slider-over {
+    background-position: -15px -210px !important;
+}
+
+.g-menu-btn-extra {
+    background-image: url("../../../images/vista/icon-vista/tool-sprites-extras.gif") !important;
+    height: 15px !important;
+    width: 15px !important;
+}
+
+.g-menu-btn-cent {
+    background-position: -15px -45px !important;
+}
+
+.g-menu-btn-sobr {
+    background-position: 0 -75px !important;
+}
+
+.g-menu-btn-overflow{
+    background-position: 0 -225px !important;
+}
+
+.g-menu-btn-intab{
+    background-position: 0 -240px !important;
+}
+
+.g-minimizable-btn {
+    background-position: 0 -15px !important;
+}
+
+.g-maximizable-btn {
+    background-position: 0 -30px !important;
+}
+
+.g-restablecer-btn {
+    background-position: 0 -45px !important;
+}
+
+.g-close-btn {
+    background-position: 0 0 !important;
+}
+
+.g-collapsible-btn {
+    background-position: 0 -60px !important;
+}
+
+.g-expand-btn {
+    background-position: 0 -75px !important;
+}
+
+/*para la seleccion en arbol y grid*/
+.x-tree-selected-node{
+    background-color: #BCD2EF !important;
+}
+
+/*para el menu item toggle*/
+.x-menu-list-item a.x-btn-pressed {
+    border-style:solid;
+    border-width:1px;
+    margin:0 -1px;
+
+    border-color:#aaccf6;
+    background: #dbecf4 url("../../../images/default/menu/item-over.gif") repeat-x left bottom;
+}
+
+/*para los check y los radio, alinearlos al centro verticalmente*/
+.x-form-check-wrap label {
+    position: relative !important;
+}
+/***********************genesig_estandar***********/
+
+.ge-upload-icon{
+    background: url(../gfx/icons/abrir.png) no-repeat 0 0 !important;
+}
+
+.ge-silk-clean{
+    background: url(../gfx/icons/limpiar.png) no-repeat 0 0 !important;
+}
+
+.ico-move-selected-from-left {
+    background: url(../gfx/icons/ico_mover_desde_izquierda_seleccionados.png) no-repeat 0 0 !important;
+}
+
+.ico-move-all-from-left {
+    background: url(../gfx/icons/ico_mover_desde_izquierda_todos.png) no-repeat 0 0 !important;
+}
+
+.ico-move-selected-from-right {
+    background: url(../gfx/icons/ico_mover_desde_derecha_seleccionados.png) no-repeat 0 0 !important;
+}
+
+.ico-move-all-from-right {
+    background: url(../gfx/icons/ico_mover_desde_derecha_todos.png) no-repeat 0 0 !important;
+}
+
+/* para pruebas... eliminar luego */
+/*.x-tip .x-tip-body span {
+    color: blue;
+}*/
+.x-tip .x-tip-body b {
+    color: #444;
+}
+
+.ico_common_delete {
+    background-image: url(../gfx/common/ico_delete.png) !important;
+}
+
+.ico-common-clear {
+    background-image: url(../gfx/common/ico_clear.png) !important;
+}
+
+.ico-common-move-up {
+    background-image : url(../gfx/common/ico_move_up.png) !important;
+}
+
+.ico-common-move-down {
+    background-image : url(../gfx/common/ico_move_down.png) !important;
+}
+
+.ico-common-options {
+    background-image : url(../gfx/common/ico_options.png) !important;
+}
+
+.ico-common-cut {
+    background-image : url(../gfx/common/ico_cut.png) !important;
+}
+
+.ico-common-paste {
+     background-image : url(../gfx/common/ico_paste.png) !important;
+ }
+
+/*para colapsar los toolbar*/
+.x-collapse-bar-horizontal {
+    font-size: 1px;
+    margin: 0 !important;
+    width:100%;
+    height: 5px;
+    background-color: #D0DEF0;
+}
+
+.x-collapse-bar .x-collapse-bar-btn {
+    background-color: rgba(0, 0, 0, 0);
+    background-repeat: no-repeat !important;
+    cursor: pointer;
+    position: absolute;
+
+    height: 5px;
+    left: 50%;
+    margin-left: -17px;
+    width: 35px;
+    opacity: .60;
+}
+
+.x-collapse-bar .x-collapse-bar-btn:hover {
+    opacity: 1;
+}
+
+.x-collapse-bar-btn-top {
+    background-image:url(../gfx/mini-top.gif);
+}
+
+.x-collapse-bar-btn-bottom {
+    background-image:url(../gfx/mini-bottom.gif);
+}
+
+/*para los 3 puntos suspencivos en el titulo*/
+.genesig-header-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+
+/* pin / unpin tools */
+.x-panel-pin .x-tool-unpin {
+    background-position:0 -135px;
+}
+
+.x-panel-pin .x-tool-unpin-over {
+    background-position:-15px -135px;
+}
+
+
+
+/*Clases necesarias para los componentes de ext  */
+.x-form-spinner-proxy{
+    /*background-color:#ff00cc;*/
+}
+.x-form-field-wrap .x-form-spinner-trigger {
+    background:transparent url(../gfx/ext/spinner.gif) no-repeat 0 0 !important;
+}
+
+.x-form-field-wrap .x-form-spinner-overup{
+    background-position:-17px 0;
+}
+
+.x-form-field-wrap .x-form-spinner-clickup{
+    background-position:-34px 0;
+}
+
+.x-form-field-wrap .x-form-spinner-overdown{
+    background-position:-51px 0;
+}
+
+.x-form-field-wrap .x-form-spinner-clickdown{
+    background-position:-68px 0;
+}
+
+.x-trigger-wrap-focus .x-form-spinner-trigger{
+    background-position:-85px 0;
+}
+
+.x-trigger-wrap-focus .x-form-spinner-overup{
+    background-position:-102px 0;
+}
+
+.x-trigger-wrap-focus .x-form-spinner-clickup{
+    background-position:-119px 0;
+}
+
+.x-trigger-wrap-focus .x-form-spinner-overdown{
+    background-position:-136px 0;
+}
+
+.x-trigger-wrap-focus .x-form-spinner-clickdown{
+    background-position:-153px 0;
+}
+
+.x-trigger-wrap-focus .x-form-trigger{
+    border-bottom: 1px solid #7eadd9;
+}
+
+.x-form-field-wrap .x-form-spinner-splitter {
+    line-height:1px;
+    font-size:1px;
+    background:transparent url(../gfx/ext/spinner.gif) no-repeat 0 0;
+    position:absolute;
+    cursor: n-resize;
+}
+
+.x-trigger-wrap-focus .x-form-spinner-splitter{
+    background-position:-14px 0;
+}
+
+
+/*!
+ * Ext JS Library 3.0.0
+ * Copyright(c) 2006-2009 Ext JS, LLC
+ * licensing@extjs.com
+ * http://www.extjs.com/license
+ */
+.ext-ie .x-row-editor .x-form-text {
+    margin:0 !important;
+}
+.x-row-editor-header {
+    height:2px;
+    overflow:hidden;
+    background: transparent url(../gfx/ext/row-editor-bg.gif) repeat-x 0 0;
+}
+.x-row-editor-footer {
+    height:2px;
+    overflow:hidden;
+    background: transparent url(../gfx/ext/row-editor-bg.gif) repeat-x 0 -2px;
+}
+.ext-ie .x-row-editor-footer {
+    margin-top:-1px;
+}
+
+.x-row-editor-body {
+    overflow:hidden;
+    zoom:1;
+    background: #ebf2fb;
+    padding-top:2px;
+}
+.x-row-editor .x-btns {
+    position:absolute;
+    top:28px;
+    left:20px;
+    padding-left:5px;
+    background: transparent url(../gfx/ext/row-editor-btns.gif) no-repeat 0 0;
+}
+.x-row-editor .x-btns .x-plain-bwrap {
+    padding-right:5px;
+    background: transparent url(../gfx/ext/row-editor-btns.gif) no-repeat right -31px;
+}
+.x-row-editor .x-btns .x-plain-body {
+    background: transparent url(../gfx/ext/row-editor-btns.gif) repeat-x 0 -62px;
+    height:31px;
+}
+.x-row-editor .x-btns .x-table-layout-cell {
+    padding:3px;
+}
+
+.errorTip .x-tip-body ul{
+    list-style-type:disc;
+    margin-left:15px;
+}
+
+.x-form-display-field {
+    padding-left: 9px !important;
+    padding-top: 5px !important;
+
+}
+
+.x-grid3-radio-col{width:100%;height:16px;background-position:center center;background-repeat:no-repeat;background-color:transparent;background-image:url(../gfx/ext/uncheckedradio.gif);}
+.x-grid3-radio-col-on{width:100%;height:16px;background-position:center center;background-repeat:no-repeat;background-color:transparent;background-image:url(../gfx/ext/checkedradio.gif);}
+
+
+
+
+
+/*!
+ * Ext JS Library 3.0.0
+ * Copyright(c) 2006-2009 Ext JS, LLC
+ * licensing@extjs.com
+ * http://www.extjs.com/license
+ */
+.x-gridrow {
+    background-color: #E1F2FF;
+    border-radius: 0 0 5px 5px;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    padding: 4px;
+    position: absolute !important;
+    border-color: #006CFE
+}
+.ext-ie .x-row-editor .x-form-text {
+    margin:0 !important;
+}
+.x-grid-row-editor {
+    overflow: visible !important;
+    position: absolute !important;
+    z-index: 1;
+}
+.x-grid-row-editor-buttons:after {
+    content: "x-slicer:corners:url(images/grid-row-editor-buttons/null-corners.gif), sides:url(images/grid-row-editor-buttons/null-sides.gif)";
+    display: none;
+}
+.x-grid-row-editor-buttons {
+    border-color: #D2D2D2;
+}
+.x-grid-row-editor-buttons {
+    background-color: #E1F2FF;
+    border-radius: 0 0 5px 5px;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    padding: 4px;
+}
+.x-row-editor-header {
+    height:2px;
+    overflow:hidden;
+    background: transparent url(../gfx/ext/row-editor-bg.gif) repeat-x 0 0;
+}
+.x-row-editor-footer {
+    height:2px;
+    overflow:hidden;
+    background: transparent url(../gfx/ext/row-editor-bg.gif) repeat-x 0 -2px;
+}
+.ext-ie .x-row-editor-footer {
+    margin-top:-1px;
+}
+
+.x-row-editor-body {
+    overflow:hidden;
+    zoom:1;
+    background: #ebf2fb;
+    padding-top:2px;
+    z-index : 1;
+}
+.x-row-editor .x-btns {
+    position:absolute;
+    top:28px;
+    left:20px;
+    padding-left:5px;
+    background: transparent url(../gfx/ext/row-editor-btns.gif) no-repeat 0 0;
+}
+.x-row-editor .x-btns .x-plain-bwrap {
+    padding-right:5px;
+    background: transparent url(../gfx/ext/row-editor-btns.gif) no-repeat right -31px;
+}
+.x-row-editor .x-btns .x-plain-body {
+    background: transparent url(../gfx/ext/row-editor-btns.gif) repeat-x 0 -62px;
+    height:31px;
+}
+.x-row-editor .x-btns .x-table-layout-cell {
+    padding:3px;
+}
+
+.errorTip .x-tip-body ul{
+    list-style-type:disc;
+    margin-left:15px;
+}

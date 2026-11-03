@@ -1,0 +1,19 @@
+/* 
+    Created on : 04-ago-2015, 10:57:44
+    Author     : Ing. Miguel Diaz Riveaux
+*/
+
+.watermark {
+    /*background-image: url("nada.png");*/
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 30%;
+    height: auto;
+    margin: auto;
+}
+.watermark img {
+    padding: 0;
+    width: 30%;
+    height: auto;
+    opacity: 0.60;
+}

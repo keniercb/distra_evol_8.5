@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/crm" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/crm/clientesyproveedores" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/crm/configuracion" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/crm/crm" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/logistica" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/logistica/activos_fijos" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/logistica/agrupaciones" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/logistica/comun" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/logistica/distribucion" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/logistica/facturacion" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/logistica/farmacia" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/logistica/inventario" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/logistica/magentoadmin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/logistica/nomdinamicos" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/logistica/nomgenerales" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/logistica/produccion" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/logistica/puntoventa" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/logistica/talleres" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/logistica/utiles" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/planificacion" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/planificacion/comun" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/planificacion/help" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/planificacion/herramientasintegracion" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/planificacion/inversiones" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/planificacion/inversionesproyecto" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/planificacion/pdo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/planificacion/plan711" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/planificacion/planifintegracion" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/planificacion/planindustrial" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/planificacion/planmeta" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/planificacion/planproeza" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/planificacion/producciones" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/planificacion/proyecto" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/planificacion/reportes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/planificacion/resources" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/planificacion/suite" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/planificacion/workflow" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pvd" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pvd/capacitacion" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pvd/competencias" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pvd/comun" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pvd/evaluaciones" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pvd/integracionreportes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pvd/maestro" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pvd/metadatos" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pvd/movimientoslaborales" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pvd/nomina" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pvd/persona" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pvd/reccomplejas" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pvd/regimentrabajo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pvd/seleccion" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pvd/sst" vcs="Git" />
+  </component>
+</project>

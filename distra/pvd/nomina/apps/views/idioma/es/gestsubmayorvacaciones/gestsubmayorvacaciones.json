@@ -1,0 +1,111 @@
+{
+	lbTitleWinEstructura:							'Entidades',
+	lbTitleWinGestVacaciones:						'Gestionar submayor de vacaciones',
+	lbTitleGridHistVac:								'Hist&oacute;rico de submayor de vacaciones',
+	lbTitleVentAdicionarVac:						'Adicionar datos iniciales de vacaciones',
+	lbTitleVentModificarVac:						'Modificar datos de vacaciones',
+	lbTitleVentFormVac:								'Configurar f&oacute;rmulas de acumulaci&oacute;n y liquidaci&oacute;n',
+	lbTitleVariable:								'Variables auxiliares de f&oacute;rmula',
+	lbTitleFechaOperacion:							'Fecha de operaci;&oacute;n',
+	lbTitleTiempoAcumulado:							'Tiempo acumulado',
+	lbTitleRefNomina:							    'Ref. N&oacute;mina',
+	lbTitleTipoOperacion:							'Tipo operaci&oacute;n',
+	lbTitleImporteAcumulado:						'Importe acumulado',
+	lbTitleSaldoTiempo:						        'Ajuste en tiempo',
+	lbTitleSaldoImporte:						    'Ajuste en importe',
+	lbTitlePromedioImporte:						    'Promedio importe', 
+	
+	lbTitleVentAdicionarHisVac:						'Adicionar datos al hist&oacute;rico del submayor de vacaciones',
+	lbTitleVentModificarHisVac:						'Ajustar datos al hist&oacute;rico del submayor de vacaciones',
+	
+	lbBtnAdicionar:              	    			'Ad<u>i</u>cionar',
+	textToolTipAddVac:    		       				'Adicionar datos de vacaciones (<b>Alt+I</b>)',
+	lbBtnModificar:                   				'<u>M</u>odificar',
+	textToolTipModVac:								'Modificar datos de vacaciones (<b>Alt+M</b>)',
+	lbBtnEliminar:                	 				'Eliminar',
+	textToolTipElimVac: 							'Eliminar datos de vacaciones (<b>DEL</b>)',
+	lbBtnformula: 									'Configurar f&oacute;rmulas',
+	textToolTipFormVac: 							'Configurar f&oacute;rmulas de acumulaci&oacute;n y liquidaci&oacute;n',
+	
+	textToolTipAddVariable:    		       			'Adicionar variable auxiliar',
+	textToolTipModVariable:    		       			'Modificar variable auxiliar',
+	textToolTipElimVariable:    		       		'Eliminar variable auxiliar',
+	
+	lbTitleGridVac:									'Listado de datos de vacaciones',
+
+	lbColTiempoInicial :							'Tiempo inicial acumulado',
+	lbColSaldoInicial :								'Importe inicial acumulado',
+	lbColTiempoI :									'Tiempo I. Acum.',
+	lbColSaldoI :									'Importe I. Acum.',
+	lbColTiempo :									'Tiempo acumulado',
+	lbColSaldo :									'Importe acumulado',
+	lbColDesde:										'Fecha inicio',
+	lbColHasta:										'Fecha fin',
+	lbColVarSubVac:									'Variables de acumulaci&oacute;n/liquidaci&oacute;n',
+	lbColFormula:									'F&oacute;rmula',
+	
+	lbColRefNomina :								'Ref.N&oacute;mina',
+	lbColTipoOper :									'Tipo operaci&oacute;n',
+	lbColFechaOper :								'Fecha operaci&oacute;n',
+	lbColTiempoAcumDed :							'Tiempo acumulado/deducido',
+	lbColImporteAcumDed :							'Importe acumulado/deducido',
+	lbColSalTiempo :								'Saldo en tiempo',
+	lbColSalImport :								'Saldo importe',
+	lbColPromedioImporte :							'Promedio importe',
+	
+	lbColFormAcumulacionDias:						'Acumulaci&oacute;n D. ',
+	lbColFormAcumulacionImpo:						'Acumulaci&oacute;n I. ',
+	lbColFormLiquidacionDias:						'Liquidaci&oacute;n D. ',
+	lbColFormLiquidacionImpo:						'Liquidaci&oacute;n I. ',
+	
+	lbColDenominacion:								'Denominaci&oacute;n',
+	lbColFormaEntrada:								'Forma entrada',
+	lbColDenomReporte:								'Denom. del reporte',
+	lbColDenomVarReporte:							'Denom. var. del reporte',
+	
+	lbMaskGridCargando:								'Cargando…', 
+	
+	lbErrorCampoVacio:                          	'Este campo es obligatorio.', 
+	lbFechaMaxima:                   				'La fecha de inicio tiene que ser anterior o igual a la fecha fin.',
+	lbFechaMinima:                             		'La fecha fin tiene que ser posterior o igual a la fecha de inicio.',
+	invalidTextFecha:                           	'Formato: dd/mm/aaaa.',
+
+	lbBtnCancelar:									'Cancelar',
+	textToolTipCancelar:							'Cerrar ventana sin guardar los datos (<b>Alt+X</b>)',
+	lbBtnAplicar:									'Aplicar',
+	textToolTipAplicar:                        	 	'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+	lbBtnAceptar:									'Aceptar',
+	textToolTipAceptar:                         	'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+	lbBtnCerrar:									'Cerrar',
+	textToolTipCerrar:								'Cerrar ventana',
+	
+	lbBtnHisCancelar:								'Cancelar',
+	textToolTipHisCancelar:							'Cerrar ventana sin guardar los datos',
+	lbBtnHisAceptar:								'Aceptar',
+	textToolTipHisAceptar:                         	'Guardar datos y cerrar ventana',
+	
+	lbMsgEsperaEnviarDatos:							'Por favor espere…',
+	
+	lbMsgAdicionarVac:								'Adicionando datos de submayor de vacaciones...',
+	lbMsgModificarVac:								'Modificando datos de submayor de vacaciones...',
+	lbMsgEliminarVac:								'Eliminando datos de submayor de vacaciones...',
+
+	lbMsgCorrectoAdicionarVac:						'Los datos de submayor de vacaciones han sido adicionados satisfactoriamente.',
+	lbMsgCorrectoModificadoVac:						'Los datos de submayor de vacaciones han sido modificados satisfactoriamente.',
+	lbMsgCorrectoEliminadoVac:						'Los datos de submayor de vacaciones han sido eliminados satisfactoriamente.',
+	lbMsgCorrectoEliminadoHisVac:						'Los datos del hist&oacute;rico del submayor de vacaciones han sido eliminados satisfactoriamente.',
+
+	lbErrorFormulario:								'Por favor verifique nuevamente que hay campo(s) con valor(es) incorrecto(s).',
+	lbTitleEliminarVac: 							'¿Est&aacute; seguro que quiere eliminar los datos de submayor de vacaciones seleccionados?',	
+	lbTitleEliminarHisVac: 							'¿Est&aacute; seguro que quiere eliminar los datos del hist&oacute;rico del submayor de vacaciones seleccionado?',	
+	
+	btnAceptarPeriodo:                              'Aceptar',
+    lbColAjusteImporte:                             'Ajuste importe',
+    lbColAjusteTiempo:                              'Ajuste tiempo',
+    lbColTipoAjuste:                                'Tipo Ajuste',
+    lbTitleGridHistAjustVac:                        'Hist&oacute;rico de ajustes',
+
+    lbMsgCuadrarVac:                                'Cuadrando los datos de submayor de vacaciones...',
+    lbMsgCorrectoCuadreVac:					     	'Los datos de submayor de vacaciones han sido cuadrados satisfactoriamente.',
+
+}

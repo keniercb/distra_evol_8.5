@@ -1,0 +1,27 @@
+Ext.define('SolicitudNegocio.model.SolicitudNegocio', {
+    extend: 'Ext.data.Model',
+    fields: [
+        {name: 'idsolicitud'},
+        {name: 'numero'},
+        {name: 'nombre'},
+        {name: 'numerosolicitud'},
+        {name: 'idclienteproveedor'},
+        {name: 'clienteproveedor'},
+        {name: 'idsector'},
+        {name: 'sector'},
+        {name: 'idarea'},
+        {name: 'arearesponsable'},
+        {name: 'descripcion'},
+        {name: 'fechacreada'},
+        {name: 'areasimplicadas'},
+        {name: 'idestado'},
+        {name: 'estadoicon'},
+        {name: 'estado'},
+        {name: 'idespaciotrabajo'},
+        {name: 'docadicionales'},
+        {name: 'cantofertas'},
+        {name: 'cliente'},
+        {name: 'idproveedores'},
+        {name: 'fechaestado'},
+    ]
+});

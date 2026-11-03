@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<COMPONENTES>
+    <PAQUETE>
+        <NAME>seguridad</NAME>
+        <ID>1</ID>
+        <ESTADO>INSTALADO</ESTADO>
+        <DENOMINACION>seguridad</DENOMINACION>
+        <VERSIONINSTALADA>1.0</VERSIONINSTALADA>
+        <VERSION>1.0</VERSION>
+        <URI>http://10.12.168.26/seguridad.rar</URI>
+        <DEPENDENCIAS>capitalhumano, trazas</DEPENDENCIAS>
+        <DESCRIPCION>Este es el componente se...</DESCRIPCION>
+    </PAQUETE>
+    <PAQUETE>
+        <NAME>contabilidad</NAME>
+        <ID>2</ID>
+        <ESTADO>DESINSTALADO</ESTADO>
+        <DENOMINACION>contabilidad</DENOMINACION>
+        <VERSIONINSTALADA>-</VERSIONINSTALADA>
+        <VERSION>1.0</VERSION>
+        <URI>http://10.12.168.26/Contabilidad.rar</URI>
+        <DEPENDENCIAS>seguridad, capitalhumano, trazas</DEPENDENCIAS>
+        <DESCRIPCION>Este es el componente se...</DESCRIPCION>
+    </PAQUETE>
+</COMPONENTES>
+

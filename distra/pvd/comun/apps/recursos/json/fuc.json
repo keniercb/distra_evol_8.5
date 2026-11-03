@@ -1,0 +1,8 @@
+{
+  "url": "https://apis-fuc.xutil.cu/",
+  "postfields": "grant_type=client_credentials&scope=nivel4",
+  "servicio": "pn-api-consulta/2.0.210111",
+  "consumer_key": "oR_Tp0Z7hiQ5UUJSnGlZmtjxtX8a",
+  "consumer_secret": "c5WbOtNQTdsgdv0i3A1CS5DhuCga",
+  "consulta": "/api/v1/nivel4"
+}

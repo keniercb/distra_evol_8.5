@@ -1,0 +1,194 @@
+<cargador>
+    <nomencladores>
+        <gestionarnomencladores>
+        </gestionarnomencladores>
+        <cargar>
+            <nomenclador consulta='select idmoneda,codigoiso,nombremoneda from mod_datosmaestros.nom_moneda'
+                         cond='codigoiso|nombremoneda|limit|offset'>NomMoneda
+            </nomenclador>
+            <nomenclador consulta='select idcliente,codigocliente,nombrecliente from mod_datosmaestros.nom_cliente'
+                         cond='codigocliente|nombrecliente|limit|offset'>NomCliente
+            </nomenclador>
+            <nomenclador consulta='select idtipotasa,nombretipotasa from mod_datosmaestros.nom_tipotasa'
+                         cond='codigocliente|nombrecliente|limit|offset'>NomTipotasa
+            </nomenclador>
+            <nomenclador consulta='select idpais,codigopais,nombrepais from mod_datosmaestros.nom_pais'
+                         cond='codigopais|nombrepais|limit|offset'>NomPais
+            </nomenclador>
+        </cargar>
+        <cargarselect>
+            <nomenclador consulta='select * from mod_datosmaestros.nom_pais'>NomPais</nomenclador>
+        </cargarselect>
+    </nomencladores>
+
+    <gestmultimoneda>
+        <cargartasacamb>
+            <nomenclador
+                    consulta='SELECT dat_tasa.idtasa,dat_tasa.idtasaconversion,dat_tasa.factordeconversion,dat_tasa.venta,dat_tasa.compra,dat_tasa.cotizacionvariable,dat_tasa.desde,dat_tasa.hasta,dat_tasa.idcliente,dat_tasa.referencia,dat_tasa.idtipotasa,dat_tasa.nombretasa,nom_tipotasa.nombretipotasa FROM mod_datosmaestros.dat_tasa INNER JOIN mod_datosmaestros.nom_tipotasa ON (mod_datosmaestros.dat_tasa.idtipotasa = mod_datosmaestros.nom_tipotasa.idtipotasa)'
+                    cond='nombretipotasa|idtasaconversion|idcliente|compra|venta|nombretasa|desde|hasta|limit|offset'>
+                DatTasa
+            </nomenclador>
+        </cargartasacamb>
+        <cargarlistasa>
+            <nomenclador
+                    consulta='SELECT his_tasa.idtasa,his_tasa.idtasaconversion,his_tasa.factordeconversion,his_tasa.venta,his_tasa.compra,his_tasa.cotizacionvariable,his_tasa.desde,his_tasa.hasta,his_tasa.idcliente,his_tasa.referencia,his_tasa.fechacambio,his_tasa.idtipotasa,his_tasa.nombretasa,nom_tipotasa.nombretipotasa FROM mod_datosmaestros.his_tasa INNER JOIN mod_datosmaestros.nom_tipotasa ON (mod_datosmaestros.his_tasa.idtipotasa = mod_datosmaestros.nom_tipotasa.idtipotasa)'
+                    cond='nombretasa|idtasaconversion|idcliente|nombretipotasa|desde|compra|venta|hasta|limit|offset'>
+                HisTasa
+            </nomenclador>
+        </cargarlistasa>
+        <cargarmonedacont>
+            <nomenclador
+                    consulta='select idmonedacontable,nom_moneda.codigoiso as moneda,nom_pais.codigopais as pais,descripcion,monaltern,dat_moneda.idpais,dat_moneda.idmoneda from mod_datosmaestros.dat_moneda inner join mod_datosmaestros.nom_moneda on mod_datosmaestros.dat_moneda.idmoneda = mod_datosmaestros.nom_moneda.idmoneda inner join mod_datosmaestros.nom_pais on mod_datosmaestros.dat_moneda.idpais =mod_datosmaestros.nom_pais.idpais'
+                    cond='nom_moneda.codigoiso|nom_pais.codigopais|descripcion|limit|offset'>DatMoneda
+            </nomenclador>
+        </cargarmonedacont>
+        <cargartasaconversion>
+            <nomenclador
+                    consulta='SELECT  dat_tasaconversion.idtasaconversion,dat_tasaconversion.idmonedacontable,dat_tasaconversion.idmoneda,dat_tasaconversion.nombre,dat_tasaconversion.precisiondeprecios,dat_tasaconversion.precisiondeimportes,nom_moneda.codigoiso AS moneda FROM mod_datosmaestros.dat_tasaconversion INNER JOIN mod_datosmaestros.nom_moneda ON (mod_datosmaestros.dat_tasaconversion.idmoneda = mod_datosmaestros.nom_moneda.idmoneda)'
+                    cond='codigoiso|nombre|idmonedacontable|precisiondeprecios|precisiondeimportes|limit|offset'>
+                DatTasaConversion
+            </nomenclador>
+        </cargartasaconversion>
+        <cargarselect>
+            <nomenclador consulta='select idmoneda,codigoiso from mod_datosmaestros.nom_moneda'>NomMoneda</nomenclador>
+            <nomenclador consulta='select idpais,codigopais from mod_datosmaestros.nom_pais'>NomPais</nomenclador>
+            <nomenclador
+                    consulta='select idmonedacontable,codigoiso as descripcion from mod_datosmaestros.dat_moneda dm inner join mod_datosmaestros.nom_moneda nm on dm.idmoneda=nm.idmoneda'
+                    cond='dm.monaltern|'>DatMoneda
+            </nomenclador>
+            <nomenclador consulta='select idtipotasa,nombretipotasa from mod_datosmaestros.nom_tipotasa'>NomTipotasa
+            </nomenclador>
+            <nomenclador
+                    consulta='select codigo as idcliente,nombre as nombrecliente from mod_datosmaestros.nom_entidadpersona'>
+                NomCliente
+            </nomenclador>
+            <nomenclador
+                    consulta='select idtasa,venta,compra,idmonedacontable,desde,hasta,idcliente,referencia,idtipotasa,idmoneda,nom_tipotasa.nombretipotasa from mod_datosmaestros.dat_tasa INNER JOIN mod_datosmaestros.nom_tipotasa ON (mod_datosmaestros.dat_tasa.idtipotasa = mod_datosmaestros.nom_tipotasa.idtipotasa )'
+                    cond='idtipotasa|limit|offset'>DatTasa
+            </nomenclador>
+            <nomenclador
+                    consulta='SELECT  dat_tasaconversion.idtasaconversion,dat_tasaconversion.nombre FROM mod_datosmaestros.dat_tasaconversion'>
+                DatTasaConversion
+            </nomenclador>
+            <nomenclador consulta='select idtasa,nombretasa from mod_datosmaestros.dat_tasa'>NombreTasa</nomenclador>
+        </cargarselect>
+    </gestmultimoneda>
+    <formatos>
+        <gestionarformatos>
+        </gestionarformatos>
+        <cargar>
+            <nomenclador
+                    consulta='select idformato,nombre,descripcion,separador as longitud,separador,separador as estructura,separador as vistap from mod_datosmaestros.dat_formato'
+                    cond='idformato|nombre|descripcion|separador|limit|offset'>DatFormato
+            </nomenclador>
+            <nomenclador
+                    consulta='select idparteformato,nombre,abreviatura,nivel,longitud,idformato from mod_datosmaestros.dat_parteformato'
+                    cond='idparteformato|nombre|abreviatura|nivel|longitud|idformato|limit|offset'>DatParteformato
+            </nomenclador>
+        </cargar>
+        <cargarpartes>
+            <nomenclador
+                    consulta='select idparteformato,nombre,abreviatura,nivel,longitud,idformato from mod_datosmaestros.dat_parteformato'
+                    cond='idparteformato|nombre|abreviatura|nivel|longitud|idformato|limit|offset' order='nivel'>
+                DatParteformato
+            </nomenclador>
+        </cargarpartes>
+        <cargarselect>
+            <nomenclador consulta='select idmoneda,codigoiso from mod_datosmaestros.nom_moneda'>NomMoneda</nomenclador>
+            <nomenclador consulta='select idpais,codigopais from mod_datosmaestros.nom_pais'>NomPais</nomenclador>
+            <nomenclador consulta='select idmonedacontable,descripcion from mod_datosmaestros.dat_moneda'>
+                DatMonedacontable
+            </nomenclador>
+            <nomenclador consulta='select idtipotasa,nombretipotasa from nom_tipotasa'>NomTipotasa</nomenclador>
+            <nomenclador consulta='select idcliente,nombrecliente from mod_datosmaestros.nom_cliente'>NomCliente
+            </nomenclador>
+            <nomenclador
+                    consulta='select idtasa,venta,compra,idmonedacontable,desde,hasta,idcliente,referencia,idtipotasa,idmoneda from mod_datosmaestros.dat_tasa'>
+                DatTasa
+            </nomenclador>
+        </cargarselect>
+    </formatos>
+    <ejercicios>
+        <gestionarejercicios>
+        </gestionarejercicios>
+        <cargar>
+            <nomenclador
+                    consulta='select e.idejercicio,e.nombre,e.inicio,e.fin,e.annonatural as anonatural from mod_datosmaestros.dat_ejerciciocontable e'
+                    cond='idejercicio|nombre|inicio|fin|limit|offset'>DatEjerciciocontable
+            </nomenclador>
+        </cargar>
+        <cargarperiodos>
+            <nomenclador
+                    consulta='select p.idperiodo,p.nombre,p.inicio,p.fin,p.idejercicio from mod_datosmaestros.dat_periodocontable p'
+                    cond='idperiodo|nombre|inicio|fin|idejercicio|limit|offset' order='inicio,fin'>DatPeriodocontable
+            </nomenclador>
+        </cargarperiodos>
+        <cargarselect>
+            <nomenclador consulta='select idmoneda,codigoiso from mod_datosmaestros.nom_moneda'>NomMoneda</nomenclador>
+            <nomenclador consulta='select idpais,codigopais from mod_datosmaestros.nom_pais'>NomPais</nomenclador>
+            <nomenclador consulta='select idmonedacontable,descripcion from mod_datosmaestros.dat_moneda'>
+                DatMonedacontable
+            </nomenclador>
+            <nomenclador consulta='select idtipotasa,nombretipotasa from mod_datosmaestros.nom_tipotasa'>NomTipotasa
+            </nomenclador>
+            <nomenclador consulta='select idcliente,nombrecliente from mod_datosmaestros.nom_cliente'>NomCliente
+            </nomenclador>
+            <nomenclador
+                    consulta='select idtasa,venta,compra,idmonedacontable,desde,hasta,idcliente,referencia,idtipotasa,idmoneda from mod_datosmaestros.dat_tasa'>
+                DatTasa
+            </nomenclador>
+        </cargarselect>
+    </ejercicios>
+    <proveedoresclient>
+        <gestionarentidadpersona>
+        </gestionarentidadpersona>
+        <cargar>
+            <nomenclador
+                    consulta='select e.codigo,e.codigoreeup,e.abreviatura,e.nombre,e.direccion,e.email,e.telefono,e.nit,e.ircc,e.provedor from mod_datosmaestros.nom_entidadpersona e'
+                    cond='codigo|codigoreeup|abreviatura|nombre|direccion,|email|telefono|nit|ircc|provedor|limit|offset'>
+                Entidadpersona
+            </nomenclador>
+        </cargar>
+        <cargarproveedores>
+            <nomenclador
+                    consulta='select p.codigo,p.codigoreeup,p.nombre,p.direccion,p.abreviatura,p.email,p.telefono,p.nit,p.ircc,p.provedor from mod_datosmaestros.nom_periodocontable p'
+                    cond='codigo|codigoreeup|abreviatura|nombre|direccion,|email|telefono|nit|ircc|provedor|limit|offset'
+                    order='inicio'>DatPeriodocontable
+            </nomenclador>
+        </cargarproveedores>
+        <cargarselect>
+            <nomenclador
+                    consulta='select codigo,codigoreeup,nombre,direccion,abreviatura,email,telefono,nit,ircc,provedor from mod_datosmaestros.nom_entidadpersona'>
+                entidadpersona
+            </nomenclador>
+            <nomenclador consulta='select idpais,codigopais from mod_datosmaestros.nom_pais'>NomPais</nomenclador>
+            <nomenclador consulta='select idmonedacontable,descripcion from mod_datosmaestros.dat_moneda'>
+                DatMonedacontable
+            </nomenclador>
+            <nomenclador consulta='select idtipotasa,nombretipotasa from mod_datosmaestros.nom_tipotasa'>NomTipotasa
+            </nomenclador>
+            <nomenclador consulta='select idcliente,nombrecliente from mod_datosmaestros.nom_cliente'>NomCliente
+            </nomenclador>
+            <nomenclador
+                    consulta='select idtasa,venta,compra,idmonedacontable,desde,hasta,idcliente,referencia,idtipotasa,idmoneda from mod_datosmaestros.dat_tasa'>
+                DatTasa
+            </nomenclador>
+        </cargarselect>
+    </proveedoresclient>
+    <bancos>
+        <gestionarbancos>
+        </gestionarbancos>
+        <cargar>
+            <nomenclador consulta='select e.idbanco,e.codigo,e.nombre from mod_datosmaestros.nom_banco e'
+                         cond='idbanco|codigo|nombre|limit|offset'>NomBanco
+            </nomenclador>
+        </cargar>
+        <cargarsucursales>
+            <nomenclador
+                    consulta='select p.idsucursal,p.numero,p.direccion,p.idbanco from mod_datosmaestros.nom_sucursal p'
+                    cond='idsucursal|numero|direccion|idbanco|limit|offset'>NomSucursal
+            </nomenclador>
+        </cargarsucursales>
+
+    </bancos>
+</cargador>

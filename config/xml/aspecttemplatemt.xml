@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aspecttemplates>
+	<aspect name="initRegistry" execution="pre"/>
+	<aspect name="initConfigApp" execution="pre"/>
+	<aspect name="initSession" execution="pre"/>
+	<aspect name="authenticateUser" execution="pre"/>
+	<aspect name="getUserData" execution="pre"/>
+	<aspect name="globalConcept" execution="pre"/>
+	<aspect name="initModuleConnection" execution="pre"/>
+	<aspect name="initTransactions" execution="pre"/>
+	<aspect name="beginTraceAction" execution="pre"/>
+	<aspect name="validateParamsAction" execution="pre"/>
+	<aspect name="endTraceAction" execution="post"/>
+	<aspect name="commitTransactions" execution="post"/>
+	<aspect name="rollbackTransactions" execution="failed"/>
+	<aspect name="failedTraceAction" execution="failed"/>
+	<aspect name="managerException" execution="failed"/>
+</aspecttemplates>

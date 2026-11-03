@@ -1,0 +1,30 @@
+{
+  "lbAdicionar": "Adicionar",
+  "lbAdicionarTpl": "Adicionar equipos",
+  "lbEliminar": "Eliminar",
+  "lbEliminarTpl": "Eliminar equipos",
+
+  "lbHColNro": "Nro",
+
+
+  "lbHColEquipo": "Equipo",
+  "lbHColInventario": "No. Inventario",
+
+  "lbconcepto": "equipo",
+
+  "lbColCodigo": "C&oacute;digo",
+  "lbColEquipos": "Equipos",
+  "lbColDenominacion": "Denominaci&oacute;n",
+  "lbArea": "&Aacute;rea de responsabilidad",
+  "lbCentroCosto": "Centro de costo",
+  "lbResponsable": "Responsable",
+
+  "lbMsgAddEquipoOk":"Los equipos han sido adicionados satisfactoriamente.",
+  "lbMsgAddEquipoError": "Los equipos no se han podido adicionar.",
+
+  "lbMsgDelEquiposConfirm": "¿Est&aacute; seguro que desea eliminar los equipos seleccionados?",
+  "lbMsgDelEquipoOk": "Los equipos han sido eliminados satisfactoriamente.",
+  "lbMsgDelEquipoError": "Los equipos no se han podido eliminar."
+
+}
+

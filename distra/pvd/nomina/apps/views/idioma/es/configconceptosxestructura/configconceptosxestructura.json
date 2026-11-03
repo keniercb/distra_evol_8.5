@@ -1,0 +1,69 @@
+{
+    lbTitleConcEstr: 'Listado de estructuras',
+    lbTitleConcEstr: 'Listado de conceptos ',
+
+    lbTitleVentAdicionarConcEstr: 'Adicionar elemento salarial',
+    lbTitleVentModificarConcEstr: 'Modificar elemento salarial',
+
+    lbMaskGridCargando    : 'Cargando…',
+    lbMsgEsperaEnviarDatos: 'Por favor espere…',
+    lbMsgAdicionarConcEstr: 'Adicionando datos del elemento salarial...',
+    lbMsgModificarConcEstr: 'Modificando datos del elemento salarial...',
+    lbMsgEliminarConcEstr : 'Eliminando datos de tipo del elemento salarial...',
+
+    lbTitleEliminarConcEstr        : '¿Está seguro que quiere eliminar el elemento salarial seleccionado?',
+    lbMsgCorrectoAdicionadoConcEstr: 'El elemento salarial ha sido adicionado satisfactoriamente.',
+    lbMsgCorrectoModificadoConcEstr: 'El elemento salarial ha sido modificado satisfactoriamente.',
+    lbMsgCorrectoEliminadoConcEstr : 'El elemento salarial ha sido eliminado satisfactoriamente.',
+
+    lbColEstructura       : 'Estructura',
+    lbTitleCargo          : 'Cargos',
+    lbColSistemapago      : 'Sistema de pago',
+    lbColPeriodopago      : 'Periodo de pago',
+    lbColGrupoEscala      : 'Grupo escala',
+    lbColSectorSalarial   : 'Sector salarial',
+    lbColEscalaSueldoCargo: 'Escala sueldo por cargo',
+    lbColImporte          : 'Sueldo por cargo',
+    lbColDesde            : 'Fecha inicio',
+    lbColHasta            : 'Fecha fin',
+    lbColDescripcion      : 'Descripci&oacute;n',
+
+    lbTitleConcepto    : 'Conceptos de percepciones y descuentos',
+    lbColAbreviatura   : 'Abreviatura',
+    lbColgpDenominacion: 'Denominaci&oacute;n',
+    lbColTarifa        : 'Tarifa',
+
+    lbBtnAdicionarC: 'Ad<u>i</u>cionar',
+    lbBtnModificarC: '<u>M</u>odificar',
+    lbBtnEliminarC : 'Eliminar',
+    lbBtnAyudaC    : 'Ayuda',
+
+    textToolTipAddConceptoC : 'Adicionar concepto de concepciones y descuentos (<b>Alt+I</b>)',
+    textToolTipModConceptoC : 'Modificar concepto de concepciones y descuentos (<b>Alt+M</b>)',
+    textToolTipElimConceptoC: 'Eliminar concepto de concepciones y descuentos (<b>DEL</b>)',
+
+    lbBtnAdicionar: 'Ad<u>i</u>cionar',
+    lbBtnModificar: '<u>M</u>odificar',
+    lbBtnEliminar : 'Eliminar',
+    lbBtnAyuda    : 'Ayuda',
+
+    textToolTipAddConcEstr : 'Adicionar elemento salarial (<b>Alt+I</b>)',
+    textToolTipModConcEstr : 'Modificar elemento salarial (<b>Alt+M</b>)',
+    textToolTipElimConcEstr: 'Eliminar elemento salarial (<b>DEL</b>)',
+
+    textToolTipAyudaConcEstr: 'Mostrar ayuda de la funcionalidad (<b>Alt+H</b>)',
+
+
+    lbErrorCampoVacio  : 'Este campo es obligatorio.',
+    lbFechaMaxima      : 'La fecha de inicio tiene que ser anterior o igual a la fecha fin.',
+    lbFechaMinima      : 'La fecha fin tiene que ser posterior o igual a la fecha de inicio.',
+    invalidTextFecha   : 'Formato: dd/mm/aaaa.',
+    lbMaxText_225      : 'El tama&ntilde;o m&aacute;ximo requerido es 255 d&iacute;gitos.',
+    lbErrorFormulario  : 'Por favor verifique nuevamente que hay campo(s) con valor(es) incorrecto(s).',
+    lbBtnCancelar      : 'Cancelar',
+    textToolTipCancelar: 'Cerrar ventana sin guardar los datos (<b>Alt+X</b>)',
+    lbBtnAplicar       : 'Aplicar',
+    textToolTipAplicar : 'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+    lbBtnAceptar       : 'Aceptar',
+    textToolTipAceptar : 'Guardar datos y limpiar los campos (<b>Alt+P</b>)',
+}

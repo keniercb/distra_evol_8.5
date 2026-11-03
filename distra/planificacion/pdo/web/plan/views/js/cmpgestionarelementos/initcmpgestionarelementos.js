@@ -1,0 +1,1 @@
+objcmpelementos = new Utilidades.Cmp.Cmpgestionarelementos();

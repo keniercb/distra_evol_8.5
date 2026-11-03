@@ -1,0 +1,139 @@
+<html>
+<head>
+    <title>Control de la disponibilidad t&eacute;cnica de la flota</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/javascript"
+            src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+    <script language="javascript"
+            type="text/javascript">importarCSS(window.parent.parent.UCID.portal.perfil.dirCss);</script>
+    <link href="<?php echo $this->dir_ext_ccs; ?>css/ext-all.css"
+          rel="stylesheet" type="text/css" media="screen"/>
+    <link rel="stylesheet" type="text/css"
+          href="/configuracion/nomgenerales/views/css/comun/nomencladores.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="/configuracion/comun/views/css/column-tree.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="/configuracion/nomgenerales/views/css/comun/treegrid.css"/>
+
+</head>
+<body>
+<script type="text/javascript"
+        src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+<script type="text/javascript"
+        src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+<script type="text/javascript"
+        src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+
+<script type="text/javascript"
+        src="/configuracion/comun/views/js/rowExpander.plugins.js"></script>
+<script type="text/javascript"
+        src="/configuracion/comun/views/js/RowExpander.js"></script>
+<script type="text/javascript"
+        src="/configuracion/comun/views/js/ColumnNodeUI.js"></script>
+<script type="text/javascript"
+        src="/configuracion/comun/views/js/Ext.ux.grid.ProgressColumn.js"></script>
+<script type="text/javascript"
+        src="/configuracion/comun/views/js/treegrid.js"></script>
+<script type="text/javascript"
+        src="/configuracion/comun/views/js/filtro_columnas/ComboItem.js"></script>
+<script type="text/javascript"
+        src="/configuracion/comun/views/js/filtro_columnas/EditableItem.js"></script>
+<script type="text/javascript"
+        src="/configuracion/comun/views/js/filtro_columnas/Filter.js"></script>
+<script type="text/javascript"
+        src="/configuracion/comun/views/js/filtro_columnas/BooleanFilter.js"></script>
+<script type="text/javascript"
+        src="/configuracion/comun/views/js/filtro_columnas/ListadoFilter.js"></script>
+<script type="text/javascript"
+        src="/configuracion/comun/views/js/filtro_columnas/ListFilter.js"></script>
+<script type="text/javascript"
+        src="/configuracion/comun/views/js/filtro_columnas/NumericFilter.js"></script>
+<script type="text/javascript"
+        src="/configuracion/comun/views/js/filtro_columnas/RangeMenu.js"></script>
+<script type="text/javascript"
+        src="/configuracion/comun/views/js/filtro_columnas/String_adaptadoFilter.js"></script>
+<script type="text/javascript"
+        src="/configuracion/comun/views/js/filtro_columnas/StringFilter.js"></script>
+<script type="text/javascript"
+        src="/configuracion/comun/views/js/filtro_columnas/TextFieldItem.js"></script>
+<script type="text/javascript"
+        src="/configuracion/comun/views/js/filtro_columnas/DateFilter.js"></script>
+<script type="text/javascript"
+        src="/configuracion/comun/views/js/filtro_columnas/GridFilters.js"></script>
+
+<script type="text/javascript"
+        src="/logistica/activos_fijos/plugins/comun/views/js/subscriptorplugin/listaplugins.js">
+</script>
+<script type="text/javascript"
+        src="/logistica/activos_fijos/plugins/transporte/views/js/transporteplugin/VistaTransportacionPlugin.js">
+</script>
+<script type="text/javascript"
+        src="/logistica/activos_fijos/plugins/transporte/views/js/transporteplugin/transportacionCampos.js"></script>
+<script type="text/javascript"
+        src="/logistica/activos_fijos/utiles/views/js/comun/regnumerico.campos.js"></script>
+<script type="text/javascript"
+        src="/logistica/activos_fijos/utiles/views/js/gestarearesponsabilidad/gestarearesponsabilidad.js"></script>
+
+<script type="text/javascript"
+        src="/logistica/activos_fijos/cdt/views/js/controldisponibilidad/pFiltro.component.js"></script>
+<script type="text/javascript"
+        src="/logistica/activos_fijos/cdt/views/js/controldisponibilidad/gpCentral.component.js"></script>
+<script type="text/javascript"
+        src="/logistica/activos_fijos/cdt/views/js/controldisponibilidad/gpCentral.component.js"></script>
+<script type="text/javascript"
+        src="/logistica/activos_fijos/cdt/views/js/controldisponibilidad/pDisponibilidad.component.js"></script>
+<script type="text/javascript"
+        src="/logistica/activos_fijos/cdt/views/js/controldisponibilidad/gpControlDisponibilidad.component.js"></script>
+<script type="text/javascript"
+        src="/logistica/activos_fijos/cdt/views/js/controldisponibilidad/winBusquedaAvanzada.js"></script>
+
+<script type="text/javascript"
+        src="/logistica/activos_fijos/cdt/views/js/controldisponibilidad/tpControlDisponibilidad.component.js"></script>
+<script type="text/javascript"
+        src="/logistica/activos_fijos/cdt/views/js/controldisponibilidad/main.component.js"></script>
+
+<style>
+    .upload-icon {
+        background: no-repeat 0 0 !important;
+    }
+
+    #fi-button-msg {
+        border: 2px solid #ccc;
+        padding: 5px 10px;
+        background: #eee;
+        margin: 5px;
+        float: left;
+    }
+
+    .x-form-file-wrap {
+        position: relative;
+        height: 22px;
+    }
+
+    .x-form-file-wrap .x-form-file {
+        position: absolute;
+        right: 0;
+        -moz-opacity: 0;
+        filter: alpha(opacity:0);
+        opacity: 0;
+        z-index: 2;
+        height: 22px;
+    }
+
+    .x-form-file-wrap .x-form-file-btn {
+        position: absolute;
+        right: 0;
+        z-index: 1;
+    }
+
+    .x-form-file-wrap .x-form-file-text {
+        position: absolute;
+        left: 0;
+        z-index: 3;
+        color: #777;
+    }
+</style>
+
+<?php echo $this->jsayuda; ?>
+</body>
+</html>

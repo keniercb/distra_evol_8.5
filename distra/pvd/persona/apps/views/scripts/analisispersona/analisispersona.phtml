@@ -1,0 +1,78 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>A</title>
+    <link href="<?php echo $this->dir_ext_ccs; ?>css/icon-clases.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="<?php echo $this->dir_ext_ccs; ?>css/ext-all.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/pvd/maestro/reportes/views/css/configurarreporte/configurarreporte.css"
+          type="text/css"
+          media="screen"/>
+    <link rel="stylesheet" href="/pvd/maestro/reportes/views/css/reporte/reporte.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/metadatos/comun/componentes/MultiComboSelect/multicomboselect.css"  type="text/css"/>
+</head>
+<body>
+<script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-win-iframe.js"></script>
+<!--  Componentes  -->
+<script type="text/javascript"
+        src="/pvd/maestro/reportes/views/js/configurarreporte/tags/es/configurarreporte.js"></script>
+<script type="text/javascript" src="/pvd/maestro/reportes/views/js/configurarreporte/base/base.js"></script>
+
+<script type="text/javascript" src="/pvd/maestro/reportes/views/js/reporte/tags/es/reporte.js"></script>
+<script type="text/javascript" src="/pvd/maestro/reportes/views/js/reporte/controller/MenuReporte.js"></script>
+<script type="text/javascript" src="/pvd/maestro/reportes/views/js/reporte/store/menureporte.js"></script>
+<script type="text/javascript" src="/pvd/maestro/reportes/views/js/reporte/view/Container.js"></script>
+<script type="text/javascript" src="/pvd/maestro/reportes/views/js/reporte/view/MenuReporte.js"></script>
+<script type="text/javascript" src="/pvd/maestro/reportes/views/js/reporte/view/TabPanelReporte.js"></script>
+<script type="text/javascript" src="/pvd/maestro/reportes/views/js/reporte/MenuApp.js"></script>
+<script type="text/javascript" src="/pvd/comun/views/js/utiles/treeComboBox.js"></script>
+<script type="text/javascript" src="/pvd/maestro/reportes/views/js/reporte/controller/Reporte.js"></script>
+<script type="text/javascript" src="/pvd/maestro/reportes/views/js/reporte/view/PanelFilters.js"></script>
+<script type="text/javascript" src="/pvd/maestro/reportes/views/js/reporte/view/TbarReporteData.js"></script>
+<script type="text/javascript" src="/pvd/maestro/reportes/views/js/reporte/view/ReporteData.js"></script>
+<script type="text/javascript" src="/pvd/maestro/reportes/views/js/reporte/view/ContainerReporte.js"></script>
+<script type="text/javascript" src="/pvd/maestro/reportes/views/js/reporte/ReporteApp.js"></script>
+<!--  Libreria para graficar  -->
+<!--
+<script type="text/javascript" src="/logistica/utiles/plugin/views/js/graficas/extension/core.js"></script>
+<script type="text/javascript" src="/pvd/comun/bibliotecas/highchart/jquery-1.8.2/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="/pvd/comun/bibliotecas/highchart/js/highcharts.js"></script>
+<script type="text/javascript" src="/pvd/comun/bibliotecas/highchart/js/modules/exporting.js"></script>
+<script type="text/javascript" src="/pvd/evaluaciones/procesoevaluativo/views/js/resumenprocesoevaluativo/HighchartPanel.js"></script>                         
+-->  
+       
+<!-- Gráficas -->
+<script type="text/javascript" src="/logistica/utiles/plugin/views/js/graficas/extension/core.js"></script>
+
+<script type="text/javascript" src="/pvd/comun/bibliotecas/highcharts/6.0.3/highcharts.js"></script>
+<script type="text/javascript" src="/pvd/comun/views/js/graficas/graficas.js"></script>
+<script type="text/javascript" src="/pvd/comun/bibliotecas/jquery/jquery-2.2.2.js"></script>
+<script type="text/javascript" src="/pvd/comun/bibliotecas/jspdf/jspdf.debug.js"></script>
+<script type="text/javascript" src="/pvd/comun/bibliotecas/canvg_contex2d/canvg.js"></script>
+<script type="text/javascript" src="/pvd/comun/bibliotecas/canvas2image/canvas2image.js"></script>
+
+
+<script type="text/javascript" src="/pvd/comun/bibliotecas/highchart/js/modules/exporting.js"></script>
+<script language="javascript" type="text/javascript">importarCSS("/pvd/evaluaciones/procesoevaluativo/views/css/iconos.css");</script>
+<script type="text/javascript" src="/pvd/evaluaciones/procesoevaluativo/views/js/resumenprocesoevaluativo/HighchartPanel.js"></script>                           
+                                 
+                                 
+<!--  Para multicombo  -->
+<script type="text/javascript" src="/metadatos/comun/componentes/MultiComboSelect/MultiComboSelect.js"></script>
+<script type="text/javascript" src="/metadatos/comun/componentes/MultiComboSelect/util-multiselect.js"></script> 
+
+<!--  Ayuda  -->
+<?php echo $this->jsayuda; ?>
+<!--  JS de la funcionalidad  -->
+
+<script type="text/javascript" src="/pvd/persona/views/js/analisisP/analisisP.js"></script>
+<script type="text/javascript" src="/pvd/persona/views/js/analisisP/CurvaTallaje.js"></script>
+<script type="text/javascript" src="/pvd/persona/views/js/analisisP/DocumentosIdentificacion.js"></script>
+<script type="text/javascript" src="/pvd/persona/views/js/analisisP/SituacionDefensa.js"></script>
+<script type="text/javascript" src="/pvd/persona/views/js/analisisP/EstadoVivienda.js"></script>
+<script type="text/javascript" src="/pvd/persona/views/js/anexo2/anexo2.js"></script>
+</body>
+</html>

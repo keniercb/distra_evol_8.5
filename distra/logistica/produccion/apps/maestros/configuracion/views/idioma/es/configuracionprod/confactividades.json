@@ -1,0 +1,41 @@
+{
+  "lbAdicionar": "Adicionar",
+  "lbAdicionarTpl": "Adicionar actividad",
+  "lbEliminar": "Eliminar",
+  "lbEliminarTpl": "Eliminar actividad",
+
+  "lbHColNro": "Nro",
+
+
+  "lbHColCarta": "Carta tecnológica",
+  "lbHColCentrocosto":"Centro de costo",
+  
+
+  "lbconcepto": "actividad",
+
+  "lbColCodigo": "C&oacute;digo",
+  "lbColEquipos": "Equipos",
+  "lbColDenominacion": "Denominaci&oacute;n",
+  "lbArea": "&Aacute;rea de responsabilidad",
+  "lbCentroCosto": "Centro de costo",
+  "lbResponsable": "Responsable",
+  "lbColArea":"Área",
+  "lbColCentro":"Centro costo",
+
+  "msgInfDatosB":"No existen datos que mostrar.",
+
+  "msgCargandoDatosIniciales": "Cargando datos iniciales",
+  "msjLoadMask": "Espere por favor...",
+
+  "lbWinAdd":"Configuración de actividades y centros de costo",
+  "lbMsgAddActividadOk":"Las actividades han sido adicionadas satisfactoriamente.",
+  "lbMsgAddActividadError": "Las actividades no se han podido adicionar.",
+  "lbModificarTpl":"Modificar actividad",
+
+  "lbMsgActividadConfirm": "¿Est&aacute; seguro que desea eliminar las actividades seleccionadas?",
+  "lbMsgActividadOk": "Las actividades han sido eliminadas satisfactoriamente.",
+  "lbMsgActividadError": "Las actividades no se han podido eliminar.",
+
+  "lbMsgMaxLongNomNomenclador":"El tamaño m&aacute;ximo requerido es 35 caracteres."
+}
+

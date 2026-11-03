@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ioc>
+    <seguridad src="seguridad/comun/recursos/xml/ioc.xml" />
+    <traza src="traza/comun/recursos/xml/ioc.xml" />
+    <metadatos src="metadatos/comun/recursos/xml/ioc.xml" />
+    <reccomplejas src="reccomplejas/comun/recursos/xml/ioc.xml" />
+    <pvd src="pvd/comun/recursos/xml/ioc.xml" />
+    <datosmaestros src="configuracion/comun/recursos/xml/ioc.xml"/>
+    <portal src="portal/comun/recursos/xml/ioc.xml" />
+    <ayuda src="herramientas/comun/recursos/xml/ioc.xml" />
+    <notification src="herramientas/comun/recursos/xml/ioc.xml" />
+    <casoestudio src="casoestudio/comun/recursos/xml/ioc.xml" />
+    <controlpanel src="controlpanel/comun/recursos/xml/ioc.xml" />
+    <gestornc src="herramientas/comun/recursos/xml/ioc.xml"/>
+    <package src="package/comun/recursos/xml/ioc.xml" />
+    <zeolhelp src="zeolhelp/comun/recursos/xml/ioc.xml" />
+    <gestordocumental src="gestordocumental/comun/recursos/xml/ioc.xml"/>
+    <documentacionfisica src="gestordocumental/administracion/documentacionFisica/comun/recursos/xml/ioc.xml"/>
+    <crm src="crm/comun/recursos/xml/ioc.xml"/>
+    <reccomplejas src="reccomplejas/comun/recursos/xml/ioc.xml"/>
+    <planificacion src="planificacion/comun/recursos/xml/ioc.xml"/>
+    <workflow src="planificacion/comun/recursos/xml/ioc.xml" />
+    <pdo src="planificacion/comun/recursos/xml/ioc.xml"/>
+	<planpdo src="planificacion/comun/recursos/xml/ioc.xml"/>
+    <contabilidad src="contabilidad/comun/recursos/xml/ioc.xml" />
+    <contabilidad_financiera src="contabilidad/comun/recursos/xml/ioc.xml" />
+    <caja src="contabilidad/comun/recursos/xml/ioc.xml" />
+    <copa src="contabilidad/comun/recursos/xml/ioc.xml" />
+    <contabilidad_costos src="contabilidad/comun/recursos/xml/ioc.xml" />
+    <costo src="contabilidad/contabilidad_costos/comun/recursos/xml/ioc.xml" />
+    <finanzas src="contabilidad/comun/recursos/xml/ioc.xml" />
+    <banco src="contabilidad/comun/recursos/xml/ioc.xml" />
+    <logistica src="logistica/comun/recursos/xml/ioc.xml" />
+    <inventario src="logistica/inventario/comun/recursos/xml/ioc.xml" />
+    <facturacion src="logistica/facturacion/facturacion/comun_fact/recursos/xml/ioc.xml" />
+    <activos_fijos src="logistica/activos_fijos/comun/recursos/xml/ioc.xml" />
+    <transportacion src="logistica/transportacion/comun/recursos/xml/ioc.xml" />
+    <gis src="gis/comun/recursos/xml/ioc.xml" />   
+    <pki src="pki/comun/recursos/xml/ioc.xml" />
+    <planmeta src="planificacion/comun/recursos/xml/ioc.xml"/>
+    <plan711 src="planificacion/comun/recursos/xml/ioc.xml"/>
+    <intnomencladores src="satdci/int_nomencladores/comun/recursos/xml/ioc.xml" />
+    <intexportar src="satdci/int_exportar/comun/recursos/xml/ioc.xml" />
+    <intestadistica src="satdci/int_estadisticav3/comun/recursos/xml/ioc.xml" />
+</ioc>

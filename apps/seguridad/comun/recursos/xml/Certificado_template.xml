@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<certificado
+        emitido="Quarseg"
+        id="<IDENTIFICADOR>"
+        fecha="<FECHA_EMISION>"
+        usuario="<USER_NAME>"
+        version="3.0"
+        token="<TOKEN_ID>"
+        mac="<MAC>"
+        />

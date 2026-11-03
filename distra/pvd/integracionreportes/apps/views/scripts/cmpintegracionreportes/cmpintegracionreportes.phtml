@@ -1,0 +1,99 @@
+﻿﻿<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>Gestionar reportes</title>
+
+        <style type="text/css">
+            .padding-expander {
+                padding-top: 0px;
+                padding-right: 0px;
+                padding-bottom: 0px;
+                padding-left: 35px;
+            }
+            .x-grid3-hd-row td.ux-filtered-column {
+                font-style: italic;
+                font-weight: bold;
+            }
+            .Estilo3 {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 12px;
+            }
+
+            .Estilo4 {
+                font-size: 12px
+            }
+        </style>
+        <link rel="stylesheet" type="text/css" id="TreeGridcss" href="/configuracion/integracionreportes/comun/css/TreeGrid.css"/>
+        <link rel="stylesheet" id="icons" type="text/css" href="/configuracion/integracionreportes/comun/css/icons.css"/>
+        <link rel="stylesheet" type="text/css" id="file-upload" href="/configuracion/integracionreportes/comun/css/file-upload.css"/>
+        <link rel="stylesheet" type="text/css" id="examplescss" href="/configuracion/integracionreportes/comun/css/examples.css"/>
+
+        <!-- para el combo multiseleccion -->
+        <link rel="stylesheet" type="text/css" href="/configuracion/integracionreportes/comun/css/multiselect.css"/>
+        <link rel="stylesheet" type="text/css" href="/configuracion/integracionreportes/comun/css/Ext.ux.form.LovCombo.css"/>
+
+    </head>
+
+    <body>
+    <!-- archivos que estaban en el head -->
+    <script type="text/javascript" id="imporcss" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+    <script language="javascript" type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+    <script type="text/javascript" id="ext-base" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+    <script type="text/javascript" id="ext-all" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+    <script type="text/javascript" id="ucid-all" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+    <script type="text/javascript" id="jsbn" src="<?php echo $this->dir_ucid; ?>js/security/rsa/jsbn.js"></script>
+    <script type="text/javascript" id="rsa" src="<?php echo $this->dir_ucid; ?>js/security/rsa/rsa.js"></script>
+
+    <!-- FIn archivos que estaban en el head -->
+
+        <!--clases para los filtros por columna -->
+        <script type="text/javascript" id="EditableItem" src="/configuracion/integracionreportes/comun/filtros/EditableItem.js"></script>
+        <script type="text/javascript" id="ComboItem" src="/configuracion/integracionreportes/comun/filtros/ComboItem.js"></script>
+        <script type="text/javascript" id="TextFieldItem" src="/configuracion/integracionreportes/comun/filtros/TextFieldItem.js"></script>
+        <script type="text/javascript" id="RangeMenu" src="/configuracion/integracionreportes/comun/filtros/RangeMenu.js"></script>
+        <script type="text/javascript" id="Filter" src="/configuracion/integracionreportes/comun/filtros/Filter.js"></script>
+        <script type="text/javascript" id="BooleanFilter" src="/configuracion/integracionreportes/comun/filtros/BooleanFilter.js"></script>
+        <script type="text/javascript" id="StringFilter" src="/configuracion/integracionreportes/comun/filtros/StringFilter.js"></script>
+        <script type="text/javascript" id="DateFilter" src="/configuracion/integracionreportes/comun/filtros/DateFilter.js"></script>
+        <script type="text/javascript" id="ListFilter" src="/configuracion/integracionreportes/comun/filtros/ListFilter.js"></script>
+        <script type="text/javascript" id="NumericFilter" src="/configuracion/integracionreportes/comun/filtros/NumericFilter.js"></script>
+        <script type="text/javascript" id="ListadoFilter" src="/configuracion/integracionreportes/comun/filtros/ListadoFilter.js"></script>
+        <script type="text/javascript" id="String_adaptadoFilter" src="/configuracion/integracionreportes/comun/filtros/String_adaptadoFilter.js"></script>
+        <script type="text/javascript" id="GridFilters" src="/configuracion/integracionreportes/comun/filtros/GridFilters.js"></script>
+
+        <script type="text/javascript" id="vtype" src="/configuracion/integracionreportes/comun/js/vtype.js"></script>
+        <script type="text/javascript" id="CmpBase" src="/configuracion/integracionreportes/comun/js/CmpBase.js"></script>
+
+        <script type="text/javascript" id="CmpBarraProgreso" src="/configuracion/integracionreportes/comun/js/CmpBarraProgreso.js"></script>
+
+        <script type="text/javascript" id="Ext.ux.form.LovCombo" src="/configuracion/integracionreportes/comun/js/Ext.ux.form.LovCombo.js"></script>
+        <script type="text/javascript" id="RowExpander" src="/configuracion/integracionreportes/comun/js/RowExpander.js"></script>
+        <script type="text/javascript" id="TreeGridjs" src="/configuracion/integracionreportes/comun/js/TreeGrid.js"></script>
+        <script type="text/javascript" id="CmpPaginadoTreegrid" src="/configuracion/integracionreportes/comun/js/CmpPaginadoTreegrid.js"></script>
+        <script type="text/javascript" id="FileUploadField" src="/configuracion/integracionreportes/comun/js/FileUploadField.js"></script>
+        <script type="text/javascript" id="examplesjs" src="/configuracion/integracionreportes/comun/js/examples.js"></script>
+
+        <script type="text/javascript" id="Ext.ux.form.ThemeCombo" src="/configuracion/integracionreportes/comun/js/Ext.ux.ThemeCombo.js"></script>
+        <script type="text/javascript" id="Ext.ux.form.LovcomboFilter" src="/configuracion/integracionreportes/comun/filtros/LovcomboFilter.js"></script>
+        <script type="text/javascript" id="Ext.ux.form.LovCombo" src="/configuracion/integracionreportes/comun/js/Ext.ux.form.LovCombo.js"></script>
+
+        <script type="text/javascript" id="vtype" src="/configuracion/integracionreportes/comun/js/vtype.js"></script>
+
+        <script type="text/javascript" id="cmpcrudconfiguracion" src="/configuracion/integracionreportes/views/js/cmpconfiguracion/cmpcrudconfiguracion.js"></script>
+        <script type="text/javascript" id="cmpconfiguracion" src="/configuracion/integracionreportes/views/js/cmpconfiguracion/cmpconfiguracion.js"></script>
+
+        <script type="text/javascript" id="cmpgestionarestructura" src="/configuracion/integracionreportes/views/js/cmpgestionarestructura/cmpgestionarestructura.js"></script>
+
+        <script type="text/javascript" id="cmpcrudclasificacion" src="/configuracion/integracionreportes/views/js/cmpclasificacion/cmpcrudclasificacion.js"></script>
+        <script type="text/javascript" id="cmpclasificacion" src="/configuracion/integracionreportes/views/js/cmpclasificacion/cmpclasificacion.js"></script>
+
+        <script type="text/javascript" id="cmpcrudfiltro" src="/configuracion/integracionreportes/views/js/cmpfiltro/cmpcrudfiltro.js"></script>
+        <script type="text/javascript" id="cmpfiltro" src="/configuracion/integracionreportes/views/js/cmpfiltro/cmpfiltro.js"></script>
+
+        <script type="text/javascript" id="cmpcrudreportes" src="/configuracion/integracionreportes/views/js/cmpgestionarreportes/cmpcrudreportes.js"></script>
+        <script type="text/javascript" id="cmpintegracionreportes" src="/configuracion/integracionreportes/views/js/cmpgestionarreportes/cmpgestionarreportes.js"></script>
+        <script type="text/javascript" id="initcmpintegracionreportes" src="/configuracion/integracionreportes/views/js/cmpgestionarreportes/initcmpgestionarreportes.js"></script>
+
+    </body>
+
+</html>

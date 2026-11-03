@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ioc>
+    <logistica src="logistica">
+         <!--Servicio para obtener cualquier componente que este declarado en el fichero cmp.definition.component-->
+        <getComponentDefinition reference="utiles/comun">
+            <inyector clase="LogisticaComponentService" metodo="getComponent"/>
+            <prototipo>
+                <parametro nombre="componentName" tipo="numerosletra"/>
+                <parametro nombre="controller" tipo="ZendExt_Controller_Secure"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getComponentDefinition>
+        <!--Servicio para obtener la interzas de indicadores-->
+        <getJsNomencladorProductos reference="utiles/maestroproductos">
+            <inyector clase="MaestroProductoService" metodo="getJsNomencladorProductos"/>
+            <prototipo>
+                <parametro nombre="controller" tipo="ZendExt_Controller_Secure" default="0"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getJsNomencladorProductos>
+        <getJsWinMedioPGM reference="utiles/pgm">
+            <inyector clase="PGMServices" metodo="getJsWinMedioPGM"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getJsWinMedioPGM>
+        <!--Servicio para obtener los indicadores dado parametros-->
+        <getIndicadoresByParams reference="utiles/maestroproductos">
+            <inyector clase="MaestroProductoService" metodo="devolverIndicadoresByParams"/>
+            <prototipo>
+                <parametro nombre="parametros" tipo="array"/>
+                <parametro nombre="idAsKey" tipo="enterospos"/>
+                <parametro nombre="treeGrid" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getIndicadoresByParams>
+
+        <getFormatoIndicadores reference="utiles/maestroproductos">
+            <inyector clase="MaestroProductoModel" metodo="getFormatoIndicadores"/>
+            <prototipo>
+                <resultado tipo="enterospos"/>
+            </prototipo>
+        </getFormatoIndicadores>
+        <!--Servicio para obtener los hijos y padres de un indicador-->
+        <getIdIndicadoresRamaByIndicador reference="utiles/maestroproductos">
+            <inyector clase="MaestroProductoService" metodo="getIdIndicadoresRamaByIndicador"/>
+            <prototipo>
+                <parametro nombre="$idIndicador" tipo="enterospos"/>
+                <parametro nombre="$miniMax" tipo="boolean"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getIdIndicadoresRamaByIndicador>
+         <!--Servicio para obtener un objeto de MaestroProductoModel, clase modelo de indicadores-->
+        <instanceMaestroProductoModel reference="utiles/maestroproductos">
+            <inyector clase="MaestroProductoService" metodo="getInstanceModelo"/>
+            <prototipo>
+                <resultado tipo="MaestroProductoModel"/>
+            </prototipo>
+        </instanceMaestroProductoModel>
+        <GetGridNomenclador reference="utiles/maestroproductos">
+            <inyector clase="MaestroProductoService" metodo="cargarGridNomenclador"/>
+            <prototipo>
+                <parametro nombre="filtro" tipo="array"/>
+                <parametro nombre="dql" tipo="boolean"/>
+                <parametro nombre="treeGrid" tipo="boolean"/>
+                <parametro nombre="indexById" tipo="boolean"/>
+                <parametro nombre="reInitrelations" tipo="boolean"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetGridNomenclador>
+        <GetAtributosByIndicador reference="utiles/maestroproductos">
+            <inyector clase="MaestroProductoService" metodo="getAtributosDinamicos"/>
+            <prototipo>
+                <parametro nombre="idindicador" tipo="enterospos"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetAtributosByIndicador>
+        <adicionarNodoClasificador reference="utiles/maestroproductos">
+            <inyector clase="MaestroProductoService" metodo="adicionarNodoClasificador"/>
+            <prototipo>
+                <parametro nombre="params" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </adicionarNodoClasificador>
+        <!--Servicio para gestionar indicadores desde registro de clientes-->
+        <AddIndicadorExterno reference="utiles/maestroproductos">
+            <inyector clase="MaestroProductoService" metodo="addIndicadorExterno"/>
+            <prototipo>
+                <parametro nombre="params" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </AddIndicadorExterno>
+        <DelIndicadorCliente reference="utiles/maestroproductos">
+            <inyector clase="MaestroProductoService" metodo="eliminarIndicadorCliente"/>
+            <prototipo>
+                <parametro nombre="idcliente" tipo="enterospos"/>
+                <parametro nombre="indicadores" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </DelIndicadorCliente>
+        <!--Servicio para obtener el registro operativo de activo fijos-->
+        <getJsRegistroOperativoAFT reference="activos_fijos/regoperativo">
+            <inyector clase="RegistroActivoService" metodo="getJsRegistroOperativoAFT"/>
+            <prototipo>
+                <parametro nombre="controller" tipo="ZendExt_Controller_Secure" default="0"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getJsRegistroOperativoAFT>
+        <devolverRegistrosEstructura reference="activos_fijos/regoperativo">
+            <inyector clase="RegistroOperativoService" metodo="devolverRegistrosEstructura"/>
+            <prototipo>
+                <parametro nombre="idAreaResp" tipo="enterospos"/>
+                <parametro nombre="idIndicador" tipo="enterospos"/>
+                <parametro nombre="limit" tipo="enterospos" default='0'/>
+                <parametro nombre="start" tipo="enterospos" default='0'/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </devolverRegistrosEstructura>
+        <GetConteoRegNumericosEntidad reference="activos_fijos/recuperaciones">
+            <inyector clase="SubmayorService" metodo="GetConteoRegNumericosEntidad"/>
+            <prototipo>
+                <parametro nombre="idestructuraop" tipo="enterospos"/>
+                <parametro nombre="parametros" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </GetConteoRegNumericosEntidad>
+		<getRegistrosPorIdmediocompletamiento reference="activos_fijos/utiles">
+            <inyector clase="RegNumActivoService" metodo="getRegistrosPorIdmediocompletamiento"/>
+            <prototipo>
+                <parametro nombre="parametros" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getRegistrosPorIdmediocompletamiento>
+
+        <!--Servicios Especicos de PGM-->
+        <obtenerDatosMedioPorId reference="utiles/pgm">
+            <inyector clase="PGMServices" metodo="obtenerDatosMedioPorId"/>
+            <prototipo>
+                <parametro nombre="idIndicador" tipo="array"/>
+                <resultado tipo="stdClass"/>
+            </prototipo>
+        </obtenerDatosMedioPorId>
+
+        <cargarExistenciasPGM reference="utiles/pgm">
+            <inyector clase="PGMServices" metodo="cargarExistencias"/>
+            <prototipo>
+                <parametro nombre="parametros" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </cargarExistenciasPGM>
+        <!--Servicios Especicos de PGM-->
+        <!--Servicios de facturacion inicio-->
+        <facturar reference="facturacion/facturacion/factura">
+            <inyector clase="FacturacionService" metodo="adicionarFactura"/>
+            <prototipo>
+                <parametro nombre="parametros" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </facturar>
+        <getImporteByIdopcomercio reference="facturacion/puntoventa">
+            <inyector clase="PuntodeventaService" metodo="getImporteXEntidadesByIdop"/>
+            <prototipo>
+                <parametro nombre="arrayIdOpcomercio" tipo="array"/>
+                <parametro nombre="fechainicio" tipo="string"/>
+                <parametro nombre="fechafin" tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getImporteByIdopcomercio>
+        <!--Servicios de facturacion fin-->
+
+        <!--Servicios de facturacion inicio-->
+        <obtenerMaterialesOrden reference="produccion/produccion">
+            <inyector clase="ProduccionService" metodo="obtenerMaterialesOrden"/>
+            <prototipo>
+                <parametro nombre="parametros" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerMaterialesOrden>
+        <!--Servicios de facturacion fin-->
+
+        <!--Servicios para obtener datos de estructuras para Cartas Limites-->
+        <obtenerEntidades reference="utiles/comun">
+            <inyector clase="LogisticaService" metodo="getEntidades"/>
+            <prototipo>
+                <parametro nombre="parametros" tipo="array"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerEntidades>
+        <obtenerAlmacenesInternos reference="utiles/comun">
+            <inyector clase="LogisticaService" metodo="getAlmacenes"/>
+            <prototipo>
+                <parametro nombre="idEntidad" tipo="numerosletras"/>
+                <parametro nombre="criterio" tipo="numerosletras" default=""/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </obtenerAlmacenesInternos>
+        <!--Servicios para obtener datos de estructuras para Cartas Limites-->
+        <getTrabajoOperariosIndicadores reference="talleres/trabajooperarios">
+            <inyector clase="TrabajoOperariosService" metodo="getTrabajoOperariosIndicadores"/>
+            <prototipo>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getTrabajoOperariosIndicadores>
+        <getTrabajoOperariosDenomByIdIndicador reference="talleres/trabajooperarios">
+            <inyector clase="TrabajoOperariosService" metodo="getTrabajoOperariosDenomByIdIndicador"/>
+            <prototipo>
+                <parametro nombre="idIndicador" tipo="enterospos"/>
+                <resultado tipo="string"/>
+            </prototipo>
+        </getTrabajoOperariosDenomByIdIndicador>
+        <getTrabajoOperariosSalarios reference="talleres/trabajooperarios">
+            <inyector clase="TrabajoOperariosService" metodo="getTrabajoOperariosSalarios"/>
+            <prototipo>
+                <parametro nombre="idEntidad" tipo="enterospos"/>
+                <parametro nombre="fechaInicio" tipo="string"/>
+                <parametro nombre="fechaFin" tipo="string"/>
+                <resultado tipo="array"/>
+            </prototipo>
+        </getTrabajoOperariosSalarios>
+    </logistica>
+</ioc>

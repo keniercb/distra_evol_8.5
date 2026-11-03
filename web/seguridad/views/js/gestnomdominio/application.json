@@ -1,0 +1,12 @@
+{
+    "name": "gestnomdominio",
+    "minify":{
+    	"js":{
+	    	"files":[
+	    		"gestnomdominio.js"
+	    	],
+	    	"outputDir": "../build/gestnomdominio/"
+    	}
+    }
+
+}

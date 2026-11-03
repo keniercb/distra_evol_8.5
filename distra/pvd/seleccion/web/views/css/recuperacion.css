@@ -1,0 +1,27 @@
+.fotoDetalles{
+	-moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    float: left;
+    width: 100px;
+    height: 100px;
+}
+.text{
+	color: #15428b;
+	font-size: 12px;
+}
+
+.leyendaPreSel{
+	-moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    cursor: pointer;
+    float: left;
+    width: 16px;
+    height: 16px;
+	background-color: #0000FF;
+}
+.leyendaTextPreSel{
+	color: #0000FF;
+}

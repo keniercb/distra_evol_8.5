@@ -1,0 +1,71 @@
+#!/bin/sh -e
+
+### BEGIN INIT INFO
+# Provides:          Amqp Facturacion Task
+# Required-Start:    Amqp Facturacion Task
+# Required-Stop:     Amqp Facturacion Task
+# Default-Start:     2 3 4 5 
+# Default-Stop:      0 1 6
+### END INIT INFO
+
+DAEMON=/var/www/vhosts/gascomunal.xetid.cu/htdocs/lib/Amqp/Worker/facturacion_task.sh
+NAME=facturacion_amqp_facturacion_task
+PIDFILE="/var/run/facturacion_amqp_facturacion_task.pid"
+
+start(){
+	echo "Info: Iniciando el servicio de ejecuci�n de tarea de Facturacion..."
+	#AQUI se inicia el servicio	
+	start-stop-daemon -S -m -b -p $PIDFILE -a $DAEMON -x $DAEMON
+    echo "Info: El servicio de ejecuci�n de tarea de Facturacion ha sido iniciado."
+}
+
+stop(){	
+	echo "Info: Deteniendo el servicio de ejecuci�n de tareas de Zeolides..."
+	start-stop-daemon -K -m -p $PIDFILE --oknodo -x $DAEMON
+    rm $PIDFILE
+    echo "Info: El servicio de ejecuci�n de tarea de Facturacion ha sido detenido."
+}
+
+reload(){
+	stop
+	start	
+}
+
+status(){
+	echo "Info: Verificando estado..."
+	if [ -e $PIDFILE ]; then	
+		PID=$(cat $PIDFILE)		
+		if [ -e /proc/${PID} -a /proc/${PID}/exe ]; then
+			echo "Info: El servicio de ejecuci�n de tarea de Facturacion est� corriendo."
+		else
+			echo "Info: El servicio de ejecuci�n de tarea de Facturacion no est� corriendo."   
+		fi
+	else
+		echo "Info: El servicio de ejecuci�n de tarea de Facturacion no est� corriendo."
+	fi	
+}
+
+
+case "$1" in
+start)
+	start
+	;;
+
+stop)
+	stop
+	;;
+	
+restart)
+	reload	
+	;;
+
+status)
+	status	
+	;;	
+*)
+	echo "Uso: Utilice una de las opciones {start|stop|restart|status}"
+	exit 1
+	;;
+esac
+exit 0
+

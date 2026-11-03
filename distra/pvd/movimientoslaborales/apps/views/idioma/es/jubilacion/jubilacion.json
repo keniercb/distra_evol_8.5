@@ -1,0 +1,6 @@
+{
+	lbListado: 'Listado de personas',
+	BtnAyuda: 'Ayuda',
+	textToolTipCancelar: 'Cerrar ventana sin guardar los datos <b>(Alt+X)</b>',
+	textToolTipAceptar: 'Guardar datos y cerrar ventana <b>(Enter)</b>'
+}

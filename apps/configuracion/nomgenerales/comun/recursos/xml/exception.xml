@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<excepciones>
+	<CONF001>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al insertar.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF001>
+	
+	<CONF002>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al eliminar.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de eliminar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF002>
+	
+	<CONF003>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al modificar.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de modificar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF003>
+	<CONF004>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error de Consulta</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se cargaban los contenidos econmicos. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF004>
+	<CONF005>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error de Consulta</mensaje>
+			<descripcion>Ocurrio un error en el servidor al cargar los datos. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF005>
+	<CONFNomPaisE>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error de Consulta</mensaje>
+			<descripcion>Error al eliminar debido a que este elemento está siendo usado. Por favor verifique.</descripcion>			
+		</es>
+	</CONFNomPaisE>    
+    <CONFNomtipotasaE>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error de Consulta</mensaje>
+			<descripcion>Error al eliminar debido a que este elemento está siendo usado. Por favor verifique.</descripcion>			
+		</es>
+	</CONFNomtipotasaE>
+   <CONFNomMonedaE>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error de Consulta</mensaje>
+			<descripcion>Error al eliminar debido a que este elemento está siendo usado. Por favor verifique.</descripcion>			
+		</es>
+	</CONFNomMonedaE>  
+</excepciones>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<samlconcept>
+    <idp>http://10.12.25.67:2003/seguridad/IdentityProvider/</idp>
+    <sp>http://10.12.25.67:2003/ServiceProvider/</sp>
+    <acs>http://10.12.25.67:2003/ServiceProvider/ACS/</acs>
+    <app>portal</app>
+    <api>no</api>
+</samlconcept>

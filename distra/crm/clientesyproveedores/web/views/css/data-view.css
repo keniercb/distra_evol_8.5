@@ -1,0 +1,228 @@
+.hijo {
+    /*background-color: #e2ffe2;*/
+    background-color: #FFFFCC;
+    font-weight: bold;
+    /*background-color: #CCFFCC;*/
+    /*color: #090;*/
+}
+
+.porvencer {
+    /*background-color: #e2ffe2;*/
+    background-color: #c5c59c;
+    /*background-color: #CCFFCC;*/
+    /*color: #090;*/
+}
+
+.vencido {
+    /*background-color: #e2ffe2;*/
+    background-color: #c797a5;
+    /*background-color: #CCFFCC;*/
+    /*color: #090;*/
+}
+
+#photo-container{
+    cursor: pointer;
+    border:1px solid #cccccc;
+    border-radius: 4px;
+    margin: 0 !important;
+    height:90%;
+    width:90%;
+    background: white;
+    padding:5px;
+}
+
+#photo-contacto{
+    cursor:pointer;
+    border:1px solid #cccccc;
+    margin: 0 !important;
+    height:90%;
+    width:90%;
+    border-radius: 4px;
+    background: white;
+    padding:5px;
+}
+
+#pDetallesPrincipal{
+    width:270px;
+}
+
+*:before, *:after{
+    box-sizing:border-box
+}
+#images-view .dv-contactos{
+    margin: 2 0 0 2;
+}
+
+#images-view .panel-contacto{
+    float: left;
+    color: #555;
+    text-align: left;
+    background: #fafafa;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #fff #ededed #ededed;
+    border-image: none;
+    border-right: 1px solid #ededed;
+    border-style: solid;
+    border-width: 1px;
+    cursor: default;
+    width: 49.7%;
+}
+
+#images-view .panel-contacto img.photo-principal{
+    padding: 5px;
+    background: white;
+    cursor: pointer;
+    border-radius: 4px;
+    height:80px;
+    width: 100px;
+    border: 1px solid #ededed;
+}
+
+#images-view .panel-contacto:hover{
+    border: 1px solid #ddd;
+    background: #efefef url(../images/row-over.gif) repeat-x left top;
+}
+
+#images-view .details-info-contacto{
+    margin: 5px 5px 5px 125px;
+}
+
+#images-view .details-info-contacto table{
+    width: 99.5%;
+    table-layout:fixed;
+}
+
+#images-view .details-info-item-contacto{
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow: hidden;
+    font-family: helvetica,tahoma,verdana,sans-serif;
+    font-size: 11px;
+}
+
+#images-view .details-info-item-contacto b{
+    color: #555;
+    margin-right: 5px;
+}
+
+#images-view .nombre-contacto{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #555;
+}
+
+#images-view .details-info-contacto td {
+    -moz-user-select: none;
+    line-height: 13px;
+    padding-left: 1px;
+    padding-right: 1px;
+    vertical-align: top;
+}
+
+#images-view .x-view-selected,.x-view-selected:first-child,.x-view-selected:last-child{
+    background: none repeat scroll 0 0 #dfe8f6 !important;
+    border: 1px dotted #a3bae9;
+}
+
+#images-view .x-view-selected img.photo-principal{
+    border: 1px solid #a3bae9;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+#images-view .panel-contacto .panel-side{
+    padding:5px;
+    float: left;
+}
+
+/*----------------------Panel Detalles----------------------------------------------------*/
+.details{
+    padding: 5px 15px 5px 5px;
+    text-align: center;
+}
+.details-info{
+    font: 12px Arial, sans-serif;
+    margin-top: 5px;
+    padding: 5px;
+    text-align: left;
+}
+.details-info b{
+    color: #555555;
+    display: block;
+    margin-bottom: 4px;
+}
+.details-info span{
+    display: block;
+    margin-bottom: 10px;
+    border-bottom: 1px dotted #999;
+}
+
+.details-name{
+    font: 13px sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    color: #555555;
+    font-weight: bold;
+}
+
+.details-contacto{
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+    border: 1px solid #428bca;
+    /*border-radius: 4px;*/
+    background: #f5f5f5;
+    margin-bottom: 15px;
+    width: 99%;
+}
+
+.details-contacto:hover{
+    box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.5);
+}
+
+.panel-title{
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom: 1px solid;
+    padding:10px;
+}
+
+.panel-footer{
+    height: 30px;
+}
+
+.details-contacto .panel-title{
+    background-color: #428bca;
+    border-color: #428bca
+}
+
+#pDetalles .details{
+    padding: 0;
+}
+
+.details .panel-title{
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    background-color: #428bca;
+    border-color: #428bca
+}
+
+.panel-title img{
+    background: white;
+    border: 1px solid #428bca;
+}
+
+#pDetalles .panel-title img {
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 3px;
+}
+
+div.details-info-item:hover {
+    background: #f5f5f5;
+}
+
+.x-combo-seleccionado{
+    background:#98c0f4 !important;
+    /*#DFE8F6 #98c0f4 #b2dfee*/
+}

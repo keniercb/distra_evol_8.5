@@ -1,0 +1,14 @@
+{
+    "nombre": "Alertas y Avisos",
+    "version": "1.0",
+    "fecha": "28\/5\/14",
+    "autor": "Centro de Herramientas y Tecnologías de Desarrollo",
+    "dependencia": [
+        "Zeolides 2.0",
+        "Ayuda 2.0",
+        "Persona 1.0.3"
+    ],
+    "descripcion": "El Subsistema de Alertas y Avisos permite la configuración de los eventos del sistema y los avisos asociados a estos y el monitoreo del envío exitoso o no de los avisos previamente configurados.",
+    "logo": "herramientas/notificaciones/logo.png",
+    "equipo": ["Centro de Herramientas y Tecnologías de Desarrollo"]
+}

@@ -1,0 +1,10 @@
+{
+    titulogridActividades: 'Actividades',
+    denominacion: 'Denominacion',
+    codigo: 'Codigo',
+    titulogridNormas: 'Normas',
+    norma: 'Norma',
+    adicionarActividad: 'Adicionar actividad',
+    modificarActividad: 'Modificar actividad',
+    eliminarActividad: 'Eliminar actividad',
+}

@@ -1,0 +1,1573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Excepciones>
+    <!-- Excepciones Genrales de logistica-->
+    <LOG_LB_GEN_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de al realizar la accion.</mensaje>
+            <descripcion>La entidad no puede ser eliminada porque ella o una de sus hijas esta siendo usada en los
+                módulos de Inventarios o AFT.
+            </descripcion>
+        </es>
+    </LOG_LB_GEN_001>
+    <LOG_LB_DOC_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de configuración.</mensaje>
+            <descripcion>La entidad no se encuentra configurada para realizar esta acción. Debe configurar el documento
+                primario.
+            </descripcion>
+        </es>
+    </LOG_LB_DOC_001>
+    <LOG_LB_DOC_027>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de configuración.</mensaje>
+            <descripcion>Existen operaciones sin modelos configurados
+            </descripcion>
+        </es>
+    </LOG_LB_DOC_027>
+    <LOG_LB_DOC_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al realizar la acción.</mensaje>
+            <descripcion>El documento seleccionado está siendo usado por otro usuario.</descripcion>
+        </es>
+    </LOG_LB_DOC_002>
+    <LOG_LB_DOC_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Documento sin movimientos.</mensaje>
+            <descripcion>El documento que desea confirmar no contiene productos.</descripcion>
+        </es>
+    </LOG_LB_DOC_003>
+    <LOG_LB_DOC_004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error cambiando el estado del documento.</mensaje>
+            <descripcion>El estado actual del documento no puede ser modificado.</descripcion>
+        </es>
+    </LOG_LB_DOC_004>
+    <LOG_LB_DOC_005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error cambiando el estado del documento.</mensaje>
+            <descripcion>Existen productos sin cantidades registradas.</descripcion>
+        </es>
+    </LOG_LB_DOC_005>
+    <LOG_LB_DOC_006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error cambiando el estado del documento.</mensaje>
+            <descripcion>No se puede cancelar el documento porque alguno de sus productos tiene uno o varios movimientos
+                posteriores a este.
+            </descripcion>
+        </es>
+    </LOG_LB_DOC_006>
+    <LOG_LB_DOC_007>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error cambiando el estado del documento.</mensaje>
+            <descripcion>No se puede cancelar el documento porque la existencia de alguno de sus productos se hace
+                negativa.
+            </descripcion>
+        </es>
+    </LOG_LB_DOC_007>
+    <LOG_LB_DOC_008>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error cambiando el estado del documento.</mensaje>
+            <descripcion>Existen productos sin diferencias registradas.</descripcion>
+        </es>
+    </LOG_LB_DOC_008>
+    <LOG_LB_DOC_009>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar una conciliación</mensaje>
+            <descripcion>Ya existe un documento de conciliación para ese cliente con las transferencias pendientes.
+            </descripcion>
+        </es>
+    </LOG_LB_DOC_009>
+    <LOG_LB_DOC_010>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error cambiando el estado del documento.</mensaje>
+            <descripcion>Existen productos sin precios registrados.</descripcion>
+        </es>
+    </LOG_LB_DOC_010>
+    <LOG_LB_DOC_011>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error no coenciden los datos de los movimientos con la ubicación.</mensaje>
+            <descripcion>La cantidad del movimiento ha sido modificada, debe ajustar las cantidades
+                ubicadas
+            </descripcion>
+        </es>
+    </LOG_LB_DOC_011>
+    <LOG_LB_DOC_012>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error cambiando el estado del documento.</mensaje>
+            <descripcion>Existen productos con lote sin cantidades registradas.</descripcion>
+        </es>
+    </LOG_LB_DOC_012>
+    <LOG_LB_DOC_013>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error cambiando el estado del documento.</mensaje>
+            <descripcion>Existen monedas sin precios registrados.</descripcion>
+        </es>
+    </LOG_LB_DOC_013>
+    <LOG_LB_DOC_014>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error no coenciden los datos de movubicacion y los datos del movimiento</mensaje>
+            <descripcion>La cantidad del movimiento ha sido modificada, debe ajustar las cantidades a
+                desubicar
+            </descripcion>
+        </es>
+    </LOG_LB_DOC_014>
+    <LOG_LB_DOC_015>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al confirmar el documento de salida</mensaje>
+            <descripcion>Existen productos que no han sido desubicados.</descripcion>
+        </es>
+    </LOG_LB_DOC_015>
+    <LOG_LB_DOC_016>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error el subsistema no tiene configurado fecha</mensaje>
+            <descripcion>Debe configurar la fecha del subsistema en Datos maestros.</descripcion>
+        </es>
+    </LOG_LB_DOC_016>
+    <LOG_LB_DOC_017>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar la moneda</mensaje>
+            <descripcion>No existen tasas de cambio configurada para las monedas.</descripcion>
+        </es>
+    </LOG_LB_DOC_017>
+    <LOG_LB_DOC_018>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al confirmar el documento</mensaje>
+            <descripcion>Existen lotes de algunos productos sin cantidades registradas.</descripcion>
+        </es>
+    </LOG_LB_DOC_018>
+    <LOG_LB_DOC_019>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al confirmar el documento</mensaje>
+            <descripcion>Existen productos sin importe registrados.</descripcion>
+        </es>
+    </LOG_LB_DOC_019>
+    <LOG_LB_DOC_020>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al confirmar el documento</mensaje>
+            <descripcion>Existen equipos sin número de serie registrados.</descripcion>
+        </es>
+    </LOG_LB_DOC_020>
+    <LOG_LB_DOC_021>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al aprobar el documento</mensaje>
+            <descripcion>Debe registrar el conteo de todos los productos.</descripcion>
+        </es>
+    </LOG_LB_DOC_021>
+    <LOG_LB_DOC_022>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al aprobar el documento</mensaje>
+            <descripcion>Debe configurar las operaciones para el documento.</descripcion>
+        </es>
+    </LOG_LB_DOC_022>
+    <LOG_LB_DOC_023>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al aprobar el documento</mensaje>
+            <descripcion>La cantidad disponible de algunos productos se hace negativa.</descripcion>
+        </es>
+    </LOG_LB_DOC_023>
+    <LOG_LB_DOC_024>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al confirmar el documento</mensaje>
+            <descripcion>El descuento del documento debe ser menor que su importe total.</descripcion>
+        </es>
+    </LOG_LB_DOC_024>
+    <LOG_LB_DOC_025>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al confirmar el documento</mensaje>
+            <descripcion>No se puede confirmar el documento porque la cantidad ubicada de algunos productos se hace
+                negativa.
+            </descripcion>
+        </es>
+    </LOG_LB_DOC_025>
+    <LOG_LB_DOC_026>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al confirmar el documento</mensaje>
+            <descripcion>No se puede confirmar el documento porque la cantidad de algunos productos no se corresponde
+                con la diferencia detectada.
+            </descripcion>
+        </es>
+    </LOG_LB_DOC_026>
+    <LOG_LB_DOC_028>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al cancelar el documento</mensaje>
+            <descripcion>No se puede cancelar el documento. Existen liquidaciones registradas.</descripcion>
+        </es>
+    </LOG_LB_DOC_028>
+    <LOG_LB_DOC_029>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error cambiando el estado del documento.</mensaje>
+            <descripcion>No se puede cancelar el documento porque existen cantidades comprometidas.
+            </descripcion>
+        </es>
+    </LOG_LB_DOC_029>
+    <LOG_LB_DOC_030>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al devolver importe</mensaje>
+            <descripcion>No se puede devolver el importe. Existen liquidaciones registradas.</descripcion>
+        </es>
+    </LOG_LB_DOC_030>
+    <LOG_LB_DOC_031>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al realizar la accion</mensaje>
+            <descripcion>no se puede realizar la accion, documento bloqueado.</descripcion>
+        </es>
+    </LOG_LB_DOC_031>
+    <LOG_LB_DOC_032>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al cancelar documento</mensaje>
+            <descripcion>No se puede cancelar el documento, tiene documentos generados.</descripcion>
+        </es>
+    </LOG_LB_DOC_032>
+    <LOG_LB_RECEP_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al confirmar recepcion</mensaje>
+            <descripcion>La condición de pago para los documentos de la operación seleccionada es obligatoria.</descripcion>
+        </es>
+    </LOG_LB_RECEP_001>
+
+    <LOG_LB_PROD_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error modificando la cantidad del movimiento.</mensaje>
+            <descripcion>La cantidad del movimiento no puede ser modificada. La cantidad disponible se hace negativa.
+            </descripcion>
+        </es>
+    </LOG_LB_PROD_001>
+    <LOG_LB_NroSe_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar o modificar el número de serie</mensaje>
+            <descripcion>El número de serie ya existe.
+            </descripcion>
+        </es>
+    </LOG_LB_NroSe_001>
+    <LOG_LB_NroSe_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar el número de serie</mensaje>
+            <descripcion>El número de serie fue dado de baja.
+            </descripcion>
+        </es>
+    </LOG_LB_NroSe_002>
+    <LOG_LB_PUNTOVENTA_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al iniciar sesión</mensaje>
+            <descripcion>Debe configurar una caja para el usuario logueado.</descripcion>
+        </es>
+    </LOG_LB_PUNTOVENTA_001>
+    <LOG_LB_PUNTOVENTA_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al iniciar sesión</mensaje>
+            <descripcion>No se pueden realizar ventas. Debe realizar el cierre de las operaciones de Facturación.</descripcion>
+        </es>
+    </LOG_LB_PUNTOVENTA_002>
+    <LOG_LB_PUNTOVENTA_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al iniciar sesión</mensaje>
+            <descripcion>No se pueden realizar ventas. Debe realizar el cierre de las ventas.</descripcion>
+        </es>
+    </LOG_LB_PUNTOVENTA_003>
+    <LOG_LB_PUNTOVENTA_004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al salvar los datos</mensaje>
+            <descripcion>No se pueden guardar los datos. Esta configuración ya está en uso.</descripcion>
+        </es>
+    </LOG_LB_PUNTOVENTA_004>
+    <LOG_LB_PUNTOVENTA_005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al salvar los datos</mensaje>
+            <descripcion>No se pueden realizar la venta. La sesión está cerrada, debe abrir nuevamente la caja.</descripcion>
+        </es>
+    </LOG_LB_PUNTOVENTA_005>
+	<LOG_LB_PUNTOVENTA_006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al iniciar sesión</mensaje>
+            <descripcion>No se pueden realizar ventas. Las ventas han sido cerradas.</descripcion>
+        </es>
+    </LOG_LB_PUNTOVENTA_006>
+	<LOG_LB_PUNTOVENTA_007>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No se puede realizar la sincronización</mensaje>
+            <descripcion>No se ha configurado el documento de Transferencia tienda virtual en el subsistema inventario para la entidad.</descripcion>
+        </es>
+    </LOG_LB_PUNTOVENTA_007>
+    <LOG_LB_PUNTOVENTA_008>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al iniciar sesión</mensaje>
+            <descripcion>El usuario no tiene perfil configurado.</descripcion>
+        </es>
+    </LOG_LB_PUNTOVENTA_008>
+    <LOG_LB_PUNTOVENTA_009>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al guardar</mensaje>
+            <descripcion>No puede haber dos o más usuarios con la misma contraseña en la caja.</descripcion>
+        </es>
+    </LOG_LB_PUNTOVENTA_009>
+
+    <LOG_LB_PUNTOVENTA_010>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de comunicación</mensaje>
+            <descripcion>Ocurrió un error al intentar la comunicación con las cajas registradoras.</descripcion>
+        </es>
+    </LOG_LB_PUNTOVENTA_010>
+
+    <LOG_LB_COMUN_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al cerrar el almacen</mensaje>
+            <descripcion>No se puede cerrar el almacén porque tiene documentos pendientes.</descripcion>
+        </es>
+    </LOG_LB_COMUN_001>
+
+    <LOG_LB_COMUN_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al cerrar el almacen</mensaje>
+            <descripcion>No se puede cerrar el almacén porque tiene productos con existencia.</descripcion>
+        </es>
+    </LOG_LB_COMUN_002>
+
+    <LOG_LB_COMUN_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Variable existente</mensaje>
+            <descripcion>Ya existe una variable con esa denominacion.</descripcion>
+        </es>
+    </LOG_LB_COMUN_003>
+    <!-- Excepciones Genrales de logistica-->
+
+    <!--Expeciones de ubicacion-->
+    <LOG_LB_UBI_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar una estructura.</mensaje>
+            <descripcion>La estructura está siendo usada por otro recurso.</descripcion>
+        </es>
+    </LOG_LB_UBI_001>
+    <LOG_LB_UBI_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al ubicar el producto.</mensaje>
+            <descripcion>El producto a ubicar excede el volumen máximo de la ubicación.</descripcion>
+        </es>
+    </LOG_LB_UBI_002>
+    <LOG_LB_UBI_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al ubicar el producto.</mensaje>
+            <descripcion>El producto a ubicar excede el peso máximo de la ubicación.</descripcion>
+        </es>
+    </LOG_LB_UBI_003>
+    <LOG_LB_UBI_004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al ubicar el producto.</mensaje>
+            <descripcion>El producto a ubicar excede la capacidad máxima de la ubicación.</descripcion>
+        </es>
+    </LOG_LB_UBI_004>
+    <LOG_LB_UBI_005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al ubicar el producto.</mensaje>
+            <descripcion>El producto a ubicar excede las condiciones establecidas,ya que el tipo de ubicación solo
+                admite productos único. Por favor verifique las condiciones establecidas en el nomenclador tipo de
+                ubicación y en la configuración de estructura y ubicación.
+            </descripcion>
+        </es>
+    </LOG_LB_UBI_005>
+    <LOG_LB_UBI_006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al desubicar el producto.</mensaje>
+            <descripcion>La cantidad disponible de la ubicación se hace negativa.</descripcion>
+        </es>
+    </LOG_LB_UBI_006>
+    <!--Expeciones de ubicacion-->
+
+    <!--Expeciones de producto-->
+    <LOG_LB_Prod_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al registrar la tarjeta del producto.</mensaje>
+            <descripcion>El producto seleccionado ya tiene creada una tarjeta con la categoría definida.</descripcion>
+        </es>
+    </LOG_LB_Prod_001>
+    <LOG_LB_Prod_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al registrar la tarjeta del producto.</mensaje>
+            <descripcion>El producto seleccionado ya tiene creada una tarjeta en el depósito.</descripcion>
+        </es>
+    </LOG_LB_Prod_002>
+    <LOG_LB_Prod_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al modificar el producto.</mensaje>
+            <descripcion>Ya existe un producto en el depósito con los datos especificados.</descripcion>
+        </es>
+    </LOG_LB_Prod_003>
+    <LOG_LB_Prod_004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al aprobar el movimiento.</mensaje>
+            <descripcion>No se puede aprobar el movimiento. Existen productos a los cuales la existencia o los importes se hacen negativos.</descripcion>
+        </es>
+    </LOG_LB_Prod_004>
+    <LOG_LB_Prod_005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al aprobar el movimiento.</mensaje>
+            <descripcion>Existen productos sin clasificacion contable definida.</descripcion>
+        </es>
+    </LOG_LB_Prod_005>
+    <!--Expeciones de producto-->
+
+    <!-- Inicio del bloque de excepciones de comun de inventario -->
+    <LOG_Comun_INV_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al confirmar el documento.</mensaje>
+            <descripcion>Faltan productos por cambiarle la clasificación contable.</descripcion>
+        </es>
+    </LOG_Comun_INV_001>
+    <LOG_Comun_INV_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al aprobar el documento.</mensaje>
+            <descripcion>No se puede aprobar el cambio de clasificacion. Existen operaciones pendientes generar comrpobante.</descripcion>
+        </es>
+    </LOG_Comun_INV_002>
+    <!-- Fin del bloque de excepciones de comun de inventario -->
+
+    <!--Excepciones de receta-->
+    <LOG_LB_Rec_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Receta sin productos.</mensaje>
+            <descripcion>La receta que desea usar en la entidad no tiene productos registrados.</descripcion>
+        </es>
+    </LOG_LB_Rec_001>
+    <LOG_LB_Alim_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Receta sin productos</mensaje>
+            <descripcion>La(s) receta(s) que desea adicionar tiene(n) producto(s) que no existe(n) en el depósito
+                seleccionado.
+            </descripcion>
+        </es>
+    </LOG_LB_Alim_001>
+    <LOG_LB_Alim_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Producto(s) sin cantidad disponible</mensaje>
+            <descripcion>El menú que desea confirmar tiene productos que su disponibilidad no alcanza.</descripcion>
+        </es>
+    </LOG_LB_Alim_002>
+    <LOG_LB_Rec_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al usar la entidad.</mensaje>
+            <descripcion>Existen productos sin cantidades registradas.</descripcion>
+        </es>
+    </LOG_LB_Rec_002>
+    <LOG_LB_Rec_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al tratar de eliminar la receta.</mensaje>
+            <descripcion>La receta seleccionada está siendo usada por otro recurso</descripcion>
+        </es>
+    </LOG_LB_Rec_003>
+    <LOG_LB_Rec_004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error existe receta igual en la entidad.</mensaje>
+            <descripcion>Ya existe en la entidad una receta con las mismas características</descripcion>
+        </es>
+    </LOG_LB_Rec_004>
+    <!--Excepciones de receta-->
+
+    <!--Comienzo  excepciones de Activos Fijos Tangibles  -->
+    <LOG_AFT_CONF_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Estatus técnicos no configurados para la entidad.</mensaje>
+            <descripcion>No se ha registrado nigún estatus técnico en los nomencladores correspondientes a la entidad.
+            </descripcion>
+        </es>
+    </LOG_AFT_CONF_001>
+    <LOG_AFT_CONF_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Operaciones no configuradas para la entidad.</mensaje>
+            <descripcion>No se ha configurado niguna operación para la entidad.</descripcion>
+        </es>
+    </LOG_AFT_CONF_002>
+    <LOG_AFT_CONF_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Cuentas no configuradas para la entidad.</mensaje>
+            <descripcion>No se encuentran cuentas configuradas para la entidad.</descripcion>
+        </es>
+    </LOG_AFT_CONF_003>
+
+    <LOG_AFT_DOC_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Estado incorrecto del documento.</mensaje>
+            <descripcion>Para poder aprobar el documento, él mismo se debe encontrar en estado Preparado, para lo cual
+                se debe ejecutar el flujo de confirmación del mismo. Además debe tener al menos un registro numérico por
+                cada tipo de medio registrado en el mismo.
+            </descripcion>
+        </es>
+    </LOG_AFT_DOC_001>
+    <LOG_AFT_DOC_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Estado incorrecto del documento.</mensaje>
+            <descripcion>Debe tener al menos un registro numérico por cada tipo de medio.
+            </descripcion>
+        </es>
+    </LOG_AFT_DOC_002>
+    <LOG_AFT_DOC_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Estado incorrecto del documento.</mensaje>
+            <descripcion>Para poder cancelar el documento, él mismo se debe encontrar en estado Preparado, para lo cual
+                se debe ejecutar el flujo de confirmación del mismo.
+            </descripcion>
+        </es>
+    </LOG_AFT_DOC_003>
+    <LOG_AFT_DOC_004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Existen registros numéricos con datos obligatorios sin registrar.</mensaje>
+            <descripcion>El documento cuenta con registros numéricos con datos obligatorios sin registrar.
+            </descripcion>
+        </es>
+    </LOG_AFT_DOC_004>
+    <LOG_AFT_DOC_005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Operación de recepción de medios no configurada.</mensaje>
+            <descripcion>No se encuentra configurada la operación correspondiente al proceso de recepción de medios
+                enviados a reparar.
+            </descripcion>
+        </es>
+    </LOG_AFT_DOC_005>
+    <LOG_AFT_DOC_006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Operación de recepción de medios no configurada.</mensaje>
+            <descripcion>No se encuentra configurada la operación correspondiente al proceso de recepción de medios
+                desde un traslado entre áreas.
+            </descripcion>
+        </es>
+    </LOG_AFT_DOC_006>
+    <LOG_AFT_DOC_007>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Operación de recepción de medios no configurada.</mensaje>
+            <descripcion>No se encuentra configurada la operación correspondiente al proceso de recepción de medios
+                desde un traslado entre entidades.
+            </descripcion>
+        </es>
+    </LOG_AFT_DOC_007>
+    <LOG_AFT_DOC_008>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Operación de recepción de medios no configurada.</mensaje>
+            <descripcion>No se encuentra configurada la operación correspondiente al proceso de recepción de medios
+                desde una entrega temporal.
+            </descripcion>
+        </es>
+    </LOG_AFT_DOC_008>
+    <LOG_AFT_DOC_009>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Operación configurada de manera incorrecta.</mensaje>
+            <descripcion>No se encuentra configurada correctamente la operación correspondiente al proceso que se deséa
+                aprobar.
+            </descripcion>
+        </es>
+    </LOG_AFT_DOC_009>
+    <LOG_AFT_DOC_0010>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Debe configurar las operaciones contables para la depreciacón.</mensaje>
+            <descripcion>No se encuentra configurada la operación correspondiente a la depreciaón.
+            </descripcion>
+        </es>
+    </LOG_AFT_DOC_0010>
+    <LOG_AFT_DOC_010>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Documento creado con anterioridad.</mensaje>
+            <descripcion>Ya se ha creado un documento de inventario parcial mensual, para el período actual.
+            </descripcion>
+        </es>
+    </LOG_AFT_DOC_010>
+    <LOG_AFT_DOC_011>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Plan de conteo no configurado.</mensaje>
+            <descripcion>No existe un plan de conteo configurado para período actual.
+            </descripcion>
+        </es>
+    </LOG_AFT_DOC_011>
+    <LOG_AFT_DOC_012>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Estado técnico sin estado operativo por defecto.</mensaje>
+            <descripcion>Existe al menos un registro con un estado técnico sin estado operativo por defecto.
+            </descripcion>
+        </es>
+    </LOG_AFT_DOC_012>
+    <LOG_AFT_DOC_013>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No puede elimar un documento de devolución.</mensaje>
+            <descripcion>No puede elimnar un documento de devolución.
+            </descripcion>
+        </es>
+    </LOG_AFT_DOC_013>
+    <LOG_AFT_DOC_014>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No se puede adicionar el documento.</mensaje>
+            <descripcion>No se puede adicionar el documento
+            </descripcion>
+        </es>
+    </LOG_AFT_DOC_014>
+
+    <LOG_AFT_RN_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Etatus técnicos no configurados para dicho proceso.</mensaje>
+            <descripcion>No se ha configurado nigún estatus técnico para la operación actual.</descripcion>
+        </es>
+    </LOG_AFT_RN_001>
+    <LOG_AFT_RN_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>El registro numérico ya se encuentra registrado de forma operativa.</mensaje>
+            <descripcion>El registro numérico ya se encuentra registrado de forma operativa.</descripcion>
+        </es>
+    </LOG_AFT_RN_002>
+    <LOG_AFT_RN_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No se encuentra integración con el componente de módulos.</mensaje>
+            <descripcion>No se encuentra integración con el componente de módulos.</descripcion>
+        </es>
+    </LOG_AFT_RN_003>
+    <LOG_AFT_RN_004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No se encuentra integración con el componente de registro numérico.</mensaje>
+            <descripcion>No se encuentra integración con el componente de registro numérico.</descripcion>
+        </es>
+    </LOG_AFT_RN_004>
+
+    <LOG_AFT_DEP_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Debe pasar como parámetro el identificador del método de depreciación.</mensaje>
+            <descripcion>Debe pasar como parámetro el identificador del método de depreciación.</descripcion>
+        </es>
+    </LOG_AFT_DEP_001>
+    <LOG_AFT_DEP_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>La entidad no se encuentra configurada para depreciar sus medios en uso.</mensaje>
+            <descripcion>La entidad no se encuentra configurada para depreciar sus medios en uso.</descripcion>
+        </es>
+    </LOG_AFT_DEP_002>
+    <LOG_AFT_DEP_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al depreciar.</mensaje>
+            <descripcion>La fecha de inicio es un dato obligatorio para depreciar.</descripcion>
+        </es>
+    </LOG_AFT_DEP_003>
+
+    <LOG_AFT_DEP_004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en la configuración de depreciar.</mensaje>
+            <descripcion>No se ha configurado la operación de depreciación para la entidad.</descripcion>
+        </es>
+    </LOG_AFT_DEP_004>
+    <LOG_AFT_MOV_ESTRUC_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de al realizar la accion.</mensaje>
+            <descripcion>La entidad no puede ser movida porque ella o una de sus hijas tiene activos o útiles
+                asociados.
+            </descripcion>
+        </es>
+    </LOG_AFT_MOV_ESTRUC_001>
+    <LOG_AFT_ELIM_ESTRUC_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de al realizar la accion.</mensaje>
+            <descripcion>La entidad no puede ser eliminada porque ella o una de sus hijas tiene activos o útiles
+                asociados.
+            </descripcion>
+        </es>
+    </LOG_AFT_ELIM_ESTRUC_001>
+	<LOG_AFT_PERIODO_SIN_DEPRE>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de al realizar la accion.</mensaje>
+            <descripcion>No existen documentos de depreciación en el período actual.
+            </descripcion>
+        </es>
+    </LOG_AFT_PERIODO_SIN_DEPRE>
+	<LOG_AFT_PERIODO_SIN_DEPRE_CONT>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de al realizar la accion.</mensaje>
+            <descripcion>Existen documentos de depreciacion sin contabilizar en el período actual.
+            </descripcion>
+        </es>
+    </LOG_AFT_PERIODO_SIN_DEPRE_CONT>
+	<LOG_AFT_DESCUADRE>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de al realizar la accion.</mensaje>
+            <descripcion>Existen cuentas descuadradas.
+            </descripcion>
+        </es>
+    </LOG_AFT_DESCUADRE>
+	<LOG_AFT_OPER_REEVALUACION_NOTFOUND>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Operación de reevaluación de medios no configurada.</mensaje>
+            <descripcion>No se encuentra configurada la operación correspondiente al proceso de reevaluación de medios.
+            </descripcion>
+        </es>
+    </LOG_AFT_OPER_REEVALUACION_NOTFOUND>
+    <LOG_AFT_CUENTAS_DESCUADRADAS>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Existen diferencias en los modulos de activos fijos y/o útiles y herramientas y la contabilidad.</mensaje>
+            <descripcion>Existen diferencias en los modulos de activos fijos y/o útiles y herramientas y la contabilidad.
+            </descripcion>
+        </es>
+    </LOG_AFT_CUENTAS_DESCUADRADAS>
+    <LOG_AFT_DOCS_SIN_APROBAR>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Existen documentos sin aprobar.</mensaje>
+            <descripcion>Existen documentos sin aprobar.</descripcion>
+        </es>
+    </LOG_AFT_DOCS_SIN_APROBAR>
+    <!--Fin  excepciones de Activos Fijos Tangibles -->
+
+    <!--Inicio Expeciones de distribucion -->
+    <LOG_LB_DIST_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al distribuir los productos.</mensaje>
+            <descripcion>Existen productos sin cantidades registradas.</descripcion>
+        </es>
+    </LOG_LB_DIST_001>
+    <LOG_LB_DIST_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar el pedido</mensaje>
+            <descripcion>No ha(n) sido adicionado(s) el(los) pedido(s) porque sus productos no se encuentran en
+                ningún almacén.
+            </descripcion>
+        </es>
+    </LOG_LB_DIST_002>
+    <LOG_LB_DIST_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al distribuir los productos</mensaje>
+            <descripcion>Debe configurar la distribución para la propuesta de distribución.</descripcion>
+        </es>
+    </LOG_LB_DIST_003>
+    <LOG_LB_DIST_004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al distribuir los productos</mensaje>
+            <descripcion>Debe configurar los planes de consumo para la propuesta de distribución.</descripcion>
+        </es>
+    </LOG_LB_DIST_004>
+    <LOG_LB_DIST_005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al distribuir los productos</mensaje>
+            <descripcion>Debe configurar los parámetros para el(los) consumidor(es) en configuración de distribución.
+            </descripcion>
+        </es>
+    </LOG_LB_DIST_005>
+    <!--Fin expeciones de distribucion -->
+    <!--Inicio Expeciones de pedido -->
+    <LOG_LB_PED_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al distribuir los productos.</mensaje>
+            <descripcion>Al menos un producto tiene registrada una cantidad mayor que la cantidad pedida.</descripcion>
+        </es>
+    </LOG_LB_PED_001>
+    <!--Fin expeciones de pedido -->
+    <!--Expeciones del maestro de productos -->
+    <LOG_MP_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar la clasificación</mensaje>
+            <descripcion>Ya existe una clasificación con este código.</descripcion>
+        </es>
+    </LOG_MP_001>
+    <LOG_MP_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar la clasificación</mensaje>
+            <descripcion>Ya existe una clasificación con esta denominación.</descripcion>
+        </es>
+    </LOG_MP_002>
+    <!--Fin expeciones del maestro de productos -->
+
+    <!-- Excepciones de talleres -->
+    <LOG_T_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al anular estado de la orden</mensaje>
+            <descripcion>La orden de trabajo está siendo usada.</descripcion>
+        </es>
+    </LOG_T_001>
+
+    <LOG_T_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al guardar las actividades.</mensaje>
+            <descripcion>No se pueden guardar las actividades sin la cantidad planificada.</descripcion>
+        </es>
+    </LOG_T_002>
+
+    <LOG_T_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Debe ingresar la cantidad planificada para cada actividad.</mensaje>
+            <descripcion>No se pueden guardar las actividades sin la cantidad planificada .</descripcion>
+        </es>
+    </LOG_T_002>
+
+    <LOG_T_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No se puede eliminar el servicio seleccionado.</mensaje>
+            <descripcion>No se puede eliminar el servicio seleccionado. Debe eliminar las actividades asociada a la orden de trabajo</descripcion>
+        </es>
+    </LOG_T_003>
+
+    <LOG_T_004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No se puede cerrar la orden de trabajo</mensaje>
+            <descripcion>No se puede cerrar la orden de trabajo. Debe realizar la salida de los productos del almacén o existen vales pendientes por contabilizar.</descripcion>
+        </es>
+    </LOG_T_004>
+
+    <LOG_T_005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No se puede anular la cita</mensaje>
+            <descripcion>No se puede anular la cita. Existen documentos pendientes por aprobar o contabilizar.</descripcion>
+        </es>
+    </LOG_T_005>
+
+    <LOG_T_006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No se puede cerrar la orden</mensaje>
+            <descripcion>La fecha de inicio no puede ser mayor a la fecha de cierre.</descripcion>
+        </es>
+    </LOG_T_006>
+
+    <LOG_T_007>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>No se pueden adicionar los materiales </mensaje>
+            <descripcion>Debe configurar los permisos del usuario a los almacenes para realizar esta operación.</descripcion>
+        </es>
+    </LOG_T_007>
+
+    <LOG_LB_TALL_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al asignar el Nro. de orden.</mensaje>
+            <descripcion>Nro duplicado. Intente guardar nuevamente.</descripcion>
+        </es>
+    </LOG_LB_TALL_001>
+    <!-- Fin de Excepciones de talleres -->
+
+    <!-- Excepciones de reserva -->
+    <LOG_R_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al confirmar estado del plan de acumulación</mensaje>
+            <descripcion>El plan de acumulación no contiene productos.</descripcion>
+        </es>
+    </LOG_R_001>
+    <LOG_R_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al confirmar estado del plan de acumulación</mensaje>
+            <descripcion>Algunos productos del plan de acumulación no tienen cantidades registradas.</descripcion>
+        </es>
+    </LOG_R_002>
+    <LOG_R_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al cargar las subordinaciones del plan de acumulación</mensaje>
+            <descripcion>Debe configurar las subordinaciones para la entidad.</descripcion>
+        </es>
+    </LOG_R_003>
+    <LOG_R_004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar el plan de acumulación</mensaje>
+            <descripcion>Ya existe un plan de acumulación para el ejercicio actual.</descripcion>
+        </es>
+    </LOG_R_004>
+    <LOG_R_005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al confirmar estado del plan de acumulación</mensaje>
+            <descripcion>Existen productos del plan de acumulación que no han sido asignados a subordinaciones.
+            </descripcion>
+        </es>
+    </LOG_R_005>
+    <LOG_R_006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al confirmar estado del plan de acumulación</mensaje>
+            <descripcion>Las cantidades registradas de algunos productos por delegación no coinciden con el total por
+                delegación.
+            </descripcion>
+        </es>
+    </LOG_R_006>
+    <LOG_R_007>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de configuración</mensaje>
+            <descripcion>Debe configurar la fecha de la entidad.</descripcion>
+        </es>
+    </LOG_R_007>
+    <LOG_R_008>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al confirmar estado del plan de acumulación</mensaje>
+            <descripcion>Existen productos con cantidad total planificada mayor que su nivel de acumulación.
+            </descripcion>
+        </es>
+    </LOG_R_008>
+    <LOG_R_009>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al anular el plan de acumulación</mensaje>
+            <descripcion>No se puede anular el plan de acumulación porque está en uso.</descripcion>
+        </es>
+    </LOG_R_009>
+    <LOG_R_ROTAR_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al crear el documento de distribución</mensaje>
+            <descripcion>Debe configurar el documento para la entidad.</descripcion>
+        </es>
+    </LOG_R_ROTAR_001>
+    <LOG_R_ROTAR_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al crear el documento de distribución</mensaje>
+            <descripcion>Debe configurar el cliente para la entidad.</descripcion>
+        </es>
+    </LOG_R_ROTAR_002>
+    <LOG_R_ROTAR_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al rotar los productos del cuadro básico de la reserva</mensaje>
+            <descripcion>Debe configurar los productos del cuadro básico de la reserva.</descripcion>
+        </es>
+    </LOG_R_ROTAR_003>
+    <LOG_R_CONFRESERVA_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al configurar entidad</mensaje>
+            <descripcion>Debe configurar la entidad INRE.</descripcion>
+        </es>
+    </LOG_R_CONFRESERVA_001>
+    <LOG_R_CONFRESERVA_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar productos</mensaje>
+            <descripcion>El(Los) producto(s) seleccionado(s) no puede(n) ser eliminado(s) porque tiene(n) operaciones
+                asociadas.
+            </descripcion>
+        </es>
+    </LOG_R_CONFRESERVA_002>
+    <LOG_R_CONFRESERVA_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al configurar una entidad</mensaje>
+            <descripcion>La entidad no pertenece a la subordinación configurada.</descripcion>
+        </es>
+    </LOG_R_CONFRESERVA_003>
+    <!-- Fin de reserva -->
+
+    <!-- Cierre de apertura -->
+    <LOG_LB_CIERE_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de configuración.</mensaje>
+            <descripcion>Para realizar esta funcionalidad debe efectuar el cierre de apertura.</descripcion>
+        </es>
+    </LOG_LB_CIERE_001>
+    <LOG_LB_CIERE_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al realizar el cierre.</mensaje>
+            <descripcion>No se puede realizar el cierre porque existen comprobantes sin generar.</descripcion>
+        </es>
+    </LOG_LB_CIERE_002>
+    <LOG_LB_CIERE_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al cerrar el día.</mensaje>
+            <descripcion>No se puede cerrar el día porque la fecha del subsistema es igual a la fecha del último período.</descripcion>
+        </es>
+    </LOG_LB_CIERE_003>
+     <LOG_LB_CIERE_004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al cerrar el período.</mensaje>
+            <descripcion>No se puede cerrar el período porque no es la última fecha del subsistema.</descripcion>
+        </es>
+    </LOG_LB_CIERE_004>
+    <LOG_LB_CIERE_005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al realizar el cierre.</mensaje>
+            <descripcion>No se puede realizar el cierre porque existen comprobantes sin generar, en el subsistema de Inventario.</descripcion>
+        </es>
+    </LOG_LB_CIERE_005>
+    <LOG_LB_CIERE_006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al realizar el cierre.</mensaje>
+            <descripcion>No se puede realizar el cierre porque existen comprobantes sin generar, en el subsistema de Facturación.</descripcion>
+        </es>
+    </LOG_LB_CIERE_006>
+    <LOG_LB_CIERE_007>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al realizar el cierre.</mensaje>
+            <descripcion>No se puede realizar el cierre, existen diferencias entre los saldos.</descripcion>
+        </es>
+    </LOG_LB_CIERE_007>
+    <LOG_LB_CIERE_008>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al crear documento.</mensaje>
+            <descripcion>No se puede realizar la operación, el almacén se encuentra en cierre.</descripcion>
+        </es>
+    </LOG_LB_CIERE_008>
+    <LOG_LB_CIERE_009>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al pasar día.</mensaje>
+            <descripcion>No se puede realizar cierre diario pasando a una fecha posterior a la fecha actual.</descripcion>
+        </es>
+    </LOG_LB_CIERE_009>
+     <LOG_LB_CIERE_010>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al realizar el cierre.</mensaje>
+            <descripcion>No se puede efectuar el cierre de periodo, existen diferencias en el balance de proceso.</descripcion>
+        </es>
+    </LOG_LB_CIERE_010>
+     <LOG_LB_CIERE_011>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al realizar el cierre.</mensaje>
+            <descripcion>No se puede abrir el cierre, el almacén se encuentra en una fecha posterior a la del cierre.</descripcion>
+        </es>
+    </LOG_LB_CIERE_011>
+    <!-- Cierre de apertura -->
+
+    <!--Facturacion-->
+    <LOG_LB_FAC_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error cambiando la moneda del documento.</mensaje>
+            <descripcion>No existen tasas de cambio configurada para la moneda.</descripcion>
+        </es>
+    </LOG_LB_FAC_001>
+    <LOG_LB_FAC_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar la moneda.</mensaje>
+            <descripcion>La entidad no tiene monedas registradas.</descripcion>
+        </es>
+    </LOG_LB_FAC_002>
+    <LOG_LB_FAC_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al cargar el módulo.</mensaje>
+            <descripcion>La entidad no tiene configurado el módulo.</descripcion>
+        </es>
+    </LOG_LB_FAC_003>
+    <LOG_LB_FAC_004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al asignar el Nro. de factura.</mensaje>
+            <descripcion>Nro duplicado. Intente contabilizar de nuevo.</descripcion>
+        </es>
+    </LOG_LB_FAC_004>
+    <LOG_LB_FAC_005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al guardar.</mensaje>
+            <descripcion>El vendedor que desea adicionar ya existe.</descripcion>
+        </es>
+    </LOG_LB_FAC_005>
+    <LOG_LB_FAC_006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al confirmar.</mensaje>
+            <descripcion>La cantidad a devolver no puede ser mayor a la entregada.</descripcion>
+        </es>
+    </LOG_LB_FAC_006>
+    <LOG_LB_FAC_007>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al generar comprobante.</mensaje>
+            <descripcion>La venta no ha generado comprobante.</descripcion>
+        </es>
+    </LOG_LB_FAC_007>
+    <LOG_LB_FAC_008>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al aprobar despacho.</mensaje>
+            <descripcion>Existen productos sin cantidades registradas.</descripcion>
+        </es>
+    </LOG_LB_FAC_008>
+    <LOG_LB_FAC_009>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error.</mensaje>
+            <descripcion>El documento pertenece a un pedido de tienda virtual.</descripcion>
+        </es>
+    </LOG_LB_FAC_009>
+    <LOG_LB_FAC_010>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error.</mensaje>
+            <descripcion>Existen productos sin existencias para despachar.</descripcion>
+        </es>
+    </LOG_LB_FAC_010>
+
+    <LOG_LB_FAC_011>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar documento.</mensaje>
+            <descripcion>No se permite eliminar documentos generados desde talleres. Debe llevar el mismo hasta su estado final y luego cancelarlo para garantizar la trazabilidad del proceso.</descripcion>
+        </es>
+    </LOG_LB_FAC_011>
+    <LOG_LB_FAC_012>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error.</mensaje>
+            <descripcion>Existen productos con precio cero en facturas del despacho.</descripcion>
+        </es>
+    </LOG_LB_FAC_012>
+    <LOG_LB_FAC_013>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error.</mensaje>
+            <descripcion>La operación no permite facturar con precios cero.</descripcion>
+        </es>
+    </LOG_LB_FAC_013>
+    <!--Facturacion-->
+    <!--Pedidos tienda virtual-->
+    <LOG_LB_PTV_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error.</mensaje>
+            <descripcion>Existen productos involucrados en despachos en estado de elaboración, debe eliminarlos antes de reprocesar los pedidos.</descripcion>
+        </es>
+    </LOG_LB_PTV_001>
+    <LOG_LB_PTV_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error.</mensaje>
+            <descripcion>Las ventas no coinciden con el dispositvo asociado al área de venta.</descripcion>
+        </es>
+    </LOG_LB_PTV_002>
+    <!--Excepciones de salida-->
+
+    <LOG_LB_SAL_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al confirmar el documento</mensaje>
+            <descripcion>Debe registrar los datos del transportador.</descripcion>
+        </es>
+    </LOG_LB_SAL_001>
+    <LOG_LB_SAL_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al contabilizar el documento</mensaje>
+            <descripcion>Debe registrar la cuenta.</descripcion>
+        </es>
+    </LOG_LB_SAL_002>
+    <LOG_LB_SAL_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al contabilizar el documento</mensaje>
+            <descripcion>Debe registrar el elemento de gasto para cada movimiento.</descripcion>
+        </es>
+    </LOG_LB_SAL_003>
+	<LOG_LB_SAL_004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error el subsistema no tienes configurado las operaciones</mensaje>
+            <descripcion>Debe configurar las operaciones correspondientes para el documento en Datos maestros.</descripcion>
+        </es>
+    </LOG_LB_SAL_004>
+    <LOG_LB_SAL_005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al cancelar documento</mensaje>
+            <descripcion>No se puede cancelar el documento, ha sido generado por Orden de trabajo, debe devolverlo.</descripcion>
+        </es>
+    </LOG_LB_SAL_005>
+    <LOG_LB_SAL_006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al anular el documento</mensaje>
+            <descripcion>No se puede anular el documento, existe al menos una solicitud de entrega generada de una orden de producción.</descripcion>
+        </es>
+    </LOG_LB_SAL_006>
+    <LOG_LB_SAL_007>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al anular el documento</mensaje>
+            <descripcion>No se puede anular el documento, debe configurar el módulo de producción en documentos primarios.</descripcion>
+        </es>
+    </LOG_LB_SAL_007>
+
+    <!--Excepciones de salida-->
+
+
+    <!--Excepciones de ajuste de inventario-->
+
+    <LOG_LB_AJUSTE_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al registrar el importe del movimiento</mensaje>
+            <descripcion>El importe del movimiento no puede ser modificado porque se hace negativo.</descripcion>
+        </es>
+    </LOG_LB_AJUSTE_001>
+    <LOG_LB_AJUSTE_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al aprobar el documento</mensaje>
+            <descripcion>No se puede aprobar, existen conteos físico en proceso.</descripcion>
+        </es>
+    </LOG_LB_AJUSTE_002>
+    <LOG_LB_AJUSTE_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al contabilizar el documento</mensaje>
+            <descripcion>No se puede contabilizar, existen conteos físico en proceso.</descripcion>
+        </es>
+    </LOG_LB_AJUSTE_003>
+    <LOG_INV_CERT_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al certificar el gasto</mensaje>
+            <descripcion>No se puede certificar el gasto. Los importes totales no coinciden.</descripcion>
+        </es>
+    </LOG_INV_CERT_001>
+    <LOG_INV_CERT_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar el gasto</mensaje>
+            <descripcion>No se puede adicionar la certificacion de gasto.</descripcion>
+        </es>
+    </LOG_INV_CERT_002>
+    <LOG_INV_CERT_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar el registro de gasto</mensaje>
+            <descripcion>No se puede eliminar la certificacion de gasto.</descripcion>
+        </es>
+    </LOG_INV_CERT_003>
+    <!--Excepciones de ajuste de inventario-->
+
+    <!-- Bloque de excepciones de lote -->
+
+    <LOG_LB_LOTE_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al registrar el lote</mensaje>
+            <descripcion>La cantidad disponible del lote se hace negativa.</descripcion>
+        </es>
+    </LOG_LB_LOTE_001>
+
+    <!-- Fin del bloque de excepciones de lote -->
+
+    <!-- Bloque de excepciones de armamento -->
+
+    <LOG_LB_PARTIDA_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al registrar la partida</mensaje>
+            <descripcion>La cantidad disponible de la partida se hace negativa.</descripcion>
+        </es>
+    </LOG_LB_PARTIDA_001>
+
+    <!-- Fin del bloque de excepciones de armamento -->
+
+    <!-- Bloque de excepciones de factor de conversion de unidad de medida.-->
+
+    <LOG_LB_FC_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al obtener factor de conversión</mensaje>
+            <descripcion>El factor de conversión no está configurado.</descripcion>
+        </es>
+    </LOG_LB_FC_001>
+
+    <!-- Fin del bloque de excepciones de factor de conversion de unidad de medida.-->
+
+    <!-- Bloque de excepciones de la asociacion via y organo.-->
+    <LOG_LB_MA_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al asociar las vias y los organos</mensaje>
+            <descripcion>Ya existe la via de Adquisición seleccionada.</descripcion>
+            <descripcion>.</descripcion>
+        </es>
+    </LOG_LB_MA_001>
+    <!--Fin del bloque de excepciones de la asociacion via y organo.-->
+
+
+    <!-- Bloque de excepciones de atributos dinamicos. -->
+
+    <LOG_LB_ATRIB_D_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar el nomenclador dinámico</mensaje>
+            <descripcion>El nomenclador dinámico ya existe.</descripcion>
+        </es>
+    </LOG_LB_ATRIB_D_001>
+    <LOG_LB_ATRIB_D_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar el atributo dinámico</mensaje>
+            <descripcion>El atributo dinámico ya existe.</descripcion>
+        </es>
+    </LOG_LB_ATRIB_D_002>
+    <LOG_LB_ATRIB_D_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar la agrupación</mensaje>
+            <descripcion>El agrupación ya existe.</descripcion>
+        </es>
+    </LOG_LB_ATRIB_D_003>
+    <LOG_LB_ATRIB_D_004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar el nomenclador dinámico</mensaje>
+            <descripcion>El nomenclador dinámico esta en uso.</descripcion>
+        </es>
+    </LOG_LB_ATRIB_D_004>
+    <LOG_LB_ATRIB_D_005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al modificar, eliminar, asociar o desasociar el atributo dinámico</mensaje>
+            <descripcion>El atributo dinámico esta en uso.</descripcion>
+        </es>
+    </LOG_LB_ATRIB_D_005>
+
+    <!-- Fin del bloque de excepciones de atributos dinamicos. -->
+	
+    <!-- Excepciones de produccion -->
+    <LOG_LB_PRO_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar la Solicitud de Entrega</mensaje>
+            <descripcion>No se puede crear la Solicitud de Entrega, no hay cantidades solicitadas.</descripcion>
+        </es>
+    </LOG_LB_PRO_001>
+    <LOG_LB_PRO_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al aprobar el documento</mensaje>
+            <descripcion>Error al aprobar el documento, la fecha del subsistema de Inventario debe ser igual a la fecha actual del subsistema de Producción.</descripcion>
+        </es>
+    </LOG_LB_PRO_002>
+    <LOG_LB_PRO_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al anular el documento</mensaje>
+            <descripcion>No se puede anular la orden de producción, existe al menos un informe de recepción generado.</descripcion>
+        </es>
+    </LOG_LB_PRO_003>
+    <LOG_LB_PRO_004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar el documento</mensaje>
+            <descripcion>No se puede eliminar el vale de producción, existe al menos un informe de recepción generado.</descripcion>
+        </es>
+    </LOG_LB_PRO_004>
+     <LOG_LB_PRO_005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar la materia prima seleccionada</mensaje>
+            <descripcion>Esta materia prima no se puede eliminar.</descripcion>
+        </es>
+    </LOG_LB_PRO_005>
+     <LOG_LB_PRO_006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de configuración </mensaje>
+            <descripcion>Debe configurar el documento primario orden de producción.</descripcion>
+        </es>
+    </LOG_LB_PRO_006>
+	<LOG_LB_PRO_007>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al generar la solicitud de entrega </mensaje>
+            <descripcion>Error al generar la solicitud de entrega, la fecha del subsistema de Inventario debe ser igual a la fecha actual del subsistema de Producción.</descripcion>
+        </es>
+    </LOG_LB_PRO_007>
+
+     
+    <!-- Fin de Excepciones de produccion -->
+ 
+ <!-- Excepciones de farmacia -->
+<LOG_LB_FARMACIA_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar la Tarjeta de Medicamento</mensaje>
+            <descripcion>No se puede crear la Tarjeta de Medicamento, el CI ya existe.</descripcion>
+        </es>
+    </LOG_LB_FARMACIA_001>
+    <LOG_LB_FARMACIA_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al importar la(s) tarjeta(s) de tedicamento(s)</mensaje>
+            <descripcion>No se puede importar la(s) tarjeta(s) de medicamento(s), debe configurar la operación.</descripcion>
+        </es>
+    </LOG_LB_FARMACIA_002>
+     <LOG_LB_FARMACIA_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al importar la(s) tarjeta(s) de tedicamento(s)</mensaje>
+            <descripcion>No se puede importar la(s) tarjeta(s) de medicamento(s), el archivo no tiene el formato correcto .</descripcion>
+        </es>
+    </LOG_LB_FARMACIA_003>
+      <!-- Fin de Excepciones de produccion -->
+	  
+
+	<!-- Excepciones de combustible -->
+    <LOG_LB_COMB_001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar la lectura de brazo</mensaje>
+            <descripcion>No se puede crear la lectura de brazo, el brazo para el turno de trabajo ya existe.</descripcion>
+        </es>
+    </LOG_LB_COMB_001>
+    <LOG_LB_COMB_002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Turno de trabajo sin lectura de brazo</mensaje>
+            <descripcion>El turno de trabajo que desea cerrar no contiene lectura de brazo.</descripcion>
+        </es>
+    </LOG_LB_COMB_002>
+    <LOG_LB_COMB_003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Turno de trabajo sin área de venta</mensaje>
+            <descripcion>Las ventas del turno de trabajo que desea procesar no tienen un área de venta configurada para el</descripcion>
+        </es>
+    </LOG_LB_COMB_003>
+    <LOG_LB_COMB_004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Área de venta sin modo de pago</mensaje>
+            <descripcion>El área de venta configurada no tiene un modo de pago para el</descripcion>
+        </es>
+    </LOG_LB_COMB_004>
+    <LOG_LB_COMB_005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al procesar las ventas</mensaje>
+            <descripcion>El área de venta tiene que estar configurado el tipo de venta por pedido para el</descripcion>
+        </es>
+    </LOG_LB_COMB_005>
+    <LOG_LB_COMB_006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Turno de trabajo sin ventas procesadas</mensaje>
+            <descripcion>El turno de trabajo que desea cerrar no contiene ventas procesadas.</descripcion>
+        </es>
+    </LOG_LB_COMB_006>
+    <LOG_LB_COMB_007>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Turno de trabajo con ventas sin procesar</mensaje>
+            <descripcion>El turno de trabajo que desea cerrar contiene ventas sin procesar.</descripcion>
+        </es>
+    </LOG_LB_COMB_007>
+    <!-- Fin de Excepciones de combustible -->  
+</Excepciones>

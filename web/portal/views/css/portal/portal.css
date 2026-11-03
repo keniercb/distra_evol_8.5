@@ -1,0 +1,29 @@
+/*** Fichero con la configuraci�n del estilo del portal ***/
+.bannerPortal{width:100%;height:40px;background-image:url("../../images/portal/bCtr.png");background-repeat:repeat;}
+.bIzq{float:left;background-image:url("../../images/portal/bIzq.png");width:290px;height:40px;}
+.bDer{float:right;background-image:url("../../images/portal/bDer.png");height:40px;width:230px;}
+.biconmenu{ 
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+}
+
+#barraMenu{margin-top:40px;}
+#idbodyPortal {
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+}
+.badge {
+    border: 0 solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+    outline-offset: 0px;
+    text-shadow: none;
+    transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.badge:hover {
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .1), 0 0 20px rgba(255, 255, 255, 1);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #427388;
+}

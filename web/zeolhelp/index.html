@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+</head>
+<body>
+<!-- Load jQuery -->
+<script type="text/javascript" src="resources/bootstrap/js/jquery.js"></script>
+<script type="text/javascript" src="resources/bootstrap/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="resources/main.js"></script>
+
+<!-- Load Bootstrap -->
+<script type="text/javascript" src="resources/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
+<!-- Documentation extras -->
+<link rel="stylesheet" href="resources/style.css">
+
+
+
+
+
+<!-- Load jQuery build -->
+<script type="text/javascript" src="resources/tiny/tinymce.js"></script>
+<script type="text/javascript">
+
+    tinyMCE.init({
+        // General options
+        mode : "textareas",
+        // theme : "advanced",
+        theme : "modern",
+        language:"es",
+        statusbar : false,
+        //image_advtab: true ,
+        //filemanager_crossdomain: true,
+        //external_filemanager_path:"/ayudaXetid/components/filemanager/",
+        //external_plugins: { "filemanager" : "/ayudaXetid/components/filemanager/plugin.min.js"},
+        external_filemanager_path:"resources/filemanager/",
+        external_plugins: { "filemanager" : "../filemanager/plugin.js"},
+        filemanager_title:"Gestionar archivos",
+
+        plugins : "pagebreak,layer,table,save,media,emoticons,insertdatetime,preview,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking, responsivefilemanager, image, textpattern, link,code, charmap, advlist,x_newproject_dependency,x_openproject_dependency,x_export_dependency,Ximport_file,textcolor,example,ayuda,acercade",
+        // Theme options
+        toolbar1:"save,|,undo,redo,|newdocument,|,x_export, Ximport_file,|,print,|,responsivefilemanager,image,media,|,fullscreen,preview,|,bold,italic,underline,strikethrough,|,alignleft,aligncenter,alignright,alignjustify",
+        toolbar2:"alignjustify|,ltr,rtl,|,unlink,cleanup,|,removeformat,|,search,|,replace,|,bullist,|,numlist,|,outdent,indent,blockquote,|styleselect,|,formatselect,|,fontselect,|,fontsizeselect,|,insertdate,inserttime,|,forecolor,backcolor,|,tablecontrols,|,hr,|,example",
+
+        toolbar_location : "top",
+        toolbar_align : "left",
+        statusbar_location : "bottom",
+        resizing : true,
+        // Fonts)
+        fontsize_formats: "8pt 10pt 11pt 12pt 14pt 18pt 24pt 36pt",
+        autosave_interval: "20s",
+        width:'100%',
+        //height: 600,
+        templates : "index.php/Ayuda/getTemplates",
+        /*{
+         title: "Estándar Ayuda XETID",
+         url: "editor_details.htm",
+         description: "Adds Editor Name and Staff ID"
+         },
+         {
+         title: "Estándar",
+         url: "time.htm",
+         description: "Adds an editing timestamp."
+         }*/
+        // [{title: 'Some title 1', description: 'Some desc 1', content: 'My content'}],
+
+
+        //content_css : "css/example.css",
+
+        // Drop lists for link/image/media/template dialogs
+        template_external_list_url : "js/template_list.js",
+        external_link_list_url : "js/link_list.js",
+        external_image_list_url : "js/image_list.js",
+        media_external_list_url : "js/media_list.js",
+
+        // Replace values for the template plugin
+        /*template_replace_values : {
+         username : "Some User",
+         staffid : "991234"
+         }*/
+
+        textpattern_patterns: [
+            {start: '*', end: '*', format: 'italic'},
+            {start: '**', end: '**', format: 'bold'},
+            {start: '#', format: 'h1'},
+            {start: '##', format: 'h2'},
+            {start: '###', format: 'h3'},
+            {start: '####', format: 'h4'},
+            {start: '#####', format: 'h5'},
+            {start: '######', format: 'h6'},
+            {start: 'img. ', cmd: 'mceImage'},
+            {start: 'vid. ', cmd: 'mceMedia'}
+        ],
+        setup : function(ed) {
+            ed.on('PreInit', function(e) {
+                ed.getBody().setAttribute('contenteditable', false);
+                //$('.mce-statusbar').hide();
+                $('#content_ifr').height($('#content_ifr').height()+35);
+                listarProyecto();
+
+            });
+        }
+
+
+
+        /*image_list: [
+         {title: 'My image 1', value: '/fotos/p.jpg'}
+         ]*/
+
+    });
+</script>
+<!-- Docs master nav
+<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+
+
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a style="" href="index.html" class="navbar-brand">XHELP</a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="javascript/index.html">Documentación</a>
+                </li>
+                <li>
+                    <a href="css/index.html">Roadmap</a>
+                </li>
+                <li>
+                    <a href="components/index.html">Contácto</a>
+                </li>
+                <li>
+                    <a href="getting-started/index.html">Soporte</a>
+                </li>
+                <li>
+                    <a href="customize/index.html">Ayuda</a>
+                </li>
+
+            </ul>
+        </nav>
+
+
+
+
+
+
+
+
+</header>
+-->
+<!-- XETID Action Menu  INDICE-->
+<div id="xmenuAction" class="list-group col-md-2 xActionMenuHelp">
+    <a id="addNode" data-toggle="modal" href="" class="list-group-item ">
+        <span style="padding-right: 4px;" class="glyphicon glyphicon-plus"></span> Adicionar índice
+    </a>
+    <a id="renameNode" data-toggle="modal" href="" class="list-group-item">
+        <span style="padding-right: 4px;" class="glyphicon glyphicon-edit"></span>Modificar índice</a>
+    <a id="deleteNode"  data-toggle="modal" href="" class="list-group-item">
+        <span style="padding-right: 4px;" class="glyphicon glyphicon-remove"></span>Eliminar índice</a>
+    <a id="exportSubIndiceProy" data-toggle="modal" href="#xetidWindows" class="list-group-item">
+        <span style="padding-right: 4px;" class="glyphicon glyphicon-export"></span>Exportar índice</a>
+    <a id="importSubIndiceProy" data-toggle="modal" href="#xetidWindows" class="list-group-item">
+        <span style="padding-right: 4px;" class="glyphicon glyphicon-import"></span>Importar índice</a>
+
+</div>
+<!-- XETID Action Menu  Proyect-->
+<div id="xmenuActionProyect" class="list-group col-md-3 xActionMenuHelp">
+    <a id="addNodeProyect" data-toggle="modal" href="" class="list-group-item ">
+        <span style="padding-right: 4px;" class="glyphicon glyphicon-plus"></span> Adicionar índice
+    </a>
+    <a id="renameNodeProy" data-toggle="modal" href="" class="list-group-item">
+        <span style="padding-right: 4px;" class="glyphicon glyphicon-edit"></span>Modificar proyecto</a>
+    <a id="deleteNodeProy"  data-toggle="modal" href="" class="list-group-item">
+        <span style="padding-right: 4px;" class="glyphicon glyphicon-remove"></span>Eliminar proyecto</a>
+    <a id="exportNodeProy" data-toggle="modal" href="#xetidWindows" class="list-group-item">
+        <span style="padding-right: 4px;" class="glyphicon glyphicon-export"></span>Exportar proyecto</a>
+    <a id="exportProyIndice" data-toggle="modal" href="#xetidWindows" class="list-group-item">
+        <span style="padding-right: 4px;" class="glyphicon glyphicon-export"></span>Exportar proyecto como índice</a>
+    <a id="importProyIndice" data-toggle="modal" href="#xetidWindows" class="list-group-item">
+        <span style="padding-right: 4px;" class="glyphicon glyphicon-import"></span>Importar índice</a>
+
+</div>
+
+<section id="context" class="" style="background-color: rgba(66, 139, 202, 0.11);">
+    <div id="leftPanel" class="col-md-3" style="background-color: #ffffff;">
+        <div class="row">
+            <nav class="toolbarXetid" role="navigation">
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div  class="collapse navbar-collapse navbar-ex1-collapse">
+                    <div style="margin-top: 4px;margin-bottom: 4px" class="input-group">
+                        <input maxlength="150" onkeydown="return validarCampoBuscar(event);" onkeyup="filterShowItems(event)" type="text" class="form-control" id="inputbuscar"  placeholder="Buscar...">
+                        <span style="font-family: 'Glyphicons Halflings';" class="input-group-addon  glyphicon-search"></span>
+                    </div>
+                </div><!-- /.navbar-collapse -->
+            </nav>
+
+        </div>
+        <div class="row">
+            <div id="contextInde">
+                <h4 style="color: #428BCA; padding-left: 15px;text-decoration: dashed;"><a href="./index.html">Proyectos:</a></h4>
+                <hr width="100%" style="margin-top:0px;">
+                <ul id="menuIndice" class="nav bs-sidenav">
+                    <li id="home">
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+
+        <textarea name="content"> </textarea>
+        <div id="divflotante"></div>
+
+    </div>
+
+
+</section>
+
+</body>
+</html>

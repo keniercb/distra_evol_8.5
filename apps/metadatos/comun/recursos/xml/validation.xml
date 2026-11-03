@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<validador>
+	<metadatos>
+		<metaconfig>
+			<MetaconfigController>
+				<gestionarAccionesAction>
+					<precondition>
+						<!--ORGANO-->
+						<validator class="MetaconfigValidator" method="validarInsertarOrgano" error="EC39"/>
+						<validator class="MetaconfigValidator" method="validarModificarOrgano" error="EC39"/>
+						<validator class="MetaconfigValidator" method="validarEliminarDesactivarOrgano" error="ECE40"/>
+						<validator class="MetaconfigValidator" method="validarEliminarDesactivarOrganoInterno" error="ECE41"/>
+						<validator class="MetaconfigValidator" method="validarEliminarDesactivarAgrupacion" error="ECE42"/>
+						<validator class="MetaconfigValidator" method="validarEliminarDesactivarAgrupacionInterno" error="ECE43"/>
+
+						<!--FIRMA-->
+						<!--<validator class="MetaconfigValidator" method="validarInsertarFirma" error="EC102"/>
+						<validator class="MetaconfigValidator" method="validarInsertarFirmaName" error="ECF102"/>
+						<validator class="MetaconfigValidator" method="validarModificarFirma" error="EC102"/>
+						<validator class="MetaconfigValidator" method="validarModificarFirmaName" error="ECF102"/>-->
+
+						<!--tipo no formal-->
+						<validator class="MetaconfigValidator" method="validarInsertarNoFormal" error="EC100"/>
+						<validator class="MetaconfigValidator" method="validarModificarNoFormal" error="EC100"/>
+						<validator class="MetaconfigValidator" method="validarEliminarDesactivarNoFormal"
+								   error="EC101"/>
+
+						<!--GRUPO DE COMPLEJIDAD-->
+						<validator class="MetaconfigValidator" method="validarInsertarGrupoComplejidad"
+								   error="EC03"/>
+						<validator class="MetaconfigValidator" method="validarModificarGrupoComplejidad"
+								   error="EC03"/>
+						<validator class="MetaconfigValidator" method="validarEliminarDesactivarGrupoComplejidad"
+								   error="EC04"/>
+						<!--Tipo Escala-->
+						<validator class="MetaconfigValidator" method="validarInsertarTipoEscala" error="EC46"/>
+						<validator class="MetaconfigValidator" method="validarModificarTipoEscala" error="EC46"/>
+						<validator class="MetaconfigValidator" method="validarEliminarDesactivarTipoEscala"
+								   error="EC047"/>
+						<!--Escala Salarial-->
+						<validator class="MetaconfigValidator" method="validarInsertarEscalaSalarial"
+								   error="EC049"/>
+						<validator class="MetaconfigValidator" method="validarModificarEscalaSalarial"
+								   error="EC049"/>
+						<validator class="MetaconfigValidator" method="validarEliminarDesactivarEscalaSalarial"
+								   error="EC048"/>
+						<!--CARGO-->
+						<validator class="MetaconfigValidator" method="validarInsertarCargo" error="EC3A"/>
+						<validator class="MetaconfigValidator" method="validarModificarCargo" error="EC3A"/>
+						<validator class="MetaconfigValidator" method="validarEliminarDesactivarCargo"
+								   error="EC31"/>
+
+						<!--SALARIO-->
+						<validator class="MetaconfigValidator" method="validarInsertarSalario" error="EC12"/>
+						<validator class="MetaconfigValidator" method="validarModificarSalario" error="EC12"/>
+						<validator class="MetaconfigValidator" method="validarEliminarDesactivarSalario"
+								   error="EC13"/>
+
+						<!--PREPARACION-->
+						<validator class="MetaconfigValidator" method="validarInsertarPreparacion" error="EC18"/>
+						<validator class="MetaconfigValidator" method="validarModificarPreparacion" error="EC18"/>
+						<validator class="MetaconfigValidator" method="validarEliminarDesactivarPreparacion"
+								   error="EC19"/>
+
+						<!--TIPO DE MEDIO-->
+						<validator class="MetaconfigValidator" method="validarInsertarTipoMedio" error="EC15"/>
+						<validator class="MetaconfigValidator" method="validarModificarTipoMedio" error="EC15"/>
+						<validator class="MetaconfigValidator" method="validarEliminarDesactivarTipoMedio"
+								   error="EC16"/>
+
+						<!--CATEGORÍA OCUPACIONAL-->
+						<validator class="MetaconfigValidator" method="validarInsertarCategoriaOcupacional"
+								   error="EC21"/>
+						<validator class="MetaconfigValidator" method="validarModificarCategoriaOcupacional"
+								   error="EC21"/>
+						<validator class="MetaconfigValidator"
+								   method="validarEliminarDesactivarCategoriaOcupacional"
+								   error="EC22"/>
+
+						<!--SUBCATEGORÍA OCUPACIONAL-->
+						<validator class="MetaconfigValidator" method="validarInsertarSubCategoriaOcupacional"
+								   error="EC65"/>
+						<validator class="MetaconfigValidator" method="validarModificarSubCategoriaOcupacional"
+								   error="EC65"/>
+						<validator class="MetaconfigValidator"
+								   method="validarEliminarDesactivarSubCategoriaOcupacional"
+								   error="EC22"/>
+
+						<!--TIPO DE SUBORDINACION-->
+						<validator class="MetaconfigValidator" method="validarInsertarTipoSubordinacion"
+								   error="EC27"/>
+						<validator class="MetaconfigValidator" method="validarModificarTipoSubordinacion"
+								   error="EC27"/>
+						<validator class="MetaconfigValidator" method="validarEliminarDesactivarTipoSubordinacion"
+								   error="EC28"/>
+
+						<!--GRADO-->
+						<validator class="MetaconfigValidator" method="validarInsertarGrado" error="EC24"/>
+						<validator class="MetaconfigValidator" method="validarModificarGrado" error="EC24"/>
+						<validator class="MetaconfigValidator" method="validarEliminarDesactivarGrado"
+								   error="EC25"/>
+
+						<!--ICONO-->
+						<validator class="MetaconfigValidator" method="validarEliminarIcono" error="EC07"/>
+						<validator class="MetaconfigValidator" method="validarInsertarIcono" error="EC06"/>
+						<validator class="MetaconfigValidator" method="validarModificarIcono" error="EC06"/>
+
+
+					</precondition>
+				</gestionarAccionesAction>
+
+				<!--Nomenclador Cargo -->
+				<mostrarCargoAction>
+					<precondition>
+						<validator class="MetaconfigValidator" method="ValidarCamposMostrar" error="EC60"/>
+					</precondition>
+					<param name="limit" type="enterospos" not_null="true" null_error="EC01" type_error="EC02"/>
+					<param name="start" type="enterospos" not_null="true" null_error="EC01" type_error="EC02"/>
+
+				</mostrarCargoAction>
+
+				<!--Nomenclador Agrupacion -->
+				<mostrarAgrupacionAction>
+					<precondition>
+						<validator class="MetaconfigValidator" method="ValidarCamposMostrar" error="EC60"/>
+					</precondition>
+					<param name="limit" type="enterospos" not_null="true" null_error="EC01" type_error="EC02"/>
+					<param name="start" type="enterospos" not_null="true" null_error="EC01" type_error="EC02"/>
+
+				</mostrarAgrupacionAction>
+
+				<!--Nomenclador Agrupacion Interna-->
+				<mostrarAgrupacionInternaAction>
+					<precondition>
+						<validator class="MetaconfigValidator" method="ValidarCamposMostrar" error="EC60"/>
+					</precondition>
+					<param name="limit" type="enterospos" not_null="true" null_error="EC01" type_error="EC02"/>
+					<param name="start" type="enterospos" not_null="true" null_error="EC01" type_error="EC02"/>
+
+				</mostrarAgrupacionInternaAction>
+
+				<!--Nomenclador Organo -->
+				<mostrarOrganoAction>
+					<precondition>
+						<validator class="MetaconfigValidator" method="ValidarCamposMostrar" error="EC60"/>
+					</precondition>
+					<param name="limit" type="enterospos" not_null="true" null_error="EC01" type_error="EC02"/>
+					<param name="start" type="enterospos" not_null="true" null_error="EC01" type_error="EC02"/>
+
+				</mostrarOrganoAction>
+
+				<!--Nomenclador Organo Interno -->
+				<mostrarOrganoInternoAction>
+					<precondition>
+						<validator class="MetaconfigValidator" method="ValidarCamposMostrar" error="EC60"/>
+					</precondition>
+					<param name="limit" type="enterospos" not_null="true" null_error="EC01" type_error="EC02"/>
+					<param name="start" type="enterospos" not_null="true" null_error="EC01" type_error="EC02"/>
+
+				</mostrarOrganoInternoAction>
+
+				<!-- Nomenclador Grupo Complejidad-->
+				<mostrarGrupoComplejidadAction>
+					<precondition>
+						<validator class="MetaconfigValidator" method="ValidarCamposMostrar" error="EC60"/>
+					</precondition>
+					<param name="limit" type="enterospos" not_null="true" null_error="EC01" type_error="EC02"/>
+					<param name="start" type="enterospos" not_null="true" null_error="EC01" type_error="EC02"/>
+
+				</mostrarGrupoComplejidadAction>
+
+				<!--Nomenclador Salario-->
+				<mostrarSalarioAction>
+					<precondition>
+						<validator class="MetaconfigValidator" method="ValidarCamposMostrar" error="EC60"/>
+					</precondition>
+					<param name="limit" type="enterospos" not_null="true" null_error="EC01" type_error="EC02"/>
+					<param name="start" type="enterospos" not_null="true" null_error="EC01" type_error="EC02"/>
+
+				</mostrarSalarioAction>
+
+				<!--Nomenclador Tipo de Medio-->
+				<mostrarTipoMedioAction>
+					<precondition>
+						<validator class="MetaconfigValidator" method="ValidarCamposMostrar" error="EC60"/>
+					</precondition>
+					<param name="limit" type="enterospos" not_null="true" null_error="EC01" type_error="EC02"/>
+					<param name="start" type="enterospos" not_null="true" null_error="EC01" type_error="EC02"/>
+
+				</mostrarTipoMedioAction>
+
+				<!--Nomenclador Preparacion-->
+				<mostrarPreparacionAction>
+					<precondition>
+						<validator class="MetaconfigValidator" method="ValidarCamposMostrar" error="EC60"/>
+					</precondition>
+				</mostrarPreparacionAction>
+
+				<!--Nomenclador Categoria Ocupacional-->
+				<mostrarCategoriaOcupacionalAction>
+					<precondition>
+						<validator class="MetaconfigValidator" method="ValidarCamposMostrar" error="EC60"/>
+					</precondition>
+					<param name="limit" type="enterospos" not_null="true" null_error="EC01" type_error="EC02"/>
+					<param name="start" type="enterospos" not_null="true" null_error="EC01" type_error="EC02"/>
+
+				</mostrarCategoriaOcupacionalAction>
+
+				<!--Nomenclador Grado-->
+				<mostrarGradoAction>
+					<precondition>
+						<validator class="MetaconfigValidator" method="ValidarCamposMostrar" error="EC60"/>
+					</precondition>
+					<param name="limit" type="enterospos" not_null="true" null_error="EC01" type_error="EC02"/>
+					<param name="start" type="enterospos" not_null="true" null_error="EC01" type_error="EC02"/>
+
+				</mostrarGradoAction>
+
+				<!--Nomenclador Tipo de Subordinacion-->
+				<mostrarTipoSubordinacionAction>
+					<precondition>
+						<validator class="MetaconfigValidator" method="ValidarCamposMostrar" error="EC60"/>
+					</precondition>
+					<param name="limit" type="enterospos" not_null="true" null_error="EC01" type_error="EC02"/>
+					<param name="start" type="enterospos" not_null="true" null_error="EC01" type_error="EC02"/>
+
+				</mostrarTipoSubordinacionAction>
+			</MetaconfigController>
+		</metaconfig>
+
+		<reporte>
+			<ReportesController>
+				<guardarConfiguracionAction>
+					<precondition>
+						<validator class="ReportesValidator" method="validarInsertarReporteGrafico" error="EC45"/>
+					</precondition>
+
+				</guardarConfiguracionAction>
+				<modificarConfiguracionAction>
+					<precondition>
+						<validator class="ReportesValidator" method="validarModificarReporteGrafico" error="EC45"/>
+					</precondition>
+				</modificarConfiguracionAction>
+			</ReportesController>
+		</reporte>
+
+		<proyecto>
+			<ProyectoController>
+				<gestionarAccionesAction>
+					<precondition>
+						<validator class="ProyectoValidator" method="ValidarInsertarProyecto" error="EC50"/>
+						<validator class="ProyectoValidator" method="ValidarModificarProyecto" error="EC50"/>
+					</precondition>
+				</gestionarAccionesAction>
+			</ProyectoController>
+		</proyecto>
+
+		<estructura>
+			<EstructuraController>
+				<insertaValoresAction>
+					<precondition>
+						<validator class="EstructuraValidator" method="ValidarInsertarEstructura" error="EC61"/>
+						<validator class="EstructuraValidator" method="ValidarInsertarEntidad" error="EC63"/>
+						<validator class="EstructuraValidator" method="ValidarInsertarOrganizacion" error="EC64"/>
+					</precondition>
+				</insertaValoresAction>
+				<modificarValoresAction>
+					<precondition>
+						<validator class="EstructuraValidator" method="ValidarModificarEstructura" error="EC61"/>
+						<validator class="EstructuraValidator" method="ValidarModificarEntidad" error="EC63"/>
+						<validator class="EstructuraValidator" method="ValidarModificarOrganizacion" error="EC64"/>
+					</precondition>
+				</modificarValoresAction>
+				<insertarCargoAction>
+					<precondition>
+						<validator class="EstructuraValidator" method="ValidarInsertarCargo" error="EC30"/>
+					</precondition>
+				</insertarCargoAction>
+				<modificarCargoAction>
+					<precondition>
+						<validator class="EstructuraValidator" method="ValidarModificarCargo" error="EC30"/>
+					</precondition>
+				</modificarCargoAction>
+
+			</EstructuraController>
+		</estructura>
+
+	</metadatos>
+</validador>

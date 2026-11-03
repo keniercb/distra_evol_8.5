@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<excepciones>
+	<CONF300>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al tratar de eliminar una moneda contable</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF300>
+	<CONF200>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al insertar una Entidad persona.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF200>
+	<CONF201>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al eliminar una Entidad persona.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF201>
+	<CONF202>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al modificar una Entidad persona.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF202>
+	<CONF203>	
+		<tipo>B</tipo>
+		<es>
+			<mensaje>Error al tratar de insertar.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF203>
+	<CONF204>
+	<tipo>B</tipo>
+		<es>
+			<mensaje>Error al tratar de eliminar</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF204>
+	<CONF205>
+	<tipo>B</tipo>
+		<es>
+			<mensaje>Error al tratar de modificar</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF205>
+	<CONF110>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al insertar un nuevo banco.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF110>
+	<CONF120>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al insertar una nueva sucursal.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF120>
+	<CONF130>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al modificar un nuevo banco.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF130>
+	<CONF140>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al modificar una nueva sucursal.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF140>
+	<CONF150>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al eliminar un nuevo banco.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF150>
+	<CONF160>	
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al eliminar una nueva sucursal.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF160>
+	<CONF170>	
+		<tipo>B</tipo>
+		<es>
+			<mensaje>Error al tratar de insertar.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF170>
+	<CONF180>	
+		<tipo>B</tipo>
+		<es>
+			<mensaje>Error al tratar de modificar.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF180>
+	<CONF190>	
+		<tipo>B</tipo>
+		<es>
+			<mensaje>Error al tratar de eliminar.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF190>
+	
+	<CONF33>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al insertar un nuevo ejercicio contable.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF33>
+	<CONF66>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al insertar un nuevo periodo contable.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF66>
+	<CONF99>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al modificar un nuevo ejercicio contable.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF99>
+	<CONF88>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al modificar un nuevo periodo contable.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF88>
+	<CONFP1>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al eliminar un ejercicio contable.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONFP1>
+	<CONFP2>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al eliminar un periodo contable.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONFP2>
+
+	<CONF001>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al insertar un nuevo formato.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF001>
+	<CONF100>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al insertar un nuevo parteformato.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de insertar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF100>
+	<CONF040>
+		<tipo>B</tipo>
+		<es>
+			<mensaje>Error al tratar de insertar un ejercicio contable.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de eliminar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF040>
+	
+	<CONF002>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al eliminar.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de eliminar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF002>
+	<CONF101>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al eliminar un parteformato.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de eliminar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF101>
+	<CONF050>
+		<tipo>B</tipo>
+		<es>
+			<mensaje>Error al tratar de eliminar.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de eliminar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF050>
+	<CONF003>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al modificar.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de modificar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF003>
+	<CONF102>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al modificar un parteformato.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de modificar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF102>
+	<CONF060>
+		<tipo>B</tipo>
+		<es>
+			<mensaje>Error al tratar de modificar.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de eliminar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF060>
+	<CONF004>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error de Consulta</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se cargaban los contenidos econmicos. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF004>
+	<CONF005>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error de Consulta</mensaje>
+			<descripcion>Ocurrio un error en el servidor al cargar los datos. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF005>
+	
+	<CONF061>
+		<tipo>B</tipo>
+		<es>
+			<mensaje>Error al tratar de insertar.</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de eliminar. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF061>
+	<CONF062>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al tratar de insertar</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se cargaban los contenidos econmicos. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF062>
+	<CONF121>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al tratar de modificar</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de modificar</descripcion>			
+		</es>
+	</CONF121>
+	
+	
+	
+	
+	<CONF063>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al tratar de insertar una Tasa</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se cargaban los contenidos econmicos. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF063>
+	<CONF122>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al tratar de modificar</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de modificar</descripcion>			
+		</es>
+	</CONF122>
+	<CONF064>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al tratar de insertar una Tasa de conversión</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se cargaban los contenidos econmicos. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF064>
+	<CONF123>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al tratar de modificar</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de modificar</descripcion>			
+		</es>
+	</CONF123>
+	
+	<CONF065>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al tratar de modificar una moneda contable</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se cargaban los contenidos econmicos. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF065>
+	<CONF124>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al tratar de modificar</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de modificar</descripcion>			
+		</es>
+	</CONF124>
+	
+	<CONF066>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al tratar de modificar una tasa</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se cargaban los contenidos econmicos. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF066>
+	<CONF125>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al tratar de modificar</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de modificar</descripcion>			
+		</es>
+	</CONF125>
+	
+	<CONF067>
+		<tipo>P</tipo>
+		<es>
+			<mensaje>Error al tratar de modificar una tasa de conversión</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se cargaban los contenidos econmicos. Ponganse en contacto con el administrador del sistema.</descripcion>			
+		</es>
+	</CONF067>
+	<CONF126>
+		<tipo>LP</tipo>
+		<es>
+			<mensaje>Error al tratar de modificar</mensaje>
+			<descripcion>Ocurrio un error en el servidor mientras se trataba de modificar</descripcion>			
+		</es>
+	</CONF126>
+</excepciones>

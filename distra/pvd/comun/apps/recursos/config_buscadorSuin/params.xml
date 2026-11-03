@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<params>
+    <server value="10.12.170.102"/>
+    <port value="5432"/>
+    <user value="zeolides"/>
+    <pass value="zeolides*2012.,"/>
+    <db value="suinfar-mtss"/>
+</params>

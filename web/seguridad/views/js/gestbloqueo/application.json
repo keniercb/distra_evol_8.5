@@ -1,0 +1,13 @@
+{
+    "name": "configurar",
+    "minify":{
+    	"js":{
+	    	"files":[
+	    		"gestbloqueo.js"
+	    	],
+	    	"outputDir": "../build/gestbloqueo/"
+    	}
+
+    }
+
+}

@@ -1,0 +1,7 @@
+.eliminar {
+	background-image:url(eliminar.png) ! important;
+}
+
+.empty-text::before {
+	margin-left: 0px !important;
+}

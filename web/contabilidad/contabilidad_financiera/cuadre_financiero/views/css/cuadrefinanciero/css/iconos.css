@@ -1,0 +1,30 @@
+.suma {
+    background-image:url(../images/signosuma.png) !important;
+}
+.resta {
+    background-image:url(../images/signoresta.png) !important;
+}
+.multiplicacion {
+    background-image:url(../images/signomultiplicacion.png) !important;
+}
+.division {
+    background-image:url(../images/signodivision.png) !important;
+}
+.igual {
+    background-image:url(../images/signoigual.png) !important;
+}
+.mayor {
+    background-image:url(../images/signomayor.png) !important;
+}
+.menor {
+    background-image:url(../images/signomenor.png) !important;
+}
+.abrircorchete {
+    background-image:url(../images/abrircorchete.png) !important;
+}
+.cerrarcorchete {
+    background-image:url(../images/.cerrarcorchete.png) !important;
+}
+.signoborrar {
+    background-image:url(../images/signoborrar.png) !important;
+}

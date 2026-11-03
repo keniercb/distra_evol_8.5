@@ -1,0 +1,20 @@
+.indicadorTexto
+{	
+	background-image:url(../images/font.png) !important;
+}
+.contenedorTexto
+{	
+	background-image:url(../images/folder_font.png) !important;
+}
+.indicadorImagen
+{
+	background-image:url(../images/picture.png) !important;
+}
+.contenedorImagen
+{
+	background-image:url(../images/folder_picture.png) !important;
+}
+.contenedor
+{
+	background-image:url(../images/folder.png) !important;
+}

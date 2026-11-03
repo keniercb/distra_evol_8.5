@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weaver>
+  <herramientas>
+    <notificaciones>
+      <GestnotificationeventsController>
+        <insertareventoAction aspecttemplate="aspectemplate2"/>
+        <activardesactivarAction aspecttemplate="aspectemplate4"/>
+      </GestnotificationeventsController>
+    </notificaciones>
+    <ayuda>
+      <ContenidoController>
+        <cargarayudaAction aspecttemplate="failedNotification"/>
+      </ContenidoController>
+    </ayuda>
+  </herramientas>
+</weaver>

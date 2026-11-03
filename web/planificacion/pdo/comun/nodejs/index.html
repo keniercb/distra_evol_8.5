@@ -1,0 +1,100 @@
+
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Prueba con Socket IO</title>
+<script type="text/javascript" src="assets/js/socket-io-client/socket.io.js"></script>
+</head>
+<body>
+
+<div id="content">
+<button id="btn">Generar Evento</button>
+<button id="btnNuevoEstado">Ocultar Botton</button>
+<button id="btnMostrar">Mostrar Botton</button>
+<button id="btnHidden">Botton a Ocultar</button>
+<br>
+<br>
+<br>
+<br>
+<button id="btnCambiarColor">Cambiar Estado</button>
+<br>
+<br>
+<button id="btnEstado">Estado</button>
+</div>
+
+<script>
+
+    var btnHidden = document.getElementById("btnHidden");
+    var btnEstado = document.getElementById("btnEstado");
+
+	socketEvents = new io.connect("10.12.170.105", {
+        port: 9877
+    });
+
+    socketEvents.on('connect', function () {
+        socketEvents.emit('subscribe', "asdas");
+        console.log('Cliente conectado al servidor!');
+    });
+
+    socketEvents.on('disconnect', function () {
+
+        console.log('Cliente desconectado!');
+    });
+
+
+    socketEvents.on('actualizarCampo', function () {
+//        campo.setColor();
+    });
+
+    socketEvents.on('event1', function (data) {
+//        var respuesta = JSON.parse(data);
+        console.log(data);
+    });
+
+    socketEvents.on('nuevoEstado', function (data) {
+        //console.log(data);
+        //btnHidden.hidden;
+        btnHidden.style.visibility  = 'hidden';
+        console.log('Nuevo Estado. Se ha ocultado un boton');
+    });
+
+    socketEvents.on('ponerVisible', function (data) {        
+        btnHidden.style.visibility  = 'visible';
+        btnHidden.style = 'background:red';
+        console.log('Nuevo Estado. Se puso un botton visible');
+    });
+
+    socketEvents.on('cambiarEstado', function (data) {     
+        btnEstado.style = 'background:red';
+        console.log(data);
+    });
+
+    if(!socketEvents.socket.connected){
+        
+    }
+
+
+    var boton = document.getElementById("btn");
+    boton.onclick =function(){
+        socketEvents.emit("event2", "Generando nuevo Evento ");
+    }
+
+    var botonNuevo = document.getElementById("btnNuevoEstado");
+    botonNuevo.onclick =function(){
+        socketEvents.emit("nuevoEstado", "Nuevo Estado");
+    }
+
+    var botonMostrar = document.getElementById("btnMostrar");
+    botonMostrar.onclick =function(){
+        //socketEvents.emit("visible", "Se puso visible el botton");
+        socketEvents.emit("ponerVisible", "Se puso visible el botton");
+    }
+
+    var botonCambiarEstado = document.getElementById("btnCambiarColor");
+    botonCambiarEstado.onclick =function(){
+        //socketEvents.emit("visible", "Se puso visible el botton");
+        socketEvents.emit("cambiarEstado", "Se cambio el botton");
+    }
+
+</script>
+</body>
+</html>

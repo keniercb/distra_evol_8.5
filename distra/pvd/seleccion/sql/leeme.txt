@@ -1,0 +1,3 @@
+El código compatible con la versión del modelo de datos se encuentra accesible desde:
+http://gitlab-distra.xutil.net/distra/pvd/distra/seleccion_apps
+http://gitlab-distra.xutil.net/distra/pvd/distra/seleccion_web

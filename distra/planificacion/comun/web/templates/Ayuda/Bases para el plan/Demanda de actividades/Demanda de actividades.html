@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Documento sin t&iacute;tulo</title>
+</head>
+
+<body>
+<p align="center">--<strong>Demanda de actividades</strong>--</p>
+
+<p>Esta funcionalidad permite listar las  actividades con los niveles que le son demandados a determinada especialidad  productora, adem&aacute;s de los niveles propios que la misma le inserta a cada una de  sus actividades y con estos elementos le proporciona a la especialidad  productora saber cu&aacute;nto puede o no cubrir de lo solicitado, despu&eacute;s de  realizado este proceso el rector de la actividad distribuye los niveles&nbsp; que la especialidad productora puede ejecutar  de la demanda por entidad y finalmente lo aprueba. Para acceder a esta  funcionalidad se selecciona <strong>Planificaci&oacute;n  material/Bases para el plan/Demanda de actividades.</strong></p>
+<p>
+  Una  vez seleccionada esta funcionalidad, se mostrar&aacute; en pantalla la interfaz de la  misma, donde el usuario podr&aacute; realizar todas las acciones a las que tenga acceso,  ver Figura 1. Las operaciones que se pueden realizar con esta funcionalidad  est&aacute;n se&ntilde;aladas con n&uacute;meros mostr&aacute;ndose el orden y la posici&oacute;n que ocupa cada  una de las acciones que se ejecutan.<br />
+</p>
+<p align="center"><img width="728" height="502" src="imagenes/49.jpg" /><br />
+Figura 1. Interfaz Demanda de  actividades. </p>
+<p align="left">La interfaz principal para realizar <strong>Demanda de actividades</strong> est&aacute; dividida en  dos secciones principales:</p>
+<ol start="1" type="1">
+  <li>Demanda       al rector, opci&oacute;n       (1). </li>
+  <li>Demanda del productor, opci&oacute;n (2). </li>
+</ol>
+<p>Estas dos secciones cargan las interfaces en dependencia del  usuario que este autenticado si es:</p>
+<ul>
+  <li><strong>Usuario de &Oacute;rgano Rector</strong>: en la interfaz <strong>Demanda al rector</strong> independientemente del campo de selecci&oacute;n <strong>Demandante</strong> que se muestra siempre para  cualquier usuario autenticado, se carga el campo de selecci&oacute;n <strong>Rector</strong>, ver Figura 2. Lo mismo pasa  para la interfaz <strong>Demanda del productor </strong>a  parte del campo de selecci&oacute;n <strong>Demandante</strong> que se muestra siempre para cualquier usuario autenticado, se carga el campo de  selecci&oacute;n <strong>Productor, </strong>ver Figura 3.</li>
+</ul>
+<p align="center"><img width="629" height="447" src="imagenes/50.jpg" /><br />
+  Figura 2. Interfaz Demanda al rector.<br />
+  <br />
+  <img width="611" height="368" src="imagenes/51.jpg" /><br />
+  Figura 3. Interfaz Demanda del productor.</p>
+<ul>
+  <li><strong>Usuario  Productor (Especialista)</strong>: cuando se autentique un usuario productor (especialista) se muestra  una interfaz listando todas las actividades que le demanden y las actividades  de la cual la entidad sea rectora, por lo que en la interfaz <strong>Demanda al rector</strong> solamente se carga el  campo de selecci&oacute;n <strong>Demandante</strong>, ver Figura  4. Lo mismo pasa para la interfaz <strong>Demanda  del productor </strong>se carga el campo de selecci&oacute;n <strong>Demandante</strong>, ver Figura 5.</li>
+</ul>
+<p align="center"><img width="573" height="377" src="imagenes/52.jpg" /><br />
+  Figura 4. Interfaz Demanda al rector.<br />
+  <br />
+  <img width="647" height="410" src="imagenes/53.jpg" /><br />
+  Figura 5. Interfaz Demanda del productor. </p>
+<p> Si  una entidad define en el componente <strong>Actividad </strong>que determinada actividad<strong> </strong>es  compartida por otra(s) entidad(es), dicha actividad no aparece en el componente <strong>Demanda de actividades</strong>, ya que en  este caso la(s) entidad(es) que compartan la actividad no necesitar&aacute;n los  recursos de la entidad que la creo para utilizarla.</p>
+<strong> Pasos  para cubrir demanda de actividades </strong> <br />
+El procedimiento para cubrir determinada demanda de una o varias  entidades es el siguiente:
+</p>
+<ol>
+  <li>Se selecciona el panel Demanda del productor como se muestra en la  figura 3.</li>
+  <li>Se listan las actividades que son demandas por una o varias  entidades mostr&aacute;ndose la informaci&oacute;n de la misma en las siguiente columnas  C&oacute;digo, Denominaci&oacute;n, Nivel de actividad demandado(NAD), Nivel de actividad  propio(NAP), Nivel de actividad a ejecutar(NAE), Diferencia, Aprobado.</li>
+  <li>La entidad productora de la actividad es la que determina cuanto  de lo que las entidades le demandan puede cubrir, introduciendo un n&uacute;mero en la  columna Nivel de actividad a ejecutar (NAE), o sea, se introduce la capacidad  productiva total de la entidad productora en el campo NAE, ver Figura 6. </li>
+  <li>Despu&eacute;s que se introduce la capacidad de producci&oacute;n de la entidad  productora de la actividad en el campo NAE, el sistema autom&aacute;ticamente realiza  una resta del campo NAE menos el campo NAD, si la capacidad de producci&oacute;n que  se introduce en el campo NAE es menor que la demanda en el campo NAD, en el  campo <strong>Diferencia</strong> el n&uacute;mero mostrado  ser&aacute; negativo dicho valor ser&aacute; el que falta para satisfacer completamente la  demanda. Finalmente se aprueba o se desaprueba la capacidad productiva.</li>
+</ol>
+<p align="center"><img width="666" height="443" src="imagenes/56.jpg" /><br />
+  Figura 6. Interfaz Demanda del productor.</p>
+<p>Las diferentes opciones que conforman  la Figura anterior permiten:</p>
+<ol>
+  <li>Aprobaci&oacute;n: <strong>Aprobar</strong> o <strong>Desaprobar</strong> las  demandas de actividades Para aprobar o desaprobar la(s)  demanda(s) se debe tener en cuenta el usuario que se autentifica, si es: </li>
+</ol>
+  <ul>
+  <li><strong>Usuario Demandante</strong>: se muestran todas las actividades que est&aacute;n siendo demandadas por  alguna entidad, de acuerdo al nivel demandado total que se muestra en la  columna Nivel de actividad demandado (NAD), el productor de la actividad  (usuario de la entidad autenticada) le inserta el n&uacute;mero correspondiente que  puede asignar para tratar de cubrir las demandas de sus demandantes y finalmente  el productor de la entidad selecciona la(s) actividad(es) y aprueba o  desaprueba la demanda desglosando el bot&oacute;n <img width="88" height="27" src="imagenes/Bases para el plan_clip_image029 (2).jpg" />&nbsp;&nbsp;y se seleccionando la opci&oacute;n <strong>Aprobar</strong> <img width="17" height="19" src="imagenes/Bases para el plan_clip_image014 (2).gif" />&nbsp;o <strong>Desaprobar</strong> <img width="22" height="27" src="imagenes/Demanda de actividades_clip_image004_0000.jpg" />&nbsp;seg&uacute;n  lo deseado. Autom&aacute;ticamente el sistema le mostrar&aacute; un mensaje de confirmaci&oacute;n,  que se puede <strong>Aceptar</strong> o <strong>Cancelar</strong> seg&uacute;n desee, de presionar la  opci&oacute;n Aceptar, el sistema le mostrar&aacute; un mensaje de informaci&oacute;n notificando  que la acci&oacute;n se realiz&oacute; con existo. Si presiona la opci&oacute;n Cancelar, el sistema  cancela las acciones y cierra la ventana del mensaje. Si se desea ver las actividades que demanda una entidad  espec&iacute;fica, se presiona el campo de selecci&oacute;n <strong>Demandantes</strong> y se escoge la opci&oacute;n deseada, autom&aacute;ticamente el  sistema muestra las actividades con su informaci&oacute;n por columnas. <br />
+   Una vez que la entidad  productora aprueba <img width="22" height="18" src="imagenes/Bases para el plan_clip_image014 (2).gif" />&nbsp;o desaprueba <img width="27" height="27" src="imagenes/Demanda de actividades_clip_image004_0000.jpg" />la demanda que puede cubrir de la  actividad, el rector de la actividad tiene que distribuir la demanda por las  entidades que solicitaron la actividad y aprobar o desaprobar la distribuci&oacute;n.</li>
+ </ul>
+
+
+  <ul>
+  <li>Usuario <strong>&Oacute;rgano Rector</strong>: terminado  el proceso que se describi&oacute; anteriormente por el usuario Demandante, la  actividad que sea aprobada por el mismo tiene que ser aprobada por el &Oacute;rgano  Rector. En la interfaz <strong>Demanda del  productor,</strong> se selecciona en el campo de selecci&oacute;n <strong>Productor </strong>la entidad productora de la actividad, y en el campo <strong>Demandante</strong> la entidad demandante de la  actividad, luego de este se selecciona(n) la(s) actividad(es) y se aprueba <img width="22" height="21" src="imagenes/Bases para el plan_clip_image014 (2).gif" />&nbsp;o  desaprueba <img width="22" height="22" src="imagenes/Demanda de actividades_clip_image004_0000.jpg" />&nbsp;su  demanda, seguido se debe seleccionar la interfaz <strong>Demanda al rector</strong> y seleccionar el campo de selecci&oacute;n <strong>Rector</strong>, y el campo <strong>Demandante </strong>, se selecciona(n) la(s) actividad(es) para que sea  aprobada por la entidad rectora de la misma y autom&aacute;ticamente el sistema muestra  un mensaje de confirmaci&oacute;n confirmando que si est&aacute; seguro que quiere aprobar o  desaprobar (Seg&uacute;n la acci&oacute;n que seleccione) el(los) nivel(es) de actividad  seleccionado(s), se acepta el mensaje de confirmaci&oacute;n y se muestra un mensaje  de informaci&oacute;n notificando que la acci&oacute;n se realiz&oacute; con existo.</li>
+<p>Realizada esta acci&oacute;n no permitir&aacute; a la  entidad productora realizar cambios en su capacidad productiva de la demanda de  la actividad. </p>
+</ul>
+
+
+<ol start="2">
+  <li>Exportar actividades, esta  funcionalidad permite exportar para un documento Excel cada una de las demandas  de actividades efectuadas, ya sea por la demanda al rector o la demanda al  productor.</li>
+</ol>
+</body>
+</html>

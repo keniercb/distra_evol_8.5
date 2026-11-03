@@ -1,0 +1,84 @@
+﻿<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>Gestionar reportes</title>
+
+        <!--<link rel="stylesheet" type="text/css" href="../../../comun/css/TreeGrid.css" />
+        <link rel="stylesheet" type="text/css" href="../../../comun/css/icons.css" />
+        <link rel="stylesheet" type="text/css" href="../../views/css/cmpreportes/portal.css" />
+        <link rel="stylesheet" type="text/css" href="../../../comun/css/examples.css">-->
+
+        <link rel="stylesheet" type="text/css" id="file-upload" href="../../../comun/css/file-upload.css"/>
+
+        <link rel="stylesheet" type="text/css" id="TreeGridcss" href="/planificacion/pdo/comun/css/TreeGrid.css"/>
+        <link rel="stylesheet" type="text/css" id="icons" href="/planificacion/pdo/comun/css/icons.css"/>
+        <link rel="stylesheet" type="text/css" id="portal" href="../../views/css/cmpreportes/portal.css"/>
+        <link rel="stylesheet" type="text/css" id="dhtmlxgantt_skyblue" href="/planificacion/pdo/comun/css/dhtmlxgantt_skyblue.css"/>
+        <link rel="stylesheet" type="text/css" id="examplescss" href="/planificacion/pdo/comun/css/examples.css">
+
+    </head>
+
+    <body>
+    <!-- archivos que estaban en el head -->
+    <script type="text/javascript" id="imporcss" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+    <script language="javascript" type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+    <script type="text/javascript" id="ext-base" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+    <script type="text/javascript" id="ext-all" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+    <script type="text/javascript" id="ucid-al" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+    <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/utiles/extensiones.js"></script>
+
+
+
+        <?php echo $this->usarGD; ?>
+        <!--clases para los filtros por columna -->
+        <script type="text/javascript" id="EditableItem" src="../../../comun/filtros/EditableItem.js"></script>
+        <script type="text/javascript" id="ComboItem" src="../../../comun/filtros/ComboItem.js"></script>
+        <script type="text/javascript" id="TextFieldItem" src="../../../comun/filtros/TextFieldItem.js"></script>
+        <script type="text/javascript" id="RangeMenu" src="../../../comun/filtros/RangeMenu.js"></script>
+        <script type="text/javascript" id="GridFilters" src="../../../comun/filtros/GridFilters.js"></script>
+        <script type="text/javascript" id="Filter" src="../../../comun/filtros/Filter.js"></script>
+        <script type="text/javascript" id="StringFilter" src="../../../comun/filtros/StringFilter.js"></script>
+        <script type="text/javascript" id="DateFilter" src="../../../comun/filtros/DateFilter.js"></script>
+        <script type="text/javascript" id="ListFilter" src="../../../comun/filtros/ListFilter.js"></script>
+        <script type="text/javascript" id="NumericFilter" src="../../../comun/filtros/NumericFilter.js"></script>
+        <script type="text/javascript" id="ListadoFilter" src="../../../comun/filtros/ListadoFilter.js"></script>
+        <script type="text/javascript" id="String_adaptadoFilter" src="../../../comun/filtros/String_adaptadoFilter.js"></script>
+        <script type="text/javascript" id="FileUploadField" src="../../../comun/js/FileUploadField.js"></script>
+
+        <script type="text/javascript" id="Cmpportal" src="../../views/js/cmpreportes/Cmpportal.js"></script>
+        <script type="text/javascript" id="Cmpportalcolumn" src="../../views/js/cmpreportes/Cmpportalcolumn.js"></script>
+        <script type="text/javascript" id="Cmpportlet" src="../../views/js/cmpreportes/Cmpportlet.js"></script>
+        <script type="text/javascript" id="examplesjs" src="../../../comun/js/examples.js"></script>
+        <script type="text/javascript" id="MessageBox" src="../../../comun/js/MessageBox.js"></script>
+
+    <script type="text/javascript" id="nodejs" src="/planificacion/pdo/comun/nodejs/assets/js/socket-io-client/socket.io.js"></script>
+
+        <script type="text/javascript" id="vtype" src="../../../comun/js/vtype.js"></script>
+        <script type="text/javascript" id="CmpBase" src="../../../comun/js/CmpBase.js"></script>
+        <script type="text/javascript" id="notificaciones" src="/planificacion/pdo/comun/js/notificaciones.js"></script>
+        <script type="text/javascript" id="CmpBarraProgreso" src="../../../comun/js/CmpBarraProgreso.js"></script>
+        <script type="text/javascript" id="RowExpander" src="../../../comun/js/RowExpander.js"></script>
+        <script type="text/javascript" id="TreeGridjs" src="../../../comun/js/TreeGrid.js"></script>
+        <!--script type="text/javascript" src="../../../comun/js/FechaBase.js"></script-->
+        <script type="text/javascript" id="CmpPaginadoTreegrid" src="../../../comun/js/CmpPaginadoTreegrid.js"></script>
+        <script type="text/javascript" id="CmpMenuRelacionesDinamicas" src="../../../comun/js/CmpMenuRelacionesDinamicas.js"></script>
+        <script type="text/javascript" id="XGridPlugin" src="../../../comun/js/XGridPlugin.js"></script>
+        <script type="text/javascript" id="cmpexportarimportar" src="../../views/js/cmpexportarimportar/cmpexportarimportar.js"></script>
+        <script type="text/javascript" id="cmphistorial" src="../../views/js/cmphistorial/cmphistorial.js"></script>
+        <script type="text/javascript" id="cmpgestionarobservaciones" src="../../views/js/cmpgestionarobservaciones/cmpgestionarobservaciones.js"></script>
+        <script type="text/javascript" id="cmpclasificadorinvol" src="../../views/js/cmpclasificadorinvol/cmpclasificadorinvol.js"></script>
+        <script type="text/javascript" id="cmpfondodetiempo" src="../../views/js/cmpfondodetiempo/cmpfondodetiempo.js"></script>
+        <script type="text/javascript" id="cmpgestordocumental" src="../../views/js/cmpgestordocumental/cmpgestordocumental.js"></script>
+        <script type="text/javascript" id="cmpconfigurarperfil" src="../../views/js/cmpconfigurarperfil/cmpconfigurarperfil.js"></script>
+        <script type="text/javascript" id="cmpcrudcargapordefecto" src="../../views/js/cmpconfigurarperfil/cmpcrudcargapordefecto.js"></script>
+        <script type="text/javascript" id="cmpcrudconfigurarperfil" src="../../views/js/cmpconfigurarperfil/cmpcrudconfigurarperfil.js"></script>
+
+        <script type="text/javascript" id="cmpbasereglamentaria" src="../../views/js/cmpbasereglamentaria/cmpbasereglamentaria.js"></script>
+        <script type="text/javascript" id="initcmpbasereglamentaria" src="../../views/js/cmpbasereglamentaria/initcmpbasereglamentaria.js"></script>
+
+    <!--  JS de Ayuda-->
+<!--    --><?php //echo $this->jsayuda; ?>
+<!--    --><?php //echo $this->gestdoc; ?>
+    <?php echo $this->perfil; ?>
+    </body>
+</html>

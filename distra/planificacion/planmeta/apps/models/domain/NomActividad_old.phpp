@@ -1,0 +1,2335 @@
+<?php
+
+class NomActividad extends BaseNomActividad {
+
+    public function setUp() {
+        parent::setUp();
+        $this->hasMany(
+                'DatActividadentidad', array('local' => 'idactividad', 'foreign' =>
+            'idactividad')
+        );
+        $this->hasMany(
+                'DatNorma', array('local' => 'idactividad', 'foreign' =>
+            'idactividad')
+        );
+        $this->hasMany(
+                'DatDestino', array('local' => 'idactividad', 'foreign' =>
+            'idactividad')
+        );
+        $this->hasOne(
+                'DatRegla', array('local' => 'idactividad', 'foreign' =>
+            'idactividadquegenera')
+        );
+        $this->hasMany(
+                'DatActividadmodelo', array('local' => 'idactividad', 'foreign' =>
+            'idactividad')
+        );
+        $this->hasMany(
+                'DatActividadmodelosalida', array('local' => 'idactividad', 'foreign' =>
+            'idactividad')
+        );      
+        $this->hasOne(
+                'DatActividadnivelproduccion', array('local' => 'idactividad',
+            'foreign' => 'idactividad')
+        );
+        $this->hasMany(
+                'DatDatosnomencladoractividad', array('local' => 'idactividad',
+            'foreign' => 'idactividad')
+        );
+        $this->hasMany(
+                'DatServicio', array('local' => 'idactividad', 'foreign' =>
+            'idactividad')
+        );
+        $this->hasMany(
+                'TempGestionaractividad', array('local' => 'idactividad',
+            'foreign' => 'idactividad')
+        );
+        $this->hasMany(
+                'DatSalida', array('local' => 'idactividad', 'foreign' =>
+            'idactividad')
+        );
+        $this->hasMany(
+                'TempInsactividad', array('local' => 'codigo', 'foreign' =>
+            'codigo')
+        );
+        $this->hasMany(
+                'TempInsnorma', array('local' => 'codigo', 'foreign' => 'codigo')
+        );
+        $this->HasMany(
+                'DatActividadregla', array('local' => 'idactividad',
+            'foreign' => 'idactividad')
+        );
+        $this->HasMany(
+                'DatFormulaactividad', array('local' => 'idactividad',
+            'foreign' => 'idactividad')
+        );
+    }
+
+    public function buscarOrdenIzqDer($idactividad) {
+        $query = new Doctrine_Query();
+        $result = $query->select(
+                                'n.ordender as ordenderecho, n.ordenizq as ordenizquierdo,n.idarbol'
+                        )->from('NomActividad n')->where('n.idactividad = ?', $idactividad)
+                        ->setHydrationMode(Doctrine::HYDRATE_ARRAY)->execute();
+
+        return $result;
+    }
+
+    //Utilizado como servicio
+    public function obtenerActividadyNorma($nivel, $idactividad, $filtro, $start, $limit, $hijo
+    ) {
+        $cadenawhere = "";
+        $cadenastartlimit = "";
+        $consultotal = "SELECT COUNT (nom_actividad.denominacion)
+  
+FROM 
+  mod_planificacion.nom_actividad";
+
+        $connAux = Doctrine_Manager:: connection();
+
+        $ress = $connAux->execute($consultotal);
+        $total = $ress->fetchAll();
+        /* Esto lo hago para saber el total que devuelve la consulta sin tener en cuenta el start y el limit */
+        $cons = "SELECT
+  count(nom_actividad.idactividad)
+FROM 
+  mod_planificacion.nom_actividad 
+  
+WHERE 
+  nom_actividad.nivel = " . $nivel . " AND 
+  nom_actividad.estado = 1 AND 
+  nom_actividad.idaprobacion > 1 " . $cadenawhere;
+        $paracontarcuantosdelmismotipo = $connAux->execute($cons);
+        $totalporcondicion = $paracontarcuantosdelmismotipo->fetchAll();
+
+        if ($start != 'null' && $limit != 'null') {
+            $cadenastartlimit .= "OFFSET '$start' LIMIT $limit";
+        }
+        if ($idactividad != 'null' && is_array($idactividad)) {
+            $array = implode(',', $idactividad);
+
+            $cadenawhere .= "AND nom_actividad.idactividad  IN " . '(' . $array
+                    . ')' . " ";
+        } else {
+            if ($idactividad != 'null' && !is_array($idactividad)) {
+                $cadenawhere .= "AND nom_actividad.idactividad  ='$idactividad' ";
+            }
+        }
+
+        if ($filtro != 'null') {
+            foreach ($filtro as $key => $value) {
+                if ($value['valor']) {
+                    $cadenawhere .= " AND nom_actividad.denominacion ILIKE '%"
+                            . $value['valor'] . "%'OR nom_actividad.codigo ILIKE '%"
+                            . $value['valor'] . "%'";
+                }
+                if ($value['notIn']) {
+                    $cadenawhere .= " AND nom_actividad.idactividad not in({$value['notIn']})";
+                }
+            }
+        }
+
+
+        $consulta = "SELECT
+  *
+FROM 
+  mod_planificacion.nom_actividad 
+  
+WHERE 
+  nom_actividad.nivel = " . $nivel . " AND 
+  nom_actividad.estado = 1 AND 
+  nom_actividad.idaprobacion > 1 " . $cadenawhere . $cadenastartlimit;
+
+        $res = $connAux->execute($consulta);
+
+        $result = $res->fetchAll();
+
+        foreach ($result as $key => $value) {
+            /* $result[$key]['arraynorma']  */ $coelga = self::obtenenormadadoid($value[0]);
+            $resulnorma = self::limpiararreglo($coelga);
+            $result[$key]['arraynorma'] = $resulnorma['norma'];
+            $result[$key]['costo'] = $resulnorma['costo'];
+            $result[$key]['tiempo'] = $resulnorma['tiempo'];
+        }
+        if ($hijo == 1 && $idactividad != 'null') {
+            $result[$key]['arrayhijos'] = self::obtenerHijos($idactividad, $filtro);
+        }
+        $arreglo['datos'] = $result;
+        $arreglo['total'] = $total[0][0];
+        $arreglo['totalpaginado'] = $totalporcondicion[0][0];
+        return $arreglo;
+    }
+
+    public function limpiararreglo($array) {
+        $time = 0;
+        $costo = 0;
+        $norma = 0;
+        foreach ($array as $valor) {
+            if ($valor['naturaleza'] == 'Tiempo') {
+                $time+=$valor['cantplanif'];
+            } else {
+                if ($valor['naturaleza'] == 'Costo de produccion') {
+                    $costo+=$valor['cantplanif'];
+                } else {
+                    $respuesta['norma'][$norma] = $valor;
+                    $norma++;
+                }
+            }
+        }$respuesta['costo'] = $costo;
+        $respuesta['tiempo'] = $time;
+        return $respuesta;
+    }
+
+    public function obtenenormadadoid($idactividad) {
+
+        $consulta = "SELECT
+  dat_norma.idindicador,
+  dat_norma.idactividad,
+  dat_norma.cantbase,
+  dat_norma.cantplanif,
+  dat_norma.version,
+  dat_norma.idnorma,
+  dat_norma.idejercicio,
+  nom_indicador.denominacion,
+  nom_indicadorplanif.nivelplanif,
+  nom_indicadorplanif.precio,nom_naturaleza.denominacion as naturaleza,
+  nom_indicadorplanif.idaprobacion,
+  nom_indicadorplanif.flete,
+  nom_indicadorplanif.contingencia,
+  nom_indicadorplanif.precioventa,
+  nom_indicadorplanif.balanceable,
+  nom_indicadorplanif.cobertura,
+  nom_indicadorplanif.margencomercial,
+  nom_indicadorplanif.preciodivisa,
+  nom_indicadorplanif.seguro,
+  nom_indicadorplanif.idindicador,
+  nom_unidadmedida.idunidadmedida,
+  nom_unidadmedida.denominacionunidadmedida,
+  nom_unidadmedida.abreviaturaunidadmedida,
+  nom_unidadmedida.descripcionunidadmedida,
+  nom_unidadmedida.idmagnitud,
+  nom_unidadmedida.fechainicio,
+  nom_unidadmedida.fechafin,
+  nom_unidadmedida.uriunidadmedida,
+  nom_indicador.codigo
+FROM
+  mod_planificacion.dat_norma,
+  mod_datosmaestros.nom_indicador,
+  mod_datosmaestros.nom_indicadorplanif,
+  mod_datosmaestros.nom_unidadmedida,
+   mod_datosmaestros.nom_naturaleza
+WHERE
+  dat_norma.idindicador = nom_indicador.idindicador AND
+  dat_norma.idindicador = nom_indicadorplanif.idindicador AND
+  nom_indicador.idumedida = nom_unidadmedida.idunidadmedida AND
+   nom_indicador.idnaturaleza = nom_naturaleza.idnaturaleza AND
+  dat_norma.idactividad = '$idactividad'";
+        $connAux = Doctrine_Manager:: connection();
+
+        $res = $connAux->execute($consulta);
+        $result = $res->fetchAll();
+
+        return $result;
+    }
+
+    public function obtenerHijos($idactividad, $filtro) {
+        $cadenawhere = '';
+        if ($filtro != 'null') {
+            foreach ($filtro as $key => $value) {
+                /* if ($value['valor']) {
+                  $cadenawhere .= " AND nom_actividad.denominacion ILIKE '%"
+                  . $value['valor'] . "%'OR nom_actividad.codigo ILIKE '%"
+                  . $value['valor'] . "%'";
+                  } */
+                if ($value['notIn']) {
+                    $cadenawhere .= "and nom_actividad.idactividad not in({$value['notIn']})";
+                }
+            }
+        }
+
+        $consulta = "SELECT
+  *
+FROM
+  mod_planificacion.nom_actividad
+
+WHERE
+  nom_actividad.idpadre = " . $idactividad . " $cadenawhere";
+
+        $connAux = Doctrine_Manager:: connection();
+
+        $res = $connAux->execute($consulta);
+        $result = $res->fetchAll();
+        foreach ($result as $key => $value) {
+
+            $coelga = self::obtenenormadadoid($value[0]);
+            $resulnorma = self::limpiararreglo($coelga);
+            $result[$key]['arraynorma'] = $resulnorma['norma'];
+            $result[$key]['costo'] = $resulnorma['costo'];
+            $result[$key]['tiempo'] = $resulnorma['tiempo'];
+            //   $result[$key]['arraynorma'] = self::obtenenormadadoid($value[0]);
+        }
+        return $result;
+    }
+
+    //Utilizado como servicio
+    public function actualizarActividadesService($actividades, $configColumnas = array()
+    ) {
+        $result = array();
+        $actividades = json_decode($actividades);
+        foreach ($actividades as $actividad) {
+            $obj = Doctrine::getTable('NomActividad')->find(
+                    $actividad->idactividad
+            );
+            if ($obj) {
+                foreach ($obj as $key => $value) {
+                    $obj->$key = $actividad->$key;
+                }
+            } else {
+                $actividad->id = $actividad->idinsactividad;
+                array_push($result, $actividad);
+            }
+        }
+        return $result;
+    }
+
+    //devuelve un arreglo de las actividades contenidas en el rango entrado por parametros
+    public function BuscarHijos($idactividad, $comoarray = false) {
+        //$idactividad
+        /* temporal no traer a la LN los ids, hacerlo en una subconsulta */
+        $ordenderordenizq = NomActividad::buscarOrdenIzqDer($idactividad);
+        $query = new Doctrine_Query();
+        if ($comoarray) {
+            return $query->from('NomActividad a')->where(
+                            'a.ordenizq>? AND a.ordender<? AND a.idpadre=?
+                AND a.idactividad<>? AND a.idarbol = ?', array(
+                        $ordenderordenizq[0]['ordenizquierdo'],
+                        $ordenderordenizq[0]['ordenderecho'],
+                        $idactividad,
+                        $idactividad,
+                        $ordenderordenizq[0]['idarbol'])
+                    )->execute()->toArray();
+        } else {
+            return $query->from('NomActividad a')->where(
+                            'a.ordenizq>? AND a.ordender<? AND a.idpadre=?
+                AND a.idactividad<>? AND a.idarbol = ?', array(
+                        $ordenderordenizq[0]['ordenizquierdo'],
+                        $ordenderordenizq[0]['ordenderecho'],
+                        $idactividad,
+                        $idactividad,
+                        $ordenderordenizq[0]['idarbol'])
+                    )->execute();
+        }
+    }
+
+    public function BuscarDecendiciaFamiliar($idactividad, $resultcomoarray = false
+    ) {
+        $ordenderordenizq = NomActividad::buscarOrdenIzqDer($idactividad);
+        $query = new Doctrine_Query();
+        $query->select('a.idactividad')->from('NomActividad a')->where(
+                "a.ordender <= ? AND a.ordenizq >= ? AND a.idactividad <> ? AND a.idarbol = ?", array(
+            $ordenderordenizq[0]['ordenderecho'],
+            $ordenderordenizq[0]['ordenizquierdo'],
+            $idactividad,
+            $ordenderordenizq[0]['idarbol'])
+        )->orderby('a.ordenizq  DESC');
+
+        if ($resultcomoarray) {
+            $result = $query->setHydrationMode(Doctrine::HYDRATE_ARRAY)
+                    ->execute();
+        } else {
+            $result = $query->execute();
+        }
+
+        return $result;
+    }
+
+    public function BuscarDecendiciaFamiliarQueSonUltimonivel($idactividad, $ultimonivel, $sinindices = false
+    ) {
+        $ordenes = NomActividad::buscarOrdenIzqDer($idactividad);
+        $query = new Doctrine_Query();
+        $query->select('a.idactividad')->from('NomActividad a')->where(
+                "a.nivel = $ultimonivel AND a.idarbol = " .
+                $ordenes[0]['idarbol']
+                . " AND a.idactividad <> $idactividad AND a.ordender <='" .
+                $ordenes[0]['ordenderecho'] . "' AND a.ordenizq >='"
+                . $ordenes[0]['ordenizquierdo'] .
+                "' "
+        )->orderby('a.ordenizq  DESC');
+        if ($sinindices == true) {
+            $resultAux = $query->execute()->toArray();
+            $result = array();
+            foreach ($resultAux as $act) {
+                $result[] = $act['idactividad'];
+            }
+            return $result;
+        } else {
+            return $query->execute();
+        }
+    }
+
+    public function buscarActividadesDelNivel($idactividad, $nivel) {
+        //Buscar todas las actividades de la agrupacion cuyo nivel sea igual al ultimo
+        return NomActividad::auxBuscarActividadesDecendientes(
+                        $idactividad, $nivel
+        );
+    }
+
+    private function auxBuscarActividadesDecendientes($idactividad, $ultimonivel
+    ) {
+        $actividadeshijas = NomActividad::BuscarHijos($idactividad);
+        $actividades = array();
+        foreach ($actividadeshijas as $actividadhija) {
+            if ($actividadhija->nivel == $ultimonivel) {
+                $actividades[] = $actividadhija->idactividad;
+            } else {
+                $actividades = array_merge(
+                        $actividades, NomActividad::
+                        auxBuscarActividadesDecendientes(
+                                $actividadhija->idactividad, $ultimonivel
+                        )
+                );
+            }
+        }
+        return $actividades;
+    }
+
+//nuevo
+    public function listar($params) {
+
+        $ejercicio = NomEjercicioplanificacion::listarEjercicioActual();
+        $params['idejercicio'] = $ejercicio[0]['idejercicio'];
+        $formatopredef = NomActividad::getFormatoandNivel();
+        $arrayFormatoUltimonivel = (count($formatopredef) > 0) ? $formatopredef : array('0' => array('nivel' => 4));
+        $iddatonomencladorcompartida = NomDatosnomenclador::getDatosNomPorUriDatosNom('compartida');
+        $iddatonomencladordemandada = NomDatosnomenclador::getDatosNomPorUriDatosNom('demandada');
+        $iddatonomencladorpropia = NomDatosnomenclador::getDatosNomPorUriDatosNom('propia');
+        $devolverPadre = ($params['idpadre'] == 0 ? "null as _parent" : "idpadre as _parent");
+
+        $addWhereFiltros = "";
+
+        if ($params['filtros']) {
+            foreach ($params['filtros'] as $datos) {
+                if ($datos['field'] == 'codigo') {
+                    $addWhereFiltros.=" AND a.codigo LIKE '" . $datos['data']['value'] . "%'";
+                    if ($params['nivel'] == 1) {
+                        $params['nivel'] = self::obtNivelPorCodigo($params['codesp'], $datos['data']['value']);
+                    }
+                } elseif ($datos['field'] == 'denominacion') {
+                    $addWhereFiltros.=" AND upper(a.denominacion) LIKE  " . "'%" . mb_convert_case($datos['data']['value'], MB_CASE_UPPER, 'UTF-8') . "%'";
+                } elseif ($datos['field'] == 'descripcion') {
+                    $addWhereFiltros.=" AND upper(a.descripcion) LIKE  " . "'%" . mb_convert_case($datos['data']['value'], MB_CASE_UPPER, 'UTF-8') . "%'";
+                } elseif ($datos['field'] == 'denespecialidad') {
+                    $addWhereFiltros.=" AND a.idespecialidad  =  {$datos['data']['value']}";
+                } elseif ($datos['field'] == 'estado') {
+                    if ($datos['data']['value'] == 'Si') {
+                        $addWhereFiltros.=" AND a.estado  =  1";
+                    }
+                    if ($datos['data']['value'] == 'No') {
+                        $addWhereFiltros.=" AND a.estado  =  0";
+                    }
+                } elseif ($datos['field'] == 'normada') {
+                    if ($datos['data']['value'] == 'Si') {
+                        $addWhereFiltros.=" AND coalesce(n.idactividad,0) != 0";
+                    } else {
+                        $addWhereFiltros.=" AND coalesce(n.idactividad,0) = 0";
+                    }
+                } elseif ($datos['field'] == 'reglas') {
+                    $temp = "coalesce((
+                            select count(dr.idregla)
+                            from mod_planificacion.dat_regla dr
+                            LEFT JOIN mod_planificacion.dat_norma dn ON (dn.idnorma =
+                            dr.idnorma and dr.idejercicio = {$params['idejercicio']})
+                            Where dn.idactividad = a.idactividad), 0)";
+                    if ($datos['data']['value'] == 'Si') {
+                        $addWhereFiltros.=" AND $temp > 0";
+                    } else {
+                        $addWhereFiltros.=" AND $temp = 0";
+                    }
+                } elseif ($datos['field'] == 'compartida') {
+                    if ($datos['data']['value'] == 'Si') {
+                        $addWhereFiltros.=" AND coalesce(ac.idactividad,0) != 0";
+                    } else {
+                        $addWhereFiltros.=" AND coalesce(ac.idactividad,0) = 0";
+                    }
+                } elseif ($datos['field'] == 'demandadas') {
+                    if ($datos['data']['value'] == 'Si') {
+                        $addWhereFiltros.=" AND coalesce(ac2.idactividad,0) != 0";
+                    } else {
+                        $addWhereFiltros.=" AND coalesce(ac2.idactividad,0) = 0";
+                    }
+                } elseif ($datos['field'] == 'idaprobacion') {
+                    if ($datos['data']['value'] == 'Si' || $datos['data']['value'] == 'Sí') {
+                        $addWhereFiltros.=" AND a.idaprobacion  = 3";
+                    } else {
+                        if ($datos['data']['value'] == 'Rector') {
+                            $addWhereFiltros.=" AND a.idaprobacion  = 4";
+                        } else {
+                            $addWhereFiltros.=" AND a.idaprobacion  = 1";
+                        }
+                    }
+                } elseif ($datos['field'] == 'denmodelo') {
+                    if ($datos['data']['value'] == '-') {
+                        $addWhereFiltros.=" AND am.idmodelo is null";
+                    } else {
+                        $addWhereFiltros.=" AND am.idmodelo ={$datos['data']['value']}";
+                    }
+                }
+            }
+        }
+
+        if ($params['nivel'] != null && $params['nivel'] != '' && $params['idpadre'] == null) {
+            $whereNivel = " AND a.nivel ={$params['nivel']}";
+        } elseif ($params['idpadre']) {
+            $whereIdpadre = " AND a.idpadre ={$params['idpadre']} AND a.idpadre <> a.idactividad";
+        }
+
+        //filtrar actividades con un indicador especifico en sus normas
+        if ($params['idindicadorebuscar'] != null && $params['limpiarbuscar'] != 2) {
+            $conn = Doctrine_Manager::connection();
+            $sqlQuery = "SELECT  distinct n.idactividad
+      FROM mod_planificacion.dat_norma  n
+      WHERE n.idindicador = " . $params['idindicadorebuscar'] . "";
+
+            if ($params['idejerciciosbuscar'] != null) {
+                $sqlQuery .= " AND n.idejercicio in({$params['idejerciciosbuscar']})";
+            }
+            $idactividadfiltro = $conn->execute($sqlQuery)->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($idactividadfiltro as $key => $value) {
+                $idactividadfiltro[$key] = $value['idactividad'];
+            }
+            if ($idactividadfiltro[0] == null) {
+                $idactividadfiltro[0] = 0;
+            }
+            $idact = implode(',', $idactividadfiltro);
+            $whereIdActNorm = " AND a.idactividad in($idact)";
+        }
+
+        if ($params['esrector'] != 'ok') {
+            $esp = implode(',', $params['ids_especialidad_subespecialidades']);
+            $whereIdActEsp = " AND a.idespecialidad in($esp)";
+        }
+        $conn = Doctrine_Manager::connection();
+        $query = "SELECT a.idactividad,
+      count(*) OVER() as total,
+      coalesce((
+      select count(dr.idregla)
+      from mod_planificacion.dat_regla dr
+      LEFT JOIN mod_planificacion.dat_norma dn ON (dn.idnorma =
+      dr.idnorma and dr.idejercicio = {$params['idejercicio']})
+      Where dn.idactividad = a.idactividad
+      ), 0) as reglas,
+      coalesce((
+      select count(ar.idregla)
+      from mod_planificacion.dat_actividadregla ar
+      LEFT JOIN mod_planificacion.dat_regla reg ON (ar.idregla
+      = reg.idregla AND reg.idejercicio = {$params['idejercicio']})
+      WHERE ar.idactividad = a.idactividad
+      ), 0) as reglasactiv,
+      coalesce(ac.idactividad, 0) as compartida,
+      coalesce(ac2.idactividad, 0) as demandadas,
+      a.idpadre,
+      a.codigo,
+      a.idformato,
+      a.idespecialidad,
+      a.idespecialidadrector,
+      a.denominacion,
+      a.estado,
+      a.idaprobacion,
+      a.idarbol,
+      a.descripcion,
+      a.nivel,
+      a.ordender,
+      a.ordenizq,
+      coalesce(n.idactividad, 0) as normada,
+      am.idmodelo as idmodelo,
+      ams.idmodelo as idmodelosalida,
+      coalesce(mod.denominacion, '-') as denmodelo,
+      $devolverPadre,
+      ((a.ordender - a.ordenizq) = 1) as _is_leaf
+      FROM mod_planificacion.nom_actividad a
+      LEFT JOIN mod_planificacion.dat_actividadmodelo am ON am.idactividad =
+      a.idactividad
+      LEFT JOIN mod_planificacion.dat_actividadmodelosalida ams ON
+      ams.idactividad = a.idactividad
+      LEFT JOIN mod_planificacion.dat_modelo mod ON am.idmodelo = mod.idmodelo
+      LEFT JOIN mod_planificacion.dat_norma n ON (a.idactividad = n.idactividad
+      and n.idejercicio = {$params['idejercicio']})
+      LEFT JOIN mod_planificacion.dat_regla r ON (n.idnorma = r.idnorma and
+      r.idejercicio = {$params['idejercicio']})
+      LEFT JOIN mod_planificacion.dat_actespcomportamiento ac ON (a.idactividad =
+      ac.idactividad and ac.iddatosnomenclador =
+      {$iddatonomencladorcompartida[0]['iddatosnomenclador']})
+      LEFT JOIN mod_planificacion.dat_actespcomportamiento ac2 ON (a.idactividad
+      = ac2.idactividad and ac2.iddatosnomenclador =
+      {$iddatonomencladordemandada[0]['iddatosnomenclador']})
+      where true
+      $whereNivel
+      $whereIdpadre
+      $whereIdActNorm
+      $whereIdActEsp
+      $addWhereFiltros
+      group by 
+      a.idactividad,
+      ac.idactividad,
+      ac2.idactividad,
+      n.idactividad,
+      am.idmodelo,
+      ams.idmodelo,
+      mod.denominacion
+      ORDER BY a.codigo
+      OFFSET {$params['start']}
+      LIMIT {$params['limit']}";
+        $data->data = $conn->execute($query)->fetchAll(PDO::FETCH_ASSOC);
+        $data->total = $data->data[0]['total'];
+
+        $arrayDenEspecialidaddes = array();
+        $arrayDatosFormato = array();
+
+        //usado por el exportar actividad
+        $arrayIdsactividades = array();
+
+        foreach ($data->data as $indice => $valor) {
+            if ($valor['normada'] != 0) {
+                $data->data[$indice]['normada'] = 1;
+            }
+            if ($valor['reglas'] != 0 || $valor['reglasactiv'] != 0) {
+                $data->data[$indice]['reglas'] = 1;
+            }
+            if ($valor['compartida'] != 0) {
+                $data->data[$indice]['compartida'] = 1;
+            }
+            if ($valor['demandadas'] != 0) {
+                $data->data[$indice]['demandadas'] = 1;
+            }
+            if ($params['addarrayidsact'] == true) {
+                $arrayIdsactividades[] = $valor['idactividad'];
+            }
+            $data->data[$indice]['esultimonivel'] = ($valor['nivel'] == $arrayFormatoUltimonivel[0]['nivel']) ? true : false;
+            if ($arrayDenEspecialidaddes["cod_" . $valor['idespecialidad']] == null) {
+                $integrator = ZendExt_IoC::getInstance();
+                $especialidades = $integrator->datosmaestros->obtenerEspecialidadPorId($valor['idespecialidad']);
+                $arrayDenEspecialidaddes["den_" . $valor['idespecialidad']] = $especialidades[0]->denespecialidad;
+                $arrayDenEspecialidaddes["cod_" . $valor['idespecialidad']] = $especialidades[0]->codespecialidad;
+            }
+            $data->data[$indice]['denespecialidad'] = $arrayDenEspecialidaddes["den_" . $valor['idespecialidad']];
+            $data->data[$indice]['codespecialidad'] = $arrayDenEspecialidaddes["cod_" . $valor['idespecialidad']];
+
+            $data->data[$indice]['codigopadre'] = ($data->data[$indice]['idactividad'] != $data->data[$indice]['idpadre']) ? (NomActividad::obtenerCodigoPadre($data->data[$indice]['idpadre'])) : $data->data[$indice]['codespecialidad'];
+            $data->data[$indice]['importe'] = number_format('0', '6', '.', ',');
+
+            if ($arrayDatosFormato['idformato_' . $valor['idformato']] == null) {
+                $partesformato = $params['integrator']->datosmaestros->buscarParteFormato($valor['idformato']);
+                foreach ($partesformato as $parte) {
+                    if ($parte->nivel == $valor['nivel']) {
+                        $arrayDatosFormato['idformato_' . $valor['idformato']]['nombredelnivel'] = $parte->nombre;
+                        $arrayDatosFormato['idformato_' . $valor['idformato']]['abreviaturadelnivel'] = $parte->abreviatura;
+                    }
+                }
+            }
+            $data->data[$indice]['nombredelnivel'] = $arrayDatosFormato['idformato_' . $valor['idformato']]['nombredelnivel'];
+            $data->data[$indice]['abreviaturadelnivel'] = $arrayDatosFormato['idformato_' . $valor['idformato']]['abreviaturadelnivel'];
+
+//trabajo con los comportamientos
+            $conn = Doctrine_Manager::connection();
+            $sqlQuery = "SELECT distinct CASE
+                  WHEN aec.iddatosnomenclador = {$iddatonomencladordemandada[0]['iddatosnomenclador']} then 0
+                  WHEN aec.iddatosnomenclador = {$iddatonomencladorcompartida[0]['iddatosnomenclador']} then 1
+                  END as tipo,
+       aec.idespecialidad
+FROM mod_planificacion.dat_actespcomportamiento aec
+WHERE aec.idactividad = {$valor['idactividad']} AND aec.iddatosnomenclador <> {$iddatonomencladorpropia[0]['iddatosnomenclador']}";
+            $data->data[$indice]['comportamientos'] = $conn->execute($sqlQuery)->fetchAll(PDO::FETCH_ASSOC);
+            $data->data[$indice]['DatActespcomportamiento'] = $data->data[$indice]['comportamientos'];
+        }
+        if ($params['addarrayidsact'] == true) {
+            $data->arrayIdsactividades = $arrayIdsactividades;
+        }
+
+        return $data;
+    }
+
+    //siempre
+    /* public function listar($params) {
+
+      $ejercicio = NomEjercicioplanificacion::listarEjercicioActual();
+
+      $params['idejercicio'] = $ejercicio[0]['idejercicio'];
+      $formatopredef = NomActividad::getFormatoandNivel();
+      $arrayFormatoUltimonivel = (count($formatopredef) > 0) ? $formatopredef : array('0' => array('nivel' => 4));
+
+      $query = new Doctrine_Query();
+      $query->from("NomActividad a");
+      $querytotal = new Doctrine_Query();
+      $querytotal->from("NomActividad a")->leftJoin(
+      "a.DatActividadmodelo am"
+      );
+      $devolverPadre = ($params['idpadre'] == 0 ? "null as _parent" :
+      "idpadre as _parent");
+      $iddatonomencladorcompartida = NomDatosnomenclador::getDatosNomPorUriDatosNom('compartida');
+      $iddatonomencladordemandada = NomDatosnomenclador::getDatosNomPorUriDatosNom('demandada');
+      $queryregla = new Doctrine_Query();
+      $queryregla->select("count(dr.idregla)");
+      $queryregla->from("DatRegla dr")->leftJoin(
+      "dr.DatNorma dn ON dn.idnorma = dr.idnorma and dr.idejercicio=" .
+      $params['idejercicio'] . ""
+      )->addWhere("dn.idactividad = a.idactividad");
+      $queryreglaactiv = new Doctrine_Query();
+      $queryreglaactiv->select("count(ar.idregla)");
+      $queryreglaactiv->from("DatActividadregla ar")
+      ->leftJoin(
+      "ar.DatRegla reg ON ar.idregla=reg.idregla and reg.idejercicio="
+      .
+      $params['idejercicio'] . ""
+      )->addWhere("ar.idactividad = a.idactividad");
+      if ($params['filtros']) {
+      foreach ($params['filtros'] as $datos) {
+      if ($datos['field'] == 'codigo') {
+      $query->addWhere(
+      "a.codigo  LIKE ? ", ("" . $datos['data']['value'] . "%")
+      );
+      $querytotal->addWhere(
+      "a.codigo  LIKE ? ", ("" . $datos['data']['value'] . "%")
+      );
+      if ($params['nivel'] == 1) {
+      $params['nivel'] = self::obtNivelPorCodigo(
+      $params['codesp'], $datos['data']['value']
+      );
+      }
+      } elseif ($datos['field'] == 'denominacion') {
+      $query->addWhere(
+      "upper(a.denominacion)  LIKE ? ", ("%" . mb_convert_case($datos['data']['value'], MB_CASE_UPPER, 'UTF-8') .
+      "%")
+      );
+      $querytotal->addWhere(
+      "upper(a.denominacion)  LIKE ? ", ("%" . mb_convert_case($datos['data']['value'], MB_CASE_UPPER, 'UTF-8') .
+      "%")
+      );
+      } elseif ($datos['field'] == 'descripcion') {
+      $query->addWhere(
+      "upper(a.descripcion) LIKE ? ", ("%" . mb_convert_case($datos['data']['value'], MB_CASE_UPPER, 'UTF-8') .
+      "%")
+      );
+      $querytotal->addWhere(
+      "upper(a.descripcion)  LIKE ? ", ("%" . mb_convert_case($datos['data']['value'], MB_CASE_UPPER, 'UTF-8') .
+      "%")
+      );
+      } elseif ($datos['field'] == 'denespecialidad') {
+      $query->addWhere(
+      "a.idespecialidad  = ? ", $datos['data']['value']
+      );
+      $querytotal->addWhere(
+      "a.idespecialidad  = ? ", $datos['data']['value']
+      );
+      } elseif ($datos['field'] == 'estado') {
+      if ($datos['data']['value'] == 'Si') {
+      $query->addWhere("a.estado  = 1 ");
+      $querytotal->addWhere("a.estado  = 1 ");
+      }
+      if ($datos['data']['value'] == 'No') {
+      $query->addWhere("a.estado  = 0 ");
+      $querytotal->addWhere("a.estado  = 0 ");
+      }
+      } elseif ($datos['field'] == 'normada') {
+      if ($datos['data']['value'] == 'Si') {
+
+      $query->addWhere("coalesce(n.idactividad,0) != '0' ");
+      $querytotal->addWhere(
+      "coalesce(n.idactividad,0) != '0' "
+      );
+      } else {
+
+      $query->addWhere("coalesce(n.idactividad,0) = '0' ");
+      $querytotal->addWhere(
+      "coalesce(n.idactividad,0) = '0' "
+      );
+      }
+      } elseif ($datos['field'] == 'reglas') {
+      $queryreglaAux = new Doctrine_Query();
+      $queryreglaAux->select("count(dr1.idregla)");
+      $queryreglaAux->from("DatRegla dr1")->leftJoin(
+      "dr1.DatNorma dn1 ON dn1.idnorma = dr1.idnorma and dr1.idejercicio="
+      .
+      $params['idejercicio'] . ""
+      )->addWhere("dn1.idactividad = a.idactividad");
+      if ($datos['data']['value'] == 'Si') {
+      $query->addWhere(
+      "coalesce((" . $queryreglaAux . "),0) > 0"
+      );
+      $querytotal->addWhere(
+      "coalesce((" . $queryreglaAux . "),0) > 0"
+      );
+      //$filtroregla = "and r.idregla is not null";
+      } else {
+      $query->addWhere(
+      "coalesce((" . $queryreglaAux . "),0) = 0"
+      );
+      $querytotal->addWhere(
+      "coalesce((" . $queryreglaAux . "),0) = 0"
+      );
+      }
+      } elseif ($datos['field'] == 'compartida') {
+      if ($datos['data']['value'] == 'Si') {
+
+      $query->addWhere("coalesce(ac.idactividad,0) != '0' ");
+      $querytotal->addWhere(
+      "coalesce(ac.idactividad,0) != '0' "
+      );
+      } else {
+
+      $query->addWhere("coalesce(ac.idactividad,0) = '0' ");
+      $querytotal->addWhere(
+      "coalesce(ac.idactividad,0) = '0' "
+      );
+      }
+      } elseif ($datos['field'] == 'demandadas') {
+      if ($datos['data']['value'] == 'Si') {
+
+      $query->addWhere("coalesce(ac2.idactividad,0) != '0' ");
+      $querytotal->addWhere(
+      "coalesce(ac2.idactividad,0) != '0' "
+      );
+      } else {
+
+      $query->addWhere("coalesce(ac2.idactividad,0) = '0' ");
+      $querytotal->addWhere(
+      "coalesce(ac2.idactividad,0) = '0' "
+      );
+      }
+      } elseif ($datos['field'] == 'idaprobacion') {
+      if ($datos['data']['value'] == 'Si' || $datos['data']['value'] == 'Sí') {
+      $query->addWhere(" a.idaprobacion  = 3 ");
+      $querytotal->addWhere(" a.idaprobacion  = 3 ");
+      } else {
+      if ($datos['data']['value'] == 'Rector') {
+      $query->addWhere("a.idaprobacion  = 4 ");
+      $querytotal->addWhere("a.idaprobacion  = 4 ");
+      } else {
+      $query->addWhere("a.idaprobacion  = 1 ");
+      $querytotal->addWhere("a.idaprobacion  = 1 ");
+      }
+      }
+      } elseif ($datos['field'] == 'denmodelo') {
+      if ($datos['data']['value'] == '-') {
+      $query->addWhere("am.idmodelo is null ");
+      $querytotal->addWhere("am.idmodelo is null");
+      } else {
+      $query->addWhere(
+      "am.idmodelo = ?", $datos['data']['value']
+      );
+      $querytotal->addWhere(
+      "am.idmodelo = ?", $datos['data']['value']
+      );
+      }
+      }
+      }
+      }
+      if ($params['nivel'] != null && $params['nivel'] != '' && $params['idpadre'] == null
+      ) {
+      $query->addWhere("a.nivel = ?", $params['nivel']);
+      $querytotal->addWhere("a.nivel = ?", $params['nivel']);
+      } elseif ($params['idpadre']) {
+      $query->addWhere(
+      "a.idpadre = ? AND a.idpadre <> a.idactividad ", $params['idpadre']
+      );
+      $querytotal->addWhere(
+      "a.idpadre = ? AND a.idpadre <> a.idactividad ", $params['idpadre']
+      );
+      }
+      //filtrar actividades con un indicador especifico en sus normas
+      if ($params['idindicadorebuscar'] != null && $params['limpiarbuscar'] != 2
+      ) {
+      $conn = Doctrine_Manager::connection();
+      $sqlQuery = "SELECT  distinct n.idactividad
+      FROM mod_planificacion.dat_norma  n
+      WHERE n.idindicador = " . $params['idindicadorebuscar'] . "";
+      if ($params['idejerciciosbuscar'] != null) {
+      $sqlQuery .= " AND n.idejercicio in({$params['idejerciciosbuscar']})";
+      }
+      $idactividadfiltro = $conn->execute($sqlQuery)->fetchAll(
+      PDO::FETCH_ASSOC
+      );
+      foreach ($idactividadfiltro as $key => $value) {
+      $idactividadfiltro[$key] = $value['idactividad'];
+      }
+      if ($idactividadfiltro[0] == null) {
+      $idactividadfiltro[0] = 0;
+      }
+      $query->whereIn('a.idactividad', $idactividadfiltro);
+      $querytotal->whereIn('a.idactividad', $idactividadfiltro);
+      }
+
+      //obtener el comportamiento de la actividad para mostrarlo al modificarla o duplicarla
+      $query->leftJoin("a.DatActespcomportamiento aec");
+      $querytotal->leftJoin("a.DatActespcomportamiento aec")->leftJoin(
+      "am.DatModelo mod"
+      )->leftJoin(
+      "a.DatNorma n ON a.idactividad = n.idactividad and n.idejercicio="
+      . $params['idejercicio'] .
+      ""
+      )->leftJoin(
+      "n.DatRegla r ON n.idnorma = r.idnorma and r.idejercicio="
+      . $params['idejercicio'] .
+      ""
+      )->leftJoin(
+      "a.DatActespcomportamiento ac ON a.idactividad =
+      ac.idactividad and ac.iddatosnomenclador="
+      .
+      $iddatonomencladorcompartida[0]['iddatosnomenclador'] . ""
+      )->leftJoin(
+      "a.DatActespcomportamiento ac2 ON a.idactividad =
+      ac2.idactividad and ac2.iddatosnomenclador="
+      .
+      $iddatonomencladordemandada[0]['iddatosnomenclador'] . ""
+      );
+
+
+      $query->select(
+      "
+      a.idactividad,
+
+      coalesce((" . $queryregla . "),0) as reglas,
+      coalesce((" . $queryreglaactiv . "),0) as reglasactiv,
+      ,coalesce(ac.idactividad,0) as compartida,
+      coalesce(ac2.idactividad,0) as demandadas,
+      a.idpadre,
+      a.codigo,
+      a.idformato,
+      a.idespecialidad,
+      a.idespecialidadrector,
+      a.denominacion,
+      a.estado,
+      a.idaprobacion,
+      a.idarbol,
+      a.descripcion,
+      a.nivel,
+      a.ordender,
+      a.ordenizq,
+      coalesce(n.idactividad,0) as normada,
+      am.idmodelo as idmodelo,
+      ams.idmodelo as idmodelosalida,
+      coalesce(mod.denominacion,'-') as denmodelo,
+
+      " . $devolverPadre .
+      ",(( a.ordender - a.ordenizq) = 1) as _is_leaf,
+      aec.*
+      "
+      )->leftJoin("a.DatActividadmodelo am")
+      ->leftJoin("a.DatActividadmodelosalida ams")
+      ->leftJoin("am.DatModelo mod")
+      ->leftJoin(
+      "a.DatNorma n ON a.idactividad = n.idactividad and n.idejercicio="
+      . $params['idejercicio'] .
+      ""
+      )->leftJoin(
+      "n.DatRegla r ON n.idnorma = r.idnorma and r.idejercicio="
+      . $params['idejercicio'] .
+      ""
+      )->leftJoin(
+      "a.DatActespcomportamiento ac ON a.idactividad = ac.idactividad
+      and ac.iddatosnomenclador="
+      .
+      $iddatonomencladorcompartida[0]['iddatosnomenclador'] . ""
+      )->leftJoin(
+      "a.DatActespcomportamiento ac2 ON a.idactividad = ac2.idactividad
+      and ac2.iddatosnomenclador="
+      . $iddatonomencladordemandada[0]['iddatosnomenclador'] . ""
+      );
+
+      $query->offset($params['start'])->limit($params['limit']);
+      if ($params['esrector'] != 'ok') {
+
+      $query->whereIn(
+      'a.idespecialidad', $params['ids_especialidad_subespecialidades']
+      );
+      }
+
+      $data->data = $query->orderby("a.codigo")->execute()->toArray(true);
+
+      $arrayDenEspecialidaddes = array();
+      $arrayDatosFormato = array();
+      //usado por el exportar actividad
+      $arrayIdsactividades = array();
+
+      foreach ($data->data as $indice => $valor) {
+
+      if ($valor['normada'] != 0) {
+      $data->data[$indice]['normada'] = 1;
+      }
+      if ($valor['reglas'] != 0 || $valor['reglasactiv'] != 0) {
+      $data->data[$indice]['reglas'] = 1;
+      }
+      if ($valor['compartida'] != 0) {
+      $data->data[$indice]['compartida'] = 1;
+      }
+      if ($valor['demandadas'] != 0) {
+      $data->data[$indice]['demandadas'] = 1;
+      }
+      if ($params['addarrayidsact'] == true) {
+      $arrayIdsactividades[] = $valor['idactividad'];
+      }
+      $data->data[$indice]['esultimonivel'] = ($valor['nivel'] == $arrayFormatoUltimonivel[0]['nivel']) ? true : false;
+      if ($arrayDenEspecialidaddes["cod_" . $valor['idespecialidad']] == null) {
+
+      $integrator = ZendExt_IoC::getInstance();
+      $especialidades = $integrator->datosmaestros->obtenerEspecialidadPorId(
+      $valor['idespecialidad']
+      );
+      $arrayDenEspecialidaddes["den_" . $valor['idespecialidad']] = $especialidades[0]->denespecialidad;
+      $arrayDenEspecialidaddes["cod_" . $valor['idespecialidad']] = $especialidades[0]->codespecialidad;
+      }
+      $data->data[$indice]['denespecialidad'] = $arrayDenEspecialidaddes["den_" . $valor['idespecialidad']];
+      $data->data[$indice]['codespecialidad'] = $arrayDenEspecialidaddes["cod_" . $valor['idespecialidad']];
+
+      $data->data[$indice]['codigopadre'] = ($data->data[$indice]['idactividad'] != $data->data[$indice]['idpadre']) ? (NomActividad::obtenerCodigoPadre(
+      $data->data[$indice]['idpadre']
+      )) :
+      $data->data[$indice]['codespecialidad'];
+
+      $data->data[$indice]['importe'] = number_format('0', '6', '.', ',');
+
+      if ($arrayDatosFormato['idformato_' . $valor['idformato']] == null
+      ) {
+
+      $partesformato = $params['integrator']->datosmaestros->buscarParteFormato(
+      $valor['idformato']
+      );
+
+      foreach ($partesformato as $parte) {
+      if ($parte->nivel == $valor['nivel']) {
+      $arrayDatosFormato['idformato_'
+      . $valor['idformato']]['nombredelnivel'] = $parte->nombre;
+      $arrayDatosFormato['idformato_'
+      . $valor['idformato']]['abreviaturadelnivel'] = $parte->abreviatura;
+      }
+      }
+      }
+      $data->data[$indice]['nombredelnivel'] = $arrayDatosFormato['idformato_'
+      . $valor['idformato']]['nombredelnivel'];
+      $data->data[$indice]['abreviaturadelnivel'] = $arrayDatosFormato['idformato_' .
+      $valor['idformato']]['abreviaturadelnivel'];
+      if (is_array($data->data[$indice]['DatActespcomportamiento'])) {
+      foreach (
+      $data->data[$indice]['DatActespcomportamiento'] as $valorComport
+      ) {
+      if ($valorComport['iddatosnomenclador'] == $iddatonomencladordemandada[0]['iddatosnomenclador'] && $valorComport['idespecialidad'] !=
+      $valor['idespecialidad']
+      ) {
+      $data->data[$indice]['comportamientos'][] = array("tipo" => '0',
+      'idespecialidad' => $valorComport['idespecialidad']);
+      } else {
+      if ($valorComport['iddatosnomenclador'] == $iddatonomencladorcompartida[0]['iddatosnomenclador']
+      ) {
+      $data->data[$indice]['comportamientos'][] = array("tipo" => '1',
+      'idespecialidad' => $valorComport['idespecialidad']);
+      }
+      }
+      }
+      }
+
+      $data->data[$indice]['DatActespcomportamiento'] = $data->data[$indice]['comportamientos'];
+      }
+      $querytotal->select("COUNT(distinct a.idactividad) as total");
+      if ($params['esrector'] != 'ok') {
+      $querytotal->whereIn(
+      'a.idespecialidad', $params['ids_especialidad_subespecialidades']
+      );
+      }
+      $data->total = $querytotal->execute()->getFirst()->total;
+      if ($params['addarrayidsact'] == true) {
+      $data->arrayIdsactividades = $arrayIdsactividades;
+      }
+
+      return $data;
+      } */
+
+    public function obtNivelPorCodigo($codesp, $codact) {
+        $arrayIntervs = self::obtIntervalosPorPartesDeFormatos($codesp);
+        $longcod = strlen($codact);
+        foreach ($arrayIntervs as $kNivel => $rango) {
+            if ($longcod >= $rango[0] && $longcod <= $rango[1]) {
+                return $kNivel;
+            }
+        }
+        return 1;
+    }
+
+    /*     * *** Funcion para calcular el importe total de una actividad o
+      grupo de actividades  **** */
+
+    public function importeTotal($idactividad) {
+        $decendecia = NomActividad::BuscarDecendiciaFamiliar($idactividad);
+        $importeTotal = 0;
+
+        if ($decendecia[0]->idactividad != null) {
+            foreach ($decendecia as $actividad) {
+                $importeTotal += DatNorma::calcularImporte(
+                                $actividad->idactividad
+                );
+            }
+        } else {
+            $importeTotal = DatNorma::calcularImporte($idactividad);
+        }
+        return $importeTotal;
+    }
+
+    /*     * *** Fin de la funcion para calcular el importe total
+      de una actividad o grupo de actividades  **** */
+
+    public function existeCodigo($codigo) {
+        $query = Doctrine_Query::create();
+        $result = (($query->select('COUNT(a.idactividad) as total')->from(
+                        'NomActividad a'
+                )->where(" a.codigo = ?", $codigo)->execute()->getFirst()->total) > 0);
+
+        return $result;
+    }
+
+    public function existeCodigoAlModificar($idactividad, $codigo) {
+
+        $query = Doctrine_Query::create();
+        $result = $query->from('NomActividad')->where(
+                        "idactividad <> ? AND codigo = ?", array($idactividad, $codigo)
+                )->execute()->getFirst();
+        if ($result->codigo == $codigo) {
+            return true;
+        }
+        return false;
+    }
+
+    public function formato($integrator, $denoFormato = 'Actividades') {
+        /* //temporal solicitar un servicio que dado una denominacion
+          $formato = $integrator->datosmaestros->listarFormatos(); //asdasdasdasd
+          foreach ($formato as $valor) {
+          if ($valor->nombre == $denoFormato) {
+          $idformatoAct = $valor->idformato;
+          }
+          } */
+        $select = " SELECT f.idformato FROM mod_planificacion.nom_formatopredefinido f";
+        $conex = Doctrine_Manager:: connection();
+        $result = $conex->execute($select)->fetchAll(PDO::FETCH_COLUMN);
+        return $result[0];
+    }
+
+    /*public function obtener_ConfFormato_UltimoNivel() {
+
+        //temporal hasta que se haga un servicio que de el id del formato "Actividades"
+        $idformatoAct = self::obtIdformato();
+        $ultimonivel = -1;
+        $partesformato = array();
+        if ($idformatoAct != null) {
+
+            $partesformato = ZendExt_IoC::getInstance(
+                    )->datosmaestros->buscarParteFormato($idformatoAct);
+            foreach ($partesformato as $value) {
+                if ($value->nivel > $ultimonivel) {
+                    $ultimonivel = $value->nivel;
+                }
+            }
+        }
+        return array($idformatoAct, $ultimonivel, $partesformato);
+    }*/
+
+    public function getFormatoandNivel() {
+        $select = " SELECT f.idformato,MAX(df.nivel) as nivel
+                FROM mod_planificacion.nom_formatopredefinido f
+                INNER JOIN mod_datosmaestros.dat_parteformato df ON df.idformato = f.idformato
+                GROUP BY f.idformato";
+        $conex = Doctrine_Manager:: connection();
+        $result = $conex->execute($select)->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function getNivel() {
+        $select = " SELECT f.idformato,MAX(df.nivel) as nivel
+                FROM mod_planificacion.nom_formatopredefinido f
+                INNER JOIN mod_datosmaestros.dat_parteformato df ON df.idformato = f.idformato
+                GROUP BY f.idformato";
+        $conex = Doctrine_Manager:: connection();
+        $result = $conex->execute($select)->fetchAll(PDO::FETCH_ASSOC);
+        if (count($result)) {
+            $result = $result[0]['nivel'];
+        } else {
+            $result = 4;
+        }
+        return $result;
+    }
+
+    public function obtIntervalosPorPartesDeFormatos($codesp, $soloinicial = false
+    ) {
+        //temporal hasta que se haga un servicio que de el id del formato "Actividades"
+        $idformatoAct = self::obtIdformato();
+        $arrayRangoslongs = array();
+        if ($idformatoAct != -1) {
+            $partesformato = ZendExt_IoC::getInstance(
+                    )->datosmaestros->buscarParteFormato($idformatoAct);
+            $nivelini = 0;
+            $nivelfin = strlen($codesp); //codigo de la especialidad
+            foreach ($partesformato as $value) {
+                $nivelini = $nivelfin;
+                $nivelfin = $nivelini + $value->longitud;
+                if ($soloinicial) {
+                    $arrayRangoslongs[$value->nivel] = array($nivelini, $nivelfin);
+                } else {
+                    $arrayRangoslongs[$value->nivel] = $nivelini;
+                }
+            }
+        }
+        return $arrayRangoslongs;
+    }
+
+    public function obtIdformato($denoFormato = 'Actividades') {
+
+        $formato = ZendExt_IoC::getInstance()->datosmaestros->listarFormatos();
+
+        foreach ($formato as $valor) {
+            if ($valor->nombre == $denoFormato) {
+                return $valor->idformato;
+                break;
+            }
+        }
+        return null;
+    }
+
+    public function obtenerCodigoPadre($idpadre) {
+        $query = Doctrine_Query::create();
+        return $query->select('codigo')->from('NomActividad')->where(
+                        'idactividad = ?', $idpadre
+                )->execute()->getFirst()->codigo;
+    }
+
+    public function listarActivNoRelacionadasConReglas($params) {
+        $query = new Doctrine_Query();
+        $querytotal = new Doctrine_Query();
+
+        $iddatosnomanclador = DatActespcomportamiento::obtenerIdDatosNom();
+        if ($params['filtros']) {
+            foreach ($params['filtros'] as $datos) {
+                if ($datos['field'] == 'codigo') {
+                    $query->addWhere(
+                            "a.codigo LIKE '%" . $datos['data']['value'] . "%' "
+                    );
+                    $querytotal->addWhere(
+                            "a.codigo   LIKE '%" . $datos['data']['value'] . "%' "
+                    );
+                } elseif ($datos['field'] == 'denominacion') {
+                    $query->addWhere(
+                            "upper(a.denominacion)  LIKE '%" . strtoupper(
+                                    $datos['data']['value']
+                            ) .
+                            "%' "
+                    );
+                    $querytotal->addWhere(
+                            "upper(a.denominacion)  LIKE '%" . strtoupper(
+                                    $datos['data']['value']
+                            ) .
+                            "%' "
+                    );
+                } elseif ($datos['field'] == 'descripcion') {
+                    $query->addWhere(
+                            "upper(a.descripcion)  LIKE '%" . strtoupper(
+                                    $datos['data']['value']
+                            ) .
+                            "%' "
+                    );
+                    $querytotal->addWhere(
+                            "upper(a.descripcion)  LIKE '%" . strtoupper(
+                                    $datos['data']['value']
+                            ) .
+                            "%' "
+                    );
+                } elseif ($datos['field'] == 'denespecialidad') {
+                    $query->addWhere(
+                            "a.idespecialidad  = ? ", $datos['data']['value']
+                    );
+                    $querytotal->addWhere(
+                            "a.idespecialidad  = ? ", $datos['data']['value']
+                    );
+                } else {
+                    if ($datos['field'] == 'comportamiento') {
+                        if ($datos['data']['value'] == 'Demandada') {
+                            $query->addWhere(
+                                    "aed.iddatosnomenclador = ? ", $iddatosnomanclador['demandada']
+                            );
+                            $querytotal->addWhere(
+                                    "aed.iddatosnomenclador = ? ", $iddatosnomanclador['demandada']
+                            );
+                            $query->addWhere(
+                                    "aed.idespecialidad <> a.idespecialidad"
+                            );
+                            $querytotal->addWhere(
+                                    "aed.idespecialidad <> a.idespecialidad"
+                            );
+                        } else {
+                            if ($datos['data']['value'] == 'Compartida') {
+                                $query->addWhere(
+                                        "aed.iddatosnomenclador = ? or aed.iddatosnomenclador = ? ", array($iddatosnomanclador['compartida'],
+                                    $iddatosnomanclador['compartidaautomatico'])
+                                );
+                                $querytotal->addWhere(
+                                        "aed.iddatosnomenclador = ? or aed.iddatosnomenclador = ? ", array($iddatosnomanclador['compartida'],
+                                    $iddatosnomanclador['compartidaautomatico'])
+                                );
+                            } else { //Propia
+                                $query->addWhere(
+                                        "aed.idespecialidad = a.idespecialidad"
+                                );
+                                $querytotal->addWhere(
+                                        "aed.idespecialidad = a.idespecialidad"
+                                );
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        $query->addWhere('aed.idespecialidad = ?', $params['idespecialidad']);
+        $querytotal->addWhere(
+                'aed.idespecialidad = ?', $params['idespecialidad']
+        );
+        $query->addWhere(" a.nivel = " . $params['ultimonivel']);
+        $querytotal->addWhere(" a.nivel = " . $params['ultimonivel']);
+        $query->addWhere(' a.idaprobacion = 3 OR a.idaprobacion = 4');
+        $querytotal->addWhere(' a.idaprobacion = 3 OR a.idaprobacion = 4');
+        $dataAux->data = $query->select(
+                        "a.codigo,
+                        a.idactividad,
+                        a.idformato,
+                        a.idespecialidad,
+                        a.denominacion,
+                        a.estado,
+                        a.descripcion,
+                        a.nivel,
+                        aed.*")
+                ->from("NomActividad a")
+                ->innerJoin('a.DatActespcomportamiento aed ')
+                ->addWhere("a.normada = '1'")
+                ->offset($params['start'])
+                ->limit($params['limit'])
+                ->orderby("a.codigo")
+                ->setHydrationMode(Doctrine::HYDRATE_ARRAY)
+                ->execute();
+        /* se verificar si la actividad tiene normas y
+          se le adiciona la denominacion de la especialidad */
+        $this->nomenclador = new ZendExt_Nomencladores_ADT();
+        $arrayDenEspecialidaddes = array();
+
+        foreach ($dataAux->data as $indice => $valor) {
+            $dataAux->data[$indice]['importe'] = number_format(
+                    $valor['DatNorma'][0]['importe'], '3', '.', ','
+            );
+            if ($arrayDenEspecialidaddes["den_" . $valor['idespecialidad']] == null
+            ) {
+                $especialidades = $this->nomenclador->selectParam(
+                        'nom_especialidad', array('denespecialidad'), 0, 0, "idespecialidad = " . $valor['idespecialidad']
+                );
+                $arrayDenEspecialidaddes["den_" . $valor['idespecialidad']] = $especialidades[0]['denespecialidad'];
+            }
+            $dataAux->data[$indice]['denespecialidad'] = $arrayDenEspecialidaddes["den_" . $valor['idespecialidad']];
+
+            $dataAux->data[$indice]['comportamiento'] = ($valor['DatActespcomportamiento'][0]['iddatosnomenclador'] ==
+                    $iddatosnomanclador['compartidaautomatico'] || $valor['DatActespcomportamiento'][0]['iddatosnomenclador'] ==
+                    $iddatosnomanclador['compartida']) ? 1 : 0;
+            if ($valor['DatActespcomportamiento'][0]['iddatosnomenclador'] == $iddatosnomanclador['propia']
+            ) {
+                $dataAux->data[$indice]['comportamiento'] = -1;
+            }
+        }
+        $data->total = $querytotal->select(
+                                'COUNT(DISTINCT a.idactividad) as total'
+                        )->from("NomActividad a")->innerJoin('a.DatActespcomportamiento aed ')
+                        ->addWhere("a.normada = '1'")->execute()->getFirst()->total;
+
+
+        $arregloPadresdemispadres = array();
+        $cont = 0;
+        $contador = 0;
+        $mispadres[] = NomActividad::BuscarMisPadres(
+                        $params['idactividadgeneradora']
+        ); //en caso que sea generada por una norma
+        $mispadresactividades[] = NomActividad::Prueba(
+                        $params['idactividadgeneradora']
+        ); //en caso que sea generada por una actividad
+        $result = NomActividad::BuscarTodosLosCaminos(
+                        $mispadres, $mispadresactividades, $cont, $contador, $arregloPadresdemispadres
+        );
+
+
+        $resultAux = array_unique($result);
+        $indiceAux = 0;
+        for ($i = 0; $i < count($result); $i++) {
+            if ($resultAux[$i] != "") {
+                $resultSinrepetidos[$indiceAux]['padres'] = $resultAux[$i];
+                $indiceAux ++;
+            }
+        }
+        $indice = 0;
+        foreach ($resultSinrepetidos as $dato) {
+
+            foreach ($dataAux->data as $k => $v) {
+                if ($v['idactividad'] == $dato['padres']) {
+                    $posiciones[$indice]['posiciones'] = $k;
+                    $indice++;
+                }
+            }
+        }
+
+        $data->total = $data->total - count($posiciones);
+        $data->data = array();
+        $indiceAux = 0;
+        for ($i = 0; $i < count($dataAux->data); $i++) {
+            if (NomActividad::buscarValorArreglo($i, $posiciones) != true) {
+                $data->data[$indiceAux] = $dataAux->data[$i];
+                $indiceAux++;
+            }
+        }
+
+        return $data;
+    }
+
+    public function buscarValorArreglo($valor, $arreglo) {
+
+        for ($i == 0; $i < count($arreglo); $i++) {
+            if ($valor == $arreglo[$i]['posiciones']) {
+                return true;
+                break;
+            }
+        }
+    }
+
+    //metodo recursivo 
+    public function BuscarTodosLosCaminos($mispadres, $mispadresactividades, $cont, $contador, $arregloPadresdemispadres
+    ) {
+
+        if (count($mispadres[0]) == 0 && count($mispadresactividades[0]) == 0) {
+            return $arregloPadresdemispadres;
+        } else {
+
+            if ($cont < 1) {
+                if (count($mispadres[0]) != 0) {
+                    for ($i = 0; $i < count($mispadres[0]); $i++) {
+                        $resultAux[] = DatRegla::DameDenomActividadDadoIdNorma(
+                                        $mispadres[0][$i]['idnorma']
+                        );
+                        if (count($resultAux[0]) != 0) {
+                            for ($j = 0; $j < count($resultAux[0]); $j++) {
+
+                                $arregloPadresdemispadres[$contador]
+                                        /* ['padres'] */ = $resultAux[0][$j]['idactividad'];
+                                $contador++;
+                                $cont++;
+                            }
+                        }
+                    }
+                }
+
+                if (count($mispadresactividades[0]) != 0) {
+                    for ($k = 0; $k < count($mispadresactividades[0]); $k++) {
+                        $arregloPadresdemispadres[$contador] = $mispadresactividades[0][$k]['idactividad'];
+                        $resultAuxiliar[$k] = NomActividad::BuscarMisPadres(
+                                        $mispadresactividades[0][$k]['idactividad']
+                        );
+                    }
+                }
+                return NomActividad::BuscarTodosLosCaminos(
+                                $resultAux, $resultAuxiliar, $cont, $contador, $arregloPadresdemispadres
+                );
+            } else {
+
+                for ($i = 0; $i < count($mispadres); $i++) {
+
+                    $resultAux[$i] = NomActividad::BuscarMisPadres(
+                                    $mispadres[$i][0]['idactividad']
+                    );
+                }
+                for ($i = 0; $i < count($resultAux); $i++) {
+
+                    if ($resultAux[$i][0]['idnorma'] != null) {
+                        $arregloPadresdemispadres[$contador] = $resultAux[$i][0]['idactividad'];
+                        $resultAux[$i] = DatRegla::DameDenomActividadDadoIdNorma(
+                                        $resultAux[$i][0]['idnorma']
+                        );
+                        $contador++;
+                    }
+                }
+
+                for ($k = 0; $k < count($resultAux); $k++) {
+
+                    if (count($resultAux[$k]) != 0) {
+                        for ($j = 0; $j < count($resultAux[$k]); $j++) {
+                            $arregloPadresdemispadres[$contador]
+                                    /* ['padres'] */ = $resultAux[$k][$j]['idactividad'];
+                            $contador++;
+                        }
+                    }
+                }
+                //para las actividades sin normas
+
+                for ($h = 0; $h < count($mispadresactividades[0]); $h++) {
+
+                    $resultAuxiliar[$h] = NomActividad::BuscarMisPadres(
+                                    $mispadresactividades[0][$h]['idactividad']
+                    );
+                }
+
+                for ($i = 0; $i < count($resultAuxiliar); $i++) {
+
+                    if ($resultAuxiliar[$i][0]['idnorma'] != null) {
+                        $arregloPadresdemispadres[$contador] /* ['padres'] */ = $resultAuxiliar[$i][0]['idactividad'];
+                        $resultAuxiliar[$i] = DatRegla::DameDenomActividadDadoIdNorma(
+                                        $resultAuxiliar[$i][0]['idnorma']
+                        );
+                        $contador++;
+                    }
+                }
+
+                for ($k = 0; $k < count($resultAuxiliar); $k++) {
+
+                    if (count($resultAuxiliar[$k]) != 0) {
+                        for ($j = 0; $j < count($resultAuxiliar[$k]); $j++) {
+                            $arregloPadresdemispadres[$contador]
+                                    /* ['padres'] */ = $resultAuxiliar[$k][$j]['idactividad'];
+                            $contador++;
+                        }
+                    }
+                }
+
+                return NomActividad::BuscarTodosLosCaminos(
+                                $resultAux, $resultAuxiliar, $cont, $contador, $arregloPadresdemispadres
+                );
+            }
+        }
+    }
+
+    public function BuscarMisPadres($idactividadgeneradora) {
+        $sqlQuery = "SELECT
+  r.denominacion, 
+  r.idactividadquegenera,
+  n.idnorma, 
+  na.denominacion as denomicionactgenera,
+  na.idactividad
+FROM 
+  mod_planificacion.dat_norma n
+  inner join mod_planificacion.dat_regla r
+  on (r.idnorma = n.idnorma)
+  inner join mod_datosmaestros.nom_indicador ni
+  on (n.idindicador = ni.idindicador)
+  inner join mod_planificacion.nom_actividad na
+  on (na.idactividad = r.idactividadquegenera)
+WHERE 
+   r.idactividadquegenera = '$idactividadgeneradora';";
+        $conn = Doctrine_Manager::connection();
+        $res = $conn->execute($sqlQuery); //$array_parametros
+        return $res->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function Prueba($idactividadquegenera) {
+        $sqlQueryAux = "SELECT
+  ar.idactividad
+FROM 
+  mod_planificacion.dat_actividadregla ar, 
+  mod_planificacion.dat_regla r, 
+  mod_planificacion.nom_actividad na
+WHERE 
+  ar.idregla = r.idregla AND
+  na.idactividad = ar.idactividad AND
+  r.idactividadquegenera = '$idactividadquegenera';";
+        $conn = Doctrine_Manager::connection();
+        $res = $conn->execute($sqlQueryAux); //$array_parametros
+        return $res->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function obtenerTodasActividadesNormadas($idespecialidad) {
+        $query = new Doctrine_Query();
+
+        $result = $query->from('NomActividad a')->innerjoin("a.DatNorma e")
+                        ->innerjoin("e.NomIndicador r")->where(
+                        'a.idespecialidad= ? ', $idespecialidad
+                )->setHydrationMode(
+                        Doctrine::
+                        HYDRATE_ARRAY
+                )->execute();
+        return $result;
+    }
+
+    /* Metodos de clase */
+
+    public function estaAprobada() {
+        return ($this->idaprobacion == 3 || $this->idaprobacion == 4);
+    }
+
+    public function aprobacionActividad($idactividad) {
+        $query = new Doctrine_Query();
+
+        $idaprob = $query->select('n.idaprobacion')->from('NomActividad n')
+                        ->where('n.idactividad= ?', $idactividad)->setHydrationMode(
+                        Doctrine::HYDRATE_ARRAY
+                )->execute();
+        return $idaprob;
+    }
+
+    public function aprobarDesaprobarActividad($idactividad, $idaprobacion) {
+        $hojas = Doctrine::getTable('NomActividad')->find($idactividad);
+        $hojas->idaprobacion = $idaprobacion;
+        $hojas->save();
+        return true;
+    }
+
+    public function esRectorDeActividades($idespecialidad) {
+        $queryBuscar = new Doctrine_Query();
+        $queryBuscar->from('NomActividad act')->innerJoin('act.DatNorma nor')
+                ->addWhere(
+                        "act.idespecialidadrector = ? ", $idespecialidad
+                )/* donde sea rector */
+                ->addWhere("act.idaprobacion >= 3 AND act.idaprobacion <= 4 ")->offset(
+                0
+        )->limit(1);
+        if ($queryBuscar->execute()->getFirst()->idactividad != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function obtenerRectoresDeActividades($comoarray = false) {
+        $nivel = self::getNivel();
+        $queryBuscar = new Doctrine_Query();
+        $queryBuscar->select('act.idactividad,act.idespecialidad')->distinct(
+                true
+        )->from('NomActividad act')->addWhere(
+                "act.idaprobacion >= 3 AND act.idaprobacion <= 4 "
+        )->addWhere("act.nivel = {$nivel} ");
+        if ($comoarray) {
+            return $queryBuscar->execute()->toArray();
+        } else {
+            return $queryBuscar->execute();
+        }
+    }
+
+    public function servicioCartaTecnologicaListarActividades($params) {
+
+        $params['idpadre'] = null;
+        $params['ultimonivel'] = $params['nivel'];
+
+        $query = new Doctrine_Query();
+        $query->from("NomActividad a");
+
+        $querytotal = new Doctrine_Query();
+        $querytotal->from("NomActividad a");
+
+        $devolverPadre = ($params['idpadre'] == 0 ? "null as _parent" :
+                        "idpadre as _parent");
+        //costruyendo el filtro
+        foreach ($params as $p => $s) {
+            if ($s != null) {
+                if ($p == 'codigo') {
+                    $query->addWhere("a.codigo  LIKE ? ", ("$s%"));
+                    $querytotal->addWhere("a.codigo  LIKE ? ", ("$s%"));
+                } elseif ($p == 'denominacion') {
+                    $query->addWhere(
+                            "upper(a.denominacion)  LIKE ? ", ("%" . strtoupper($s) . "%")
+                    );
+                    $querytotal->addWhere(
+                            "upper(a.denominacion)  LIKE ? ", ("%" . strtoupper($s) .
+                            "%")
+                    );
+                } elseif ($p == 'descripcion') {
+                    $query->addWhere(
+                            "upper(a.descripcion) LIKE ? ", ("%" . strtoupper($s) . "%")
+                    );
+                    $querytotal->addWhere(
+                            "upper(a.descripcion)  LIKE ? ", ("%" . strtoupper($s) .
+                            "%")
+                    );
+                } elseif ($p == 'idespecialidad') {
+                    $query->addWhere("a.idespecialidad  = ? ", $s);
+                    $querytotal->addWhere("a.idespecialidad  = ? ", $s);
+                }
+            }
+        }
+        $query->innerJoin(
+                "a.DatNorma nor "
+        );
+        $querytotal->innerJoin("a.DatNorma nor ");
+        $query->addWhere("a.estado  = 1 ");
+        $querytotal->addWhere("a.estado  = 1 ");
+
+        $query->addWhere("a.idaprobacion  >= 3 ");
+        $querytotal->addWhere("a.idaprobacion  >= 3 ");
+
+        if ($params['nivel'] != null && $params['nivel'] != '' && $params['idpadre'] == null
+        ) {
+            $query->addWhere("a.nivel = ?", $params['nivel']);
+            $querytotal->addWhere("a.nivel = ?", $params['nivel']);
+        } elseif ($params['idpadre']) {
+            $query->addWhere(
+                    "a.idpadre = ? AND a.idpadre <> a.idactividad ", $params['idpadre']
+            );
+            $querytotal->addWhere(
+                    "a.idpadre = ? AND a.idpadre <> a.idactividad ", $params['idpadre']
+            );
+        } else {
+            $query->addWhere("a.idpadre = a.idactividad");
+            $querytotal->addWhere("a.idpadre = a.idactividad");
+        }
+        /* Listar solo las actividades pertenecientes a una especialidad */
+
+        $query->select(
+                "
+                        a.idactividad,
+                        a.idpadre,
+                        a.codigo,
+                        a.idformato,
+                        a.idespecialidad,
+                        a.idespecialidadrector,
+                        a.denominacion,
+                        a.estado,
+                        a.idaprobacion,
+                        a.idpadre,
+                        a.descripcion,
+                        a.nivel,
+                        a.ordender,
+                        a.ordenizq,
+                        " . $devolverPadre .
+                ",(( a.ordender - a.ordenizq) = 1) as _is_leaf "
+        );
+
+        $result = $query->offset($params['start'])->limit($params['limit'])
+                        ->whereIn(
+                                'a.idespecialidad', $params['ids_especialidad_subespecialidades']
+                        )->orderby("a.codigo")->execute()->toArray(true);
+        $this->nomenclador = new ZendExt_Nomencladores_ADT();
+
+        foreach ($result as $indice => $valor) {
+            $result[$indice]['esultimonivel'] = ($valor['nivel'] == $params['ultimonivel']) ? true : false;
+            $idespecialidad = $valor['idespecialidad'];
+            $especialidades = $this->nomenclador->selectParam(
+                    'nom_especialidad', array('denespecialidad'), 0, 0, "idespecialidad = $idespecialidad"
+            );
+            $result[$indice]['denespecialidad'] = $especialidades[0]['denespecialidad'];
+            $especialidades = $this->nomenclador->selectParam(
+                    'nom_especialidad', array('codespecialidad'), 0, 0, "idespecialidad = $idespecialidad"
+            );
+            $result[$indice]['codespecialidad'] = $especialidades[0]['codespecialidad'];
+            $result[$indice]['codigopadre'] = NomActividad::obtenerCodigoPadre(
+                            $valor['idpadre']
+            );
+            $result[$indice]['normada'] = '0';
+            if ($valor['DatNorma'][0]['idnorma'] != null) {
+                $result[$indice]['normada'] = '1';
+            }
+            $result[$indice]['importe'] = number_format('0', '6', '.', ',');
+            $result[$indice]['idmodelo'] = $valor['DatActividadMoDatActividadmodelodelo'][0]['idmodelo'];
+            if ($valor['DatActividadmodelo'][0]['idmodelo']) {
+                $result[$indice]['denmodelo'] = Doctrine::getTable('DatModelo')
+                                ->find(
+                                        $valor['DatActividadmodelo'][0]['idmodelo']
+                                )->denominacion;
+            } else {
+                $result[$indice]['denmodelo'] = '-';
+            }
+        }
+
+        $data->total = $querytotal->select(
+                        "COUNT(distinct a.idactividad) as total"
+                )->whereIn(
+                        'a.idespecialidad', $params['ids_especialidad_subespecialidades']
+                )->execute()->getFirst()->total;
+
+
+        $data->data = $result;
+        return $data;
+    }
+
+    public function todaDecendenciaUltimoNivNormada($params) {
+        $query = new Doctrine_Query();
+        $cantTotalActUltimonivel = $query->select(
+                        'COUNT( DISTINCT a.idactividad ) as total'
+                )->from('NomActividad a')->where(
+                        " a.idarbol = " . $params[0]->idarbol .
+                        " AND a.nivel = " . $params[1] . " AND a.idactividad <> "
+                        . $params[0]->idactividad . " AND a.ordender <='"
+                        . $params[0]->ordender .
+                        "' AND a.ordenizq >='" . $params[0]->ordenizq . "' "
+                )->setHydrationMode(
+                        Doctrine::
+                        HYDRATE_ARRAY
+                )->execute();
+        $query = new Doctrine_Query();
+        $cantActUltimonivelNormadas = $query->select(
+                        'COUNT( DISTINCT a.idactividad ) as total'
+                )->from('NomActividad a')->addWhere("a.normada = '1' ")->addWhere(
+                        "a.idarbol = " .
+                        $params[0]->idarbol . " AND a.nivel = " . $params[1]
+                        . " AND a.idactividad <> " .
+                        $params[0]->idactividad . " AND a.ordender <='"
+                        . $params[0]->ordender .
+                        "' AND a.ordenizq >='" . $params[0]->ordenizq . "' "
+                )->setHydrationMode(
+                        Doctrine::
+                        HYDRATE_ARRAY
+                )->execute();
+        if ($cantTotalActUltimonivel[0]['total'] == $cantActUltimonivelNormadas[0]['total']
+        ) {
+            return true;
+        }
+        return false;
+    }
+
+    public function buscarActividad($codigo) {
+        $query = new Doctrine_Query();
+        return $query->select('n.idactividad as id')->from('NomActividad n')
+                        ->where("n.idactividad = ?", $codigo)->execute()->toArray();
+    }
+
+    public static function listarActvsParaExportar($params, $tipoexp = 'actividad', $escont = null
+    ) {
+
+        $nivel = self::getNivel();
+        /* $arrayFormatoUltimonivel
+          = NomActividad::obtener_ConfFormato_UltimoNivel(); */
+        if (!$params['idejercicio']) {
+            $aux = NomEjercicioplanificacion::obtenerDenEjercicioActual();
+            $params['idejercicio'] = $aux['idejercicio'];
+        }
+
+        $query = new Doctrine_Query();
+        $query->from("NomActividad a")->leftJoin("a.DatActividadmodelo am");
+        $querytotal = new Doctrine_Query();
+        $querytotal->from("NomActividad a")->leftJoin(
+                "a.DatActividadmodelo am"
+        );
+        $arrayParamsSql = array();
+        if ($params['filtros']) {
+            foreach ($params['filtros'] as $datos) {
+                if ($datos->field == 'codigo') {
+                    $query->addWhere("a.codigo  LIKE ? ", null);
+                    $querytotal->addWhere(
+                            "a.codigo  LIKE ? ", ($datos->data->value . "%")
+                    );
+                    $arrayParamsSql[] = ($datos->data->value . "%");
+                    if ($params['nivel'] == 1) {
+                        $params['nivel'] = self::obtNivelPorCodigo(
+                                        $params['codesp'], $datos['data']['value']
+                        );
+                    }
+                } elseif ($datos->field == 'denominacion') {
+                    $query->addWhere("upper(a.denominacion)  LIKE ? ", null);
+                    $querytotal->addWhere(
+                            "upper(a.denominacion)  LIKE ? ", ("%" . strtoupper(
+                                    $datos->data->value
+                            ) . "%")
+                    );
+                    $arrayParamsSql[] = ("%" . strtoupper($datos->data->value)
+                            . "%");
+                } elseif ($datos->field == 'descripcion') {
+                    $query->addWhere("upper(a.descripcion) LIKE ? ", null);
+                    $querytotal->addWhere(
+                            "upper(a.descripcion)  LIKE ? ", ("%" . strtoupper(
+                                    $datos->data->value
+                            ) . "%")
+                    );
+                    $arrayParamsSql[] = ("%" . strtoupper($datos->data->value)
+                            . "%");
+                } elseif ($datos->field == 'denespecialidad') {
+                    $query->addWhere("a.idespecialidad  = ? ", null);
+                    $querytotal->addWhere(
+                            "a.idespecialidad  = ? ", $datos->data->value
+                    );
+                    $arrayParamsSql[] = $datos->data->value;
+                } elseif ($datos->field == 'estado') {
+                    if ($datos->data->value[0] == 'Si') {
+                        $query->addWhere("a.estado  = 1 ");
+                        $querytotal->addWhere("a.estado  = 1 ");
+                    }
+                    if ($datos->data->value[0] == 'No') {
+                        $query->addWhere("a.estado  = 0 ");
+                        $querytotal->addWhere("a.estado  = 0 ");
+                    }
+                } elseif ($datos->field == 'normada') {
+                    if ($datos->data->value[0] == 'Si') {
+                        $query->addWhere("a.normada = '1' ");
+                        $querytotal->addWhere("a.normada = '1' ");
+                    } else {
+                        $query->addWhere("a.normada = '0' ");
+                        $querytotal->addWhere("a.normada = '0' ");
+                    }
+                } elseif ($datos->field == 'idaprobacion') {
+                    if ($datos->data->value[0] == 'Si') {
+                        $query->addWhere(" a.idaprobacion  = 3  ");
+                        $querytotal->addWhere(" a.idaprobacion  = 3 ");
+                    } else {
+                        if ($datos->data->value[0] == 'Rector') {
+                            $query->addWhere("a.idaprobacion  = 4 ");
+                            $querytotal->addWhere("a.idaprobacion  = 4 ");
+                        } else {
+                            $query->addWhere("a.idaprobacion  = 1 ");
+                            $querytotal->addWhere("a.idaprobacion  = 1 ");
+                        }
+                    }
+                } elseif ($datos->field == 'denmodelo') {
+                    if ($datos->data->value == '-') {
+                        $query->addWhere("am.idmodelo is null ");
+                        $querytotal->addWhere("am.idmodelo is null");
+                    } else {
+                        $query->addWhere("am.idmodelo = ?", null);
+                        $querytotal->addWhere(
+                                "am.idmodelo = ?", $datos->data->value
+                        );
+                        $arrayParamsSql[] = $datos->data->value;
+                    }
+                }
+            }
+        }
+
+        $query->orderby("a.codigo");
+
+        if ($params['nivel'] != null && $params['nivel'] != '') {
+            $query->addWhere("a.nivel = ?", null);
+            $querytotal->addWhere("a.nivel = ?", $params['nivel']);
+            $arrayParamsSql[] = $params['nivel'];
+        } else {
+            $query->addWhere("a.nivel = ?", null);
+            $querytotal->addWhere("a.nivel = ?", $nivel);
+            $arrayParamsSql[] = $nivel;
+        }
+        $DISTINCT = "distinct";
+        if ($tipoexp == 'norma') {
+            $DISTINCT = "";
+            $query->addSelect(
+                    'n.*,i.*,ip.idindicador,ip.nivelplanif,ip.precio,ip.idaprobacion,
+                ip.flete,ip.contingencia,ip.precioventa,ip.balanceable,
+                ip.cobertura,ip.margencomercial,
+                ip.preciodivisa,ip.seguro,e.*,r.identidad'
+            );
+            $query->innerJoin("a.DatNorma n");
+            $querytotal->innerJoin("a.DatNorma n");
+            $query->innerJoin("n.NomIndicador i");
+            $querytotal->innerJoin("n.NomIndicador i");
+            $query->innerJoin("i.NomIndicadorplanif ip");
+            $querytotal->innerJoin("i.NomIndicadorplanif ip");
+            $query->leftJoin("i.DatIndicadorcentrobalance e")->leftJoin(
+                    "e.DatEntidaddatosnomenclador r"
+            );
+            $querytotal->leftJoin("i.DatIndicadorcentrobalance e")->leftJoin(
+                    "e.DatEntidaddatosnomenclador r"
+            );
+            $query->addWhere("n.idejercicio = ?", $params['idejercicio']);
+            $querytotal->addWhere("n.idejercicio = ?", $params['idejercicio']);
+            $arrayParamsSql[] = $params['idejercicio'];
+            $query->addOrderBy("i.codigo ");
+        } elseif ($tipoexp == 'regla') {
+            $DISTINCT = "";
+            $query->addSelect('n.idnorma,i.denominacion,r.*');
+            $query->innerJoin("a.DatNorma n");
+            $querytotal->innerJoin("a.DatNorma n");
+            $query->innerJoin("n.DatRegla r");
+            $query->innerJoin("n.NomIndicador i");
+            $querytotal->innerJoin("n.DatRegla r");
+        } elseif ($tipoexp == 'salida') {
+            $DISTINCT = "";
+            $query->addSelect(
+                    's.*,i.codigo,i.numeropieza,i.denominacion,i.idumedida,ip.precio,ip.preciodivisa'
+            );
+            $query->innerJoin("a.DatNorma n");
+            $querytotal->innerJoin("a.DatNorma n");
+            $query->innerJoin("a.DatSalida s");
+            $querytotal->innerJoin("a.DatSalida s");
+            $query->innerJoin("s.NomIndicador i");
+            $querytotal->innerJoin("s.NomIndicador i");
+            $query->innerJoin("i.NomIndicadorplanif ip");
+
+            $querytotal->innerJoin("i.NomIndicadorplanif ip");
+        }
+        $query->addSelect(
+                "
+                        DISTINCT a.idactividad,
+                        a.codigo,
+                        a.idespecialidad,
+                        a.idespecialidadrector,
+                        a.denominacion,
+                        a.estado,
+                        a.idaprobacion,
+                        a.descripcion,
+                        a.nivel,
+                        a.normada,
+                        am.*"
+        );
+
+
+        $conn = Doctrine_Manager::connection();
+
+        if (($escont == null || $escont == false)
+        ) {
+            foreach ($params['ids_especialidad_subespecialidades'] as $idesp) {
+                $arrayParamsSql[] = $idesp;
+            }
+            $query->whereIn(
+                    'a.idespecialidad', $params['ids_especialidad_subespecialidades']
+            );
+            $sql = $query->getSqlQuery();
+
+            $sql = $sql . ' OFFSET ? LIMIT ?';
+
+
+            $arrayParamsSql[] = $params['start'];
+            $arrayParamsSql[] = $params['limit'];
+            $data->data = $conn->execute($sql, $arrayParamsSql)->fetchAll(
+                    PDO::
+                    FETCH_ASSOC
+            );
+
+        }
+        if ($escont == null || $escont == true) {
+
+            $data->total = $querytotal->select(
+                            "COUNT( $DISTINCT a.idactividad) as total"
+                    )->whereIn(
+                            'a.idespecialidad', $params['ids_especialidad_subespecialidades']
+                    )->execute()->getFirst()->total;
+        }
+
+        return $data;
+    }
+
+    public function obtActPorCod($codigo) {
+        $query = Doctrine_Query::create();
+        return $query->from('NomActividad')->where('codigo = ?', $codigo)
+                        ->execute()->getFirst();
+    }
+
+    public function obtenerActividadDadoCodigo($cod) {
+        $conn = Doctrine_Manager::connection();
+        $sql = "SELECT * FROM mod_planificacion.nom_actividad na
+                WHERE na.codigo = '$cod';";
+        $resp = $conn->execute($sql)->fetchAll(PDO::FETCH_ASSOC);
+
+        return $resp;
+    }
+
+    public function serv_getEspecialidades($identidadpadre, $addIdespecialidad) {
+        $security = ZendExt_Aspect_Security_Sgis::getInstance();
+        $arrayEnts = DatActividadentidad::auxObtenerEntidadesHijasComun(
+                        $identidadpadre
+        );
+        $arrayIdEsps = array();
+        if ($arrayEnts[0] != null) {
+            $tempEspecialidades = array();
+            $cont = 0;
+            $integrator = ZendExt_IoC::getInstance();
+            foreach ($arrayEnts as $valorIdentidad) {
+                $entidades[] = $integrator->metadatos->DameEstructura(
+                        $valorIdentidad
+                );
+                $_idespecialidad = $entidades[$cont++][0]->idespecialidad;
+                $tempEspecialidades["id_" . $_idespecialidad] = $_idespecialidad;
+            }
+            $tempEspecialidades["id_" . $addIdespecialidad] = $addIdespecialidad;
+            foreach ($tempEspecialidades as $valorIdesp) {
+                $arrayIdEsps[] = $valorIdesp;
+            }
+        }
+        $data->arrayEnts = $arrayEnts;
+        $data->arrayIdEsps = $arrayIdEsps;
+        return $data;
+    }
+
+    public function ObtenerIdActividades($params) {
+        $conn = Doctrine_Manager::connection();
+        $primero = true;
+        $sqlWhere = "";
+        foreach ($params as $id) {
+            if ($primero) {
+                $sqlWhere = "and (ind.ordenizq >= $id->ordenizq and ind.ordender <=
+                    $id->ordender and ind.idarbol=$id->idarbol)";
+                $primero = false;
+            } else {
+                $sqlWhere .= " or (ind.ordenizq >= $id->ordenizq and ind.ordender <=
+                $id->ordender and ind.idarbol=$id->idarbol)";
+            }
+        }
+        $sql = "select ind.idactividad as idactividad
+				from mod_planificacion.nom_actividad  ind
+				where true				
+				$sqlWhere";
+        $idactividad = $conn->execute($sql)->fetchAll(PDO::FETCH_COLUMN);
+
+        return $idactividad;
+    }
+
+    public function ObtenerIdActividadesnivelyaprobacion($params) {
+        $conn = Doctrine_Manager::connection();
+        $primero = true;
+
+        foreach ($params as $id) {
+            if ($primero) {
+                $sqlWhere = "and (ind.ordenizq >= $id->ordenizq and ind.ordender <=
+                    $id->ordender and ind.idarbol=$id->idarbol)";
+                $primero = false;
+            } else {
+                $sqlWhere .= " or (ind.ordenizq >= $id->ordenizq and ind.ordender <=
+                $id->ordender and ind.idarbol=$id->idarbol)";
+            }
+        }
+        $sql = "select ind.idactividad as idactividad,ind.nivel as nivel,ind.normada as normada
+				from mod_planificacion.nom_actividad  ind
+				where true
+				$sqlWhere";
+        $idactividad = $conn->execute($sql)->fetchAll(PDO::FETCH_ASSOC);
+
+        return $idactividad;
+    }
+
+    public function ActualizarEstado($params) {
+
+        $params['array_hijas'] = $this->ObtenerIdActividades(
+                $params['actividades']
+        );
+        $queryActDesactHijas = Doctrine_Query::create();
+        $queryActDesactHijas->update("NomActividad");
+        $queryActDesactHijas->set("estado", $params['estado']);
+        /* $soloAprobados = ($params['estado'] == '1') ? " AND idaprobacion = 4 "
+          : ""; */
+        $queryActDesactHijas->whereIn('idactividad', $params['array_hijas']);
+        $queryActDesactHijas->execute();
+        return $params['array_hijas'];
+    }
+
+    public function aprobarDesaprobarActividades($params) {
+
+        $respuesta = $this->ObtenerIdActividadesnivelyaprobacion($params['actividades']);
+        $res = $this->validarnivelcuatronormado($respuesta, $params['nivel']);
+        if ($res == 0) {
+            return 0;
+        }
+
+        $valores = implode(',', $res);
+        $conn = Doctrine_Manager::connection();
+        $sql = "UPDATE mod_planificacion.nom_actividad SET idaprobacion = "
+                . $params['idaprobacion'];
+
+        if ($params['idaprobacion'] == 1) {
+            $sql = $sql . ", estado=0 ";
+        }
+        $sql = $sql . " WHERE (idactividad IN (" . $valores . ")) ";
+        if ($params['esrector'] == false) {
+            $sql = $sql . " AND idaprobacion <> '4' ";
+        }
+        $conn->execute($sql);
+
+
+        /* Actualizar Niveles de Actividad */
+
+        return $res;
+    }
+
+    public function validarnivelcuatronormado($array, $nivel) {
+
+        foreach ($array as $key => $value) {
+
+            if ($value['nivel'] == $nivel && $value['normada'] != 1) {
+                return 0;
+            } else {
+                $activModelo = Doctrine::getTable('DatActividadmodelo')->findByDql("idactividad = " . $value['idactividad']);
+                if ($activModelo[0]->idactividadmodelo != null) {
+                    $resultado[$key] = $value['idactividad'];
+                } else
+                    return 0;
+            }
+        }
+        return $resultado;
+    }
+
+    public function calcularCostoDirecto($params) {
+
+        $conn = Doctrine_Manager::connection();
+
+
+        $sql = "SELECT coalesce(res.costosindirectos,0) as costosindirectos ,
+coalesce(res.otroscostos,0)as otroscostos,
+ coalesce((sum( round( ( dn.necesidad * nip.precio ) ,3 ))),0) as importe
+  FROM
+  mod_planificacion.nom_actividad na
+  LEFT JOIN mod_planificacion.dat_norma dn ON (na.idactividad = dn.idactividad
+  AND dn.idejercicio = "
+                .
+                $params['idejercicio'] . ")
+  LEFT JOIN mod_planificacion.dat_rescostoactividad res ON (na.idactividad = res.idactividad
+  AND res.idejercicio = "
+                .
+                $params['idejercicio'] . ")
+  LEFT JOIN mod_datosmaestros.nom_indicadorplanif nip ON (dn.idindicador = nip.idindicador
+  and nip.idaprobacion=4)
+  LEFT JOIN mod_datosmaestros.nom_indicador ni ON (ni.idindicador = nip.idindicador )
+  --AND (dn.idejercicio = ni.idejercicio)
+  WHERE
+  na.idactividad = " . $params['idactividad'] . "
+  GROUP BY
+  res.costosindirectos,
+  res.otroscostos";
+
+        $result = $conn->execute($sql);
+        $result = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
+    public function listarEspPorUri($params) {
+        $addWhere = "";
+
+        if ($params['filtros']) {
+            foreach ($params['filtros'] as $datos) {
+                if ($datos['field'] == 'denominacionentidad') {
+                    $addWhere .= " AND ae.identidad =" . $datos['data']['value']
+                            . "";
+                } elseif ($datos['field'] == 'denominacionespecialidad') {
+                    $addWhere .= " AND aec.idespecialidad ="
+                            . $datos['data']['value'] . "";
+                } elseif ($datos['field'] == 'nivel') {
+                    if ($datos['data']['comparison'] == "gt") {
+                        $addWhere
+                                .= " AND COALESCE(aea.nivelactividadautomatico, 0) +
+                COALESCE(aem.nivelactividadmanual, 0) +
+                COALESCE(aep.nivelactividadproduccion,0) >"
+                                . $datos['data']['value'] .
+                                "";
+                    } elseif ($datos['data']['comparison'] == "lt") {
+                        $addWhere
+                                .= " AND COALESCE(aea.nivelactividadautomatico, 0) +
+                COALESCE(aem.nivelactividadmanual, 0) +
+                COALESCE(aep.nivelactividadproduccion,0) <"
+                                . $datos['data']['value'] .
+                                "";
+                    } else {
+                        $addWhere
+                                .= " AND COALESCE(aea.nivelactividadautomatico, 0) +
+                COALESCE(aem.nivelactividadmanual, 0) +
+                COALESCE(aep.nivelactividadproduccion,0) ="
+                                . $datos['data']['value'] .
+                                "";
+                    }
+                }
+            }
+        }
+        $conn = Doctrine_Manager::connection();
+        $sql = "SELECT aec.idespecialidad, ae.identidad,
+                COALESCE(aea.nivelactividadautomatico, 0) +
+                COALESCE(aem.nivelactividadmanual, 0) +
+                COALESCE(aep.nivelactividadproduccion,0)  as nivel
+                FROM mod_planificacion.dat_actespcomportamiento aec
+                LEFT JOIN mod_planificacion.dat_actividadentidad ae 
+                ON(aec.idactespcomportamiento=ae.idactespcomportamiento)
+                LEFT JOIN mod_planificacion.dat_actividadentidadmanual aem 
+                ON(aem.idactividadentidad = ae.idactividadentidad)
+                LEFT JOIN mod_planificacion.dat_actividadentidadautomatico aea 
+                ON(aea.idactividadentidad = ae.idactividadentidad)
+                LEFT JOIN mod_planificacion.dat_actividadentidadproduccion aep 
+                ON(aep.idactividadentidad = ae.idactividadentidad)
+                WHERE aec.idactividad=" . $params['idactividad'] . "
+                AND aec.iddatosnomenclador=" . $params['iddatosnomenclador'] .
+                "
+                AND ae.idejercicio=" . $params['idejercicio'] . "
+                $addWhere
+                OFFSET " . $params['start'] . "
+                LIMIT  " . $params['limit'] . "";
+        $temp = $conn->execute($sql);
+        $data->data = $temp->fetchAll(PDO::FETCH_ASSOC);
+        $sqltotal = "SELECT COUNT(aec.idespecialidad)
+                FROM mod_planificacion.dat_actespcomportamiento aec
+                LEFT JOIN mod_planificacion.dat_actividadentidad ae 
+                ON(aec.idactespcomportamiento=ae.idactespcomportamiento)
+                LEFT JOIN mod_planificacion.dat_actividadentidadmanual aem 
+                ON(aem.idactividadentidad = ae.idactividadentidad)
+                LEFT JOIN mod_planificacion.dat_actividadentidadautomatico aea 
+                ON(aea.idactividadentidad = ae.idactividadentidad)
+                LEFT JOIN mod_planificacion.dat_actividadentidadproduccion aep 
+                ON(aep.idactividadentidad = ae.idactividadentidad)
+                WHERE aec.idactividad=" . $params['idactividad'] . "
+                AND aec.iddatosnomenclador=" . $params['iddatosnomenclador'] . "
+                AND ae.idejercicio=" . $params['idejercicio'] . "
+                $addWhere";
+        $temp = $conn->execute($sqltotal);
+        $data->total = $temp->fetchAll(PDO::FETCH_ASSOC);
+        $data->total = $data->total[0]['count'];
+        return $data;
+    }
+
+    //Utilizado como servicio
+    public function servicioObtenerNormasSegunActividad($params) {
+        $condiciones = array();
+        if (is_array($params['filtros'])) {
+            foreach ($params['filtros'] as $datos) {
+                if ($datos['field'] == 'codigo') {
+                    $condiciones[] = " ind.codigo LIKE '{$datos['data']['value']}%'";
+                } else if ($datos['field'] == 'denominacion' || $datos['field'] == 'numeropieza') {
+                    $condiciones[] = "upper(ind." . $datos['field'] . ") LIKE '%" . mb_convert_case($datos['data']['value'], MB_CASE_UPPER, 'UTF-8') . "%'";
+                } else if ($datos['field'] == 'precio') {
+                    if ($datos['data']['comparison'] == 'lt') {
+                        $sqlSigno = "<";
+                    } else {
+                        if ($datos['data']['comparison'] == 'gt') {
+                            $sqlSigno = ">";
+                        } else {
+                            $sqlSigno = "=";
+                        }
+                    }
+                    $condiciones[] = "indp." . $datos['field'] . $sqlSigno . $datos['data']['value'];
+                } else if ($datos['field'] == 'cantbase' || $datos['field'] == 'cantplanif') {
+                    if ($datos['data']['comparison'] == 'lt') {
+                        $sqlSigno = "<";
+                    } else {
+                        if ($datos['data']['comparison'] == 'gt') {
+                            $sqlSigno = ">";
+                        } else {
+                            $sqlSigno = "=";
+                        }
+                    }
+                    $condiciones[] = "n." . $datos['field'] . $sqlSigno . $datos['data']['value'];
+                } else if ($datos['field'] == 'idumedida') {
+                    $condiciones[] = "ind." . $datos['field'] . " = " . $datos['data']['value'] . " ";
+                }
+            }
+        }//Fin de los filtros
+
+        $WHERE = "";
+        foreach ($condiciones as $condicion) {
+            if ($WHERE == "") {
+                $WHERE = 'AND ' . $condicion;
+            } else {
+                $WHERE = $WHERE . " AND " . $condicion;
+            }
+        }
+        $delimitando = "";
+        if ($params['start'] != null && $params['limit'] != null) {
+            $start = $params['start'];
+            $limit = $params['limit'];
+            $delimitando = " OFFSET $start LIMIT $limit ";
+        }
+
+        $conn = Doctrine_Manager::connection();
+        $sql = "SELECT 
+                        n.idnorma,
+                        n.idindicador,
+                        ind.codigo,
+                        ind.numeropieza,
+                        ind.denominacion,
+                        ind.idumedida,
+                        indp.precio,
+                        n.cantbase,
+                        n.cantplanif,
+                        count (*) over () as total
+                    FROM 
+                      mod_planificacion.dat_norma n
+                      INNER JOIN mod_datosmaestros.nom_indicador ind ON n.idindicador = ind.idindicador
+                      INNER JOIN mod_datosmaestros.nom_indicadorplanif indp ON ind.idindicador = indp.idindicador
+                      WHERE idejercicio = {$params['idejercicio']}
+                      AND idactividad = {$params['idactividad']} {$WHERE} 
+                     ORDER BY 
+                              ind.codigo 
+                     $delimitando ";
+        $data = $conn->execute($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+}

@@ -1,0 +1,10 @@
+{
+    BtnAyuda: 'Ayuda',
+    BtnBuscar: '<u>B</u>uscar',
+    BtnLimpiar: '<u>L</u>impiar',
+    lbBtnLimpiar: 'Limpiar filtro <b>(Alt+L)</b>',
+    lbBtnBuscar: '<u>B</u>uscar persona <b>(Alt+B)</b>',
+
+    lbNoDatosBusc: 'No existen datos que se correspondan con los criterios de b&uacute;squeda especificados.',
+    lbNoDatos: 'No existen datos que mostrar.'
+}

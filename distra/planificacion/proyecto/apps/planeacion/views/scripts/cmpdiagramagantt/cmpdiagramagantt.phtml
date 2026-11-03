@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>Gestionar Gantt</title>
+
+       
+
+        <style type="text/css">
+            .padding-expander {
+                padding-top: 0px;
+                padding-right: 0px;
+                padding-bottom: 0px;
+                padding-left: 35px;
+            }
+        </style>
+        <link rel="stylesheet"  type="text/css" href="/planificacion/pdo/comun/css/TreeGrid.css"/>
+        <link rel="stylesheet"  type="text/css" href="/planificacion/pdo/comun/css/icons.css"/>
+        <link rel="stylesheet"  type="text/css" href="/planificacion/pdo/comun/css/file-upload.css"/>
+        <link rel="stylesheet"  type="text/css" href="/planificacion/pdo/comun/css/datepickerplus.css"/>
+        <link rel="stylesheet"  type="text/css" href="/planificacion/pdo/comun/css/dhtmlxgantt_skyblue.css"/>
+
+        <link rel="stylesheet" sizes="examplescss" type="text/css" href="/planificacion/pdo/comun/css/examples.css">
+        <!--link rel="stylesheet" type="text/css" href="/planificacion/pdo/comun/css/Ext.ux.form.LovCombo.css"/-->
+    </head>
+
+    <body> 
+        <script type="text/javascript"  src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+        <script language="javascript" type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+
+
+        <script type="text/javascript"  src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+        <script type="text/javascript"  src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+
+        <script type="text/javascript"  src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+        <!--script type="text/javascript" id="extensiones" src="<?php echo $this->dir_ucid; ?>js/utiles/extensiones.js"></script-->
+        <script type="text/javascript" src="/planificacion/pdo/comun/js/extensiones.js"></script>
+        <!--clases para los filtros por columna -->
+
+        <script type="text/javascript"  src="/planificacion/pdo/comun/gantt/dhtmlxgantt_org.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/gantt/dhtmlxgantt_tooltip.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/gantt/api.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/gantt/locale_es.js"></script>
+
+        <script type="text/javascript"  src="/planificacion/pdo/comun/filtros/EditableItem.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/filtros/ComboItem.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/filtros/TextFieldItem.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/filtros/RangeMenu.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/filtros/GridFilters.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/filtros/Filter.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/filtros/StringFilter.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/filtros/DateFilter.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/filtros/ListFilter.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/filtros/NumericFilter.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/filtros/ListadoFilter.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/filtros/String_adaptadoFilter.js"></script>
+
+        <script type="text/javascript"  src="/planificacion/pdo/comun/js/vtype.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/js/CmpBase.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/js/notificaciones.js"></script>
+        <!--script type="text/javascript" src="/planificacion/pdo/comun/js/ColorPalette.js"></script-->
+
+        <script type="text/javascript"  src="/planificacion/pdo/comun/js/CmpBarraProgreso.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/js/RowExpander.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/js/TreeGrid.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/js/CmpPaginadoTreegrid.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/js/CmpMenuRelacionesDinamicas.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/js/FileUploadField.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/js/examples.js"></script>
+
+        <script type="text/javascript" src="/planificacion/pdo/comun/js/bpexportarconcepto.js"></script>
+        <script type="text/javascript" src="/planificacion/pdo/comun/js/DatePicker.js"></script>
+        <script type="text/javascript" src="/planificacion/pdo/comun/js/ext.ux.datepickerplus.js"></script>
+        <script type="text/javascript" src="/planificacion/pdo/comun/js/Ext.ux.form.LovCombo.js"></script>
+        <script type="text/javascript" src="/planificacion/pdo/comun/js/vtype.js"></script>
+        <script type="text/javascript" src="/planificacion/pdo/comun/js/MessageBox.js"></script>
+
+        <script type="text/javascript"  src="/planificacion/pdo/comun/pareto/jquery.min.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/pareto/highcharts.js"></script>
+        <script type="text/javascript"  src="/planificacion/pdo/comun/pareto/modules/drilldown.js"></script>
+
+        <script type="text/javascript"  src="/planificacion/pdo/comun/nodejs/assets/js/socket-io-client/socket.io.js"></script>
+
+        <?php echo $this->extensionesPLAN; ?>
+        <?php echo $this->pyeComun; ?>
+        <?php echo $this->matrizrelacionesComponent; ?>
+        <?php echo $this->jsreportes; ?>
+        <?php echo $this->getJSRelaciones; ?>
+        <?php echo $this->getJSPert; ?>
+
+        <script type="text/javascript" src="/planificacion/pdo/comun/pert/go-debug.js"></script>
+        <script type="text/javascript" src="/planificacion/pdo/plan/views/js/cmppert/cmpgestionarpert.js"></script>
+        <script type="text/javascript" src="/planificacion/proyecto/planeacion/views/js/cmpgestionarestructura/cmpgestionarestructura.js"></script>
+        <script type="text/javascript" src="/planificacion/proyecto/planeacion/views/js/cmpgestionarplantilla/cmpcrudtarea.js"></script>
+        <script type="text/javascript" src="/planificacion/proyecto/planeacion/views/js/cmpgestionarplantilla/cmpcrudhito.js"></script>
+        <script type="text/javascript" src="/planificacion/proyecto/planeacion/views/js/cmpgestionarplantilla/WinResumenTareas.js"></script>
+        <script type="text/javascript" src="/planificacion/proyecto/planeacion/views/js/cmpgestionarplantilla/cmpejecucion.js"></script>
+        <script type="text/javascript" src="/planificacion/proyecto/planeacion/views/js/cmpgestionarplantilla/cmpcrudproyecto.js"></script>
+        <script type="text/javascript" src="/planificacion/proyecto/planeacion/views/js/cmpgestionarplantilla/cmpgestionarplantilla.js"></script>
+
+        <script type="text/javascript" src="/planificacion/proyecto/planeacion/views/js/cmpdiagramagantt/cmpdiagramagantt.js"></script>
+        <script type="text/javascript" src="/planificacion/proyecto/planeacion/views/js/cmpdiagramagantt/initcmpdiagramagantt.js"></script>
+
+    </body>
+
+</html>

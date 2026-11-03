@@ -1,0 +1,20 @@
+1-Instalar la herramienta aide
+ sudo apt-get install aide
+2- Sustituir el fichero de configuración que se encuentra en /etc/aide/aide.conf por el que se encuentra en el MT en
+apps/seguridad/comun/recursos/herramientas/aide/aide.conf
+3- Correr el comando sudo aide -c /etc/aide/aide.conf --init
+4- Sobreescribir la base de datos generada:
+sudo mv /var/lib/aide/aide.db.new /var/lib/aide/aide.db
+5- Eliminar todos los archivos que se encuentran en la dirección /etc/aide/aide.conf.d/ para evitar que escanee la pc entera
+6- Instalar sudo apt install sudo
+6.1- Poner a www-data como sudoers. Agregar la siguiente línea en el archivo /etc/sudoers:
+www-data ALL= NOPASSWD:ALL
+7-Darle permisos al usuario apache a los logs de aide de la siguiente forma:
+chmod +r -R /var/log/aide/
+setfacl -d -m u:www-data:rwx -m u:root:rwx /var/log/aide/
+setfacl -Rd -m u:www-data:rwx -m u:root:rwx /var/log/aide/
+8-Darle permisos al usuario apache directorio donde el aide almacena las BD y la configuración autogenerada:
+  chmod +r -R /var/log/aide/
+  setfacl -d -m u:www-data:rwx -m u:root:rwx /var/lib/aide/
+  setfacl -Rd -m u:www-data:rwx -m u:root:rwx /var/lib/aide/
+

@@ -1,0 +1,12 @@
+{
+    "name": "configurar",
+    "minify":{
+    	"js":{
+	    	"files":[
+	    		"gestsesion.js"
+	    	],
+	    	"outputDir": "../build/gestsesion/"
+    	}
+    }
+
+}

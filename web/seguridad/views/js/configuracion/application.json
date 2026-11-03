@@ -1,0 +1,31 @@
+{
+    "name": "configurar",
+    "concat":{
+    	"js":{
+	    	"files":[
+			  	"contenedora.js",
+			  	"gestconfiguracion.js",
+				"gestcein.js",
+			  	"gestnomdominio.js",
+			  	"gestservidor.js",
+			  	"gestnomidioma.js",
+			  	"gestnomtema.js",
+			  	"gestnomdesktop.js",
+			  	"gestexpresiones.js",
+			  	"captcha.js",
+			  	"genfichero.js",
+			  	"gestcein.js",
+			  	"integridad.js"
+	    	],
+	    	"outputFile": "../build/configuracion/configuracion.js"
+    	}
+    },
+  	"minify": {
+		"js": {
+	  		"files": [
+				"../build/configuracion/configuracion.js"
+	  		],
+	  		"outputDir": "../build/configuracion/"
+		}
+  	}
+}

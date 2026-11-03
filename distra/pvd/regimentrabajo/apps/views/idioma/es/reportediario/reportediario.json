@@ -1,0 +1,12 @@
+{
+    btnBuscarDenom: '<u>B</u>uscar',
+    lbbtnBuscar: 'Buscar persona <b>(Alt+B)</b>',
+    fecha:'Fecha:',
+    btnAyuda:'Ayuda',
+    lbBtnAyuda: 'Mostrar ayuda de la funcionalidad <b>(Alt+H)</b>',
+    btnLimpiar: '<u>L</u>impiar',
+    btnExportar: '<u>E</u>xportar',
+    lbbtnExportar: 'Exportar reporte de ausencias <b>(Alt+E)</b>',
+    lbbtnLimpiar: 'Limpiar filtro(s) <b>(Alt+L)</b>',
+    MsgNoDataAsistencia:'No hay resultados que mostrar.',
+}

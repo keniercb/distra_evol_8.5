@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<e-FACTURA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <Cuerpo>
+
+    <Partes>
+
+      <Proveedor TipoPersona="Juridica">
+
+        <IdentificacionFiscal>
+
+          <CodigoREEUP>14420</CodigoREEUP>
+
+          <NIT>13213454534</NIT>
+
+          <NoInscipcionRegistroComercial>D35435</NoInscipcionRegistroComercial>
+
+          <CuentaBancaria>3435 4544 3545 4353</CuentaBancaria>
+
+          <SucursalBancaria>3545</SucursalBancaria>
+
+        </IdentificacionFiscal>
+
+        <DatosPersonales>
+
+          <Uuid>E5EBE8CE1EBB42C6993D9643DA2BAA4D</Uuid>
+
+          <CI>92120739387</CI>
+
+          <PrimerNombre>Daniel</PrimerNombre>
+
+          <SegundoNombre>Orlando</SegundoNombre>
+
+          <PrimerApellido>Jimenez</PrimerApellido>
+
+          <SegundoApellido>Choy</SegundoApellido>
+
+        </DatosPersonales>
+
+        <NombreComercial>EMPRESA DE TECNOLOGIAS DE LA INFORMACION PARA LA DEFENSA.</NombreComercial>
+
+        <Direccion>
+
+          <PrimeraLinea>CALLE 296-A ENTRE AVE 207 Y AVE 203.</PrimeraLinea>
+
+          <Municipio>Boyeros</Municipio>
+
+          <Provincia>La Habana</Provincia>
+
+        </Direccion>
+
+      </Proveedor>
+
+      <Cliente TipoPersona="Juridica">
+
+        <IdentificacionFiscal>
+
+          <CodigoREEUP>14420</CodigoREEUP>
+
+          <NIT>13213454534</NIT>
+
+          <NoInscipcionRegistroComercial>D35435</NoInscipcionRegistroComercial>
+
+          <CuentaBancaria>3435 4544 3545 4353</CuentaBancaria>
+
+          <SucursalBancaria>3545</SucursalBancaria>
+
+        </IdentificacionFiscal>
+
+        <DatosPersonales>
+
+          <Uuid>7333C4367598430F99463DE7BC7B3156</Uuid>
+
+          <CI>78071129388</CI>
+
+          <PrimerNombre>Rafael</PrimerNombre>
+
+          <SegundoNombre>Yordanis</SegundoNombre>
+
+          <PrimerApellido>Rodríguez</PrimerApellido>
+
+          <SegundoApellido>Montero</SegundoApellido>
+
+        </DatosPersonales>
+
+        <NombreComercial>EMPRESA DE TECNOLOGIAS DE LA INFORMACION PARA LA DEFENSA.</NombreComercial>
+
+        <Direccion>
+
+          <PrimeraLinea>CALLE 296-A ENTRE AVE 207 Y AVE 203.</PrimeraLinea>
+
+          <Municipio>Boyeros</Municipio>
+
+          <Provincia>La Habana</Provincia>
+
+        </Direccion>
+
+      </Cliente>
+
+    </Partes>
+
+    <DetallesFactura>
+
+      <InfoGeneral>
+
+        <TipoMoneda>CUP</TipoMoneda>
+
+        <Operaciones>Corrientes</Operaciones>
+
+        <ImporteTotal>367.64</ImporteTotal>
+
+        <SubTotal>364</SubTotal>
+
+      </InfoGeneral>
+
+      <Impuesto>
+
+        <BaseImponible>364</BaseImponible>
+
+        <TipoImpositivo>1</TipoImpositivo>
+
+        <Porciento>3.64</Porciento>
+
+      </Impuesto>
+
+      <Producto>
+
+        <Codigo>13131.6161.6166</Codigo>
+
+        <Descripcion>Detergente liquido</Descripcion>
+
+        <UM>L</UM>
+
+        <Cantidad>7</Cantidad>
+
+        <PrecioUnitarioTotal>52</PrecioUnitarioTotal>
+
+        <SaldoEnExistencia>9</SaldoEnExistencia>
+
+        <Importe>364</Importe>
+
+      </Producto>
+
+    </DetallesFactura>
+
+  </Cuerpo>
+
+</e-FACTURA>

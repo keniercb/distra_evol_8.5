@@ -1,0 +1,28 @@
+{
+btnAceptar: 'Aceptar',
+btnAplicar: 'Aplicar',
+btnCancelar: 'Cancelar',
+btnAyuda: 'Ayuda',
+btnAdicionar: 'Ad<u>i</u>cionar',
+btnModificar: '<u>M</u>odificar',
+btnEliminar: 'Eliminar',
+cbemtyText: 'Seleccione...',
+lbestecampoobligatorio: 'Este campo es obligatorio',
+winEstructura: 'Entidades',
+lbperiodospago: 'Per&iacute;odos',
+lbpersonaselaborarpago: 'Personas',
+winelaborarpago: 'Elaboraci&oacute;n del pago',
+lbfechapago: 'Fecha de pago',
+lbanyo: 'A&ntilde;o',
+lbmes: 'Mes',
+lbtipopago: 'Tipos de pago: ',
+lbcargando: 'Cargando...',
+lbbtnaddperiodopago: 'Adicionar per&iacute;odo de pago',
+lbbtnmodperiodopago: 'Modificar per&iacute;odo de pago',
+lbbtndelperiodopago: 'Eliminar per&iacute;odo de pago',
+lbcbperiodopago: 'Per&iacute;odos de pago',
+lbfinicio: 'Fecha de inicio',
+lbffin: 'Fecha de fin',
+invalidTextFecha: 'Formato es dd/mm/aaaa'
+
+}

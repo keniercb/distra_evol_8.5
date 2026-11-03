@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>Depreciar medios de la entidad</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+        <script language="javascript" type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+        <link href="<?php echo $this->dir_ext_ccs; ?>css/ext-all.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link rel="stylesheet" type="text/css"
+              href="/configuracion/comun/views/css/visorImagenes.css"/>
+
+    </head>
+    <body>
+        <script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+        <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+
+        <script type="text/javascript"
+        src="/logistica/activos_fijos/utiles/views/js/gestarearesponsabilidad/gestarearesponsabilidad.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/views/js/comun.js"></script>
+        <script type="text/javascript" src="/logistica/activos_fijos/utiles/views/js/cache.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/views/js/PagingRowNumberer.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/views/js/ColumnHeaderGroup.js"></script>
+        <script type="text/javascript" src="/configuracion/comun/views/js/dataView.plugins.js"></script>
+        <script type="text/javascript" src="/logistica/utiles/comun/views/idioma/es/global.js"></script>
+        <script type="text/javascript" src="/logistica/utiles/comun/views/js/util/ui.manager.js"></script>
+
+        <script type="text/javascript" src="/lib/JasperReports/Distra.util.JasperClient.js"></script>
+        <script type="text/javascript"
+        src="/configuracion/comun/views/js/visorImagenes.componet.js"></script>
+        <script type="text/javascript"
+        src="/configuracion/nomdinamicos/views/js/atributosdinamicos/propertyGridAtribDinamicos.component.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="/configuracion/comun/views/css/file-upload.css"/>
+        <script type="text/javascript" src="/configuracion/comun/views/js/fileUploadField.plugins.js"></script>
+        <script type="text/javascript"
+                src="/logistica/activos_fijos/utiles/views/js/estructuraubicacion/treestructuraubicacion.js">
+
+        </script><script type="text/javascript" src="/pvd/comun/views/js/buscarpersonacomp/buscarpersonacomp.js"></script>
+        <script type="text/javascript" src="/logistica/activos_fijos/utiles/views/js/comun/validator.js"></script>
+
+
+
+
+
+
+
+
+
+        <script type="text/javascript" src="/configuracion/comun/views/js/RowExpander.js"></script>
+        <script type="text/javascript" src="../../views/js/gestregmatricula/GridRegMatricula.component.js"></script>
+        <script type="text/javascript" src="../../views/js/gestregmatricula/PropertyGrid.js"></script>
+        <script type="text/javascript" src="../../views/js/gestregmatricula/winBusquedaAvanzada.component.js"></script>
+        <script type="text/javascript" src="../../views/js/gestregmatricula/winRegistrarMedios.component.js"></script>
+        <script type="text/javascript" src="../../views/js/gestregmatricula/winAddMedio.component.js"></script>
+        <script type="text/javascript" src="../../views/js/gestregmatricula/winMostrarDetalles.js"></script>
+        <script type="text/javascript" src="../../views/js/gestregmatricula/gestregmatricula.js"></script>
+        <script type="text/javascript" src="../../views/js/gestregmatricula/gestregmatricula.main.js"></script>
+        <script type="text/javascript" src="../../views/js/gestregmatricula/winReportes.component.js"></script>
+       
+
+
+        <?php
+        foreach ($this->arrayJs as $js) {
+            echo $js;
+        }
+        ?>
+    </body>
+</html>

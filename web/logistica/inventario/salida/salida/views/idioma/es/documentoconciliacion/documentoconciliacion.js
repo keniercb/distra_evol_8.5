@@ -1,0 +1,88 @@
+Ext.ns('LOG.inv.documentoconciliacion');
+LOG.inv.documentoconciliacion.Idioma = {
+    // Título de ventanas.
+    tlAdicionar: 'Clientes',
+    tlVerDetalles: 'Conciliaci\xf3n # ',
+    tlConciliacion:'Conciliaci\xf3n # x del xx/xx/xx en estado Aprobado',
+
+    // Botones de la ventana principal.
+    ttBtnAdicionar : 'Adicionar nuevo documento de conciliaci\xf3n',
+    ttBtnVer : 'Ver detalles del documento de conciliaci\xf3n',
+    ttBtnEliminar : 'Eliminar documento de conciliaci\xf3n',
+    ttBtnConfirmar: 'Confirmar documento de conciliaci\xf3n',
+    ttBtnAnularEstado: 'Anular estado del documento de conciliaci\xf3n',
+    ttBtnAprobar:'Aprobar el documento de conciliaci\xf3n',
+    ttBtnContabilizar: 'Contabilizar documento de conciliaci\xf3n',
+    ttBtnConciliar: 'Conciliar documento',
+    ttBtnVerDetalles: 'Ver detalles del documento de conciliaci\xf3n',
+    ttBtnAbrir: 'Abrir documento de conciliaci\xf3n',
+    ttBtnImprimir: 'Imprimir',
+    ttBuscar: 'documento de conciliaci\xf3n',
+    lbBtnConciliar:'Conciliar',
+    lbBtnImprimirListado: 'Imprimir listado',
+    lbBtnImprimirModelo: 'Imprimir modelo',
+    ttCriterioMov: 'No. de transferencia',
+    ttConcepto: 'transferencia(s)',
+   
+
+    // Busqueda avanzada.
+    lbFsTransferencia: 'Transferencia',
+    lbTfNoTransferencia: 'No. transferencia',
+    lbCbEstado: 'Estado',
+    lbCbNivelAprob: 'Nivel aprobaci\xf3n',
+    lbCbCliente: 'Cliente',
+    lbCbUsuarios: 'Usuario',
+    lbCbCreadoPor: 'Creado por',
+    lbCbAprobadoPor: 'Aprobado por',
+    lbCbConciliadoPor: 'Conciliado por',
+    lbFsRangoFecha: 'Rango de fecha',
+    lbDfDesde: 'Desde',
+    lbDfHasta: 'Hasta',
+
+    // Columnas de los grid.
+    gcNumeroDocumento: 'No. de documento',
+    gcNumeroTransferencia: 'No. de transferencia',
+    gcDenominacion: 'Denominaci\xf3n',
+    gcCantidadTransferencia: 'Cant. transferencia',
+    gcConciliado: 'Conciliado por',
+    gcEstado: 'Estado',
+    gcCliente: 'Cliente',
+    gcFechaCreacion: 'Fecha de creaci\xf3n',
+    gcCreadoPor: 'Creado por',
+    gcAprobadoPor: 'Aprobado por',
+    gcImporte:'Importe',
+    gcRecibido: 'Recibido',
+    gcMotivo:'Motivo',
+
+    //Ver detalle
+    lbCliente:'Cliente: ',
+    lbImporte:'Importe total: ',
+    ttBtnEliminarV: 'Eliminar el documento de conciliaci\xf3n',
+
+    // Mensajes.
+    msgCreandoDocumento:'Creando documento',
+    msgSelectObjeto: 'Debe seleccionar un documento de conciliaci\xf3',
+    msgDocumentoAdicionadoSatisfactorio:'Documento adicionado satisfactoriamente',
+    msgDeleteObjeto: '\xbfEst\xe1 seguro que desea eliminar el documento de conciliaci\xf3n seleccionado\x3f',
+    msgEliminandoObjeto: 'Eliminando documento de conciliaci\xf3n',
+    msgObjetoEliminado: 'El documento de conciliaci\xf3n ha sido eliminado satisfactoriamente.',
+    msgSalvandoObjeto: 'Guardando documento de conciliac\xf3n',
+    lbMsgObjetoSalvado: 'El(Los) documento(s) de conciliaci\xf3n ha(n) sido guardado(s) satisfactoriamente.',
+    msgConfirmarDocumento: '\xbfEst\xe1 seguro que desea confirmar el documento de conciliaci\xf3n seleccionado\x3f',
+    msgConfirmandoDocumento: 'Confirmando el documento',
+    msgDocumentoConfirmado: 'El documento de conciliaci\xf3n ha sido confirmado satisfactoriamente.',
+    msgAnularEstadoDocumento: '\xbfEst\xe1 seguro que desea anular el estado del documento de conciliaci\xf3n seleccionado\x3f',
+    msgAnulandoEstadoDocumento: 'Anulando el estado del documento',
+    msgEstadoDocumentoAnulado: 'El estado del documento de conciliaci\xf3n ha sido anulado satisfactoriamente.',
+    msgContabilizarDocumento: '\xbfEst\xe1 seguro que desea contabil;izar el documento de conciliaci\xf3n seleccionado\x3f',
+    msgContabilizandoDocumento: 'Contabilizando el documento',
+    msgDocumentoContabilizado:'El documento de conciliaci\xf3n ha sido contabilizado satisfactoriamente',
+
+    msgAnularDocumento: '\xbfEst\xe1 seguro que desea anular el documento de conciliaci\xf3n seleccionado\x3f',
+    msgDocumentoAnulado: 'El documento de conciliaci\xf3n ha sido anulado satisfactoriamente.',
+    msgAprobarDocumento: '\xbfEst\xe1 seguro que desea aprobar el documento de conciliaci\xf3n seleccionado\x3f',
+    msgDocumentoAprobado: 'El documento de conciliaci\xf3n ha sido aprobado satisfactoriamente.',
+    msgDuplicarDocumento: '\xbfEst\xe1 seguro que desea duplicar el documento de conciliaci\xf3n seleccionado\x3f',
+    msgDuplicarAnulado: 'El documento de conciliaci\xf3n ha sido duplicado satisfactoriamente.',
+    msgNoExisteTransferencia: 'No existen transferencias pendientes para clientes.',
+};

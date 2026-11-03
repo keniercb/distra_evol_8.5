@@ -1,0 +1,11 @@
+{
+  lbBtnAdicionar: "<u>A</u>dicionar",
+  lbBtnModificar: "<u>M</u>odificar",
+  lbBtnEliminar: "Eliminar",
+  lbtnCancelar: "Cancelar",
+  lbtnAplicar: "Aplicar",
+  lbtnAceptar: "Aceptar",
+  lbLoadindMask: "Cargando...",
+  lbSearchEmtpyText: "Criterio a buscar...",
+  lbMsgWait: "Por favor espere...",
+}

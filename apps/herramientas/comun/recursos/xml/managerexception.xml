@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<exceptions>
+	<herramientas>
+        <notificaciones>
+            <GestnomtipoavisoController>
+                <insertarTipoAvisoAction>
+                    <exception type="Doctrine_Connection_Pgsql_Exception" code="HERRNOT001" filter="Unique violation: 7 ERROR:  duplicate key value violates unique constraint" />
+                </insertarTipoAvisoAction>
+            </GestnomtipoavisoController>
+            <GestnomtipoavisoController>
+                <modificarTipoAvisoAction>
+                    <exception type="Doctrine_Connection_Pgsql_Exception" code="HERRNOT001" filter="Unique violation: 7 ERROR:  duplicate key value violates unique constraint" />
+                </modificarTipoAvisoAction>
+            </GestnomtipoavisoController>
+            <GestnomtipocontenidoController>
+                <insertarTipoContenidoAction>
+                    <exception type="Doctrine_Connection_Pgsql_Exception" code="HERRNOT002" filter="Unique violation: 7 ERROR:  duplicate key value violates unique constraint" />
+                </insertarTipoContenidoAction>
+            </GestnomtipocontenidoController>
+            <GestnomtipocontenidoController>
+                <modificarTipoContenidoAction>
+                    <exception type="Doctrine_Connection_Pgsql_Exception" code="HERRNOT002" filter="Unique violation: 7 ERROR:  duplicate key value violates unique constraint" />
+                </modificarTipoContenidoAction>
+            </GestnomtipocontenidoController>
+            <GestdatgrupoController>
+                <insertarGrupoAction>
+                    <exception type="Doctrine_Connection_Pgsql_Exception" code="HERRNOT003" filter="Unique violation: 7 ERROR:  duplicate key value violates unique constraint" />
+                </insertarGrupoAction>
+            </GestdatgrupoController>
+            <GestdatgrupoController>
+                <modificarGrupoAction>
+                    <exception type="Doctrine_Connection_Pgsql_Exception" code="HERRNOT003" filter="Unique violation: 7 ERROR:  duplicate key value violates unique constraint" />
+                </modificarGrupoAction>
+            </GestdatgrupoController>
+        </notificaciones>
+    </herramientas>
+</exceptions>

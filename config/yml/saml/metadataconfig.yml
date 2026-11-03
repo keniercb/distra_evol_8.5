@@ -1,0 +1,156 @@
+#*************************************************************************************************
+# Los certificados y las llaves privadas tienen que estar en la direccion config/certs/auth del marco de trabajo
+# Comando consola de ejemplo para generar un certificado y llave privada
+#openssl req -newkey rsa:4096 -nodes -keyout zeolides.key -x509 -days 365 -out zeolides.crt
+#*************************************************************************************************
+#Este archivo de configuración consta de dos partes:
+#1- Host:
+#    Aquí se configuran los servicios que se van a brindar; IDP (Identity Provider) y SP (Service Provider)
+#2- Remote:
+#    Aquí se configuran los servicios que se van a consumir
+#Nota:
+#    Funciona como el protocolo de llaves públicas:
+#    En el IDP se copia la llave pública del SP y viceversa (.crt)
+
+seguridad:
+        hosted:
+            keysDir: "config/certs/auth"
+            secretSalt: "asdasd"
+            service_provider:
+                enabled: "true"
+                entityId: "splocal"
+                #idp: "https://distra.dev.local.test/seguridad/index.php/identityprovider/sso"
+                idp: "localhost"
+                assertionConsumerRoute: "https://distra.dev.local.test/seguridad/index.php/serviceprovider/acs"
+                certificateFile: "zeolides.crt"
+                privateKeys:
+                    default: "zeolides.key"
+            identity_provider:
+                enabled: "true"
+                autority: "default"
+                entityId: "https://distra.dev.local.test/seguridad/index.php/identityprovider/sso"
+                signAssertion: true
+                singResponse: true
+                attributesNameFormat: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+                certificateFile: "zeolides.crt"
+                signAuthnRequest: true
+                signSloMessage: true
+                privateKeys:
+                    default: "zeolides.key"
+        remote:
+            identity_providers:
+                'https://distra.dev.local.test/seguridad/index.php/identityprovider/sso':
+                    enabled: "true"
+                    entityId: "https://distra.dev.local.test/seguridad/index.php/identityprovider/sso"
+                    singleSignOnService: "https://distra.dev.local.test/seguridad/index.php/identityprovider/sso"
+                    singleLogoutService: "https://distra.dev.local.test/seguridad/index.php/identityprovider/slo"
+                    certificateFile: "zeolides.crt"
+                    signAuthnRequest: true
+                    signSloMessage: true
+                    signAssertion: true
+                    singResponse: true
+                'https://localhost:9443/samlsso':
+                    enabled: "true"
+                    entityId: "localhost"
+                    singleSignOnService: "https://localhost:9443/samlsso"
+                    singleLogoutService: "https://localhost:9443/samlsso"
+                    certificateFile: "zeolides.crt"
+                    signAuthnRequest: true
+                    signSloMessage: true
+                    signAssertion: true
+                    singResponse: true
+                'localhost':
+                    enabled: "true"
+                    entityId: "localhost"
+                    singleSignOnService: "https://localhost:9443/samlsso"
+                    singleLogoutService: "https://localhost:9443/samlsso"
+                    certificateFile: "zeolides.crt"
+                    signAuthnRequest: true
+                    signSloMessage: true
+                    signAssertion: true
+                    singResponse: true
+            service_providers:
+                splocal:
+                    enabled: "true"
+                    entityId: 'splocal'
+                    certificateFile: 'zeolides.crt'
+                    assertionConsumerService:
+                        post:
+                            binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
+                            location: 'https://distra.dev.local.test/seguridad/index.php/serviceprovider/acs'
+                            index: '1'
+                    singleLogoutService:
+                        post:
+                            binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
+                            location: 'https://distra.dev.local.test/seguridad/index.php/serviceprovider/slo'
+                ServiceProviderSymfony.local:
+                    enabled: "true"
+                    entityId: 'ServiceProviderSymfony.local'
+                    certificateData: "MIIEJTCCAw2gAwIBAgIJANug+o++1X5IMA0GCSqGSIb3DQEBCwUAMIGoMQswCQYDVQQGEwJOTDEQMA4GA1UECAwHVXRyZWNodDEQMA4GA1UEBwwHVXRyZWNodDEVMBMGA1UECgwMU1VSRm5ldCBCLlYuMRMwEQYDVQQLDApTVVJGY29uZXh0MRwwGgYDVQQDDBNTVVJGbmV0IERldmVsb3BtZW50MSswKQYJKoZIhvcNAQkBFhxzdXJmY29uZXh0LWJlaGVlckBzdXJmbmV0Lm5sMB4XDTE0MTAyMDEyMzkxMVoXDTE0MTExOTEyMzkxMVowgagxCzAJBgNVBAYTAk5MMRAwDgYDVQQIDAdVdHJlY2h0MRAwDgYDVQQHDAdVdHJlY2h0MRUwEwYDVQQKDAxTVVJGbmV0IEIuVi4xEzARBgNVBAsMClNVUkZjb25leHQxHDAaBgNVBAMME1NVUkZuZXQgRGV2ZWxvcG1lbnQxKzApBgkqhkiG9w0BCQEWHHN1cmZjb25leHQtYmVoZWVyQHN1cmZuZXQubmwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDXuSSBeNJY3d4p060oNRSuAER5nLWT6AIVbv3XrXhcgSwc9m2b8u3ksp14pi8FbaNHAYW3MjlKgnLlopYIylzKD/6Ut/clEx67aO9Hpqsc0HmIP0It6q2bf5yUZ71E4CN2HtQceO5DsEYpe5M7D5i64kS2A7e2NYWVdA5Z01DqUpQGRBc+uMzOwyif6StBiMiLrZH3n2r5q5aVaXU4Vy5EE4VShv3Mp91sgXJj/v155fv0wShgl681v8yf2u2ZMb7NKnQRA4zM2Ng2EUAyy6PQ+Jbn+rALSm1YgiJdVuSlTLhvgwbiHGO2XgBi7bTHhlqSrJFK3Gs4zwIsop/XqQRBAgMBAAGjUDBOMB0GA1UdDgQWBBQCJmcoa/F7aM3jIFN7Bd4uzWRgzjAfBgNVHSMEGDAWgBQCJmcoa/F7aM3jIFN7Bd4uzWRgzjAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQBd80GpWKjp1J+Dgp0blVAox1s/WPWQlex9xrx1GEYbc5elp3svS+S82s7dFm2llHrrNOBt1HZVC+TdW4f+MR1xq8O5lOYjDRsosxZc/u9jVsYWYc3M9bQAx8VyJ8VGpcAK+fLqRNabYlqTnj/t9bzX8fS90sp8JsALV4g84Aj0G8RpYJokw+pJUmOpuxsZN5U84MmLPnVfmrnuCVh/HkiLNV2c8Pk8LSomg6q1M1dQUTsz/HVxcOhHLj/owwh3IzXf/KXV/E8vSYW8o4WWCAnruYOWdJMI4Z8NG1Mfv7zvb7U3FL1C/KLV04DqzALXGj+LVmxtDvuxqC042apoIDQV"
+                    assertionConsumerService:
+                        post:
+                            binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
+                            location: 'http://symfony.local:4000/seguridad/serviceprovider/acs'
+                            index: '1'
+                    singleLogoutService:
+                        post:
+                            binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
+                            location: 'http://symfony.local:4000/seguridad/serviceprovider/slo'
+                php-sp:
+                    enabled: "true"
+                    entityId: 'php-sp'
+                    certificateData: "MIIDiTCCAnGgAwIBAgIJAKwwfLQzpydaMA0GCSqGSIb3DQEBBQUAMFsxCzAJBgNVBAYTAkNVMRIwEAYDVQQIDAlMYSBIYWJhbmExEDAOBgNVBAcMB0xhIExpc2ExDjAMBgNVBAoMBVhFVElEMRYwFAYDVQQDDA1waHAubG9jYWwuZGV2MB4XDTE0MDQxNzE0MzMzNloXDTI0MDQxNjE0MzMzNlowWzELMAkGA1UEBhMCQ1UxEjAQBgNVBAgMCUxhIEhhYmFuYTEQMA4GA1UEBwwHTGEgTGlzYTEOMAwGA1UECgwFWEVUSUQxFjAUBgNVBAMMDXBocC5sb2NhbC5kZXYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDJgOMBX/8YGK30UXhh4DyhKFldf/toivwtoL4Q+/JRoDQf/R9OSd1MgS/MO20lPRNyp0/gLBu5/cQYxV8ugoOGvkrUd9uMkio2kXu8ofIUArJFe2tpBK7r4KQ7fU4PFocvEqlGahQ6kUQTLFl2uzgMHaHv2cKSVCoM2dtDTtZNFMGgEeKoiJhIu+HwT1buVPwspBCkKM/GalC8IPyLO2GRfa7iCYwNoxsnPYy3fw+MKVald3SMrOUsDJkwKSdkLzrzOp4GCJz48A7CmfMIR7H+SFYDjTF8WuX+NSBcI7eSL5ImmIEEadwSmJC3hc7wtQNUDLyOUs+43al0bH4iFFMlAgMBAAGjUDBOMB0GA1UdDgQWBBSTq7X9kCzmd09bk1hr0Z1U8CjCqTAfBgNVHSMEGDAWgBSTq7X9kCzmd09bk1hr0Z1U8CjCqTAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQB5Wba0XTjsoBP7KVDi+aIt2o/UIYmH8lmAI+/aHGBcESscRPMsGVzMie5Rhaj2xLUEVYZj5TSk8CxrEF9NgxZgQi3ytynysFlJhYYdpbKCx1eggwYy2RHtGn6oy79VGTZ527NBuNAa8sUm659251cMZ4KXmZ1XmeAPMm10wsBQY8f3LFqVtnkB4jFgn3VqOO3q6z1M9FznxX8Z8U58+V7J2QEAvb9FZTfrtORUFg6Si73LViqpO8ch3w780gmghSqyPebCQMKQy75MVRJCklSCBd4IenupJX2IK8yuCXNMZu72P5ZQR5S/fXTkMvuQJOSqt7rEnElULxosdQSTUOTq"
+                    assertionEncryption: "true"
+                    assertionConsumerService:
+                        post:
+                            binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
+                            location: 'http://php.local:4002/simplesaml/module.php/saml/sp/saml2-acs.php/php-sp'
+                            index: '1'
+                    singleLogoutService:
+                        post:
+                            binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
+                            location: 'http://php.local:4002/simplesaml/module.php/saml/sp/saml2-logout.php/php-sp'
+                'http://symfony.local:4000/saml/metadata.xml':
+                    enabled: "true"
+                    entityId: 'http://symfony.local:4000/saml/metadata.xml'
+                    certificateFile: 'saml.crt'
+                    assertionConsumerService:
+                        post:
+                            binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
+                            location: 'http://symfony.local:4000/saml/login_check'
+                            index: '1'
+                    singleLogoutService:
+                        post:
+                            binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
+                            location: 'http://symfony.local:4000/saml/logout'
+                'http://drupal.local.dev/simplesaml/module.php/saml/sp/metadata.php/default-sp':
+                    enabled: "true"
+                    entityId: 'http://drupal.local.dev/simplesaml/module.php/saml/sp/metadata.php/default-sp'
+                    certificateFile: 'development_publickey.cer'
+                    assertionConsumerService:
+                        post:
+                            binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
+                            location: 'http://drupal.local.dev/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp'
+                            index: '1'
+                    singleLogoutService:
+                        post:
+                            binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
+                            location: 'http://drupal.local.dev/simplesaml/module.php/saml/sp/saml2-logout.php/default-sp'
+                'https://localhost:9443':
+                    enabled: "true"
+                    nameIDFormat: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+                    nameIdAttribute: "usuario"
+                    signatureAlgorithm: "http://www.w3.org/2000/09/xmldsig#rsa-sha1"
+                    entityId: 'https://localhost:9443'
+#                    certificateFingerprints:
+#                        default: 6B:F8:E1:36:EB:36:D4:A5:6E:A0:5C:7A:E4:B9:A4:5B:63:BF:97:5D
+                    certificateData: 'MIICNTCCAZ6gAwIBAgIES343gjANBgkqhkiG9w0BAQUFADBVMQswCQYDVQQGEwJVUzELMAkGA1UECAwCQ0ExFjAUBgNVBAcMDU1vdW50YWluIFZpZXcxDTALBgNVBAoMBFdTTzIxEjAQBgNVBAMMCWxvY2FsaG9zdDAeFw0xMDAyMTkwNzAyMjZaFw0zNTAyMTMwNzAyMjZaMFUxCzAJBgNVBAYTAlVTMQswCQYDVQQIDAJDQTEWMBQGA1UEBwwNTW91bnRhaW4gVmlldzENMAsGA1UECgwEV1NPMjESMBAGA1UEAwwJbG9jYWxob3N0MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCUp/oV1vWc8/TkQSiAvTousMzOM4asB2iltr2QKozni5aVFu818MpOLZIr8LMnTzWllJvvaA5RAAdpbECb+48FjbBe0hseUdN5HpwvnH/DW8ZccGvk53I6Orq7hLCv1ZHtuOCokghz/ATrhyPq+QktMfXnRS4HrKGJTzxaCcU7OQIDAQABoxIwEDAOBgNVHQ8BAf8EBAMCBPAwDQYJKoZIhvcNAQEFBQADgYEAW5wPR7cr1LAdq+IrR44iQlRG5ITCZXY9hI0PygLP2rHANh+PYfTmxbuOnykNGyhM6FjFLbW2uZHQTY1jMrPprjOrmyK5sjJRO4d1DeGHT/YnIjs9JogRKv4XHECwLtIVdAbIdWHEtVZJyMSktcyysFcvuhPQK8Qc/E/Wq8uHSCo='
+                    assertionConsumerService:
+                        post:
+                            binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
+                            location: 'https://localhost:9443/acs'
+                            index: '1'
+                    singleLogoutService:
+                        post:
+                            binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
+                            location: 'https://localhost:9443/acs/fedletSloPOST'

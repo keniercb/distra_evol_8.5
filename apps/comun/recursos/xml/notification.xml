@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notification>
+  <seguridad>
+    <ConfigaccesosController>
+      <configaccesosAction>
+        <events>
+          <event name="test" execution="post"/>
+        </events>
+      </configaccesosAction>
+    </ConfigaccesosController>
+  </seguridad>
+  <traza>
+    <ConfigurarController>
+      <configurarAction>
+        <events/>
+      </configurarAction>
+      <cargaretiquetasAction>
+        <events/>
+      </cargaretiquetasAction>
+    </ConfigurarController>
+  </traza>
+</notification>

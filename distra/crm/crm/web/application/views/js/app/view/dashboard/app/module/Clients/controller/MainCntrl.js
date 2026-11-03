@@ -1,0 +1,269 @@
+Ext.define('Clients.controller.MainCntrl', {
+    extend: 'Ext.app.Controller',
+    views: ['Main', 'MainGrid', 'Chart'],
+    stores: ['Clients.store.ClientProviderState'],
+    refs: [{
+        ref: 'mainContainer', selector: 'portalpanel'
+    }],
+    init: function () {
+        this.listen({
+            store: {
+                '#client_provider_amount': {
+                    load: this.onStoreLoad
+                }
+            },
+            component: {
+                'clients-main': {
+                    afterrender: this.onRender
+                },
+                'clients-main tool[type=refresh]': {
+                    click: this.onToolRefresh
+                },
+                'clients-main tool[type$=chart]': {
+                    click: this.onToolChart
+                },
+                'clients-main toolbar radiofield[name=clients-radio]': {
+                    change: this.onClientProvider
+                },
+                'clients-main toolbar radiofield[name=client-rb]': {
+                    change: this.onTopFilter
+                },
+                'clients-main toolbar datepicker': {
+                    select: this.onDateFilter
+                }
+            }
+        });
+
+    },
+    emptySeries: function (chart) {
+        for (var i = 0; i < chart.series.length; i++) {
+            while (chart.series[i].data.length != 0) {
+                chart.series[i].data[0].remove();
+            }
+        }
+    },
+    configurePortlet: function (portlet, grid, chart, store, cfg, labels) {
+        if (chart.down('highchart')) {
+            chart.removeAll(true);
+        }
+        var mainChart = Ext.widget('highchart', cfg);
+        store && mainChart.bindStore(store, true);
+        chart.add(mainChart);
+        portlet.setLoading(labels.lbMsgLoader);
+        store && store.load(function (data) {
+            cfg.chartConfig.xAxis.categories = data.map(function (item) {
+                return item.get('client_name');
+            });
+            mainChart.draw();
+            grid.reconfigure();
+            portlet.setLoading(false);
+        });
+    },
+    onStoreLoad: function (store, records) {
+		var mean, chi2;
+		if(records.length > 0) {
+         mean = records.map(function (item) {
+                return item.get('amount');
+            }).reduce(function (prev, current) {
+                return prev + current;
+            }) / records.length;
+         chi2 = records.map(function (item) {
+                return item.get('mean');
+            }).reduce(function (prev, current) {
+                return prev + current;
+            }) / records.length;
+		}
+        this.application.config.mean = mean;
+        this.application.config.chi2 = chi2; 
+    },
+    /*onChartRender: function (view) {
+     view.body.insertHtml('afterBegin', view.getCategoriesCmp());
+     Ext.get(view.getCategoriesRef()).on('click', function (e, t) {
+     Ext.create('Clients.store.ClientProviderState', {
+     autoLoad: false
+     }).load({
+     params: {isClient: t.value}
+     });
+     }, this, {
+     delegate: 'input[type=radio]'
+     });
+     },*/
+    //
+    onRender: function (view) {
+        var grid = view.down('clients-main-grid');
+        var sm = grid.getSelectionModel();
+        //configure actions for series type
+        var lineConfig = this.application.config.getLine();
+        var pieConfig = this.application.config.getPie();
+        var barConfig = this.application.config.getBar();
+        var pointConfig = this.application.config.getPoint();
+
+        lineConfig.series[0].events = pieConfig.series[0].events = barConfig.series[0].events = pointConfig.series[0].events = {
+            click: function (evt) {
+                sm.select(evt.point.index);
+            }
+        };
+        sm && sm.on('selectionchange', function (selModel, records) {
+            var highchart = view.down('clients-main-chart').down('highchart');
+            (records.length > 0) && highchart.chart.series[0].points[records[0].index].select(true);
+        });
+        this.application.config.mean = 0;
+        this.onToolChart(view.down('tool[type=piechart]'));
+
+    },
+    onToolRefresh: function (tool) {
+        var portlet, chartStore, gridStore, chart,
+            labels = this.application.$lang, me = this;
+
+        portlet = Ext.ComponentQuery.query('clients-main')[0];
+        if (!portlet) {
+            Ext.raise('Does not exist Component "Clients-main"');
+        }
+        
+        portlet.setLoading(labels.lbMsgLoader);
+        chartStore = Ext.getStore('client_provider_amount');
+        gridStore = portlet.down('clients-main-grid').store;
+		chart = portlet.down('highchart');
+		
+        var doit = false;
+        chartStore && chartStore.load(function (records) {
+            doit && portlet.setLoading(false);
+            doit = true;
+			if (records.length == 0) {
+				me.emptySeries(chart.chart);
+			}
+			Highcharts.fireEvent(chart.chart, 'load');
+        });
+        gridStore && gridStore.load(function () {
+            doit && portlet.setLoading(false);
+            doit = true;
+        });
+    },
+    onToolChart: function (tool) {
+
+        var labels = this.application.$lang;
+        var cfg, config = this.application.config;
+        var portlet = tool.ownerCt.ownerCt;
+        var chart = portlet.down('clients-main-chart');
+        var grid = portlet.down('clients-main-grid');
+        var store = Ext.create('Clients.store.ClientProviderState', {
+            autoLoad: false
+        });
+
+        var tooltip = {
+            formatter: function () {
+                return [
+                    '<b>', this.point.name, '</b>',
+                    '<br/>Monto : ', this.y
+                ].join('');
+            }
+        };
+        var marginBottom = 140;
+        var yAxis = {
+            title: {
+                text: labels.chartYTitle
+            },
+            plotLines: [{
+                value: config.mean,
+                width: 1,
+                label: {
+                    rotation: 270,
+                    text: labels.chartMeanLine,
+                    verticalAlign: 'middle',
+                    y: 20,
+                    x: -4,
+                    style: {
+                        "color": "#bbb",
+                        "fontSize": "10px"
+                    }
+                },
+                dashStyle: 'dash',
+                color: '#808080'
+            }]
+        };
+
+        switch (tool.type) {
+            case 'barchart':
+                cfg = config.getBar();
+                tooltip = {
+                    formatter: function () {
+                        return '<b>' + this.x + '</b>' + '<br>Monto : ' + this.y;
+                    }
+                };
+                break;
+            case 'linechart':
+                cfg = config.getLine();
+                break;
+            case 'pointchart':
+                cfg = config.getPoint();
+                break;
+            case 'piechart':
+                cfg = config.getPie();
+                marginBottom = 0;
+                tooltip = {
+                    formatter: function () {
+                        return [
+                            '<b>', this.point.name, '</b>',
+                            '<br/>Monto : ', this.y,
+                            '<br/>Porciento : ', Math.round(this.percentage), '%'
+                        ].join('');
+                    }
+                };
+                yAxis = {};
+        }
+
+        cfg.chartConfig.chart.marginBottom = marginBottom;
+        cfg.chartConfig.tooltip = tooltip;
+        cfg.chartConfig.yAxis = yAxis;
+        cfg.chartConfig.legend = {
+            enabled: false
+        };
+
+        this.configurePortlet(portlet, grid, chart, store, cfg, labels);
+    },
+    onClientProvider: function (radiofield) {
+        if (!radiofield.checked) {
+            return;
+        }
+        var labels = this.application.$lang;
+        var portlet = radiofield.up('clients-main');
+        var chartStore = Ext.getStore('client_provider_amount');
+        var gridStore = portlet.down('clients-main-grid').store;
+
+        portlet.setLoading(labels.lbMsgLoader);
+        chartStore.getProxy().extraParams.isClient = radiofield.inputValue;
+        gridStore.getProxy().extraParams.isClient = radiofield.inputValue;
+
+        this.onToolRefresh();
+    },
+    onTopFilter: function (radiofield) {
+        if (!radiofield.checked) {
+            return;
+        }
+        var labels = this.application.$lang;
+        var portlet = radiofield.up('clients-main');
+        var chartStore = Ext.getStore('client_provider_amount');
+        var gridStore = portlet.down('clients-main-grid').store;
+		var menu = radiofield.up('menu').up('menu');
+        portlet.setLoading(labels.lbMsgLoader);
+        chartStore.getProxy().extraParams.top = radiofield.inputValue;
+        gridStore.getProxy().extraParams.top = radiofield.inputValue;
+		menu.close();
+        this.onToolRefresh();
+    }, 
+    onDateFilter: function (pickerDate, date) {
+        var labels = this.application.$lang;
+        var portlet = pickerDate.up('clients-main');
+        var chartStore = Ext.getStore('client_provider_amount');
+        var gridStore = portlet.down('clients-main-grid').store;
+
+        portlet.setLoading(labels.lbMsgLoader);
+        chartStore.getProxy().extraParams.time = date.toJSON();
+        gridStore.getProxy().extraParams.time = date.toJSON();
+
+        this.onToolRefresh();
+    }
+
+});
+
+

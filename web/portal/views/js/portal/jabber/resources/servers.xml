@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<servers>
+	<server>
+	  <name>xmpp:xetid</name>
+	  <url>http://xmpp.xetid.cu:5280/http-bind</url>
+	</server>
+</servers>

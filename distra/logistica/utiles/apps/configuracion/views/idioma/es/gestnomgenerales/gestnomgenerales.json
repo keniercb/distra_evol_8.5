@@ -1,0 +1,185 @@
+{
+    // -- Etiquetas de marca/modelo ----------------------------------------------------------
+    btnAdicionarMarca: 'Adicionar',
+    TtbtnAdicionarMarca: 'Adicionar marca',
+    btnModificarMarca: 'Modificar',
+    TtbtnModificarMarca: 'Modificar marca',
+    btnEliminarMarca: 'Eliminar',
+    TtbtnEliminarMarca: 'Eliminar marca',
+    btnAdicionarModelo: 'Adicionar',
+    TtbtnAdicionarModelo: 'Adicionar modelo',
+    btnModificarModelo: 'Modificar',
+    TtbtnModificarModelo: 'Modificar modelo',
+    btnEliminarModelo: 'Eliminar',
+    TtbtnEliminarModelo: 'Eliminar modelo',
+
+    btnImportarImagen: 'Importar',
+    TtbtnImportarImagen: 'Importar imagen',
+    btnAsociarImagen: 'Asociar',
+    TtbtnAsociarImagen: 'Asociar imagen',
+    btnEliminarImagen: 'Eliminar',
+    TtbtnEliminarImagen: 'Eliminar imagen',
+    btnAceptarImagen: 'Aceptar',
+    btnCancelarImagen: 'Cancelar',
+    btnAplicarImagen: 'Aplicar',
+
+    lbDescripcion: 'Descripci&oacute;n',
+    titleGridMarcas: 'Marcas',
+    titleGridModelos: 'Modelos',
+    lbMsgDisplayBbar: 'Resultados del {0} - {1} de {2}',
+    lbMsgEmptyBbar: '0 Resultado a mostrar.',
+
+    titleVentanaAdicionarMarca: 'Adicionar marca',
+    titleVentanaModificarMarca: 'Modificar marca',
+    titleVentanaAdicionarModelo: 'Adicionar modelo',
+    titleVentanaModificarModelo: 'Modificar Modelo',
+    msgEliminarMarca: '¿Est&aacute; seguro que quiere eliminar la marca seleccionada?',
+    msgEliminarModelo: '¿Est&aacute; seguro que quiere eliminar el modelo seleccionado?',
+    msgAdicionarMarcaExito: 'La marca ha sido adicionada satisfactoriamente.',
+    msgModificarMarcaExito: 'La marca ha sido modificada satisfactoriamente.',
+    msgAdicionarModeloExito: 'El modelo ha sido adicionado satisfactoriamente.',
+    msgModificarModeloExito: 'El modelo ha sido modificado satisfactoriamente.',
+    titleProgresBarVentana: 'Por favor espere...',
+    msgEliminandoMarca: 'Eliminando datos de la marca',
+    msgEliminandoModelo: 'Eliminando datos del modelo',
+    msgGuardandoMarca: 'Guardando datos de la marca',
+    msgGuardandoModelo: 'Guardando datos del modelo',
+    msgEliminoMarcaExito: 'La (Las) marca(s) ha(n) sido eliminada(s) satisfactoriamente.',
+    msgEliminoModeloExito: 'El modelo ha sido eliminado satisfactoriamente',
+    TtbtnAceptar: 'Guardar datos y cerrar ventana',
+    TtbtnCancelar: 'Cerrar ventana sin guardar los datos',
+
+    //-- Etiquetas del nomenclador estado -------------------------------------------------------
+    btnAdicionarEstado: 'Adicionar',
+    TtbtnAdicionarEstado: 'Adicionar estado',
+    btnEliminarEstado: 'Eliminar',
+    TtbtnEliminarEstado: 'Eliminar estado',
+
+
+    lbTxtDescripcion: 'Descripci&oacute;n',
+    btnBuscarNomEstado: 'Buscar',
+    TtbtnBuscarNomEstado: 'Buscar estados',
+    lbDescripcionEstado: 'Descripci&oacute;n',
+    lbDepreciaEstado: 'Deprecia',
+    titlePanelEstado: 'Nomenclador de estado',
+
+    // -- Etiquetas de combustible ----------------------------------------------------------
+    lbbtnAdicionar: 'Adicionar',
+    lbbtnModificar: 'Modificar',
+    lbbtnEliminar: 'Eliminar',
+    lbbtnAyuda: 'Ayuda',
+    lbbtnBuscar: 'Buscar',
+    // ---------------- Etiquetas de Tipo Area--------------------------------------
+    msgAddAreaError: 'Debe introducir al menos un tipo de &aacute;rea.',
+    lbTipoArea: 'Tipo de &aacute;rea',
+    lbselect: 'Seleccionar...',
+
+
+    // ---------------- Etiquetas de Tipo Transferencia entre Area----------------------
+    lbAuto: 'Autom&aacute;tica',
+    msgselect: 'Ese tipo de &aacute;rea ya esta seleccionado',
+    msgElimArea: 'Est&aacute; seguro que desea eliminar el(las) área(s)?',
+    lbAutom: 'Autom&aacute;tica',
+    lbtitleTransfArea: 'Gestionar atributos de tipo de transferencia entre &aacute;reas',
+
+    // ---------------- Etiquetas de Forma Farmaceutica-----------------
+    lbCodigo: 'C&oacute;digo',
+    lbDescripcion: 'Descripci&oacute;n',
+    lbBlankText: 'Este campo es obligatorio.',
+    lbregexTextN: 'Solo puede entrar valores num&eacute;ricos.',
+    lbmaxLengthText3: 'Solo es posible introducir 3 caracteres',
+    lbregexTextL: 'Solo puede entrar letras.',
+    lbmaxLengthText: 'Solo es posible introducir 255 caracteres.',
+
+
+    // ---------------- Etiquetas de Grupo Farmacologico-----------------
+    lbmaxLengthTextGF: 'Solo es posible introducir 4 caracteres.',
+
+
+    // ---------------- Etiquetas de Linea Producto -----------------
+    lbMuestreable: 'Muestreable',
+    lbProdTermi: 'Producto terminado',
+    lbLineaM: 'L&iacute;nea muestreable',
+    lbtitleAtribLinea: 'Gestionar atributos de la l&iacute;nea de producto [',
+
+
+    // ----------------------- Etiquetas generales---------------------------------------------
+    TtbtnAyuda: 'Mostrar ayuda de la funcionalidad',
+    TtbtnAdicionar: 'Adicionar',
+    TtbtnModificar: 'Modificar',
+    TtbtnEliminar: 'Eliminar',
+    TtbtnBuscar: 'Buscar',
+
+    btnAyuda: 'Ayuda',
+    btnBuscar: 'Buscar',
+    btnAdicionar: 'Adicionar',
+    btnEliminar: 'Eliminar',
+    btnModificar: 'Modificar',
+    btnAceptar: 'Aceptar',
+    btnCancelar: 'Cancelar',
+    btnAplicar: 'Aplicar',
+
+    msgModError: 'Debe modificar algun valor.',
+    msgAddError: 'Verifique que los valores introducidos sean correctos.',
+    msgElimNom: '¿ Est&aacute; seguro que desea eliminar ',
+    msgMaskElim: 'Eliminando datos.',
+    msgMaskElim: 'Por favor espere. Adicionando nomenclador.',
+    msgMaskElim2: 'Por favor espere. Adicionando nomencladores.',
+    msgMaskLoad: 'Por favor espere. Cargando nomencladores registrados.',
+    msgElimNom2: 'Debe seleccionar el nomenclador que desea eliminar.',
+    msgElimNom3: '\xBF Est\xE1 seguro que desea eliminar el nomenclador seleccionado ?',
+    msgMaskElimNom: 'Por favor espere. Eliminando nomenclador.',
+    msgMaskLoadNom: 'Por favor espere. Cargando nomencladores registrados.',
+
+    tAddNom: 'Adicionar nomenclador',
+    msgLoading: 'Cargando ...',
+
+    // -- Etiquetas de raza----------------------------------------------------------
+    lbMosMes3: 'Desea realmente eliminar la descripcion',
+    lbMosMes4: 'Eliminando descripcion... ',
+    lbMosMes1: 'Modificando descripcion... ',
+    lbMosMes5: 'Buscando descripccion...',
+
+    // ---------------   Grupo subgrupo   ---------------------------------------------
+    lbAddG: 'Adicionar grupo <b>(Ctr+Alt+I)</b>',
+    lbModG: 'Modificar grupo <b>(Ctr+Alt+M)</b>',
+    lbElimG: 'Eliminar grupo <b>(Ctr+DEL)</b>',
+    lbElimS: 'Eliminar subgrupo <b>(DEL)</b>',
+    lbAddSubg: 'Adicionar subgrupo',
+    lbModS: 'Modificar subgrupo <b>(Alt+M)</b>',
+    lbAyu: 'Mostrar ayuda de la funcionalidad. <b>(Alt+H)</b>',
+    lbAddS: 'Adicionar subgrupo <b>(Alt+I)</b>',
+    lbCod: 'C&oacute;digo',
+    lbDesc: 'Descripci\xf3n',
+    lbVu: 'Vida &uacute;til',
+    lbTf: 'Tasa fiscal',
+    lbCmporcientorecuperacion: '% de recuperaci&oacute;n',
+    lbDep: 'Deprecia',
+    lbDes: 'Descripci&oacute;n',
+    lbBuscGreed: 'Buscar subgrupos <b>(Alt+B)</b>',
+    lbBuscTree: 'Buscar grupos <b>(Ctr+Alt+B)</b>',
+    lbGs: 'Grupos y subgrupos',
+    lbG: 'Grupo',
+    lbInSg: 'Adicionar grupo',
+    lbCance: 'Cerrar ventana sin guardar los datos',
+    lbAplicbtn: 'Guardar datos y limpiar los campos',
+    lbAcepbtn: 'Guardar datos y cerrar ventana',
+    lbMsgCamposIncorrectos: 'Por favor verifique nuevamente que hay campo(s) con valor(es) incorrecto(s).',
+    lbMsgAddGrupo: 'El grupo ha sido adicionado satisfactoriamente.',
+    lbMsgDUPGrupo: 'El grupo que quiere adicionar ya existe.',
+    lbNivel: 'La longitud del c&oacute;digo para este nivel es: ',
+    lbModg: 'Modificar grupo',
+    lbMesag10: '&#191;Est&aacute; seguro que desea eliminar el grupo seleccionado?',
+    lbMsg43: 'El grupo ha sido eliminado satisfactoriamente',
+    lbMsg44: "El grupo que desea eliminar est&aacute; en uso.",
+    lbModSubg: 'Modificar subgrupo',
+    lbChk: 'Deprecia',
+    lbporcientorecuperacion: 'Porciento de recuperaci&oacute;n',
+    lbMesag1: 'Por favor espere...',
+    lbMesag: 'Resultados del {0} - {1} de {2}',
+    lbMesagE: 'No hay resultados que mostrar',
+    lbTitleDinamicos: 'Atributos del',
+    lbSub: 'Subgrupo',
+
+
+}

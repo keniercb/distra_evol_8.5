@@ -1,0 +1,2205 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<configuraciones>
+
+    <!-- Tipos de operaciones -->
+    <operaciones>
+        <descripcion>Sin interfaz</descripcion>
+        <codigo></codigo>
+        <tipo></tipo>
+        <idinterfaz>0</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <debe_depreciar>0</debe_depreciar>
+    </operaciones>
+
+    <!-- Apertura -->
+    <operaciones>
+        <descripcion>Proceso de Apertura</descripcion>
+        <detalles>Proceso de apertura para activos fijos tangibles.</detalles>
+        <codigo>OPER_APERTURA</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>5</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>1</campos_editables>
+        <autogenerada>0</autogenerada>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+    
+    
+     <!-- Alta por medios propios -->
+    <operaciones>
+        <descripcion>Proceso de alta por medios propios</descripcion>
+        <detalles>Proceso de entrada/alta manual por medios propios para activos fijos tangibles. Se usa para realizar entradas directamente desde el subsistema de AFT.</detalles>
+        <codigo>OPER_MEDIOPROPIOS</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>5</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>1</campos_editables>
+        <autogenerada>0</autogenerada>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Altas -->
+    <operaciones>
+        <descripcion>Proceso de Alta</descripcion>
+        <detalles>Proceso de entrada/alta manual para activos fijos tangibles. Se usa para realizar entradas directamente desde el subsistema de AFT.</detalles>
+        <codigo>OPER_ALTA</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>1</idinterfaz>
+        <iddatosespecificos>16</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>1</campos_editables>
+        <autogenerada>0</autogenerada>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones> 
+
+	<operaciones>
+        <descripcion>Proceso de Alta por ajuste</descripcion>
+        <detalles></detalles>
+        <codigo>OPER_ALTA_AJUSTE</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>1</idinterfaz>
+        <iddatosespecificos>16</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>1</campos_editables>
+        <autogenerada>0</autogenerada>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Compras -->
+    <operaciones>
+        <descripcion>Proceso de Compra</descripcion>
+        <detalles>Proceso de entrada/alta manual para activos fijos por concepto de compra.</detalles>
+        <codigo>OPER_COMPRA</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>1</idinterfaz>
+        <iddatosespecificos>11</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>1</campos_editables>
+        <autogenerada>0</autogenerada>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+    
+	<!-- Compras -->
+	<operaciones>
+        <descripcion>Proceso de Compra</descripcion>
+        <detalles>Proceso de entrada/alta manual para utiles y herramientas por concepto de compra.</detalles>
+        <codigo>OPER_COMPRA_UH</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>1</idinterfaz>
+        <iddatosespecificos>11</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>1</campos_editables>
+        <autogenerada>0</autogenerada>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+   
+    <!-- Salidas, Bajas -->
+    <operaciones>
+        <descripcion>Proceso de No Entrada</descripcion>
+        <detalles>Proceso de baja manual para activos fijos.</detalles>
+        <codigo>OPER_BAJA</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>2</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <debe_depreciar>1</debe_depreciar>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <operacion_sobre_medios>resta</operacion_sobre_medios>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <idestadoperacion>7</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+	
+	<operaciones>
+        <descripcion>Proceso de No Entrada UH</descripcion>
+        <detalles>Proceso de baja manual para utiles y herramientas.</detalles>
+        <codigo>OPER_BAJA_UH</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>2</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <debe_depreciar>1</debe_depreciar>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <operacion_sobre_medios>resta</operacion_sobre_medios>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <idestadoperacion>7</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Modificación de valor -->
+    <operaciones>
+        <descripcion>Proceso de Modificación de Valor por aumento</descripcion>
+        <detalles>Proceso para aumentar manualmente el valor de los activos fijos tangibles.</detalles>
+        <codigo>OPER_MOD_VALOR</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>modificación</icono>
+        <idinterfaz>2</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <operacion_sobre_medios>ninguna</operacion_sobre_medios>
+        <signo>=</signo>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Modificación de valor de UH -->
+    <operaciones>
+        <descripcion>Proceso de Modificación de Valor por aumento de UH</descripcion>
+        <detalles>Proceso para aumentar manualmente el valor de los utiles y herramientas.</detalles>
+        <codigo>OPER_MOD_VALOR_UH</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>modificación</icono>
+        <idinterfaz>2</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <operacion_sobre_medios>ninguna</operacion_sobre_medios>
+        <signo>=</signo>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Modificación de valor por disminucion-->
+    <operaciones>
+        <descripcion>Proceso de Modificación de Valor por Dismunucion</descripcion>
+        <detalles>Proceso para disminuir manualmente el valor de los activos fijos tangibles.</detalles>
+        <codigo>OPER_MOD_VALOR_DIS</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>modificación</icono>
+        <idinterfaz>2</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <operacion_sobre_medios>ninguna</operacion_sobre_medios>
+        <signo>=</signo>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Modificación de valor por disminucion de UH-->
+    <operaciones>
+        <descripcion>Proceso de Modificación de Valor por Dismunucion de UH</descripcion>
+        <detalles>Proceso para disminuir manualmente el valor de los utiles y herramientas.</detalles>
+        <codigo>OPER_MOD_VALOR_DIS_UH</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>modificación</icono>
+        <idinterfaz>2</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <operacion_sobre_medios>ninguna</operacion_sobre_medios>
+        <signo>=</signo>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Reevaluacion de activos -->
+    <operaciones>
+        <descripcion>Proceso de Reevaluacion </descripcion>
+        <detalles>Proceso de reevaluacion. (Solo usado en la unificacion monetaria)</detalles>
+        <codigo>OPER_REEVALUACION</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>modificación</icono>
+        <idinterfaz>2</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>1</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <operacion_sobre_medios>ninguna</operacion_sobre_medios>
+        <signo>=</signo>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Modificación de propiedad -->
+    <operaciones>
+        <descripcion>Proceso de Modificación de Propiedad</descripcion>
+        <detalles>Proceso para modificar manualmente la mayoria de los atributos de los activos fijos tangibles.</detalles>
+        <codigo>OPER_MOD_PROPIEDAD</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>modificación</icono>
+        <idinterfaz>2</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>nromatricula</campos_editables>
+        <campos_editables>nrocirculacion</campos_editables>
+        <campos_editables>idcolorprim</campos_editables>
+        <campos_editables>idcolorsec</campos_editables>
+        <campos_editables>nromotor1</campos_editables>
+        <campos_editables>nromotor2</campos_editables>
+        <campos_editables>nroinventario</campos_editables>
+        <campos_editables>idestatustecnico</campos_editables>
+        <campos_editables>kilometraje</campos_editables>
+        <campos_editables>idtipomotor</campos_editables>
+        <campos_editables>idtipocombustible</campos_editables>
+        <campos_editables>idactividad</campos_editables>
+        <campos_editables>denominacion</campos_editables>
+        <campos_editables>indiceconsumo</campos_editables>
+        <campos_editables>idnaturaleza</campos_editables>
+        <campos_editables>idgruposubgrupo</campos_editables>
+        <campos_editables>idcategoria</campos_editables>
+        <campos_editables>indicativo</campos_editables>
+        <campos_editables>ubicacion</campos_editables>
+        <campos_editables>idubicacion</campos_editables>
+        <campos_editables>responsable</campos_editables>        
+		<campos_editables>idresponsable</campos_editables>
+        <campos_editables>fechaexpini</campos_editables>
+        <campos_editables>fechaexpfin</campos_editables>
+        <campos_editables>fechaadq</campos_editables>
+        <campos_editables>annofabricacion</campos_editables>
+        <campos_editables>fechainicialgarantia</campos_editables>
+        <campos_editables>fechafingarantia</campos_editables>
+        <campos_editables>recursoconsumidomax</campos_editables>
+        <campos_editables>vencimientolot</campos_editables>
+        <campos_editables>vencimientoficav</campos_editables>
+        <campos_editables>vencimientocirculacion</campos_editables>
+        <campos_editables>expedicioncirculacion</campos_editables>
+        <campos_editables>porcientorecuperacion</campos_editables>
+        <campos_editables>tasafiscal</campos_editables>
+        <campos_editables>vidautil</campos_editables>
+        <campos_editables>cantidadrecursoconsumido</campos_editables>
+        <campos_editables>recursoconsumido</campos_editables>
+        <campos_editables>lot</campos_editables>
+        <campos_editables>vin</campos_editables>
+		<campos_editables>ficav</campos_editables>
+		<campos_editables>expedicioncirculacion</campos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <autogenerada>0</autogenerada>
+        <operacion_sobre_medios>ninguna</operacion_sobre_medios>
+        <signo>=</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+	
+	<!-- Modificación de propiedad -->
+    <operaciones>
+        <descripcion>Proceso de Modificación de Propiedad de UH</descripcion>
+        <detalles>Proceso para modificar manualmente la mayoria de los atributos de los utiles y herramientas.</detalles>
+        <codigo>OPER_MOD_PROP_UH</codigo> 
+        <tipo>no_entrada</tipo>
+        <icono>modificación</icono>
+        <idinterfaz>2</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>idestatustecnico</campos_editables>
+        <campos_editables>idactividad</campos_editables>
+        <campos_editables>idcategoria</campos_editables>
+        <campos_editables>ubicacion</campos_editables>
+        <campos_editables>idubicacion</campos_editables>
+        <campos_editables>responsable</campos_editables>        
+		<campos_editables>idresponsable</campos_editables>
+        <campos_editables>fechaexpini</campos_editables>
+        <campos_editables>fechaexpfin</campos_editables>
+        <campos_editables>fechaadq</campos_editables>
+        <campos_editables>fechaadq</campos_editables>
+        <campos_editables>annofabricacion</campos_editables>
+        <campos_editables>denominacion</campos_editables>
+        <campos_editables>idnaturaleza</campos_editables>
+        <campos_editables>idgruposubgrupo</campos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <autogenerada>0</autogenerada>
+        <operacion_sobre_medios>ninguna</operacion_sobre_medios>
+        <signo>=</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Modificación de propiedad general-->
+    <operaciones>
+        <descripcion>Proceso de Modificación de Propiedad General</descripcion>
+        <detalles>Proceso para modificar manualmente todos los atributos de los activos fijos tangibles.</detalles>
+        <codigo>DOC_MOD_PROP_GRAL</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>modificación</icono>
+        <idinterfaz>2</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>nromatricula</campos_editables>
+        <campos_editables>nrocirculacion</campos_editables>
+        <campos_editables>idcolorprim</campos_editables>
+        <campos_editables>idcolorsec</campos_editables>
+        <campos_editables>nromotor1</campos_editables>
+        <campos_editables>nromotor2</campos_editables>
+        <campos_editables>fechaadq</campos_editables>
+        <campos_editables>fechaexpini</campos_editables>
+        <campos_editables>fechaexpfin</campos_editables>
+        <campos_editables>annofabricacion</campos_editables>
+        <campos_editables>idubicacion</campos_editables>
+        <campos_editables>ubicacion</campos_editables>
+        <campos_editables>responsable</campos_editables>
+		<campos_editables>idresponsable</campos_editables>
+        <campos_editables>idestatustecnico</campos_editables>
+        <campos_editables>kilometraje</campos_editables>
+        <campos_editables>idtipomotor</campos_editables>
+        <campos_editables>idactividad</campos_editables>
+        <campos_editables>indicativo</campos_editables>
+        <campos_editables>indiceconsumo</campos_editables>
+        <campos_editables>ficav</campos_editables>
+        <campos_editables>depreciacionacumulada</campos_editables>
+        <campos_editables>capacidad</campos_editables>
+        <campos_editables>odometro</campos_editables>
+        <campos_editables>nroinventario</campos_editables>
+        <campos_editables>tipocombustible</campos_editables>
+        <campos_editables>nroserie</campos_editables>
+        <campos_editables>lot</campos_editables>
+        <campos_editables>idcategoria</campos_editables>
+        <campos_editables>fechainicialgarantia</campos_editables>
+        <campos_editables>fechafingarantia</campos_editables>
+        <campos_editables>recursoconsumidomax</campos_editables>
+        <campos_editables>vencimientolot</campos_editables>
+        <campos_editables>vencimientoficav</campos_editables>
+        <campos_editables>vencimientocirculacion</campos_editables>
+        <campos_editables>expedicioncirculacion</campos_editables>
+        <operacion_sobre_medios>ninguna</operacion_sobre_medios>
+        <signo>=</signo>
+        <debe_depreciar>0</debe_depreciar>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Depreciación -->
+    <operaciones>
+        <descripcion>Proceso de Depreciación</descripcion>
+        <detalles>Proceso automatico de depreciacion de activos fijos tangibles.</detalles>
+        <codigo>OPER_DEPRECIACION</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>modificación</icono>
+        <idinterfaz>11</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <campos_editables>0</campos_editables>
+        <autogenerada>1</autogenerada>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>ninguna</operacion_sobre_medios>
+        <signo>=</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Traslados entre entidades desde entidad origen a entidad destino -->
+    <operaciones>
+        <descripcion>Proceso de Traslados Externos (Salida)</descripcion>
+        <detalles>Proceso manual de salida desde una UEB origen hacia otra UEB destino de uno o varios AFT. Es la operacion que se usa en la UEB origen.</detalles>
+        <codigo>OPER_TRASLADO_EXTER</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>movimiento-externo</icono>
+        <idinterfaz>12</idinterfaz>
+        <iddatosespecificos>4</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>1</debe_depreciar>
+        <operacion_sobre_medios>resta</operacion_sobre_medios>
+        <signo>-</signo>
+        <idestadoperacion>6</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Recepción de un traslados entre entidades desde entidad destino a entidad origen -->
+    <operaciones>
+        <descripcion>Proceso de Traslados Externos (Entrada)</descripcion>
+        <detalles>Proceso automatico de entrada de AFTs a partir de un traslado externo realizado en una UEB origen hacia la UEB del destino. Es la operacion que se genera en la UEB destino.</detalles>
+        <codigo>OPER_REC_TRAS_EXTER</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>17</idinterfaz>
+        <iddatosespecificos>25</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <autogenerada>1</autogenerada>
+        <campos_editables>nromatricula</campos_editables>
+        <campos_editables>indicativo</campos_editables>
+        <campos_editables>nrocirculacion</campos_editables>
+        <campos_editables>nroinventario</campos_editables>
+        <campos_editables>idestatustecnico</campos_editables>
+        <campos_editables>idactividad</campos_editables>
+        <campos_editables>ubicacion</campos_editables>
+        <campos_editables>idubicacion</campos_editables>
+        <campos_editables>responsable</campos_editables>
+		<campos_editables>idresponsable</campos_editables>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <idestadoperacion>0</idestadoperacion>
+        <recepeliminar>1</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Traslados entre entidades desde entidad origen a entidad destino de utiles -->
+    <operaciones>
+        <descripcion>Proceso de Traslados Externos UH (Salida)</descripcion>
+        <detalles>Proceso manual de salida desde una UEB origen hacia otra UEB destino de uno o varios utiles. Es la operacion que se usa en la UEB origen.</detalles>
+        <codigo>OPER_TRAS_EXTER_UH</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>movimiento-externo</icono>
+        <idinterfaz>12</idinterfaz>
+        <iddatosespecificos>4</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>1</debe_depreciar>
+        <operacion_sobre_medios>resta</operacion_sobre_medios>
+        <signo>-</signo>
+        <idestadoperacion>6</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Recepción de un traslados entre entidades desde entidad destino a entidad origen de UH -->
+    <operaciones>
+        <descripcion>Proceso de Traslados Externos UH (Entrada)</descripcion>
+        <detalles>Proceso automatico de entrada de utiles a partir de un traslado externo realizado en una UEB origen hacia la UEB del destino. Es la operacion que se genera en la UEB destino.</detalles>
+        <codigo>OPER_REC_TRAS_EXT_UH</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>17</idinterfaz>
+        <iddatosespecificos>25</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <autogenerada>1</autogenerada>
+        <campos_editables>nromatricula</campos_editables>
+        <campos_editables>indicativo</campos_editables>
+        <campos_editables>nrocirculacion</campos_editables>
+        <campos_editables>nroinventario</campos_editables>
+        <campos_editables>idestatustecnico</campos_editables>
+        <campos_editables>idactividad</campos_editables>
+        <campos_editables>ubicacion</campos_editables>
+        <campos_editables>idubicacion</campos_editables>
+        <campos_editables>responsable</campos_editables>
+		<campos_editables>idresponsable</campos_editables>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <idestadoperacion>0</idestadoperacion>
+        <recepeliminar>1</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+    
+    <!-- Recepción de apertura -->
+    <operaciones>
+        <descripcion>Proceso de recepcion de apertura</descripcion>
+        <detalles>-</detalles>
+        <codigo>OPER_REC_APER</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>31</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <autogenerada>1</autogenerada>
+        <campos_editables>nromatricula</campos_editables>
+        <campos_editables>indicativo</campos_editables>
+        <campos_editables>nrocirculacion</campos_editables>
+        <campos_editables>nroinventario</campos_editables>
+        <campos_editables>idestatustecnico</campos_editables>
+        <campos_editables>idactividad</campos_editables>
+        <campos_editables>ubicacion</campos_editables>
+        <campos_editables>responsable</campos_editables>
+		<campos_editables>idresponsable</campos_editables>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>1</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+
+    <!-- Recepción de una devolucion realizada por otra entidad a partir de un traslado inicial-->
+    <operaciones>
+        <descripcion>Proceso de Recepcion de una Devolucion de Traslados Externos</descripcion>
+        <detalles>Proceso automatico de recepcion de AFTs despues de haber sido devueltos desde otra UEB.</detalles>
+        <codigo>OPER_REC_DEVOLUCION</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>29</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <autogenerada>1</autogenerada>
+        <campos_editables>0</campos_editables>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>1</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Recibido de reparar después de haber sido enviado a reparar -->
+    <operaciones>
+        <descripcion>Proceso de recibido de Reparar</descripcion>
+        <detalles>Proceso automatico de recepcion de AFTs que hayan sido enviados a reparar.</detalles>
+        <codigo>OPER_REC_ENV_REPARAR</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>15</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>1</campos_editables>
+        <autogenerada>1</autogenerada>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>1</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+    
+    <!-- Recibido del subsistema inventario(almacen) -->
+    <operaciones>
+        <descripcion>Proceso de recibido de Inventario Local</descripcion>
+        <detalles>Proceso automatico de entrada de AFT a partir del subsistema de inventario, generalmente mediante una transferencia o un vale realizado en un almacen de cualquier otra UEB.</detalles>
+        <codigo>OPER_REC_INVENTARIO</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>29</idinterfaz>
+        <iddatosespecificos>24</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>1</campos_editables>
+        <autogenerada>0</autogenerada>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+	
+	<!-- Recibido del subsistema inventario(almacen) Pero de un almacen que esta en otra EUB -->
+    <operaciones>
+        <descripcion>Proceso de recibido de Inventario Externo</descripcion>
+        <detalles>Proceso automatico de entrada de AFT a partir del subsistema de inventario, generalmente mediante una transferencia o un vale realizado en un almacen de la misma UEB.</detalles>
+        <codigo>OPER_REC_INV_EXT</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>50</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>1</campos_editables>
+        <autogenerada>0</autogenerada>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+		
+    </operaciones>
+
+    <!--Baja por desarme -->
+    <operaciones>
+        <descripcion>Baja por desarme</descripcion>
+        <detalles>Proceso de baja manual para activos fijos por concepto de desarme.</detalles>
+        <codigo>OPER_BAJA_DESARME</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>18</idinterfaz>
+        <iddatosespecificos>10</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <operacion_sobre_medios>resta</operacion_sobre_medios>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>1</debe_depreciar>
+        <idestadoperacion>7</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+    
+    <!-- Perdida-->
+    <operaciones>
+        <descripcion>Perdida</descripcion>
+        <detalles>Proceso de baja manual para activos fijos por concepto de perdida.</detalles>
+        <codigo>OPER_PERDIDA</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>24</idinterfaz>
+        <iddatosespecificos>19</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <operacion_sobre_medios>resta</operacion_sobre_medios>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>1</debe_depreciar>
+        <idestadoperacion>7</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+    
+
+    <!--Baja definitiva -->
+    <operaciones>
+        <descripcion>Baja definitiva</descripcion>
+        <detalles>Proceso de baja manual para activos fijos por concepto de baja definitiva.</detalles>
+        <codigo>OPER_BAJA_DEFINITIVA</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>3</idinterfaz>
+        <iddatosespecificos>5</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <operacion_sobre_medios>resta</operacion_sobre_medios>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>1</debe_depreciar>
+        <idestadoperacion>7</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!--Baja por venta  -->
+    <operaciones>
+        <descripcion>Baja por venta</descripcion>
+        <detalles>Proceso de baja manual para activos fijos por concepto de venta.</detalles>
+        <codigo>OPER_BAJA_VENTA</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>3</idinterfaz>
+        <iddatosespecificos>5</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <operacion_sobre_medios>resta</operacion_sobre_medios>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>1</debe_depreciar>
+        <idestadoperacion>7</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!--  Alquiler (Cuando yo soy el proveedor) -->
+    <operaciones>
+        <descripcion>Proceso de Alquiler (Salida)</descripcion>
+        <detalles>Proceso manual de salida por alquiler de un AFT donde el dueño del AFT es el que realiza esta operacion, significa que es una salida temporal del AFT.</detalles>
+        <codigo>OPER_ALQUILER</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>19</idinterfaz>
+        <iddatosespecificos>1</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>importe</campos_editables>
+        <autogenerada>0</autogenerada>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>2</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+    
+    <!--  Alquiler (Cuando yo soy el cliente) -->
+    <operaciones>
+        <descripcion>Proceso de Alquiler (Entrada)</descripcion>
+        <detalles>Proceso automatico de entrada/recepcion de un alquiler realizado, es la entrada del AFT que se alquiló por un periodo y ese periodo ya venció.</detalles>
+        <codigo>OPER_ALQUI_ENTRADA</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>19</idinterfaz>
+        <iddatosespecificos>1</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>importe</campos_editables>
+        <campos_editables>idubicacion</campos_editables>
+        <autogenerada>1</autogenerada>
+        <signo>+</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>1</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+    
+    
+     <!--  Usufructo () -->
+    <operaciones>
+        <descripcion>Proceso de Usufructo (Salida)</descripcion>
+        <detalles>Proceso manual de salida por usufructo de un AFT donde el dueño del AFT es el que realiza esta operacion, significa que es una salida temporal del AFT.</detalles>
+        <codigo>OPER_USUFRUCTO</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>27</idinterfaz>
+        <iddatosespecificos>21</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>importe</campos_editables>
+        <autogenerada>0</autogenerada>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>2</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+    
+    <!--  Usufructo () -->
+    <operaciones>
+        <descripcion>Proceso de usufructo (Entrada)</descripcion>
+        <detalles>Proceso automatico de entrada/recepcion de un usufructo realizado, es la entrada del AFT que se usufructuó por un periodo y ese periodo ya venció.</detalles>
+        <codigo>OPER_USUFR_ENTRADA</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>27</idinterfaz>
+        <iddatosespecificos>21</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>importe</campos_editables>
+        <autogenerada>1</autogenerada>
+        <signo>=</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>1</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+    
+    
+      <!--  Arrendamiento () -->
+    <operaciones>
+        <descripcion>Proceso de arrendamiento(Salida)</descripcion>
+        <detalles>Proceso manual de salida por arrendamiento de un AFT donde el dueño del AFT es el que realiza esta operacion, significa que es una salida temporal del AFT.</detalles>
+        <codigo>OPER_ARRENDAMIENTO</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>28</idinterfaz>
+        <iddatosespecificos>22</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>importe</campos_editables>
+        <autogenerada>0</autogenerada>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>2</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+    
+    <!--  Arrendamiento () -->
+    <operaciones>
+        <descripcion>Proceso de Arrendamiento (Entrada)</descripcion>
+        <detalles>Proceso automatico de entrada/recepcion de un arrendamiento realizado, es la entrada del AFT que se arrendó por un periodo y ese periodo ya venció.</detalles>
+        <codigo>OPER_ARREN_ENTRADA</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>28</idinterfaz>
+        <iddatosespecificos>22</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>importe</campos_editables>
+        <autogenerada>1</autogenerada>
+        <signo>=</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>1</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+    
+    
+    <!--  Prestamo -->
+    <operaciones>
+        <descripcion>Proceso de Prestamo</descripcion>
+        <detalles>Proceso manual de salida por prestamo de un AFT donde el dueño del AFT es el que realiza esta operacion.</detalles>
+        <codigo>OPER_PRESTAMO</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>26</idinterfaz>
+        <iddatosespecificos>20</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>idestatustecnico</campos_editables>
+        <autogenerada>0</autogenerada>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>2</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+    
+    
+    <operaciones>
+        <descripcion>Proceso de Prestamo (Entrada)</descripcion>
+        <detalles>Proceso automatico de entrada/recepcion de un prestamo realizado, es la entrada del AFT que se prestó por un periodo y ese periodo ya venció.</detalles>
+        <codigo>OPER_PRESTA_ENTRADA</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>26</idinterfaz>
+        <iddatosespecificos>20</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>idestatustecnico</campos_editables>
+        <campos_editables>idubicacion</campos_editables>
+        <autogenerada>1</autogenerada>
+        <signo>=</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>8</idestadoperacion>
+        <recepeliminar>1</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Prestamo por Teletrabajo -->
+    <operaciones>
+        <descripcion>Proceso de Prestamo por Teletrabajo</descripcion>
+        <detalles>Proceso manual de prestamo de AFTs por concepto de Teletrabajo a un trabajador.</detalles>
+        <codigo>OPER_TELETRABAJO</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>100</idinterfaz>
+        <iddatosespecificos>100</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>idestatustecnico</campos_editables>
+        <autogenerada>0</autogenerada>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>2</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Prestamo por Teletrabajo Entrada-->
+    <operaciones>
+        <descripcion>Proceso de Prestamo por Teletrabajo (Entrada)</descripcion>
+        <detalles>Proceso automatico de recepcion de AFTs por devolucion de prestamo por conceto de teletrabajo.</detalles>
+        <codigo>OPER_TELETRABAJO_ENT</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>26</idinterfaz>
+        <iddatosespecificos>20</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>idestatustecnico</campos_editables>
+        <campos_editables>idubicacion</campos_editables>
+        <autogenerada>1</autogenerada>
+        <signo>=</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>8</idestadoperacion>
+        <recepeliminar>1</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+    
+    <!-- Prestamo por Teletrabajo UH-->
+    <operaciones>
+        <descripcion>Proceso de Prestamo por Teletrabajo</descripcion>
+        <detalles>Proceso de prestamo de utiles por concepto de Teletrabajo a un trabajador.</detalles>
+        <codigo>OPER_TELETRABAJO_UH</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>100</idinterfaz>
+        <iddatosespecificos>100</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>idestatustecnico</campos_editables>
+        <autogenerada>0</autogenerada>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>2</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Prestamo por Teletrabajo Entrada UH-->
+    <operaciones>
+        <descripcion>Proceso de Prestamo por Teletrabajo (Entrada)</descripcion>
+        <detalles>Proceso de recepcion de utiles por devolucion de prestamo por conceto de teletrabajo.</detalles>
+        <codigo>OPER_TELETRABAJO_ENT_UH</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>26</idinterfaz>
+        <iddatosespecificos>20</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>idestatustecnico</campos_editables>
+        <campos_editables>idubicacion</campos_editables>
+        <autogenerada>1</autogenerada>
+        <signo>=</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>8</idestadoperacion>
+        <recepeliminar>1</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!--  Inventario Parcial-->
+    <operaciones>
+        <descripcion>Proceso de Inventario Parcial</descripcion>
+        <detalles>Proceso manual de conteo parcial de AFTs.</detalles>
+        <codigo>OPER_INV_PARCIAL</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>20</idinterfaz>
+        <iddatosespecificos>7</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>=</signo>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!--  Inventario Parcial Utiles y Herramientas-->
+    <operaciones>
+        <descripcion>Proceso de Inventario Parcial Utiles y Herramientas</descripcion>
+        <detalles>Proceso de conteo parcial de utiles.</detalles>
+        <codigo>OPER_INV_PARCIAL_UH</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>20</idinterfaz>
+        <iddatosespecificos>7</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>=</signo>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!--  Inventario Parcial Mensual-->
+    <operaciones>
+        <descripcion>Proceso de Inventario Parcial Mensual</descripcion>
+        <detalles>Proceso manual de conteo parcial mensual de AFTs.</detalles>
+        <codigo>OPER_INV_PAR_MENSUAL</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>20</idinterfaz>
+        <iddatosespecificos>6</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>=</signo>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!--  Inventario Parcial Mensual de Utiles y Herramientas-->
+    <operaciones>
+        <descripcion>Proceso de Inventario Parcial Mensual Utiles y Herramientas</descripcion>
+        <detalles>Proceso de conteo parcial mensual de utiles.</detalles>
+        <codigo>OPER_INV_PAR_MEN_UH</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>20</idinterfaz>
+        <iddatosespecificos>6</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>=</signo>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <operaciones>
+        <descripcion>Proceso de Inventario Total</descripcion>
+        <detalles>Proceso manual de conteo total de AFTs.</detalles>
+        <codigo>OPER_INV_TOTAL</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>21</idinterfaz>
+        <iddatosespecificos>8</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>=</signo>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <operaciones>
+        <descripcion>Proceso de Inventario Total Utiles y Herramientas</descripcion>
+        <detalles>Proceso de conteo total de utiles.</detalles>
+        <codigo>OPER_INV_TOTAL_UH</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>21</idinterfaz>
+        <iddatosespecificos>8</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>=</signo>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!--  Ajuste por sobrante -->
+    <operaciones>
+        <descripcion>Proceso de Ajuste por Sobrante</descripcion>
+        <detalles>Proceso automatico de entrada de AFts generado por un ajuste por sobrante detectado en un conteo.</detalles>
+        <codigo>OPER_AJUSTE_SOBRANTE</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>22</idinterfaz>
+        <iddatosespecificos>18</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>1</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>+</signo>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!--  Ajuste por sobrante de Utiles y Herramientas -->
+    <operaciones>
+        <descripcion>Proceso de Ajuste por Sobrante UH</descripcion>
+        <detalles>Proceso automatico de entrada de utiles generado por un ajuste por sobrante detectado en un conteo.</detalles>
+        <codigo>OPER_AJUSTE_SOBRA_UH</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>22</idinterfaz>
+        <iddatosespecificos>18</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>1</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>+</signo>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!--  Ajuste por faltante -->
+    <operaciones>
+        <descripcion>Proceso de Ajuste por Faltante</descripcion>
+        <detalles>Proceso automatico de salida de AFts generado por un ajuste por faltante detectado en un conteo.</detalles>
+        <codigo>OPER_AJUSTE_FALTANTE</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>23</idinterfaz>
+        <iddatosespecificos>13</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>-</signo>
+        <idestadoperacion>7</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!--  Ajuste por faltante de Utiles y Herramientas -->
+    <operaciones>
+        <descripcion>Proceso de Ajuste por Faltante de Utiles</descripcion>
+        <detalles>Proceso automatico de salida de utiles generado por un ajuste por faltante detectado en un conteo.</detalles>
+        <codigo>OPER_AJUSTE_FALTA_UH</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>23</idinterfaz>
+        <iddatosespecificos>13</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>-</signo>
+        <idestadoperacion>7</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Proceso de traslado internos salida -->
+    <operaciones>
+        <descripcion>Proceso de Traslados Internos (Salida)</descripcion>
+        <detalles>Proceso manual de traslado de AFts entre areas de una misma UEB.  Es la operacion que se usa en el area origen.</detalles>
+        <codigo>OPER_TRASLADO_INTER</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>movimiento-interno</icono>
+        <idinterfaz>14</idinterfaz>
+        <iddatosespecificos>3</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>responsable</campos_editables>
+        <campos_editables>idresponsable</campos_editables>
+        <autogenerada>0</autogenerada>
+        <operacion_sobre_medios>resta</operacion_sobre_medios>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Proceso de traslados internos entrada (Recepción)-->
+    <operaciones>
+        <descripcion>Proceso de Traslados Internos (Entrada)</descripcion>
+        <detalles>Proceso automatico de recepcion de traslado de AFts entre areas en una misma UEB.  Es la operacion que se usa en el area destino del traslado.</detalles>
+        <codigo>OPER_REC_TRAS_INTER</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>16</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>ubicacion</campos_editables>
+        <campos_editables>responsable</campos_editables>
+		<campos_editables>idresponsable</campos_editables>
+        <campos_editables>idubicacion</campos_editables>
+        <autogenerada>1</autogenerada>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <atributos_dinamicos_editables></atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>1</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+	
+	<!-- Proceso de traslado internos salida de UH-->
+	<operaciones>
+        <descripcion>Proceso de Traslados Internos de UTILES(Salida)</descripcion>
+        <detalles>Proceso manual de traslado de utiles entre areas de una misma UEB.  Es la operacion que se usa en el area origen.</detalles>
+        <codigo>OPER_TRAS_INTER_UH</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>movimiento-interno</icono>
+        <idinterfaz>14</idinterfaz>
+        <iddatosespecificos>3</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>responsable</campos_editables>
+        <campos_editables>idresponsable</campos_editables>
+        <autogenerada>0</autogenerada>
+        <operacion_sobre_medios>resta</operacion_sobre_medios>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Proceso de traslados internos entrada de UH(Recepción)-->
+    <operaciones>
+        <descripcion>Proceso de Traslados Internos de UTILES(Entrada)</descripcion>
+        <detalles>Proceso automatico de recepcion de traslado de utiles entre areas en una misma UEB.  Es la operacion que se usa en el area destino del traslado.</detalles>
+        <codigo>OPER_REC_TRAS_INT_UH</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>16</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>ubicacion</campos_editables>
+        <campos_editables>responsable</campos_editables>
+		<campos_editables>idresponsable</campos_editables>
+        <campos_editables>idubicacion</campos_editables>
+        <autogenerada>1</autogenerada>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <atributos_dinamicos_editables></atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>1</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Entrega temporal de medios  -->
+    <operaciones>
+        <descripcion>Proceso de Entrega Temporal</descripcion>
+        <detalles>Proceso de entrega/salida temporal de un medio a un cliente.(No es para teletrabajo).</detalles>
+        <codigo>OPER_ENTREG_TEMPORAL</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>24</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>responsable</campos_editables>
+		<campos_editables>idresponsable</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>=</signo>
+        <idestadoperacion>4</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Devolución de la entrega temporal de medios  -->
+    <operaciones>
+        <descripcion>Proceso de Recepcion de Entrega Temporal</descripcion>
+        <detalles>Proceso automatico de entrada/recepcion de AFTs a partir de una entraga temporal realizada anteriormente.</detalles>
+        <codigo>OPER_REC_ENTREG_TEMP</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>25</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>responsable</campos_editables>
+		<campos_editables>idresponsable</campos_editables>
+        <autogenerada>1</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>=</signo>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>1</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!--Reparación menor/ligera-->
+    <operaciones>
+        <descripcion>Reparación menor/ligera</descripcion>
+        <detalles>Proceso manual de enviar a reparar de AFTs por concepto de reparacion menor.</detalles>
+        <codigo>OPER_REPMENOR</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>13</idinterfaz>
+        <iddatosespecificos>2</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes></reportes>
+        <campos_editables>importe</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>-</signo>
+        <idestadoperacion>5</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!--Reparación media-->
+    <operaciones>
+        <descripcion>Reparación media</descripcion>
+        <detalles>Proceso manual de enviar a reparar de AFTs por concepto de reparacion media. </detalles>
+        <codigo>OPER_REPMEDIA</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>13</idinterfaz>
+        <iddatosespecificos>2</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes></reportes>
+        <campos_editables>importe</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>-</signo>
+        <idestadoperacion>5</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!--Reparación general-->
+    <operaciones>
+        <descripcion>Reparación general</descripcion>
+        <detalles>Proceso manual de enviar a reparar de AFTs por concepto de reparacion general.</detalles>
+        <codigo>OPER_REPGENERAL</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>13</idinterfaz>
+        <iddatosespecificos>2</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes></reportes>
+        <campos_editables>importe</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>-</signo>
+        <idestadoperacion>5</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!--Reparación imprevista-->
+    <operaciones>
+        <descripcion>Reparación imprevista</descripcion>
+        <detalles>Proceso manual de enviar a reparar de AFTs por concepto de reparacion imprevista.</detalles>
+        <codigo>OPER_REPIMPREV</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>13</idinterfaz>
+        <iddatosespecificos>2</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes></reportes>
+        <campos_editables>importe</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>-</signo>
+        <idestadoperacion>5</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!--Mantenimiento-->
+    <operaciones>
+        <descripcion>Mantenimiento</descripcion>
+        <detalles>Proceso manual de enviar a reparar de AFTs por concepto de mantenimiento.</detalles>
+        <codigo>OPER_MANTENIMIENTO</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>13</idinterfaz>
+        <iddatosespecificos>2</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes></reportes>
+        <campos_editables>importe</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>-</signo>
+        <idestadoperacion>5</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!--Remodelación-->
+    <operaciones>
+        <descripcion>Remodelación</descripcion>
+        <detalles>Proceso manual de enviar a reparar de AFTs por concepto de remodelacion.</detalles>
+        <codigo>OPER_REMODELACION</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>13</idinterfaz>
+        <iddatosespecificos>2</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes></reportes>
+        <campos_editables>importe</campos_editables>
+        <autogenerada>0</autogenerada>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <signo>-</signo>
+        <idestadoperacion>5</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!--Alta a partir del subsistema inventario de Utiles y herramientas-->
+    <operaciones>
+        <descripcion>Alta de útiles y herramientas</descripcion>
+        <detalles>Proceso automatico de entrada de utiles a partir del subsistema de inventario, generalmente mediante una transferencia o un vale realizado en un almacen de cualquier otra UEB.</detalles>
+        <codigo>OPER_UTILESHERRA</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>30</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>1</campos_editables>
+        <autogenerada>0</autogenerada>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+	
+	
+	<!--Alta a partir del subsistema inventario de Utiles y herramientas desde un almacen de otra UEB-->
+    <operaciones>
+        <descripcion>Alta de útiles y herramientas Externo</descripcion>
+        <detalles>Proceso automatico de entrada de utiles a partir del subsistema de inventario, generalmente mediante una transferencia o un vale realizado en un almacen de la misma UEB.</detalles>
+        <codigo>OPER_UTILESHERRA_EXT</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>51</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>1</campos_editables>
+        <autogenerada>0</autogenerada>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones><!--Alta a partir del subsistema inventario de Utiles y herramientas desde un almacen de otra UEB-->
+    
+	<operaciones>
+        <descripcion>Compra de Activos Usados</descripcion>
+        <detalles>Proceso manual de entrada por concepto de compra de AFTs usados.</detalles>
+        <codigo>OPER_AFTUSO</codigo>
+        <tipo>entrada</tipo>
+        <icono>entrada</icono>
+        <idinterfaz>1</idinterfaz>
+        <iddatosespecificos>11</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>1</campos_editables>
+        <autogenerada>0</autogenerada>
+        <debe_depreciar>0</debe_depreciar>
+        <operacion_sobre_medios>suma</operacion_sobre_medios>
+        <signo>+</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>1</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+	
+    <operaciones>
+        <descripcion>Baja de útiles y herramientas</descripcion>
+        <detalles>Proceso de baja manual para utiles.</detalles>
+        <codigo>OPER_BAJAUTILHERRA</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>salida</icono>
+        <idinterfaz>2</idinterfaz>
+        <iddatosespecificos>0</iddatosespecificos>
+        <generacomprobante>1</generacomprobante>
+        <cierra>1</cierra>
+        <afectacantidad>1</afectacantidad>
+        <afectadisponible>1</afectadisponible>
+        <debe_depreciar>0</debe_depreciar>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <autogenerada>0</autogenerada>
+        <operacion_sobre_medios>resta</operacion_sobre_medios>
+        <signo>-</signo>
+        <atributos_dinamicos_editables>0</atributos_dinamicos_editables>
+        <idestadoperacion>7</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <!-- Modificación de masiva de responsabilidad -->
+    <operaciones>
+        <descripcion>Proceso de Modificación Masiva de Responsabilidad</descripcion>
+        <detalles>Proceso manual de modificacion de responsable masivo para activos fijos. Permite modificar para un grupo de activos el area, centro de costo y responsable.</detalles>
+        <codigo>OPER_MOD_RESPMAS</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>modificación</icono>
+        <idinterfaz>35</idinterfaz>
+        <iddatosespecificos>50</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <autogenerada>0</autogenerada>
+        <operacion_sobre_medios>ninguna</operacion_sobre_medios>
+        <signo>=</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+
+    <operaciones>
+        <descripcion>Proceso de Modificación Masiva de Responsabilidad de Utiles</descripcion>
+        <detalles>Proceso manual de modificacion de responsable masivo para utiles. Permite modificar para un grupo de utiles el area, centro de costo y responsable.</detalles>
+        <codigo>OPER_MOD_RESPMAS_UH</codigo>
+        <tipo>no_entrada</tipo>
+        <icono>modificación</icono>
+        <idinterfaz>35</idinterfaz>
+        <iddatosespecificos>50</iddatosespecificos>
+        <generacomprobante>0</generacomprobante>
+        <cierra>0</cierra>
+        <afectacantidad>0</afectacantidad>
+        <afectadisponible>0</afectadisponible>
+        <reportes>
+            <nombre>Movimiento de activo fijo tangible</nombre>
+            <id>23</id>
+            <funcion>getReporteMovimientoActivoFijoTangible</funcion>
+        </reportes>
+        <campos_editables>0</campos_editables>
+        <debe_depreciar>0</debe_depreciar>
+        <autogenerada>0</autogenerada>
+        <operacion_sobre_medios>ninguna</operacion_sobre_medios>
+        <signo>=</signo>
+        <atributos_dinamicos_editables>1</atributos_dinamicos_editables>
+        <idestadoperacion>1</idestadoperacion>
+        <recepeliminar>0</recepeliminar><!-- Permite eliminar en los registros numericos para una recepcion-->
+    </operaciones>
+    <!-- FIN de Tipos de operaciones -->
+
+    <!-- Períodos de depreciación -->
+    <periodos_depreciacion>
+        <idnomdepreciacion>0</idnomdepreciacion>
+        <descripcion>Seleccione</descripcion>
+        <dividendo>365</dividendo>
+        <diasperiodo>1</diasperiodo>
+    </periodos_depreciacion>
+
+    <periodos_depreciacion>
+        <idnomdepreciacion>1</idnomdepreciacion>
+        <descripcion>Depreciación diaria</descripcion>
+        <dividendo>365</dividendo>
+        <diasperiodo>1</diasperiodo>
+    </periodos_depreciacion>
+
+    <periodos_depreciacion>
+        <idnomdepreciacion>1</idnomdepreciacion>
+        <descripcion>Depreciación semanal</descripcion>
+        <dividendo>52</dividendo>
+        <diasperiodo>7</diasperiodo>
+    </periodos_depreciacion>
+
+    <periodos_depreciacion>
+        <idnomdepreciacion>1</idnomdepreciacion>
+        <descripcion>Depreciación quincenal</descripcion>
+        <dividendo>24</dividendo>
+        <diasperiodo>15</diasperiodo>
+    </periodos_depreciacion>
+
+    <periodos_depreciacion>
+        <idnomdepreciacion>1</idnomdepreciacion>
+        <descripcion>Depreciación mensual</descripcion>
+        <dividendo>12</dividendo>
+        <diasperiodo>30</diasperiodo>
+    </periodos_depreciacion>
+
+    <periodos_depreciacion>
+        <idnomdepreciacion>1</idnomdepreciacion>
+        <descripcion>Depreciación trimestral</descripcion>
+        <dividendo>4</dividendo>
+        <diasperiodo>90</diasperiodo>
+    </periodos_depreciacion>
+
+    <periodos_depreciacion>
+        <idnomdepreciacion>1</idnomdepreciacion>
+        <descripcion>Depreciación anual</descripcion>
+        <dividendo>1</dividendo>
+        <diasperiodo>365</diasperiodo>
+    </periodos_depreciacion>
+    <!-- FIN de Períodos de depreciación -->
+
+    <!-- Métodos de depreciacion -->
+    <metodos_depreciacion>
+        <idmetodo>1</idmetodo>
+        <descripcion>Unidades de producción</descripcion>
+        <unidadmedida>U</unidadmedida>
+    </metodos_depreciacion>
+
+    <metodos_depreciacion>
+        <idmetodo>2</idmetodo>
+        <descripcion>Línea recta</descripcion>
+        <unidadmedida>Años</unidadmedida>
+    </metodos_depreciacion>
+
+    <metodos_depreciacion>
+        <idmetodo>3</idmetodo>
+        <descripcion>Mixto (Kilometros recorridos + Linea recta)</descripcion>
+        <unidadmedida>Km</unidadmedida>
+    </metodos_depreciacion>
+    
+    <metodos_depreciacion>
+        <idmetodo>4</idmetodo>
+        <descripcion>Línea recta (% Fiscal)</descripcion>
+        <unidadmedida>Años</unidadmedida>
+    </metodos_depreciacion>
+
+    <metodos_depreciacion>
+        <idmetodo>5</idmetodo>
+        <descripcion>Kilómetros recorridos</descripcion>
+        <unidadmedida>Km</unidadmedida>
+    </metodos_depreciacion>
+
+    <metodos_depreciacion>
+        <idmetodo>6</idmetodo>
+        <descripcion>Dígitos decrecientes</descripcion>
+        <unidadmedida>Años</unidadmedida>
+    </metodos_depreciacion>
+
+    <metodos_depreciacion>
+        <idmetodo>7</idmetodo>
+        <descripcion>Horas máquinas</descripcion>
+        <unidadmedida>Hrs</unidadmedida>
+    </metodos_depreciacion>
+
+      <metodos_depreciacion>
+        <idmetodo>8</idmetodo>
+        <descripcion>Por Cuentas</descripcion>
+        <unidadmedida>Años</unidadmedida>
+    </metodos_depreciacion>
+
+        <metodos_depreciacion> 
+        <idmetodo>9</idmetodo>
+        <descripcion>Por Centro Costo</descripcion>
+        <unidadmedida>Años</unidadmedida>
+    </metodos_depreciacion>
+
+    <!-- FIN de Métodos de depreciación -->
+
+    <!-- Trimestres -->
+    <trimestres>
+        <idtrimestre>1</idtrimestre>
+        <descripcion>Enero-Marzo</descripcion>
+    </trimestres>
+
+    <trimestres>
+        <idtrimestre>2</idtrimestre>
+        <descripcion>Abril-Junio</descripcion>
+    </trimestres>
+
+    <trimestres>
+        <idtrimestre>3</idtrimestre>
+        <descripcion>Julio-Septiembre</descripcion>
+    </trimestres>
+
+    <trimestres>
+        <idtrimestre>4</idtrimestre>
+        <descripcion>Octubre-Diciembre</descripcion>
+    </trimestres>
+    <!-- FIN de Trimestres -->
+
+    <!-- Tipos de datos auxiliares por documento -->
+    <tipo_datos_aux_doc>
+        <idoperacion>0</idoperacion>
+        <descripcion>Sin campos</descripcion>
+    </tipo_datos_aux_doc>
+
+    <tipo_datos_aux_doc>
+        <idoperacion>1</idoperacion>
+        <descripcion>Campos de alquiler</descripcion>
+    </tipo_datos_aux_doc>
+
+    <tipo_datos_aux_doc>
+        <idoperacion>2</idoperacion>
+        <descripcion>Campos de enviados a reparar</descripcion>
+    </tipo_datos_aux_doc>
+
+    <tipo_datos_aux_doc>
+        <idoperacion>3</idoperacion>
+        <descripcion>Campos de traslado interno/activos a ociosos/ociosos a activos</descripcion>
+    </tipo_datos_aux_doc>
+
+    <tipo_datos_aux_doc>
+        <idoperacion>4</idoperacion>
+        <descripcion>Campos de traslado externo</descripcion>
+    </tipo_datos_aux_doc>
+
+    <tipo_datos_aux_doc>
+        <idoperacion>11</idoperacion>
+        <descripcion>Campos de baja por venta</descripcion>
+    </tipo_datos_aux_doc>
+
+    <!-- FIN Tipos de datos auxiliares por documento -->
+</configuraciones>

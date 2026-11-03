@@ -1,0 +1,55 @@
+{
+    lbBtnAyuda:'Ayuda',
+    lbtnCancelarAdd: 'Cancelar',
+    lbtnAplicarAdd: 'Aplicar',
+    lbtnAceptarAdd: 'Aceptar',
+    lbtnEstElabor: 'Elaboración',
+    lbtnEstEjec: 'Ejecución',
+    lbtnEstCerrado: 'Cerrado',
+    lbgpGestPlanes711: 'Listado de planes',
+    
+    lbHeaderEstado: 'Estado',
+    lbHeaderModific: 'Modificaciones',
+    lbHeaderFF: 'Fuentes de financiamiento',
+    
+    lbLabelMonto: 'Monto asignado',
+    lbLabelDen: 'Denominación',
+    lbLabelEmpImp: 'Empresa importadora',
+    
+    lbTtbtnAdd: 'Adicionar persona',
+    lbTtbtnMod:'Modificar persona',
+    lbTtbtnDel: 'Eliminar persona',
+    lbTtBtnAyu: 'Ayuda',
+    lbTtBtnLimpiar: 'Limpiar',
+    lbTtCancenlarAdd: 'Cerrar ventana sin guardar los datos',
+    lbTtAplicarAdd: 'Guardar datos y limpiar los campos',
+    lbTtAceptarAdd: 'Guardar los datos y cerrar ventana',
+    lbTtCambiarEstado: 'Cambiar estado del ejercicio',
+    lbTtVerModif: 'Ver modificaciones',
+    
+    lbMessageActual: '¿Está seguro que quiere definir el plan seleccionado como actual?',
+    lbMessageActualSatisfac: 'El ejercicio de planificación ha sido definido como actual satisfactoriamente.',
+    lbMessageActualPregunta: 'Ya existe un ejercicio definido como actual. ¿Desea cambiarlo por el seleccionado?',
+    lbMessageActualSalida: 'El plan ha sido definido como actual satisfactoriamente.',
+    
+    lbMessageEstado: '¿Desea cambiar el estado del plan seleccionado?',
+    lbMessageEstadoSalida: 'El cambio de estado se ha realizado satisfactoriamente.',
+    lbMessageEstadoError: 'No se puede cambiar el estado de un plan definido como actual.',
+    
+    lbMessageEliminar: '¿Desea eliminar el plan seleccionado?',
+    lbMessageEliminarSatisf: 'El plan se ha eliminado satisfactoriamente.',
+        
+    lbMessageError: 'Ha ocurrido un error inesperado.',
+    lbMessageErrorForm: 'Existen campos vacíos o con valores incorrectos.',
+    
+    lbDenominacion: 'Denominación',
+    lbMontoTotal: 'Monto total',
+    lbEsActual: 'Plan actual',
+    lbSinFiltradoTitle: '',
+    lbFiltradoPor: 'Filtrador por: ',
+    lbSi: 'Si',
+    lbNo: 'No'
+    
+    
+
+        }

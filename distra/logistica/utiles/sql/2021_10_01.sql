@@ -1,0 +1,25 @@
+CREATE OR REPLACE FUNCTION mod_logistica.tr_updatecddoc()
+    RETURNS trigger
+    LANGUAGE 'plpgsql'
+    COST 100
+    VOLATILE NOT LEAKPROOF
+AS $BODY$
+DECLARE
+  
+BEGIN
+  IF old.idcomprobante is not null and new.idcomprobante is not null
+  and old.idcomprobante <> -1 then
+  	RAISE EXCEPTION 'EL COMPROBANTE NO PUEDE SER MODIFICADO';
+  else
+  	IF NEW.idcomprobante IS NOT NULL and old.idcomprobante <> -1 THEN 
+	  	insert into mod_logistica.dat_documentocd(iddocumento, idcd) values (OLD.iddocumento, new.idcomprobante);
+    ELSE
+	    DELETE FROM mod_logistica.dat_documentocd WHERE iddocumento = NEW.iddocumento;
+    END IF;
+  end if;
+  return new;
+END;
+$BODY$;
+
+ALTER FUNCTION mod_logistica.tr_updatecddoc()
+    OWNER TO zeolides;

@@ -1,0 +1,50 @@
+{
+    lbCargando: 'Cargando',
+    lbCargandoD: 'Cargando datos...',
+    lbEspere: 'Por favor espere ...',
+    lbSeleccione: 'Seleccione...',
+    lbNaturaleza: 'Naturaleza',
+
+    lbCaracterizar: 'Caracterizar',
+    lbBtnAdicionar: 'Adicionar',
+    lbBtnModificar: 'Modificar',
+    lbBtnEliminar: 'Eliminar',
+    lbBtnGuardar: 'Guardar',
+    lbBtnAplicar: 'Aplicar',
+    lbBtnAprobar: 'Aprobar',
+    lbBtnDesaprobar: 'Desaprobar',
+    lbBtnActivar: 'Activar',
+    lbBtnDesactivar: 'Desactivar',
+    lbBtnAyuda: 'Ayuda',
+    lbBtnLimpiar: 'Limpiar',
+    lbBtnCerrar: 'Cerrar',
+    lbBtnCancelar: 'Cancelar',
+    lbBtnAplicar: 'Aplicar',
+    lbBtnAceptar: 'Aceptar',
+    lbBtnAprobacion: 'Aprobaci�n',
+    lbBtnActivacion: 'Activaci�n',
+    lbBtnCancelarTtip: 'Cerrar ventana sin guardar los datos',
+    lbBtnAplicarTtip: 'Guardar datos y limpiar los campos',
+    lbBtnAceptarTtip: 'Guardar datos y cerrar ventana',
+    lbMsgSeleccionarInd: ' Debe seleccionar los indicadores.',
+
+    lbSeleccinarEspecialidad: 'Seleccionar especialidad',
+    lbEspecialidad: 'Especialidad',
+    lbProduccion: 'Producción',
+    lbInvaliTex: 'El valor debe ser mayor que 0',
+//lbTtpGuardar:'Guardar indicador <b>(Alt+G)</b>',
+    lbTtpModificar: 'Modificar indicador <b>(Alt+M)</b>',
+    lbTtpAdicionar: 'Adicionar indicador <b>(Alt+I)</b>',
+    lbTtpLimpiar: 'Limpiar filtro(s)<b>(Alt+L)</b>',
+    lbTtpAyuda: 'Mostrar ayuda de la funcionalidad <b>(Alt+H)</b>',
+    lbTtpGuardar: 'Guardar datos de indicador(es) <b>(Alt+G)</b>',
+    lbTtpCancelar: 'Cerrar ventana sin guardar los datos',
+    lbTtpAceptar: 'Guardar datos y cerrar ventana',
+    lbTtpAplicar: 'Guardar datos y limpiar los campos',
+    lbTtpCaracterizar: 'Caracterizar indicador'
+
+
+
+//lbBtnEliminar:'Eliminar',
+
+}

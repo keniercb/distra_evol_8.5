@@ -1,0 +1,21 @@
+
+/* 
+    Css del componente causa - efecto
+    author: ohgonzalez
+*/
+
+.efecto {
+    background-image: url(../../images/causaefecto/tree/efecto.png) !important;
+}
+
+.categoria {
+    background-image: url(../../images/causaefecto/tree/categoria.png) !important;
+}
+
+.causa {
+    background-image: url(../../images/causaefecto/tree/causa.png) !important;
+}
+.ceLeyenda{
+    background: url(../../images/causaefecto/leyenda.png) no-repeat;
+    background-size: 200px;
+}

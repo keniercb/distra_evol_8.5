@@ -1,0 +1,30 @@
+{
+	lbTitleTabSistema:                  		'Nivel sistema',
+	lbTitleTabEntidad:                  		'Nivel entidad',
+	lbTitleTabCargo:                  			'Nivel cargo',
+
+	lbTitleGpNivelSist:                  		'Listado de variables globales a nivel de sistema',
+	lbTitleGpNivelEntidad:                  	'Listado de variables globales a nivel de entidad',
+	lbTitleGpNivelCargo:                  		'Listado de variables globales a nivel de cargo',
+
+	lbColDenominacion:							'Denominaci&oacute;n',
+	lbColAbrevVarGlobal:						'Abreviatura',
+	lbColValorVarGlobal:						'Valor',
+
+	lbMaskGridCargando:							'Cargando…',
+	lbMsgEsperaEnviarDatos:						'Por favor espere…', 
+	lbMsgGuardarNivelSist:						'Guardando datos de configuraci&oacute;n de variables globales...',
+	lbMsgGuardarNivelEnt:						'Guardando datos de configuraci&oacute;n de variables globales...',
+	lbMsgGuardarNivelCargo:						'Guardando datos de configuraci&oacute;n de variables globales...',
+
+	lbMsgCorrectoGuardarNivelSist:				'La configuración de variables globales ha sido guardada satisfactoriamente.',
+	lbMsgCorrectoGuardarNivelEnt:				'La configuración de variables globales ha sido guardada satisfactoriamente.',
+	lbMsgCorrectoGuardarNivelCargo:				'La configuración de variables globales ha sido guardada satisfactoriamente.',
+
+	lbErrorCampoVacio:                          'Este campo es obligatorio.', 
+
+	lbBtnGuardar:              	    			'Guardar',
+	textToolTipGuardarNSist:    		       	'Guardar datos de la configuraci&oacute;n de las variables globales (<b>Alt+G</b>)',
+	textToolTipGuardarNEnt:    		       		'Guardar datos de la configuraci&oacute;n de las variables globales (<b>Alt+G</b>)',
+	textToolTipGuardarNCargo:    		       	'Guardar datos de la configuraci&oacute;n de las variables globales (<b>Alt+G</b>)',
+}

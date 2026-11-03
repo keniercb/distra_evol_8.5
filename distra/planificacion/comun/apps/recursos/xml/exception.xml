@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Excepciones>
+    <!-- Excepciónes del modulo de Planificacion -->
+    <!-- Excepciones del modulo de Viaje-->
+    <PLANVIAJE001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar itinerario.</mensaje>
+            <descripcion>El código que desea adicionar ya existe, por favor introduzca otro.</descripcion>
+        </es>
+    </PLANVIAJE001>
+    <PLANVIAJE002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar itinerario.</mensaje>
+            <descripcion>La abreviatura que desea adicionar ya existe, por favor introduzca otra.</descripcion>
+        </es>
+    </PLANVIAJE002>
+    <PLANVIAJE003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar itinerario.</mensaje>
+            <descripcion>La denominación que desea adicionar ya existe, por favor introduzca otra.</descripcion>
+        </es>
+    </PLANVIAJE003>
+    <PLANVIAJE004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar puerto.</mensaje>
+            <descripcion>El código que desea adicionar ya existe, por favor introduzca otro.</descripcion>
+        </es>
+    </PLANVIAJE004>
+    <PLANVIAJE005>
+    <tipo>LP</tipo>
+    <es>
+        <mensaje>Error al adicionar puerto.</mensaje>
+        <descripcion>La denominación que desea adicionar ya existe, por favor introduzca otra.</descripcion>
+    </es>
+    </PLANVIAJE005>
+    <PLANVIAJE006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar actividad.</mensaje>
+            <descripcion>La abreviatura que desea adicionar ya existe, por favor introduzca otra.</descripcion>
+        </es>
+    </PLANVIAJE006>
+    <PLANVIAJE007>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar actividad.</mensaje>
+            <descripcion>La denominación que desea adicionar ya existe, por favor introduzca otra.</descripcion>
+        </es>
+    </PLANVIAJE007>
+    <PLANVIAJE008>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar causa.</mensaje>
+            <descripcion>La abreviatura que desea adicionar ya existe, por favor introduzca otra.</descripcion>
+        </es>
+    </PLANVIAJE008>
+    <PLANVIAJE009>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar causa.</mensaje>
+            <descripcion>La denominación que desea adicionar ya existe, por favor introduzca otra.</descripcion>
+        </es>
+    </PLANVIAJE009>
+    <PLANVIAJE010>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar viaje.</mensaje>
+            <descripcion>El viaje que desea eliminar está siendo usado por un BL.</descripcion>
+        </es>
+    </PLANVIAJE010>
+    <PLANVIAJE011>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar viaje.</mensaje>
+            <descripcion>El viaje que desea eliminar está siendo usado por una orden de liberación.</descripcion>
+        </es>
+    </PLANVIAJE011>
+    <PLANVIAJE012>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar viaje.</mensaje>
+            <descripcion>El viaje que desea eliminar está siendo usado por una solicitud de buqueo.</descripcion>
+        </es>
+    </PLANVIAJE012>
+    <PLANVIAJE013>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar viaje.</mensaje>
+            <descripcion>El viaje que desea eliminar está siendo usado por un movimiento de contenedor.</descripcion>
+        </es>
+    </PLANVIAJE013>
+    <PLANVIAJE014>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar viaje.</mensaje>
+            <descripcion>El viaje que desea eliminar está siendo usado por una carta de transbordo.</descripcion>
+        </es>
+    </PLANVIAJE014>
+    <PLANVIAJE015>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar viaje.</mensaje>
+            <descripcion>El viaje que desea eliminar está siendo usado por una carta de transbordo.</descripcion>
+        </es>
+    </PLANVIAJE015>
+
+
+
+    <!-- FIN de las excepciones del modulo de Viaje-->
+
+
+    <!-- Excepciónes ffde Calculo de las Necesidades-->
+    <PLACB006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al cargar los indicadores por organo demandante.</mensaje>
+            <descripcion>El órgano demandante seleccionado no tiene indicadores para ese modelo.</descripcion>
+        </es>
+    </PLACB006>
+    <PLA001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error a la  conexión en la  Base de Datos </mensaje>
+            <descripcion>Ocurrió un error al cargar los datos. Por favor póngase en contacto con el administrador.</descripcion>
+        </es>
+    </PLA001>
+    <PLA002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Ocurrió un error al eliminar el nomenclador.</mensaje>
+            <descripcion> El nomenclador está asociado a otro nomenclador. </descripcion>
+        </es>
+    </PLA002>
+    <!-- Fin de las Excepciónes de Calculo de las Necesidades-->
+    <!-- Excepciónes de Nomencladores -->
+    <PLAN001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>Los datos a insertar ya se encuentran en el sistema.</descripcion>
+        </es>
+    </PLAN001>
+
+    <PLAN002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en campo.</mensaje>
+            <descripcion>El campo código es obligatorio</descripcion>
+        </es>
+    </PLAN002>
+
+    <PLAN003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en campo.</mensaje>
+            <descripcion>El campo denominación es obligatorio</descripcion>
+        </es>
+    </PLAN003>
+
+    <PLAN004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de validación de campo.</mensaje>
+            <descripcion>El código debe ser un número entero de 4 dígitos</descripcion>
+        </es>
+    </PLAN004>
+
+
+    <PLAN006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en campo.</mensaje>
+            <descripcion>Por favor verifique nuevamente, hay campo(s) del formulario que no pueden dejarse vacíos.</descripcion>
+        </es>
+    </PLAN006>
+    <PLAN007>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error en campo.</mensaje>
+            <descripcion>Por favor verifique nuevamente que hay campo(s) con valor(es) incorrecto(s).</descripcion>
+        </es>
+    </PLAN007>
+    <PLAN014>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Código repetido.</mensaje>
+            <descripcion>El indicador que quiere adicionar ya existe.</descripcion>
+        </es>
+    </PLAN014>
+	  <PLAN0114>
+        <tipo>C</tipo>
+        <es>
+            <mensaje>Código repetido.</mensaje>
+            <descripcion>El código del tipo de modelo que quiere adicionar ya existe.</descripcion>
+        </es>
+    </PLAN0114>
+    <PLAN015>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Denominación repetida.</mensaje>
+            <descripcion>Por favor verifique, hay elementos que se encuentran asociados.</descripcion>
+        </es>
+    </PLAN015>
+    <PLAN016>
+        <tipo>C</tipo>
+        <es>
+            <mensaje>Denominación repetida.</mensaje>
+            <descripcion>Por favor verifique, la denominación ya existe.</descripcion>
+        </es>
+    </PLAN016>
+    <PLAN666>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>La longitud máxima de ese campo es de solo 19 carácteres.</mensaje>
+            <descripcion>La longitud máxima de ese campo es de solo 19 carácteres.</descripcion>
+        </es>
+    </PLAN666>
+    <!--Fin de las Excepciónes de  Nomencladores -->
+    <!--Excepciónes de Plantilla-->
+    <PLAP001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>Los datos a insertar ya se encuentran en el sistema.</descripcion>
+        </es>
+    </PLAP001>
+    <PLAP002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>Por favor, verifique que no existan campos sin valores.</descripcion>
+        </es>
+    </PLAP002>
+    <PLAP003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>Por favor verifique nuevamente, hay campo(s) con valor(es) incorrecto(s).</descripcion>
+        </es>
+    </PLAP003>
+    <PLAP004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al modificar.</mensaje>
+            <descripcion>El nomenclador no se puede modificar, está siendo utilizado.</descripcion>
+        </es>
+    </PLAP004>
+    <PLAP005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar.</mensaje>
+            <descripcion>El nomenclador no se puede eliminar, está siendo utilizado.</descripcion>
+        </es>
+    </PLAP005>
+    <PLAP006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar formula.</mensaje>
+            <descripcion>La celda seleccionada ya tiene una fórmula asociada</descripcion>
+        </es>
+    </PLAP006>
+    <!--Fin de las Excepciónes de Plantilla-->
+
+    <!-- Excepciones de PDO-->
+    <PDO001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>Por favor verifique nuevamente, campo(s) con valor(es) incorrecto(s).</descripcion>
+        </es>
+    </PDO001>
+    <!-- Fin de las Excepciones de PDO-->
+
+    <!--Excepciónes de Configuracion de plan-->
+    <PLACP001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al insertar.</mensaje>
+            <descripcion>La denominación a insertar ya se encuentra en el sistema.</descripcion>
+        </es>
+    </PLACP001>
+    <!--Fin de las Excepciónes de Configuracion de plan-->
+    <!--Excepciónes de calculo de necesidades-->
+    <PLACNP001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al modificar.</mensaje>
+            <descripcion>La denominación a modificar ya se encuentra en el sistema.</descripcion>
+        </es>
+    </PLACNP001>
+    <!--Fin de las Excepciónes de calculo de necesidades-->
+
+    <!-- Excepciónes de Estructura-->
+    <PLAEP001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de datos.</mensaje>
+            <descripcion>La estructura ya se encuentra en el sistema.</descripcion>
+        </es>
+    </PLAEP001>
+    <!--Fin de las Excepciónes de Estructura-->
+
+    <!--Excepciónes de bases del plan-->
+   <!-- <PLABP001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Código repetido.</mensaje>
+            <descripcion>Por favor verifique, el código ya existe en el nivel actual.</descripcion>
+        </es>
+    </PLABP001>-->
+    <PLABP002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar la actividad.</mensaje>
+            <descripcion>La actividad que está tratando de eliminar se encuentra asociada a una entidad.</descripcion>
+        </es>
+    </PLABP002>
+    <PLABP003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al desasociar la actividad.</mensaje>
+            <descripcion>La actividad que está tratando de desasociar ha sido asociada por una regla.</descripcion>
+        </es>
+    </PLABP003>
+    <PLABP004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al adicionar la configuración del desglose.</mensaje>
+            <descripcion>La configuración del desglose que está tratando de adicionar ya existe.</descripcion>
+        </es>
+    </PLABP004>
+    <PLABP005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error de concurrencia al modificar.</mensaje>
+            <descripcion>Los datos fueron modificados por otra persona. Por favor recargue los datos e intente realizar la modificación nuevamente.</descripcion>
+        </es>
+    </PLABP005>
+    <!--PLABP006>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al activar la actividad.</mensaje>
+            <descripcion>La(s) actividad(es) debe(n) estar aprobada(s) para poder ser activada(s).</descripcion>
+        </es>
+    </PLABP006-->
+    <!--PLABP007>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al aprobar la actividad.</mensaje>
+            <descripcion>La(s) actividad(es) del último nivel debe(n) estar normada(s) para poder ser aprobada(s).</descripcion>
+        </es>
+    </PLABP007-->
+    <!--Fin de las Excepciones de bases del plan-->
+
+    <!--Excepciones de centro de balance-->
+    <PLACB001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al cargar la entidad.</mensaje>
+            <descripcion>La entidad no posee el modelo seleccionado.</descripcion>
+        </es>
+    </PLACB001>
+    <PLACB002>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al cargar la entidad por organos.</mensaje>
+            <descripcion>La entidad seleccionada no tiene órganos demandantes.</descripcion>
+        </es>
+    </PLACB002>
+    <PLACB003>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al cargar los organos.</mensaje>
+            <descripcion>El centro de balance seleccionado no tiene indicadores en dicho modelo.</descripcion>
+        </es>
+    </PLACB003>
+    <PLACB004>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al cargar los indicadores por centro de balance.</mensaje>
+            <descripcion>El centro de balance seleccionado no tiene indicadores.</descripcion>
+        </es>
+    </PLACB004>
+    <PLACB005>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error la demanda erronea.</mensaje>
+            <descripcion>Debe hacer un reajuste, la demanda no puede ser negativa.</descripcion>
+        </es>
+    </PLACB005>
+    <!--Fin de las Excepciones de centro de balance-->
+
+    <!--Excepciónes de planmeta-Indicadores-->
+    <PLAIP001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al eliminar el indicador.</mensaje>
+            <descripcion>No puede eliminar el indicador, está siendo usando en la planificación.</descripcion>
+        </es>
+    </PLAIP001>
+    <!--Fin de las Excepciónes de planmeta-Indicadores-->
+    <!--Excepciónes de planmeta-Tipo codificadores-->
+    <PLATC001>
+        <tipo>LP</tipo>
+        <es>
+            <mensaje>Error al modificar el tipo codificador.</mensaje>
+            <descripcion>El dato del tipo de codificador ya existe.</descripcion>
+        </es>
+    </PLATC001>
+    <!--Fin de las Excepciónes de planmeta-Tipo codificadores-->
+    <!-- Fin de las Excepciónes del modulo de Planificacion -->
+</Excepciones>

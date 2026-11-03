@@ -1,0 +1,106 @@
+{
+    titleAyuda : 'Ayuda de nomenclador tipo de compra',
+	referenciaAyuda : 'Logistica/Configuracion/Configuracion_logistica/Nomenclador_general/terminocomercial',
+	lbBtnAdicionar: 'Ad<u>i</u>cionar',
+    lbTtBtnAdicionar: 'Adicionar tipo de compra <b>(Alt+I)</b>',
+    lbEstado: 'Estatus',
+    lbBtnAceptar: 'Aceptar',
+    lbBtnAplicar: 'Aplicar',
+    lbBtnCancelar: 'Cancelar',
+    lbEntidad: 'Entidad',
+    lbCodigo: 'C\xf3digo',
+    lbDenominacion: 'Denominaci\xf3n',
+    lbBtnLimpiar: '<u>L</u>impiar',
+    tipBtnLimpiar: 'Limpiar filtro(s) <b>(Alt+L)</b>',
+    lbProductoTerminado: 'Producci\xf3n terminada',
+    lbProductoTerminado: 'Terminada',
+    lbMuestreable: 'Muestreable',
+    tipBtnBuscar: 'Buscar tipo(s) de compra(s) <b>(Alt+B)</b>',
+    lbBtnBuscar: '<u>B</u>uscar',
+    tipBtnBuscar:'Buscar los elementos',
+    lbBtnAyuda: 'Ayuda',
+    lbNaturaleza:'Naturalezas de productos',
+    lbMsgMaxCodigo : 'El tama\xf1o m\xe1ximo requerido es 50 caracteres.',
+    
+    
+    
+    lbTtBtnAyuda: 'Mostrar ayuda de la funcionalidad <b>(Alt+H)',
+    lbTtBtnAceptar : 'Guardar datos y cerrar ventana',
+    lbTtBtnAplicar : 'Guardar datos y limpiar los campos',
+    lbTtBtnCancelar : 'Cerrar ventana sin guardar los datos',
+    lbBtnHabilitar: 'Habilitar',
+    tipBtnHabilitar: 'Habilitar el tipo de compra',
+    tipBtnNoUsar: 'No utilizar el tipo de compra en la entidad',
+    lbBtnNoUsar: 'No usar entidad',
+    lbBtnUsar: 'Usar entidad',
+    tipBtnUsar: 'Utilizar tipo de compra en la entidad',
+    lbBtnEliminar: 'Eliminar',
+    lbTtBtnEliminar : 'Eliminar tipo de compra<b>(DEL)</b>',
+    lbBtnModificar : '<u>M</u>odificar',
+    lbTtBtnModificar : 'Modificar tipo de compra <b>(Alt+M)</b>',
+    lbTitleWinModificar : 'Modificar tipo de compra',
+    lbTitleWinAdicionar : 'Adicionar tipo de compra',
+    lbMsgCamposInvalidos: 'Por favor verifique nuevamente que hay campo(s) con valor(es) incorrecto(s).',
+    lbMsgNomencladorModificado : 'El tipo de compra ha sido modificado satisfactoriamente.',
+    lbMsgNomencladorAdicionado : 'El tipo de compra ha sido adicionado satisfactoriamente.',
+    lbMsgWaitModificado : 'Modificando tipo de compra',
+    lbMsgWaitAdicionado : 'Adicionando tipo de compra',
+    lbMsgConfirmarEliminar : '\xbfEst\xe1 seguro que quiere eliminar el tipo de compra seleccionado\x3f',
+    lbMsgEliminandoNomenclador : 'Eliminando tipo de compra',
+    lbMsgNomencladorEliminado : 'El tipo de compra ha sido eliminado satisfactoriamente.',
+    lbSindatos:'No existen datos que se correspondan con los criterios de b\xfasqueda especificados.',
+    lbMsgSeleccionarModificar : 'Debe seleccionar un elemento para eliminar',
+    lbMsgUsarCorrecto : 'El tipo de compra ha sido adicionado a la entidad satisfactoriamente.',
+    lbMsgNoUsarCorrecto : 'El tipo de compra ha sido eliminado de la entidad satisfactoriamente.',
+    lbMsgAsociandoNomenclador : 'Habilitando(Deshabilitando)',
+    lbMsgConfirmarUsar : '\xbfEst\xe1 seguro que quiere adicionar el tipo de compra seleccionado a la entidad\x3f',
+    lbMsgConfirmarNoUsar : '\xbfEst\xe1 seguro que quiere eliminar el tipo de compra seleccionado de la entidad\x3f',
+    lbMsgErrorUsar : 'Error al usar',
+    
+    lbMsgErrorNoUsar : 'Error al no usar',
+    lbMsgActivarNomencladores : 'Activar tipo de compra',
+    lbMsgActivandoNomenclador : 'Activando tipo de compra ',
+    lbMsgNomencladorActivado : 'El tipo de compra ha sido activado.',
+    lbMsgErrorActivar : 'Error al activar',
+    
+    lbSindatos:'No existen datos que mostrar.',
+    lbSindatosBuscar:'No existen datos que se correspondan con los criterios de b\xfasqueda especificados.',
+
+	
+    lbMsgErrorNoUsar : 'Error al no usar',
+    lbMsgActivarNomencladores : 'Activar los tipo de compra',
+    lbMsgActivandoNomenclador : 'Activando tipo de compra',
+    lbMsgErrorActivar : 'Error al activar',
+    
+    lbProducto : 'Producto',
+    lbUnidadMedida : 'UM',
+    lbCapacidad : 'Capacidad',
+    
+    
+    msjAddCodDescexist:'El tipo de compra que quiere adicionar ya existe.',
+    msjAddDescexist:'El tipo de compra que quiere adicionar ya existe.',
+    msjAddCodexist:'El tipo de compra que quiere adicionar ya existe.',
+    
+    msjModCodDescexist:'El tipo de compra ya existe.',
+    msjModDescexist:'El tipo de compra ya existe.',
+    msjModCodexist:'El tipo de compra ya existe.',
+
+    lbRegexCodigo : /^([0-9-_/.]+ ?[0-9-_/.]*)+$/,
+    lbRegexCodigoText :'Solo admite n\xfameros enteros de 2 d\xedgitos.',
+    lbMaxLengthCodigo : 2,
+    lbMinLengthCodigo : 1,
+    lbMsgMaxLongCodigo : 'El tama\xf1o m\xe1ximo requerido es 2 d\xedgitos.',    
+    lbMsgMinLongCodigo : 'El tama\xf1o m\xednimo requerido es 1 d\xedgitos.',
+    lbMsgCampoIvalido : 'Por favor verifique nuevamente que hay campo(s) con valor(es) incorrecto(s).',
+
+
+    lbMsgCamposInvalidos:'Por favor verifique nuevamente que hay campo(s) con valor(es) incorrecto(s).',
+    lbMaxLengthDescripcion: 255,
+    lbMinLengthDescripcion : 2,
+    lbMsgMaxLongDescripcion : 'Este campo no admite m\xe1s de 255 caracteres',
+    lbMsgMinLongDescripcion : 'Este campo no admite menos de 2 caracteres',
+    lbMsgMaxLongEstado : 'El tama\xf1o m\xe1ximo requerido es 1 d\xedgito.'
+
+
+
+}

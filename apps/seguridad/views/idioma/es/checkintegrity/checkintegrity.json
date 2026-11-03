@@ -1,0 +1,31 @@
+{
+    tittleChequeoManual: 'Comprobación manual',
+    tittleHistorial: 'Historial',
+
+    headerEstadoIntegridad: 'Estado integridad',
+    headerFechaEscaneo: 'Fecha del escaneo',
+    headerTipoEscaneo: 'Tipo de escaneo',
+
+    toolTipBtnComprobar:'Comprobar integridad',
+    toolTipBtnActualizarBD:'Actualizar base de datos de ficheros',
+
+    lbIntegridadComprometida: 'Integridad comprometida',
+    lbIntegridadCorrecta: 'Integridad correcta',
+    lbIntegridadNoChuequeada: 'Integridad no chequeada',
+    lbUltimoEscaneo: 'Último escaneo :',
+    lbChequeoAutomatico: 'Automático',
+    lbChequeoManual: 'Manual',
+    lbDetalles: 'Seleccione un escaneo pera ver los detalles.',
+
+
+    lbMsjInfoDatosIniciales: 'No existe registro del último escaneo',
+    lbMsjErrorAIDE: 'La herramienta aide no se encuentra instalada.',
+    lbMsjErrorEscaneoInactivo: 'El chequeo de integridad se encuentra desactivado.',
+    lbMsjMascaraComprobar: 'Comprobando integridad ...',
+    lbMsjMascaraCargarDatosIniciales: 'Cargando datos iniciales ...',
+
+
+
+    btnComprobarIntegridad: 'Comprobar integridad'
+}
+

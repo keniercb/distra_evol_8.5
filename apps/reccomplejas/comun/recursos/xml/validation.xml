@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<validador>
+    <!--<reccomplejas>-->
+        <!--<AdministracionController>-->
+                <!--<guardarDatosCampoAction>-->
+                    <!--<precondition>-->
+                        <!--<validator class="CampoValidator" method="verificarCampo" error="ADMINREC03"/>-->
+                    <!--</precondition>-->
+                <!--</guardarDatosCampoAction>-->
+            <!--</AdministracionController>-->
+    <!--</reccomplejas>-->
+</validador>

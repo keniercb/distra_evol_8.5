@@ -1,0 +1,15 @@
+{
+    lbBtnModificar: 'Modificar',
+    lbBtnAyuda: 'Ayuda',
+    lbBtnCancelar: 'Cancelar',
+    lbBtnAceptar: 'Aceptar',
+    lbTitGestionarEntidad: 'Configurar subsistema',
+    lbsubsistema: 'Subsistema',
+    lbestado: 'Estado',
+    lbidelementogasto: 'Elemento de gasto',
+    lbcheck: 'Efectua cierre',
+    lbTitModificarImpuesto: 'Modificar Subsistema',
+    lbTitMsgModificandoU: 'Modificando Subsistema...',
+}
+
+

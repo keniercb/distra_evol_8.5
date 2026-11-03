@@ -1,0 +1,70 @@
+#!/bin/sh -e
+
+### BEGIN INIT INFO
+# Provides:          cein_notificaciones
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+### END INIT INFO
+
+DAEMON=/opt/zeolides/lib/Amqp/Worker/zeolides_db_violations_notifications.sh
+NAME=zeolides_db_violations_notifications
+PIDFILE="/var/run/zeolides_db_violations_notifications.pid"
+#LOG_FILE=/opt/cein_nodarse_notificaciones/cein-server/lib/Amqp/Worker/cein_notificaciones.log
+
+start(){
+	echo "Info: Iniciando el servicio de notificaciones de violaciones en BD de Zeolides..."
+	#AQUI se inicia el servicio
+	start-stop-daemon -S -m -b -p $PIDFILE -a $DAEMON -x $DAEMON
+    echo "Info: El servicio de notificaciones de violaciones en BD de Zeolides ha sido iniciado."
+}
+
+stop(){
+	echo "Info: Deteniendo el servicio de notificaciones de violaciones en BD de Zeolides..."
+	start-stop-daemon -K -m -p $PIDFILE --oknodo -x $DAEMON
+    rm $PIDFILE
+    echo "Info: El servicio de notificaciones de violaciones en BD de Zeolides ha sido detenido."
+}
+
+reload(){
+	stop
+	start
+}
+
+status(){
+	echo "Info: Verificando estado..."
+	if [ -e $PIDFILE ]; then
+		PID=$(cat $PIDFILE)
+		if [ -e /proc/${PID} -a /proc/${PID}/exe ]; then
+			echo "Info: El servicio de notificaciones de violaciones en BD de Zeolides está corriendo."
+		else
+			echo "Info: El servicio de notificaciones de violaciones en BD de Zeolides no está corriendo."
+		fi
+	else
+		echo "Info: El servicio de notificaciones de violaciones en BD de Zeolides no está corriendo."
+	fi
+}
+
+
+case "$1" in
+start)
+	start
+	;;
+
+stop)
+	stop
+	;;
+
+restart)
+	reload
+	;;
+
+status)
+	status
+	;;
+*)
+	echo "Uso: Utilice una de las opciones {start|stop|restart|status}"
+	exit 1
+	;;
+esac
+exit 0
+

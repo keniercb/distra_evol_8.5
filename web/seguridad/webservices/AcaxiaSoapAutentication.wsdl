@@ -1,0 +1,528 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:typens="urn:AcaxiaSoapAutentication" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" name="AcaxiaSoapAutentication" targetNamespace="urn:AcaxiaSoapAutentication">
+  
+    <types>
+        <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:AcaxiaSoapAutentication">
+            <xsd:complexType name="AcaxiaSoapAutentication">
+                <xsd:all/>
+            </xsd:complexType>
+        </xsd:schema>
+    </types>
+    <message name="AcaxiaSoapAutentication"/>
+    <message name="AcaxiaSoapAutenticationResponse">
+        <part name="AcaxiaSoapAutenticationReturn" type="xsd:anyType"/>
+    </message>
+    <message name="devolverIp"/>
+    <message name="devolverIpResponse">
+        <part name="devolverIpReturn" type="xsd:anyType"/>
+    </message>
+    <message name="verificarIP">
+        <part name="ip" type="xsd:anyType"/>
+        <part name="arraybd" type="xsd:anyType"/>
+    </message>
+    <message name="verificarIPResponse">
+        <part name="verificarIPReturn" type="xsd:anyType"/>
+    </message>
+    <message name="compreobarIP">
+        <part name="valor1" type="xsd:anyType"/>
+        <part name="valor2" type="xsd:anyType"/>
+        <part name="opc" type="xsd:anyType"/>
+    </message>
+    <message name="compreobarIPResponse">
+        <part name="compreobarIPReturn" type="xsd:anyType"/>
+    </message>
+    <message name="authenticateUserApi">
+        <part name="user" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+    <message name="authenticateUserApiResponse">
+        <part name="authenticateUserApiReturn" type="xsd:string"/>
+    </message>
+    <message name="AD_Autentication">
+        <part name="objLdap" type="xsd:anyType"/>
+        <part name="user" type="xsd:anyType"/>
+        <part name="password" type="xsd:anyType"/>
+    </message>
+    <message name="AD_AutenticationResponse">
+        <part name="AD_AutenticationReturn" type="xsd:anyType"/>
+    </message>
+    <message name="createAccountDomainName">
+        <part name="string" type="xsd:anyType"/>
+    </message>
+    <message name="createAccountDomainNameResponse">
+        <part name="createAccountDomainNameReturn" type="xsd:anyType"/>
+    </message>
+    <message name="accountDomainNameShort">
+        <part name="acountDomainName" type="xsd:anyType"/>
+    </message>
+    <message name="accountDomainNameShortResponse">
+        <part name="accountDomainNameShortReturn" type="xsd:anyType"/>
+    </message>
+    <message name="returnCertificate">
+        <part name="mac" type="xsd:anyType"/>
+        <part name="idusuario" type="xsd:anyType"/>
+        <part name="user" type="xsd:anyType"/>
+    </message>
+    <message name="returnCertificateResponse">
+        <part name="returnCertificateReturn" type="xsd:anyType"/>
+    </message>
+    <message name="createCertificate">
+        <part name="iduser" type="xsd:anyType"/>
+        <part name="usuario" type="xsd:anyType"/>
+        <part name="MAC" type="xsd:anyType"/>
+        <part name="fecha" type="xsd:anyType"/>
+    </message>
+    <message name="createCertificateResponse">
+        <part name="createCertificateReturn" type="xsd:anyType"/>
+    </message>
+    <message name="createToken"/>
+    <message name="createTokenResponse">
+        <part name="createTokenReturn" type="xsd:anyType"/>
+    </message>
+    <message name="updateCertificate">
+        <part name="mac" type="xsd:anyType"/>
+        <part name="idcertificate" type="xsd:anyType"/>
+        <part name="TOKEN" type="xsd:anyType"/>
+    </message>
+    <message name="updateCertificateResponse">
+        <part name="updateCertificateReturn" type="xsd:anyType"/>
+    </message>
+    <message name="getUserAcl">
+        <part name="certificado" type="xsd:anyType"/>
+        <part name="identidad" type="xsd:anyType"/>
+    </message>
+    <message name="getUserAclResponse">
+        <part name="getUserAclReturn" type="xsd:anyType"/>
+    </message>
+    <message name="verifyAccessToResourse">
+        <part name="certificate" type="xsd:anyType"/>
+        <part name="resourse" type="xsd:anyType"/>
+    </message>
+    <message name="verifyAccessToResourseResponse">
+        <part name="verifyAccessToResourseReturn" type="xsd:anyType"/>
+    </message>
+    <message name="getArrayUnidimencional">
+        <part name="array" type="xsd:anyType"/>
+        <part name="indice" type="xsd:anyType"/>
+    </message>
+    <message name="getArrayUnidimencionalResponse">
+        <part name="getArrayUnidimencionalReturn" type="xsd:anyType"/>
+    </message>
+    <message name="getArrayReferencias">
+        <part name="value" type="xsd:anyType"/>
+    </message>
+    <message name="getArrayReferenciasResponse">
+        <part name="getArrayReferenciasReturn" type="xsd:anyType"/>
+    </message>
+    <message name="extractSecurityToken">
+        <part name="certificate" type="xsd:anyType"/>
+    </message>
+    <message name="extractSecurityTokenResponse">
+        <part name="extractSecurityTokenReturn" type="xsd:anyType"/>
+    </message>
+    <message name="getProfile"/>
+    <message name="getProfileResponse">
+        <part name="getProfileReturn" type="xsd:anyType"/>
+    </message>
+    <message name="loadUserActions">
+        <part name="idusuario" type="xsd:anyType"/>
+    </message>
+    <message name="loadUserActionsResponse">
+        <part name="loadUserActionsReturn" type="xsd:anyType"/>
+    </message>
+    <portType name="AcaxiaSoapAutenticationPortType">
+        <operation name="AcaxiaSoapAutentication">
+            <documentation/>
+            <input message="typens:AcaxiaSoapAutentication"/>
+            <output message="typens:AcaxiaSoapAutenticationResponse"/>
+        </operation>
+        <operation name="devolverIp">
+            <documentation>/**
+     * devolverIp
+     * Retorna el ip de la PC Cliente que se esta autenticando
+     * 
+     * @return string - IP de la PC Cliente. 
+     */
+            </documentation>
+            <input message="typens:devolverIp"/>
+            <output message="typens:devolverIpResponse"/>
+        </operation>
+        <operation name="verificarIP">
+            <documentation>/**
+     * verificarIP
+     * Verifica que la el IP de la PC Cliente se encuentre en la lista de accesos.
+     * 
+     * @param string $ip - IP de la PC Cliente.
+     * @param string $arraybd - Arreglo de accesos.
+     * @return boolean - boolean. 
+     */
+            </documentation>
+            <input message="typens:verificarIP"/>
+            <output message="typens:verificarIPResponse"/>
+        </operation>
+        <operation name="compreobarIP">
+            <documentation>/**
+     * compreobarIP
+     * Verifica que la el IP de la PC Cliente se encuentre en la lista de accesos.
+     * 
+     * @param string $valor1 - IP de la PC Cliente.
+     * @param string $valor2 - IP del Arreglo de accesos.
+     * @param string $opc - Opcion.
+     * @return integer - integer. 
+     */
+            </documentation>
+            <input message="typens:compreobarIP"/>
+            <output message="typens:compreobarIPResponse"/>
+        </operation>
+        <operation name="authenticateUserApi">
+            <documentation>/**
+     * authenticateUserApi
+     * Brinda el servicio de autenticacion por usuario y password
+     * 
+     * @param string $user - Usuario que se esta autenticando
+     * @param string $password - Clave de acceso del usuario
+     * @return string - Certificado o token de seguridad asignado al usuario. 
+     */
+            </documentation>
+            <input message="typens:authenticateUserApi"/>
+            <output message="typens:authenticateUserApiResponse"/>
+        </operation>
+        <operation name="AD_Autentication">
+            <documentation>/**
+     * AD_Autentication
+     * Funcion privada que autentica contra cualquier Directorio Activo
+     * 
+     * @param string $objLdap - Objeto DoctrineCollection de servidor de Autenticacion del usuario.
+     * @param string $user - Usuario que se esta autenticando
+     * @param string $password - Clave de acceso del usuario
+     * @return boolean - boolean. 
+     */
+            </documentation>
+            <input message="typens:AD_Autentication"/>
+            <output message="typens:AD_AutenticationResponse"/>
+        </operation>
+        <operation name="createAccountDomainName">
+            <documentation>/**
+     * createAccountDomainName
+     * Funcion privada usada para crear la cuenta de nombre de dominio.
+     * 
+     * @param string $string - Cadena de busqueda puede ser el usuario (conexion DN) o el basedn.
+     * @return string - string. 
+     */
+            </documentation>
+            <input message="typens:createAccountDomainName"/>
+            <output message="typens:createAccountDomainNameResponse"/>
+        </operation>
+        <operation name="accountDomainNameShort">
+            <documentation>/**
+     * accountDomainNameShort
+     * Funcion privada usada para crear el nombre corto de la cuenta de nombre de dominio.
+     * 
+     * @param string $acountDomainName - Cadena que contiene el nombre de dominio.
+     * @return string - string. 
+     */
+            </documentation>
+            <input message="typens:accountDomainNameShort"/>
+            <output message="typens:accountDomainNameShortResponse"/>
+        </operation>
+        <operation name="returnCertificate">
+            <documentation>/**
+     * returnCertificate
+     * Actualiza o crea un certificado al usuario autenticado
+     * 
+     * @param integer $idusuario - Id del usuario que se esta autenticando
+     * @param string $mac - Mac del usuario
+     * @return string - Certificado o token de seguridad asignado al usuario. 
+     */
+            </documentation>
+            <input message="typens:returnCertificate"/>
+            <output message="typens:returnCertificateResponse"/>
+        </operation>
+        <operation name="createCertificate">
+            <documentation>/**
+     * createCertificate
+     * Crea un certificado a partir del identificador del usuario
+     * 
+     * @param integer $iduser - Identificador del usuario
+     * @ignore - El certificado no se esta generando correctamente
+     */
+            </documentation>
+            <input message="typens:createCertificate"/>
+            <output message="typens:createCertificateResponse"/>
+        </operation>
+        <operation name="createToken">
+            <documentation>/**
+     * createToken
+     * Crea el TOKEN de seguridad que tendra el certificado.
+     * 
+     * @return string - Token de seguridad.
+     */
+            </documentation>
+            <input message="typens:createToken"/>
+            <output message="typens:createTokenResponse"/>
+        </operation>
+        <operation name="updateCertificate">
+            <documentation>/**
+     * updateCertificate
+     * Cambia el valor del certificado asignado al usuario
+     * 
+     * @param string $mac - Mac de la PC cliente
+     * @param string $idcertificate - Identificador del certificado
+     * @param integer $iduser - Identificador del usuario
+     * @return string - Nuevo certificado asignado al usuario
+     */
+            </documentation>
+            <input message="typens:updateCertificate"/>
+            <output message="typens:updateCertificateResponse"/>
+        </operation>
+        <operation name="getUserAcl">
+            <documentation>/**
+     * getUserAcl
+     * Retorna el ACL del usuario autenticado.
+     * 
+     * @param integer $certificado - Certificado del usuario Autenticado.
+     * @param string $identidad - Identificador de la estructura accedida.
+     * @return array - ACL del usuario autenticado. 
+     */
+            </documentation>
+            <input message="typens:getUserAcl"/>
+            <output message="typens:getUserAclResponse"/>
+        </operation>
+        <operation name="verifyAccessToResourse">
+            <documentation>/**
+     * @name verifyAccessToResourse.
+     * @method verifyAccessToResourse   - Verifica que un usuario tenga acceso al recurso solicitado.
+     * @param integer $certificate 	- Certificado del usuario Autenticado.
+     * @param string  $resourse 	- Recurso.
+     * @return integer 			- Retorna 1 si tiene acceso 0 de lo contrario. 
+     */
+            </documentation>
+            <input message="typens:verifyAccessToResourse"/>
+            <output message="typens:verifyAccessToResourseResponse"/>
+        </operation>
+        <operation name="getArrayUnidimencional">
+            <documentation/>
+            <input message="typens:getArrayUnidimencional"/>
+            <output message="typens:getArrayUnidimencionalResponse"/>
+        </operation>
+        <operation name="getArrayReferencias">
+            <documentation>/**
+     * getArrayReferencias
+     * Retorna el ACL del usuario autenticado.
+     * 
+     * @param array $value - Arreglo de valores.
+     * @return array - ACL del usuario autenticado. 
+     */
+            </documentation>
+            <input message="typens:getArrayReferencias"/>
+            <output message="typens:getArrayReferenciasResponse"/>
+        </operation>
+        <operation name="extractSecurityToken">
+            <documentation/>
+            <input message="typens:extractSecurityToken"/>
+            <output message="typens:extractSecurityTokenResponse"/>
+        </operation>
+        <operation name="getProfile">
+            <documentation>/**
+     * loadProfile
+     * Brinda el servicio de configuracion del perfil del usuario autenticado
+     * 
+     * @param string $certificate - Certificado o token de seguridad asignado al usuario.
+     * @return array - Datos del perfil del usuario autenticado.
+     */
+            </documentation>
+            <input message="typens:getProfile"/>
+            <output message="typens:getProfileResponse"/>
+        </operation>
+        <operation name="loadUserActions">
+            <documentation>/**
+     * @method loadUserActions - Servicio que le permite obtener las acciones de un usuario.
+     * 
+     * @param integer $idusuario - Identificador del usuario.
+     * @return array - Acciones del usuario autenticado.
+     */
+            </documentation>
+            <input message="typens:loadUserActions"/>
+            <output message="typens:loadUserActionsResponse"/>
+        </operation>
+    </portType>
+    <binding name="AcaxiaSoapAutenticationBinding" port="AcaxiaSoapAutenticationPort" type="typens:AcaxiaSoapAutenticationPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="AcaxiaSoapAutentication">
+            <soap:operation soapAction="urn:AcaxiaSoapAutenticationPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:AcaxiaSoapAutentication" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:AcaxiaSoapAutentication" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="devolverIp">
+            <soap:operation soapAction="urn:AcaxiaSoapAutenticationPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:devolverIp" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:devolverIp" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="verificarIP">
+            <soap:operation soapAction="urn:AcaxiaSoapAutenticationPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:verificarIP" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:verificarIP" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="compreobarIP">
+            <soap:operation soapAction="urn:AcaxiaSoapAutenticationPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:compreobarIP" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:compreobarIP" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="authenticateUserApi">
+            <soap:operation soapAction="urn:AcaxiaSoapAutenticationPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:authenticateUserApi" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:authenticateUserApi" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="AD_Autentication">
+            <soap:operation soapAction="urn:AcaxiaSoapAutenticationPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:AD_Autentication" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:AD_Autentication" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="createAccountDomainName">
+            <soap:operation soapAction="urn:AcaxiaSoapAutenticationPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:createAccountDomainName" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:createAccountDomainName" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="accountDomainNameShort">
+            <soap:operation soapAction="urn:AcaxiaSoapAutenticationPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:accountDomainNameShort" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:accountDomainNameShort" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="returnCertificate">
+            <soap:operation soapAction="urn:AcaxiaSoapAutenticationPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:returnCertificate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:returnCertificate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="createCertificate">
+            <soap:operation soapAction="urn:AcaxiaSoapAutenticationPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:createCertificate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:createCertificate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="createToken">
+            <soap:operation soapAction="urn:AcaxiaSoapAutenticationPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:createToken" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:createToken" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="updateCertificate">
+            <soap:operation soapAction="urn:AcaxiaSoapAutenticationPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:updateCertificate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:updateCertificate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getUserAcl">
+            <soap:operation soapAction="urn:AcaxiaSoapAutenticationPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:getUserAcl" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:getUserAcl" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="verifyAccessToResourse">
+            <soap:operation soapAction="urn:AcaxiaSoapAutenticationPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:verifyAccessToResourse" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:verifyAccessToResourse" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getArrayUnidimencional">
+            <soap:operation soapAction="urn:AcaxiaSoapAutenticationPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:getArrayUnidimencional" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:getArrayUnidimencional" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getArrayReferencias">
+            <soap:operation soapAction="urn:AcaxiaSoapAutenticationPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:getArrayReferencias" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:getArrayReferencias" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="extractSecurityToken">
+            <soap:operation soapAction="urn:AcaxiaSoapAutenticationPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:extractSecurityToken" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:extractSecurityToken" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getProfile">
+            <soap:operation soapAction="urn:AcaxiaSoapAutenticationPortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:getProfile" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:getProfile" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="loadUserActions">
+            <soap:operation soapAction="urn:SeguridadSoapServiceAction"/>
+            <input>
+                <soap:body namespace="urn:SeguridadSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:SeguridadSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="AcaxiaSoapAutenticationService">
+        <port name="AcaxiaSoapAutenticationPort" binding="typens:AcaxiaSoapAutenticationBinding">
+            <soap:address location="https://distra.prod.xetid.cu.cu/seguridad/soap_autentication.php"/>
+        </port>
+    </service>
+</definitions>

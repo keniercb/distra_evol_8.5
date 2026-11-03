@@ -1,0 +1,2 @@
+# Activos_fijos
+

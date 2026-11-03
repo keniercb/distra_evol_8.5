@@ -1,0 +1,7 @@
+<nivelesIntensidad>
+    <nivel terminologia="Disputa"               descripcion="Descripcion Disputa"               nivelintensidad="1"/>
+    <nivel terminologia="Crisis no violenta"    descripcion="Descripcion Crisis no violenta"    nivelintensidad="2"/>
+    <nivel terminologia="Crisis violenta"       descripcion="Descripcion Crisis violenta"       nivelintensidad="3"/>
+    <nivel terminologia="Guerra limitada"       descripcion="Descripcion Guerra limitada"       nivelintensidad="4"/>
+    <nivel terminologia="Guerra"                descripcion="Descripcion Guerra"                nivelintensidad="5"/>
+</nivelesIntensidad>

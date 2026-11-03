@@ -1,0 +1,38 @@
+<?php
+$dirCerts = substr($_SERVER['DOCUMENT_ROOT'], 0, strrpos($_SERVER['DOCUMENT_ROOT'], 'web')) . 'config' . DIRECTORY_SEPARATOR . 'certs' . DIRECTORY_SEPARATOR . 'auth' . DIRECTORY_SEPARATOR;
+$configCert = parse_ini_file($dirCerts . 'rsa.ini');
+$publicKey = addcslashes(file_get_contents($dirCerts . $configCert['publicKey']), '\\');
+?>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Gestionar Usuario"</title>
+    <script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/imporcss.js"></script>
+    <script language="javascript" type="text/javascript">importarCSS(window.parent.UCID.portal.perfil.dirCss);</script>
+    <link rel="stylesheet" type="text/css" href="../../views/css/gestusuario/gestusuario.css"/>
+</head>
+
+<body>
+<input id="publicKey" name="publicKey" type="text" style="display:none" hidden="true" value="<?php echo $publicKey; ?>"/>
+<input id="arrayTemas" name="arrayTemas" type="text" style="display:none" hidden="true" value="<?php echo $this->arrayTemas; ?>"/>
+<input id="arrayDomIns" name="arrayDomIns" type="text" style="display:none" hidden="true" value="<?php echo $this->arrayDomIns; ?>"/>
+<input id="arrayDomBusc" name="arrayDomBusc" type="text" style="display:none" hidden="true" value="<?php echo $this->arrayDomBusc; ?>"/>
+<input id="arrayCombDesk" name="arrayCombDesk" type="text" style="display:none" hidden="true" value="<?php echo $this->arrayCombDesk; ?>"/>
+<input id="arrayCombIdio" name="arrayCombIdio" type="text" style="display:none" hidden="true" value="<?php echo $this->arrayCombIdio; ?>"/>
+<input id="arrayComServA" name="arrayComServA" type="text" style="display:none" hidden="true" value="<?php echo $this->arrayComServA; ?>"/>
+<input id="profile" name="profile" type="text" style="display:none" hidden="true" value="<?php echo $this->profile; ?>"/>
+<div id="panel"></div>
+<script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-base.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_extjs; ?>js/ext-all.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-all.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/ucid-win-iframe.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/utiles/Utiles.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/utiles/extensiones.js"></script>
+<script type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/validadores.js"></script>
+<script language="JavaScript" type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/security/rsa/jsbn.js"></script>
+<script language="JavaScript" type="text/javascript" src="<?php echo $this->dir_ucid; ?>js/security/rsa/rsa.js"></script>
+<?php echo $this->includeperfilseguridad; ?>
+<?php echo $this->mostrarIUBuscarPersona; ?>
+<script type="text/javascript" src="../../views/js/gestusuario/gestusuario.js"></script>
+</body>
+</html>

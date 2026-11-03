@@ -1,0 +1,479 @@
+/**
+ * Componente para la gestión de valores contables.
+ * @author Ing. Alberto Mesa Martinez <amartinez@xetid.cu>
+ * @class Ext.Conf.ModContb.GestValoresContb
+ * @extends Ext.Viewport
+ * @category Componente
+ * @author Ing. Alberto Mesa Martinez <amartinez@xetid.cu>
+ * @version 1.0
+ */
+Ext.ns('Ext.Conf.ModContb');
+Ext.onReady(function () {
+    new Ext.Conf.ModContb.GestValoresContb({
+        idsubsistema: 0
+    });
+});
+
+Ext.Conf.ModContb.GestValoresContb = Ext.extend(Ext.Viewport, {
+    constructor: function (params) {
+        //idioma del sistema
+        var idioma = window.parent.perfil.idioma;
+        var text = (idioma === 'es') ? 'Cargando...' : 'Loading...';
+        var title = (idioma === 'es') ? 'Por favor espere...' : 'Please wait...';
+
+        this.onloadMessageBox(title, text);
+
+        Ext.Ajax.request({
+            method: "POST",
+            url: "cargaretiquetas",
+            scope: this,
+            callback: function (options, success, response) {
+                this.idioma = Ext.decode(response.responseText);
+                this.perfil = window.parent.perfil;
+                this.idsubsistema = params.idsubsistema,
+                    this.cargarInterfaz();
+
+                Ext.MessageBox.hide();
+
+                Ext.Conf.ModContb.GestValoresContb.superclass.constructor.call(this, params);
+                //Keymap necesario para el trabajo con las teclas rápidas
+                this.keyMap = new Ext.KeyMap(this.getEl(), [
+                    {
+                        key: "i",
+                        alt: true,
+                        scope: this,
+                        fn: function () {
+                            this.action = 'adicionar';
+                            this.crearWindow(this, 'btnAdicionar');
+                        }
+                    }, {
+                        key: "m",
+                        alt: true,
+                        scope: this,
+                        fn: function () {
+                            this.action = 'modificar';
+                            this.crearWindow(this, this.getGridSeleccionado().id);
+                        }
+                    }, {
+                        key: "b",
+                        alt: true,
+                        scope: this,
+                        fn: function () {
+                            var filter = this.getGridSeleccionado().sf;
+                            if (filter.getValue()) {
+                                filter.onTrigger2Click();
+                            } else {
+                                filter.focus();
+                            }
+                        }
+                    }, {
+                        key: "l",
+                        alt: true,
+                        scope: this,
+                        fn: function () {
+                            var filter = this.getGridSeleccionado().sf;
+                            if (filter.getValue()) {
+                                filter.onTrigger1Click();
+                            }
+                        }
+                    }, {
+                        key: Ext.EventObject.DELETE,
+                        scope: this,
+                        fn: function () {
+                            this.action == 'eliminar';
+                            this.eliminar();
+                        }
+                    }
+                ]);
+
+                this.inicializarEventos(this);
+            }
+        });
+    },
+    onloadMessageBox: function (agTtl, agMsg) {
+        Ext.MessageBox.show({
+            title: agTtl,
+            msg: agMsg,
+            width: 300,
+            wait: true,
+            waitConfig: {interval: 300},
+            progress: true,
+            closable: false
+        });
+    },
+    //Se crean los componentes visuales
+    cargarInterfaz: function () {
+        this.layout = 'fit';
+        this.xtype = 'viewport';
+        this.baseUrl = '/configuracion/modeloscontabilizacion/gestvalorescontables/index.php/gestvalorescontables/';
+
+        this.btnAdicionar = new Ext.Button({
+            text: this.idioma.lbbtnadionar,
+            id: 'btnAdicionar',
+            iconCls: 'adicionar',
+            tooltip: this.idioma.tooltipbtnadd,
+            hidden:true
+        });
+
+        this.btnEliminar = new Ext.Button({
+            text: this.idioma.lbtneliminar,
+            id:'btnEliminar',
+            iconCls: 'eliminar',
+            hidden: true,
+            disabled:true,
+            tooltip: this.idioma.lbtooltipEli
+        });
+
+        this.btnAyuda = new Ext.Button({
+            text: this.idioma.lbbtnayuda,
+            iconCls: 'ayuda',
+            id: 'btnAyudaValoresContables',
+            tooltip: this.idioma.tooltipbtnayuda
+        });
+
+        this.tabpanel = new Ext.Conf.ModContb.Tabpanel({
+            idsubsistema: this.idsubsistema,
+            perfil: this.perfil,
+            idioma: this.idioma,
+            idComponente: 5
+        });
+
+        this.items = {
+            xtype: 'panel',
+            layout: 'fit',
+            tbar: [
+                this.btnAdicionar,
+                this.btnEliminar,
+                '->',
+                new Ext.CmbOrganos({
+                    idioma: this.idioma,
+                    gridStore: null,
+                    tabsubsistemas: this.tabpanel
+                }),
+                this.btnAyuda
+            ],
+            items: this.tabpanel
+        };
+
+        actionValidate.validate(function(){
+            this.tabpanel.createItems();
+        },this);
+
+        this.doLayout();
+    },
+    //Se inicializan los eventos  de los componentes visuales.
+    inicializarEventos: function (scope) {
+        if (scope.xtype === 'viewport') {
+            //btn Adicionar modelo
+            if (scope.btnAdicionar) {
+                this.btnAdicionar.on('click', function () {
+                    this.action = 'adicionar';
+                    this.crearWindow(this, 'btnAdicionar');
+                }, this);
+            }
+
+            //btn Eliminar modelos
+            if (scope.btnEliminar) {
+                this.btnEliminar.on('click', function () {
+                    this.eliminar();
+                }, this);
+            }
+
+            //btn Ayuda
+            /*if(scope.btnAyuda){
+             this.btnAyuda.on('click', function() {
+             alert('ayuda');
+             }, this);
+             }*/
+
+            var _this = this;
+            this.tabpanel.on('nosubsist', function () {
+                scope.btnAdicionar.setDisabled(true);
+                scope.btnEliminar.setDisabled(true);
+            });
+            this.tabpanel.on('endload', function () {
+                _this.doLayout();
+                var array = this.items.items;
+                for (var i = 0; i < array.length; i++) {
+                    var grid = this.items.items[i].items.items[0];
+                    grid.on('rowaction', function (grid, record, action, rowIndex, colIndex, e) {
+                        if (action == 'eliminar') {
+                            scope.action == 'eliminar';
+                            scope.eliminar();
+                        }
+                        if (action == 'modificar') {
+                            scope.action = 'modificar';
+                            scope.crearWindow(scope, scope.getGridSeleccionado().id);
+                        }
+
+                    });
+                    var sm = grid.getSelectionModel();
+                    sm.on({
+                        'rowselect': function (sm, rowIndex, record) {
+                            if (sm.getCount() >= 1) {
+                                scope.btnEliminar.enable();
+                            } else {
+                                scope.btnEliminar.disable();
+                            }
+                        },
+                        'rowdeselect': function (sm, rowIndex, record) {
+                            if (sm.getCount() <= 1) {
+                                scope.btnEliminar.disable();
+                            }
+                        }
+                    });
+
+                    var store = grid.getStore();
+                    store.on('load', function () {
+                        scope.btnAdicionar.focus();
+                        scope.btnEliminar.disable();
+                    });
+                }
+                scope.btnAdicionar.setDisabled(false);
+            });
+        }
+
+        if (scope.xtype === 'window') {
+            this.win.on(
+                {
+                    scope: this,
+                    'addElement': function () {
+                        this.recargarGrid();
+                    },
+                    show: function (win) {
+                        if (win.action === 'modificar') {
+                            var mask = new Ext.LoadMask(this.win.body, {
+                                msg: this.idioma.msgCargando
+                            });
+                            mask.show();
+                            var record = this.getGridSeleccionado().getSelectionModel().getSelected();
+                            this.win.form.getForm().loadRecord(record);
+                            if (record.data.tipo == '1' || record.data.tipo == '2' || record.data.tipo == '5') {
+                                var referencia = record.data.referencia.split('.');
+                                //Se actualiza el combo clase
+                                this.win.cmbclase.setValue(referencia[0]);
+                                this.win.cmbclase.setRawValue(referencia[0]);
+                                //Se redefine el atributo nodo de la ventana
+                                this.win.nodo = {
+                                    attributes: {
+                                        'id': record.data.ruta,
+                                        'text': referencia[0],
+                                        'tipo': record.data.tipo
+                                    }
+                                };
+
+                                if (record.data.tipo != '5') {
+                                    //Se carga el combobox correspondiente
+                                    this.win.cargarCmb(this.win.nodo.attributes, function () {
+                                        mask.hide();
+                                    });
+                                    if (record.data.tipo == '1') {
+                                        //Se abilita y actualiza el combo clase
+                                        this.win.cmbcampo.enable();
+                                        this.win.cmbcampo.setValue(referencia[1]);
+                                        this.win.cmbcampo.setRawValue(referencia[1]);
+                                    } else {
+                                        //Se abilita y actualiza el combo clase
+                                        this.win.cmbfuncionalidad.enable();
+                                        this.win.cmbfuncionalidad.setValue(referencia[1]);
+                                        this.win.cmbfuncionalidad.setRawValue(referencia[1]);
+                                    }
+                                } else {
+                                    this.win.nodo.attributes.idtabla = referencia[1];
+                                    this.win.crearGrid(this.win.nodo.attributes);
+                                    mask.hide();
+                                }
+                                this.win.formValid();
+                            } else if (record.data.tipo == '3') {
+                                this.win.stcuenta.load({
+                                    scope: this,
+                                    params: {
+                                        idcuenta: record.data.referencia
+                                    },
+                                    callback: function () {
+                                        this.win.cmbcuenta.setValue(record.data.referencia);
+//                                        this.win.formValido();
+                                        mask.hide();
+                                    }
+                                });
+                            } else if (record.data.tipo == '4') {
+                                this.win.taphp.setValue(record.data.referencia);
+//                                this.win.formValido();
+                                mask.hide();
+                            }
+                            else if (record.data.tipo == '6') {
+                                this.win.staticVar.setValue(record.data.referencia);
+//                                this.win.formValido();
+                                mask.hide();
+                            }
+
+                        }
+                    },
+                    destroy: function () {
+                        this.keyMap.enable();
+                        this.btnAdicionar.focus();
+                    }
+                }
+            );
+        }
+
+        Ext.EventManager.on(scope.el, 'keydown', function (e) {
+            if (e.getKey() == Ext.EventObject.TAB) {
+                var target = e.getTarget();
+                while (target && target.nodeType === 1 && target !== document.body) {
+                    var cmp = Ext.getCmp(target.id);
+                    if (cmp && (cmp.text == 'Cancelar' || cmp.text == 'Cancel')) {
+                        var dialog = Ext.MessageBox.getDialog(),
+                            btncancel = dialog.buttons[3],
+                            btnacept = dialog.buttons[0];
+                        if(cmp.id == btncancel.id){
+                            e.preventDefault();
+                            btnacept.focus();
+                        }
+                        break;
+                    }
+                    target = target.parentNode;
+                }
+            }
+        });
+    },
+    //Crea la ventana adicionar o modifcar valor contable.
+    crearWindow: function (scope, elTarget) {
+        if ((this.action == 'modificar' && this.idsSeleccionados().length == 1) || this.action == 'adicionar') {
+            this.keyMap.disable();
+            var params = {
+                idioma: scope.idioma,
+                action: scope.action,
+                animateTarget: elTarget,
+                idsubsistema: scope.getSubsistema(),
+                xtype: 'window'
+            };
+            this.win = new Ext.Conf.ModContb.WinAddValoresContb(params);
+            this.inicializarEventos(this.win);
+            this.win.show();
+        }
+    },
+    //Retorna el id del subsistema actualmente activo.
+    getSubsistema: function () {
+        var idactivetab = this.tabpanel.getActiveTab().id;
+        var idsubsistema = -2
+        if (idactivetab != -2) {
+            idsubsistema = idactivetab.substring(4);
+        }
+        return idsubsistema;
+    },
+    //Retorna el el grid actualmente activo.
+    getGridSeleccionado: function () {
+        var idactivetab = this.tabpanel.getActiveTab().id;
+        var idsubsistema = -2
+        if (idactivetab != -2) {
+            idsubsistema = idactivetab.substring(4);
+        }
+        return Ext.getCmp('grid' + idsubsistema);
+    },
+    //Recarga el store del grid que se encuentra activo.
+    recargarGrid: function () {
+        /*var myMask = new Ext.LoadMask(Ext.getBody());
+         myMask.show();*/
+
+        this.getGridSeleccionado().getStore().load({
+            callback: function () {
+                //myMask.hide();
+            }
+        });
+    },
+    //Devuelve un array con todos los identificadores de los campos contables que estan seleccionados.
+    idsSeleccionados: function () {
+        var array = new Array();
+        var select = this.getGridSeleccionado().getSelectionModel().getSelections();
+        var cant = this.getGridSeleccionado().getSelectionModel().getCount();
+        if (cant > 1) {
+            for (var i = 0; i < cant; i++) {
+                array.push(select[i].data.idvalorcontable);
+            }
+        } else if (cant == 1) {
+            array.push(select[0].data.idvalorcontable);
+        }
+        return array;
+    },
+    //Elimina uno o varios valores contables.
+    eliminar: function () {
+        var seleccionados = this.idsSeleccionados();
+        var scope = this;
+        if (seleccionados.length > 0) {
+            this.keyMap.disable();
+            mostrarMensaje(2, seleccionados.length == 1 ? this.idioma.confirmareliminar2 : this.idioma.confirmareliminar1, function (btn) {
+                if (btn == 'ok') {
+                    scope.onloadMessageBox(scope.idioma.msgWaitEspera, seleccionados.length == 1 ? scope.idioma.msgWaitEliminado : scope.idioma.msgWaitEliminados);
+                    Ext.Ajax.request({
+                        url: scope.baseUrl + 'del',
+                        scope: scope,
+                        params: {
+                            ids: Ext.encode(seleccionados)
+                        },
+                        callback: function (options, success, response) {
+                            var response = Ext.decode(response.responseText);
+                            Ext.MessageBox.hide();
+                            scope.recargarGrid();
+                            if (response.errors.length != 0) {
+                                var mensaje = '';
+                                var store = this.getGridSeleccionado().getStore();
+                                if (response.code == 6 || response.code == 7) {
+                                    Ext.each(response.errors, function (error, pos) {
+                                        if (error.code == 8) {
+                                            var index = store.find('idvalorcontable', error.id);
+                                            var nombre = store.getAt(index).data.nombre;
+                                            if (pos != response.errors.length - 1) {
+                                                mensaje += '<b>' + nombre + '</b>, ';
+                                            } else {
+                                                mensaje += '<b>' + nombre + '</b>.';
+                                            }
+                                        }
+                                    }, this);
+                                }
+                                if (response.code == 3) {
+                                    mostrarMensaje(3, this.idioma.msgError);
+                                    this.keyMap.enable();
+                                }
+                                if (response.code == 4) {
+                                    mostrarMensaje(1, this.idioma.msgNoEliminarOne);
+                                    this.keyMap.enable();
+                                } else if (response.code == 5) {
+                                    mostrarMensaje(1, this.idioma.msgNoEliminarMany);
+                                    this.keyMap.enable();
+                                } else if (response.code == 6) {
+                                    this.mostrarMensaje(this.idioma.msgNoEliminarSelectOne + mensaje, function () {
+                                        this.keyMap.enable();
+                                    }, this);
+                                } else {
+                                    this.mostrarMensaje(this.idioma.msgNoEliminarSelectMany + mensaje, function () {
+                                        this.keyMap.enable();
+                                    }, this);
+                                }
+                            } else {
+                                if (seleccionados.length != 1) {
+                                    mostrarMensaje(1, this.idioma.msgEliminados);
+                                } else {
+                                    mostrarMensaje(1, this.idioma.msgEliminado);
+                                }
+                                scope.keyMap.enable();
+                            }
+                        }
+                    });
+                } else {
+                    scope.keyMap.enable();
+                }
+            });
+        }
+
+    },
+    mostrarMensaje: function (msg, fn, scope) {
+        Ext.MessageBox.show({
+            title: this.idioma.titleInfo,
+            msg: msg,
+            buttons: Ext.MessageBox.OK,
+            icon: Ext.MessageBox.INFO,
+            fn: fn.call(scope)
+        });
+    }
+});

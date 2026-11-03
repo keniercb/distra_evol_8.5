@@ -1,0 +1,14 @@
+{
+  lbTitDenDominioBuscar:'Dominio',
+lbRootNodeArbolSubsist:'Arbol de sistemas',
+waitingMsg: 'Por favor espere...',
+buttonText: 'Aceptar',
+rootNameNode: 'Dominios',
+tooltipAceptarVen:'Guardar datos',
+textToolTipHelp: 'Mostrar ayuda de la funcionalidad <b>(Alt+H)</b>',
+lbBtnAyuda:'Ayuda',
+tooltipAyuda:'Ayuda del sistema',
+lbBtnAcercaDe:'Acerca de',
+msgSuccesInsertComp:'La operaci&oacute;n ha sido concluida satisfactoriamente.',
+msgFailInsertComp:'La operaci&oacute;n no pudo ser concluida.'
+}

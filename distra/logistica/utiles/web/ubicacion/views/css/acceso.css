@@ -1,0 +1,48 @@
+/*
+ * Ext JS Library 2.2
+ * Copyright(c) 2006-2008, Ext JS, LLC.
+ * licensing@extjs.com
+ * 
+ * http://extjs.com/license
+ */
+.red {background:#FFA6A6 !important;}
+.green {background:green !important;} 
+.default-color {background:silver !important;}
+.fondo-verde{ background: #C9FF95;} 
+.fondo-amarillo{ background: #FFE4B5;} 
+.fondo-azul{ background:#A0BCED; }
+.row-title {
+    background: none repeat scroll 0 0 #EEEEEE;
+    border: 1px solid #6593CF;
+    font: 12px Arial,Helvetica,sans-serif;
+    padding: 2px;
+    margin: 1px;
+    font-weight: bold;
+}
+.row-detail {
+    font: 12px Arial,Helvetica,sans-serif;
+    padding: 1px;
+    border: 1px solid #6593CF;
+    text-align: right;
+}
+ .text-grid{
+	color:red;
+	
+}
+.zoom-in{
+  background-image: url('/logistica/utiles/ubicacion/views/images/zoom-in.png');   
+}
+.zoom-out{
+  background-image: url('/logistica/utiles/ubicacion/views/images/zoom-out.png');   
+}
+
+.activo{
+  background-image: url('/logistica/utiles/ubicacion/views/images/yes.png'); 
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.inactivo{
+  background-image: url('/logistica/utiles/ubicacion/views/images/no.png'); 
+  background-repeat: no-repeat;
+  background-position: center;
+}

@@ -1,0 +1,28 @@
+@import "../../../../../../../../../lib/ExtJS/temas/default/css/icon-font.css";
+
+.empty-text::before {
+    margin-left: 0px !important;
+}
+
+.x-btn-text-icon .x-btn-center .x-btn-text[class*="icondistra-"] {
+    padding: 2px 5px !important;
+}
+
+.highcharts-legend, .highcharts-button {
+    opacity: 1; /*Aqui se cambia la opacidad de la leyenda*/
+}
+.highcharts-legend:hover, .highcharts-button:hover {
+    opacity: 1;
+}
+
+.x-layer.x-menu {
+    max-height: 50%;
+}
+
+.over-scroll {
+    overflow-y: scroll;
+}
+
+.dashboard-panel > .dashboard-item-panel {
+    width: 50% !important;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../lib/ext/css/ext-all.css" rel="stylesheet" type="text/css"
+          media="screen"/>
+</head>
+<body>
+<div class="grafica" id="grafica">
+
+</div>
+<script type="text/javascript" src="../lib/ext/js/ext-base.js"></script>
+<script type="text/javascript" src="../lib/ext/js/ext-all-debug.js"></script>
+<script type="text/javascript" src="../lib/jquery-1.9.0.js"></script>
+<script type="text/javascript" src="../../highcharts.js"></script>
+<script src="../core.js"></script>
+<script>
+    Ax.onReady(function () {
+        var button = new Ax.Charts.Views.ChartButton({
+            cls: 'tbar',
+            chartType:'column'
+        });
+
+        var store = new Ext.data.SimpleStore({
+            data: [
+                ['Xetid', 2, 8, 6],
+                ['Uim', 5, 12, 11],
+                ['MF', 1, 23, 14],
+                ['GAE', 12, 25, 16]
+            ],
+            fields: ['name','min','max','total']
+        });
+        button.addSerieStore('Chart 1',store,{
+            x:{
+                label: 'Entidad',
+                source: 'name'
+            },
+            y:{
+                label: 'Valor',
+                source: 'value'
+            }
+        },[{
+                name: 'Minimo',
+                source: 'min'
+            },{
+                name: 'Total',
+                source: 'total'
+            },{
+                name: 'Maximo',
+                source: 'max'
+            }]
+        );
+        var panel = new Ext.Panel({
+            title: 'Testing graph',
+            region: 'center',
+            layout: 'fit',
+            tbar: [button]
+        });
+        new Ext.Viewport({
+            layout: 'border',
+            items: [panel],
+            renderTo: 'grafica'
+        });
+    }, true);
+</script>
+
+</body>
+</html>

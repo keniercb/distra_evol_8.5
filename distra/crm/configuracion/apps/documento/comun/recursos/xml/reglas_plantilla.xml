@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reglas>
+    <regla idsubsistema='10'>
+        <objeto idobjetos='8'/>
+    </regla>
+    <regla idsubsistema='10'>
+        <objeto idobjetos='8'/>
+        <documento iddocumentos='151' sigla='rec'/>
+        <operacion debitcredito='0' idnomoperaciones='115' iddoc='5000195' contabilidadadicional='0'
+                   idconceptooperacion='1'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='2'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='1'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='3'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='4'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='5'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='6'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='1'/>
+        <documento iddocumentos='4' sigla='Cto'/>
+        <operacion debitcredito='0' idnomoperaciones='241' iddoc='5000020' contabilidadadicional='0'
+                   idconceptooperacion='1'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='1'/>
+        <documento iddocumentos='4' sigla='Cto'/>
+        <operacion debitcredito='1' idnomoperaciones='240' iddoc='5000020' contabilidadadicional='0'
+                   idconceptooperacion='2'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='3'/>
+        <documento iddocumentos='3' sigla='gfh'/>
+        <operacion debitcredito='1' idnomoperaciones='172' iddoc='5000019' contabilidadadicional='0'
+                   idconceptooperacion='1'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='1'/>
+        <documento iddocumentos='8' sigla='Fact'/>
+        <operacion debitcredito='1' idnomoperaciones='166' iddoc='5000023' contabilidadadicional='0'
+                   idconceptooperacion='1'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='3'/>
+        <documento iddocumentos='3' sigla='gfh'/>
+        <operacion debitcredito='1' idnomoperaciones='173' iddoc='5000019' contabilidadadicional='0'
+                   idconceptooperacion='1'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='5'/>
+        <documento iddocumentos='34' sigla='Cheq Nom'/>
+        <operacion debitcredito='1' idnomoperaciones='240' iddoc='5000037' contabilidadadicional='0'
+                   idconceptooperacion='1'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='5'/>
+        <documento iddocumentos='34' sigla='Cheq Nom'/>
+        <operacion debitcredito='0' idnomoperaciones='241' iddoc='5000037' contabilidadadicional='0'
+                   idconceptooperacion='8'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='1'/>
+        <documento iddocumentos='8' sigla='Fact'/>
+        <operacion debitcredito='1' idnomoperaciones='74' iddoc='5000023' contabilidadadicional='0'
+                   idconceptooperacion='1'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='1'/>
+        <documento iddocumentos='3' sigla='gfh'/>
+        <operacion debitcredito='0' idnomoperaciones='174' iddoc='5000019' contabilidadadicional='0'
+                   idconceptooperacion='1'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='1'/>
+        <documento iddocumentos='3' sigla='gfh'/>
+        <operacion debitcredito='0' idnomoperaciones='127' iddoc='5000019' contabilidadadicional='0'
+                   idconceptooperacion='1'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='1'/>
+        <documento iddocumentos='8' sigla='Fact'/>
+        <operacion debitcredito='0' idnomoperaciones='144' iddoc='5000023' contabilidadadicional='0'
+                   idconceptooperacion='8'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='5'/>
+        <documento iddocumentos='35' sigla='Cheq Cert'/>
+        <operacion debitcredito='1' idnomoperaciones='6' iddoc='5000038' contabilidadadicional='0'
+                   idconceptooperacion='1'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='5'/>
+        <documento iddocumentos='3' sigla='gfh'/>
+        <operacion debitcredito='1' idnomoperaciones='4' iddoc='5000019' contabilidadadicional='0'
+                   idconceptooperacion='1'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='6'/>
+        <documento iddocumentos='34' sigla='Cheq Nom'/>
+        <operacion debitcredito='0' idnomoperaciones='8' iddoc='5000037' contabilidadadicional='0'
+                   idconceptooperacion='1'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='6'/>
+        <documento iddocumentos='34' sigla='Cheq Nom'/>
+        <operacion debitcredito='0' idnomoperaciones='241' iddoc='5000037' contabilidadadicional='0'
+                   idconceptooperacion='1'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='3'/>
+        <documento iddocumentos='3' sigla='gfh'/>
+        <operacion debitcredito='1' idnomoperaciones='4' iddoc='5000019' contabilidadadicional='0'
+                   idconceptooperacion='2'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='1'/>
+        <documento iddocumentos='34' sigla='Cheq Nom'/>
+        <operacion debitcredito='1' idnomoperaciones='6' iddoc='5000037' contabilidadadicional='0'
+                   idconceptooperacion='1'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='3'/>
+        <documento iddocumentos='34' sigla='Cheq Nom'/>
+        <operacion debitcredito='0' idnomoperaciones='8' iddoc='5000037' contabilidadadicional='0'
+                   idconceptooperacion='1'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='1'/>
+        <documento iddocumentos='3' sigla='gfh'/>
+        <operacion debitcredito='0' idnomoperaciones='175' iddoc='5000019' contabilidadadicional='0'
+                   idconceptooperacion='1'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='6'/>
+        <documento iddocumentos='3' sigla='gfh'/>
+        <operacion debitcredito='1' idnomoperaciones='127' iddoc='5000019' contabilidadadicional='0'
+                   idconceptooperacion='2'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='3'/>
+        <documento iddocumentos='32' sigla='Fact Inf R'/>
+        <operacion debitcredito='0' idnomoperaciones='0' iddoc='5000035' contabilidadadicional='0'
+                   idconceptooperacion='8'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='5'/>
+        <documento iddocumentos='34' sigla='Cheq Nom'/>
+        <operacion debitcredito='1' idnomoperaciones='43' iddoc='5000037' contabilidadadicional='0'
+                   idconceptooperacion='8'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='5'/>
+        <documento iddocumentos='34' sigla='Cheq Nom'/>
+        <operacion debitcredito='0' idnomoperaciones='155' iddoc='5000037' contabilidadadicional='0'
+                   idconceptooperacion='1'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='3'/>
+        <documento iddocumentos='8' sigla='Fact'/>
+        <operacion debitcredito='0' idnomoperaciones='48' iddoc='5000023' contabilidadadicional='0'
+                   idconceptooperacion='1'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='2'/>
+        <documento iddocumentos='33' sigla='Declar Jur Cta Exp'/>
+        <operacion debitcredito='0' idnomoperaciones='43' iddoc='5000036' contabilidadadicional='0'
+                   idconceptooperacion='1'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='4'/>
+        <documento iddocumentos='141' sigla='CR9'/>
+        <operacion debitcredito='0' idnomoperaciones='143' iddoc='5000167' contabilidadadicional='0'
+                   idconceptooperacion='1'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='5'/>
+        <documento iddocumentos='34' sigla='Cheq Nom'/>
+        <operacion debitcredito='1' idnomoperaciones='6' iddoc='5000037' contabilidadadicional='0'
+                   idconceptooperacion='2'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='4'/>
+        <documento iddocumentos='8' sigla='Fact'/>
+        <operacion debitcredito='1' idnomoperaciones='32' iddoc='5000023' contabilidadadicional='0'
+                   idconceptooperacion='22'/>
+    </regla>
+    <regla idsubsistema='6'>
+        <objeto idobjetos='5'/>
+        <documento iddocumentos='37' sigla='Cheq Ger'/>
+        <operacion debitcredito='1' idnomoperaciones='6' iddoc='5000040' contabilidadadicional='0'
+                   idconceptooperacion='26'/>
+    </regla>
+    <regla idsubsistema='7'>
+        <objeto idobjetos='67'/>
+    </regla>
+    <regla idsubsistema='7'>
+        <objeto idobjetos='68'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='66'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='110' sigla='RecE'/>
+        <operacion debitcredito='1' idnomoperaciones='221' iddoc='5000134' contabilidadadicional='0'
+                   idconceptooperacion='15'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='129' sigla='AECD'/>
+        <operacion debitcredito='1' idnomoperaciones='204' iddoc='5000143' contabilidadadicional='0'
+                   idconceptooperacion='10'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='110' sigla='RecE'/>
+        <operacion debitcredito='1' idnomoperaciones='226' iddoc='5000134' contabilidadadicional='0'
+                   idconceptooperacion='15'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='110' sigla='RecE'/>
+        <operacion debitcredito='1' idnomoperaciones='225' iddoc='5000134' contabilidadadicional='0'
+                   idconceptooperacion='15'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='107' sigla='AE'/>
+        <operacion debitcredito='1' idnomoperaciones='204' iddoc='5000133' contabilidadadicional='0'
+                   idconceptooperacion='25'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='107' sigla='AE'/>
+        <operacion debitcredito='0' idnomoperaciones='213' iddoc='5000133' contabilidadadicional='0'
+                   idconceptooperacion='25'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='110' sigla='RecE'/>
+        <operacion debitcredito='1' idnomoperaciones='219' iddoc='5000134' contabilidadadicional='0'
+                   idconceptooperacion='15'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='112' sigla='VPM'/>
+        <operacion debitcredito='0' idnomoperaciones='227' iddoc='5000136' contabilidadadicional='0'
+                   idconceptooperacion='9'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='105' sigla='ALN'/>
+        <operacion debitcredito='0' idnomoperaciones='209' iddoc='5000131' contabilidadadicional='0'
+                   idconceptooperacion='22'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='106' sigla='ALE'/>
+        <operacion debitcredito='0' idnomoperaciones='211' iddoc='5000132' contabilidadadicional='0'
+                   idconceptooperacion='20'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='112' sigla='VPM'/>
+        <operacion debitcredito='0' idnomoperaciones='203' iddoc='5000136' contabilidadadicional='0'
+                   idconceptooperacion='9'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='110' sigla='RecE'/>
+        <operacion debitcredito='1' idnomoperaciones='220' iddoc='5000134' contabilidadadicional='0'
+                   idconceptooperacion='15'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='110' sigla='RecE'/>
+        <operacion debitcredito='1' idnomoperaciones='222' iddoc='5000134' contabilidadadicional='0'
+                   idconceptooperacion='15'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='111' sigla='Ree'/>
+        <operacion debitcredito='1' idnomoperaciones='206' iddoc='5000135' contabilidadadicional='0'
+                   idconceptooperacion='19'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='108' sigla='CD'/>
+        <operacion debitcredito='0' idnomoperaciones='205' iddoc='5000137' contabilidadadicional='0'
+                   idconceptooperacion='12'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='110' sigla='RecE'/>
+        <operacion debitcredito='1' idnomoperaciones='223' iddoc='5000134' contabilidadadicional='0'
+                   idconceptooperacion='15'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='110' sigla='RecE'/>
+        <operacion debitcredito='1' idnomoperaciones='202' iddoc='5000134' contabilidadadicional='0'
+                   idconceptooperacion='4'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='110' sigla='RecE'/>
+        <operacion debitcredito='1' idnomoperaciones='214' iddoc='5000134' contabilidadadicional='0'
+                   idconceptooperacion='4'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='110' sigla='RecE'/>
+        <operacion debitcredito='1' idnomoperaciones='215' iddoc='5000134' contabilidadadicional='0'
+                   idconceptooperacion='18'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='110' sigla='RecE'/>
+        <operacion debitcredito='1' idnomoperaciones='216' iddoc='5000134' contabilidadadicional='0'
+                   idconceptooperacion='18'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='110' sigla='RecE'/>
+        <operacion debitcredito='1' idnomoperaciones='217' iddoc='5000134' contabilidadadicional='0'
+                   idconceptooperacion='18'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='110' sigla='RecE'/>
+        <operacion debitcredito='1' idnomoperaciones='218' iddoc='5000134' contabilidadadicional='0'
+                   idconceptooperacion='18'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='110' sigla='RecE'/>
+        <operacion debitcredito='1' idnomoperaciones='224' iddoc='5000134' contabilidadadicional='0'
+                   idconceptooperacion='15'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='129' sigla='AECD'/>
+        <operacion debitcredito='0' idnomoperaciones='213' iddoc='5000143' contabilidadadicional='0'
+                   idconceptooperacion='10'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='107' sigla='AE'/>
+        <operacion debitcredito='1' idnomoperaciones='246' iddoc='5000133' contabilidadadicional='0'
+                   idconceptooperacion='13'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='66'/>
+        <documento iddocumentos='105' sigla='ALN'/>
+        <operacion debitcredito='0' idnomoperaciones='210' iddoc='5000131' contabilidadadicional='0'
+                   idconceptooperacion='23'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='66'/>
+        <documento iddocumentos='106' sigla='ALE'/>
+        <operacion debitcredito='0' idnomoperaciones='212' iddoc='5000132' contabilidadadicional='0'
+                   idconceptooperacion='24'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='106' sigla='ALE'/>
+        <operacion debitcredito='1' idnomoperaciones='239' iddoc='5000132' contabilidadadicional='0'
+                   idconceptooperacion='20'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='106' sigla='ALE'/>
+        <operacion debitcredito='1' idnomoperaciones='244' iddoc='5000132' contabilidadadicional='0'
+                   idconceptooperacion='13'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='129' sigla='AECD'/>
+        <operacion debitcredito='1' idnomoperaciones='246' iddoc='5000143' contabilidadadicional='0'
+                   idconceptooperacion='13'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='107' sigla='AE'/>
+        <operacion debitcredito='0' idnomoperaciones='247' iddoc='5000133' contabilidadadicional='0'
+                   idconceptooperacion='13'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='129' sigla='AECD'/>
+        <operacion debitcredito='0' idnomoperaciones='247' iddoc='5000143' contabilidadadicional='0'
+                   idconceptooperacion='13'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='105' sigla='ALN'/>
+        <operacion debitcredito='1' idnomoperaciones='242' iddoc='5000131' contabilidadadicional='0'
+                   idconceptooperacion='13'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='105' sigla='ALN'/>
+        <operacion debitcredito='0' idnomoperaciones='243' iddoc='5000131' contabilidadadicional='0'
+                   idconceptooperacion='13'/>
+    </regla>
+    <regla idsubsistema='14'>
+        <objeto idobjetos='65'/>
+        <documento iddocumentos='110' sigla='RecE'/>
+        <operacion debitcredito='1' idnomoperaciones='6' iddoc='5000134' contabilidadadicional='0'
+                   idconceptooperacion='15'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='52'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='34' sigla='CHQNOM'/>
+        <operacion debitcredito='0' idnomoperaciones='8' iddoc='5000101' contabilidadadicional='0'
+                   idconceptooperacion='15'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='35' sigla='CHQCERT'/>
+        <operacion debitcredito='1' idnomoperaciones='89' iddoc='5000102' contabilidadadicional='1'
+                   idconceptooperacion='16'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='44' sigla='EC'/>
+        <operacion debitcredito='0' idnomoperaciones='230' iddoc='5000140' contabilidadadicional='0'
+                   idconceptooperacion='8'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='44' sigla='EC'/>
+        <operacion debitcredito='0' idnomoperaciones='228' iddoc='5000140' contabilidadadicional='0'
+                   idconceptooperacion='8'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='44' sigla='EC'/>
+        <operacion debitcredito='0' idnomoperaciones='229' iddoc='5000140' contabilidadadicional='0'
+                   idconceptooperacion='8'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='44' sigla='EC'/>
+        <operacion debitcredito='0' idnomoperaciones='231' iddoc='5000140' contabilidadadicional='0'
+                   idconceptooperacion='8'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='123' sigla='kk'/>
+        <operacion debitcredito='0' idnomoperaciones='158' iddoc='5000139' contabilidadadicional='0'
+                   idconceptooperacion='16'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='34' sigla='CHQNOM'/>
+        <operacion debitcredito='0' idnomoperaciones='19' iddoc='5000101' contabilidadadicional='0'
+                   idconceptooperacion='18'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='35' sigla='CHQCERT'/>
+        <operacion debitcredito='0' idnomoperaciones='158' iddoc='5000102' contabilidadadicional='0'
+                   idconceptooperacion='16'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='35' sigla='CHQCERT'/>
+        <operacion debitcredito='0' idnomoperaciones='161' iddoc='5000102' contabilidadadicional='0'
+                   idconceptooperacion='19'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='44' sigla='EC'/>
+        <operacion debitcredito='1' idnomoperaciones='232' iddoc='5000140' contabilidadadicional='0'
+                   idconceptooperacion='8'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='37' sigla='CHQGER'/>
+        <operacion debitcredito='1' idnomoperaciones='146' iddoc='5000104' contabilidadadicional='0'
+                   idconceptooperacion='4'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='35' sigla='CHQCERT'/>
+        <operacion debitcredito='0' idnomoperaciones='8' iddoc='5000102' contabilidadadicional='0'
+                   idconceptooperacion='15'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='35' sigla='CHQCERT'/>
+        <operacion debitcredito='0' idnomoperaciones='19' iddoc='5000102' contabilidadadicional='0'
+                   idconceptooperacion='18'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='5' sigla='CHQ'/>
+        <operacion debitcredito='0' idnomoperaciones='109' iddoc='5000097' contabilidadadicional='0'
+                   idconceptooperacion='1'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='35' sigla='CHQCERT'/>
+        <operacion debitcredito='0' idnomoperaciones='245' iddoc='5000102' contabilidadadicional='0'
+                   idconceptooperacion='16'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='14' sigla='PAGRE'/>
+        <operacion debitcredito='0' idnomoperaciones='19' iddoc='5000099' contabilidadadicional='0'
+                   idconceptooperacion='18'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='14' sigla='PAGRE'/>
+        <operacion debitcredito='0' idnomoperaciones='8' iddoc='5000099' contabilidadadicional='0'
+                   idconceptooperacion='15'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='34' sigla='CHQNOM'/>
+        <operacion debitcredito='0' idnomoperaciones='206' iddoc='5000101' contabilidadadicional='0'
+                   idconceptooperacion='19'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='41' sigla='MODONAT'/>
+        <operacion debitcredito='0' idnomoperaciones='9' iddoc='5000105' contabilidadadicional='0'
+                   idconceptooperacion='15'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='69' sigla='letracc'/>
+        <operacion debitcredito='1' idnomoperaciones='86' iddoc='5000147' contabilidadadicional='0'
+                   idconceptooperacion='16'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='37' sigla='CHQGER'/>
+        <operacion debitcredito='0' idnomoperaciones='18' iddoc='5000104' contabilidadadicional='0'
+                   idconceptooperacion='18'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='37' sigla='CHQGER'/>
+        <operacion debitcredito='0' idnomoperaciones='115' iddoc='5000104' contabilidadadicional='1'
+                   idconceptooperacion='5'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='34' sigla='CHQNOM'/>
+        <operacion debitcredito='0' idnomoperaciones='239' iddoc='5000101' contabilidadadicional='0'
+                   idconceptooperacion='16'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='35' sigla='CHQCERT'/>
+        <operacion debitcredito='0' idnomoperaciones='206' iddoc='5000102' contabilidadadicional='0'
+                   idconceptooperacion='19'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='40' sigla='ccl'/>
+        <operacion debitcredito='0' idnomoperaciones='6' iddoc='5000142' contabilidadadicional='0'
+                   idconceptooperacion='15'/>
+    </regla>
+    <regla idsubsistema='12'>
+        <objeto idobjetos='34'/>
+        <documento iddocumentos='40' sigla='ccl'/>
+        <operacion debitcredito='0' idnomoperaciones='44' iddoc='5000142' contabilidadadicional='0'
+                   idconceptooperacion='1'/>
+    </regla>
+</reglas>

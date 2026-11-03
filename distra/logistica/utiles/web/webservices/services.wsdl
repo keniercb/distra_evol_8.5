@@ -1,0 +1,290 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<definitions name="LogisticaSoapService" targetNamespace="urn:LogisticaSoapService"
+             xmlns:typens="urn:LogisticaSoapService" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns="http://schemas.xmlsoap.org/wsdl/">
+    <message name="devolverSurtidos">
+        <part name="idEspecialidad" type="xsd:anyType"/>
+        <part name="criterio" type="xsd:anyType"/>
+        <part name="offset" type="xsd:anyType"/>
+        <part name="limit" type="xsd:anyType"/>
+    </message>
+    <message name="devolverSurtidosResponse">
+        <part name="devolverSurtidosReturn" type="xsd:anyType"/>
+    </message>
+    <message name="devolverMediosAlmacenados">
+        <part name="idEspecialidad" type="xsd:anyType"/>
+        <part name="criterio" type="xsd:anyType"/>
+        <part name="idAlmacen" type="xsd:anyType"/>
+        <part name="idNomenclador" type="xsd:anyType"/>
+        <part name="offset" type="xsd:anyType"/>
+        <part name="limit" type="xsd:anyType"/>
+    </message>
+    <message name="devolverMediosAlmacenadosResponse">
+        <part name="devolverMediosAlmacenadosReturn" type="xsd:anyType"/>
+    </message>
+    <message name="devolverActivos">
+        <part name="idEspecialidad" type="xsd:anyType"/>
+        <part name="criterio" type="xsd:anyType"/>
+        <part name="idEntidad" type="xsd:anyType"/>
+        <part name="idNomenclador" type="xsd:anyType"/>
+        <part name="offset" type="xsd:anyType"/>
+        <part name="limit" type="xsd:anyType"/>
+    </message>
+    <message name="devolverEntidadesActivos">
+        <part name="idEspecialidad" type="xsd:anyType"/>
+        <part name="criterio" type="xsd:anyType"/>
+        <part name="idEntidad" type="xsd:anyType"/>
+        <part name="idNomenclador" type="xsd:anyType"/>
+        <part name="offset" type="xsd:anyType"/>
+        <part name="limit" type="xsd:anyType"/>
+    </message>
+    <message name="devolverActivosResponse">
+        <part name="devolverActivosReturn" type="xsd:anyType"/>
+    </message>
+    <message name="devolverEntidadesActivosResponse">
+        <part name="devolverEntidadesActivosReturn" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerDatosMedioPorId">
+        <part name="idNomenclador" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerDatosMedioPorIdResponse">
+        <part name="obtenerDatosMedioPorIdReturn" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerNomencladorCategorias">
+        <part name="nomenclador" type="xsd:anyType"/>
+        <part name="extraParams" type="xsd:anyType"/>        
+    </message>
+    <message name="obtenerNomencladorCategoriasResponse">
+        <part name="obtenerNomencladorCategoriasReturn" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerNaturalezas">
+        <part name="naturaleza" type="xsd:anyType"/>
+        <part name="extraParams" type="xsd:anyType"/>        
+    </message>
+    <message name="obtenerNaturalezasResponse">
+        <part name="obtenerNaturalezasReturn" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerNomencladorDetalles">
+        <part name="nomenclador" type="xsd:anyType"/>
+        <part name="naturaleza" type="xsd:anyType"/>
+        <part name="activo" type="xsd:anyType"/>
+        <part name="extraParams" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerNomencladorDetallesResponse">
+        <part name="obtenerNomencladorDetallesReturn" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerNomencladorArbol">
+        <part name="nomenclador" type="xsd:anyType"/>
+        <part name="naturaleza" type="xsd:anyType"/>
+        <part name="extraParams" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerNomencladorArbolResponse">
+        <part name="obtenerNomencladorArbolReturn" type="xsd:anyType"/>
+    </message>
+    
+    <message name="obtenerMovRegNumerico">
+        <part name="idregistronumerico" type="xsd:anyType"/>
+        <part name="idestructura" type="xsd:anyType"/>
+        <part name="codOperaciones" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerMovRegNumericoResponse">
+        <part name="obtenerMovRegNumericoReturn" type="xsd:anyType"/>
+    </message>
+    
+    <message name="obtenerRegNumDocumentos">
+        <part name="idestructura" type="xsd:anyType"/>
+        <part name="idpadre" type="xsd:anyType"/>
+    </message>
+    <message name="obtenerRegNumDocumentosResponse">
+        <part name="obtenerRegNumDocumentosReturn" type="xsd:anyType"/>
+    </message>
+    
+    <portType name="LogisticaSoapServicePortType">
+        <operation name="devolverSurtidos">
+            <documentation>Devuelve un listado con los productos del ultimo nivel del nomenclador.</documentation>
+            <input message="typens:devolverSurtidos"/>
+            <output message="typens:devolverSurtidosResponse"/>
+        </operation>
+        <operation name="devolverMediosAlmacenados">
+            <documentation>Devuelve el listado de los productos que se encuentran en un almacen.</documentation>
+            <input message="typens:devolverMediosAlmacenados"/>
+            <output message="typens:devolverMediosAlmacenadosResponse"/>
+        </operation>
+        <operation name="devolverActivos">
+            <documentation>Devuelve el listado de los medios en explotación de una entidad.</documentation>
+            <input message="typens:devolverActivos"/>
+            <output message="typens:devolverActivosResponse"/>
+        </operation>
+        <operation name="devolverEntidadesActivos">
+            <documentation>Devuelve el listado de los medios en explotación de una entidad.</documentation>
+            <input message="typens:devolverEntidadesActivos"/>
+            <output message="typens:devolverEntidadesActivosResponse"/>
+        </operation>
+        <operation name="obtenerDatosMedioPorId">
+            <documentation>Devuelve los datos de un indicador por id.</documentation>
+            <input message="typens:obtenerDatosMedioPorId"/>
+            <output message="typens:obtenerDatosMedioPorIdResponse"/>
+        </operation>
+         <operation name="obtenerNomencladorCategorias">
+            <documentation>Devuelve el listado de los medios en explotación de una entidad.</documentation>
+            <input message="typens:obtenerNomencladorCategorias"/>
+            <output message="typens:obtenerNomencladorCategoriasResponse"/>
+        </operation>
+        <operation name="obtenerNaturalezas">
+            <documentation>Devuelve el listado de naturalezas.</documentation>
+            <input message="typens:obtenerNaturalezas"/>
+            <output message="typens:obtenerNaturalezasResponse"/>
+        </operation>
+        <operation name="obtenerNomencladorDetalles">
+            <documentation>Devuelve el listado de naturalezas.</documentation>
+            <input message="typens:obtenerNomencladorDetalles"/>
+            <output message="typens:obtenerNomencladorDetallesResponse"/>
+        </operation>
+        <operation name="obtenerNomencladorArbol">
+            <documentation>Devuelve el listado de naturalezas.</documentation>
+            <input message="typens:obtenerNomencladorArbol"/>
+            <output message="typens:obtenerNomencladorArbolResponse"/>
+        </operation>
+        
+        
+        <operation name="obtenerMovRegNumerico">
+            <documentation>Devuelve el listado de los movimientos del medio seleccionado en una entidad.</documentation>
+            <input message="typens:obtenerMovRegNumerico"/>
+            <output message="typens:obtenerMovRegNumericoResponse"/>
+        </operation>
+        
+        <operation name="obtenerRegNumDocumentos">
+            <documentation>Devuelve el listado de los medios en una entidad.</documentation>
+            <input message="typens:obtenerRegNumDocumentos"/>
+            <output message="typens:obtenerRegNumDocumentosResponse"/>
+        </operation>
+        
+        
+    </portType>
+    <binding name="LogisticaSoapServiceBinding" port="LogisticaSoapServicePort"
+             type="typens:LogisticaSoapServicePortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="devolverSurtidos">
+            <soap:operation soapAction="urn:LogisticaSoapServicePortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:LogisticaSoapService" use="encoded"
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:LogisticaSoapService" use="encoded"
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="devolverMediosAlmacenados">
+            <soap:operation soapAction="urn:LogisticaSoapServicePortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:LogisticaSoapService" use="encoded"
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:LogisticaSoapService" use="encoded"
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="devolverActivos">
+            <soap:operation soapAction="urn:LogisticaSoapServicePortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:LogisticaSoapService" use="encoded"
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:LogisticaSoapService" use="encoded"
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="devolverEntidadesActivos">
+            <soap:operation soapAction="urn:LogisticaSoapServicePortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:LogisticaSoapService" use="encoded"
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:LogisticaSoapService" use="encoded"
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="obtenerDatosMedioPorId">
+            <soap:operation soapAction="urn:LogisticaSoapServicePortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:LogisticaSoapService" use="encoded"
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:LogisticaSoapService" use="encoded"
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="obtenerNomencladorCategorias">
+            <soap:operation soapAction="urn:LogisticaSoapServicePortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:LogisticaSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:LogisticaSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="obtenerNaturalezas">
+            <soap:operation soapAction="urn:LogisticaSoapServicePortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:LogisticaSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:LogisticaSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="obtenerNomencladorDetalles">
+            <soap:operation soapAction="urn:LogisticaSoapServicePortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:LogisticaSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:LogisticaSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="obtenerNomencladorArbol">
+            <soap:operation soapAction="urn:LogisticaSoapServicePortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:LogisticaSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:LogisticaSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        
+        
+        <operation name="obtenerMovRegNumerico">
+            <soap:operation soapAction="urn:LogisticaSoapServicePortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:LogisticaSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:LogisticaSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        
+        <operation name="obtenerRegNumDocumentos">
+            <soap:operation soapAction="urn:LogisticaSoapServicePortTypeAction"/>
+            <input>
+                <soap:body namespace="urn:LogisticaSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:LogisticaSoapService" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        
+        
+    </binding>
+    <service name="LogisticaSoapServiceService">
+        <port name="LogisticaSoapServicePort" binding="typens:LogisticaSoapServiceBinding">
+            <soap:address location=""/>
+        </port>
+    </service>
+</definitions>

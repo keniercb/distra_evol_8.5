@@ -1,0 +1,4 @@
+{
+    lbMsgmaxLengthText: 'El tamaño máximo requerido es de 19 dígitos.',
+    lbInvaliTex: 'El valor debe ser mayor que 0',
+}

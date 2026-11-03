@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weaver>
+  <pvd>
+    <evaluaciones>
+        <seguridadevaluaciones>
+            <SeguridadevaluacionesController>
+                <adicionarEvaldorProcEvalAction aspecttemplate="aspectemplate2"/>
+                <adicionarEvaldoProcEvalAction aspecttemplate="aspectemplate2"/>
+            </SeguridadevaluacionesController>
+        </seguridadevaluaciones>
+        <plantillas>
+            <ValorescualitativosController>
+                <adicionarvalorescualitativosAction aspecttemplate="aspectemplate2"/>
+                <eliminarvalorescualitativosAction aspecttemplate="aspectemplate2"/>
+            </ValorescualitativosController>
+            <ValoresimagenesController>
+                <adicionarimagenAction  aspecttemplate="aspectemplate2"/>
+                <modificarimagenAction  aspecttemplate="aspectemplate2"/>
+            </ValoresimagenesController>
+            <ModelosController>
+                <adicionarmodeloAction aspecttemplate="aspectemplate2"/>
+                <adicionarhechoAction aspecttemplate="aspectemplate2"/>
+                <eliminarmodeloAction aspecttemplate="aspectemplate2"/>
+            </ModelosController>
+            <ReglasController>
+                <adicionarReglaAction aspecttemplate="aspectemplate2"/>
+                <eliminarReglaAction aspecttemplate="aspectemplate2"/>
+            </ReglasController>
+            <EscalasController>
+                <adicionarescalaAction aspecttemplate="aspectemplate2"/>
+            </EscalasController>
+            <RecursosController>
+                <adicionarrecursoAction aspecttemplate="aspectemplate2"/>
+            </RecursosController>
+            <IndicadoresController>
+                <adicionarindicadortextoAction aspecttemplate="aspectemplate2"/>
+                <eliminarindicadortextoAction aspecttemplate="aspectemplate2"/>
+                <adicionarimagenAction aspecttemplate="aspectemplate2"/>
+                <eliminarimagenAction aspecttemplate="aspectemplate2"/>
+            </IndicadoresController>
+            <PlantillasController>
+                <!--<adicionarplanillaAction aspecttemplate="aspectemplate2"/>-->
+                <!-- <eliminarplanillaAction aspecttemplate="aspectemplate2"/>-->
+            </PlantillasController>
+        </plantillas>
+        <procesoevaluativo>
+            <PrepararprocesoController>
+                <eliminarcomisionAction aspecttemplate="aspectemplate2"/>
+            </PrepararprocesoController>
+            <DefinirprocesoController>
+                <adicionardefinirprocesoAction aspecttemplate="aspectemplate2"/>
+            </DefinirprocesoController>
+            <SenyalamientosController>
+                <adicionarsenyalamientosAction aspecttemplate="aspectemplate2"/>
+                <adicionartiposenyalamientosAction aspecttemplate="aspectemplate2"/>
+                <eliminartiposenyalamientosAction aspecttemplate="aspectemplate2"/>
+                <eliminarsenyalamientosAction aspecttemplate="aspectemplate2"/>
+            </SenyalamientosController>
+            <RecomendacionesController>
+                <adicionarrecomendacionAction aspecttemplate="aspectemplate2"/>
+            </RecomendacionesController>
+            <TipoprocesoController>
+                <adicionartipoprocesoAction aspecttemplate="aspectemplate2"/>               
+            </TipoprocesoController>
+            <PeriodosController>
+                <adicionarperiodoAction aspecttemplate="aspectemplate2"/>
+                <eliminarperiodoAction aspecttemplate="aspectemplate2"/>
+            </PeriodosController>
+        </procesoevaluativo>
+    </evaluaciones>
+
+	<!-- INICIO DE LAS VALIDACIONES DEL COMPONENTE nómina -->
+
+    <nomina>
+        <!--<NomcausasexclusionnominaController>
+               <adicionarCausasExclusionNominaAction aspecttemplate="aspectemplate2"/>
+			   <modificarCausasExclusionNominaAction aspecttemplate="aspectemplate2"/>
+        </NomcausasexclusionnominaController>
+		<NomconceptormController>
+				<adicionarConceptoRetribucionMonetariaAction aspecttemplate="aspectemplate2"/>
+				<modificarConceptoRetribucionMonetariaAction aspecttemplate="aspectemplate2"/>
+        </NomconceptormController>
+		<NomformasistemapagoController>
+               <adicionarFormaPagoAction aspecttemplate="aspectemplate2"/>
+			   <modificarFormaPagoAction aspecttemplate="aspectemplate2"/>
+               <adicionarSistemaPagoAction aspecttemplate="aspectemplate2"/>
+			   <modificarSistemaPagoAction aspecttemplate="aspectemplate2"/>
+        </NomformasistemapagoController>
+		<NomgrupoescalaController>
+               <adicionarGrupoEscalaAction aspecttemplate="aspectemplate2"/>
+			   <modificarGrupoEscalaAction aspecttemplate="aspectemplate2"/>
+        </NomgrupoescalaController>
+		<NomperiodopagoController>
+               <adicionarPeriodoPagoAction aspecttemplate="aspectemplate2"/>
+			   <modificarPeriodoPagoAction aspecttemplate="aspectemplate2"/>
+        </NomperiodopagoController>
+		<NomperiodovacacionesController>
+               <adicionarPeriodoVacacionesAction aspecttemplate="aspectemplate2"/>
+			   <modificarPeriodoVacacionesAction aspecttemplate="aspectemplate2"/>
+        </NomperiodovacacionesController>
+		<NomsalarioescalaController>
+               <adicionarSalariosEscalasAction aspecttemplate="aspectemplate2"/>
+			   <modificarSalariosEscalasAction aspecttemplate="aspectemplate2"/>
+        </NomsalarioescalaController>
+		<NomsalarioespecificoController>
+               <adicionarSalarioEspecificoAction aspecttemplate="aspectemplate2"/>
+			   <modificarSalarioEspecificoAction aspecttemplate="aspectemplate2"/>
+        </NomsalarioespecificoController>
+		<NomsectoressalarialesController>
+               <adicionarSectorSalarialAction aspecttemplate="aspectemplate2"/>
+			   <modificarSectorSalarialAction aspecttemplate="aspectemplate2"/>
+        </NomsectoressalarialesController>
+        <NomsituacionlaboralController>
+               <adicionarSituacionLaboralAction aspecttemplate="aspectemplate2"/>
+			   <modificarSituacionLaboralAction aspecttemplate="aspectemplate2"/>
+        </NomsituacionlaboralController>
+		<NomtarifaController>
+               <adicionarTarifaAction aspecttemplate="aspectemplate2"/>
+			   <modificarTarifaAction aspecttemplate="aspectemplate2"/>
+        </NomtarifaController>
+		<NomtiponominaController>
+               <adicionarTipoNominaAction aspecttemplate="aspectemplate2"/>
+			   <modificarTiposNominaAction aspecttemplate="aspectemplate2"/>
+        </NomtiponominaController>
+        <NomtipoconceptopdController>
+               <adicionarTipoConceptoPDAction aspecttemplate="aspectemplate2"/>
+			   <modificarTipoConceptoPDAction aspecttemplate="aspectemplate2"/>
+        </NomtipoconceptopdController>
+		<NomtipopagoController>
+               <adicionarTipoPagoAction aspecttemplate="aspectemplate2"/>
+			   <modificarTipoPagoAction aspecttemplate="aspectemplate2"/>
+        </NomtipopagoController>
+		<NomtiporetencionController>
+               <adicionarTipoRetencionAction aspecttemplate="aspectemplate2"/>
+			   <modificarTipoRetencionAction aspecttemplate="aspectemplate2"/>
+        </NomtiporetencionController>
+		<NomvariableglobalController>
+               <adicionarVariableGlobalAction aspecttemplate="aspectemplate2"/>
+			   <modificarVariableGlobalAction aspecttemplate="aspectemplate2"/>
+        </NomvariableglobalController>
+		<NomconceptopercepciondescuentoController>
+               <adicionarConceptoPercepcionDescuentoAction aspecttemplate="aspectemplate2"/>
+			   <modificarConceptoPercepcionDescuentoAction aspecttemplate="aspectemplate2"/>
+			   
+               <adicionarTarifaConceptoAction aspecttemplate="aspectemplate2"/>
+			   <modificarTarifaConceptoAction aspecttemplate="aspectemplate2"/>
+				
+               <adicionarVariableAuxiliarFormulaAction aspecttemplate="aspectemplate2"/>
+			   <modificarVariableAuxiliarFormulaAction aspecttemplate="aspectemplate2"/>
+			   
+              <adicionarEstructuraEscalarAction aspecttemplate="aspectemplate2"/> 
+			     <modificarEstructuraEscalarAction aspecttemplate="aspectemplate2"/>
+        </NomconceptopercepciondescuentoController>
+		<ConfigtiporeportecertificacionController>
+               <adicionarTipoReporteCertificacionAction aspecttemplate="aspectemplate2"/>
+			   <modificarTipoReporteCertificacionAction aspecttemplate="aspectemplate2"/>
+			   <adicionarCampoAction aspecttemplate="aspectemplate2"/>
+			   <modificarCampoAction aspecttemplate="aspectemplate2"/>
+        </ConfigtiporeportecertificacionController>-->
+		
+        
+	</nomina>
+
+	<!--FIN DE LAS VALIDACIONES DEL COMPONENTE nómina -->
+
+ <!-- INICIO DE LAS VALIDACIONES DEL COMPONENTE Integracion Penal -->
+	<integracionpenal>
+		 <fiscalia>
+                     <procesos_penales>
+			  <RegistroController>
+			      <gestionardatosregistroAction aspecttemplate="aspectemplate2"/>
+			  </RegistroController>
+                     </procesos_penales>
+		 </fiscalia>
+	</integracionpenal>
+	</pvd>
+	<!--FIN DE LAS VALIDACIONES DEL COMPONENTE Integracion Penal -->
+</weaver>

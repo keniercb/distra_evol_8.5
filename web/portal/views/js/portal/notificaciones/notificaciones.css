@@ -1,0 +1,99 @@
+.ace-nav>li.open>a {
+    background-color: transparent!important;
+}
+.dropdown-navbar {
+    right: 16px !important;
+}
+.icon-animated-mybell {
+    /*-webkit-animation: ringing 2.0s 5 ease 0s;*/
+
+    -moz-animation: ringing 2.0s 5 ease 0s;
+    -webkit-animation: ringing 2.0s 5 ease 0s;
+    -o-animation: ringing 2.0s 5 ease 0s;
+    -ms-animation: ringing 2.0s 5 ease 0s;
+    animation: ringing 2.0s 5 ease 0s;
+
+    -moz-transform-origin: 50% 0;
+    -webkit-transform-origin: 50% 0;
+    -o-transform-origin: 50% 0;
+    -ms-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+}
+.color-error-icon {
+    color: #b94a48!important;
+}
+.color-warning-icon {
+    color: #c09853!important;
+}
+.color-info-icon {
+    color: #3a87ad!important;
+}
+.color-alert-icon {
+    color: #0B4C5F!important;
+}
+.background-error-icon {
+    background-color: #b94a48!important;
+}
+.background-warning-icon {
+    background-color: #c09853!important;
+}
+.background-info-icon {
+    background-color: #3a87ad!important;
+}
+.background-alert-icon {
+    background-color: #0B4C5F!important;
+}
+.width100-noti, .width100-noti table {
+    width: 97% !important;
+}
+.width100-noti .x-grid3-td-checker, .width100-noti .x-grid3-row{
+    background: transparent !important;
+    vertical-align: middle !important;
+}
+.width100-noti .x-grid3-cell-inner, .x-grid3-hd-inner {
+    white-space: normal !important;
+}
+.noborder {
+    border-style: none !important;
+}
+.nobackground {
+    background: transparent !important;
+}
+.alerta {
+    border: 1px solid transparent;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 20px;
+    font-family: 'Open Sans' !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+}
+.alerta-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+}
+.alerta-danger {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+}
+.alerta-warning {
+    background-color: #fcf8e3;
+    border-color: #fbeed5;
+    color: #c09853;
+}
+.alerta-info {
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    color: #3a87ad;
+}
+.alerta-alert {
+    background-color:#A9E2F3 ;
+    border-color: #01A9DB;
+    color: #0B4C5F;
+}
+

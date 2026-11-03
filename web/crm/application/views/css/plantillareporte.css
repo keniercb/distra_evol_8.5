@@ -1,0 +1,64 @@
+.pr-dataview{
+    'background-color: white;',
+}
+.pr-documentbody{
+    border-top: 1px solid #99bce8;
+    border-bottom: 1px solid #99bce8;
+    font-style: italic;
+    position: absolute;
+    top:90px;
+    height: 190px;
+    width:100%;
+}
+.pr-documentbody div{
+    position:absolute;
+    top: 50%;
+    left: 40%;
+    margin-left: auto;
+}
+.pr-item{
+    height: 90px;
+    position: absolute;
+    overflow: hidden;
+}
+.pr-item-region-b{
+    top: 280px;
+}
+.pr-item-posicion-h{
+    width: 100%;
+}
+.pr-item-posicion-l, .pr-item-posicion-r{
+    width: 33%;
+}
+.pr-item-posicion-c{
+    left: 33%;
+    width: 34%;
+}
+.pr-item-posicion-r{
+    left: 67%;
+}
+.pr-item-selected{
+    border: 1px solid #6593cf;
+    background: #EFEFEF;
+}
+.pr-item-over{
+    border: 1px solid #6593cf;
+    background: #EFEFEF;
+}
+.pr-text{
+    margin: 0 10px;
+}
+.pr-img-l, .pr-img-c, .pr-img-r{
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    height: 100%;
+}
+.pr-img-h{
+    width: 100%;
+    height: 100%;
+}
+.pr-btn-upload [class*="icondistra-"]:before{
+    font-size:1em !important;
+    vertical-align:  0% !important;
+}

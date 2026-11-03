@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml> 
+	<containers>
+		<ZendExt_Trace_Container_Action doctrine="HisAccion" enabled="0" alias="Acción" id="1">
+            <logger class="ZendExt_Logger" method="logger" enabled="0"/>
+			<atts>
+				<attribute att="controlador" type="text" method="getController" alias="Controlador" maxLength="200" hidden="false"/>
+				<attribute att="accion" type="text" method="getAction" alias="Acción" maxLength="200" hidden="false"/>
+                <attribute att="descripcion" method="getDesc" alias="Descripcion" maxLength="255" hidden="false"/>
+                <attribute att="tiempoejecucion" type="number" method="getExecTime" alias="Tiempo de ejecución (s)" minLength="10" maxLength="19" hidden="false"/>
+                <attribute att="memoria" type="number" method="getMemory" alias="Memoria (MB)" minLength="10" maxLength="19" hidden="false"/>
+			</atts>
+			
+			<publishers>
+				<publisher class="ZendExt_Trace_Publisher_Db" enabled="0"/>
+                <publisher class="ZendExt_Trace_Publisher_Log" enabled="0"/>
+			</publishers>
+			
+			<triggers>
+				<trigger class="ZendExt_Trace_Trigger" method="someone" enabled="0"/>
+			</triggers>
+		</ZendExt_Trace_Container_Action>
+
+        <ZendExt_Trace_Container_Data doctrine="HisDato" enabled="0" alias="Datos" id="10">
+             <logger class="ZendExt_Logger" method="logger" enabled="0"/>
+			<atts>
+				<attribute att="esquema" type="text" method="getSchema" alias="Esquema" maxLength="200" hidden="false"/>
+				<attribute att="tabla" type="text" method="getTable" alias="Tabla" maxLength="200" hidden="false"/>
+				<attribute att="idobjeto" type="text" method="getIdObjeto" alias="Objeto" maxLength="200" hidden="false"/>
+				<attribute att="idoperacion" type="bool" method="getIdOperacion" alias="Operación" hidden="false"/>
+                <attribute att="dato" method="getDatosSerializados" alias="Datos" hidden="true"/>
+			</atts>
+			<publishers>
+				<publisher class="ZendExt_Trace_Publisher_Db" enabled="0"/>
+                <publisher class="ZendExt_Trace_Publisher_Log" enabled="0"/>
+			</publishers>
+
+			<triggers>
+				<trigger class="ZendExt_Trace_Trigger" method="someone" enabled="0"/>
+			</triggers>
+		</ZendExt_Trace_Container_Data>
+		
+		<ZendExt_Trace_Container_Exception doctrine="HisExcepcion" enabled="0" alias="Excepción" id="3">	
+             <logger class="ZendExt_Logger" method="logger" enabled="0"/>	
+			<atts>
+				<attribute att="codigo" method="getCode" alias="Código" hidden="false"/>
+				<attribute att="tipo" method="getType" alias="Tipo" hidden="false"/>
+				<attribute att="mensaje" method="getMsg" alias="Mensaje" hidden="false"/>
+				<attribute att="idioma" method="getLang" alias="Idioma" hidden="false"/>
+				<attribute att="descripcion" method="getDescription" alias="Descripción" hidden="false"/>
+				<attribute att="log" method="getLog" alias="Log" hidden="false"/>
+			</atts>
+			
+			<publishers>
+					<publisher class="ZendExt_Trace_Publisher_Db" enabled="0"/>
+                <publisher class="ZendExt_Trace_Publisher_Log" enabled="0"/>
+			</publishers>
+			
+			<triggers>
+				<trigger class="ZendExt_Trace_Trigger" method="someone" enabled="0"/>
+			</triggers>
+		</ZendExt_Trace_Container_Exception>
+		
+		<ZendExt_Trace_Container_IoC doctrine="HisIoc" enabled="0" alias="Integración" id="6">
+             <logger class="ZendExt_Logger" method="logger" enabled="0"/>
+			<atts>
+				<attribute att="interno" type="bool" method="getInternal" alias="Interno" hidden="false"/>
+				<attribute att="origen" type="text" method="getSourceComponent" alias="Componente origen" maxLength="255" hidden="false"/>
+				<attribute att="destino" type="text" method="getTargetComponent" alias="Componente destino" maxLength="255" hidden="false"/>
+				<attribute att="metodo" method="getMethod" alias="Método" hidden="false"/>
+				<attribute att="clase" method="getClass" alias="Clase" hidden="false"/>
+                <attribute att="tiempoejecucion" type="number" method="getExecTime" alias="Tiempo de ejecución (s)" minLength="10" maxLength="19" hidden="false"/>
+                <attribute att="memoria" type="number" method="getMemory" alias="Memoria (MB)" minLength="10" maxLength="19" hidden="false"/>
+			</atts>
+			
+			<publishers>
+				<publisher class="ZendExt_Trace_Publisher_Db" enabled="0"/>
+                <publisher class="ZendExt_Trace_Publisher_Log" enabled="0"/>
+			</publishers>
+			
+			<triggers>
+				<trigger class="ZendExt_Trace_Trigger" method="someone" enabled="0"/>
+			</triggers>
+		</ZendExt_Trace_Container_IoC>
+
+        <ZendExt_Trace_Container_FalloAutenticacion doctrine="HisFalloAutenticacion" enabled="0" alias="Fallo de Autenticación" id="2">
+             <logger class="ZendExt_Logger" method="logger" enabled="0"/>
+			<atts>
+				<attribute att="usuariofallo" method="getPUser" alias="Usuario"/>
+			</atts>
+			
+			<publishers>
+				<publisher class="ZendExt_Trace_Publisher_Db" enabled="0"/>
+                 <publisher class="ZendExt_Trace_Publisher_Log" enabled="0"/>
+			</publishers>
+			
+			<triggers>
+				<trigger class="ZendExt_Trace_Trigger" method="someone" enabled="0"/>
+			</triggers>
+        </ZendExt_Trace_Container_FalloAutenticacion>
+        
+        <ZendExt_Trace_Container_Autentication doctrine="HisTraza" enabled="0" alias="Autenticación" id="8">
+             <logger class="ZendExt_Logger" method="logger" enabled="0"/>
+            <atts>
+              <attribute att="autorizacion"/>
+            </atts>
+			
+            <publishers>
+                <publisher class="ZendExt_Trace_Publisher_Db" enabled="0"/>
+                 <publisher class="ZendExt_Trace_Publisher_Log" enabled="0"/>
+            </publishers>
+			
+            <triggers>
+                <trigger class="ZendExt_Trace_Trigger" method="someone" enabled="0"/>
+            </triggers>
+		</ZendExt_Trace_Container_Autentication>
+		
+        <ZendExt_Trace_Container_CierreSesion doctrine="HisTraza" enabled="0" alias="Cierre sesión" id="9">
+             <logger class="ZendExt_Logger" method="logger" enabled="0"/>
+			<atts>
+			       <attribute att="autorizacion"/>
+			</atts>
+			
+			<publishers>
+				<publisher class="ZendExt_Trace_Publisher_Db" enabled="0"/>
+                 <publisher class="ZendExt_Trace_Publisher_Log" enabled="0"/>
+			</publishers>
+			
+			<triggers>
+				<trigger class="ZendExt_Trace_Trigger" method="someone" enabled="0"/>
+			</triggers>
+		</ZendExt_Trace_Container_CierreSesion>
+        
+        <ZendExt_Trace_Container_Autorizacion doctrine="HisTraza" enabled="0" alias="Autorización" id="5">
+            <logger class="ZendExt_Logger" method="logger" enabled="0"/>
+            <atts>
+                <attribute att="autorizacion"/>
+            </atts>
+
+            <publishers>
+                <publisher class="ZendExt_Trace_Publisher_Db" enabled="0"/>
+                 <publisher class="ZendExt_Trace_Publisher_Log" enabled="0"/>
+            </publishers>
+
+            <triggers>
+                <trigger class="ZendExt_Trace_Trigger" method="someone" enabled="0"/>
+            </triggers>
+        </ZendExt_Trace_Container_Autorizacion>
+
+        <ZendExt_Trace_Container_Block doctrine="HisBloqueo" enabled="0" alias="Bloqueo" id="4">
+            <logger class="ZendExt_Logger" method="logger" enabled="0"/>
+            <atts>
+                <attribute att="bloqueado" method="getBloqueado" alias="Bloqueado"/>
+                <attribute att="idtipobloqueo" method="getIdTypeBloqueo" alias="Typo"/>
+            </atts>
+
+            <publishers>
+                <publisher class="ZendExt_Trace_Publisher_Db" enabled="0"/>
+                 <publisher class="ZendExt_Trace_Publisher_Log" enabled="0"/>
+            </publishers>
+
+            <triggers>
+                <trigger class="ZendExt_Trace_Trigger" method="someone" enabled="0"/>
+            </triggers>
+        </ZendExt_Trace_Container_Block>
+
+        <ZendExt_Trace_Container_FalloAutorizacion doctrine="HisTraza" enabled="0" alias="Fallo Autorización" id="7">
+            <logger class="ZendExt_Logger" method="logger" enabled="0"/>
+            <atts>
+                <attribute att="autorizacion"/>
+            </atts>
+
+            <publishers>
+                <publisher class="ZendExt_Trace_Publisher_Db" enabled="0"/>
+                 <publisher class="ZendExt_Trace_Publisher_Log" enabled="0"/>
+            </publishers>
+
+            <triggers>
+                <trigger class="ZendExt_Trace_Trigger" method="someone" enabled="0"/>
+            </triggers>
+        </ZendExt_Trace_Container_FalloAutorizacion>  
+      
+	</containers>
+</xml>

@@ -1,0 +1,29 @@
+/**
+ * Ext.ux.ProgressBar
+ * 
+ * @autor Javier Glez
+ * @version 1.0
+ * @clase Ext.ux.ProgressBar
+ **/
+
+.x-grid3-progresscol .x-progress-text-wrong {
+    color: red;
+}
+.x-progress-bar-red, .x-progress-bar-orange, .x-progress-bar-green {
+    border-bottom: 1px solid #7FA9E4;
+    float: left;
+    height: 16px;
+}
+.x-progress-bar-red {
+    background: url("../images/progress-bg-red.gif") repeat-x scroll left center;
+}
+.x-progress-bar-orange {
+    background: url("../images/progress-bg-orange.gif") repeat-x scroll left center;
+}
+.x-progress-bar-green {
+    background: url("../images/progress-bg-green.gif") repeat-x scroll left center;
+}
+.x-progress-wrap{
+   height: 16px;
+   width: 100px;
+}

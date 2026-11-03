@@ -1,0 +1,11 @@
+/* 
+    ERP Cuba - Xetid
+    CONFIN - Contabilidad y Finanzas
+    Created on : 30-may-2014, 20:41:14
+    Author     : Ing. Miguel Diaz Riveaux
+*/
+.x-grid3-hd-row td.ux-filtered-column {   
+    font-style: italic;  
+    font-weight: bold;
+}
+

@@ -1,0 +1,72 @@
+body {
+    font-family:  purisa, 'comic sans', cursive;
+}
+
+.vis-timeline {
+    border: 2px solid purple;
+    font-family:  purisa, 'comic sans', cursive  ;
+    font-size: 10pt;
+    background: #ffecea;
+}
+
+.vis-item {
+    border-color: #F991A3;
+    background-color: pink;
+    font-size: 9pt;
+    color: purple;
+    box-shadow: 5px 5px 20px rgba(128,128,128, 0.5);
+    max-width: 500px;
+}
+
+.vis-item .kitty {
+    background: url('../recursos/images/kitty.png') no-repeat center;
+    position: absolute;
+    width:50px;
+    height:36px;
+    top: -25px;
+    right: -26px;
+}
+
+.vis-item .alerta {
+    background: url('../recursos/images/alerta1.png') no-repeat center;
+    position: absolute;
+    width:50px;
+    height:42px;
+    top: -28px;
+    right: -26px;
+}
+
+.vis-item,
+.vis-item.vis-line {
+    border-width: 3px;
+}
+
+.vis-item.vis-dot {
+    border-width: 5px;
+    border-radius: 5px;
+}
+
+.vis-item.vis-selected {
+    border-color: green;
+    background-color: lightgreen;
+}
+
+.vis-time-axis .vis-text {
+    color: purple;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+.vis-time-axis .vis-text.vis-major {
+    font-weight: bold;
+}
+
+.vis-time-axis .vis-grid.vis-minor {
+    border-width: 2px;
+    border-color: pink;
+}
+
+.vis-time-axis .vis-grid.vis-major {
+    border-width: 2px;
+    border-color: #F991A3;
+}

@@ -1,0 +1,8 @@
+{
+    lbTituloForm: 'Gestionar Subsistemas y Modulos',
+    lbBtnAgregar: 'Adicionar',
+    lbBtnModificar: 'Modificar',
+    lbBtnEliminar: 'Eliminar',
+    lbBtnAyuda: 'Ayuda',
+    lbRaizArbolMod: 'Subsistemas y Modulos'
+}

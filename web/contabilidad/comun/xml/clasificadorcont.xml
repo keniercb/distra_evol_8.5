@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <cant>3</cant>
+    <row>
+        <idclasificadorcont>1</idclasificadorcont>
+        <clasificadorcont>Grupos y subgrupos contables</clasificadorcont>
+    </row>
+    <row>
+        <idclasificadorcont>2</idclasificadorcont>
+        <clasificadorcont>Contenidos econ&oacute;micos</clasificadorcont>
+    </row>
+    <row>
+        <idclasificadorcont>3</idclasificadorcont>
+        <clasificadorcont>Plan de cuentas contables</clasificadorcont>
+    </row>
+</dataset>

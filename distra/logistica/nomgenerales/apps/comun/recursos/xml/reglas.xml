@@ -1,0 +1,9 @@
+<reglas>
+   <Acciones>
+        <nomenclador atributos="codigoiso">NomMoneda</nomenclador>
+        <nomenclador atributos="codigocliente">NomCliente</nomenclador>
+    </Acciones>
+</reglas>
+
+        
+         

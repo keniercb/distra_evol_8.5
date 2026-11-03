@@ -1,0 +1,26 @@
+{
+    lbBtnAyuda:'Ayuda',
+    lbtnCancelarAdd: 'Cancelar',
+    lbtnAplicarAdd: 'Aplicar',
+    lbtnAceptarAdd: 'Aceptar',
+    
+    lbTtbtnAdd: 'Adicionar plan',
+    lbTtbtnMod:'Modificar plan',
+    lbTtbtnDel: 'Eliminar plan',
+    lbTtBtnAyu: 'Ayuda',
+    lbTtBtnActual: 'Situar plan como actual',
+    lbTtBtnLimpiar: 'Limpiar',
+    lbTtCancenlarAdd: 'Cerrar ventana sin guardar los datos',
+    lbTtAplicarAdd: 'Guardar datos y limpiar los campos',
+    lbTtAceptarAdd: 'Guardar los datos y cerrar ventana',
+    
+    lbDenominacion: 'Denominacion',
+    lbMontoTotal: 'Monto total',
+    lbEsActual: 'Plan actual',
+    lbSinFiltradoTitle: '',
+    lbFiltradoPor: 'Gestionar planes-Filtrador por: ',
+    lbSi: 'Si',
+    lbNo: 'No'
+    
+
+        }
